@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-05 | PR #1 integration | [User-authorized merge with pending acceptance retained](docs/ai-usage/013-pr-1-merge.md) |
 | 2026-09-05 | Branch push | [User-authorized synchronization of the diagnostic branch](docs/ai-usage/012-branch-push.md) |
 | 2026-09-05 | Documentation rules | [Persist English and concise evidence requirements](docs/ai-usage/011-documentation-rules.md) |
 | 2026-09-05 | Evidence language correction | [Concise T01b-1 summary translated into English](docs/ai-usage/010-t01b-1-evidence-language.md) |

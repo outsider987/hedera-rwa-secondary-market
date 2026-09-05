@@ -192,6 +192,10 @@ protobuf 在重新接入 ATS 解碼前處理；Terminal3/BBS/tar 在 VC 接入�
 `diagnostic/t01a-sdk-load` 分支及同步紀錄；未授權 merge 或下一張實作票。
 見 [推送紀錄](../ai-usage/012-branch-push.md)。
 
+使用者隨後以「合併吧」核准將 PR #1 合併至 main；保留提交歷史並以
+最新 PR head CI 通過為整合條件。這只授權現有成果整合，不解除 T01a
+安全門檻、不宣稱 MetaMask 真人驗收通過，也不啟動下一票。
+
 ### 操作介面與安全入口
 
 單頁：上方 network／active account／required role，中間按順序操作，
