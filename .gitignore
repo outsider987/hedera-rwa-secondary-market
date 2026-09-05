@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+.cache/
+.artifacts/
+.impeccable/review/
+.impeccable/config.local.json
+.env
+.env.*
+!.env.example
+*.log
+*.tsbuildinfo
+*.pem
+*.key
+*.keystore
+wallets/
+.DS_Store
