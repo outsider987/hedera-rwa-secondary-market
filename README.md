@@ -5,8 +5,11 @@ Hedera Testnet 上的 ATS-first 股權生命週期驗證。資產 **NOVA** 完�
 
 ## 目前狀態
 
-T00-min：專案規則、交接文件與最小英文 React 驗證台。
-目前沒有 wallet integration、已建立的 Equity 或鏈上交易。ATS SDK 已鎖版，
+T00-min 已完成；**T01a 停在依賴修補界線（blocked）**。
+已保存完整 audit 與 critical/high 分類，確認 ATS 的間接依賴精確鎖定受影響
+的 protobufjs 版本，無法只靠上游允許範圍內更新修掉。尚未改動依賴或加入
+SDK 載入按鈕；等待 Victor／mentor 的明確處理決策。
+目前沒有 wallet integration、已建立的 Equity 或鏈上交易。ATS SDK 已鎖版、
 尚未 import；shell 能 build 不代表 ATS 已可於瀏覽器運作。
 
 完整計畫見 [ATS-first plan](docs/plans/001-ats-first.md)，
@@ -39,10 +42,15 @@ GitHub Actions 在 main push／pull request 執行 clean install、test、typech
 
 ## 已知依賴風險
 
-固定的 ATS 相依圖有 78 個 npm audit 警示（含 2 個 critical）；目前 T00 不載入
-ATS，不代表未來 wallet integration 已獲安全驗證。詳細依賴路徑、測試與 CI
-證據見 [T00 validation](docs/evidence/000-t00-validation.md)。不要執行
-`npm audit fix --force` 偷換 ATS 版本；T01 必須先評估相容的處理方式。
+2026-09-05 重查仍為 78 個 npm audit 警示（17 low／32 moderate／27 high／
+2 critical）。完整清單、實際安裝路徑與處理門檻見
+[T01a triage](docs/evidence/001-t01a-triage.md)。這是依賴警示數量，不是
+78 個已證實可利用的網站漏洞；目前不載入 ATS 也不是未來錢包流程的安全豁免。
+
+本輪僅允許原上游範圍內的間接依賴更新；protobufjs 的精確版本限制觸發了
+停止條件。沒有執行 override、升降版或全面批准安裝腳本。
+不要執行 `npm audit fix --force`：其 ATS 1.13.0 建議會偏離固定的 8.0.0。
+先解決 T01a，再另輪進行 T01b 的 MetaMask／config／VC 驗收。
 
 ## 第一階段
 

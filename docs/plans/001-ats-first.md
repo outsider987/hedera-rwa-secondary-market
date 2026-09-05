@@ -74,6 +74,26 @@ Status: 使用者於 2026-09-05 核准實作。進度以 `../HANDOFF.md` 為準�
 | T03 | 查核並補足 Admin issuer／SSI manager／KYC roles；註冊 VC issuer；Seller KYC；Issue 100 | Seller KYC 有效、可用 100、總供應 100、Buyer 未 KYC |
 | T04 | Seller Hold 10；未 KYC Buyer 被拒；Buyer KYC；Admin execute 6／release 4；demo 與證據 | 所有主流程與負向驗收通過 |
 
+### 2026-09-05 核准的 T01 拆分與修補界線
+
+Victor 核准先執行 **T01a — 依賴安全整理與 ATS 載入驗證**，通過後才另輪
+執行 **T01b — MetaMask／三帳戶綁定／部署與 config 唯讀驗證／合成 VC**。
+原 T01 的帳戶、config、VC 與 evidence 驗收全部保留，不因拆票而省略。
+本次實作 brief 與決策見 [T01a planning record](../prompts/002-t01a-planning-record.md)。
+
+- T01a 保留所有既定直接依賴與 Node/npm pins，只允許符合所有相關上游宣告
+  範圍的間接依賴更新；選可修補已確認漏洞的最低版本，避免無關 lockfile 變動。
+- 禁止 force fix、override、新增套件、修改套件 source、全面批准安裝腳本。
+  若修補需超出界線，保存依賴路徑與候選後停止，交 Victor／mentor 決定。
+- 完成全部警示清單及 critical/high 的靜態分類後，安全門檻允許時才透過
+  官方入口動態載入 SDK；只確認 Management export，不能呼叫它或初始化 Network。
+  不准使用 mock、deep import、空模組或假 polyfill 冒充真實載入。
+- T01a 不接錢包、不呼叫 RPC/Mirror、不簽 VC；瀏覽器使用無秘密、無錢包的
+  獨立環境，驗證 dev/preview、載入狀態、重複操作防護與無外部請求。
+- 停止條件發生時，保留已驗證診斷，標記 T01a blocked；不加尚未獲准的
+  SDK 載入功能，也不開始 T01b。沒有 runtime 驗收就不能宣稱 SDK ready。
+- Commit messages 統一英文，以 type(scope): description 描述實際成果。
+
 T00 自然拆為 `chore: initialize HoldBook guardrails` 與
 `feat(web): add HoldBook testnet shell`。其後按實際完成工作提交，
 沒有手動鏈上驗收時不使用已證明 lifecycle 的敘述。

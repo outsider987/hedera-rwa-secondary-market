@@ -1,5 +1,31 @@
 # AI usage / attribution
 
+## 2026-09-05 — T01a blocked dependency triage
+
+- Human direction: Victor selected T01a only, upstream-range-compatible
+  transitive updates only, and English commit messages, then explicitly
+  requested implementation. See `docs/prompts/002-t01a-planning-record.md`.
+- AI assistance: Codex inspected current Git/lockfile/package source, refreshed
+  npm audit, traced dependency/peer/optional branches, projected all 78 findings
+  and 98 locations into public evidence, and statically classified all 29
+  critical/high package entries. No claim of exhaustive exploit testing.
+- Ponytail influenced the stop boundary: no speculative loader/UI/framework
+  was added after the approved exact-version constraint blocked remediation.
+  No additional agent or human review was performed in this ticket.
+- Files: README, this file, `docs/HANDOFF.md`, the T01 split addition in the
+  existing plan, the T01a prompt record, and `docs/evidence/001-t01a-*`.
+  Application source, tests, dependency manifest/lockfile and CI were unchanged.
+- Evidence: registry-confirmed candidate versions; local dependency range
+  assertions; maintainer advisories for protobufjs schema-code execution and
+  binary recursion, plus tar archive advisories. Candidates were NOT installed,
+  approved overrides, or compatibility-tested replacements.
+- Checks: npm ci, existing Node shell test, typecheck, build, snapshot/lockfile
+  consistency and four isolated dev/preview desktop/mobile browser scenarios
+  passed. npm audit exited 1 with the same 78 findings; this is not a clean audit.
+- No SDK import, private-key signer, wallet/profile/.env access, VC signature,
+  RPC/Mirror call, chain mutation, package update or script approval occurred.
+  T01a remains blocked; T01b and all real SDK/MetaMask checks remain pending.
+
 ## 2026-09-05 — T00-min guardrails
 
 - Tool: Codex coding assistant. The exact runtime model identifier is not

@@ -1,0 +1,2695 @@
+{
+  "capturedOn": "2026-09-05",
+  "baseCommit": "10d69e7d2950f77e0aa4ee7a2842811fadf0f795",
+  "command": "npm audit --json",
+  "exitCode": 1,
+  "lockfileSha256": "766b3d6d0850b8166ba5ab6c0fbfec3c2dbc6cd85ffaa93a6c37f08f172faaed",
+  "note": "Whitelisted npm audit projection, not the raw report. Installed flags were observed before the T01a clean reinstall; reconfirmed after reinstall. A dependency path is not a runtime call path. All entries remain unresolved; no dependency changes were made.",
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 17,
+      "moderate": 32,
+      "high": 27,
+      "critical": 2,
+      "total": 78
+    },
+    "dependencies": {
+      "prod": 858,
+      "dev": 37,
+      "optional": 216,
+      "peer": 228,
+      "peerOptional": 0,
+      "total": 1311
+    }
+  },
+  "vulnerabilities": [
+    {
+      "name": "@coinbase/cdp-sdk",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": ">=1.49.2",
+      "via": [
+        "axios"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@coinbase/cdp-sdk",
+          "version": "1.55.0",
+          "optional": true,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@dfns/sdk",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "<=0.1.0-beta.8 || 0.1.1 - 0.6.12",
+      "via": [
+        "uuid"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@dfns/sdk",
+          "version": "0.1.0-beta.5",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@dfns/sdk-keysigner",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "<=0.1.0-beta.8 || 0.1.1 - 0.2.0 || 0.2.3 || 0.3.0 - 0.6.12",
+      "via": [
+        "@dfns/sdk",
+        "uuid"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@dfns/sdk-keysigner",
+          "version": "0.1.0-beta.5",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@digitalbazaar/http-client",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "3.2.0 - 4.1.0",
+      "via": [
+        "undici"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@digitalbazaar/http-client",
+          "version": "3.4.1",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/abi",
+      "severity": "low",
+      "isDirect": false,
+      "range": "5.0.10 - 5.8.0",
+      "via": [
+        "@ethersproject/hash"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/abi",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/abstract-provider",
+      "severity": "low",
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "@ethersproject/transactions"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/abstract-provider",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/abstract-signer",
+      "severity": "low",
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "@ethersproject/abstract-provider"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/abstract-signer",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/contracts",
+      "severity": "low",
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "@ethersproject/abi",
+        "@ethersproject/abstract-provider",
+        "@ethersproject/abstract-signer",
+        "@ethersproject/transactions"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/contracts",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/hash",
+      "severity": "low",
+      "isDirect": false,
+      "range": "5.0.6 - 5.8.0",
+      "via": [
+        "@ethersproject/abstract-signer"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/hash",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/hdnode",
+      "severity": "low",
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "@ethersproject/abstract-signer",
+        "@ethersproject/signing-key",
+        "@ethersproject/transactions",
+        "@ethersproject/wordlists"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/hdnode",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/json-wallets",
+      "severity": "low",
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "@ethersproject/abstract-signer",
+        "@ethersproject/hdnode",
+        "@ethersproject/transactions"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/json-wallets",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/providers",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "@ethersproject/abstract-provider",
+        "@ethersproject/abstract-signer",
+        "@ethersproject/hash",
+        "@ethersproject/transactions",
+        "ws"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/providers",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/signing-key",
+      "severity": "low",
+      "isDirect": false,
+      "range": "<=5.8.0",
+      "via": [
+        "elliptic"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/signing-key",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/transactions",
+      "severity": "low",
+      "isDirect": false,
+      "range": "<=5.8.0",
+      "via": [
+        "@ethersproject/signing-key"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/transactions",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/wallet",
+      "severity": "low",
+      "isDirect": false,
+      "range": "<=5.8.0",
+      "via": [
+        "@ethersproject/abstract-provider",
+        "@ethersproject/abstract-signer",
+        "@ethersproject/hash",
+        "@ethersproject/hdnode",
+        "@ethersproject/json-wallets",
+        "@ethersproject/signing-key",
+        "@ethersproject/transactions",
+        "@ethersproject/wordlists"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/wallet",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/wordlists",
+      "severity": "low",
+      "isDirect": false,
+      "range": "5.0.8 - 5.8.0",
+      "via": [
+        "@ethersproject/hash"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/wordlists",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@fireblocks/fireblocks-web3-provider",
+      "severity": "high",
+      "triage": {
+        "stage": "custodian runtime",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited findings via fireblocks-sdk/web3-providers-http; trigger depends on their HTTP, URL and credential handling.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "0.0.1-alpha.1 || >=0.0.2",
+      "via": [
+        "fireblocks-sdk",
+        "web3-providers-http"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@fireblocks/fireblocks-web3-provider",
+          "version": "1.2.5",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.4.1--> node_modules/@hashgraph/hedera-custodians-integration",
+            "node_modules/@hashgraph/hedera-custodians-integration --dependencies:1.2.5--> node_modules/@fireblocks/fireblocks-web3-provider"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@grpc/grpc-js",
+      "severity": "high",
+      "triage": {
+        "stage": "Node transport runtime",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Malformed requests or compressed messages reaching the gRPC server/client decoder. Hiero SDK declares exact 1.12.6; no gRPC client/server is used by the current shell.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "1.12.0 - 1.12.6",
+      "via": [
+        {
+          "title": "@grpc/grpc-js: A malformed request can cause a server crash",
+          "url": "https://github.com/advisories/GHSA-5375-pq7m-f5r2",
+          "severity": "high",
+          "range": ">=1.12.0 <1.12.7"
+        },
+        {
+          "title": "@grpc/grpc-js: An incoming malformed compressed message can cause a client or server crash",
+          "url": "https://github.com/advisories/GHSA-99f4-grh7-6pcq",
+          "severity": "high",
+          "range": ">=1.12.0 <1.12.7"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@hiero-ledger/sdk/node_modules/@grpc/grpc-js",
+          "version": "1.12.6",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:2.1.2--> node_modules/@hashgraph/hedera-wallet-connect",
+            "node_modules/@hashgraph/hedera-wallet-connect --peerDependencies:2.79.0--> node_modules/@hiero-ledger/sdk",
+            "node_modules/@hiero-ledger/sdk --dependencies:1.12.6--> node_modules/@hiero-ledger/sdk/node_modules/@grpc/grpc-js"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@hashgraph/asset-tokenization-sdk",
+      "severity": "high",
+      "triage": {
+        "stage": "SDK runtime aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited findings through the via packages, not an independently identified ATS vulnerability. SDK is not imported; post-import reachability remains unverified.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": true,
+      "range": "*",
+      "via": [
+        "@ethersproject/contracts",
+        "@hashgraph/hedera-custodians-integration",
+        "@hashgraph/hedera-wallet-connect",
+        "@hashgraph/sdk",
+        "@terminal3/verify_vc",
+        "@walletconnect/sign-client",
+        "@walletconnect/universal-provider",
+        "@walletconnect/utils"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@hashgraph/asset-tokenization-sdk",
+          "version": "8.0.0",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@hashgraph/hedera-custodians-integration",
+      "severity": "high",
+      "triage": {
+        "stage": "custodian runtime aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited DFNS/Fireblocks findings. Current shell does not initialize custodians; no future barrel-import exclusion has been proved.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": ">=1.2.0",
+      "via": [
+        "@dfns/sdk",
+        "@dfns/sdk-keysigner",
+        "@fireblocks/fireblocks-web3-provider",
+        "fireblocks-sdk"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@hashgraph/hedera-custodians-integration",
+          "version": "1.4.1",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.4.1--> node_modules/@hashgraph/hedera-custodians-integration"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@hashgraph/hedera-wallet-connect",
+      "severity": "high",
+      "triage": {
+        "stage": "wallet runtime aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited Hiero SDK findings; peer SDK 2.79.0 is exact. No wallet flow is implemented.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": ">=2.0.5-canary.306321.0",
+      "via": [
+        "@hiero-ledger/sdk"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@hashgraph/hedera-wallet-connect",
+          "version": "2.1.2",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:2.1.2--> node_modules/@hashgraph/hedera-wallet-connect"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@hashgraph/proto",
+      "severity": "high",
+      "triage": {
+        "stage": "binary decoding runtime aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited protobufjs findings. Published entry uses protobufjs/minimal.js and static proto code; that limits schema-codegen exposure but does not exclude binary recursion DoS.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=1.0.6 || 1.0.26-beta.1 || 1.1.1 - 2.11.2 || >=2.16.0-beta.1",
+      "via": [
+        "protobufjs"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@hashgraph/proto",
+          "version": "2.18.5",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:2.64.5--> node_modules/@hashgraph/sdk",
+            "node_modules/@hashgraph/sdk --dependencies:2.18.5--> node_modules/@hashgraph/proto"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@hashgraph/sdk",
+      "severity": "high",
+      "triage": {
+        "stage": "SDK runtime aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited protobufjs/proto/ethers ABI findings. Exact protobufjs 7.2.5 prevents an in-range repair; no network decoding has been exercised.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "2.0.20 - 2.20.0-beta.4 || >=2.25.0",
+      "via": [
+        "@ethersproject/abi",
+        "@hashgraph/proto",
+        "protobufjs"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@hashgraph/sdk",
+          "version": "2.64.5",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:2.64.5--> node_modules/@hashgraph/sdk"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@hiero-ledger/cryptography",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "1.11.0 - 1.16.0-beta.3",
+      "via": [
+        "bn.js"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@hiero-ledger/cryptography",
+          "version": "1.15.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@hiero-ledger/proto",
+      "severity": "high",
+      "triage": {
+        "stage": "binary decoding runtime aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited protobufjs findings. Its protobufjs peer dependency is exact 7.5.4; no decoder reachability validation has been performed.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=2.26.0-beta.3",
+      "via": [
+        "protobufjs"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@hiero-ledger/sdk/node_modules/@hiero-ledger/proto",
+          "version": "2.25.0",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:2.1.2--> node_modules/@hashgraph/hedera-wallet-connect",
+            "node_modules/@hashgraph/hedera-wallet-connect --peerDependencies:2.79.0--> node_modules/@hiero-ledger/sdk",
+            "node_modules/@hiero-ledger/sdk --dependencies:2.25.0--> node_modules/@hiero-ledger/sdk/node_modules/@hiero-ledger/proto"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@hiero-ledger/sdk",
+      "severity": "high",
+      "triage": {
+        "stage": "SDK runtime aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited transport, binary-decoding and crypto findings. Exact protobufjs 7.5.4 and grpc-js 1.12.6 prevent in-range repairs of those leaves.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=2.85.0",
+      "via": [
+        "@ethersproject/abi",
+        "@grpc/grpc-js",
+        "@hiero-ledger/cryptography",
+        "@hiero-ledger/proto",
+        "bn.js",
+        "protobufjs"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@hiero-ledger/sdk",
+          "version": "2.79.0",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:2.1.2--> node_modules/@hashgraph/hedera-wallet-connect",
+            "node_modules/@hashgraph/hedera-wallet-connect --peerDependencies:2.79.0--> node_modules/@hiero-ledger/sdk"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@mapbox/node-pre-gyp",
+      "severity": "high",
+      "triage": {
+        "stage": "optional native installation",
+        "status": "unresolved; optional branch absent in local final installation",
+        "triggerSummary": "Inherited tar findings when native-binary installation extracts archives; local final installation is absent, not a waiver for other environments.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=1.0.11",
+      "via": [
+        "tar"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@mapbox/node-pre-gyp",
+          "version": "1.0.11",
+          "optional": true,
+          "installed": false,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^0.0.20--> node_modules/@terminal3/verify_vc",
+            "node_modules/@terminal3/verify_vc --dependencies:0.2.18--> node_modules/@terminal3/bbs_vc",
+            "node_modules/@terminal3/bbs_vc --dependencies:^1.3.1--> node_modules/@mattrglobal/bbs-signatures",
+            "node_modules/@mattrglobal/bbs-signatures --optionalDependencies:0.18.1--> node_modules/@mattrglobal/node-bbs-signatures",
+            "node_modules/@mattrglobal/node-bbs-signatures --dependencies:1.0.11--> node_modules/@mapbox/node-pre-gyp"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@mattrglobal/bbs-signatures",
+      "severity": "high",
+      "triage": {
+        "stage": "VC runtime aggregate / optional native branch",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited optional node-bbs-signatures installer findings. WASM/native selection after a real VC import is unverified.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": ">=1.0.1-unstable.26bf16a",
+      "via": [
+        "@mattrglobal/node-bbs-signatures"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@mattrglobal/bbs-signatures",
+          "version": "1.4.0",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^0.0.20--> node_modules/@terminal3/verify_vc",
+            "node_modules/@terminal3/verify_vc --dependencies:0.2.18--> node_modules/@terminal3/bbs_vc",
+            "node_modules/@terminal3/bbs_vc --dependencies:^1.3.1--> node_modules/@mattrglobal/bbs-signatures"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@mattrglobal/node-bbs-signatures",
+      "severity": "high",
+      "triage": {
+        "stage": "optional native installation",
+        "status": "unresolved; optional branch absent in local final installation",
+        "triggerSummary": "Inherited tar/neon-cli findings; optional package is absent locally after npm ci. No installer safety certification is implied.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "@mapbox/node-pre-gyp",
+        "neon-cli"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@mattrglobal/node-bbs-signatures",
+          "version": "0.18.1",
+          "optional": true,
+          "installed": false,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^0.0.20--> node_modules/@terminal3/verify_vc",
+            "node_modules/@terminal3/verify_vc --dependencies:0.2.18--> node_modules/@terminal3/bbs_vc",
+            "node_modules/@terminal3/bbs_vc --dependencies:^1.3.1--> node_modules/@mattrglobal/bbs-signatures",
+            "node_modules/@mattrglobal/bbs-signatures --optionalDependencies:0.18.1--> node_modules/@mattrglobal/node-bbs-signatures"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@metamask/rpc-errors",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": ">=6.3.1",
+      "via": [
+        "@metamask/utils"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@metamask/rpc-errors",
+          "version": "6.4.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@metamask/utils",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": ">=8.4.0",
+      "via": [
+        "uuid"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@metamask/rpc-errors/node_modules/@metamask/utils",
+          "version": "9.3.0",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/@metamask/utils",
+          "version": "8.5.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@notabene/pii-sdk",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "@stablelib/ed25519",
+        "uuid"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@notabene/pii-sdk",
+          "version": "1.17.2",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@react-native/community-cli-plugin",
+      "severity": "high",
+      "triage": {
+        "stage": "React Native tooling aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited Metro/image parser findings when that toolchain processes crafted assets. Current project invokes Vite, not Metro; SDK import behavior remains unverified.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=0.81.0-rc.5 || 0.82.0-nightly-20250710-586f5ba89 - 0.82.0-rc.5 || >=0.87.0-nightly-20260507-ba204faa7",
+      "via": [
+        "metro"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@react-native/community-cli-plugin",
+          "version": "0.87.1",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.5.3--> node_modules/@reown/walletkit",
+            "node_modules/@reown/walletkit --dependencies:1.0.9--> node_modules/@walletconnect/pay",
+            "node_modules/@walletconnect/pay --peerDependencies:>=0.64.0--> node_modules/react-native",
+            "node_modules/react-native --dependencies:0.87.1--> node_modules/@react-native/community-cli-plugin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@react-native/virtualized-lists",
+      "severity": "high",
+      "triage": {
+        "stage": "React Native tooling aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited react-native/Metro findings, not a separate list-component exploit. Current shell does not run the React Native toolchain.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "0.86.1 || >=0.87.0-nightly-20260507-ba204faa7",
+      "via": [
+        "react-native"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@react-native/virtualized-lists",
+          "version": "0.87.1",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.5.3--> node_modules/@reown/walletkit",
+            "node_modules/@reown/walletkit --dependencies:1.0.9--> node_modules/@walletconnect/pay",
+            "node_modules/@walletconnect/pay --peerDependencies:>=0.64.0--> node_modules/react-native",
+            "node_modules/react-native --dependencies:0.87.1--> node_modules/@react-native/virtualized-lists"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@stablelib/ed25519",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "<=2.0.2",
+      "via": [
+        {
+          "title": "StableLib Ed25519 Signature Malleability via Missing S < L Check",
+          "url": "https://github.com/advisories/GHSA-x3ff-w252-2g7j",
+          "severity": "moderate",
+          "range": "<=2.0.2"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@stablelib/ed25519",
+          "version": "1.0.3",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/bbs_vc",
+      "severity": "high",
+      "triage": {
+        "stage": "VC runtime aggregate / optional native branch",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited BBS native installation and VC/JSON-LD findings. No VC parsing, network context loading or signatures occur in T01a.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "@mattrglobal/bbs-signatures",
+        "@terminal3/vc_core",
+        "@terminal3/verify_vc_core",
+        "jsonld",
+        "uuid"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/bbs_vc",
+          "version": "0.2.18",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^0.0.20--> node_modules/@terminal3/verify_vc",
+            "node_modules/@terminal3/verify_vc --dependencies:0.2.18--> node_modules/@terminal3/bbs_vc"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/ecdsa_vc",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": ">=0.1.10",
+      "via": [
+        "@terminal3/vc_core",
+        "@terminal3/verify_vc_core"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/ecdsa_vc",
+          "version": "0.1.16",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/revoke_vc",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": ">=0.1.9",
+      "via": [
+        "@terminal3/vc_core"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/revoke_vc",
+          "version": "0.1.15",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/vc_core",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": ">=0.0.14",
+      "via": [
+        "uuid"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/vc_core",
+          "version": "0.0.19",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/verify_vc",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": ">=0.0.11",
+      "via": [
+        "@terminal3/bbs_vc",
+        "@terminal3/ecdsa_vc",
+        "@terminal3/vc_core"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/verify_vc",
+          "version": "0.0.20",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/verify_vc_core",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": ">=0.0.13",
+      "via": [
+        "@terminal3/revoke_vc",
+        "@terminal3/vc_core"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/verify_vc_core",
+          "version": "0.0.19",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@walletconnect/core",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "2.18.1-canary-exp-1 - 2.18.1-rc-1 || 2.19.0-canary-ak-1 - 2.21.9",
+      "via": [
+        "@walletconnect/utils"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@walletconnect/sign-client/node_modules/@walletconnect/core",
+          "version": "2.19.2",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/core",
+          "version": "2.21.9",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@walletconnect/sign-client",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "2.18.1-canary-exp-1 - 2.18.1-rc-1 || 2.19.0-canary-ak-1 - 2.21.9",
+      "via": [
+        "@walletconnect/core",
+        "@walletconnect/utils"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@walletconnect/sign-client",
+          "version": "2.19.2",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/sign-client",
+          "version": "2.21.9",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@walletconnect/universal-provider",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "2.18.1-canary-exp-1 - 2.18.1-rc-1 || 2.19.0-canary-ak-1 - 2.21.9",
+      "via": [
+        "@walletconnect/sign-client",
+        "@walletconnect/utils"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@walletconnect/universal-provider",
+          "version": "2.21.9",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "@walletconnect/utils",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "1.2.3-1.3.0-rc.0.0 - 2.17.5-rc-1 || 2.18.0-canary-ell-1 - 2.21.9",
+      "via": [
+        "query-string",
+        "viem"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/utils",
+          "version": "2.21.9",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/@walletconnect/utils",
+          "version": "2.19.2",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "axios",
+      "severity": "high",
+      "triage": {
+        "stage": "HTTP client runtime",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Advisories vary by installed version: attacker-influenced URLs/proxy/redirect configuration, polluted configuration prototypes, cookie names, or deep/streamed request data. See each via range; not every advisory applies to every listed copy. No HTTP calls in current shell.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=0.32.0 || 1.0.0 - 1.17.0",
+      "via": [
+        {
+          "title": "Axios Cross-Site Request Forgery Vulnerability",
+          "url": "https://github.com/advisories/GHSA-wf5p-g6vw-rhxx",
+          "severity": "moderate",
+          "range": ">=0.8.1 <0.28.0"
+        },
+        {
+          "title": "axios Requests Vulnerable To Possible SSRF and Credential Leakage via Absolute URL",
+          "url": "https://github.com/advisories/GHSA-jr5f-v2jv-69x6",
+          "severity": "high",
+          "range": "<0.30.0"
+        },
+        {
+          "title": "Axios has a NO_PROXY Hostname Normalization Bypass that Leads to SSRF",
+          "url": "https://github.com/advisories/GHSA-3p68-rc4w-qgx5",
+          "severity": "moderate",
+          "range": "<0.31.0"
+        },
+        {
+          "title": "Axios: Authentication Bypass via Prototype Pollution Gadget in `validateStatus` Merge Strategy",
+          "url": "https://github.com/advisories/GHSA-w9j2-pvgh-6h63",
+          "severity": "moderate",
+          "range": "<=0.31.0"
+        },
+        {
+          "title": "Axios: Incomplete Fix for CVE-2025-62718 — NO_PROXY Protection Bypassed via RFC 1122 Loopback Subnet (127.0.0.0/8) in Axios 1.15.0",
+          "url": "https://github.com/advisories/GHSA-pmwg-cvhr-8vh7",
+          "severity": "high",
+          "range": "<=0.31.0"
+        },
+        {
+          "title": "Axios: Null Byte Injection via Reverse-Encoding in AxiosURLSearchParams",
+          "url": "https://github.com/advisories/GHSA-xhjh-pmcv-23jw",
+          "severity": "low",
+          "range": "<=0.31.0"
+        },
+        {
+          "title": "Axios: no_proxy bypass via IP alias allows SSRF",
+          "url": "https://github.com/advisories/GHSA-m7pr-hjqh-92cm",
+          "severity": "moderate",
+          "range": "<=0.31.0"
+        },
+        {
+          "title": "Axios' HTTP adapter-streamed uploads bypass maxBodyLength when maxRedirects: 0",
+          "url": "https://github.com/advisories/GHSA-5c9x-8gcm-mpgx",
+          "severity": "moderate",
+          "range": "<=0.31.0"
+        },
+        {
+          "title": "Axios: HTTP adapter streamed responses bypass maxContentLength",
+          "url": "https://github.com/advisories/GHSA-vf2m-468p-8v99",
+          "severity": "moderate",
+          "range": "<=0.31.0"
+        },
+        {
+          "title": "Axios: Prototype Pollution Gadgets - Response Tampering, Data Exfiltration, and Request Hijacking",
+          "url": "https://github.com/advisories/GHSA-pf86-5x62-jrwf",
+          "severity": "high",
+          "range": "<=0.31.0"
+        },
+        {
+          "title": "Axios: Header Injection via Prototype Pollution",
+          "url": "https://github.com/advisories/GHSA-6chq-wfr3-2hj9",
+          "severity": "high",
+          "range": "<=0.31.0"
+        },
+        {
+          "title": "Axios: XSRF Token Cross-Origin Leakage via Prototype Pollution Gadget in `withXSRFToken` Boolean Coercion",
+          "url": "https://github.com/advisories/GHSA-xx6v-rp6x-q39c",
+          "severity": "moderate",
+          "range": "<=0.31.0"
+        },
+        {
+          "title": "Axios is Vulnerable to Denial of Service via __proto__ Key in mergeConfig",
+          "url": "https://github.com/advisories/GHSA-43fc-jf86-j433",
+          "severity": "high",
+          "range": "<=0.30.2"
+        },
+        {
+          "title": "Axios has Unrestricted Cloud Metadata Exfiltration via Header Injection Chain",
+          "url": "https://github.com/advisories/GHSA-fvcv-3m26-pcqx",
+          "severity": "moderate",
+          "range": "<0.31.0"
+        },
+        {
+          "title": "Axios: unbounded recursion in toFormData causes DoS via deeply nested request data",
+          "url": "https://github.com/advisories/GHSA-62hf-57xw-28j9",
+          "severity": "moderate",
+          "range": "<=0.31.0"
+        },
+        {
+          "title": "Axios: Regular Expression Denial of Service (ReDoS) via Cookie Name Injection",
+          "url": "https://github.com/advisories/GHSA-hfxv-24rg-xrqf",
+          "severity": "high",
+          "range": "<=0.31.1"
+        },
+        {
+          "title": "Axios: Proxy-Authorization Credential Leak to Origin Server Across HTTP-to-HTTPS Redirect in Axios Node.js HTTP Adapter",
+          "url": "https://github.com/advisories/GHSA-p92q-9vqr-4j8v",
+          "severity": "high",
+          "range": "<=0.31.1"
+        },
+        {
+          "title": "Axios: Proxy-Authorization header leaks to redirect target when proxy is re-evaluated to direct connection",
+          "url": "https://github.com/advisories/GHSA-j5f8-grm9-p9fc",
+          "severity": "high",
+          "range": "<=0.31.1"
+        },
+        {
+          "title": "axios Vulnerable to Credential Theft and Response Hijacking via Prototype Pollution Gadget in Config Merge",
+          "url": "https://github.com/advisories/GHSA-3g43-6gmg-66jw",
+          "severity": "high",
+          "range": ">=0.19.0 <0.31.1"
+        },
+        {
+          "title": "axios has DoS & Header Injection via Prototype Pollution Read-Side Gadgets in axios merge functions",
+          "url": "https://github.com/advisories/GHSA-898c-q2cr-xwhg",
+          "severity": "moderate",
+          "range": "<=0.31.1"
+        },
+        {
+          "title": "axios's shouldBypassProxy does not recognize IPv4-mapped IPv6 addresses, allowing NO_PROXY bypass (incomplete fix for CVE-2025-62718)",
+          "url": "https://github.com/advisories/GHSA-pjwm-pj3p-43mv",
+          "severity": "high",
+          "range": "<=0.31.1"
+        },
+        {
+          "title": "Axios form serializer maxDepth bypass via {} metatoken",
+          "url": "https://github.com/advisories/GHSA-hcpx-6fm6-wx23",
+          "severity": "moderate",
+          "range": ">=1.15.1 <1.18.0"
+        },
+        {
+          "title": "Axios: Prototype pollution auth subfields can inject Basic auth",
+          "url": "https://github.com/advisories/GHSA-xj6q-8x83-jv6g",
+          "severity": "moderate",
+          "range": ">=1.15.2 <1.18.0"
+        },
+        {
+          "title": "Axios: Prototype pollution gadgets can alter axios request construction",
+          "url": "https://github.com/advisories/GHSA-mmx7-hfxf-jppx",
+          "severity": "moderate",
+          "range": "<0.33.0"
+        },
+        {
+          "title": "Axios: Prototype pollution gadgets can alter axios request construction",
+          "url": "https://github.com/advisories/GHSA-mmx7-hfxf-jppx",
+          "severity": "moderate",
+          "range": ">=1.0.0 <1.18.0"
+        },
+        {
+          "title": "Axios: Deep formToJSON Key Recursion Can Cause Denial of Service",
+          "url": "https://github.com/advisories/GHSA-pmv8-rq9r-6j72",
+          "severity": "moderate",
+          "range": ">=1.0.0 <1.18.0"
+        },
+        {
+          "title": "Axios: HTTP/2 streamed uploads bypass `maxBodyLength`",
+          "url": "https://github.com/advisories/GHSA-mwf2-3pr3-8698",
+          "severity": "moderate",
+          "range": ">=1.13.0 <1.18.0"
+        },
+        {
+          "title": "Axios Node HTTP adapter can use an inherited proxy after interceptor config cloning",
+          "url": "https://github.com/advisories/GHSA-gcfj-64vw-6mp9",
+          "severity": "high",
+          "range": ">=1.15.2 <1.18.0"
+        },
+        {
+          "title": "Axios: Nested axios option objects can consume polluted prototype values",
+          "url": "https://github.com/advisories/GHSA-7q8q-rj6j-mhjq",
+          "severity": "moderate",
+          "range": ">=1.0.0 <1.18.0"
+        },
+        {
+          "title": "Axios: Nested axios option objects can consume polluted prototype values",
+          "url": "https://github.com/advisories/GHSA-7q8q-rj6j-mhjq",
+          "severity": "moderate",
+          "range": ">=0.8.0 <0.33.0"
+        },
+        {
+          "title": "Axios: Fetch adapter `ReadableStream` uploads bypass `maxBodyLength`",
+          "url": "https://github.com/advisories/GHSA-jqh4-m9w3-8hp9",
+          "severity": "moderate",
+          "range": ">=1.7.0 <1.18.0"
+        },
+        {
+          "title": "Axios: NO_PROXY bypass for 0.0.0.0 local addresses in axios",
+          "url": "https://github.com/advisories/GHSA-f4gw-2p7v-4548",
+          "severity": "moderate",
+          "range": ">=1.15.0 <1.18.0"
+        },
+        {
+          "title": "Axios: Excessive recursion in formDataToJSON can cause denial of service",
+          "url": "https://github.com/advisories/GHSA-42h9-826w-cgv3",
+          "severity": "moderate",
+          "range": ">=1.0.0 <1.18.0"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@coinbase/cdp-sdk/node_modules/axios",
+          "version": "1.16.0",
+          "optional": true,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:1.8.19--> node_modules/@reown/appkit",
+            "node_modules/@reown/appkit --dependencies:1.8.19--> node_modules/@reown/appkit-utils",
+            "node_modules/@reown/appkit-utils --optionalDependencies:2.4.0--> node_modules/@base-org/account",
+            "node_modules/@base-org/account --dependencies:^1.0.0--> node_modules/@coinbase/cdp-sdk",
+            "node_modules/@coinbase/cdp-sdk --dependencies:1.16.0--> node_modules/@coinbase/cdp-sdk/node_modules/axios"
+          ]
+        },
+        {
+          "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/axios",
+          "version": "0.27.2",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.4.1--> node_modules/@hashgraph/hedera-custodians-integration",
+            "node_modules/@hashgraph/hedera-custodians-integration --dependencies:1.2.5--> node_modules/@fireblocks/fireblocks-web3-provider",
+            "node_modules/@fireblocks/fireblocks-web3-provider --dependencies:^3.1.4--> node_modules/@fireblocks/fireblocks-web3-provider/node_modules/fireblocks-sdk",
+            "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/fireblocks-sdk --dependencies:^0.27.2--> node_modules/@fireblocks/fireblocks-web3-provider/node_modules/axios"
+          ]
+        },
+        {
+          "path": "node_modules/fireblocks-sdk/node_modules/axios",
+          "version": "0.27.2",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.4.1--> node_modules/@hashgraph/hedera-custodians-integration",
+            "node_modules/@hashgraph/hedera-custodians-integration --dependencies:5.11.0--> node_modules/fireblocks-sdk",
+            "node_modules/fireblocks-sdk --dependencies:^0.27.2--> node_modules/fireblocks-sdk/node_modules/axios"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bn.js",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": ">=5.0.0 <5.2.3 || <4.12.3",
+      "via": [
+        {
+          "title": "bn.js affected by an infinite loop",
+          "url": "https://github.com/advisories/GHSA-378v-28hj-76wf",
+          "severity": "moderate",
+          "range": ">=5.0.0 <5.2.3"
+        },
+        {
+          "title": "bn.js affected by an infinite loop",
+          "url": "https://github.com/advisories/GHSA-378v-28hj-76wf",
+          "severity": "moderate",
+          "range": "<4.12.3"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@hiero-ledger/cryptography/node_modules/bn.js",
+          "version": "5.2.1",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/@hiero-ledger/sdk/node_modules/bn.js",
+          "version": "5.1.1",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/ethjs-unit/node_modules/bn.js",
+          "version": "4.11.6",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/number-to-bn/node_modules/bn.js",
+          "version": "4.11.6",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "decode-uri-component",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "<=0.4.2",
+      "via": [
+        {
+          "title": "decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input",
+          "url": "https://github.com/advisories/GHSA-vcc3-ghjq-m6fr",
+          "severity": "moderate",
+          "range": "<=0.4.2"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/decode-uri-component",
+          "version": "0.2.2",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "elliptic",
+      "severity": "low",
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        {
+          "title": "Elliptic Uses a Cryptographic Primitive with a Risky Implementation",
+          "url": "https://github.com/advisories/GHSA-848j-6mx2-7j84",
+          "severity": "low",
+          "range": "<=6.6.1"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/elliptic",
+          "version": "6.6.1",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "ethereum-cryptography",
+      "severity": "low",
+      "isDirect": false,
+      "range": "0.1.0 - 0.1.3",
+      "via": [
+        "secp256k1"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/ethereumjs-util/node_modules/ethereum-cryptography",
+          "version": "0.1.3",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "ethereumjs-util",
+      "severity": "low",
+      "isDirect": false,
+      "range": "4.5.1 || 5.2.1 || 6.2.1 || >=7.0.3",
+      "via": [
+        "ethereum-cryptography"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/ethereumjs-util",
+          "version": "7.1.5",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "ethers",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "5.0.0-beta.119 - 6.0.0-beta.9",
+      "via": [
+        "@ethersproject/abi",
+        "@ethersproject/abstract-provider",
+        "@ethersproject/abstract-signer",
+        "@ethersproject/contracts",
+        "@ethersproject/hash",
+        "@ethersproject/hdnode",
+        "@ethersproject/json-wallets",
+        "@ethersproject/providers",
+        "@ethersproject/signing-key",
+        "@ethersproject/transactions",
+        "@ethersproject/wallet",
+        "@ethersproject/wordlists"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/ethers",
+          "version": "5.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "ethjs-unit",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": ">=0.1.3",
+      "via": [
+        "bn.js",
+        "number-to-bn"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/ethjs-unit",
+          "version": "0.1.6",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "external-editor",
+      "severity": "low",
+      "isDirect": false,
+      "range": ">=1.1.1",
+      "via": [
+        "tmp"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/external-editor",
+          "version": "3.1.0",
+          "optional": true,
+          "installed": false
+        }
+      ]
+    },
+    {
+      "name": "fireblocks-sdk",
+      "severity": "high",
+      "triage": {
+        "stage": "custodian runtime aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited axios and supporting-library findings; remote requests or unsafe inputs must reach those libraries. Custodian integration is unused by the current shell.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "@notabene/pii-sdk",
+        "axios",
+        "query-string",
+        "uuid"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/fireblocks-sdk",
+          "version": "3.1.4",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.4.1--> node_modules/@hashgraph/hedera-custodians-integration",
+            "node_modules/@hashgraph/hedera-custodians-integration --dependencies:1.2.5--> node_modules/@fireblocks/fireblocks-web3-provider",
+            "node_modules/@fireblocks/fireblocks-web3-provider --dependencies:^3.1.4--> node_modules/@fireblocks/fireblocks-web3-provider/node_modules/fireblocks-sdk"
+          ]
+        },
+        {
+          "path": "node_modules/fireblocks-sdk",
+          "version": "5.11.0",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.4.1--> node_modules/@hashgraph/hedera-custodians-integration",
+            "node_modules/@hashgraph/hedera-custodians-integration --dependencies:5.11.0--> node_modules/fireblocks-sdk"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "image-size",
+      "severity": "high",
+      "triage": {
+        "stage": "React Native asset tooling",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Crafted ICNS/JXL/HEIF data reaching the image parser may cause unbounded loops. Current Vite shell does not invoke Metro or parse uploaded images.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        {
+          "title": "image-size: ICNS parser allows denial of service through an infinite loop",
+          "url": "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+          "severity": "high",
+          "range": "<=2.0.2"
+        },
+        {
+          "title": "image-size: JXL and HEIF parsers allow denial of service through infinite loops",
+          "url": "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq",
+          "severity": "high",
+          "range": "<=2.0.2"
+        }
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/image-size",
+          "version": "1.2.1",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.5.3--> node_modules/@reown/walletkit",
+            "node_modules/@reown/walletkit --dependencies:1.0.9--> node_modules/@walletconnect/pay",
+            "node_modules/@walletconnect/pay --peerDependencies:>=0.64.0--> node_modules/react-native",
+            "node_modules/react-native --dependencies:0.87.1--> node_modules/@react-native/community-cli-plugin",
+            "node_modules/@react-native/community-cli-plugin --dependencies:^0.87.0--> node_modules/metro",
+            "node_modules/metro --dependencies:^1.0.2--> node_modules/image-size"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "inquirer",
+      "severity": "low",
+      "isDirect": false,
+      "range": "3.0.0 - 8.2.6 || 9.0.0 - 9.3.7",
+      "via": [
+        "external-editor"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/inquirer",
+          "version": "7.3.3",
+          "optional": true,
+          "installed": false
+        }
+      ]
+    },
+    {
+      "name": "jsonld",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "6.0.0 - 8.3.3",
+      "via": [
+        "@digitalbazaar/http-client"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/jsonld",
+          "version": "8.3.3",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "metro",
+      "severity": "high",
+      "triage": {
+        "stage": "React Native tooling aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited image-size parser findings and cyclic Metro package aggregates. Metro is installed through a peer branch but is not the current build command.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "0.22.1 - 0.83.7 || 0.84.0 - 0.84.4 || >=0.85.0",
+      "via": [
+        "image-size",
+        "metro-config",
+        "metro-transform-worker"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/metro",
+          "version": "0.87.0",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.5.3--> node_modules/@reown/walletkit",
+            "node_modules/@reown/walletkit --dependencies:1.0.9--> node_modules/@walletconnect/pay",
+            "node_modules/@walletconnect/pay --peerDependencies:>=0.64.0--> node_modules/react-native",
+            "node_modules/react-native --dependencies:0.87.1--> node_modules/@react-native/community-cli-plugin",
+            "node_modules/@react-native/community-cli-plugin --dependencies:^0.87.0--> node_modules/metro"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "metro-config",
+      "severity": "high",
+      "triage": {
+        "stage": "React Native tooling aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited Metro findings; same crafted-asset/toolchain precondition, not an independent advisory.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=0.83.7 || 0.84.0 - 0.84.4 || >=0.85.0",
+      "via": [
+        "metro"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/metro-config",
+          "version": "0.87.0",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.5.3--> node_modules/@reown/walletkit",
+            "node_modules/@reown/walletkit --dependencies:1.0.9--> node_modules/@walletconnect/pay",
+            "node_modules/@walletconnect/pay --peerDependencies:>=0.64.0--> node_modules/react-native",
+            "node_modules/react-native --dependencies:0.87.1--> node_modules/@react-native/community-cli-plugin",
+            "node_modules/@react-native/community-cli-plugin --dependencies:^0.87.0--> node_modules/metro",
+            "node_modules/metro --dependencies:0.87.0--> node_modules/metro-config"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "metro-transform-worker",
+      "severity": "high",
+      "triage": {
+        "stage": "React Native tooling aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited Metro findings; same crafted-asset/toolchain precondition, not an independent advisory.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "0.60.0 - 0.83.7 || 0.84.0 - 0.84.4 || >=0.85.0",
+      "via": [
+        "metro"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/metro-transform-worker",
+          "version": "0.87.0",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.5.3--> node_modules/@reown/walletkit",
+            "node_modules/@reown/walletkit --dependencies:1.0.9--> node_modules/@walletconnect/pay",
+            "node_modules/@walletconnect/pay --peerDependencies:>=0.64.0--> node_modules/react-native",
+            "node_modules/react-native --dependencies:0.87.1--> node_modules/@react-native/community-cli-plugin",
+            "node_modules/@react-native/community-cli-plugin --dependencies:^0.87.0--> node_modules/metro",
+            "node_modules/metro --dependencies:0.87.0--> node_modules/metro-transform-worker"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "neon-cli",
+      "severity": "high",
+      "triage": {
+        "stage": "optional native build tooling",
+        "status": "unresolved; optional branch absent in local final installation",
+        "triggerSummary": "Inherited tmp/path handling and TOML parsing findings. Optional native branch is absent locally; no Neon build is invoked by the application.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "inquirer",
+        "toml"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/neon-cli",
+          "version": "0.10.1",
+          "optional": true,
+          "installed": false,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^0.0.20--> node_modules/@terminal3/verify_vc",
+            "node_modules/@terminal3/verify_vc --dependencies:0.2.18--> node_modules/@terminal3/bbs_vc",
+            "node_modules/@terminal3/bbs_vc --dependencies:^1.3.1--> node_modules/@mattrglobal/bbs-signatures",
+            "node_modules/@mattrglobal/bbs-signatures --optionalDependencies:0.18.1--> node_modules/@mattrglobal/node-bbs-signatures",
+            "node_modules/@mattrglobal/node-bbs-signatures --dependencies:0.10.1--> node_modules/neon-cli"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "number-to-bn",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "bn.js"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/number-to-bn",
+          "version": "1.7.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "protobufjs",
+      "severity": "critical",
+      "triage": {
+        "stage": "binary/schema runtime",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Untrusted schema metadata can reach generated code; separate advisories cover deeply nested binary decoding, Any conversion and unsafe options/prototypes. Fixed schema alone does not exclude all findings. Exact 7.2.5/7.5.4 block in-range remediation.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=7.6.4",
+      "via": [
+        {
+          "title": "Arbitrary code execution in protobufjs",
+          "url": "https://github.com/advisories/GHSA-xq3m-2v4x-88gg",
+          "severity": "critical",
+          "range": "<7.5.5"
+        },
+        {
+          "title": "protobuf.js: Code injection through bytes field defaults in generated toObject code",
+          "url": "https://github.com/advisories/GHSA-66ff-xgx4-vchm",
+          "severity": "high",
+          "range": "<=7.5.5"
+        },
+        {
+          "title": "protobuf.js: Denial of service from crafted field names in generated code",
+          "url": "https://github.com/advisories/GHSA-2pr8-phx7-x9h3",
+          "severity": "moderate",
+          "range": "<=7.5.5"
+        },
+        {
+          "title": "protobuf.js: Prototype injection in generated message constructors",
+          "url": "https://github.com/advisories/GHSA-fx83-v9x8-x52w",
+          "severity": "moderate",
+          "range": "<=7.5.5"
+        },
+        {
+          "title": "protobuf.js: Code generation gadget after prototype pollution",
+          "url": "https://github.com/advisories/GHSA-75px-5xx7-5xc7",
+          "severity": "high",
+          "range": "<=7.5.5"
+        },
+        {
+          "title": "protobuf.js: Process-wide denial of service through unsafe option paths",
+          "url": "https://github.com/advisories/GHSA-jvwf-75h9-cwgg",
+          "severity": "high",
+          "range": "<=7.5.5"
+        },
+        {
+          "title": "protobuf.js: Denial of service through unbounded protobuf recursion",
+          "url": "https://github.com/advisories/GHSA-685m-2w69-288q",
+          "severity": "high",
+          "range": "<=7.5.5"
+        },
+        {
+          "title": "protobufjs has overlong UTF-8 decoding",
+          "url": "https://github.com/advisories/GHSA-q6x5-8v7m-xcrf",
+          "severity": "moderate",
+          "range": "<=7.5.5"
+        },
+        {
+          "title": "protobufjs: Denial of Service via unbounded recursive JSON descriptor expansion",
+          "url": "https://github.com/advisories/GHSA-jggg-4jg4-v7c6",
+          "severity": "moderate",
+          "range": "<=7.5.7"
+        },
+        {
+          "title": "protobufjs: Denial of service through unbounded Any expansion during JSON conversion",
+          "url": "https://github.com/advisories/GHSA-wcpc-wj8m-hjx6",
+          "severity": "high",
+          "range": "<=7.6.0"
+        },
+        {
+          "title": "protobufjs : Schema-derived names can shadow runtime-significant properties",
+          "url": "https://github.com/advisories/GHSA-f38q-mgvj-vph7",
+          "severity": "moderate",
+          "range": "<=7.6.2"
+        },
+        {
+          "title": "protobufjs: Denial of Service via infinite loop in .proto option parsing",
+          "url": "https://github.com/advisories/GHSA-j3f2-48v5-ccww",
+          "severity": "moderate",
+          "range": ">=7.5.0 <=7.6.4"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@hiero-ledger/sdk/node_modules/protobufjs",
+          "version": "7.5.4",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:2.1.2--> node_modules/@hashgraph/hedera-wallet-connect",
+            "node_modules/@hashgraph/hedera-wallet-connect --peerDependencies:2.79.0--> node_modules/@hiero-ledger/sdk",
+            "node_modules/@hiero-ledger/sdk --dependencies:7.5.4--> node_modules/@hiero-ledger/sdk/node_modules/protobufjs"
+          ]
+        },
+        {
+          "path": "node_modules/protobufjs",
+          "version": "7.2.5",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:2.64.5--> node_modules/@hashgraph/sdk",
+            "node_modules/@hashgraph/sdk --dependencies:7.2.5--> node_modules/protobufjs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "query-string",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "5.0.0 - 9.4.1",
+      "via": [
+        "decode-uri-component"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/query-string",
+          "version": "7.1.3",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "react-native",
+      "severity": "high",
+      "triage": {
+        "stage": "React Native tooling aggregate",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Inherited community CLI/virtualized-lists/Metro findings. Installed peer dependency is not proof of browser inclusion; no native build runs in the current project.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "0.73.0-nightly-20230506-1af868c52 - 0.81.0-rc.5 || 0.82.0-nightly-20250710-586f5ba89 - 0.82.0-rc.5 || >=0.87.0-nightly-20260507-ba204faa7",
+      "via": [
+        "@react-native/community-cli-plugin",
+        "@react-native/virtualized-lists"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/react-native",
+          "version": "0.87.1",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.5.3--> node_modules/@reown/walletkit",
+            "node_modules/@reown/walletkit --dependencies:1.0.9--> node_modules/@walletconnect/pay",
+            "node_modules/@walletconnect/pay --peerDependencies:>=0.64.0--> node_modules/react-native"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "secp256k1",
+      "severity": "low",
+      "isDirect": false,
+      "range": ">=2.0.0",
+      "via": [
+        "elliptic"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/secp256k1",
+          "version": "4.0.5",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "tar",
+      "severity": "critical",
+      "triage": {
+        "stage": "optional native installation",
+        "status": "unresolved; optional branch absent in local final installation",
+        "triggerSummary": "Untrusted archives reaching extraction/list/replace paths can exhaust resources or exploit link/path handling. Absent locally after install; parent requires ^6.1.11, outside verified candidate 7.5.21.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=7.5.20",
+      "via": [
+        {
+          "title": "node-tar Vulnerable to Arbitrary File Creation/Overwrite via Hardlink Path Traversal",
+          "url": "https://github.com/advisories/GHSA-34x7-hfp2-rc4v",
+          "severity": "high",
+          "range": "<7.5.7"
+        },
+        {
+          "title": "node-tar is Vulnerable to Arbitrary File Overwrite and Symlink Poisoning via Insufficient Path Sanitization",
+          "url": "https://github.com/advisories/GHSA-8qq5-rm4j-mr97",
+          "severity": "high",
+          "range": "<=7.5.2"
+        },
+        {
+          "title": "Arbitrary File Read/Write via Hardlink Target Escape Through Symlink Chain in node-tar Extraction",
+          "url": "https://github.com/advisories/GHSA-83g3-92jg-28cx",
+          "severity": "high",
+          "range": "<7.5.8"
+        },
+        {
+          "title": "tar has Hardlink Path Traversal via Drive-Relative Linkpath",
+          "url": "https://github.com/advisories/GHSA-qffp-2rhf-9h96",
+          "severity": "high",
+          "range": "<=7.5.9"
+        },
+        {
+          "title": "node-tar Symlink Path Traversal via Drive-Relative Linkpath",
+          "url": "https://github.com/advisories/GHSA-9ppj-qmqm-q256",
+          "severity": "high",
+          "range": "<=7.5.10"
+        },
+        {
+          "title": "Race Condition in node-tar Path Reservations via Unicode Ligature Collisions on macOS APFS",
+          "url": "https://github.com/advisories/GHSA-r6q2-hw4h-h46w",
+          "severity": "high",
+          "range": "<=7.5.3"
+        },
+        {
+          "title": "node-tar applies PAX size override to intermediary GNU long-name/long-link headers, causing tar parser interpretation differential (file smuggling)",
+          "url": "https://github.com/advisories/GHSA-vmf3-w455-68vh",
+          "severity": "moderate",
+          "range": "<=7.5.15"
+        },
+        {
+          "title": "node-tar: Process crash via PAX numeric path type confusion",
+          "url": "https://github.com/advisories/GHSA-w8wr-v893-vjvp",
+          "severity": "moderate",
+          "range": "<=7.5.17"
+        },
+        {
+          "title": "node-tar: Decompression/parse DoS via unlimited input",
+          "url": "https://github.com/advisories/GHSA-23hp-3jrh-7fpw",
+          "severity": "critical",
+          "range": "<=7.5.18"
+        },
+        {
+          "title": "node-tar: Negative tar entry size causes infinite loop in archive replace",
+          "url": "https://github.com/advisories/GHSA-8x88-c5mf-7j5w",
+          "severity": "high",
+          "range": "<=7.5.17"
+        },
+        {
+          "title": "node-tar: Uncaught Exception DoS via NUL byte in PAX path/linkpath records",
+          "url": "https://github.com/advisories/GHSA-gvwx-54wh-qm9j",
+          "severity": "moderate",
+          "range": "<=7.5.16"
+        },
+        {
+          "title": "node-tar: Uncontrolled recursion in mapHas/filesFilter allows uncatchable stack-overflow DoS via crafted long-path tar with member selection",
+          "url": "https://github.com/advisories/GHSA-r292-9mhp-454m",
+          "severity": "high",
+          "range": "<=7.5.20"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/tar",
+          "version": "6.2.1",
+          "optional": true,
+          "installed": false,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^0.0.20--> node_modules/@terminal3/verify_vc",
+            "node_modules/@terminal3/verify_vc --dependencies:0.2.18--> node_modules/@terminal3/bbs_vc",
+            "node_modules/@terminal3/bbs_vc --dependencies:^1.3.1--> node_modules/@mattrglobal/bbs-signatures",
+            "node_modules/@mattrglobal/bbs-signatures --optionalDependencies:0.18.1--> node_modules/@mattrglobal/node-bbs-signatures",
+            "node_modules/@mattrglobal/node-bbs-signatures --dependencies:1.0.11--> node_modules/@mapbox/node-pre-gyp",
+            "node_modules/@mapbox/node-pre-gyp --dependencies:^6.1.11--> node_modules/tar"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tmp",
+      "severity": "high",
+      "triage": {
+        "stage": "optional native build tooling",
+        "status": "unresolved; optional branch absent in local final installation",
+        "triggerSummary": "Attacker-influenced temporary-directory prefix/postfix or symlink parameters reaching filesystem creation. Optional branch absent locally; external-editor requests ^0.0.33.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=0.2.5",
+      "via": [
+        {
+          "title": "tmp allows arbitrary temporary file / directory write via symbolic link `dir` parameter",
+          "url": "https://github.com/advisories/GHSA-52f5-9888-hmc6",
+          "severity": "low",
+          "range": "<=0.2.3"
+        },
+        {
+          "title": "tmp has Path Traversal via unsanitized prefix/postfix that enables directory escape",
+          "url": "https://github.com/advisories/GHSA-ph9p-34f9-6g65",
+          "severity": "high",
+          "range": "<0.2.6"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/tmp",
+          "version": "0.0.33",
+          "optional": true,
+          "installed": false,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^0.0.20--> node_modules/@terminal3/verify_vc",
+            "node_modules/@terminal3/verify_vc --dependencies:0.2.18--> node_modules/@terminal3/bbs_vc",
+            "node_modules/@terminal3/bbs_vc --dependencies:^1.3.1--> node_modules/@mattrglobal/bbs-signatures",
+            "node_modules/@mattrglobal/bbs-signatures --optionalDependencies:0.18.1--> node_modules/@mattrglobal/node-bbs-signatures",
+            "node_modules/@mattrglobal/node-bbs-signatures --dependencies:0.10.1--> node_modules/neon-cli",
+            "node_modules/neon-cli --dependencies:^7.3.3--> node_modules/inquirer",
+            "node_modules/inquirer --dependencies:^3.0.3--> node_modules/external-editor",
+            "node_modules/external-editor --dependencies:^0.0.33--> node_modules/tmp"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toml",
+      "severity": "high",
+      "triage": {
+        "stage": "optional native build tooling",
+        "status": "unresolved; optional branch absent in local final installation",
+        "triggerSummary": "Untrusted TOML nesting/key paths reaching the parser can exhaust stack or pollute prototypes. Optional branch absent locally; neon-cli requests ^3.0.0.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=4.1.2",
+      "via": [
+        {
+          "title": "toml-node: Uncontrolled Recursion",
+          "url": "https://github.com/advisories/GHSA-82x6-q7mm-w9cf",
+          "severity": "high",
+          "range": "<4.2.0"
+        },
+        {
+          "title": "toml-node: Prototype Pollution Leads to `Object.prototype` Corruption via `__proto__` Key-Path Desynchronization",
+          "url": "https://github.com/advisories/GHSA-v5mp-jgw5-2x6j",
+          "severity": "high",
+          "range": "<4.1.2"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/toml",
+          "version": "3.0.0",
+          "optional": true,
+          "installed": false,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^0.0.20--> node_modules/@terminal3/verify_vc",
+            "node_modules/@terminal3/verify_vc --dependencies:0.2.18--> node_modules/@terminal3/bbs_vc",
+            "node_modules/@terminal3/bbs_vc --dependencies:^1.3.1--> node_modules/@mattrglobal/bbs-signatures",
+            "node_modules/@mattrglobal/bbs-signatures --optionalDependencies:0.18.1--> node_modules/@mattrglobal/node-bbs-signatures",
+            "node_modules/@mattrglobal/node-bbs-signatures --dependencies:0.10.1--> node_modules/neon-cli",
+            "node_modules/neon-cli --dependencies:^3.0.0--> node_modules/toml"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "undici",
+      "severity": "high",
+      "triage": {
+        "stage": "Node HTTP/WebSocket runtime",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Untrusted HTTP/WebSocket responses, fragmented/compressed frames, or influenced request/cookie fields must reach affected APIs. Present through JSON-LD HTTP loading, but no VC or remote context processing occurs in current shell; future path unresolved.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "<=6.27.0",
+      "via": [
+        {
+          "title": "Undici has an unbounded decompression chain in HTTP responses on Node.js Fetch API via Content-Encoding leads to resource exhaustion",
+          "url": "https://github.com/advisories/GHSA-g9mf-h72j-4rw9",
+          "severity": "moderate",
+          "range": "<6.23.0"
+        },
+        {
+          "title": "Undici has an HTTP Request/Response Smuggling issue",
+          "url": "https://github.com/advisories/GHSA-2mjp-6q6p-2qxm",
+          "severity": "moderate",
+          "range": "<6.24.0"
+        },
+        {
+          "title": "Undici has Unbounded Memory Consumption in WebSocket permessage-deflate Decompression",
+          "url": "https://github.com/advisories/GHSA-vrm6-8vpv-qv8q",
+          "severity": "high",
+          "range": "<6.24.0"
+        },
+        {
+          "title": "Undici has Unhandled Exception in WebSocket Client Due to Invalid server_max_window_bits Validation",
+          "url": "https://github.com/advisories/GHSA-v9p9-hfj2-hcw8",
+          "severity": "high",
+          "range": "<6.24.0"
+        },
+        {
+          "title": "Undici has CRLF Injection in undici via `upgrade` option",
+          "url": "https://github.com/advisories/GHSA-4992-7rv2-5pvq",
+          "severity": "moderate",
+          "range": "<6.24.0"
+        },
+        {
+          "title": "undici vulnerable to HTTP header injection via Set-Cookie percent-decoding",
+          "url": "https://github.com/advisories/GHSA-p88m-4jfj-68fv",
+          "severity": "moderate",
+          "range": "<6.27.0"
+        },
+        {
+          "title": "undici WebSocket client vulnerable to denial of service via fragment count bypass",
+          "url": "https://github.com/advisories/GHSA-vxpw-j846-p89q",
+          "severity": "high",
+          "range": "<6.27.0"
+        },
+        {
+          "title": "undici vulnerable to Set-Cookie SameSite attribute downgrade via permissive substring matching",
+          "url": "https://github.com/advisories/GHSA-g8m3-5g58-fq7m",
+          "severity": "low",
+          "range": "<6.27.0"
+        },
+        {
+          "title": "undici vulnerable to downstream response desynchronization via retry interceptor",
+          "url": "https://github.com/advisories/GHSA-8xcm-r25x-g524",
+          "severity": "moderate",
+          "range": "<6.28.0"
+        },
+        {
+          "title": "undici vulnerable to CRLF Injection via blob-like body 'type' property",
+          "url": "https://github.com/advisories/GHSA-m8rv-5g2x-5cg5",
+          "severity": "moderate",
+          "range": "<6.28.0"
+        },
+        {
+          "title": "undici vulnerable to cookie attribute injection via unsanitized domain and unparsed setCookie fields",
+          "url": "https://github.com/advisories/GHSA-v3r7-h72x-cjcm",
+          "severity": "moderate",
+          "range": "<6.28.0"
+        },
+        {
+          "title": "undici vulnerable to HTTP response queue poisoning via keep-alive socket reuse",
+          "url": "https://github.com/advisories/GHSA-35p6-xmwp-9g52",
+          "severity": "low",
+          "range": "<6.27.0"
+        }
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/undici",
+          "version": "5.29.0",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^0.0.20--> node_modules/@terminal3/verify_vc",
+            "node_modules/@terminal3/verify_vc --dependencies:0.2.18--> node_modules/@terminal3/bbs_vc",
+            "node_modules/@terminal3/bbs_vc --dependencies:^8.3.2--> node_modules/jsonld",
+            "node_modules/jsonld --dependencies:^3.4.1--> node_modules/@digitalbazaar/http-client",
+            "node_modules/@digitalbazaar/http-client --dependencies:^5.21.2--> node_modules/undici"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "uuid",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "<11.1.1",
+      "via": [
+        {
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
+          "severity": "moderate",
+          "range": "<11.1.1"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/uuid",
+          "version": "8.3.2",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/@metamask/rpc-errors/node_modules/uuid",
+          "version": "9.0.1",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/@metamask/utils/node_modules/uuid",
+          "version": "9.0.1",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/@terminal3/bbs_vc/node_modules/uuid",
+          "version": "10.0.0",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/@terminal3/vc_core/node_modules/uuid",
+          "version": "10.0.0",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/fireblocks-sdk/node_modules/uuid",
+          "version": "8.3.2",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/uuid",
+          "version": "9.0.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "viem",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "<=0.0.0-wagmiv2-20230628182101 || 0.2.2 - 2.49.3",
+      "via": [
+        "ws"
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@walletconnect/universal-provider/node_modules/viem",
+          "version": "2.36.0",
+          "optional": false,
+          "installed": true
+        },
+        {
+          "path": "node_modules/@walletconnect/utils/node_modules/viem",
+          "version": "2.23.2",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "web3-core-helpers",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "*",
+      "via": [
+        "web3-eth-iban",
+        "web3-utils"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/web3-core-helpers",
+          "version": "1.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "web3-eth-iban",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "<=3.0.0-rc.5",
+      "via": [
+        "web3-utils"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/web3-eth-iban",
+          "version": "1.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "web3-providers-http",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "<=3.0.0-rc.5",
+      "via": [
+        "web3-core-helpers"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/web3-providers-http",
+          "version": "1.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "web3-utils",
+      "severity": "moderate",
+      "isDirect": false,
+      "range": "1.0.0-beta.8 - 4.0.0",
+      "via": [
+        "ethereumjs-util",
+        "ethjs-unit",
+        "number-to-bn"
+      ],
+      "fixAvailable": true,
+      "nodes": [
+        {
+          "path": "node_modules/web3-utils",
+          "version": "1.8.0",
+          "optional": false,
+          "installed": true
+        }
+      ]
+    },
+    {
+      "name": "ws",
+      "severity": "high",
+      "triage": {
+        "stage": "Node WebSocket runtime",
+        "status": "unresolved; not invoked by current static shell; SDK import not assessed",
+        "triggerSummary": "Untrusted fragmented messages reaching Node ws can exhaust memory; buffer use is implicated in a separate disclosure advisory. Exact older copies occur under ethers/viem. Browser/native WebSocket exclusion after SDK import has not been verified.",
+        "action": "No change attempted: stop at exact-pinned protobufjs gate; no waiver for T01b."
+      },
+      "isDirect": false,
+      "range": "8.0.0 - 8.20.1",
+      "via": [
+        {
+          "title": "ws: Uninitialized memory disclosure",
+          "url": "https://github.com/advisories/GHSA-58qx-3vcg-4xpx",
+          "severity": "moderate",
+          "range": ">=8.0.0 <8.20.1"
+        },
+        {
+          "title": "ws: Memory exhaustion DoS from tiny fragments and data chunks",
+          "url": "https://github.com/advisories/GHSA-96hv-2xvq-fx4p",
+          "severity": "high",
+          "range": ">=8.0.0 <8.21.0"
+        }
+      ],
+      "fixAvailable": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/providers/node_modules/ws",
+          "version": "8.18.0",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:^1.4.1--> node_modules/@hashgraph/hedera-custodians-integration",
+            "node_modules/@hashgraph/hedera-custodians-integration --dependencies:1.2.5--> node_modules/@fireblocks/fireblocks-web3-provider",
+            "node_modules/@fireblocks/fireblocks-web3-provider --dependencies:^5.7.2--> node_modules/@fireblocks/fireblocks-web3-provider/node_modules/ethers",
+            "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/ethers --dependencies:5.8.0--> node_modules/@ethersproject/providers",
+            "node_modules/@ethersproject/providers --dependencies:8.18.0--> node_modules/@ethersproject/providers/node_modules/ws"
+          ]
+        },
+        {
+          "path": "node_modules/@walletconnect/universal-provider/node_modules/ws",
+          "version": "8.18.3",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:2.21.9--> node_modules/@walletconnect/universal-provider",
+            "node_modules/@walletconnect/universal-provider --dependencies:2.21.9--> node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/utils",
+            "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/utils --dependencies:2.36.0--> node_modules/@walletconnect/universal-provider/node_modules/viem",
+            "node_modules/@walletconnect/universal-provider/node_modules/viem --dependencies:8.18.3--> node_modules/@walletconnect/universal-provider/node_modules/ws"
+          ]
+        },
+        {
+          "path": "node_modules/@walletconnect/utils/node_modules/ws",
+          "version": "8.18.0",
+          "optional": false,
+          "installed": true,
+          "exampleDependencyPath": [
+            "(root) --dependencies:8.0.0--> node_modules/@hashgraph/asset-tokenization-sdk",
+            "node_modules/@hashgraph/asset-tokenization-sdk --dependencies:2.19.2--> node_modules/@walletconnect/utils",
+            "node_modules/@walletconnect/utils --dependencies:2.23.2--> node_modules/@walletconnect/utils/node_modules/viem",
+            "node_modules/@walletconnect/utils/node_modules/viem --dependencies:8.18.0--> node_modules/@walletconnect/utils/node_modules/ws"
+          ]
+        }
+      ]
+    }
+  ]
+}

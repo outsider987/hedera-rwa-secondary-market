@@ -2,132 +2,151 @@
 
 ## Current objective / Git base
 
-- Active ticket for the next implementation turn: **T01 — ATS readiness** (not started).
-- Status: **T00-min complete** — public repo, shell, local/browser checks and remote CI passed.
-- `based_on_commit: 00a5dd1f0cda654167d4abe3a94f82559c30930e` — verified shell commit.
+- Active ticket: **T01a — dependency security and SDK loading: BLOCKED**.
+- T00-min is complete. T01a static triage is recorded; no repair or loader was
+  implemented because the approved upstream-range-only boundary was reached.
+- `based_on_commit: 10d69e7d2950f77e0aa4ee7a2842811fadf0f795` — this ticket's base.
 - `source_validated_commit: 00a5dd1f0cda654167d4abe3a94f82559c30930e`.
-- Actual HEAD: read with `git rev-parse HEAD`; never compare it to a self-written
-  hash in this file. This closeout changes documentation only; the source and
-  lockfile remain those of the validated commit above.
-- Plan: [001-ats-first](plans/001-ats-first.md).
-- Provenance: [planning record](prompts/001-planning-record.md), [AI usage](../AI_USAGE.md).
+- Actual HEAD: read Git. Source, tests, manifest, lockfile and CI are unchanged
+  from the validated source commit; the T01a changes are documentation only.
+- Read [active plan](plans/001-ats-first.md),
+  [T01a authorization](prompts/002-t01a-planning-record.md),
+  [triage/stop evidence](evidence/001-t01a-triage.md) and its audit snapshot.
 
 ## Completed / observed
 
-- Confirmed local cwd `/home/outsider/github/ETHGlobal_Victor` was empty.
-- Confirmed Node 24.19.0 / npm 11.17.0 and Git identity were available.
-- Created public repo https://github.com/outsider987/hedera-rwa-secondary-market;
-  default branch main. Guardrails committed/pushed as `e162b247db651eca4ff2d6afa48d6b40711091d7`.
-- Read npm metadata for the pinned React / React DOM / Vite / TypeScript / ATS versions.
-- Added static React shell, exact dependencies/lockfile, runtime pins, Node smoke
-  test, CI and setup instructions; archived the original imported task text.
-- Shell committed/pushed as `00a5dd1f0cda654167d4abe3a94f82559c30930e`.
-- Local checks and independent shell review passed; see [T00 evidence](evidence/000-t00-validation.md).
-- No wallet, SDK runtime integration, VC signatures or Testnet transactions.
+- Public repo: https://github.com/outsider987/hedera-rwa-secondary-market, main.
+- T00 guardrails: `e162b247db651eca4ff2d6afa48d6b40711091d7`;
+  shell: `00a5dd1f0cda654167d4abe3a94f82559c30930e`;
+  T00 closeout: `10d69e7d2950f77e0aa4ee7a2842811fadf0f795`.
+- T01a reran npm audit and preserved all 78 vulnerable package entries and
+  98 affected locations, with dependency paths and initial static triage for
+  every critical/high package entry. This is not exhaustive exploit testing.
+- Confirmed exact protobufjs 7.2.5/7.5.4 parent/peer pins and optional tar
+  ^6.1.11 constraint. Registry candidates 7.6.5 / 7.5.21 lie outside those
+  constraints. No candidate was installed or compatibility-tested.
+- T01a application source, dependency versions and lockfile did not change.
+  No SDK import, loader UI, wallet connection, VC or Testnet transaction exists.
 
 ## Locked decisions / public identifiers
 
-- Public repo target `outsider987/hedera-rwa-secondary-market`, `main`.
-- Localhost English console; Traditional Chinese handoff; three distinct wallets.
-- Admin also Escrow / synthetic VC issuer; Seller and Buyer separate.
+- English commit messages using type(scope): description; truthful outcomes.
+- T01 split approved: T01a first, then separately T01b (original wallet/config/VC
+  requirements remain). Do not silently advance past the blocked T01a gate.
+- All existing direct pins and Node/npm stay fixed; transitive repairs may
+  satisfy existing upstream ranges only. No override, new package, force fix,
+  source patch, fake polyfill or blanket lifecycle-script approval.
+- Localhost English console; Traditional Chinese handoff.
+- Admin also Escrow / synthetic VC issuer; Seller and Buyer must be distinct.
 - Testnet 296; Resolver 0.0.9212226; Factory 0.0.9213391.
-- All NOVA fields, config ID and VC parameters are frozen in the active plan.
-- No actual account mapping, Equity ID, Hold ID, transaction ID or chain evidence exists.
-- Addresses were found in upstream configuration, NOT checked live on-chain.
+- NOVA fields, config ID and synthetic VC parameters remain in the active plan.
+- No account mapping, Equity ID, Hold ID, transaction ID or chain evidence.
+  Deployment addresses have NOT been checked live.
 
-## Checks and blockers
+## Checks / blockers
 
-- Environment / npm metadata / GitHub lookup: passed as described above.
-- npm ci / 1 Node test / typecheck / build: passed.
-- Dev/preview at desktop 1440 and mobile 390 widths: passed, zero page/console
-  errors, zero external requests, no overflow, working keyboard skip link.
-- Static detector: no findings. Independent minimal-shell review: ship.
-- Remote CI **success**, run [33943246837](https://github.com/outsider987/hedera-rwa-secondary-market/actions/runs/33943246837),
-  on source commit `00a5dd1f0cda654167d4abe3a94f82559c30930e`:
-  npm ci / test / typecheck / build all passed. Job duration 1m4s.
-- CI emitted an action-runtime deprecation notice for pinned v4 actions;
-  GitHub ran them on Node 24 successfully. Project runtime is pinned to 24.19.0.
-- Dependency audit: 78 vulnerable entries, including 2 critical (`protobufjs`
-  and optional lockfile `tar`). No dependency overrides/fixes/blanket lifecycle
-  script approvals. Details/reproduction are in the evidence. T01 must triage
-  this before importing ATS into a wallet flow; do not downgrade to npm's suggested 1.13.0.
-- No secrets requested, wallet files read, or signatures attempted.
-- Event eligibility: pre-event research draft was mentioned but not supplied;
-  Victor must resolve project-specific prior design/asset questions with organizers.
-- Project license is not selected; public availability is not a license grant.
+- T01a npm ci: exit 0, 1165 installed / 1166 audited.
+- npm audit: exit 1; 78 entries = 17 low, 32 moderate, 27 high, 2 critical.
+- Existing 1 Node shell test / typecheck / production build: passed.
+- Manifest and lockfile SHA-256 unchanged; audit snapshot version/presence
+  observations checked against the final local install.
+- Four dev/preview desktop/mobile Chrome checks: passed; zero page/console
+  errors or external requests, no overflow, keyboard skip link works.
+- Build: 16 modules; JS 193.81 kB / gzip 61.02 kB, unchanged. This is the static
+  shell, not an ATS bundle. SDK loading and loader tests were NOT performed.
+- Most recent recorded remote source CI:
+  [33943246837](https://github.com/outsider987/hedera-rwa-secondary-market/actions/runs/33943246837)
+  passed for source commit 00a5dd1. That is historical T00 evidence.
+  Check the new documentation commit's CI after pushing; do not infer its result.
+- Lifecycle-script/deprecation warnings remain, separately documented.
+  The prior Actions Node-runtime notice is not an npm critical vulnerability.
+- **B1:** exact protobufjs pins preclude in-range remediation. Static generated
+  schemas limit one code-generation precondition, not separate binary-decoding
+  recursion findings. Do not waive the entire package.
+- **B2:** optional native Terminal3/BBS branch requires tar ^6.1.11. Final local
+  absence is not proof that all installations/platforms exclude the branch.
+- No secrets requested/read, no signatures attempted, no external outreach.
+- Event eligibility and project license remain unresolved human decisions,
+  independently of the technical blocker.
 
-## Next ticket — T01 only
+## Next action — resolve T01a, not T01b
 
-**T01 — ATS readiness**. First triage the dependency/script warnings recorded
-above; do not silently downgrade ATS or change the approved pins. If compatible
-remediation needs a plan change, report the exact dependency path and ask Victor
-and a Hedera mentor before introducing it into the wallet flow.
+Victor/mentor must decide how to handle the fixed dependency graph before
+implementation resumes: a specifically authorized transitive compatibility
+trial, an upstream-supported dependency-plan change, or a narrowly recorded
+risk decision permitting isolated load diagnostics. No option is preapproved.
+Do not interpret ordinary “continue” as permission for overrides or SDK upgrades.
 
-Implement actual SDK import, MetaMask account/network guards, public account
-binding through Mirror Node, live config resolution and synthetic VC sign/verify.
-Use the frozen configuration from the plan, not the historical imported prompt.
-This ticket has no Equity creation, role grant, KYC grant, issuance or Hold mutation.
+Until then, the exact next task is documentation-only blocker clarification:
+record the decision and revised allowed files/acceptance tests. Do not
+repeatedly reinstall or re-audit an unchanged graph expecting pins to move.
 
-### T01 exact allowed files
+### T01a allowed files after an explicit resume decision
 
-- Existing UI: `src/main.tsx`, `src/App.tsx`, `src/styles.css`.
-- New integration helpers: `src/ats.ts`, `src/guards.ts`, `src/credentials.ts`,
-  `src/evidence.ts`. Do not create an adapter framework or generalized workflow engine.
-- Tests: `tests/shell.test.mjs`, `tests/ats.test.mjs` (Node built-in; no new framework).
-- Tooling if required by verified browser imports: `package.json`,
-  `package-lock.json`, `tsconfig.json`, `vite.config.ts`, `.github/workflows/ci.yml`.
-- Records: `README.md`, `PRODUCT.md`, `AI_USAGE.md`, `docs/HANDOFF.md`,
+- Existing planned loader scope: `src/App.tsx`, `src/ats.ts`;
+  `tests/shell.test.mjs`, `tests/ats.test.mjs`.
+- Necessary tooling: `package.json`, `package-lock.json`, `tsconfig.json`,
+  `vite.config.ts`, still subject to the approved dependency boundary unless
+  a new decision explicitly changes it.
+- Records: `README.md`, `AI_USAGE.md`, `docs/HANDOFF.md`,
+  `docs/plans/001-ats-first.md` (ticket/policy amendment only),
   `docs/evidence/**`, `docs/prompts/**`.
-- No root rule/spec changes or new services without an explicitly recorded
-  user decision. Ignored local test/build artifacts remain allowed.
+- No changes to AGENTS, services, CI actions, unrelated source or styling.
 
-### T01 acceptance
+### Remaining T01a acceptance
 
-1. npm ci / test / typecheck / build pass; real SDK import loads in dev AND
-   production preview. Do not count a mock or unused dependency as integration.
-2. Victor connects MetaMask on chain 296; binds three distinct accounts with
-   observed public EVM/Hedera IDs. Missing wallet / rejection / duplicate
-   accounts / wrong chain are handled without any mutation.
-3. Network/account changes invalidate stale signer state; every requested
-   signature rechecks the current network/account. Reload does not trigger signing.
-4. Resolver/Factory resolve to live contract bytecode. Call
-   `Management.resolveLatestConfigVersion` with a validated request containing
-   the approved resolver and bytes32 config ID; require integer `payload >= 1`.
-   Failure is blocking, not an invitation to change addresses.
-5. Admin manually signs one synthetic Seller VC via MetaMask; exact Terminal3
-   verifier accepts it. Tampered/expired/wrong-subject credentials are rejected
-   by the verification/target guard path. Never instantiate a private-key signer.
-6. Whitelisted read/off-chain evidence can be exported and survives reload;
-   no keys, whole wallet/error objects or full VC signatures are exported.
-   No transaction ID is claimed for a read or off-chain signature.
-7. Save actual outcomes, pending manual checks, public identifiers, and the
-   next T02 allowed files before the ticket-boundary commit. No T02 execution
-   until the above manual gates pass.
+1. Resolve/document the dependency gate under explicit authorization; retain
+   complete before/after findings and justify new high/critical findings.
+2. Official SDK dynamic import in dev AND preview; verify the Management
+   function exists without calling it, initializing Network or accessing wallets.
+3. Honest idle/loading/loaded/failed UI; serialized load, no automatic retry,
+   reload resets; safe error summary. No mock/deep import/stub success claims.
+4. npm ci/test/typecheck/build; Node loader/state tests and isolated browser
+   checks, without provider calls or outbound network requests.
+5. Save evidence/AI usage and clean English ticket-boundary commit. If blocked
+   again, record it and stop; no T01b until these gates are resolved.
+
+## Deferred next ticket — T01b (not activated)
+
+Exact goal: real MetaMask guards, three public EVM/Hedera account bindings,
+live deployment/config reads and one synthetic Seller VC manually signed by
+Admin and accepted by the pinned Terminal3 verifier. No Equity or other chain
+mutation. Original T01 account/network invalidation, serialized operations,
+evidence whitelist and rejection/invalid credential checks remain required.
+
+Proposed allowed files when activated: `src/main.tsx`, `src/App.tsx`,
+`src/styles.css`, `src/ats.ts`, `src/guards.ts`, `src/credentials.ts`,
+`src/evidence.ts`; `tests/shell.test.mjs`, `tests/ats.test.mjs`;
+`package.json`, `package-lock.json`, `tsconfig.json`, `vite.config.ts`;
+`README.md`, `PRODUCT.md`, `AI_USAGE.md`, `docs/HANDOFF.md`,
+`docs/evidence/**`, `docs/prompts/**`.
+The previously approved exact Terminal3/ethers direct pins belong to T01b,
+not T01a; dependency risk must be rechecked when activating that graph.
+
+Acceptance: observed distinct public accounts on chain 296; missing wallet,
+rejection, duplicate account, wrong chain and account/network change guards;
+live Resolver/Factory bytecode; config integer payload >= 1 with no fallback;
+manual Admin VC signature accepted, tampered/expired/wrong-subject rejected;
+whitelisted persisted/exportable evidence with no full VC/signature or invented
+transaction IDs. Manual checks stay pending until Victor actually performs them.
+Then document exact T02 allowed files; do not start T02 in that ticket.
 
 ## Victor's pending actions
 
-- Prepare three distinct MetaMask public accounts and Testnet HBAR; public
-  EVM/Hedera mapping is still unknown. Connect/sign only through the T01 UI
-  when implemented. Never send private keys, seed phrases or wallet files.
-- Review dependency-risk triage with a Hedera mentor before live wallet/VC
-  integration if resolution changes the approved dependency assumptions.
-- Resolve the disclosed pre-event planning eligibility question with organizers
-  and choose a project license before claiming an open-source submission.
+- Review B1/B2 mentor packet in the triage report and explicitly choose the
+  permitted remediation/diagnostic path. No message has been sent to a mentor.
+- No MetaMask action is needed now. Prepare three distinct public accounts and
+  Testnet HBAR for T01b only; never share keys, seeds or wallet/profile files.
+- Resolve pre-event planning eligibility with organizers and choose a project
+  license before claiming an open-source submission.
 
 ## Run / handoff boundary
 
-`npm ci`, then `npm run dev` at http://127.0.0.1:5173 . For production smoke,
-`npm run build` then `npm run preview` at http://127.0.0.1:4173 . No environment
-file or wallet is needed to view T00. Server processes/artifacts are disposable;
-the new context must not assume they are still running.
+`npm ci`, then `npm run dev` at http://127.0.0.1:5173 .
+`npm run build`, then `npm run preview` at http://127.0.0.1:4173 .
+No .env or wallet is required for the unchanged shell. Do not assume old server
+processes or ignored browser artifacts survive context handoff.
 
-The final T00 closeout is documentation-only. Read actual HEAD/status/log;
-verify the source_validated_commit is its ancestor and that no later source
-change invalidates the recorded checks. Do not resume completed T00 work or
-start T02 just because its future acceptance table is in the plan.
-
-## Forbidden early work
-
-No chain mutation or SDK connection in T00. No Go, PostgreSQL, CLOB, payment leg,
-matching, mainnet, custom contracts, real identity collection, public website
-deployment, branding/animation project, or automatic signing/retries.
+No Go, PostgreSQL, CLOB, matching, payment leg, mainnet, custom contracts, real
+identity collection, public web deployment, branding/animation or automated
+signing/retries. No SDK runtime integration until T01a's gate is resolved.
