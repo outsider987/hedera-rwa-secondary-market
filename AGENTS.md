@@ -77,9 +77,14 @@ rules, authorization, asset parameters or acceptance checks.
   shell exists. Use Node's built-in test runner, not another test framework.
 - Validate the dev page and production preview in a browser. SDK/browser and
   real MetaMask behavior require T01 checks; a static shell build proves neither.
-- UI copy is English; planning/handoff prose may be Traditional Chinese.
+- UI copy and documents intended for judges or public review are English;
+  planning/handoff prose may be Traditional Chinese.
   Keep keyboard navigation, visible focus, readable contrast, responsive layout,
   honest empty/error/pending states. No images, branding exercise, or animation.
+- Keep evidence summaries to about one page: delivered behavior, actual checks,
+  remaining blockers and links to raw evidence. Omit step-by-step work diaries;
+  link detailed logs and audit inventories. Retain required attribution and
+  material security or verification limitations.
 - Before a ticket's final commit, update handoff and AI usage with actual checks,
   evidence, unresolved blockers, Victor actions, and the next ticket's exact
   allowed files. Commit docs WITH the work, not afterward. Confirm clean Git

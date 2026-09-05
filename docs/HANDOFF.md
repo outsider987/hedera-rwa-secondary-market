@@ -5,9 +5,9 @@
 **T01b-1 錢包切片已實作、自動化通過；Victor 真實桌面 MetaMask 驗收待完成。**
 T01a 安全仍 blocked，ATS config／VC／T02 未啟動。
 
-- `based_on_commit: 4c29a34faee0848e82478b47fe68ee6e59b42859`（本次文件修正起點，非包含此 handoff 的 commit）。
-- 分支 `diagnostic/t01a-sdk-load`；前次文件的 25bc5de 已驗為祖先。實際 HEAD 由 Git 讀取。
-- 使用者要求評審證據使用英文；摘要已翻譯，數值／連結與原始結果未改。文件連結、語言、差異已檢查；未重跑未變動的程式測試。
+- `based_on_commit: 5740227d565bfced3b84d5f45606083b4663225d`（本次文件規則修正起點，非包含此 handoff 的 commit）。
+- 分支 `diagnostic/t01a-sdk-load`；前次文件的 4c29a34 已驗為祖先。實際 HEAD 由 Git 讀取。
+- 評審文件英文、證據摘要約一頁的要求已寫入 [AGENTS](../AGENTS.md)。本次僅文件規則／紀錄，連結與差異檢查通過；未重跑未變動的程式測試。
 - 未 push／merge／更新 PR／部署；未宣稱本輪 CI 通過。
 
 ## Reading map
@@ -43,7 +43,7 @@ Disconnect、Clear／替換、重載後待驗證與手動重連。Mirror 未索�
 只記公開 EVM／Hedera ID 與觀察，不需要簽署、交易或 profile 匯出；手機只驗排版。
 
 下輪 record-only exact files：`docs/HANDOFF.md`、`AI_USAGE.md`、新增
-`docs/ai-usage/011-t01b-1-manual.md`、`docs/prompts/011-t01b-1-manual.md`、
+`docs/ai-usage/012-t01b-1-manual.md`、`docs/prompts/011-t01b-1-manual.md`、
 `docs/evidence/009-t01b-1-manual.md`、`docs/evidence/009-t01b-1-manual.json`、
 `docs/plans/001-ats-first.md`（status／scope only）。保留本輪 dated records。
 若發現程式缺陷，先依證據界定修補票；不自動展開套件修補、ATS config／VC 或下一票。
