@@ -2,128 +2,74 @@
 
 ## Current objective / Git base
 
-- Active ticket: **T01a — browser loading fixed; dependency security BLOCKED**.
-- Victor 的第二次「go」核准具體 browser remediation；已完成該實驗。
-  T01a 的安全門檻尚未解除，T01b 未啟動。
-- `based_on_commit: daed90b3353094f003b487a053cfa119fcefc11a`。
-- 本輪從乾淨的 `diagnostic/t01a-sdk-load` 開始；舊 base `20267d4` 已核對
-  為 ancestor。Main 仍是 `03d1a34`，actual HEAD 由 Git 讀取。
-- 必讀：[active plan](plans/001-ats-first.md)、
-  [最新 go 授權](prompts/005-t01a-remediation-decision.md)、
-  [本輪驗收](evidence/004-t01a-remediation.md)、
-  [audit/lock 比較](evidence/004-t01a-audit-comparison.json)、
-  [bundle membership](evidence/004-t01a-bundle.json)、
-  [browser 結果](evidence/004-t01a-browser.json)、
-  [原安全 triage](evidence/001-t01a-triage.md)。
-- 歷史來源：[研究](evidence/003-t01a-remediation-research.md)、
-  [原載入失敗](evidence/002-t01a-sdk-load.md)、
-  [原隔離診斷授權](prompts/003-t01a-isolated-load.md)、
-  [T01a 初始決策](prompts/002-t01a-planning-record.md)。
+- Active product ticket: **T01a — browser loading fixed; dependency security BLOCKED**.
+  T01b is inactive. The approved documentation maintenance is complete; no ATS work advanced.
+- `based_on_commit: 09d8d3bda397da0810f144884f32dcbe5d779874`.
+- Started clean on `diagnostic/t01a-sdk-load`; previous base `daed90b` is an ancestor.
+  Main remains `03d1a34`; read actual HEAD from Git. Draft PR #1 is unmerged.
 
-## Completed / verified
+## Reading map
 
-- Public repo `outsider987/hedera-rwa-secondary-market`；預設 main。
-- T00 完成：guardrails `e162b24`、shell `00a5dd1`、closeout `10d69e7`。
-  T01a triage `370cc0b`／`03d1a34`、失敗診斷 `20267d4`、研究 `daed90b`。
-- 新增 direct proto 2.25.0 與 dev polyfill plugin 0.28.0；原 framework／ATS／
-  Node/npm pins、wallet-connect 2.1.2 不變，沒有 override。
-- 新增 Vite 8 設定與 dotenv／Winston browser adapters。Vite 不讀 env 檔；
-  logger 只輸出固定 level 摘要，不讀取 SDK payload／formatter；檔案 transport
-  明確拒絕。這些不是完整 Winston API，後續不得假設支援檔案 logging。
-- `src/ats.ts`／`src/App.tsx`、styles 與 CI 未改。仍是手動官方 root import，
-  只確認 Management function 存在、不呼叫，單次 promise、不自動重試。
-- Node 24.19.0 / npm 11.17.0；npm ci 成功，1242 installed / 1243 audited。
-- npm test：6 passed；typecheck passed（含新 Vite config）；build passed，
-  9246 modules transformed。另一次 build 的所有 asset hashes 完全相同。
-- Dev／有效 production preview 的桌面與手機四案例真實 SDK 載入成功；
-  idle/loading/success/reload、duplicate guard、鍵盤/focus、無 overflow 通過。
-  每案 0 wallet accesses、0 external HTTP/WebSocket attempts、0 unhandled errors。
-- 新 browser JSON 保存在 004；舊 002 失敗 JSON 不覆寫。既有 harness 已改驗收
-  真實成功。最初 matcher 標點錯誤已修正，沒有為測試改 app 的成功條件。
-- 開啟 dev desktop／preview mobile 兩張截圖。無本輪額外 agent／人類 review。
-- 沒有 MetaMask、帳戶綁定、config 讀取、VC、Equity、Hold 或交易識別。
+Read AGENTS and this file fully. Before implementation, read applicable sections
+of the [ATS plan](plans/001-ats-first.md): shared scope/rules plus the active ticket's
+parameters and acceptance. Read its effective authorization as well. Links below
+are lookup routes, not a recursive startup reading list.
 
-## Remaining risks / limits
+| Need | Read |
+| --- | --- |
+| Current T01a repair authority | [Approved bounded remediation](prompts/005-t01a-remediation-decision.md); plan section 3 retains earlier constraints and amendments |
+| This documentation maintenance | [Decision/scope](prompts/006-docs-navigation.md), [checks](ai-usage/005-docs-navigation.md) |
+| SDK load verification | [Remediation summary](evidence/004-t01a-remediation.md) |
+| Investigate B1/B2 | [Original triage](evidence/001-t01a-triage.md), then relevant package paths in [audit comparison](evidence/004-t01a-audit-comparison.json) and [bundle membership](evidence/004-t01a-bundle.json) |
+| Reproduce browser checks | [Browser script](evidence/002-t01a-browser.mjs), [results](evidence/004-t01a-browser.json) |
+| Trace historical AI/human decisions | [AI usage index](../AI_USAGE.md), then the relevant record and linked prompt |
+| Check third-party use/license | [Attribution](ATTRIBUTION.md) |
 
-- **B3 resolved**：proto 2.25.0 現在可由 wallet-connect 正常解析。
-- **B4 resolved for isolated import**：process／Buffer 等 browser 需求已補足。
-  某些 dependency 的 caught feature probes 仍存在；載入不驗證未來 SDK API。
-- **B1 unresolved**：protobufjs 7.2.5／7.5.4 的上游 exact pins 仍在；兩版本
-  都有 rendered bundle modules。Root 版本變動是 peer placement，不是安全修復。
-- **B2 unresolved**：Terminal3 optional native branch 的 tar ^6.1.11 仍在 lock。
-  本機最終未安裝、bundle 無該 native/tar module，不代表所有平台安裝安全。
-- Audit：78 → 83 套件項、98 → 104 affected locations；17 → 22 low，
-  32 moderate / 27 high / 2 critical 不變。5 個新增 low 為 polyfill 路徑的
-  elliptic 聚合項，沒有任何漏洞被修復或豁免。
-- Bundle 亦含 Fireblocks axios 0.27.2、Terminal3 BBS、elliptic 6.6.1。
-  靜態 inclusion 不等於已執行／可利用，但不能宣稱未進 browser bundle。
-- 主 SDK chunk 8,759,902 bytes／1,643,345 gzip；所有 JS chunks 15,738,454 bytes。
-  大型 chunk 與 vm-browserify direct-eval warnings 保留。
-- 七個未批准 install-script notices、Node module-mock experimental notice 保留。
-  沒有批准 script、暴露 host environment、秘密／wallet profile 或任意 SDK 日誌。
-- Remote CI 以目前 Git HEAD 的 GitHub Checks 為準；本節記錄本機實際驗收，
-  不沿用歷史綠燈。Draft PR #1 保留，沒有合併 main 或部署網站。
+Search or extract needed JSON fields first. Load a complete inventory when the
+task requires it; summaries do not replace evidence or applicable safety rules.
 
-## Next action — T01a security decision, not T01b
+## Verified state / remaining blockers
 
-已授權的 browser remediation 已實作，不需再次詢問同一項核准。下一步只針對
-剩餘安全風險提出具體且有依據的修補／風險決策；bundle 證據已可供 Victor／
-mentor 評估。沒有向 mentor 發送訊息。Go 沒有放行其他直接依賴、override、
-SDK 升降版、漏洞豁免或 wallet integration。
+- T00 is complete. Source commit `09d8d3b` fixed proto resolution and browser globals:
+  direct proto 2.25.0, dev polyfill 0.28.0, limited dotenv/logging adapters.
+  Framework/ATS/Node/npm pins and wallet-connect 2.1.2 remain unchanged.
+- At that source: npm ci, 6 tests, typecheck, build and [CI](https://github.com/outsider987/hedera-rwa-secondary-market/actions/runs/33948243910)
+  passed. Dev/valid preview × desktop/mobile loaded the real SDK with zero provider
+  access/outbound attempts. This is import/export-presence verification, not API readiness.
+- This maintenance only reorganizes documentation. No wallet binding, config read,
+  VC signature, Equity, Hold or transaction evidence exists.
+- **B1:** exact protobufjs 7.2.5/7.5.4 pins remain; both have rendered browser modules.
+- **B2:** optional native Terminal3/tar ^6.1.11 remains in the lock. Its local final
+  absence and lack of rendered modules do not waive other platforms' install risk.
+- Last audit: 83 entries (22 low / 32 moderate / 27 high / 2 critical), 104 locations.
+  Five low aggregate entries were added through polyfills; no vulnerability was waived.
+  Fireblocks axios, Terminal3 BBS and elliptic also appear in the bundle.
+- Large chunks, vm-browserify eval warnings and unapproved script notices remain.
+  Caught feature probes and restricted logging adapters do not prove future APIs work.
 
-目前可整理 records；有具體新修法決策才實作，不重跑不變的 graph 期待不同結果。
-保持 T01a blocked，不能以載入成功代替安全門檻或完整 ATS readiness。
+## Next action / exact scope
 
-### T01a exact files / remaining acceptance
+The browser remediation is already approved and complete. Continue T01a records
+and concrete security analysis; a further repair outside existing authority needs
+its own specific decision. Do not start T01b, override pins, upgrade SDK, approve
+scripts, waive risks or access wallets from this documentation approval.
 
-- 本輪實作 files：`package.json`、`package-lock.json`、`vite.config.ts`、
-  `tsconfig.json`、`src/compat/dotenv.ts`、`src/compat/winston.ts`、
-  `tests/ats.test.mjs`、`docs/evidence/002-t01a-browser.mjs`。
-- Records：`README.md`、`AI_USAGE.md`、`docs/HANDOFF.md`、
-  `docs/plans/001-ats-first.md`（scope only）、`docs/evidence/**`、`docs/prompts/**`。
-- 修復驗收已完成；剩餘 acceptance 為適用 dependency/security 風險處理及決策。
-  若決策改 package／source，先記 exact 範圍，重驗 ci/test/typecheck/build、
-  isolated dev/preview、audit diff、bundle membership 及原有安全防護。
-- 不改 AGENTS、CI、styles、design-system、unrelated source，不開始 T01b。
-- 英文 boundary commit 同時含 handoff／AI usage／證據；保持乾淨工作樹。
+Current record files: README.md, AI_USAGE.md, docs/ai-usage/*.md,
+docs/ATTRIBUTION.md, docs/HANDOFF.md, docs/plans/001-ats-first.md (scope only),
+docs/evidence/**, docs/prompts/**. The completed repair's exact code files and
+checks are in its linked decision. The AGENTS reading/attribution edit was specific
+to this maintenance, not general authority to change rules in a later ticket.
 
-## Deferred next ticket — T01b (not activated)
+Remaining T01a acceptance: resolve applicable dependency/security risks and record
+the effective decision. Changed code/graph requires the plan's install/test/typecheck/
+build, audit/bundle and isolated browser checks. Do not repeat unchanged checks
+without new evidence. Commit records with work and keep the ticket boundary clean.
 
-Goal: real MetaMask guards; distinct Admin/Seller/Buyer public EVM/Hedera
-bindings; deployment/config reads; a synthetic Seller VC manually signed by
-Admin and accepted by the pinned Terminal3 verifier. No Equity/chain mutation.
-All account/network invalidation, serialization, rejection and evidence rules
-remain. Existing browser adapters must not replace SDK or VC verification.
+T01b goal, exact allowed files and acceptance remain in the
+[deferred plan section](plans/001-ats-first.md#deferred-next-ticket--t01b-not-activated).
+Read that section when planning/activating T01b; its presence does not activate it.
 
-Proposed exact files when activated: `src/main.tsx`, `src/App.tsx`,
-`src/styles.css`, `src/ats.ts`, `src/guards.ts`, `src/credentials.ts`,
-`src/evidence.ts`; `tests/shell.test.mjs`, `tests/ats.test.mjs`;
-`package.json`, `package-lock.json`, `tsconfig.json`, `vite.config.ts`;
-`README.md`, `PRODUCT.md`, `AI_USAGE.md`, `docs/HANDOFF.md`,
-`docs/evidence/**`, `docs/prompts/**`.
-Direct Terminal3/ethers exact pins belong to T01b and need graph risk review.
-
-Acceptance: real distinct accounts on chain 296; missing/rejected wallet,
-duplicate/wrong accounts, wrong chain and switches; live Resolver/Factory
-bytecode; config integer payload >= 1; manual Admin VC accepted with
-expired/tampered/wrong-subject credentials rejected; persisted/exportable
-whitelist evidence without full VC/signature or invented transaction IDs.
-Manual checks remain pending until actually performed. Then document exact
-T02 allowed files; do not start T02 in T01b.
-
-## Victor actions / running locally
-
-- Review remaining B1/B2 and bundle-exposed risks with the concrete evidence.
-  No MetaMask action is needed for the current slice.
-- Later prepare three distinct public accounts and Testnet HBAR. Never share
-  private keys, seeds or wallet/profile files.
-- Resolve pre-event design eligibility with organizers; select a project
-  license before claiming an open-source submission.
-
-Run `npm ci`, then `npm run dev` at http://127.0.0.1:5173 . For production,
-`npm run build` then `npm run preview` at http://127.0.0.1:4173 . Use an isolated
-browser without secrets/wallets; click Load ATS SDK manually. No .env needed.
-Read servers from actual processes; do not assume old sessions are running.
-
-No Go, database, CLOB, matching, payment leg, mainnet, custom contracts, real
-identity collection, public deployment, branding/animation or automated signing.
+Victor: review remaining risk evidence; no MetaMask action is needed now. Later
+prepare distinct public accounts/Testnet HBAR without sharing secrets. Pre-event
+eligibility and project-license decisions remain pending. Local run commands are
+in [README](../README.md#本機執行); do not assume old server sessions are running.

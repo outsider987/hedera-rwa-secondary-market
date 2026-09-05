@@ -2,7 +2,9 @@
 
 ## Start every task from repository evidence
 
-1. Read this file completely, then `docs/HANDOFF.md` and its referenced plan/specs.
+1. Read this file completely, then `docs/HANDOFF.md`. Before implementation,
+   read the applicable plan/spec sections and effective authorization. Follow
+   the handoff's reading map; a link alone does not require loading its target.
 2. Inspect `git status --short --branch`, `git log --oneline -10`, and the tree.
 3. Check `based_on_commit` against Git history. It is the base of the documented
    work, NOT the hash of the commit containing the handoff. `unborn` is valid only
@@ -11,6 +13,13 @@
 5. Implement only that ticket and its allowed files/acceptance tests. Preserve
    unrelated user changes. Stop at the ticket boundary; do not start the next
    ticket merely because it is documented.
+
+Use `AI_USAGE.md` as a short provenance index. Read relevant entries under
+`docs/ai-usage/` when tracing decisions or extending that work; do not load the
+whole archive by default. Start with evidence summaries, then query the needed
+JSON fields/package paths with Node or search. Read complete inventories when
+the task requires completeness. Selective reading never waives applicable
+rules, authorization, asset parameters or acceptance checks.
 
 ## ETHOnline / attribution
 
@@ -25,8 +34,11 @@
   Do not import an unseen pre-event master-plan file as new event work.
 - Disclose third-party code, libraries, assets, and adaptations with their
   source/version/license. Retain required upstream notices when copying code.
-- Update `AI_USAGE.md` with affected files, AI assistance, human decisions, and
-  checks actually performed. Do not invent human review or model identities.
+- Record affected files, AI assistance, human decisions and checks actually
+  performed in one work-item entry under `docs/ai-usage/`; update the short
+  `AI_USAGE.md` index with its link. Keep detailed validation in evidence and
+  current third-party sources in `docs/ATTRIBUTION.md`. Preserve dated history;
+  record corrections in a new entry. Do not invent human review/model identities.
 - Public GitHub availability alone is not an assertion of a project license,
   event eligibility, real KYC, or legal compliance.
 - Event rules: https://ethglobal.com/events/ethonline2026/info/details

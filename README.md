@@ -72,7 +72,8 @@ Admin（兼 Escrow／測試 VC issuer）、Seller、Buyer 三個獨立 MetaMask 
 
 - 本地工作從空目錄開始；使用者提供過先前 agent 的規劃文字，來源與
   尚未確認的賽前研究問題記錄於 [planning record](docs/prompts/001-planning-record.md)。
-- 第三方套件與 AI 協作記錄：[AI_USAGE.md](AI_USAGE.md)。
+- AI 協作導覽：[AI_USAGE.md](AI_USAGE.md)，依工作項目選讀歷史紀錄。
+- 第三方套件／素材來源與授權：[ATTRIBUTION.md](docs/ATTRIBUTION.md)。
 - 專案尚未選定授權；public repo 不等於對本專案授予開源使用授權。
 - ETHOnline 資格仍依主辦審核；不因新建 repo 或省略賽前檔案而自動符合。
 
