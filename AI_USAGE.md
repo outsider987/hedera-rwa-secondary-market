@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-05 | T01b-2 / T01b-3 integration | [Authorized push and merge with CI gate](docs/ai-usage/016-deployment-config-merge.md) |
 | 2026-09-05 | T01b-3 Equity config reads | [TDD and live config version; SDK integration remains pending](docs/ai-usage/015-t01b-3-config.md) |
 | 2026-09-05 | T01b-2 deployment reads | [TDD, live Testnet checks and pending human acceptance](docs/ai-usage/014-t01b-2-deployment.md) |
 | 2026-09-05 | PR #1 integration | [User-authorized merge with pending acceptance retained](docs/ai-usage/013-pr-1-merge.md) |

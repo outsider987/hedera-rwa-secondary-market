@@ -4,9 +4,9 @@
 
 **T01b-3 combined deployment and Equity config reads are implemented; automated and live public-endpoint checks pass. Victor's real MetaMask acceptance remains Pending. T01 is not complete.**
 
-- `based_on_commit: 0828d797c403e13f150edc5b2d63170cb76a8689` (implementation base, not the commit containing this handoff).
-- Branch: `feat/t01b-3-config-check`, created from clean T01b-2 commit `0828d79`; T01b-2 has not been merged. Previous handoff base `66dea38` was verified as an ancestor. Read actual HEAD/status from Git.
-- User authorized the independent read-only slice and TDD. Human acceptance is scheduled for **2026-09-06, Asia/Taipei**; postponement does not remove requirements. No push/merge is authorized for this branch.
+- `based_on_commit: 54452080fca81051f41f9dd422d98f6a1e82b9ae` (integration base, not the commit containing this handoff).
+- Integration: `feat/t01b-3-config-check` → `main`, including T01b-2 (`0828d79`) and T01b-3 (`5445208`). Previous handoff base `0828d79` was verified as an ancestor. User authorized push and merge; merge only after the latest PR head passes CI. Read the resulting HEAD/PR state from Git/GitHub; hand over on main after merge.
+- User authorized the independent read-only slice and TDD. Human acceptance is scheduled for **2026-09-06, Asia/Taipei**; postponement does not remove requirements. The user subsequently authorized pushing and merging this branch; no public deployment or next implementation ticket is included.
 
 ## Reading map
 
@@ -56,6 +56,6 @@ Stop at this ticket boundary. Next work is human acceptance and its records, not
 
 - `docs/HANDOFF.md`, `docs/plans/001-ats-first.md` (status/scope only), `AI_USAGE.md`.
 - New `docs/evidence/011-t01-manual.md` and `docs/evidence/011-t01-manual.json`.
-- New `docs/prompts/013-t01-manual.md` and `docs/ai-usage/016-t01-manual.md`.
+- New `docs/prompts/013-t01-manual.md` and `docs/ai-usage/017-t01-manual.md`.
 
-This replaces the earlier unused manual-record filename reservation. Preserve historical evidence and the full pending T01 requirements. Keep public evidence English and about one page; link raw results. Commit records with the work, keep a clean boundary, and do not push/merge automatically. Do not assume old local servers remain running.
+This replaces the earlier unused manual-record filename reservation. Preserve historical evidence and the full pending T01 requirements. Keep public evidence English and about one page; link raw results. Commit records with the work, keep a clean boundary, and do not push/merge future work automatically. This integration alone is explicitly authorized. Do not assume old local servers remain running.

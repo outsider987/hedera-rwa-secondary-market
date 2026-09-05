@@ -235,6 +235,13 @@ Exact source/test files: `src/deployment.ts`, `src/App.tsx`,
 真人驗收仍為 2026-09-06 Pending，清單加上 config；安全／SDK／VC 門檻保留。
 自動化通過可連同文件提交，不自動 push／merge，不啟動 T02。
 
+### 2026-09-05 T01b-2／T01b-3 推送與合併授權
+
+使用者以「合併推送」核准推送 `feat/t01b-3-config-check` 並合併至 main，
+包含尚未整合的 T01b-2 與 T01b-3。保留原提交，以最新 PR head CI 通過為
+合併條件；本次只更新整合紀錄、handoff、AI_USAGE 與此授權。
+真人驗收、T01a、SDK／VC 待辦不變，不啟動下一張實作票或公開部署。
+
 ### 操作介面與安全入口
 
 單頁：上方 network／active account／required role，中間按順序操作，
