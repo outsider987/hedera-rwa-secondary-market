@@ -114,6 +114,24 @@ exact `@hiero-ledger/proto 2.25.0`、`vite-plugin-node-polyfills 0.28.0`，以�
 完成真實 dev／有效 production preview 載入與 audit 前後比較，仍停在 T01a。
 此授權沒有放行 override、其他直接套件、漏洞豁免或 T01b。
 
+### 2026-09-05 T01a protobufjs 限定試驗授權
+
+使用者要求實作 [protobufjs 限定計畫](../prompts/007-t01a-protobuf-trial.md)，
+以實作起始 HEAD `ecf219c4690072757da8d165e3af36903cc43ee9` 為基準。
+唯一 override 例外：`@hashgraph/sdk@2.64.5`、`@hashgraph/proto@2.18.5`、
+`@hiero-ledger/sdk@2.79.0`、`@hiero-ledger/proto@2.25.0` 的 protobufjs
+固定為 `7.6.5`；既有 gRPC `7.6.6` 不降版。其他 pins／資產設定不變。
+程式限 package.json、package-lock.json、既有隔離 browser harness，
+新增單一 Node 測試檔與結果於 `docs/evidence/005-t01a-protobuf*`；文件限
+本輪 prompt、handoff、此授權、attribution、AI usage work item／索引。
+保存完整 audit、lock 差異、bundle 清單，測兩套公開 proto 的合成資料／
+64 位元精度、截斷／過深群組／Key 遞迴（獨立子程序、固定逾時），以及
+npm ci／test／typecheck／build 與 dev/preview × desktop/mobile 隔離載入。
+安裝衝突、不相容、安全失敗或候選未涵蓋的新漏洞均停止並還原本輪依賴，
+只提交可重現診斷／mentor 問題；通過才保留修補。不得修改上游 source／
+重生解碼器、擴大 override、批准 scripts、操作錢包或啟動 T01b。
+Terminal3／tar 等其餘風險仍是 blockers；文件與成果一起提交，不合併 draft PR。
+
 T00 自然拆為 `chore: initialize HoldBook guardrails` 與
 `feat(web): add HoldBook testnet shell`。其後按實際完成工作提交，
 沒有手動鏈上驗收時不使用已證明 lifecycle 的敘述。

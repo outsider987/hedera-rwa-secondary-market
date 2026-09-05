@@ -1,0 +1,32 @@
+[
+  {
+    "name": "elliptic",
+    "field": "fixAvailable",
+    "before": {
+      "name": "@hashgraph/asset-tokenization-sdk",
+      "version": "1.13.0",
+      "isSemVerMajor": true
+    },
+    "restored": {
+      "name": "vite-plugin-node-polyfills",
+      "version": "0.2.0",
+      "isSemVerMajor": true
+    }
+  },
+  {
+    "name": "ethjs-unit",
+    "field": "effects",
+    "before": [
+      "web3-utils"
+    ],
+    "restored": []
+  },
+  {
+    "name": "number-to-bn",
+    "field": "effects",
+    "before": [],
+    "restored": [
+      "web3-utils"
+    ]
+  }
+]

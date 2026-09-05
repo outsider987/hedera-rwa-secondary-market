@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-05 | T01a protobufjs bounded trial | [Failed decoder/tree gates; dependencies restored](docs/ai-usage/006-t01a-protobuf.md) |
 | 2026-09-05 | Documentation navigation | [Folder, index and selective reading](docs/ai-usage/005-docs-navigation.md) |
 | 2026-09-05 | T01a browser remediation | [Real browser loading verified; security gate remains](docs/ai-usage/004-t01a-remediation.md) |
 | 2026-09-05 | T01a remediation research | [Upstream options and proposed experiment](docs/ai-usage/003-t01a-research.md) |

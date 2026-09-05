@@ -1,11 +1,17 @@
 // Diagnostic tool only; Playwright is supplied outside the project dependency graph.
 // Run after a successful production build, with dev and preview already running:
-// node docs/evidence/002-t01a-browser.mjs /absolute/path/to/playwright/package.json
+// node docs/evidence/002-t01a-browser.mjs /absolute/path/to/playwright/package.json output.json
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 
 assert.ok(process.argv[2], 'Supply the external Playwright package.json path');
+assert.ok(process.argv[3], 'Supply a new evidence path; historical evidence must not be overwritten');
+const output = process.argv[3];
+const baseCommit = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+const lockSha256 = createHash('sha256').update(await readFile('package-lock.json')).digest('hex');
 const require = createRequire(process.argv[2]);
 const { chromium } = require('playwright');
 const entry = (await readFile('dist/index.html', 'utf8')).match(/src="([^"]+\.js)"/)[1];
@@ -113,16 +119,17 @@ try {
       await context.close();
     }
   }
-  await writeFile('docs/evidence/004-t01a-browser.json', JSON.stringify({
+  await writeFile(output, JSON.stringify({
     schemaVersion: 1,
     kind: 'isolated-sdk-load-diagnostic',
-    baseCommit: 'daed90b3353094f003b487a053cfa119fcefc11a',
+    baseCommit,
+    lockSha256,
     browser: browser.version(),
     playwright: require('playwright/package.json').version,
     sdk: '8.0.0',
     note: 'Real SDK import and Management export presence only; no API invocation, wallet/chain or VC validation. Screenshots are ignored local artifacts. Historical failures remain in 002-t01a-browser.json.',
     results,
-  }, null, 2) + '\n');
+  }, null, 2) + '\n', { flag: 'wx' });
 } finally {
   await browser.close();
 }

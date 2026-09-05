@@ -1,0 +1,140 @@
+[
+  {
+    "path": "node_modules/@hashgraph/proto/node_modules/protobufjs",
+    "reason": "Deduplicated to the approved root protobufjs 7.6.5",
+    "before": {
+      "version": "7.2.5",
+      "resolved": "https://registry.npmjs.org/protobufjs/-/protobufjs-7.2.5.tgz",
+      "integrity": "sha512-gGXRSXvxQ7UiPgfw8gevrfRWcTlSbOFg+p/N+JVJEK5VhueL2miT6qTymqAmjr1Q5WbOCyJbyrk6JfWKwlFn6A==",
+      "hasInstallScript": true,
+      "license": "BSD-3-Clause",
+      "dependencies": {
+        "@protobufjs/aspromise": "^1.1.2",
+        "@protobufjs/base64": "^1.1.2",
+        "@protobufjs/codegen": "^2.0.4",
+        "@protobufjs/eventemitter": "^1.1.0",
+        "@protobufjs/fetch": "^1.1.0",
+        "@protobufjs/float": "^1.0.2",
+        "@protobufjs/inquire": "^1.1.0",
+        "@protobufjs/path": "^1.1.2",
+        "@protobufjs/pool": "^1.1.0",
+        "@protobufjs/utf8": "^1.1.0",
+        "@types/node": ">=13.7.0",
+        "long": "^5.0.0"
+      },
+      "engines": {
+        "node": ">=12.0.0"
+      }
+    },
+    "after": null
+  },
+  {
+    "path": "node_modules/@hashgraph/sdk/node_modules/protobufjs",
+    "reason": "Deduplicated to the approved root protobufjs 7.6.5",
+    "before": {
+      "version": "7.2.5",
+      "resolved": "https://registry.npmjs.org/protobufjs/-/protobufjs-7.2.5.tgz",
+      "integrity": "sha512-gGXRSXvxQ7UiPgfw8gevrfRWcTlSbOFg+p/N+JVJEK5VhueL2miT6qTymqAmjr1Q5WbOCyJbyrk6JfWKwlFn6A==",
+      "hasInstallScript": true,
+      "license": "BSD-3-Clause",
+      "dependencies": {
+        "@protobufjs/aspromise": "^1.1.2",
+        "@protobufjs/base64": "^1.1.2",
+        "@protobufjs/codegen": "^2.0.4",
+        "@protobufjs/eventemitter": "^1.1.0",
+        "@protobufjs/fetch": "^1.1.0",
+        "@protobufjs/float": "^1.0.2",
+        "@protobufjs/inquire": "^1.1.0",
+        "@protobufjs/path": "^1.1.2",
+        "@protobufjs/pool": "^1.1.0",
+        "@protobufjs/utf8": "^1.1.0",
+        "@types/node": ">=13.7.0",
+        "long": "^5.0.0"
+      },
+      "engines": {
+        "node": ">=12.0.0"
+      }
+    },
+    "after": null
+  },
+  {
+    "path": "node_modules/@protobufjs/inquire",
+    "reason": "Removed: protobufjs 7.6.5 no longer depends on inquire; no remaining lock declaration",
+    "before": {
+      "version": "1.1.2",
+      "resolved": "https://registry.npmjs.org/@protobufjs/inquire/-/inquire-1.1.2.tgz",
+      "integrity": "sha512-pa0vFRuws4wkvaXKK1uXZMAwAX4/t8ANaJo45iw/oQHNQ9q5xUzwgFmVJGXiga2BeN+zpX7Vf9vmsiIa2J+MUw==",
+      "license": "BSD-3-Clause"
+    },
+    "after": null
+  },
+  {
+    "path": "node_modules/protobufjs",
+    "reason": "Approved 7.5.4 to 7.6.5; manifest dependency ranges changed by upstream; peer placement flag removed",
+    "before": {
+      "version": "7.5.4",
+      "resolved": "https://registry.npmjs.org/protobufjs/-/protobufjs-7.5.4.tgz",
+      "integrity": "sha512-CvexbZtbov6jW2eXAvLukXjXUW1TzFaivC46BpWc/3BpcCysb5Vffu+B3XHMm8lVEuy2Mm4XGex8hBSg1yapPg==",
+      "hasInstallScript": true,
+      "license": "BSD-3-Clause",
+      "peer": true,
+      "dependencies": {
+        "@protobufjs/aspromise": "^1.1.2",
+        "@protobufjs/base64": "^1.1.2",
+        "@protobufjs/codegen": "^2.0.4",
+        "@protobufjs/eventemitter": "^1.1.0",
+        "@protobufjs/fetch": "^1.1.0",
+        "@protobufjs/float": "^1.0.2",
+        "@protobufjs/inquire": "^1.1.0",
+        "@protobufjs/path": "^1.1.2",
+        "@protobufjs/pool": "^1.1.0",
+        "@protobufjs/utf8": "^1.1.0",
+        "@types/node": ">=13.7.0",
+        "long": "^5.0.0"
+      },
+      "engines": {
+        "node": ">=12.0.0"
+      }
+    },
+    "after": {
+      "version": "7.6.5",
+      "resolved": "https://registry.npmjs.org/protobufjs/-/protobufjs-7.6.5.tgz",
+      "integrity": "sha512-/FPD0nUc9jH6rfFjji9IBqOz4pcSE3CsT1m7Ep6Mdb0LxSUMj8hgl6GomOvZzpNpAqqGaXA0P3VSrZLFzIhQrw==",
+      "hasInstallScript": true,
+      "license": "BSD-3-Clause",
+      "dependencies": {
+        "@protobufjs/aspromise": "^1.1.2",
+        "@protobufjs/base64": "^1.1.2",
+        "@protobufjs/codegen": "^2.0.5",
+        "@protobufjs/eventemitter": "^1.1.1",
+        "@protobufjs/fetch": "^1.1.1",
+        "@protobufjs/float": "^1.0.2",
+        "@protobufjs/path": "^1.1.2",
+        "@protobufjs/pool": "^1.1.0",
+        "@protobufjs/utf8": "^1.1.1",
+        "@types/node": ">=13.7.0",
+        "long": "^5.3.2"
+      },
+      "engines": {
+        "node": ">=12.0.0"
+      }
+    }
+  },
+  {
+    "path": "node_modules/protobufjs/node_modules/long",
+    "reason": "Only the peer placement flag removed; version, source and integrity unchanged",
+    "before": {
+      "version": "5.3.2",
+      "resolved": "https://registry.npmjs.org/long/-/long-5.3.2.tgz",
+      "integrity": "sha512-mNAgZ1GmyNhD7AuqnTG3/VQ26o760+ZYBPKjPvugO8+nLbYfX6TVpJPseBvopbdY+qpZ/lKUnmEc1LeZYS3QAA==",
+      "license": "Apache-2.0",
+      "peer": true
+    },
+    "after": {
+      "version": "5.3.2",
+      "resolved": "https://registry.npmjs.org/long/-/long-5.3.2.tgz",
+      "integrity": "sha512-mNAgZ1GmyNhD7AuqnTG3/VQ26o760+ZYBPKjPvugO8+nLbYfX6TVpJPseBvopbdY+qpZ/lKUnmEc1LeZYS3QAA==",
+      "license": "Apache-2.0"
+    }
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "kind": "public-npm-tree-diagnostic",
+  "command": "npm ls protobufjs --all --json",
+  "exitCode": 1,
+  "errorCode": "ELSPROBLEMS",
+  "path": "node_modules/@grpc/proto-loader/node_modules/protobufjs",
+  "installedVersion": "7.6.6",
+  "npmInvalidConstraint": "\"7.6.5\" from node_modules/@grpc/proto-loader",
+  "declaredRange": "^7.5.5",
+  "note": "npm ci succeeded; ancestor override also affects descendants. Existing gRPC runtime is not downgraded but npm ls rejects it. No child exemption or further repair attempted."
+}

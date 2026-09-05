@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "kind": "isolated-sdk-load-diagnostic",
+  "baseCommit": "ecf219c4690072757da8d165e3af36903cc43ee9",
+  "lockSha256": "b58048e0de6bcbc6c653c455a3c1daff354e30d62552e9e02a2c5f6ccbb36876",
+  "browser": "143.0.7499.169",
+  "playwright": "1.63.0",
+  "sdk": "8.0.0",
+  "note": "Real SDK import and Management export presence only; no API invocation, wallet/chain or VC validation. Screenshots are ignored local artifacts. Historical failures remain in 002-t01a-browser.json.",
+  "results": [
+    {
+      "server": "dev",
+      "device": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "realSdkLoad": "loaded",
+      "productionAcceptance": "not applicable",
+      "idleLoadingSuccessReload": "passed",
+      "duplicateGuard": "passed",
+      "keyboardAndFocus": "passed",
+      "overflow": false,
+      "sdkRequests": 1,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "walletAccesses": 0,
+      "externalOrigins": [],
+      "screenshot": ".impeccable/review/t01a-dev-desktop.png"
+    },
+    {
+      "server": "dev",
+      "device": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "realSdkLoad": "loaded",
+      "productionAcceptance": "not applicable",
+      "idleLoadingSuccessReload": "passed",
+      "duplicateGuard": "passed",
+      "keyboardAndFocus": "passed",
+      "overflow": false,
+      "sdkRequests": 1,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "walletAccesses": 0,
+      "externalOrigins": [],
+      "screenshot": ".impeccable/review/t01a-dev-mobile.png"
+    },
+    {
+      "server": "preview",
+      "device": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "realSdkLoad": "loaded",
+      "productionAcceptance": "passed",
+      "idleLoadingSuccessReload": "passed",
+      "duplicateGuard": "passed",
+      "keyboardAndFocus": "passed",
+      "overflow": false,
+      "sdkRequests": 1,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "walletAccesses": 0,
+      "externalOrigins": [],
+      "screenshot": ".impeccable/review/t01a-preview-desktop.png"
+    },
+    {
+      "server": "preview",
+      "device": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "realSdkLoad": "loaded",
+      "productionAcceptance": "passed",
+      "idleLoadingSuccessReload": "passed",
+      "duplicateGuard": "passed",
+      "keyboardAndFocus": "passed",
+      "overflow": false,
+      "sdkRequests": 1,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "walletAccesses": 0,
+      "externalOrigins": [],
+      "screenshot": ".impeccable/review/t01a-preview-mobile.png"
+    }
+  ]
+}
