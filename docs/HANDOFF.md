@@ -5,8 +5,9 @@
 - Active ticket: **T01a — isolated SDK loading: BLOCKED**.
 - 隔離診斷已實作並執行；真實 SDK 載入及 production build 均失敗。
   這是診斷邊界，不是 T01a 完成；T01b 未啟動。
-- `based_on_commit: 03d1a34e4faa13e6a93e0ac2365efabee4c6a3ee`。
-- 起始 main 乾淨；工作保存在 `diagnostic/t01a-sdk-load`。Main 未改動。
+- `based_on_commit: 20267d4667f829233174fe473a816ecf09a99fd2`。
+- 本輪從乾淨的 `diagnostic/t01a-sdk-load` 開始，只研究及更新文件。
+  隔離診斷原 base 為 `03d1a34`，已確認是 ancestor。Main 未改動。
   本分支 build 已知失敗，尚不可合併。Actual HEAD 請讀 Git，不自我引用。
 - 已核對舊 base `10d69e7d2950f77e0aa4ee7a2842811fadf0f795` 與 T00 source
   `00a5dd1f0cda654167d4abe3a94f82559c30930e` 都在 Git 歷史中。
@@ -14,7 +15,9 @@
   [原 T01a 授權](prompts/002-t01a-planning-record.md)、
   [Go 隔離診斷授權](prompts/003-t01a-isolated-load.md)、
   [B1/B2 triage](evidence/001-t01a-triage.md)、
-  [本輪 B3/B4 診斷](evidence/002-t01a-sdk-load.md) 與其 browser JSON/script、audit comparison。
+  [B3/B4 診斷](evidence/002-t01a-sdk-load.md) 與其 browser JSON/script、audit comparison、
+  [上網研究請求](prompts/004-t01a-research-request.md)、
+  [具體修法與比較](evidence/003-t01a-remediation-research.md)。
 
 ## Completed / observed
 
@@ -29,6 +32,9 @@
   browser 使用未修改的官方 SDK，觀察到失敗。
 - 依賴版本、lockfile、SDK source、styles、CI 不變；package.json 只改 test flag。
 - 沒有 account mapping、Equity、Hold、VC、鏈上識別或交易。
+- 已查證官方 ATS browser polyfill／環境 adapter、Vite 8 相容 plugin，以及
+  wallet-connect 2.1.3 的 dependency 修正。具體候選已記錄，尚未安裝或驗證。
+  本輪沒有修改程式／依賴，也沒有重跑 runtime checks；舊失敗結果仍有效。
 
 ## Checks / blockers
 
@@ -49,19 +55,25 @@
 - Lockfile SHA-256：`766b3d6d0850b8166ba5ab6c0fbfec3c2dbc6cd85ffaa93a6c37f08f172faaed`。
 - **B1**：protobufjs 7.2.5 / 7.5.4 精確上游 pins，原範圍內不能修補。
 - **B2**：Terminal3 optional native branch 的 tar ^6.1.11 限制仍在。
-- **B3**：wallet-connect 2.1.2 引用未自行宣告的 `@hiero-ledger/proto`；
+- **B3**：wallet-connect 2.1.2 將 `@hiero-ledger/proto` 只列為 devDependency；
   proto 2.25.0 只在 Hiero SDK 內層，production bundler 無法解析。
 - **B4**：官方 browser import 最終拋出 `ReferenceError: process is not defined`；
   另有內部 caught require(buffer/long)、Buffer 問題及 Node built-in 警示。
 - 沒有 alias、external workaround、polyfill、全域 stub、deep import、版本變更
   或安裝 script approval。B3 修好也不代表 B4 或安全風險解除。
 - 歷史 triage CI run 33944789582 在 `370cc0b` 成功，驗證的是舊 shell。
-  本分支結果請另查 GitHub；不得沿用歷史綠燈宣稱本輪 CI 通過。
+  已查證 diagnostic CI run 33946158634／`20267d4`：ci/test/typecheck 成功，
+  build 失敗。本輪只有研究文件，沒有修復該失敗；新 HEAD 結果另讀 GitHub。
 
 ## Next action — resolve T01a
 
-由 Victor／mentor 決定 B1–B4 的具體相容性與風險處理：ATS 8.0.0 支援的
-依賴解析、官方 browser bundler/global 需求，以及固定 graph 的漏洞處理。
+研究已提出最小候選：保留 ATS 8.0.0／wallet-connect 2.1.2，直接補 proto
+2.25.0，使用支援 Vite 8 的 polyfill plugin 0.28.0 與必要 browser adapters。
+這是可供決策的實驗，尚非已驗證修法；wallet-connect 2.1.3 還有 adapter
+行為變更，故不是優先升級方案。Exact proposed files／驗收見
+[research proposal](evidence/003-t01a-remediation-research.md)。
+
+由 Victor／mentor 決定是否採用該具體 T01a 實驗，以及 B1/B2 風險處理。
 沒有向 mentor 發送訊息，沒有驗證或批准候選 override、package change、polyfill。
 已核准的隔離診斷不需重複核准；跨出這個範圍才需要新決策。
 
@@ -111,8 +123,9 @@ Then document exact T02 allowed files; do not start T02 in that ticket.
 
 ## Victor's pending actions
 
-- Review B1–B4 in the new SDK load diagnostic and approve a concrete supported
-  compatibility/security plan. Isolated diagnostics are already authorized;
+- Review the concrete candidate and alternatives in the remediation research.
+  Research is complete; implementation is not approved or verified.
+  Isolated diagnostics are already authorized;
   overrides, package changes and polyfills are not. No mentor message was sent.
 - No MetaMask action is needed now. Prepare three distinct public accounts and
   Testnet HBAR for T01b only; never share keys, seeds or wallet/profile files.
