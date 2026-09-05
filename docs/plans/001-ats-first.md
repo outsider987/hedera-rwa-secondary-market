@@ -196,6 +196,25 @@ protobuf 在重新接入 ATS 解碼前處理；Terminal3/BBS/tar 在 VC 接入�
 最新 PR head CI 通過為整合條件。這只授權現有成果整合，不解除 T01a
 安全門檻、不宣稱 MetaMask 真人驗收通過，也不啟動下一票。
 
+### 2026-09-05 T01b-2 獨立部署唯讀切片授權（目前有效）
+
+使用者以 “Implement the proposed plan.” 核准 [Prompt 011](../prompts/011-t01b-2-deployment.md)
+的完整計畫，從 `66dea387a64ef385e5e84d3f7eb0f62699ed69cf` 開分支實作。
+本票允許獨立 viem 公開讀取，不以 T01b-1 真人驗收或 T01a 修復為前置；
+兩者仍未完成。固定 RPC 296 → Mirror Resolver／Factory → runtime bytecode，
+只允許手動啟動、10 秒期限、取消／過期隔離、無自動重試，依 TDD 驗收。
+
+Exact code/test files: `src/deployment.ts`, `src/App.tsx`, `src/styles.css`,
+`tests/deployment.test.mjs`, `tests/shell.test.mjs`, `docs/evidence/009-t01b-2-*`。
+文件：本計畫、`docs/HANDOFF.md`、`docs/ATTRIBUTION.md`、`AI_USAGE.md`、
+`docs/prompts/011-t01b-2-deployment.md`、`docs/ai-usage/014-t01b-2-deployment.md`。
+既有套件、lockfile、ATS 診斷與歷史 evidence 不改。
+
+Victor 真人驗收安排 2026-09-06（Asia/Taipei），帳戶、切換、重載與部署
+檢查的完整 checklist 保留在 handoff，實際做完才改狀態。自動化通過可提交，
+不自動 push／merge。部署存在不等於 ATS config 相容；protobuf、Terminal3
+安全門檻、config payload >= 1、合成 VC 正反向驗收均保留，不啟動 T02。
+
 ### 操作介面與安全入口
 
 單頁：上方 network／active account／required role，中間按順序操作，

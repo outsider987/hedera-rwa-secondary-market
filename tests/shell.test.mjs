@@ -28,6 +28,9 @@ test('the shell renders planned data without claiming a wallet or chain result',
       'Set up three accounts',
       'Not assigned',
       'Assignments are local labels',
+      'Testnet deployment',
+      'Not checked',
+      'Check deployment',
     ]) {
       assert.ok(html.includes(text), `Missing honest shell state: ${text}`);
     }
@@ -36,6 +39,7 @@ test('the shell renders planned data without claiming a wallet or chain result',
     assert.match(html, /aria-describedby="wallet-status">Connect<\/button>/);
     assert.match(html, /id="wallet-status" role="status" aria-live="polite"/);
     assert.doesNotMatch(html, /Load ATS SDK/);
+    assert.doesNotMatch(html, /Deployment presence verified/);
     assert.doesNotMatch(html, /<form|<input|<iframe/);
   } finally {
     await server.close();

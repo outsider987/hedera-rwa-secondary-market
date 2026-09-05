@@ -2,54 +2,59 @@
 
 ## Current boundary / Git base
 
-**T01b-1 錢包切片已實作、自動化通過；Victor 真實桌面 MetaMask 驗收待完成。**
-T01a 安全仍 blocked，ATS config／VC／T02 未啟動。
+**T01b-2 deployment reads are implemented; automated and live public-endpoint checks pass. Victor's real MetaMask acceptance remains Pending. T01 is not complete.**
 
-- `based_on_commit: 3dca593bdb72a74348418df694324929d2751af5`（本次整合起點，非包含此 handoff 的 commit）。
-- 整合來源 `diagnostic/t01a-sdk-load` → `main`；前次文件的 a675c89 已驗為祖先。使用者已明確核准合併 [PR #1](https://github.com/outsider987/hedera-rwa-secondary-market/pull/1)，合併後由 main 接手；實際 HEAD／merge 狀態由 Git 與 PR 讀取。
-- 評審文件英文、證據摘要約一頁的要求已寫入 [AGENTS](../AGENTS.md)。本次僅整合與文件紀錄，連結／差異已檢查，未重跑未變動的本機程式測試。
-- 起始 head 3dca593 的 [GitHub CI](https://github.com/outsider987/hedera-rwa-secondary-market/actions/runs/33960567848) 已通過；同步此整合紀錄後仍須等待最新 PR head 檢查通過再合併。保留逐步提交歷史；沒有公開部署或下一票啟動。
+- `based_on_commit: 66dea387a64ef385e5e84d3f7eb0f62699ed69cf` (implementation base, not the commit containing this handoff).
+- Branch: `feat/t01b-2-deployment-check`, created from clean `main` after PR #1 merged. Previous documented base `3dca593` was verified as an ancestor. Read actual HEAD/status from Git.
+- User authorized the independent read-only slice and TDD. Human acceptance is scheduled for **2026-09-06, Asia/Taipei**; postponement does not remove requirements. No push/merge is authorized for this branch.
 
 ## Reading map
 
-完整讀 AGENTS／本檔，再讀 [ATS plan](plans/001-ats-first.md) 共用規則與最新 T01b-1 授權。
+Read AGENTS and this file fully, then the shared rules and latest T01b-2 authorization in the [plan](plans/001-ats-first.md).
 
-| 需要 | 讀取 |
+| Need | Read |
 | --- | --- |
-| 本輪成果、檢查、限制 | [精簡證據](evidence/008-t01b-1-wallet.md)；原始結果按其中連結查閱 |
-| 使用者計畫與後續要求 | [Prompt 010](prompts/010-t01b-1-wallet.md) |
-| T01a blocker／mentor 問題 | [007 失敗試驗摘要](evidence/007-t01a-protobuf-rebuild.md) |
-| 協作與第三方來源 | [AI_USAGE](../AI_USAGE.md)、[ATTRIBUTION](ATTRIBUTION.md) |
+| Current result and reproduction | [One-page deployment evidence](evidence/009-t01b-2-deployment.md) |
+| Accepted plan and user decisions | [Prompt 011](prompts/011-t01b-2-deployment.md) |
+| Wallet behavior and prior dependency findings | [Wallet evidence](evidence/008-t01b-1-wallet.md) |
+| T01a blocker / mentor questions | [Stopped decoder rebuild trial](evidence/007-t01a-protobuf-rebuild.md) |
+| Provenance / current sources | [AI_USAGE](../AI_USAGE.md), [ATTRIBUTION](ATTRIBUTION.md) |
 
-## Verified / blocked
+## Verified / remaining requirements
 
-- 手動 wagmi injected 連線；停用 discovery／wagmi storage／載入重連，不自動切網。顯示實際帳戶及 chain，只允許 296。
-- 三角色經固定 Testnet Mirror endpoint 驗證，EVM／Hedera ID 都須不同；替換先 Clear。切換即取消舊查詢並清除驗證，含快速 A→B→A；10 秒逾時、手動 Retry、無背景刷新。
-- 只保存公開地址；重載待驗證，儲存失敗採記憶體並提示。角色標籤不證明鏈上權限。
-- App ATS import／按鈕已移除，既有 ATS 診斷、adapters、tests、Vite 設定及 NOVA 參數保留。
-- exact 新增 wagmi 3.7.7／Query 5.102.8，viem 2.56.3 升為直接依賴；其餘所有套件記錄不變，無 override／script 核准。
-- npm ci／9 Node tests／typecheck／build／直接 npm ls 通過；20 browser cases 通過（真 wagmi、模擬 provider／Mirror），dev／preview × desktop／mobile 無溢出、非預期請求或 browser errors。UI AI review 通過；非真人驗收。
-- 產物 14 個套件位置，無 ATS／protobuf／Terminal3；JS 303,643 bytes。原有 polyfill 僅 process shim 留在產物，不會修復解碼／安裝風險。
-- Audit 仍 83 項／104 個位置（22 low、32 moderate、27 high、2 critical），無新 advisory。兩項 effects-only metadata 差異留在原始結果。
-- 完整 npm ls --all 仍 exit 1：40 既有 Solana TypeScript ^5 peer 不符，新增 1 可選 Base peer 不符（connectors 8.2.0 要 ^2.5.1；既有 2.4.0）。未使用／未打包 Base 或 Solana；未宣稱全樹有效，未授權擴大修補。
-- B1：protobuf 在接回 ATS 解碼前處理；前次重建試驗已停止還原。B2：Terminal3／BBS／tar 在 VC 或相關安裝變更前處理。歷史失敗未因無關改動重跑。
-- 沒有真實帳戶／live Mirror 證據、合約讀取、簽署或交易 ID。未見賽前研究稿仍未檢視；活動資格及專案 license 仍由 Victor 處理。
+- Manual deployment check uses actual RPC chain 296, fixed Testnet Mirror contract IDs, and viem runtime bytecode reads. Resolver `0.0.9212226` resolves to `0xba2d5fc2083a0b8f164c50e65d782087fba18e0a` (2,115 bytes); Factory `0.0.9213391` to `0xd1f118a40f3b02883d35909ef2517e7edd78379d` (390 bytes). Both were read through dev and preview. These are observations at check time, not config/ABI compatibility guarantees.
+- Checks are independent of MetaMask, manually triggered, limited to 10 seconds, cancellable and never automatically retried/refreshed. Each new attempt hides previous verification; errors and late responses cannot restore it. Reload clears deployment results.
+- `npm ci`, 31 Node tests, typecheck and build pass. Deployment browser tests cover dev/preview and desktop/mobile; existing wallet browser regression also passes. Live public reads and synthetic cases are recorded separately. No signatures, transactions or transaction IDs.
+- Package manifest/lockfile and existing ATS diagnostics are unchanged. The final JS is 310,557 bytes; 14 rendered package locations, no ATS/protobuf/Terminal3 modules. Bundle capture matches the browser-tested artifact hashes.
+- T01b-1 remains implemented with manual wagmi connection, distinct EVM/Hedera role checks, switch invalidation, cancellation, 10-second Mirror timeout, memory fallback on storage failure and address-only persistence. Automated provider/Mirror tests do not prove real MetaMask acceptance or live account lookup.
+- **B1 remains blocked:** resolve protobuf before restoring ATS decoding. The prior rebuild trial remains stopped/restored; do not repeat it as a side effect.
+- **B2 remains blocked:** Terminal3/BBS/tar must be addressed before VC integration or related installation changes. `npm ci` still reports 83 vulnerabilities (22 low, 32 moderate, 27 high, 2 critical); install-script approvals were not expanded. Prior full-tree peer failures (40 TypeScript + 1 optional Base) remain recorded, not waived by zero bundle membership.
+- **Still required for T01:** real three-account acceptance; ATS config integer payload >= 1; synthetic Admin-signed VC accepted and expired/tampered/wrong-subject credentials rejected. VC signatures require Victor's explicit MetaMask approval. No T02/NOVA creation is activated.
+- The unseen pre-event research draft remains uninspected; Victor must resolve event eligibility and project-license questions. No real KYC or legal-compliance claims.
+
+## Victor acceptance — scheduled 2026-09-06 (Asia/Taipei)
+
+Use desktop Chrome with only MetaMask installed. Start `npm run dev` (5173); after build, `npm run preview` (4173). Run the desktop flow on both. Use only public EVM/Hedera IDs and short observations; never export a browser profile, wallet object, secrets or signatures. Local role labels do not establish on-chain permissions.
+
+| Check | Required action / expected result | Status | Actual date / observation |
+| --- | --- | --- | --- |
+| Manual connection | Reload without a wallet prompt; Connect, reject once, then retry. Pending request cannot be duplicated. | Pending | — |
+| Three roles | Assign Admin (also Escrow/test VC issuer), Seller and Buyer from three distinct accounts on 296. Independently compare each address/ID with live Testnet Mirror. | Pending | — |
+| Assignment guards | A duplicate account cannot take another role. Clear before replacement; other roles remain intact. | Pending | — |
+| Account/network switches | Change account; switch away from 296 and back. Stale verification disappears immediately; only a fresh valid Mirror result enables assignment. | Pending | — |
+| Disconnect | Disconnect disables assignment and removes active verification. Reconnect explicitly. | Pending | — |
+| Persistence / Retry | Reload restores only public addresses as awaiting verification. Connect manually to revalidate. If Mirror is unindexed/unavailable, keep unverified and retry manually when ready. | Pending | — |
+| Deployment check | Without connecting, check chain and both fixed deployments. Confirm no signing, transaction or automatic network-switch prompt. Reload returns to Not checked. | Pending | — |
+| Mobile layout | Check readable content, focus/buttons and no horizontal overflow. Mobile-wallet compatibility is not claimed. | Pending | — |
+
+Record each outcome as Pending / Passed / Failed / Blocked with the actual date and observation. Do not force a live Mirror outage: timeout, storage denial, missing-provider and race cases already have controlled automated coverage. Record defects and define the evidence-backed repair scope; fix and revalidate before marking the affected requirement Passed.
 
 ## Next action / exact allowed files
 
-停在 T01b-1；下一步僅為 **Victor 手動驗收及紀錄**：桌面 Chrome 只安裝 MetaMask，
-Connect 到 296，綁定三個不同帳戶並核對 Mirror ID；測拒絕／Retry、切網／切帳戶、
-Disconnect、Clear／替換、重載後待驗證與手動重連。Mirror 未索引就維持未驗證、手動重查。
-只記公開 EVM／Hedera ID 與觀察，不需要簽署、交易或 profile 匯出；手機只驗排版。
-Victor 已表示 MetaMask 稍後驗收；T01b-2 部署唯讀檢查目前僅為建議，尚未啟動。
+Stop at this ticket boundary. Next work is human acceptance and its records, not ATS config/VC or dependency repair. Record-only exact files:
 
-下輪 record-only exact files：`docs/HANDOFF.md`、`AI_USAGE.md`、新增
-`docs/ai-usage/014-t01b-1-manual.md`、`docs/prompts/011-t01b-1-manual.md`、
-`docs/evidence/009-t01b-1-manual.md`、`docs/evidence/009-t01b-1-manual.json`、
-`docs/plans/001-ats-first.md`（status／scope only）。保留本輪 dated records。
-若發現程式缺陷，先依證據界定修補票；不自動展開套件修補、ATS config／VC 或下一票。
-舊 [deferred T01b scope](plans/001-ats-first.md#deferred-next-ticket--t01b-not-activated) 除本輪切片外仍未啟動。
+- `docs/HANDOFF.md`, `docs/plans/001-ats-first.md` (status/scope only), `AI_USAGE.md`.
+- New `docs/evidence/010-t01-manual.md` and `docs/evidence/010-t01-manual.json`.
+- New `docs/prompts/012-t01-manual.md` and `docs/ai-usage/015-t01-manual.md`.
 
-本機：`npm run dev` → http://127.0.0.1:5173；build 後 `npm run preview` → 4173。
-不要假設舊 server 存活。Browser harness 需外部 Playwright 與新結果路徑，使用隔離合成環境。
-文件與成果一起 commit，確認 clean boundary；後續仍不自動 push／merge，本輪 PR #1 合併依使用者明確要求。
+This replaces the earlier unused manual-record filename reservation. Preserve historical evidence and the full pending T01 requirements. Keep public evidence English and about one page; link raw results. Commit records with the work, keep a clean boundary, and do not push/merge automatically. Do not assume old local servers remain running.

@@ -1,0 +1,459 @@
+{
+  "mode": "synthetic HTTP / real viem",
+  "results": [
+    {
+      "label": "keyboard, no wallet, presence, layout and reload",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0
+    },
+    {
+      "label": "keyboard, no wallet, presence, layout and reload",
+      "port": 5173,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0
+    },
+    {
+      "label": "wrong chain, partial failure, empty code, manual retry and unexpected query error",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0
+    },
+    {
+      "label": "same-tick guard, deadline, late responses, no background refresh and reload cancellation",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0
+    },
+    {
+      "label": "keyboard, no wallet, presence, layout and reload",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0
+    },
+    {
+      "label": "keyboard, no wallet, presence, layout and reload",
+      "port": 4173,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0
+    },
+    {
+      "label": "wrong chain, partial failure, empty code, manual retry and unexpected query error",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0
+    },
+    {
+      "label": "same-tick guard, deadline, late responses, no background refresh and reload cancellation",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0
+    }
+  ]
+}
