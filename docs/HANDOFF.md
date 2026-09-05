@@ -4,9 +4,10 @@
 
 - Active product ticket: **T01a — protobufjs trial FAILED and rolled back;
   dependency security BLOCKED**. T01b is inactive. The bounded trial is complete;
-  no further repair is active and no ATS wallet/chain work advanced.
-- `based_on_commit: ecf219c4690072757da8d165e3af36903cc43ee9`.
-- Started clean on `diagnostic/t01a-sdk-load`; previous base `09d8d3b` is an
+  subsequent upstream research is complete. No further repair is active and no
+  ATS wallet/chain work advanced.
+- `based_on_commit: fbe9b9f3ca4d5982049c4ddec0fdb7b1606d644e`.
+- Started clean on `diagnostic/t01a-sdk-load`; previous base `ecf219c` is an
   ancestor. Main remains `03d1a34`; read actual HEAD from Git. No merge/push or
   draft PR update was performed in this trial; PR #1 remains unmerged.
 
@@ -18,6 +19,7 @@ scope and effective authorization. This is not a recursive startup reading list.
 
 | Need | Read |
 | --- | --- |
+| Latest research / concrete repair options | [Upstream findings](evidence/006-t01a-protobuf-research.md), [public package/source/matcher evidence](evidence/006-t01a-protobuf-research.json), [user request](prompts/008-t01a-protobuf-research.md) |
 | Latest T01a decision / stop boundary | [Bounded protobufjs trial](prompts/007-t01a-protobuf-trial.md); plan section 3 records the exact exception |
 | Trial outcome / mentor questions | [Trial summary and reproduction](evidence/005-t01a-protobuf.md) |
 | Reproduce the failed decoder gate | [Single Node test](evidence/005-t01a-protobuf.test.mjs), [candidate results](evidence/005-t01a-protobuf-candidate-tests.json) |
@@ -48,6 +50,12 @@ applicable rules, safety constraints or acceptance checks.
   invalid against the inherited 7.6.5 ancestor override. No descendant exemption
   was added. Both package files were restored byte-for-byte to the starting
   commit, followed by npm ci and final checks. No override remains.
+- Post-trial research: latest ATS is still 8.0.0. The inspected published Hiero
+  proto 2.31.0 also lacks Key/KeyList depth checks; no supported drop-in fix was
+  established. Patched compiler/runtime regeneration of both original schemas
+  is a proposed repair, not implemented. Version-qualified child overrides
+  passed eight pure npm 11.17.0 matcher assertions excluding gRPC's ^7.5.5 range;
+  full npm graph validation remains untested. No dependencies or tests changed.
 - **B2:** Terminal3's optional native BBS/tar ^6.1.11 remains in the lock.
   Local absence and zero rendered modules do not waive other platforms' install
   risk. Fireblocks axios, Terminal3 BBS and elliptic remain relevant bundle risks.
@@ -68,7 +76,8 @@ applicable rules, safety constraints or acceptance checks.
 ## Next action / exact scope
 
 This failed trial is closed. Continue **T01a records and read-only supported
-repair analysis**. Exact current record files: `AI_USAGE.md`,
+repair analysis**. The completed research is not repair authorization. Exact
+current record files: `AI_USAGE.md`,
 `docs/ai-usage/*.md`, `docs/ATTRIBUTION.md`, `docs/HANDOFF.md`,
 `docs/plans/001-ats-first.md` (scope only), `docs/evidence/**`, `docs/prompts/**`.
 The rejected patch is reproducibility evidence, not a standing approved repair.

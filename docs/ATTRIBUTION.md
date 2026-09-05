@@ -1,6 +1,6 @@
 # Third-party sources / attribution
 
-Current uses include the protobufjs trial based on `ecf219c`. Dated AI/human
+Current uses include the protobufjs trial and upstream research based on `fbe9b9f`. Dated AI/human
 contributions are indexed in [AI_USAGE.md](../AI_USAGE.md).
 This list covers directly used libraries, tools and references; transitive
 versions remain in [package-lock.json](../package-lock.json). No project-wide
@@ -15,6 +15,7 @@ license or event eligibility is asserted by public GitHub availability.
 | @hiero-ledger/proto 2.25.0 | Supplies wallet-connect's missing runtime import | Apache-2.0; [Hiero SDK repository](https://github.com/hiero-ledger/hiero-sdk-js) |
 | @hashgraph/proto 2.18.5 / @hashgraph/sdk 2.64.5 / @hiero-ledger/sdk 2.79.0 | Existing transitive parents; public proto compatibility and decoder diagnostic | Apache-2.0; [Hiero SDK repository](https://github.com/hiero-ledger/hiero-sdk-js), exact versions in lockfile |
 | protobufjs 7.2.5 / 7.5.4 / 7.6.6; trial candidate 7.6.5 | Runtime baseline and bounded security trial; no upstream source copied or regenerated | BSD-3-Clause; [protobuf.js](https://github.com/protobufjs/protobuf.js), [candidate source](https://github.com/protobufjs/protobuf.js/tree/protobufjs-v7.6.5) |
+| protobufjs-cli 1.3.3 / @hiero-ledger/proto 2.31.0 | Exact published source inspected for repair research only; not installed or bundled | BSD-3-Clause / Apache-2.0; [CLI source](https://github.com/protobufjs/protobuf.js/tree/protobufjs-cli-v1.3.3/cli), [Hiero published metadata](https://registry.npmjs.org/@hiero-ledger%2Fproto/2.31.0) |
 | long 5.3.1 / 5.3.2 (proto paths) | Existing transitive 64-bit representation; public Long.isLong in diagnostic only | Apache-2.0; [long.js](https://github.com/dcodeIO/long.js), all paths/versions in lockfile |
 | vite-plugin-node-polyfills 0.28.0 | Vite 8 browser compatibility | MIT; [plugin](https://github.com/davidmyersdev/vite-plugin-node-polyfills/tree/v0.28.0) |
 | @types/react 19.2.18 / @types/react-dom 19.2.7 | Type declarations | MIT; [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) |
@@ -37,6 +38,11 @@ oracle. It references the upstream
 [7.6.5 decoder](https://github.com/protobufjs/protobuf.js/blob/protobufjs-v7.6.5/src/decoder.js)
 and [7.6.6 decoder](https://github.com/protobufjs/protobuf.js/blob/protobufjs-v7.6.6/src/decoder.js).
 Ancestor override behavior was checked against [npm's override documentation](https://docs.npmjs.com/cli/v11/configuring-npm/package-json/#overrides).
+The subsequent [research](evidence/006-t01a-protobuf-research.md) also reads
+[npm 11.17.0's matcher](https://github.com/npm/cli/blob/v11.17.0/workspaces/arborist/lib/override-set.js)
+and the [7.6.6 backport](https://github.com/protobufjs/protobuf.js/pull/2422).
+Eight pure matching assertions used the existing installed npm tooling; no
+Arborist source, compiler or published proto archive was vendored into Git.
 Published package source was read only; no SDK decoder, signer or upstream test
 key was copied. The browser harness and ignored build-membership capture reuse
 this repository's earlier diagnostic code. See [trial evidence](evidence/005-t01a-protobuf.md).
