@@ -1,5 +1,11 @@
 import { createClient, http, type Address } from 'viem';
-import { getChainId, getCode } from 'viem/actions';
+import { getChainId, getCode, readContract } from 'viem/actions';
+
+export const equityConfigId = '0x0000000000000000000000000000000000000000000000000000000000000001';
+// ATS contracts 8.0.0 DiamondCutManager ABI (Apache-2.0); no SDK module import.
+const configAbi = [{ type: 'function', name: 'getLatestVersionByConfiguration', stateMutability: 'view',
+  inputs: [{ name: '_configurationId', type: 'bytes32' }], outputs: [{ name: 'latestVersion_', type: 'uint256' }],
+}] as const;
 
 export const deployments = [
   { name: 'Resolver', id: '0.0.9212226' },
@@ -13,6 +19,7 @@ type ContractCheck = {
 export type DeploymentCheck = {
   chainId?: number; checkedAt: string; status: 'passed' | 'failed';
   message: string; contracts: ContractCheck[];
+  config: { id: string; version?: string; status: 'not-checked' | 'passed' | 'failed'; message: string };
 };
 
 export function validateContract(id: string, value: unknown): Address {
@@ -34,12 +41,14 @@ export async function checkDeployment(signal: AbortSignal): Promise<DeploymentCh
   const fetchOptions: RequestInit = {
     signal: combined, credentials: 'omit', cache: 'no-store', redirect: 'error', referrerPolicy: 'no-referrer',
   };
-  const client = createClient({ transport: http('https://testnet.hashio.io/api', {
+  const client = createClient({ ccipRead: false, transport: http('https://testnet.hashio.io/api', {
     retryCount: 0, timeout: 10_000, fetchOptions,
-    methods: { include: ['eth_chainId', 'eth_getCode'] },
+    methods: { include: ['eth_chainId', 'eth_getCode', 'eth_call'] },
   }) });
   const contracts: ContractCheck[] = deployments.map(item => ({ ...item, status: 'not-checked', message: 'Not checked.' }));
-  const result: DeploymentCheck = { checkedAt: '', status: 'failed', message: '', contracts };
+  const result: DeploymentCheck = { checkedAt: '', status: 'failed', message: '', contracts,
+    config: { id: equityConfigId, status: 'not-checked', message: 'Config not checked. Verify the Resolver first.' },
+  };
   function failed(message: string) {
     signal.throwIfAborted();
     return deadline.aborted ? 'Deployment check timed out after 10 seconds. Retry when ready.' : message;
@@ -111,7 +120,27 @@ export async function checkDeployment(signal: AbortSignal): Promise<DeploymentCh
       contract.message = failed('RPC bytecode lookup could not complete. Retry when ready.');
     }
   }));
-  result.status = contracts.every(contract => contract.status === 'passed') ? 'passed' : 'failed';
-  result.message = result.status === 'passed' ? 'Deployment presence verified.' : 'Deployment check failed.';
+  const resolver = contracts[0];
+  if (resolver.status === 'passed' && resolver.address) {
+    result.config.status = 'failed';
+    try {
+      combined.throwIfAborted();
+      const version = await readContract(client, { address: resolver.address, abi: configAbi,
+        functionName: 'getLatestVersionByConfiguration', args: [equityConfigId], blockTag: 'latest',
+      });
+      combined.throwIfAborted();
+      result.config.version = version.toString();
+      if (version === 0n) result.config.message = 'No registered Equity config version.';
+      else if (version > BigInt(Number.MAX_SAFE_INTEGER)) result.config.message = 'Config version exceeds the safe SDK integer range.';
+      else {
+        result.config.status = 'passed';
+        result.config.message = 'On-chain Equity config verified.';
+      }
+    } catch {
+      result.config.message = failed('Config lookup could not complete. The deployment may be incompatible or the RPC unavailable. Retry when ready.');
+    }
+  }
+  result.status = contracts.every(contract => contract.status === 'passed') && result.config.status === 'passed' ? 'passed' : 'failed';
+  result.message = result.status === 'passed' ? 'Deployment and config verified.' : 'Deployment and config check failed.';
   return finish();
 }

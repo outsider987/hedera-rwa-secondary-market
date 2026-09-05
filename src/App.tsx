@@ -3,7 +3,7 @@ import { useQueries, useQuery } from '@tanstack/react-query';
 import { useConnect, useConnection, useDisconnect } from 'wagmi';
 import { bindingProblem, loadRoles, roleNames, saveRoles, storageWarning, type MirrorAccount, type Roles } from './guards';
 import { getWalletSession, lookupAccount, queryClient, subscribeWalletSession, testnetChainId, walletConfig } from './wallet';
-import { checkDeployment, deployments } from './deployment';
+import { checkDeployment, deployments, equityConfigId } from './deployment';
 
 function Deployment() {
   const operation = useRef(false);
@@ -19,10 +19,10 @@ function Deployment() {
 
   return <section className="deployment" aria-labelledby="deployment-heading">
     <h2 id="deployment-heading">Testnet deployment</h2>
-    <p>Check the fixed Resolver and Factory without connecting a wallet.</p>
-    <p>Presence of runtime bytecode does not prove ATS compatibility or a valid config version.</p>
+    <p>Check the fixed Resolver, Factory and Equity config without connecting a wallet.</p>
+    <p>These public reads do not establish full ATS SDK compatibility.</p>
     <p id="deployment-status" role="status" aria-live="polite">
-      {query.isFetching ? 'Checking deployment…' : query.isError ? 'Deployment check could not complete. Retry when ready.' : result?.message ?? 'Not checked.'}
+      {query.isFetching ? 'Checking deployment and config…' : query.isError ? 'Deployment and config check could not complete. Retry when ready.' : result?.message ?? 'Not checked.'}
     </p>
     <dl className="wallet-details">
       <div><dt>RPC chain ID</dt><dd>{result?.chainId === undefined ? 'Not checked' : `${result.chainId} / 0x${result.chainId.toString(16)}`}</dd></div>
@@ -39,8 +39,17 @@ function Deployment() {
         </section>;
       })}
     </div>
+    <section aria-labelledby="config-heading">
+      <h3 id="config-heading">Equity config</h3>
+      <dl className="wallet-details">
+        <div><dt>Config ID</dt><dd><code>{equityConfigId}</code></dd></div>
+        <div><dt>Latest version</dt><dd data-testid="config-version">{result?.config.version ?? 'Not checked'}</dd></div>
+      </dl>
+      <p>{query.isFetching ? 'Checking…' : result?.config.message ?? 'Config not checked.'}</p>
+      <p>ATS SDK integration remains unverified. Recheck the version before creating NOVA.</p>
+    </section>
     <div className="actions"><button type="button" disabled={query.isFetching} aria-describedby="deployment-status" onClick={check}>
-      {query.isFetching ? 'Checking deployment…' : result?.status === 'failed' || query.isError ? 'Retry deployment check' : 'Check deployment'}
+      {query.isFetching ? 'Checking deployment and config…' : result?.status === 'failed' || query.isError ? 'Retry deployment and config check' : 'Check deployment and config'}
     </button></div>
     <p className="deployment-note">Public reads at latest block state; results are not a shared block snapshot. Reloading clears this check.</p>
   </section>;
@@ -228,7 +237,7 @@ export default function App() {
         <section className="evidence" aria-labelledby="evidence-heading">
           <h2 id="evidence-heading">Transaction evidence</h2>
           <p>No transactions yet.</p>
-          <p>This page reads public Mirror records and checks Testnet deployment bytecode. No signatures or transactions are requested.</p>
+          <p>This page reads public Mirror records, Testnet deployment bytecode and the Equity config version. No signatures or transactions are requested.</p>
         </section>
       </main>
 

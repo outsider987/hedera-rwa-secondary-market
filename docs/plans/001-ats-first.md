@@ -215,6 +215,26 @@ Victor 真人驗收安排 2026-09-06（Asia/Taipei），帳戶、切換、重載
 不自動 push／merge。部署存在不等於 ATS config 相容；protobuf、Terminal3
 安全門檻、config payload >= 1、合成 VC 正反向驗收均保留，不啟動 T02。
 
+### 2026-09-05 T01b-3 獨立鏈上 config 查詢授權（目前有效）
+
+使用者核准 [Prompt 012](../prompts/012-t01b-3-config.md)，選擇併入部署檢查。
+基於 `0828d797c403e13f150edc5b2d63170cb76a8689`，以既有 viem 對固定 Resolver
+呼叫 `getLatestVersionByConfiguration(bytes32)`。config ID 保持 bytes32(1)，
+結果需介於 1 與 Number.MAX_SAFE_INTEGER，bigint 檢查後以十進位字串記錄。
+
+本票明確分開「鏈上 config 查詢」與「ATS SDK 官方入口整合」：可在 T01a
+及真人驗收未完成時執行這個唯讀切片，但不載入 SDK／Terminal3，也不以
+viem 結果偽造 SDK payload 或宣稱 SDK ready。建立前仍需重新解析版本。
+
+Exact source/test files: `src/deployment.ts`, `src/App.tsx`,
+`tests/deployment.test.mjs`, `tests/shell.test.mjs`, `docs/evidence/010-t01b-3-*`。
+文件：本計畫、`docs/HANDOFF.md`、`docs/ATTRIBUTION.md`、`AI_USAGE.md`、
+`docs/prompts/012-t01b-3-config.md`、`docs/ai-usage/015-t01b-3-config.md`。
+套件／lock／既有歷史 evidence 不改；共用 10 秒期限，保持手動查詢、取消、
+過期隔離與各項獨立結果。TDD、browser、live dev/preview 和產物驗收依 prompt。
+真人驗收仍為 2026-09-06 Pending，清單加上 config；安全／SDK／VC 門檻保留。
+自動化通過可連同文件提交，不自動 push／merge，不啟動 T02。
+
 ### 操作介面與安全入口
 
 單頁：上方 network／active account／required role，中間按順序操作，

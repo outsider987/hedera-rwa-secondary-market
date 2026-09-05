@@ -1,0 +1,9 @@
+{
+  "mode": "synthetic HTTP / real viem",
+  "results": [
+    {
+      "status": "failed",
+      "assertion": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('region', { name: 'Testnet deployment' }).getByText('On-chain Equity config verified.').first() to be visible\u001b[22m\n"
+    }
+  ]
+}

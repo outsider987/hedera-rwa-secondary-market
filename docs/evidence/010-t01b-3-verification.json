@@ -1,0 +1,206 @@
+{
+  "baseCommit": "0828d797c403e13f150edc5b2d63170cb76a8689",
+  "sourceHashes": [
+    {
+      "path": "src/deployment.ts",
+      "sha256": "911d93817a56c8a6038de427f8450af5ecec50674a6be63bd5111c62205144e2"
+    },
+    {
+      "path": "src/App.tsx",
+      "sha256": "9ae89876bd59d60b3c77fd4ee13bd98e650d438558611785e98c38a4ffb2f8e4"
+    },
+    {
+      "path": "tests/deployment.test.mjs",
+      "sha256": "7c9282e1ed730979a78da501297a63839ec3d4a2eaf21ef2b484f1d20b47fde3"
+    },
+    {
+      "path": "tests/shell.test.mjs",
+      "sha256": "a04b3c39ab69018150c4bea997ed7464687e211ec959ed1bfa918b14ce06035e"
+    },
+    {
+      "path": "docs/evidence/010-t01b-3-browser.mjs",
+      "sha256": "f54456246222eca396e4d9bc8e6a3df2270a3703830eed5977e1f35a339fa8f1"
+    }
+  ],
+  "unchangedFiles": [
+    {
+      "path": "package.json",
+      "sha256": "75ff9edb98f219e8dcc46b9c00cc6e93325501b44fb0e662f30f4aa82acfa8af",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "f3cb293795c8bfe1dc82aca4e2e05ecf8e1e9b0c9ded471d60266c80b9fd7a9f",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "src/wallet.ts",
+      "sha256": "be535e8d365cee6852e55df165b4ac13ab08807d1ab019438514edab22f3b8f0",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "src/guards.ts",
+      "sha256": "ec7d4896bfd1a8572891ac8ddcf6a54a0211e09f78ad11c0895f0363867dee85",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "src/ats.ts",
+      "sha256": "43d318f1dbd6badad37bad6e7b083cd77f83e7916eca022c5ff98a7788134803",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "src/styles.css",
+      "sha256": "8a1d6990301156d2c55c7df219792124e85a42eb406c68f8637d9119e8ae9a67",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "e6a83fea4a963ed07c9a276ef5588a292e9a3bfbdadf693ec5b1710ef89f4dd2",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "f693a08509a00528b5a6a20002b1229c2e37e1daf7e0c0ea19c0b824c5fb5048",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "tests/wallet.test.mjs",
+      "sha256": "c0ac680542790b5fe371ca4230709be0b0b78b10adee1e71ed5f0276a4fa73c1",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "tests/ats.test.mjs",
+      "sha256": "0e8465768c5d9bc1101334d0713744531ed6261a6f3af38fa38258c76e27bdb8",
+      "unchangedFromBase": true
+    }
+  ],
+  "abi": {
+    "package": "@hashgraph/asset-tokenization-contracts",
+    "version": "8.0.0",
+    "artifactPath": "node_modules/@hashgraph/asset-tokenization-contracts/artifacts/contracts/infrastructure/diamond/DiamondCutManager.sol/DiamondCutManager.json",
+    "artifactSha256": "652d1b6d98719eb097abd53d3337eec0a3e1f134382d93d43299cd67ca26aeb7",
+    "function": {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_configurationId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getLatestVersionByConfiguration",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "latestVersion_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    "calldata": "0x5bf316cf0000000000000000000000000000000000000000000000000000000000000001",
+    "license": "Apache-2.0",
+    "note": "Node/browser fixtures encode the official installed ABI and assert the application sends identical calldata to the verified Resolver; the app includes only the minimal function ABI."
+  },
+  "checks": {
+    "npmCi": {
+      "exitCode": 0,
+      "node": "24.19.0",
+      "npm": "11.17.0",
+      "audit": {
+        "total": 83,
+        "low": 22,
+        "moderate": 32,
+        "high": 27,
+        "critical": 2
+      },
+      "installScriptApprovalsExpanded": false
+    },
+    "npmTest": {
+      "exitCode": 0,
+      "passed": 50,
+      "failed": 0
+    },
+    "typecheck": {
+      "exitCode": 0
+    },
+    "build": {
+      "exitCode": 0
+    },
+    "browser": {
+      "passed": 8,
+      "evidence": "010-t01b-3-browser.json"
+    },
+    "walletRegression": {
+      "passed": 20,
+      "evidence": "010-t01b-3-wallet.json"
+    },
+    "livePublicReads": {
+      "passed": 2,
+      "observedConfigVersion": "1",
+      "evidence": "010-t01b-3-live.json"
+    },
+    "bundle": {
+      "evidence": "010-t01b-3-bundle.json",
+      "allChunksMatchDist": true,
+      "totalJsBytes": 393895,
+      "forbiddenModules": []
+    },
+    "documentation": {
+      "localLinksAndAnchors": 61,
+      "jsonParsing": "passed",
+      "whitespace": "passed",
+      "visualInspection": "Desktop and mobile screenshots inspected; automated overflow checks passed."
+    }
+  },
+  "tdd": [
+    {
+      "phase": "red",
+      "check": "deployment/config Node tests before implementation",
+      "passed": 21,
+      "failed": 19,
+      "reason": "Missing config results and eth_call; pre-existing unrelated checks continued to pass."
+    },
+    {
+      "phase": "red",
+      "check": "browser config UI",
+      "evidence": "010-t01b-3-browser-red.json",
+      "reason": "The config status was not rendered."
+    },
+    {
+      "phase": "green",
+      "check": "deployment/config Node tests after implementation",
+      "passed": 40,
+      "failed": 0
+    },
+    {
+      "phase": "red",
+      "check": "OffchainLookup boundary",
+      "passed": 0,
+      "failed": 1,
+      "expectedGatewayRequests": 0,
+      "observedSyntheticGatewayAttempts": 1,
+      "note": "Global fetch was intercepted; no real gateway request occurred."
+    },
+    {
+      "phase": "green",
+      "check": "ccipRead disabled; final full suite",
+      "passed": 50,
+      "failed": 0
+    }
+  ],
+  "executionNote": "One premature Node/browser attempt overlapped npm ci and encountered temporarily missing dependencies. Those setup failures are excluded from TDD evidence; all final checks ran after ci completed. Intermediate runs remain local.",
+  "humanAcceptance": {
+    "status": "Pending",
+    "scheduledDate": "2026-09-06",
+    "timezone": "Asia/Taipei",
+    "checklist": "../HANDOFF.md"
+  },
+  "limits": [
+    "The viem result is not an ATS SDK payload or SDK integration acceptance.",
+    "Requery the config before creation; latest reads are not a shared block snapshot.",
+    "No real-wallet/live-account acceptance, signature, transaction or VC verification performed.",
+    "T01a security and prior peer mismatches remain unresolved.",
+    "The viem lazy CCIP chunk remains bundled, but gateway lookup is disabled and tested."
+  ]
+}

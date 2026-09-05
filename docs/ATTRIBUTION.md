@@ -1,7 +1,7 @@
 # Third-party sources / attribution
 
 Current uses include the independent wagmi wallet slice and the viem deployment
-read check based on `66dea38`.
+and Equity config checks based on `0828d79`.
 The earlier decoder rebuild trial remains stopped/restored. Dated AI/human
 contributions are indexed in [AI_USAGE.md](../AI_USAGE.md).
 This list covers directly used libraries, tools and references; transitive
@@ -15,11 +15,13 @@ license or event eligibility is asserted by public GitHub availability.
 | TypeScript 7.0.2 | Typechecking | Apache-2.0; [TypeScript](https://github.com/microsoft/TypeScript) |
 | ATS SDK 8.0.0 | Retained diagnostic root loader; removed from the current page; wallet/VC/chain integration pending | Apache-2.0; [ATS](https://github.com/hashgraph/asset-tokenization-studio) |
 | wagmi 3.7.7 / @wagmi/core 3.6.5 / @wagmi/connectors 8.2.0 | React connection state and injected EIP-1193 connector; no other connector activated | MIT; [wagmi](https://github.com/wevm/wagmi), [official integration](https://wagmi.sh/react/getting-started), [provider reconnect setting](https://wagmi.sh/react/api/WagmiProvider), [injected](https://wagmi.sh/react/api/connectors/injected) |
-| viem 2.56.3 | Direct dependency; wagmi utilities and public Testnet chain/bytecode reads using createClient with getChainId/getCode actions | MIT; [viem](https://github.com/wevm/viem) |
+| viem 2.56.3 | Direct dependency; wagmi utilities and public Testnet chain/bytecode reads using createClient with getChainId/getCode/readContract actions; CCIP Read disabled | MIT; [viem](https://github.com/wevm/viem) |
 | @tanstack/react-query / query-core 5.102.8 | Account/deployment query lifecycle and wagmi mutations | MIT; [TanStack Query](https://github.com/TanStack/query) |
 | mipd 0.0.7 / use-sync-external-store 1.4.0 / nested zustand 5.0.0 | New wagmi closure; provider discovery is disabled | MIT; [mipd](https://github.com/wevm/mipd), [React](https://github.com/facebook/react), [Zustand](https://github.com/pmndrs/zustand); full [added package metadata](evidence/008-t01b-1-lock-diff.json) |
 | Hedera Mirror Node account REST API | Public EVM-to-Hedera-ID lookup on Testnet; browser evidence uses synthetic responses | [Official account endpoint documentation](https://docs.hedera.com/reference/rest-api/accounts); no documentation code copied |
 | Hedera Mirror Node contract REST API / fixed ATS v8 deployments | Public Testnet contract ID-to-EVM lookup; runtime code independently read through JSON-RPC | [Official contract endpoint](https://docs.hedera.com/api-reference/contracts/get-contract-by-id), [pinned deployment IDs](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/apps/ats/web/.env.example); no documentation code copied |
+| ATS contracts 8.0.0 DiamondCutManager ABI | Minimal view-function ABI used for Equity config lookup; tests compare calldata with the installed official artifact, without importing SDK/contract modules into the app | Apache-2.0; [pinned contract](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/contracts/contracts/infrastructure/diamond/DiamondCutManager.sol#L118-L122), [SDK query semantics](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/sdk/src/port/out/rpc/RPCQueryAdapter.ts#L719-L729) |
+| Existing nested abitype 1.2.3 / ox 0.14.44 | Additional rendered viem ABI/RPC helpers for readContract; versions and lock unchanged | MIT; [ABIType](https://github.com/wevm/abitype), [Ox](https://github.com/wevm/ox); [bundle membership](evidence/010-t01b-3-bundle.json) |
 | @hiero-ledger/proto 2.25.0 | Supplies wallet-connect's missing runtime import | Apache-2.0; [Hiero SDK repository](https://github.com/hiero-ledger/hiero-sdk-js) |
 | @hashgraph/proto 2.18.5 / @hashgraph/sdk 2.64.5 / @hiero-ledger/sdk 2.79.0 | Existing transitive parents; public proto compatibility and decoder diagnostic | Apache-2.0; [Hiero SDK repository](https://github.com/hiero-ledger/hiero-sdk-js), exact versions in lockfile |
 | protobufjs 7.2.5 / 7.5.4 / 7.6.6; rejected candidates 7.6.5 and 7.6.6 | Runtime baseline and bounded trials; no upstream source copied or regenerated | BSD-3-Clause; [protobuf.js](https://github.com/protobufjs/protobuf.js), [7.6.6 source](https://github.com/protobufjs/protobuf.js/tree/protobufjs-v7.6.6) |
