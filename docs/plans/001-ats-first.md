@@ -103,6 +103,17 @@ Victor 在具體範圍說明後以「Go」核准
 若需要改版、override 或 polyfill，保存錯誤後停止；不接錢包或鏈上服務。
 載入成功不代表漏洞修復，T01b 仍需另行解決依賴風險及啟動決策。
 
+### 2026-09-05 T01a 瀏覽器修復授權
+
+Victor 在閱讀具體研究與建議後回覆「go」，核准
+[bounded remediation](../prompts/005-t01a-remediation-decision.md)。允許增加
+exact `@hiero-ledger/proto 2.25.0`、`vite-plugin-node-polyfills 0.28.0`，以及
+必要的 Vite 8 設定與 dotenv／Winston browser adapters。此範圍取代先前
+對這些新增套件／polyfill 的禁止；既定 framework／ATS／Node/npm pins 不變。
+官方 SDK／VC 邏輯不得替換；不用 host 環境資料或任意 SDK 日誌。
+完成真實 dev／有效 production preview 載入與 audit 前後比較，仍停在 T01a。
+此授權沒有放行 override、其他直接套件、漏洞豁免或 T01b。
+
 T00 自然拆為 `chore: initialize HoldBook guardrails` 與
 `feat(web): add HoldBook testnet shell`。其後按實際完成工作提交，
 沒有手動鏈上驗收時不使用已證明 lifecycle 的敘述。

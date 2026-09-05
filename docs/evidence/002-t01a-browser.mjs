@@ -1,5 +1,5 @@
 // Diagnostic tool only; Playwright is supplied outside the project dependency graph.
-// Run with dev and the FAILED build's emitted preview already running:
+// Run after a successful production build, with dev and preview already running:
 // node docs/evidence/002-t01a-browser.mjs /absolute/path/to/playwright/package.json
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
@@ -17,7 +17,7 @@ await mkdir('.impeccable/review', { recursive: true });
 const results = [];
 
 try {
-  for (const [server, port] of [['dev', 5173], ['failed-build-preview', 4173]]) {
+  for (const [server, port] of [['dev', 5173], ['preview', 4173]]) {
     for (const [device, viewport] of [
       ['desktop', { width: 1440, height: 1000 }],
       ['mobile', { width: 390, height: 844 }],
@@ -83,7 +83,7 @@ try {
       }
       holdSdk = false;
       releaseSdk();
-      await page.waitForFunction(() => document.querySelector('#sdk-load-status')?.textContent.startsWith('ATS SDK loading failed'));
+      await page.waitForFunction(() => document.querySelector('#sdk-load-status')?.textContent.startsWith('ATS SDK loaded;'));
       await page.waitForLoadState('networkidle');
       assert.equal(sdkRequests, 1, 'duplicate activation starts no second request');
       assert.equal(await button.isDisabled(), true);
@@ -102,9 +102,9 @@ try {
       assert.equal(pageErrors, 0);
       assert.equal(consoleErrors, 0);
       const result = {
-        server, device, viewport, realSdkLoad: 'failed',
-        productionAcceptance: 'blocked: build exited 1',
-        idleLoadingFailureReload: 'passed', duplicateGuard: 'passed',
+        server, device, viewport, realSdkLoad: 'loaded',
+        productionAcceptance: server === 'preview' ? 'passed' : 'not applicable',
+        idleLoadingSuccessReload: 'passed', duplicateGuard: 'passed',
         keyboardAndFocus: 'passed', overflow: false, sdkRequests,
         pageErrors, consoleErrors, walletAccesses, externalOrigins, screenshot,
       };
@@ -113,14 +113,14 @@ try {
       await context.close();
     }
   }
-  await writeFile('docs/evidence/002-t01a-browser.json', JSON.stringify({
+  await writeFile('docs/evidence/004-t01a-browser.json', JSON.stringify({
     schemaVersion: 1,
     kind: 'isolated-sdk-load-diagnostic',
-    baseCommit: '03d1a34e4faa13e6a93e0ac2365efabee4c6a3ee',
+    baseCommit: 'daed90b3353094f003b487a053cfa119fcefc11a',
     browser: browser.version(),
     playwright: require('playwright/package.json').version,
     sdk: '8.0.0',
-    note: 'No successful SDK load or valid production build. Preview served only files emitted by the failed build. Screenshots are ignored local artifacts.',
+    note: 'Real SDK import and Management export presence only; no API invocation, wallet/chain or VC validation. Screenshots are ignored local artifacts. Historical failures remain in 002-t01a-browser.json.',
     results,
   }, null, 2) + '\n');
 } finally {

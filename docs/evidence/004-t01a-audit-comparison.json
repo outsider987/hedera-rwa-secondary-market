@@ -1,0 +1,6563 @@
+{
+  "schemaVersion": 1,
+  "kind": "public-dependency-audit-comparison",
+  "baseCommit": "daed90b3353094f003b487a053cfa119fcefc11a",
+  "before": {
+    "sha256": "766b3d6d0850b8166ba5ab6c0fbfec3c2dbc6cd85ffaa93a6c37f08f172faaed",
+    "counts": {
+      "info": 0,
+      "low": 17,
+      "moderate": 32,
+      "high": 27,
+      "critical": 2,
+      "total": 78
+    },
+    "findings": [
+      {
+        "name": "@coinbase/cdp-sdk",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=1.49.2",
+        "via": [
+          "axios"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@coinbase/cdp-sdk",
+            "version": "1.55.0",
+            "optional": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@dfns/sdk",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=0.1.0-beta.8 || 0.1.1 - 0.6.12",
+        "via": [
+          "uuid"
+        ],
+        "effects": [
+          "@hashgraph/hedera-custodians-integration"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@dfns/sdk",
+            "version": "0.1.0-beta.5",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@dfns/sdk-keysigner",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=0.1.0-beta.8 || 0.1.1 - 0.2.0 || 0.2.3 || 0.3.0 - 0.6.12",
+        "via": [
+          "@dfns/sdk",
+          "uuid"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@dfns/sdk-keysigner",
+            "version": "0.1.0-beta.5",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@digitalbazaar/http-client",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "3.2.0 - 4.1.0",
+        "via": [
+          "undici"
+        ],
+        "effects": [
+          "jsonld"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@digitalbazaar/http-client",
+            "version": "3.4.1",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@ethersproject/abi",
+        "severity": "low",
+        "isDirect": false,
+        "range": "5.0.10 - 5.8.0",
+        "via": [
+          "@ethersproject/hash"
+        ],
+        "effects": [
+          "@ethersproject/contracts",
+          "@hashgraph/sdk",
+          "@hiero-ledger/sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/abi",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/abstract-provider",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/transactions"
+        ],
+        "effects": [
+          "@ethersproject/abstract-signer",
+          "@ethersproject/contracts"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/abstract-provider",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/abstract-signer",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/abstract-provider"
+        ],
+        "effects": [
+          "@ethersproject/hash"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/abstract-signer",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/contracts",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/abi",
+          "@ethersproject/abstract-provider",
+          "@ethersproject/abstract-signer",
+          "@ethersproject/transactions"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk",
+          "ethers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/contracts",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/hash",
+        "severity": "low",
+        "isDirect": false,
+        "range": "5.0.6 - 5.8.0",
+        "via": [
+          "@ethersproject/abstract-signer"
+        ],
+        "effects": [
+          "@ethersproject/abi",
+          "@ethersproject/providers",
+          "@ethersproject/wallet",
+          "@ethersproject/wordlists",
+          "ethers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/hash",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/hdnode",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/abstract-signer",
+          "@ethersproject/signing-key",
+          "@ethersproject/transactions",
+          "@ethersproject/wordlists"
+        ],
+        "effects": [
+          "@ethersproject/json-wallets"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/hdnode",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@ethersproject/json-wallets",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/abstract-signer",
+          "@ethersproject/hdnode",
+          "@ethersproject/transactions"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/json-wallets",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@ethersproject/providers",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/abstract-provider",
+          "@ethersproject/abstract-signer",
+          "@ethersproject/hash",
+          "@ethersproject/transactions",
+          "ws"
+        ],
+        "effects": [
+          "ethers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/providers",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@ethersproject/signing-key",
+        "severity": "low",
+        "isDirect": false,
+        "range": "<=5.8.0",
+        "via": [
+          "elliptic"
+        ],
+        "effects": [
+          "@ethersproject/hdnode",
+          "@ethersproject/transactions",
+          "@ethersproject/wallet",
+          "ethers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/signing-key",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/transactions",
+        "severity": "low",
+        "isDirect": false,
+        "range": "<=5.8.0",
+        "via": [
+          "@ethersproject/signing-key"
+        ],
+        "effects": [
+          "@ethersproject/abstract-provider",
+          "@ethersproject/contracts",
+          "@ethersproject/providers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/transactions",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/wallet",
+        "severity": "low",
+        "isDirect": false,
+        "range": "<=5.8.0",
+        "via": [
+          "@ethersproject/abstract-provider",
+          "@ethersproject/abstract-signer",
+          "@ethersproject/hash",
+          "@ethersproject/hdnode",
+          "@ethersproject/json-wallets",
+          "@ethersproject/signing-key",
+          "@ethersproject/transactions",
+          "@ethersproject/wordlists"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/wallet",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@ethersproject/wordlists",
+        "severity": "low",
+        "isDirect": false,
+        "range": "5.0.8 - 5.8.0",
+        "via": [
+          "@ethersproject/hash"
+        ],
+        "effects": [
+          "@ethersproject/hdnode",
+          "ethers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/wordlists",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@fireblocks/fireblocks-web3-provider",
+        "severity": "high",
+        "isDirect": false,
+        "range": "0.0.1-alpha.1 || >=0.0.2",
+        "via": [
+          "fireblocks-sdk",
+          "web3-providers-http"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@fireblocks/fireblocks-web3-provider",
+            "version": "1.2.5",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@grpc/grpc-js",
+        "severity": "high",
+        "isDirect": false,
+        "range": "1.12.0 - 1.12.6",
+        "via": [
+          {
+            "source": 1120584,
+            "name": "@grpc/grpc-js",
+            "title": "@grpc/grpc-js: A malformed request can cause a server crash",
+            "url": "https://github.com/advisories/GHSA-5375-pq7m-f5r2",
+            "severity": "high",
+            "range": ">=1.12.0 <1.12.7"
+          },
+          {
+            "source": 1120590,
+            "name": "@grpc/grpc-js",
+            "title": "@grpc/grpc-js: An incoming malformed compressed message can cause a client or server crash",
+            "url": "https://github.com/advisories/GHSA-99f4-grh7-6pcq",
+            "severity": "high",
+            "range": ">=1.12.0 <1.12.7"
+          }
+        ],
+        "effects": [
+          "@hiero-ledger/sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hiero-ledger/sdk/node_modules/@grpc/grpc-js",
+            "version": "1.12.6",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "severity": "high",
+        "isDirect": true,
+        "range": "*",
+        "via": [
+          "@ethersproject/contracts",
+          "@hashgraph/hedera-custodians-integration",
+          "@hashgraph/hedera-wallet-connect",
+          "@hashgraph/sdk",
+          "@terminal3/verify_vc",
+          "@walletconnect/sign-client",
+          "@walletconnect/universal-provider",
+          "@walletconnect/utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@hashgraph/asset-tokenization-sdk",
+            "version": "8.0.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hashgraph/hedera-custodians-integration",
+        "severity": "high",
+        "isDirect": false,
+        "range": ">=1.2.0",
+        "via": [
+          "@dfns/sdk",
+          "@dfns/sdk-keysigner",
+          "@fireblocks/fireblocks-web3-provider",
+          "fireblocks-sdk"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hashgraph/hedera-custodians-integration",
+            "version": "1.4.1",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hashgraph/hedera-wallet-connect",
+        "severity": "high",
+        "isDirect": false,
+        "range": ">=2.0.5-canary.306321.0",
+        "via": [
+          "@hiero-ledger/sdk"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hashgraph/hedera-wallet-connect",
+            "version": "2.1.2",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hashgraph/proto",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=1.0.6 || 1.0.26-beta.1 || 1.1.1 - 2.11.2 || >=2.16.0-beta.1",
+        "via": [
+          "protobufjs"
+        ],
+        "effects": [
+          "@hashgraph/sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hashgraph/proto",
+            "version": "2.18.5",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hashgraph/sdk",
+        "severity": "high",
+        "isDirect": false,
+        "range": "2.0.20 - 2.20.0-beta.4 || >=2.25.0",
+        "via": [
+          "@ethersproject/abi",
+          "@hashgraph/proto",
+          "protobufjs"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hashgraph/sdk",
+            "version": "2.64.5",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hiero-ledger/cryptography",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "1.11.0 - 1.16.0-beta.3",
+        "via": [
+          "bn.js"
+        ],
+        "effects": [
+          "@hiero-ledger/sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hiero-ledger/cryptography",
+            "version": "1.15.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hiero-ledger/proto",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=2.26.0-beta.3",
+        "via": [
+          "protobufjs"
+        ],
+        "effects": [
+          "@hiero-ledger/sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hiero-ledger/sdk/node_modules/@hiero-ledger/proto",
+            "version": "2.25.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hiero-ledger/sdk",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=2.85.0",
+        "via": [
+          "@ethersproject/abi",
+          "@grpc/grpc-js",
+          "@hiero-ledger/cryptography",
+          "@hiero-ledger/proto",
+          "bn.js",
+          "protobufjs"
+        ],
+        "effects": [
+          "@hashgraph/hedera-wallet-connect"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hiero-ledger/sdk",
+            "version": "2.79.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@mapbox/node-pre-gyp",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=1.0.11",
+        "via": [
+          "tar"
+        ],
+        "effects": [
+          "@mattrglobal/node-bbs-signatures"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@mapbox/node-pre-gyp",
+            "version": "1.0.11",
+            "optional": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@mattrglobal/bbs-signatures",
+        "severity": "high",
+        "isDirect": false,
+        "range": ">=1.0.1-unstable.26bf16a",
+        "via": [
+          "@mattrglobal/node-bbs-signatures"
+        ],
+        "effects": [
+          "@terminal3/bbs_vc"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@mattrglobal/bbs-signatures",
+            "version": "1.4.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@mattrglobal/node-bbs-signatures",
+        "severity": "high",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@mapbox/node-pre-gyp",
+          "neon-cli"
+        ],
+        "effects": [
+          "@mattrglobal/bbs-signatures"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@mattrglobal/node-bbs-signatures",
+            "version": "0.18.1",
+            "optional": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@metamask/rpc-errors",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=6.3.1",
+        "via": [
+          "@metamask/utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@metamask/rpc-errors",
+            "version": "6.4.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@metamask/utils",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=8.4.0",
+        "via": [
+          "uuid"
+        ],
+        "effects": [
+          "@metamask/rpc-errors"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@metamask/rpc-errors/node_modules/@metamask/utils",
+            "version": "9.3.0",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@metamask/utils",
+            "version": "8.5.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@notabene/pii-sdk",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@stablelib/ed25519",
+          "uuid"
+        ],
+        "effects": [
+          "fireblocks-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@notabene/pii-sdk",
+            "version": "1.17.2",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@react-native/community-cli-plugin",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=0.81.0-rc.5 || 0.82.0-nightly-20250710-586f5ba89 - 0.82.0-rc.5 || >=0.87.0-nightly-20260507-ba204faa7",
+        "via": [
+          "metro"
+        ],
+        "effects": [
+          "react-native"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@react-native/community-cli-plugin",
+            "version": "0.87.1",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@react-native/virtualized-lists",
+        "severity": "high",
+        "isDirect": false,
+        "range": "0.86.1 || >=0.87.0-nightly-20260507-ba204faa7",
+        "via": [
+          "react-native"
+        ],
+        "effects": [
+          "react-native"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@react-native/virtualized-lists",
+            "version": "0.87.1",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@stablelib/ed25519",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=2.0.2",
+        "via": [
+          {
+            "source": 1116139,
+            "name": "@stablelib/ed25519",
+            "title": "StableLib Ed25519 Signature Malleability via Missing S < L Check",
+            "url": "https://github.com/advisories/GHSA-x3ff-w252-2g7j",
+            "severity": "moderate",
+            "range": "<=2.0.2"
+          }
+        ],
+        "effects": [
+          "@notabene/pii-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@stablelib/ed25519",
+            "version": "1.0.3",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@terminal3/bbs_vc",
+        "severity": "high",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@mattrglobal/bbs-signatures",
+          "@terminal3/vc_core",
+          "@terminal3/verify_vc_core",
+          "jsonld",
+          "uuid"
+        ],
+        "effects": [
+          "@terminal3/verify_vc"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/bbs_vc",
+            "version": "0.2.18",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@terminal3/ecdsa_vc",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.1.10",
+        "via": [
+          "@terminal3/vc_core",
+          "@terminal3/verify_vc_core"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/ecdsa_vc",
+            "version": "0.1.16",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@terminal3/revoke_vc",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.1.9",
+        "via": [
+          "@terminal3/vc_core"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/revoke_vc",
+            "version": "0.1.15",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@terminal3/vc_core",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.0.14",
+        "via": [
+          "uuid"
+        ],
+        "effects": [
+          "@terminal3/bbs_vc",
+          "@terminal3/ecdsa_vc",
+          "@terminal3/revoke_vc",
+          "@terminal3/verify_vc",
+          "@terminal3/verify_vc_core"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/vc_core",
+            "version": "0.0.19",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@terminal3/verify_vc",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.0.11",
+        "via": [
+          "@terminal3/bbs_vc",
+          "@terminal3/ecdsa_vc",
+          "@terminal3/vc_core"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/verify_vc",
+            "version": "0.0.20",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@terminal3/verify_vc_core",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.0.13",
+        "via": [
+          "@terminal3/revoke_vc",
+          "@terminal3/vc_core"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/verify_vc_core",
+            "version": "0.0.19",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@walletconnect/core",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "2.18.1-canary-exp-1 - 2.18.1-rc-1 || 2.19.0-canary-ak-1 - 2.21.9",
+        "via": [
+          "@walletconnect/utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@walletconnect/sign-client/node_modules/@walletconnect/core",
+            "version": "2.19.2",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/core",
+            "version": "2.21.9",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@walletconnect/sign-client",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "2.18.1-canary-exp-1 - 2.18.1-rc-1 || 2.19.0-canary-ak-1 - 2.21.9",
+        "via": [
+          "@walletconnect/core",
+          "@walletconnect/utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@walletconnect/sign-client",
+            "version": "2.19.2",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/sign-client",
+            "version": "2.21.9",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@walletconnect/universal-provider",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "2.18.1-canary-exp-1 - 2.18.1-rc-1 || 2.19.0-canary-ak-1 - 2.21.9",
+        "via": [
+          "@walletconnect/sign-client",
+          "@walletconnect/utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@walletconnect/universal-provider",
+            "version": "2.21.9",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@walletconnect/utils",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "1.2.3-1.3.0-rc.0.0 - 2.17.5-rc-1 || 2.18.0-canary-ell-1 - 2.21.9",
+        "via": [
+          "query-string",
+          "viem"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk",
+          "@walletconnect/core",
+          "@walletconnect/sign-client",
+          "@walletconnect/universal-provider"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/utils",
+            "version": "2.21.9",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@walletconnect/utils",
+            "version": "2.19.2",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "axios",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=0.32.0 || 1.0.0 - 1.17.0",
+        "via": [
+          {
+            "source": 1097679,
+            "name": "axios",
+            "title": "Axios Cross-Site Request Forgery Vulnerability",
+            "url": "https://github.com/advisories/GHSA-wf5p-g6vw-rhxx",
+            "severity": "moderate",
+            "range": ">=0.8.1 <0.28.0"
+          },
+          {
+            "source": 1111034,
+            "name": "axios",
+            "title": "axios Requests Vulnerable To Possible SSRF and Credential Leakage via Absolute URL",
+            "url": "https://github.com/advisories/GHSA-jr5f-v2jv-69x6",
+            "severity": "high",
+            "range": "<0.30.0"
+          },
+          {
+            "source": 1116672,
+            "name": "axios",
+            "title": "Axios has a NO_PROXY Hostname Normalization Bypass that Leads to SSRF",
+            "url": "https://github.com/advisories/GHSA-3p68-rc4w-qgx5",
+            "severity": "moderate",
+            "range": "<0.31.0"
+          },
+          {
+            "source": 1117573,
+            "name": "axios",
+            "title": "Axios: Authentication Bypass via Prototype Pollution Gadget in `validateStatus` Merge Strategy",
+            "url": "https://github.com/advisories/GHSA-w9j2-pvgh-6h63",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117575,
+            "name": "axios",
+            "title": "Axios: Incomplete Fix for CVE-2025-62718 \u2014 NO_PROXY Protection Bypassed via RFC 1122 Loopback Subnet (127.0.0.0/8) in Axios 1.15.0",
+            "url": "https://github.com/advisories/GHSA-pmwg-cvhr-8vh7",
+            "severity": "high",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117579,
+            "name": "axios",
+            "title": "Axios: Null Byte Injection via Reverse-Encoding in AxiosURLSearchParams",
+            "url": "https://github.com/advisories/GHSA-xhjh-pmcv-23jw",
+            "severity": "low",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117582,
+            "name": "axios",
+            "title": "Axios: no_proxy bypass via IP alias allows SSRF",
+            "url": "https://github.com/advisories/GHSA-m7pr-hjqh-92cm",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117586,
+            "name": "axios",
+            "title": "Axios' HTTP adapter-streamed uploads bypass maxBodyLength when maxRedirects: 0",
+            "url": "https://github.com/advisories/GHSA-5c9x-8gcm-mpgx",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117588,
+            "name": "axios",
+            "title": "Axios: HTTP adapter streamed responses bypass maxContentLength",
+            "url": "https://github.com/advisories/GHSA-vf2m-468p-8v99",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117590,
+            "name": "axios",
+            "title": "Axios: Prototype Pollution Gadgets - Response Tampering, Data Exfiltration, and Request Hijacking",
+            "url": "https://github.com/advisories/GHSA-pf86-5x62-jrwf",
+            "severity": "high",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117592,
+            "name": "axios",
+            "title": "Axios: Header Injection via Prototype Pollution",
+            "url": "https://github.com/advisories/GHSA-6chq-wfr3-2hj9",
+            "severity": "high",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117594,
+            "name": "axios",
+            "title": "Axios: XSRF Token Cross-Origin Leakage via Prototype Pollution Gadget in `withXSRFToken` Boolean Coercion",
+            "url": "https://github.com/advisories/GHSA-xx6v-rp6x-q39c",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117857,
+            "name": "axios",
+            "title": "Axios is Vulnerable to Denial of Service via __proto__ Key in mergeConfig",
+            "url": "https://github.com/advisories/GHSA-43fc-jf86-j433",
+            "severity": "high",
+            "range": "<=0.30.2"
+          },
+          {
+            "source": 1119403,
+            "name": "axios",
+            "title": "Axios has Unrestricted Cloud Metadata Exfiltration via Header Injection Chain",
+            "url": "https://github.com/advisories/GHSA-fvcv-3m26-pcqx",
+            "severity": "moderate",
+            "range": "<0.31.0"
+          },
+          {
+            "source": 1120124,
+            "name": "axios",
+            "title": "Axios: unbounded recursion in toFormData causes DoS via deeply nested request data",
+            "url": "https://github.com/advisories/GHSA-62hf-57xw-28j9",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1120546,
+            "name": "axios",
+            "title": "Axios: Regular Expression Denial of Service (ReDoS) via Cookie Name Injection",
+            "url": "https://github.com/advisories/GHSA-hfxv-24rg-xrqf",
+            "severity": "high",
+            "range": "<=0.31.1"
+          },
+          {
+            "source": 1120644,
+            "name": "axios",
+            "title": "Axios: Proxy-Authorization Credential Leak to Origin Server Across HTTP-to-HTTPS Redirect in Axios Node.js HTTP Adapter",
+            "url": "https://github.com/advisories/GHSA-p92q-9vqr-4j8v",
+            "severity": "high",
+            "range": "<=0.31.1"
+          },
+          {
+            "source": 1120646,
+            "name": "axios",
+            "title": "Axios: Proxy-Authorization header leaks to redirect target when proxy is re-evaluated to direct connection",
+            "url": "https://github.com/advisories/GHSA-j5f8-grm9-p9fc",
+            "severity": "high",
+            "range": "<=0.31.1"
+          },
+          {
+            "source": 1120648,
+            "name": "axios",
+            "title": "axios Vulnerable to Credential Theft and Response Hijacking via Prototype Pollution Gadget in Config Merge",
+            "url": "https://github.com/advisories/GHSA-3g43-6gmg-66jw",
+            "severity": "high",
+            "range": ">=0.19.0 <0.31.1"
+          },
+          {
+            "source": 1120651,
+            "name": "axios",
+            "title": "axios has DoS & Header Injection via Prototype Pollution Read-Side Gadgets in axios merge functions",
+            "url": "https://github.com/advisories/GHSA-898c-q2cr-xwhg",
+            "severity": "moderate",
+            "range": "<=0.31.1"
+          },
+          {
+            "source": 1123825,
+            "name": "axios",
+            "title": "axios's shouldBypassProxy does not recognize IPv4-mapped IPv6 addresses, allowing NO_PROXY bypass (incomplete fix for CVE-2025-62718)",
+            "url": "https://github.com/advisories/GHSA-pjwm-pj3p-43mv",
+            "severity": "high",
+            "range": "<=0.31.1"
+          },
+          {
+            "source": 1123969,
+            "name": "axios",
+            "title": "Axios form serializer maxDepth bypass via {} metatoken",
+            "url": "https://github.com/advisories/GHSA-hcpx-6fm6-wx23",
+            "severity": "moderate",
+            "range": ">=1.15.1 <1.18.0"
+          },
+          {
+            "source": 1138749,
+            "name": "axios",
+            "title": "Axios: Prototype pollution auth subfields can inject Basic auth",
+            "url": "https://github.com/advisories/GHSA-xj6q-8x83-jv6g",
+            "severity": "moderate",
+            "range": ">=1.15.2 <1.18.0"
+          },
+          {
+            "source": 1147948,
+            "name": "axios",
+            "title": "Axios: Prototype pollution gadgets can alter axios request construction",
+            "url": "https://github.com/advisories/GHSA-mmx7-hfxf-jppx",
+            "severity": "moderate",
+            "range": "<0.33.0"
+          },
+          {
+            "source": 1147949,
+            "name": "axios",
+            "title": "Axios: Prototype pollution gadgets can alter axios request construction",
+            "url": "https://github.com/advisories/GHSA-mmx7-hfxf-jppx",
+            "severity": "moderate",
+            "range": ">=1.0.0 <1.18.0"
+          },
+          {
+            "source": 1147950,
+            "name": "axios",
+            "title": "Axios: Deep formToJSON Key Recursion Can Cause Denial of Service",
+            "url": "https://github.com/advisories/GHSA-pmv8-rq9r-6j72",
+            "severity": "moderate",
+            "range": ">=1.0.0 <1.18.0"
+          },
+          {
+            "source": 1153175,
+            "name": "axios",
+            "title": "Axios: HTTP/2 streamed uploads bypass `maxBodyLength`",
+            "url": "https://github.com/advisories/GHSA-mwf2-3pr3-8698",
+            "severity": "moderate",
+            "range": ">=1.13.0 <1.18.0"
+          },
+          {
+            "source": 1153178,
+            "name": "axios",
+            "title": "Axios Node HTTP adapter can use an inherited proxy after interceptor config cloning",
+            "url": "https://github.com/advisories/GHSA-gcfj-64vw-6mp9",
+            "severity": "high",
+            "range": ">=1.15.2 <1.18.0"
+          },
+          {
+            "source": 1153180,
+            "name": "axios",
+            "title": "Axios: Nested axios option objects can consume polluted prototype values",
+            "url": "https://github.com/advisories/GHSA-7q8q-rj6j-mhjq",
+            "severity": "moderate",
+            "range": ">=1.0.0 <1.18.0"
+          },
+          {
+            "source": 1153181,
+            "name": "axios",
+            "title": "Axios: Nested axios option objects can consume polluted prototype values",
+            "url": "https://github.com/advisories/GHSA-7q8q-rj6j-mhjq",
+            "severity": "moderate",
+            "range": ">=0.8.0 <0.33.0"
+          },
+          {
+            "source": 1153182,
+            "name": "axios",
+            "title": "Axios: Fetch adapter `ReadableStream` uploads bypass `maxBodyLength`",
+            "url": "https://github.com/advisories/GHSA-jqh4-m9w3-8hp9",
+            "severity": "moderate",
+            "range": ">=1.7.0 <1.18.0"
+          },
+          {
+            "source": 1153184,
+            "name": "axios",
+            "title": "Axios: NO_PROXY bypass for 0.0.0.0 local addresses in axios",
+            "url": "https://github.com/advisories/GHSA-f4gw-2p7v-4548",
+            "severity": "moderate",
+            "range": ">=1.15.0 <1.18.0"
+          },
+          {
+            "source": 1153185,
+            "name": "axios",
+            "title": "Axios: Excessive recursion in formDataToJSON can cause denial of service",
+            "url": "https://github.com/advisories/GHSA-42h9-826w-cgv3",
+            "severity": "moderate",
+            "range": ">=1.0.0 <1.18.0"
+          }
+        ],
+        "effects": [
+          "@coinbase/cdp-sdk",
+          "fireblocks-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@coinbase/cdp-sdk/node_modules/axios",
+            "version": "1.16.0",
+            "optional": true
+          },
+          {
+            "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/axios",
+            "version": "0.27.2",
+            "optional": false
+          },
+          {
+            "path": "node_modules/fireblocks-sdk/node_modules/axios",
+            "version": "0.27.2",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "bn.js",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=5.0.0 <5.2.3 || <4.12.3",
+        "via": [
+          {
+            "source": 1113441,
+            "name": "bn.js",
+            "title": "bn.js affected by an infinite loop",
+            "url": "https://github.com/advisories/GHSA-378v-28hj-76wf",
+            "severity": "moderate",
+            "range": ">=5.0.0 <5.2.3"
+          },
+          {
+            "source": 1113442,
+            "name": "bn.js",
+            "title": "bn.js affected by an infinite loop",
+            "url": "https://github.com/advisories/GHSA-378v-28hj-76wf",
+            "severity": "moderate",
+            "range": "<4.12.3"
+          }
+        ],
+        "effects": [
+          "@hiero-ledger/cryptography",
+          "@hiero-ledger/sdk",
+          "ethjs-unit",
+          "number-to-bn"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hiero-ledger/cryptography/node_modules/bn.js",
+            "version": "5.2.1",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@hiero-ledger/sdk/node_modules/bn.js",
+            "version": "5.1.1",
+            "optional": false
+          },
+          {
+            "path": "node_modules/ethjs-unit/node_modules/bn.js",
+            "version": "4.11.6",
+            "optional": false
+          },
+          {
+            "path": "node_modules/number-to-bn/node_modules/bn.js",
+            "version": "4.11.6",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "decode-uri-component",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=0.4.2",
+        "via": [
+          {
+            "source": 1147955,
+            "name": "decode-uri-component",
+            "title": "decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input",
+            "url": "https://github.com/advisories/GHSA-vcc3-ghjq-m6fr",
+            "severity": "moderate",
+            "range": "<=0.4.2"
+          }
+        ],
+        "effects": [
+          "query-string"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/decode-uri-component",
+            "version": "0.2.2",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "elliptic",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          {
+            "source": 1112030,
+            "name": "elliptic",
+            "title": "Elliptic Uses a Cryptographic Primitive with a Risky Implementation",
+            "url": "https://github.com/advisories/GHSA-848j-6mx2-7j84",
+            "severity": "low",
+            "range": "<=6.6.1"
+          }
+        ],
+        "effects": [
+          "@ethersproject/signing-key",
+          "secp256k1"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/elliptic",
+            "version": "6.6.1",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "ethereum-cryptography",
+        "severity": "low",
+        "isDirect": false,
+        "range": "0.1.0 - 0.1.3",
+        "via": [
+          "secp256k1"
+        ],
+        "effects": [
+          "ethereumjs-util"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/ethereumjs-util/node_modules/ethereum-cryptography",
+            "version": "0.1.3",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "ethereumjs-util",
+        "severity": "low",
+        "isDirect": false,
+        "range": "4.5.1 || 5.2.1 || 6.2.1 || >=7.0.3",
+        "via": [
+          "ethereum-cryptography"
+        ],
+        "effects": [
+          "web3-utils"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/ethereumjs-util",
+            "version": "7.1.5",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "ethers",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "5.0.0-beta.119 - 6.0.0-beta.9",
+        "via": [
+          "@ethersproject/abi",
+          "@ethersproject/abstract-provider",
+          "@ethersproject/abstract-signer",
+          "@ethersproject/contracts",
+          "@ethersproject/hash",
+          "@ethersproject/hdnode",
+          "@ethersproject/json-wallets",
+          "@ethersproject/providers",
+          "@ethersproject/signing-key",
+          "@ethersproject/transactions",
+          "@ethersproject/wallet",
+          "@ethersproject/wordlists"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/ethers",
+            "version": "5.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "ethjs-unit",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.1.3",
+        "via": [
+          "bn.js",
+          "number-to-bn"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/ethjs-unit",
+            "version": "0.1.6",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "external-editor",
+        "severity": "low",
+        "isDirect": false,
+        "range": ">=1.1.1",
+        "via": [
+          "tmp"
+        ],
+        "effects": [
+          "inquirer"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/external-editor",
+            "version": "3.1.0",
+            "optional": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "fireblocks-sdk",
+        "severity": "high",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@notabene/pii-sdk",
+          "axios",
+          "query-string",
+          "uuid"
+        ],
+        "effects": [
+          "@fireblocks/fireblocks-web3-provider",
+          "@hashgraph/hedera-custodians-integration"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/fireblocks-sdk",
+            "version": "3.1.4",
+            "optional": false
+          },
+          {
+            "path": "node_modules/fireblocks-sdk",
+            "version": "5.11.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "image-size",
+        "severity": "high",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          {
+            "source": 1138808,
+            "name": "image-size",
+            "title": "image-size: ICNS parser allows denial of service through an infinite loop",
+            "url": "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+            "severity": "high",
+            "range": "<=2.0.2"
+          },
+          {
+            "source": 1138809,
+            "name": "image-size",
+            "title": "image-size: JXL and HEIF parsers allow denial of service through infinite loops",
+            "url": "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq",
+            "severity": "high",
+            "range": "<=2.0.2"
+          }
+        ],
+        "effects": [
+          "metro"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/image-size",
+            "version": "1.2.1",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "inquirer",
+        "severity": "low",
+        "isDirect": false,
+        "range": "3.0.0 - 8.2.6 || 9.0.0 - 9.3.7",
+        "via": [
+          "external-editor"
+        ],
+        "effects": [
+          "neon-cli"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/inquirer",
+            "version": "7.3.3",
+            "optional": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "jsonld",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "6.0.0 - 8.3.3",
+        "via": [
+          "@digitalbazaar/http-client"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/jsonld",
+            "version": "8.3.3",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "metro",
+        "severity": "high",
+        "isDirect": false,
+        "range": "0.22.1 - 0.83.7 || 0.84.0 - 0.84.4 || >=0.85.0",
+        "via": [
+          "image-size",
+          "metro-config",
+          "metro-transform-worker"
+        ],
+        "effects": [
+          "@react-native/community-cli-plugin",
+          "metro-config",
+          "metro-transform-worker"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/metro",
+            "version": "0.87.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "metro-config",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=0.83.7 || 0.84.0 - 0.84.4 || >=0.85.0",
+        "via": [
+          "metro"
+        ],
+        "effects": [
+          "metro"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/metro-config",
+            "version": "0.87.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "metro-transform-worker",
+        "severity": "high",
+        "isDirect": false,
+        "range": "0.60.0 - 0.83.7 || 0.84.0 - 0.84.4 || >=0.85.0",
+        "via": [
+          "metro"
+        ],
+        "effects": [
+          "metro"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/metro-transform-worker",
+            "version": "0.87.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "neon-cli",
+        "severity": "high",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "inquirer",
+          "toml"
+        ],
+        "effects": [
+          "@mattrglobal/node-bbs-signatures"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/neon-cli",
+            "version": "0.10.1",
+            "optional": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "number-to-bn",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "bn.js"
+        ],
+        "effects": [
+          "web3-utils"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/number-to-bn",
+            "version": "1.7.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "protobufjs",
+        "severity": "critical",
+        "isDirect": false,
+        "range": "<=7.6.4",
+        "via": [
+          {
+            "source": 1117571,
+            "name": "protobufjs",
+            "title": "Arbitrary code execution in protobufjs",
+            "url": "https://github.com/advisories/GHSA-xq3m-2v4x-88gg",
+            "severity": "critical",
+            "range": "<7.5.5"
+          },
+          {
+            "source": 1118641,
+            "name": "protobufjs",
+            "title": "protobuf.js: Code injection through bytes field defaults in generated toObject code",
+            "url": "https://github.com/advisories/GHSA-66ff-xgx4-vchm",
+            "severity": "high",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118924,
+            "name": "protobufjs",
+            "title": "protobuf.js: Denial of service from crafted field names in generated code",
+            "url": "https://github.com/advisories/GHSA-2pr8-phx7-x9h3",
+            "severity": "moderate",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118926,
+            "name": "protobufjs",
+            "title": "protobuf.js: Prototype injection in generated message constructors",
+            "url": "https://github.com/advisories/GHSA-fx83-v9x8-x52w",
+            "severity": "moderate",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118928,
+            "name": "protobufjs",
+            "title": "protobuf.js: Code generation gadget after prototype pollution",
+            "url": "https://github.com/advisories/GHSA-75px-5xx7-5xc7",
+            "severity": "high",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118930,
+            "name": "protobufjs",
+            "title": "protobuf.js: Process-wide denial of service through unsafe option paths",
+            "url": "https://github.com/advisories/GHSA-jvwf-75h9-cwgg",
+            "severity": "high",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118932,
+            "name": "protobufjs",
+            "title": "protobuf.js: Denial of service through unbounded protobuf recursion",
+            "url": "https://github.com/advisories/GHSA-685m-2w69-288q",
+            "severity": "high",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118935,
+            "name": "protobufjs",
+            "title": "protobufjs has overlong UTF-8 decoding",
+            "url": "https://github.com/advisories/GHSA-q6x5-8v7m-xcrf",
+            "severity": "moderate",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1119378,
+            "name": "protobufjs",
+            "title": "protobufjs: Denial of Service via unbounded recursive JSON descriptor expansion",
+            "url": "https://github.com/advisories/GHSA-jggg-4jg4-v7c6",
+            "severity": "moderate",
+            "range": "<=7.5.7"
+          },
+          {
+            "source": 1123488,
+            "name": "protobufjs",
+            "title": "protobufjs: Denial of service through unbounded Any expansion during JSON conversion",
+            "url": "https://github.com/advisories/GHSA-wcpc-wj8m-hjx6",
+            "severity": "high",
+            "range": "<=7.6.0"
+          },
+          {
+            "source": 1123492,
+            "name": "protobufjs",
+            "title": "protobufjs : Schema-derived names can shadow runtime-significant properties",
+            "url": "https://github.com/advisories/GHSA-f38q-mgvj-vph7",
+            "severity": "moderate",
+            "range": "<=7.6.2"
+          },
+          {
+            "source": 1123964,
+            "name": "protobufjs",
+            "title": "protobufjs: Denial of Service via infinite loop in .proto option parsing",
+            "url": "https://github.com/advisories/GHSA-j3f2-48v5-ccww",
+            "severity": "moderate",
+            "range": ">=7.5.0 <=7.6.4"
+          }
+        ],
+        "effects": [
+          "@hashgraph/proto",
+          "@hashgraph/sdk",
+          "@hiero-ledger/proto",
+          "@hiero-ledger/sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hiero-ledger/sdk/node_modules/protobufjs",
+            "version": "7.5.4",
+            "optional": false
+          },
+          {
+            "path": "node_modules/protobufjs",
+            "version": "7.2.5",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "query-string",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "5.0.0 - 9.4.1",
+        "via": [
+          "decode-uri-component"
+        ],
+        "effects": [
+          "@walletconnect/utils",
+          "fireblocks-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/query-string",
+            "version": "7.1.3",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "react-native",
+        "severity": "high",
+        "isDirect": false,
+        "range": "0.73.0-nightly-20230506-1af868c52 - 0.81.0-rc.5 || 0.82.0-nightly-20250710-586f5ba89 - 0.82.0-rc.5 || >=0.87.0-nightly-20260507-ba204faa7",
+        "via": [
+          "@react-native/community-cli-plugin",
+          "@react-native/virtualized-lists"
+        ],
+        "effects": [
+          "@react-native/virtualized-lists"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/react-native",
+            "version": "0.87.1",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "secp256k1",
+        "severity": "low",
+        "isDirect": false,
+        "range": ">=2.0.0",
+        "via": [
+          "elliptic"
+        ],
+        "effects": [
+          "ethereum-cryptography"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/secp256k1",
+            "version": "4.0.5",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "tar",
+        "severity": "critical",
+        "isDirect": false,
+        "range": "<=7.5.20",
+        "via": [
+          {
+            "source": 1112659,
+            "name": "tar",
+            "title": "node-tar Vulnerable to Arbitrary File Creation/Overwrite via Hardlink Path Traversal",
+            "url": "https://github.com/advisories/GHSA-34x7-hfp2-rc4v",
+            "severity": "high",
+            "range": "<7.5.7"
+          },
+          {
+            "source": 1113300,
+            "name": "tar",
+            "title": "node-tar is Vulnerable to Arbitrary File Overwrite and Symlink Poisoning via Insufficient Path Sanitization",
+            "url": "https://github.com/advisories/GHSA-8qq5-rm4j-mr97",
+            "severity": "high",
+            "range": "<=7.5.2"
+          },
+          {
+            "source": 1113375,
+            "name": "tar",
+            "title": "Arbitrary File Read/Write via Hardlink Target Escape Through Symlink Chain in node-tar Extraction",
+            "url": "https://github.com/advisories/GHSA-83g3-92jg-28cx",
+            "severity": "high",
+            "range": "<7.5.8"
+          },
+          {
+            "source": 1114200,
+            "name": "tar",
+            "title": "tar has Hardlink Path Traversal via Drive-Relative Linkpath",
+            "url": "https://github.com/advisories/GHSA-qffp-2rhf-9h96",
+            "severity": "high",
+            "range": "<=7.5.9"
+          },
+          {
+            "source": 1114302,
+            "name": "tar",
+            "title": "node-tar Symlink Path Traversal via Drive-Relative Linkpath",
+            "url": "https://github.com/advisories/GHSA-9ppj-qmqm-q256",
+            "severity": "high",
+            "range": "<=7.5.10"
+          },
+          {
+            "source": 1114680,
+            "name": "tar",
+            "title": "Race Condition in node-tar Path Reservations via Unicode Ligature Collisions on macOS APFS",
+            "url": "https://github.com/advisories/GHSA-r6q2-hw4h-h46w",
+            "severity": "high",
+            "range": "<=7.5.3"
+          },
+          {
+            "source": 1120782,
+            "name": "tar",
+            "title": "node-tar applies PAX size override to intermediary GNU long-name/long-link headers, causing tar parser interpretation differential (file smuggling)",
+            "url": "https://github.com/advisories/GHSA-vmf3-w455-68vh",
+            "severity": "moderate",
+            "range": "<=7.5.15"
+          },
+          {
+            "source": 1123939,
+            "name": "tar",
+            "title": "node-tar: Process crash via PAX numeric path type confusion",
+            "url": "https://github.com/advisories/GHSA-w8wr-v893-vjvp",
+            "severity": "moderate",
+            "range": "<=7.5.17"
+          },
+          {
+            "source": 1123940,
+            "name": "tar",
+            "title": "node-tar: Decompression/parse DoS via unlimited input",
+            "url": "https://github.com/advisories/GHSA-23hp-3jrh-7fpw",
+            "severity": "critical",
+            "range": "<=7.5.18"
+          },
+          {
+            "source": 1123941,
+            "name": "tar",
+            "title": "node-tar: Negative tar entry size causes infinite loop in archive replace",
+            "url": "https://github.com/advisories/GHSA-8x88-c5mf-7j5w",
+            "severity": "high",
+            "range": "<=7.5.17"
+          },
+          {
+            "source": 1123942,
+            "name": "tar",
+            "title": "node-tar: Uncaught Exception DoS via NUL byte in PAX path/linkpath records",
+            "url": "https://github.com/advisories/GHSA-gvwx-54wh-qm9j",
+            "severity": "moderate",
+            "range": "<=7.5.16"
+          },
+          {
+            "source": 1145647,
+            "name": "tar",
+            "title": "node-tar: Uncontrolled recursion in mapHas/filesFilter allows uncatchable stack-overflow DoS via crafted long-path tar with member selection",
+            "url": "https://github.com/advisories/GHSA-r292-9mhp-454m",
+            "severity": "high",
+            "range": "<=7.5.20"
+          }
+        ],
+        "effects": [
+          "@mapbox/node-pre-gyp"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/tar",
+            "version": "6.2.1",
+            "optional": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "tmp",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=0.2.5",
+        "via": [
+          {
+            "source": 1109537,
+            "name": "tmp",
+            "title": "tmp allows arbitrary temporary file / directory write via symbolic link `dir` parameter",
+            "url": "https://github.com/advisories/GHSA-52f5-9888-hmc6",
+            "severity": "low",
+            "range": "<=0.2.3"
+          },
+          {
+            "source": 1120654,
+            "name": "tmp",
+            "title": "tmp has Path Traversal via unsanitized prefix/postfix that enables directory escape",
+            "url": "https://github.com/advisories/GHSA-ph9p-34f9-6g65",
+            "severity": "high",
+            "range": "<0.2.6"
+          }
+        ],
+        "effects": [
+          "external-editor"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/tmp",
+            "version": "0.0.33",
+            "optional": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "toml",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=4.1.2",
+        "via": [
+          {
+            "source": 1164824,
+            "name": "toml",
+            "title": "toml-node: Uncontrolled Recursion",
+            "url": "https://github.com/advisories/GHSA-82x6-q7mm-w9cf",
+            "severity": "high",
+            "range": "<4.2.0"
+          },
+          {
+            "source": 1164825,
+            "name": "toml",
+            "title": "toml-node: Prototype Pollution Leads to `Object.prototype` Corruption via `__proto__` Key-Path Desynchronization",
+            "url": "https://github.com/advisories/GHSA-v5mp-jgw5-2x6j",
+            "severity": "high",
+            "range": "<4.1.2"
+          }
+        ],
+        "effects": [
+          "neon-cli"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/toml",
+            "version": "3.0.0",
+            "optional": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "undici",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=6.27.0",
+        "via": [
+          {
+            "source": 1112496,
+            "name": "undici",
+            "title": "Undici has an unbounded decompression chain in HTTP responses on Node.js Fetch API via Content-Encoding leads to resource exhaustion",
+            "url": "https://github.com/advisories/GHSA-g9mf-h72j-4rw9",
+            "severity": "moderate",
+            "range": "<6.23.0"
+          },
+          {
+            "source": 1114594,
+            "name": "undici",
+            "title": "Undici has an HTTP Request/Response Smuggling issue",
+            "url": "https://github.com/advisories/GHSA-2mjp-6q6p-2qxm",
+            "severity": "moderate",
+            "range": "<6.24.0"
+          },
+          {
+            "source": 1114638,
+            "name": "undici",
+            "title": "Undici has Unbounded Memory Consumption in WebSocket permessage-deflate Decompression",
+            "url": "https://github.com/advisories/GHSA-vrm6-8vpv-qv8q",
+            "severity": "high",
+            "range": "<6.24.0"
+          },
+          {
+            "source": 1114640,
+            "name": "undici",
+            "title": "Undici has Unhandled Exception in WebSocket Client Due to Invalid server_max_window_bits Validation",
+            "url": "https://github.com/advisories/GHSA-v9p9-hfj2-hcw8",
+            "severity": "high",
+            "range": "<6.24.0"
+          },
+          {
+            "source": 1114642,
+            "name": "undici",
+            "title": "Undici has CRLF Injection in undici via `upgrade` option",
+            "url": "https://github.com/advisories/GHSA-4992-7rv2-5pvq",
+            "severity": "moderate",
+            "range": "<6.24.0"
+          },
+          {
+            "source": 1121242,
+            "name": "undici",
+            "title": "undici vulnerable to HTTP header injection via Set-Cookie percent-decoding",
+            "url": "https://github.com/advisories/GHSA-p88m-4jfj-68fv",
+            "severity": "moderate",
+            "range": "<6.27.0"
+          },
+          {
+            "source": 1121245,
+            "name": "undici",
+            "title": "undici WebSocket client vulnerable to denial of service via fragment count bypass",
+            "url": "https://github.com/advisories/GHSA-vxpw-j846-p89q",
+            "severity": "high",
+            "range": "<6.27.0"
+          },
+          {
+            "source": 1121255,
+            "name": "undici",
+            "title": "undici vulnerable to Set-Cookie SameSite attribute downgrade via permissive substring matching",
+            "url": "https://github.com/advisories/GHSA-g8m3-5g58-fq7m",
+            "severity": "low",
+            "range": "<6.27.0"
+          },
+          {
+            "source": 1130716,
+            "name": "undici",
+            "title": "undici vulnerable to downstream response desynchronization via retry interceptor",
+            "url": "https://github.com/advisories/GHSA-8xcm-r25x-g524",
+            "severity": "moderate",
+            "range": "<6.28.0"
+          },
+          {
+            "source": 1130727,
+            "name": "undici",
+            "title": "undici vulnerable to CRLF Injection via blob-like body 'type' property",
+            "url": "https://github.com/advisories/GHSA-m8rv-5g2x-5cg5",
+            "severity": "moderate",
+            "range": "<6.28.0"
+          },
+          {
+            "source": 1130732,
+            "name": "undici",
+            "title": "undici vulnerable to cookie attribute injection via unsanitized domain and unparsed setCookie fields",
+            "url": "https://github.com/advisories/GHSA-v3r7-h72x-cjcm",
+            "severity": "moderate",
+            "range": "<6.28.0"
+          },
+          {
+            "source": 1137243,
+            "name": "undici",
+            "title": "undici vulnerable to HTTP response queue poisoning via keep-alive socket reuse",
+            "url": "https://github.com/advisories/GHSA-35p6-xmwp-9g52",
+            "severity": "low",
+            "range": "<6.27.0"
+          }
+        ],
+        "effects": [
+          "@digitalbazaar/http-client"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/undici",
+            "version": "5.29.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "uuid",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<11.1.1",
+        "via": [
+          {
+            "source": 1119441,
+            "name": "uuid",
+            "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+            "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
+            "severity": "moderate",
+            "range": "<11.1.1"
+          }
+        ],
+        "effects": [
+          "@dfns/sdk",
+          "@dfns/sdk-keysigner",
+          "@metamask/utils",
+          "@notabene/pii-sdk",
+          "@terminal3/bbs_vc",
+          "@terminal3/vc_core",
+          "fireblocks-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/uuid",
+            "version": "8.3.2",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@metamask/rpc-errors/node_modules/uuid",
+            "version": "9.0.1",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@metamask/utils/node_modules/uuid",
+            "version": "9.0.1",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@terminal3/bbs_vc/node_modules/uuid",
+            "version": "10.0.0",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@terminal3/vc_core/node_modules/uuid",
+            "version": "10.0.0",
+            "optional": false
+          },
+          {
+            "path": "node_modules/fireblocks-sdk/node_modules/uuid",
+            "version": "8.3.2",
+            "optional": false
+          },
+          {
+            "path": "node_modules/uuid",
+            "version": "9.0.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "viem",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=0.0.0-wagmiv2-20230628182101 || 0.2.2 - 2.49.3",
+        "via": [
+          "ws"
+        ],
+        "effects": [
+          "@walletconnect/utils"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@walletconnect/universal-provider/node_modules/viem",
+            "version": "2.36.0",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@walletconnect/utils/node_modules/viem",
+            "version": "2.23.2",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "web3-core-helpers",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "web3-eth-iban",
+          "web3-utils"
+        ],
+        "effects": [
+          "web3-providers-http"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/web3-core-helpers",
+            "version": "1.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "web3-eth-iban",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=3.0.0-rc.5",
+        "via": [
+          "web3-utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/web3-eth-iban",
+            "version": "1.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "web3-providers-http",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=3.0.0-rc.5",
+        "via": [
+          "web3-core-helpers"
+        ],
+        "effects": [
+          "@fireblocks/fireblocks-web3-provider"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/web3-providers-http",
+            "version": "1.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "web3-utils",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "1.0.0-beta.8 - 4.0.0",
+        "via": [
+          "ethereumjs-util",
+          "ethjs-unit",
+          "number-to-bn"
+        ],
+        "effects": [
+          "web3-core-helpers",
+          "web3-eth-iban"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/web3-utils",
+            "version": "1.8.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "ws",
+        "severity": "high",
+        "isDirect": false,
+        "range": "8.0.0 - 8.20.1",
+        "via": [
+          {
+            "source": 1119108,
+            "name": "ws",
+            "title": "ws: Uninitialized memory disclosure",
+            "url": "https://github.com/advisories/GHSA-58qx-3vcg-4xpx",
+            "severity": "moderate",
+            "range": ">=8.0.0 <8.20.1"
+          },
+          {
+            "source": 1123259,
+            "name": "ws",
+            "title": "ws: Memory exhaustion DoS from tiny fragments and data chunks",
+            "url": "https://github.com/advisories/GHSA-96hv-2xvq-fx4p",
+            "severity": "high",
+            "range": ">=8.0.0 <8.21.0"
+          }
+        ],
+        "effects": [
+          "@ethersproject/providers",
+          "viem"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/providers/node_modules/ws",
+            "version": "8.18.0",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@walletconnect/universal-provider/node_modules/ws",
+            "version": "8.18.3",
+            "optional": false
+          },
+          {
+            "path": "node_modules/@walletconnect/utils/node_modules/ws",
+            "version": "8.18.0",
+            "optional": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      }
+    ]
+  },
+  "after": {
+    "sha256": "02230cb1fc129226e28f1e8fc0be6999d2106907818a84629255d86c033a6203",
+    "counts": {
+      "info": 0,
+      "low": 22,
+      "moderate": 32,
+      "high": 27,
+      "critical": 2,
+      "total": 83
+    },
+    "findings": [
+      {
+        "name": "@coinbase/cdp-sdk",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=1.49.2",
+        "via": [
+          "axios"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@coinbase/cdp-sdk",
+            "version": "1.55.0",
+            "optional": true,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@dfns/sdk",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=0.1.0-beta.8 || 0.1.1 - 0.6.12",
+        "via": [
+          "uuid"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@dfns/sdk",
+            "version": "0.1.0-beta.5",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@dfns/sdk-keysigner",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=0.1.0-beta.8 || 0.1.1 - 0.2.0 || 0.2.3 || 0.3.0 - 0.6.12",
+        "via": [
+          "@dfns/sdk",
+          "uuid"
+        ],
+        "effects": [
+          "@hashgraph/hedera-custodians-integration"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@dfns/sdk-keysigner",
+            "version": "0.1.0-beta.5",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@digitalbazaar/http-client",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "3.2.0 - 4.1.0",
+        "via": [
+          "undici"
+        ],
+        "effects": [
+          "jsonld"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@digitalbazaar/http-client",
+            "version": "3.4.1",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@ethersproject/abi",
+        "severity": "low",
+        "isDirect": false,
+        "range": "5.0.10 - 5.8.0",
+        "via": [
+          "@ethersproject/hash"
+        ],
+        "effects": [
+          "@ethersproject/contracts",
+          "@hashgraph/sdk",
+          "@hiero-ledger/sdk",
+          "ethers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/abi",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/abstract-provider",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/transactions"
+        ],
+        "effects": [
+          "@ethersproject/abstract-signer",
+          "@ethersproject/contracts"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/abstract-provider",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/abstract-signer",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/abstract-provider"
+        ],
+        "effects": [
+          "@ethersproject/hash"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/abstract-signer",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/contracts",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/abi",
+          "@ethersproject/abstract-provider",
+          "@ethersproject/abstract-signer",
+          "@ethersproject/transactions"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk",
+          "ethers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/contracts",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/hash",
+        "severity": "low",
+        "isDirect": false,
+        "range": "5.0.6 - 5.8.0",
+        "via": [
+          "@ethersproject/abstract-signer"
+        ],
+        "effects": [
+          "@ethersproject/abi",
+          "@ethersproject/providers",
+          "@ethersproject/wallet",
+          "@ethersproject/wordlists",
+          "ethers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/hash",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/hdnode",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/abstract-signer",
+          "@ethersproject/signing-key",
+          "@ethersproject/transactions",
+          "@ethersproject/wordlists"
+        ],
+        "effects": [
+          "@ethersproject/json-wallets"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/hdnode",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@ethersproject/json-wallets",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/abstract-signer",
+          "@ethersproject/hdnode",
+          "@ethersproject/transactions"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/json-wallets",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@ethersproject/providers",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@ethersproject/abstract-provider",
+          "@ethersproject/abstract-signer",
+          "@ethersproject/hash",
+          "@ethersproject/transactions",
+          "ws"
+        ],
+        "effects": [
+          "ethers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/providers",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@ethersproject/signing-key",
+        "severity": "low",
+        "isDirect": false,
+        "range": "<=5.8.0",
+        "via": [
+          "elliptic"
+        ],
+        "effects": [
+          "@ethersproject/hdnode",
+          "@ethersproject/transactions",
+          "@ethersproject/wallet",
+          "ethers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/signing-key",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/transactions",
+        "severity": "low",
+        "isDirect": false,
+        "range": "<=5.8.0",
+        "via": [
+          "@ethersproject/signing-key"
+        ],
+        "effects": [
+          "@ethersproject/abstract-provider",
+          "@ethersproject/contracts",
+          "@ethersproject/providers"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/transactions",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@ethersproject/wallet",
+        "severity": "low",
+        "isDirect": false,
+        "range": "<=5.8.0",
+        "via": [
+          "@ethersproject/abstract-provider",
+          "@ethersproject/abstract-signer",
+          "@ethersproject/hash",
+          "@ethersproject/hdnode",
+          "@ethersproject/json-wallets",
+          "@ethersproject/signing-key",
+          "@ethersproject/transactions",
+          "@ethersproject/wordlists"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/wallet",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@ethersproject/wordlists",
+        "severity": "low",
+        "isDirect": false,
+        "range": "5.0.8 - 5.8.0",
+        "via": [
+          "@ethersproject/hash"
+        ],
+        "effects": [
+          "@ethersproject/hdnode"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/wordlists",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@fireblocks/fireblocks-web3-provider",
+        "severity": "high",
+        "isDirect": false,
+        "range": "0.0.1-alpha.1 || >=0.0.2",
+        "via": [
+          "fireblocks-sdk",
+          "web3-providers-http"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@fireblocks/fireblocks-web3-provider",
+            "version": "1.2.5",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@grpc/grpc-js",
+        "severity": "high",
+        "isDirect": false,
+        "range": "1.12.0 - 1.12.6",
+        "via": [
+          {
+            "source": 1120584,
+            "name": "@grpc/grpc-js",
+            "title": "@grpc/grpc-js: A malformed request can cause a server crash",
+            "url": "https://github.com/advisories/GHSA-5375-pq7m-f5r2",
+            "severity": "high",
+            "range": ">=1.12.0 <1.12.7"
+          },
+          {
+            "source": 1120590,
+            "name": "@grpc/grpc-js",
+            "title": "@grpc/grpc-js: An incoming malformed compressed message can cause a client or server crash",
+            "url": "https://github.com/advisories/GHSA-99f4-grh7-6pcq",
+            "severity": "high",
+            "range": ">=1.12.0 <1.12.7"
+          }
+        ],
+        "effects": [
+          "@hiero-ledger/sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hiero-ledger/sdk/node_modules/@grpc/grpc-js",
+            "version": "1.12.6",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "severity": "high",
+        "isDirect": true,
+        "range": "*",
+        "via": [
+          "@ethersproject/contracts",
+          "@hashgraph/hedera-custodians-integration",
+          "@hashgraph/hedera-wallet-connect",
+          "@hashgraph/sdk",
+          "@terminal3/verify_vc",
+          "@walletconnect/sign-client",
+          "@walletconnect/universal-provider",
+          "@walletconnect/utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@hashgraph/asset-tokenization-sdk",
+            "version": "8.0.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hashgraph/hedera-custodians-integration",
+        "severity": "high",
+        "isDirect": false,
+        "range": ">=1.2.0",
+        "via": [
+          "@dfns/sdk",
+          "@dfns/sdk-keysigner",
+          "@fireblocks/fireblocks-web3-provider",
+          "fireblocks-sdk"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hashgraph/hedera-custodians-integration",
+            "version": "1.4.1",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hashgraph/hedera-wallet-connect",
+        "severity": "high",
+        "isDirect": false,
+        "range": ">=2.0.5-canary.306321.0",
+        "via": [
+          "@hiero-ledger/sdk"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hashgraph/hedera-wallet-connect",
+            "version": "2.1.2",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hashgraph/proto",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=1.0.6 || 1.0.26-beta.1 || 1.1.1 - 2.11.2 || >=2.16.0-beta.1",
+        "via": [
+          "protobufjs"
+        ],
+        "effects": [
+          "@hashgraph/sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hashgraph/proto",
+            "version": "2.18.5",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hashgraph/sdk",
+        "severity": "high",
+        "isDirect": false,
+        "range": "2.0.20 - 2.20.0-beta.4 || >=2.25.0",
+        "via": [
+          "@ethersproject/abi",
+          "@hashgraph/proto",
+          "protobufjs"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hashgraph/sdk",
+            "version": "2.64.5",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hiero-ledger/cryptography",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "1.11.0 - 1.16.0-beta.3",
+        "via": [
+          "bn.js"
+        ],
+        "effects": [
+          "@hiero-ledger/sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hiero-ledger/cryptography",
+            "version": "1.15.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hiero-ledger/proto",
+        "severity": "high",
+        "isDirect": true,
+        "range": "<=2.26.0-beta.3",
+        "via": [
+          "protobufjs"
+        ],
+        "effects": [
+          "@hiero-ledger/sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hiero-ledger/proto",
+            "version": "2.25.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@hiero-ledger/sdk",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=2.85.0",
+        "via": [
+          "@ethersproject/abi",
+          "@grpc/grpc-js",
+          "@hiero-ledger/cryptography",
+          "@hiero-ledger/proto",
+          "bn.js",
+          "protobufjs"
+        ],
+        "effects": [
+          "@hashgraph/hedera-wallet-connect"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hiero-ledger/sdk",
+            "version": "2.79.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@mapbox/node-pre-gyp",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=1.0.11",
+        "via": [
+          "tar"
+        ],
+        "effects": [
+          "@mattrglobal/node-bbs-signatures"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@mapbox/node-pre-gyp",
+            "version": "1.0.11",
+            "optional": true,
+            "installedAfterCi": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@mattrglobal/bbs-signatures",
+        "severity": "high",
+        "isDirect": false,
+        "range": ">=1.0.1-unstable.26bf16a",
+        "via": [
+          "@mattrglobal/node-bbs-signatures"
+        ],
+        "effects": [
+          "@terminal3/bbs_vc"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@mattrglobal/bbs-signatures",
+            "version": "1.4.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@mattrglobal/node-bbs-signatures",
+        "severity": "high",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@mapbox/node-pre-gyp",
+          "neon-cli"
+        ],
+        "effects": [
+          "@mattrglobal/bbs-signatures"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@mattrglobal/node-bbs-signatures",
+            "version": "0.18.1",
+            "optional": true,
+            "installedAfterCi": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@metamask/rpc-errors",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=6.3.1",
+        "via": [
+          "@metamask/utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@metamask/rpc-errors",
+            "version": "6.4.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@metamask/utils",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=8.4.0",
+        "via": [
+          "uuid"
+        ],
+        "effects": [
+          "@metamask/rpc-errors"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@metamask/rpc-errors/node_modules/@metamask/utils",
+            "version": "9.3.0",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@metamask/utils",
+            "version": "8.5.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@notabene/pii-sdk",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@stablelib/ed25519",
+          "uuid"
+        ],
+        "effects": [
+          "fireblocks-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@notabene/pii-sdk",
+            "version": "1.17.2",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@react-native/community-cli-plugin",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=0.81.0-rc.5 || 0.82.0-nightly-20250710-586f5ba89 - 0.82.0-rc.5 || >=0.87.0-nightly-20260507-ba204faa7",
+        "via": [
+          "metro"
+        ],
+        "effects": [
+          "react-native"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@react-native/community-cli-plugin",
+            "version": "0.87.1",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@react-native/virtualized-lists",
+        "severity": "high",
+        "isDirect": false,
+        "range": "0.86.1 || >=0.87.0-nightly-20260507-ba204faa7",
+        "via": [
+          "react-native"
+        ],
+        "effects": [
+          "react-native"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@react-native/virtualized-lists",
+            "version": "0.87.1",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@stablelib/ed25519",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=2.0.2",
+        "via": [
+          {
+            "source": 1116139,
+            "name": "@stablelib/ed25519",
+            "title": "StableLib Ed25519 Signature Malleability via Missing S < L Check",
+            "url": "https://github.com/advisories/GHSA-x3ff-w252-2g7j",
+            "severity": "moderate",
+            "range": "<=2.0.2"
+          }
+        ],
+        "effects": [
+          "@notabene/pii-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@stablelib/ed25519",
+            "version": "1.0.3",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@terminal3/bbs_vc",
+        "severity": "high",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@mattrglobal/bbs-signatures",
+          "@terminal3/vc_core",
+          "@terminal3/verify_vc_core",
+          "jsonld",
+          "uuid"
+        ],
+        "effects": [
+          "@terminal3/verify_vc"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/bbs_vc",
+            "version": "0.2.18",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@terminal3/ecdsa_vc",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.1.10",
+        "via": [
+          "@terminal3/vc_core",
+          "@terminal3/verify_vc_core"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/ecdsa_vc",
+            "version": "0.1.16",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@terminal3/revoke_vc",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.1.9",
+        "via": [
+          "@terminal3/vc_core"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/revoke_vc",
+            "version": "0.1.15",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@terminal3/vc_core",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.0.14",
+        "via": [
+          "uuid"
+        ],
+        "effects": [
+          "@terminal3/bbs_vc",
+          "@terminal3/ecdsa_vc",
+          "@terminal3/revoke_vc",
+          "@terminal3/verify_vc",
+          "@terminal3/verify_vc_core"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/vc_core",
+            "version": "0.0.19",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@terminal3/verify_vc",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.0.11",
+        "via": [
+          "@terminal3/bbs_vc",
+          "@terminal3/ecdsa_vc",
+          "@terminal3/vc_core"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/verify_vc",
+            "version": "0.0.20",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@terminal3/verify_vc_core",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.0.13",
+        "via": [
+          "@terminal3/revoke_vc",
+          "@terminal3/vc_core"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@terminal3/verify_vc_core",
+            "version": "0.0.19",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@walletconnect/core",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "2.18.1-canary-exp-1 - 2.18.1-rc-1 || 2.19.0-canary-ak-1 - 2.21.9",
+        "via": [
+          "@walletconnect/utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@walletconnect/sign-client/node_modules/@walletconnect/core",
+            "version": "2.19.2",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/core",
+            "version": "2.21.9",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@walletconnect/sign-client",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "2.18.1-canary-exp-1 - 2.18.1-rc-1 || 2.19.0-canary-ak-1 - 2.21.9",
+        "via": [
+          "@walletconnect/core",
+          "@walletconnect/utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@walletconnect/sign-client",
+            "version": "2.19.2",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/sign-client",
+            "version": "2.21.9",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@walletconnect/universal-provider",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "2.18.1-canary-exp-1 - 2.18.1-rc-1 || 2.19.0-canary-ak-1 - 2.21.9",
+        "via": [
+          "@walletconnect/sign-client",
+          "@walletconnect/utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@walletconnect/universal-provider",
+            "version": "2.21.9",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@walletconnect/utils",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "1.2.3-1.3.0-rc.0.0 - 2.17.5-rc-1 || 2.18.0-canary-ell-1 - 2.21.9",
+        "via": [
+          "query-string",
+          "viem"
+        ],
+        "effects": [
+          "@hashgraph/asset-tokenization-sdk",
+          "@walletconnect/core",
+          "@walletconnect/sign-client",
+          "@walletconnect/universal-provider"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/utils",
+            "version": "2.21.9",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@walletconnect/utils",
+            "version": "2.19.2",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "axios",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=0.32.0 || 1.0.0 - 1.17.0",
+        "via": [
+          {
+            "source": 1097679,
+            "name": "axios",
+            "title": "Axios Cross-Site Request Forgery Vulnerability",
+            "url": "https://github.com/advisories/GHSA-wf5p-g6vw-rhxx",
+            "severity": "moderate",
+            "range": ">=0.8.1 <0.28.0"
+          },
+          {
+            "source": 1111034,
+            "name": "axios",
+            "title": "axios Requests Vulnerable To Possible SSRF and Credential Leakage via Absolute URL",
+            "url": "https://github.com/advisories/GHSA-jr5f-v2jv-69x6",
+            "severity": "high",
+            "range": "<0.30.0"
+          },
+          {
+            "source": 1116672,
+            "name": "axios",
+            "title": "Axios has a NO_PROXY Hostname Normalization Bypass that Leads to SSRF",
+            "url": "https://github.com/advisories/GHSA-3p68-rc4w-qgx5",
+            "severity": "moderate",
+            "range": "<0.31.0"
+          },
+          {
+            "source": 1117573,
+            "name": "axios",
+            "title": "Axios: Authentication Bypass via Prototype Pollution Gadget in `validateStatus` Merge Strategy",
+            "url": "https://github.com/advisories/GHSA-w9j2-pvgh-6h63",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117575,
+            "name": "axios",
+            "title": "Axios: Incomplete Fix for CVE-2025-62718 \u2014 NO_PROXY Protection Bypassed via RFC 1122 Loopback Subnet (127.0.0.0/8) in Axios 1.15.0",
+            "url": "https://github.com/advisories/GHSA-pmwg-cvhr-8vh7",
+            "severity": "high",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117579,
+            "name": "axios",
+            "title": "Axios: Null Byte Injection via Reverse-Encoding in AxiosURLSearchParams",
+            "url": "https://github.com/advisories/GHSA-xhjh-pmcv-23jw",
+            "severity": "low",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117582,
+            "name": "axios",
+            "title": "Axios: no_proxy bypass via IP alias allows SSRF",
+            "url": "https://github.com/advisories/GHSA-m7pr-hjqh-92cm",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117586,
+            "name": "axios",
+            "title": "Axios' HTTP adapter-streamed uploads bypass maxBodyLength when maxRedirects: 0",
+            "url": "https://github.com/advisories/GHSA-5c9x-8gcm-mpgx",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117588,
+            "name": "axios",
+            "title": "Axios: HTTP adapter streamed responses bypass maxContentLength",
+            "url": "https://github.com/advisories/GHSA-vf2m-468p-8v99",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117590,
+            "name": "axios",
+            "title": "Axios: Prototype Pollution Gadgets - Response Tampering, Data Exfiltration, and Request Hijacking",
+            "url": "https://github.com/advisories/GHSA-pf86-5x62-jrwf",
+            "severity": "high",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117592,
+            "name": "axios",
+            "title": "Axios: Header Injection via Prototype Pollution",
+            "url": "https://github.com/advisories/GHSA-6chq-wfr3-2hj9",
+            "severity": "high",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117594,
+            "name": "axios",
+            "title": "Axios: XSRF Token Cross-Origin Leakage via Prototype Pollution Gadget in `withXSRFToken` Boolean Coercion",
+            "url": "https://github.com/advisories/GHSA-xx6v-rp6x-q39c",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1117857,
+            "name": "axios",
+            "title": "Axios is Vulnerable to Denial of Service via __proto__ Key in mergeConfig",
+            "url": "https://github.com/advisories/GHSA-43fc-jf86-j433",
+            "severity": "high",
+            "range": "<=0.30.2"
+          },
+          {
+            "source": 1119403,
+            "name": "axios",
+            "title": "Axios has Unrestricted Cloud Metadata Exfiltration via Header Injection Chain",
+            "url": "https://github.com/advisories/GHSA-fvcv-3m26-pcqx",
+            "severity": "moderate",
+            "range": "<0.31.0"
+          },
+          {
+            "source": 1120124,
+            "name": "axios",
+            "title": "Axios: unbounded recursion in toFormData causes DoS via deeply nested request data",
+            "url": "https://github.com/advisories/GHSA-62hf-57xw-28j9",
+            "severity": "moderate",
+            "range": "<=0.31.0"
+          },
+          {
+            "source": 1120546,
+            "name": "axios",
+            "title": "Axios: Regular Expression Denial of Service (ReDoS) via Cookie Name Injection",
+            "url": "https://github.com/advisories/GHSA-hfxv-24rg-xrqf",
+            "severity": "high",
+            "range": "<=0.31.1"
+          },
+          {
+            "source": 1120644,
+            "name": "axios",
+            "title": "Axios: Proxy-Authorization Credential Leak to Origin Server Across HTTP-to-HTTPS Redirect in Axios Node.js HTTP Adapter",
+            "url": "https://github.com/advisories/GHSA-p92q-9vqr-4j8v",
+            "severity": "high",
+            "range": "<=0.31.1"
+          },
+          {
+            "source": 1120646,
+            "name": "axios",
+            "title": "Axios: Proxy-Authorization header leaks to redirect target when proxy is re-evaluated to direct connection",
+            "url": "https://github.com/advisories/GHSA-j5f8-grm9-p9fc",
+            "severity": "high",
+            "range": "<=0.31.1"
+          },
+          {
+            "source": 1120648,
+            "name": "axios",
+            "title": "axios Vulnerable to Credential Theft and Response Hijacking via Prototype Pollution Gadget in Config Merge",
+            "url": "https://github.com/advisories/GHSA-3g43-6gmg-66jw",
+            "severity": "high",
+            "range": ">=0.19.0 <0.31.1"
+          },
+          {
+            "source": 1120651,
+            "name": "axios",
+            "title": "axios has DoS & Header Injection via Prototype Pollution Read-Side Gadgets in axios merge functions",
+            "url": "https://github.com/advisories/GHSA-898c-q2cr-xwhg",
+            "severity": "moderate",
+            "range": "<=0.31.1"
+          },
+          {
+            "source": 1123825,
+            "name": "axios",
+            "title": "axios's shouldBypassProxy does not recognize IPv4-mapped IPv6 addresses, allowing NO_PROXY bypass (incomplete fix for CVE-2025-62718)",
+            "url": "https://github.com/advisories/GHSA-pjwm-pj3p-43mv",
+            "severity": "high",
+            "range": "<=0.31.1"
+          },
+          {
+            "source": 1123969,
+            "name": "axios",
+            "title": "Axios form serializer maxDepth bypass via {} metatoken",
+            "url": "https://github.com/advisories/GHSA-hcpx-6fm6-wx23",
+            "severity": "moderate",
+            "range": ">=1.15.1 <1.18.0"
+          },
+          {
+            "source": 1138749,
+            "name": "axios",
+            "title": "Axios: Prototype pollution auth subfields can inject Basic auth",
+            "url": "https://github.com/advisories/GHSA-xj6q-8x83-jv6g",
+            "severity": "moderate",
+            "range": ">=1.15.2 <1.18.0"
+          },
+          {
+            "source": 1147948,
+            "name": "axios",
+            "title": "Axios: Prototype pollution gadgets can alter axios request construction",
+            "url": "https://github.com/advisories/GHSA-mmx7-hfxf-jppx",
+            "severity": "moderate",
+            "range": "<0.33.0"
+          },
+          {
+            "source": 1147949,
+            "name": "axios",
+            "title": "Axios: Prototype pollution gadgets can alter axios request construction",
+            "url": "https://github.com/advisories/GHSA-mmx7-hfxf-jppx",
+            "severity": "moderate",
+            "range": ">=1.0.0 <1.18.0"
+          },
+          {
+            "source": 1147950,
+            "name": "axios",
+            "title": "Axios: Deep formToJSON Key Recursion Can Cause Denial of Service",
+            "url": "https://github.com/advisories/GHSA-pmv8-rq9r-6j72",
+            "severity": "moderate",
+            "range": ">=1.0.0 <1.18.0"
+          },
+          {
+            "source": 1153175,
+            "name": "axios",
+            "title": "Axios: HTTP/2 streamed uploads bypass `maxBodyLength`",
+            "url": "https://github.com/advisories/GHSA-mwf2-3pr3-8698",
+            "severity": "moderate",
+            "range": ">=1.13.0 <1.18.0"
+          },
+          {
+            "source": 1153178,
+            "name": "axios",
+            "title": "Axios Node HTTP adapter can use an inherited proxy after interceptor config cloning",
+            "url": "https://github.com/advisories/GHSA-gcfj-64vw-6mp9",
+            "severity": "high",
+            "range": ">=1.15.2 <1.18.0"
+          },
+          {
+            "source": 1153180,
+            "name": "axios",
+            "title": "Axios: Nested axios option objects can consume polluted prototype values",
+            "url": "https://github.com/advisories/GHSA-7q8q-rj6j-mhjq",
+            "severity": "moderate",
+            "range": ">=1.0.0 <1.18.0"
+          },
+          {
+            "source": 1153181,
+            "name": "axios",
+            "title": "Axios: Nested axios option objects can consume polluted prototype values",
+            "url": "https://github.com/advisories/GHSA-7q8q-rj6j-mhjq",
+            "severity": "moderate",
+            "range": ">=0.8.0 <0.33.0"
+          },
+          {
+            "source": 1153182,
+            "name": "axios",
+            "title": "Axios: Fetch adapter `ReadableStream` uploads bypass `maxBodyLength`",
+            "url": "https://github.com/advisories/GHSA-jqh4-m9w3-8hp9",
+            "severity": "moderate",
+            "range": ">=1.7.0 <1.18.0"
+          },
+          {
+            "source": 1153184,
+            "name": "axios",
+            "title": "Axios: NO_PROXY bypass for 0.0.0.0 local addresses in axios",
+            "url": "https://github.com/advisories/GHSA-f4gw-2p7v-4548",
+            "severity": "moderate",
+            "range": ">=1.15.0 <1.18.0"
+          },
+          {
+            "source": 1153185,
+            "name": "axios",
+            "title": "Axios: Excessive recursion in formDataToJSON can cause denial of service",
+            "url": "https://github.com/advisories/GHSA-42h9-826w-cgv3",
+            "severity": "moderate",
+            "range": ">=1.0.0 <1.18.0"
+          }
+        ],
+        "effects": [
+          "@coinbase/cdp-sdk",
+          "fireblocks-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@coinbase/cdp-sdk/node_modules/axios",
+            "version": "1.16.0",
+            "optional": true,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/axios",
+            "version": "0.27.2",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/fireblocks-sdk/node_modules/axios",
+            "version": "0.27.2",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "bn.js",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=5.0.0 <5.2.3 || <4.12.3",
+        "via": [
+          {
+            "source": 1113441,
+            "name": "bn.js",
+            "title": "bn.js affected by an infinite loop",
+            "url": "https://github.com/advisories/GHSA-378v-28hj-76wf",
+            "severity": "moderate",
+            "range": ">=5.0.0 <5.2.3"
+          },
+          {
+            "source": 1113442,
+            "name": "bn.js",
+            "title": "bn.js affected by an infinite loop",
+            "url": "https://github.com/advisories/GHSA-378v-28hj-76wf",
+            "severity": "moderate",
+            "range": "<4.12.3"
+          }
+        ],
+        "effects": [
+          "@hiero-ledger/cryptography",
+          "@hiero-ledger/sdk",
+          "ethjs-unit",
+          "number-to-bn"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hiero-ledger/cryptography/node_modules/bn.js",
+            "version": "5.2.1",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@hiero-ledger/sdk/node_modules/bn.js",
+            "version": "5.1.1",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/ethjs-unit/node_modules/bn.js",
+            "version": "4.11.6",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/number-to-bn/node_modules/bn.js",
+            "version": "4.11.6",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "browserify-sign",
+        "severity": "low",
+        "isDirect": false,
+        "range": ">=2.4.0",
+        "via": [
+          "elliptic"
+        ],
+        "effects": [
+          "crypto-browserify"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/browserify-sign",
+            "version": "4.2.6",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "vite-plugin-node-polyfills",
+          "version": "0.2.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "create-ecdh",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "elliptic"
+        ],
+        "effects": [
+          "crypto-browserify"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/create-ecdh",
+            "version": "4.0.4",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "vite-plugin-node-polyfills",
+          "version": "0.2.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "crypto-browserify",
+        "severity": "low",
+        "isDirect": false,
+        "range": ">=3.4.0",
+        "via": [
+          "browserify-sign",
+          "create-ecdh"
+        ],
+        "effects": [
+          "node-stdlib-browser"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/crypto-browserify",
+            "version": "3.12.1",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "vite-plugin-node-polyfills",
+          "version": "0.2.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "decode-uri-component",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=0.4.2",
+        "via": [
+          {
+            "source": 1147955,
+            "name": "decode-uri-component",
+            "title": "decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input",
+            "url": "https://github.com/advisories/GHSA-vcc3-ghjq-m6fr",
+            "severity": "moderate",
+            "range": "<=0.4.2"
+          }
+        ],
+        "effects": [
+          "query-string"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/decode-uri-component",
+            "version": "0.2.2",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "elliptic",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          {
+            "source": 1112030,
+            "name": "elliptic",
+            "title": "Elliptic Uses a Cryptographic Primitive with a Risky Implementation",
+            "url": "https://github.com/advisories/GHSA-848j-6mx2-7j84",
+            "severity": "low",
+            "range": "<=6.6.1"
+          }
+        ],
+        "effects": [
+          "@ethersproject/signing-key",
+          "browserify-sign",
+          "create-ecdh",
+          "secp256k1"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/elliptic",
+            "version": "6.6.1",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "vite-plugin-node-polyfills",
+          "version": "0.2.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "ethereum-cryptography",
+        "severity": "low",
+        "isDirect": false,
+        "range": "0.1.0 - 0.1.3",
+        "via": [
+          "secp256k1"
+        ],
+        "effects": [
+          "ethereumjs-util"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/ethereumjs-util/node_modules/ethereum-cryptography",
+            "version": "0.1.3",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "ethereumjs-util",
+        "severity": "low",
+        "isDirect": false,
+        "range": "4.5.1 || 5.2.1 || 6.2.1 || >=7.0.3",
+        "via": [
+          "ethereum-cryptography"
+        ],
+        "effects": [
+          "web3-utils"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/ethereumjs-util",
+            "version": "7.1.5",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "ethers",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "5.0.0-beta.119 - 6.0.0-beta.9",
+        "via": [
+          "@ethersproject/abi",
+          "@ethersproject/abstract-provider",
+          "@ethersproject/abstract-signer",
+          "@ethersproject/contracts",
+          "@ethersproject/hash",
+          "@ethersproject/hdnode",
+          "@ethersproject/json-wallets",
+          "@ethersproject/providers",
+          "@ethersproject/signing-key",
+          "@ethersproject/transactions",
+          "@ethersproject/wallet",
+          "@ethersproject/wordlists"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/ethers",
+            "version": "5.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "ethjs-unit",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": ">=0.1.3",
+        "via": [
+          "bn.js",
+          "number-to-bn"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/ethjs-unit",
+            "version": "0.1.6",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "external-editor",
+        "severity": "low",
+        "isDirect": false,
+        "range": ">=1.1.1",
+        "via": [
+          "tmp"
+        ],
+        "effects": [
+          "inquirer"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/external-editor",
+            "version": "3.1.0",
+            "optional": true,
+            "installedAfterCi": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "fireblocks-sdk",
+        "severity": "high",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "@notabene/pii-sdk",
+          "axios",
+          "query-string",
+          "uuid"
+        ],
+        "effects": [
+          "@fireblocks/fireblocks-web3-provider",
+          "@hashgraph/hedera-custodians-integration"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/fireblocks-sdk",
+            "version": "3.1.4",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/fireblocks-sdk",
+            "version": "5.11.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "image-size",
+        "severity": "high",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          {
+            "source": 1138808,
+            "name": "image-size",
+            "title": "image-size: ICNS parser allows denial of service through an infinite loop",
+            "url": "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+            "severity": "high",
+            "range": "<=2.0.2"
+          },
+          {
+            "source": 1138809,
+            "name": "image-size",
+            "title": "image-size: JXL and HEIF parsers allow denial of service through infinite loops",
+            "url": "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq",
+            "severity": "high",
+            "range": "<=2.0.2"
+          }
+        ],
+        "effects": [
+          "metro"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/image-size",
+            "version": "1.2.1",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "inquirer",
+        "severity": "low",
+        "isDirect": false,
+        "range": "3.0.0 - 8.2.6 || 9.0.0 - 9.3.7",
+        "via": [
+          "external-editor"
+        ],
+        "effects": [
+          "neon-cli"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/inquirer",
+            "version": "7.3.3",
+            "optional": true,
+            "installedAfterCi": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "jsonld",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "6.0.0 - 8.3.3",
+        "via": [
+          "@digitalbazaar/http-client"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/jsonld",
+            "version": "8.3.3",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "metro",
+        "severity": "high",
+        "isDirect": false,
+        "range": "0.22.1 - 0.83.7 || 0.84.0 - 0.84.4 || >=0.85.0",
+        "via": [
+          "image-size",
+          "metro-config",
+          "metro-transform-worker"
+        ],
+        "effects": [
+          "@react-native/community-cli-plugin",
+          "metro-config",
+          "metro-transform-worker"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/metro",
+            "version": "0.87.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "metro-config",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=0.83.7 || 0.84.0 - 0.84.4 || >=0.85.0",
+        "via": [
+          "metro"
+        ],
+        "effects": [
+          "metro"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/metro-config",
+            "version": "0.87.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "metro-transform-worker",
+        "severity": "high",
+        "isDirect": false,
+        "range": "0.60.0 - 0.83.7 || 0.84.0 - 0.84.4 || >=0.85.0",
+        "via": [
+          "metro"
+        ],
+        "effects": [
+          "metro"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/metro-transform-worker",
+            "version": "0.87.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "neon-cli",
+        "severity": "high",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "inquirer",
+          "toml"
+        ],
+        "effects": [
+          "@mattrglobal/node-bbs-signatures"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/neon-cli",
+            "version": "0.10.1",
+            "optional": true,
+            "installedAfterCi": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "node-stdlib-browser",
+        "severity": "low",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "crypto-browserify"
+        ],
+        "effects": [
+          "vite-plugin-node-polyfills"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/node-stdlib-browser",
+            "version": "1.3.1",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "vite-plugin-node-polyfills",
+          "version": "0.2.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "number-to-bn",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "bn.js"
+        ],
+        "effects": [
+          "web3-utils"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/number-to-bn",
+            "version": "1.7.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "protobufjs",
+        "severity": "critical",
+        "isDirect": false,
+        "range": "<=7.6.4",
+        "via": [
+          {
+            "source": 1117571,
+            "name": "protobufjs",
+            "title": "Arbitrary code execution in protobufjs",
+            "url": "https://github.com/advisories/GHSA-xq3m-2v4x-88gg",
+            "severity": "critical",
+            "range": "<7.5.5"
+          },
+          {
+            "source": 1118641,
+            "name": "protobufjs",
+            "title": "protobuf.js: Code injection through bytes field defaults in generated toObject code",
+            "url": "https://github.com/advisories/GHSA-66ff-xgx4-vchm",
+            "severity": "high",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118924,
+            "name": "protobufjs",
+            "title": "protobuf.js: Denial of service from crafted field names in generated code",
+            "url": "https://github.com/advisories/GHSA-2pr8-phx7-x9h3",
+            "severity": "moderate",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118926,
+            "name": "protobufjs",
+            "title": "protobuf.js: Prototype injection in generated message constructors",
+            "url": "https://github.com/advisories/GHSA-fx83-v9x8-x52w",
+            "severity": "moderate",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118928,
+            "name": "protobufjs",
+            "title": "protobuf.js: Code generation gadget after prototype pollution",
+            "url": "https://github.com/advisories/GHSA-75px-5xx7-5xc7",
+            "severity": "high",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118930,
+            "name": "protobufjs",
+            "title": "protobuf.js: Process-wide denial of service through unsafe option paths",
+            "url": "https://github.com/advisories/GHSA-jvwf-75h9-cwgg",
+            "severity": "high",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118932,
+            "name": "protobufjs",
+            "title": "protobuf.js: Denial of service through unbounded protobuf recursion",
+            "url": "https://github.com/advisories/GHSA-685m-2w69-288q",
+            "severity": "high",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1118935,
+            "name": "protobufjs",
+            "title": "protobufjs has overlong UTF-8 decoding",
+            "url": "https://github.com/advisories/GHSA-q6x5-8v7m-xcrf",
+            "severity": "moderate",
+            "range": "<=7.5.5"
+          },
+          {
+            "source": 1119378,
+            "name": "protobufjs",
+            "title": "protobufjs: Denial of Service via unbounded recursive JSON descriptor expansion",
+            "url": "https://github.com/advisories/GHSA-jggg-4jg4-v7c6",
+            "severity": "moderate",
+            "range": "<=7.5.7"
+          },
+          {
+            "source": 1123488,
+            "name": "protobufjs",
+            "title": "protobufjs: Denial of service through unbounded Any expansion during JSON conversion",
+            "url": "https://github.com/advisories/GHSA-wcpc-wj8m-hjx6",
+            "severity": "high",
+            "range": "<=7.6.0"
+          },
+          {
+            "source": 1123492,
+            "name": "protobufjs",
+            "title": "protobufjs : Schema-derived names can shadow runtime-significant properties",
+            "url": "https://github.com/advisories/GHSA-f38q-mgvj-vph7",
+            "severity": "moderate",
+            "range": "<=7.6.2"
+          },
+          {
+            "source": 1123964,
+            "name": "protobufjs",
+            "title": "protobufjs: Denial of Service via infinite loop in .proto option parsing",
+            "url": "https://github.com/advisories/GHSA-j3f2-48v5-ccww",
+            "severity": "moderate",
+            "range": ">=7.5.0 <=7.6.4"
+          }
+        ],
+        "effects": [
+          "@hashgraph/proto",
+          "@hashgraph/sdk",
+          "@hiero-ledger/proto",
+          "@hiero-ledger/sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@hashgraph/proto/node_modules/protobufjs",
+            "version": "7.2.5",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@hashgraph/sdk/node_modules/protobufjs",
+            "version": "7.2.5",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/protobufjs",
+            "version": "7.5.4",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "query-string",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "5.0.0 - 9.4.1",
+        "via": [
+          "decode-uri-component"
+        ],
+        "effects": [
+          "@walletconnect/utils",
+          "fireblocks-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/query-string",
+            "version": "7.1.3",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "react-native",
+        "severity": "high",
+        "isDirect": false,
+        "range": "0.73.0-nightly-20230506-1af868c52 - 0.81.0-rc.5 || 0.82.0-nightly-20250710-586f5ba89 - 0.82.0-rc.5 || >=0.87.0-nightly-20260507-ba204faa7",
+        "via": [
+          "@react-native/community-cli-plugin",
+          "@react-native/virtualized-lists"
+        ],
+        "effects": [
+          "@react-native/virtualized-lists"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/react-native",
+            "version": "0.87.1",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "secp256k1",
+        "severity": "low",
+        "isDirect": false,
+        "range": ">=2.0.0",
+        "via": [
+          "elliptic"
+        ],
+        "effects": [
+          "ethereum-cryptography"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/secp256k1",
+            "version": "4.0.5",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "tar",
+        "severity": "critical",
+        "isDirect": false,
+        "range": "<=7.5.20",
+        "via": [
+          {
+            "source": 1112659,
+            "name": "tar",
+            "title": "node-tar Vulnerable to Arbitrary File Creation/Overwrite via Hardlink Path Traversal",
+            "url": "https://github.com/advisories/GHSA-34x7-hfp2-rc4v",
+            "severity": "high",
+            "range": "<7.5.7"
+          },
+          {
+            "source": 1113300,
+            "name": "tar",
+            "title": "node-tar is Vulnerable to Arbitrary File Overwrite and Symlink Poisoning via Insufficient Path Sanitization",
+            "url": "https://github.com/advisories/GHSA-8qq5-rm4j-mr97",
+            "severity": "high",
+            "range": "<=7.5.2"
+          },
+          {
+            "source": 1113375,
+            "name": "tar",
+            "title": "Arbitrary File Read/Write via Hardlink Target Escape Through Symlink Chain in node-tar Extraction",
+            "url": "https://github.com/advisories/GHSA-83g3-92jg-28cx",
+            "severity": "high",
+            "range": "<7.5.8"
+          },
+          {
+            "source": 1114200,
+            "name": "tar",
+            "title": "tar has Hardlink Path Traversal via Drive-Relative Linkpath",
+            "url": "https://github.com/advisories/GHSA-qffp-2rhf-9h96",
+            "severity": "high",
+            "range": "<=7.5.9"
+          },
+          {
+            "source": 1114302,
+            "name": "tar",
+            "title": "node-tar Symlink Path Traversal via Drive-Relative Linkpath",
+            "url": "https://github.com/advisories/GHSA-9ppj-qmqm-q256",
+            "severity": "high",
+            "range": "<=7.5.10"
+          },
+          {
+            "source": 1114680,
+            "name": "tar",
+            "title": "Race Condition in node-tar Path Reservations via Unicode Ligature Collisions on macOS APFS",
+            "url": "https://github.com/advisories/GHSA-r6q2-hw4h-h46w",
+            "severity": "high",
+            "range": "<=7.5.3"
+          },
+          {
+            "source": 1120782,
+            "name": "tar",
+            "title": "node-tar applies PAX size override to intermediary GNU long-name/long-link headers, causing tar parser interpretation differential (file smuggling)",
+            "url": "https://github.com/advisories/GHSA-vmf3-w455-68vh",
+            "severity": "moderate",
+            "range": "<=7.5.15"
+          },
+          {
+            "source": 1123939,
+            "name": "tar",
+            "title": "node-tar: Process crash via PAX numeric path type confusion",
+            "url": "https://github.com/advisories/GHSA-w8wr-v893-vjvp",
+            "severity": "moderate",
+            "range": "<=7.5.17"
+          },
+          {
+            "source": 1123940,
+            "name": "tar",
+            "title": "node-tar: Decompression/parse DoS via unlimited input",
+            "url": "https://github.com/advisories/GHSA-23hp-3jrh-7fpw",
+            "severity": "critical",
+            "range": "<=7.5.18"
+          },
+          {
+            "source": 1123941,
+            "name": "tar",
+            "title": "node-tar: Negative tar entry size causes infinite loop in archive replace",
+            "url": "https://github.com/advisories/GHSA-8x88-c5mf-7j5w",
+            "severity": "high",
+            "range": "<=7.5.17"
+          },
+          {
+            "source": 1123942,
+            "name": "tar",
+            "title": "node-tar: Uncaught Exception DoS via NUL byte in PAX path/linkpath records",
+            "url": "https://github.com/advisories/GHSA-gvwx-54wh-qm9j",
+            "severity": "moderate",
+            "range": "<=7.5.16"
+          },
+          {
+            "source": 1145647,
+            "name": "tar",
+            "title": "node-tar: Uncontrolled recursion in mapHas/filesFilter allows uncatchable stack-overflow DoS via crafted long-path tar with member selection",
+            "url": "https://github.com/advisories/GHSA-r292-9mhp-454m",
+            "severity": "high",
+            "range": "<=7.5.20"
+          }
+        ],
+        "effects": [
+          "@mapbox/node-pre-gyp"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/tar",
+            "version": "6.2.1",
+            "optional": true,
+            "installedAfterCi": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "tmp",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=0.2.5",
+        "via": [
+          {
+            "source": 1109537,
+            "name": "tmp",
+            "title": "tmp allows arbitrary temporary file / directory write via symbolic link `dir` parameter",
+            "url": "https://github.com/advisories/GHSA-52f5-9888-hmc6",
+            "severity": "low",
+            "range": "<=0.2.3"
+          },
+          {
+            "source": 1120654,
+            "name": "tmp",
+            "title": "tmp has Path Traversal via unsanitized prefix/postfix that enables directory escape",
+            "url": "https://github.com/advisories/GHSA-ph9p-34f9-6g65",
+            "severity": "high",
+            "range": "<0.2.6"
+          }
+        ],
+        "effects": [
+          "external-editor"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/tmp",
+            "version": "0.0.33",
+            "optional": true,
+            "installedAfterCi": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "toml",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=4.1.2",
+        "via": [
+          {
+            "source": 1164824,
+            "name": "toml",
+            "title": "toml-node: Uncontrolled Recursion",
+            "url": "https://github.com/advisories/GHSA-82x6-q7mm-w9cf",
+            "severity": "high",
+            "range": "<4.2.0"
+          },
+          {
+            "source": 1164825,
+            "name": "toml",
+            "title": "toml-node: Prototype Pollution Leads to `Object.prototype` Corruption via `__proto__` Key-Path Desynchronization",
+            "url": "https://github.com/advisories/GHSA-v5mp-jgw5-2x6j",
+            "severity": "high",
+            "range": "<4.1.2"
+          }
+        ],
+        "effects": [
+          "neon-cli"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/toml",
+            "version": "3.0.0",
+            "optional": true,
+            "installedAfterCi": false
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "undici",
+        "severity": "high",
+        "isDirect": false,
+        "range": "<=6.27.0",
+        "via": [
+          {
+            "source": 1112496,
+            "name": "undici",
+            "title": "Undici has an unbounded decompression chain in HTTP responses on Node.js Fetch API via Content-Encoding leads to resource exhaustion",
+            "url": "https://github.com/advisories/GHSA-g9mf-h72j-4rw9",
+            "severity": "moderate",
+            "range": "<6.23.0"
+          },
+          {
+            "source": 1114594,
+            "name": "undici",
+            "title": "Undici has an HTTP Request/Response Smuggling issue",
+            "url": "https://github.com/advisories/GHSA-2mjp-6q6p-2qxm",
+            "severity": "moderate",
+            "range": "<6.24.0"
+          },
+          {
+            "source": 1114638,
+            "name": "undici",
+            "title": "Undici has Unbounded Memory Consumption in WebSocket permessage-deflate Decompression",
+            "url": "https://github.com/advisories/GHSA-vrm6-8vpv-qv8q",
+            "severity": "high",
+            "range": "<6.24.0"
+          },
+          {
+            "source": 1114640,
+            "name": "undici",
+            "title": "Undici has Unhandled Exception in WebSocket Client Due to Invalid server_max_window_bits Validation",
+            "url": "https://github.com/advisories/GHSA-v9p9-hfj2-hcw8",
+            "severity": "high",
+            "range": "<6.24.0"
+          },
+          {
+            "source": 1114642,
+            "name": "undici",
+            "title": "Undici has CRLF Injection in undici via `upgrade` option",
+            "url": "https://github.com/advisories/GHSA-4992-7rv2-5pvq",
+            "severity": "moderate",
+            "range": "<6.24.0"
+          },
+          {
+            "source": 1121242,
+            "name": "undici",
+            "title": "undici vulnerable to HTTP header injection via Set-Cookie percent-decoding",
+            "url": "https://github.com/advisories/GHSA-p88m-4jfj-68fv",
+            "severity": "moderate",
+            "range": "<6.27.0"
+          },
+          {
+            "source": 1121245,
+            "name": "undici",
+            "title": "undici WebSocket client vulnerable to denial of service via fragment count bypass",
+            "url": "https://github.com/advisories/GHSA-vxpw-j846-p89q",
+            "severity": "high",
+            "range": "<6.27.0"
+          },
+          {
+            "source": 1121255,
+            "name": "undici",
+            "title": "undici vulnerable to Set-Cookie SameSite attribute downgrade via permissive substring matching",
+            "url": "https://github.com/advisories/GHSA-g8m3-5g58-fq7m",
+            "severity": "low",
+            "range": "<6.27.0"
+          },
+          {
+            "source": 1130716,
+            "name": "undici",
+            "title": "undici vulnerable to downstream response desynchronization via retry interceptor",
+            "url": "https://github.com/advisories/GHSA-8xcm-r25x-g524",
+            "severity": "moderate",
+            "range": "<6.28.0"
+          },
+          {
+            "source": 1130727,
+            "name": "undici",
+            "title": "undici vulnerable to CRLF Injection via blob-like body 'type' property",
+            "url": "https://github.com/advisories/GHSA-m8rv-5g2x-5cg5",
+            "severity": "moderate",
+            "range": "<6.28.0"
+          },
+          {
+            "source": 1130732,
+            "name": "undici",
+            "title": "undici vulnerable to cookie attribute injection via unsanitized domain and unparsed setCookie fields",
+            "url": "https://github.com/advisories/GHSA-v3r7-h72x-cjcm",
+            "severity": "moderate",
+            "range": "<6.28.0"
+          },
+          {
+            "source": 1137243,
+            "name": "undici",
+            "title": "undici vulnerable to HTTP response queue poisoning via keep-alive socket reuse",
+            "url": "https://github.com/advisories/GHSA-35p6-xmwp-9g52",
+            "severity": "low",
+            "range": "<6.27.0"
+          }
+        ],
+        "effects": [
+          "@digitalbazaar/http-client"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/undici",
+            "version": "5.29.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "uuid",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<11.1.1",
+        "via": [
+          {
+            "source": 1119441,
+            "name": "uuid",
+            "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+            "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
+            "severity": "moderate",
+            "range": "<11.1.1"
+          }
+        ],
+        "effects": [
+          "@dfns/sdk",
+          "@dfns/sdk-keysigner",
+          "@metamask/utils",
+          "@notabene/pii-sdk",
+          "@terminal3/bbs_vc",
+          "@terminal3/vc_core",
+          "fireblocks-sdk"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/uuid",
+            "version": "8.3.2",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@metamask/rpc-errors/node_modules/uuid",
+            "version": "9.0.1",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@metamask/utils/node_modules/uuid",
+            "version": "9.0.1",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@terminal3/bbs_vc/node_modules/uuid",
+            "version": "10.0.0",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@terminal3/vc_core/node_modules/uuid",
+            "version": "10.0.0",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/fireblocks-sdk/node_modules/uuid",
+            "version": "8.3.2",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/uuid",
+            "version": "9.0.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "viem",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=0.0.0-wagmiv2-20230628182101 || 0.2.2 - 2.49.3",
+        "via": [
+          "ws"
+        ],
+        "effects": [
+          "@walletconnect/utils"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@walletconnect/universal-provider/node_modules/viem",
+            "version": "2.36.0",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@walletconnect/utils/node_modules/viem",
+            "version": "2.23.2",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "vite-plugin-node-polyfills",
+        "severity": "low",
+        "isDirect": true,
+        "range": ">=0.3.0",
+        "via": [
+          "node-stdlib-browser"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/vite-plugin-node-polyfills",
+            "version": "0.28.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "vite-plugin-node-polyfills",
+          "version": "0.2.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "web3-core-helpers",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "*",
+        "via": [
+          "web3-eth-iban",
+          "web3-utils"
+        ],
+        "effects": [
+          "web3-providers-http"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/web3-core-helpers",
+            "version": "1.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "web3-eth-iban",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=3.0.0-rc.5",
+        "via": [
+          "web3-utils"
+        ],
+        "effects": [],
+        "nodes": [
+          {
+            "path": "node_modules/web3-eth-iban",
+            "version": "1.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "web3-providers-http",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "<=3.0.0-rc.5",
+        "via": [
+          "web3-core-helpers"
+        ],
+        "effects": [
+          "@fireblocks/fireblocks-web3-provider"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/web3-providers-http",
+            "version": "1.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "web3-utils",
+        "severity": "moderate",
+        "isDirect": false,
+        "range": "1.0.0-beta.8 - 4.0.0",
+        "via": [
+          "ethereumjs-util",
+          "ethjs-unit",
+          "number-to-bn"
+        ],
+        "effects": [
+          "web3-core-helpers",
+          "web3-eth-iban"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/web3-utils",
+            "version": "1.8.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "ws",
+        "severity": "high",
+        "isDirect": false,
+        "range": "8.0.0 - 8.20.1",
+        "via": [
+          {
+            "source": 1119108,
+            "name": "ws",
+            "title": "ws: Uninitialized memory disclosure",
+            "url": "https://github.com/advisories/GHSA-58qx-3vcg-4xpx",
+            "severity": "moderate",
+            "range": ">=8.0.0 <8.20.1"
+          },
+          {
+            "source": 1123259,
+            "name": "ws",
+            "title": "ws: Memory exhaustion DoS from tiny fragments and data chunks",
+            "url": "https://github.com/advisories/GHSA-96hv-2xvq-fx4p",
+            "severity": "high",
+            "range": ">=8.0.0 <8.21.0"
+          }
+        ],
+        "effects": [
+          "@ethersproject/providers",
+          "viem"
+        ],
+        "nodes": [
+          {
+            "path": "node_modules/@ethersproject/providers/node_modules/ws",
+            "version": "8.18.0",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@walletconnect/universal-provider/node_modules/ws",
+            "version": "8.18.3",
+            "optional": false,
+            "installedAfterCi": true
+          },
+          {
+            "path": "node_modules/@walletconnect/utils/node_modules/ws",
+            "version": "8.18.0",
+            "optional": false,
+            "installedAfterCi": true
+          }
+        ],
+        "fixAvailable": {
+          "name": "@hashgraph/asset-tokenization-sdk",
+          "version": "1.13.0",
+          "isSemVerMajor": true
+        }
+      }
+    ]
+  },
+  "addedEntries": [
+    "browserify-sign",
+    "create-ecdh",
+    "crypto-browserify",
+    "node-stdlib-browser",
+    "vite-plugin-node-polyfills"
+  ],
+  "removedEntries": [],
+  "lockChanges": [
+    {
+      "path": "",
+      "beforeVersion": "0.0.0",
+      "afterVersion": "0.0.0",
+      "changedFields": [
+        "dependencies",
+        "devDependencies"
+      ]
+    },
+    {
+      "path": "node_modules/@coinbase/cdp-sdk/node_modules/typescript",
+      "beforeVersion": "5.9.3",
+      "afterVersion": null,
+      "changedFields": [
+        "bin",
+        "engines",
+        "extraneous",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/@hashgraph/proto/node_modules/protobufjs",
+      "beforeVersion": null,
+      "afterVersion": "7.2.5",
+      "changedFields": [
+        "dependencies",
+        "engines",
+        "hasInstallScript",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/@hashgraph/sdk/node_modules/protobufjs",
+      "beforeVersion": null,
+      "afterVersion": "7.2.5",
+      "changedFields": [
+        "dependencies",
+        "engines",
+        "hasInstallScript",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/@hiero-ledger/proto",
+      "beforeVersion": null,
+      "afterVersion": "2.25.0",
+      "changedFields": [
+        "dependencies",
+        "engines",
+        "integrity",
+        "license",
+        "peerDependencies",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/@hiero-ledger/proto/node_modules/long",
+      "beforeVersion": null,
+      "afterVersion": "5.3.1",
+      "changedFields": [
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/@hiero-ledger/sdk/node_modules/@hiero-ledger/proto",
+      "beforeVersion": "2.25.0",
+      "afterVersion": null,
+      "changedFields": [
+        "dependencies",
+        "engines",
+        "integrity",
+        "license",
+        "peer",
+        "peerDependencies",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/@hiero-ledger/sdk/node_modules/protobufjs",
+      "beforeVersion": "7.5.4",
+      "afterVersion": null,
+      "changedFields": [
+        "dependencies",
+        "engines",
+        "hasInstallScript",
+        "integrity",
+        "license",
+        "peer",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/@jridgewell/sourcemap-codec",
+      "beforeVersion": "1.6.0",
+      "afterVersion": "1.6.0",
+      "changedFields": [
+        "peer"
+      ]
+    },
+    {
+      "path": "node_modules/@rollup/plugin-inject",
+      "beforeVersion": null,
+      "afterVersion": "5.0.5",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "peerDependencies",
+        "peerDependenciesMeta",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/@rollup/pluginutils",
+      "beforeVersion": null,
+      "afterVersion": "5.4.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "peerDependencies",
+        "peerDependenciesMeta",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch",
+      "beforeVersion": null,
+      "afterVersion": "4.0.7",
+      "changedFields": [
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/@types/estree",
+      "beforeVersion": null,
+      "afterVersion": "1.0.9",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/asn1.js",
+      "beforeVersion": null,
+      "afterVersion": "4.10.1",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/asn1.js/node_modules/bn.js",
+      "beforeVersion": null,
+      "afterVersion": "4.12.5",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/assert",
+      "beforeVersion": null,
+      "afterVersion": "2.1.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/browser-resolve",
+      "beforeVersion": null,
+      "afterVersion": "2.0.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/browserify-cipher",
+      "beforeVersion": null,
+      "afterVersion": "1.0.1",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/browserify-des",
+      "beforeVersion": null,
+      "afterVersion": "1.0.2",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/browserify-rsa",
+      "beforeVersion": null,
+      "afterVersion": "4.1.1",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/browserify-sign",
+      "beforeVersion": null,
+      "afterVersion": "4.2.6",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/browserify-zlib",
+      "beforeVersion": null,
+      "afterVersion": "0.2.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/builtin-status-codes",
+      "beforeVersion": null,
+      "afterVersion": "3.0.0",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/console-browserify",
+      "beforeVersion": null,
+      "afterVersion": "1.2.0",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/constants-browserify",
+      "beforeVersion": null,
+      "afterVersion": "1.0.0",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/create-ecdh",
+      "beforeVersion": null,
+      "afterVersion": "4.0.4",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/create-ecdh/node_modules/bn.js",
+      "beforeVersion": null,
+      "afterVersion": "4.12.5",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/create-require",
+      "beforeVersion": null,
+      "afterVersion": "1.1.1",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/crypto-browserify",
+      "beforeVersion": null,
+      "afterVersion": "3.12.1",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/crypto-browserify/node_modules/hash-base",
+      "beforeVersion": null,
+      "afterVersion": "3.0.5",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/define-properties",
+      "beforeVersion": null,
+      "afterVersion": "1.2.1",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/des.js",
+      "beforeVersion": null,
+      "afterVersion": "1.1.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/diffie-hellman",
+      "beforeVersion": null,
+      "afterVersion": "5.0.3",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/diffie-hellman/node_modules/bn.js",
+      "beforeVersion": null,
+      "afterVersion": "4.12.5",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/domain-browser",
+      "beforeVersion": null,
+      "afterVersion": "4.22.0",
+      "changedFields": [
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/estree-walker",
+      "beforeVersion": null,
+      "afterVersion": "2.0.2",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/generator-function",
+      "beforeVersion": null,
+      "afterVersion": "2.0.1",
+      "changedFields": [
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/https-browserify",
+      "beforeVersion": null,
+      "afterVersion": "1.0.0",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/is-arguments",
+      "beforeVersion": null,
+      "afterVersion": "1.2.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/is-core-module",
+      "beforeVersion": null,
+      "afterVersion": "2.16.2",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/is-generator-function",
+      "beforeVersion": null,
+      "afterVersion": "1.1.2",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/is-nan",
+      "beforeVersion": null,
+      "afterVersion": "1.3.2",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/is-regex",
+      "beforeVersion": null,
+      "afterVersion": "1.2.1",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/isomorphic-timers-promises",
+      "beforeVersion": null,
+      "afterVersion": "1.0.1",
+      "changedFields": [
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/magic-string",
+      "beforeVersion": null,
+      "afterVersion": "0.30.21",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/miller-rabin",
+      "beforeVersion": null,
+      "afterVersion": "4.0.1",
+      "changedFields": [
+        "bin",
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/miller-rabin/node_modules/bn.js",
+      "beforeVersion": null,
+      "afterVersion": "4.12.5",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/node-stdlib-browser",
+      "beforeVersion": null,
+      "afterVersion": "1.3.1",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/node-stdlib-browser/node_modules/buffer",
+      "beforeVersion": null,
+      "afterVersion": "5.7.1",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/node-stdlib-browser/node_modules/readable-stream",
+      "beforeVersion": null,
+      "afterVersion": "3.6.2",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/object-is",
+      "beforeVersion": null,
+      "afterVersion": "1.1.6",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/object-keys",
+      "beforeVersion": null,
+      "afterVersion": "1.1.1",
+      "changedFields": [
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/object.assign",
+      "beforeVersion": null,
+      "afterVersion": "4.1.7",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/os-browserify",
+      "beforeVersion": null,
+      "afterVersion": "0.3.0",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/pako",
+      "beforeVersion": null,
+      "afterVersion": "1.0.11",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/parse-asn1",
+      "beforeVersion": null,
+      "afterVersion": "5.1.9",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/path-browserify",
+      "beforeVersion": null,
+      "afterVersion": "1.0.1",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/path-parse",
+      "beforeVersion": null,
+      "afterVersion": "1.0.7",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/pkg-dir",
+      "beforeVersion": null,
+      "afterVersion": "5.0.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/pkg-dir/node_modules/find-up",
+      "beforeVersion": null,
+      "afterVersion": "5.0.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/pkg-dir/node_modules/locate-path",
+      "beforeVersion": null,
+      "afterVersion": "6.0.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/pkg-dir/node_modules/p-limit",
+      "beforeVersion": null,
+      "afterVersion": "3.1.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/pkg-dir/node_modules/p-locate",
+      "beforeVersion": null,
+      "afterVersion": "5.0.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/process",
+      "beforeVersion": null,
+      "afterVersion": "0.11.10",
+      "changedFields": [
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/protobufjs",
+      "beforeVersion": "7.2.5",
+      "afterVersion": "7.5.4",
+      "changedFields": [
+        "integrity",
+        "peer",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/protobufjs/node_modules/long",
+      "beforeVersion": "5.3.2",
+      "afterVersion": "5.3.2",
+      "changedFields": [
+        "peer"
+      ]
+    },
+    {
+      "path": "node_modules/public-encrypt",
+      "beforeVersion": null,
+      "afterVersion": "4.0.3",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/public-encrypt/node_modules/bn.js",
+      "beforeVersion": null,
+      "afterVersion": "4.12.5",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/punycode",
+      "beforeVersion": null,
+      "afterVersion": "1.4.1",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/querystring-es3",
+      "beforeVersion": null,
+      "afterVersion": "0.2.1",
+      "changedFields": [
+        "dev",
+        "engines",
+        "integrity",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/randomfill",
+      "beforeVersion": null,
+      "afterVersion": "1.0.4",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/resolve",
+      "beforeVersion": null,
+      "afterVersion": "1.22.12",
+      "changedFields": [
+        "bin",
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/safe-regex-test",
+      "beforeVersion": null,
+      "afterVersion": "1.1.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/stream-browserify",
+      "beforeVersion": null,
+      "afterVersion": "3.0.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/stream-browserify/node_modules/readable-stream",
+      "beforeVersion": null,
+      "afterVersion": "3.6.2",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/stream-http",
+      "beforeVersion": null,
+      "afterVersion": "3.2.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/stream-http/node_modules/readable-stream",
+      "beforeVersion": null,
+      "afterVersion": "3.6.2",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/supports-preserve-symlinks-flag",
+      "beforeVersion": null,
+      "afterVersion": "1.0.0",
+      "changedFields": [
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/timers-browserify",
+      "beforeVersion": null,
+      "afterVersion": "2.0.12",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/tty-browserify",
+      "beforeVersion": null,
+      "afterVersion": "0.0.1",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/url",
+      "beforeVersion": null,
+      "afterVersion": "0.11.4",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/util",
+      "beforeVersion": null,
+      "afterVersion": "0.12.5",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/vite-plugin-node-polyfills",
+      "beforeVersion": null,
+      "afterVersion": "0.28.0",
+      "changedFields": [
+        "dependencies",
+        "dev",
+        "funding",
+        "integrity",
+        "license",
+        "peerDependencies",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/vm-browserify",
+      "beforeVersion": null,
+      "afterVersion": "1.1.2",
+      "changedFields": [
+        "dev",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/xtend",
+      "beforeVersion": null,
+      "afterVersion": "4.0.2",
+      "changedFields": [
+        "dev",
+        "engines",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    },
+    {
+      "path": "node_modules/yocto-queue",
+      "beforeVersion": null,
+      "afterVersion": "0.1.0",
+      "changedFields": [
+        "dev",
+        "engines",
+        "funding",
+        "integrity",
+        "license",
+        "resolved",
+        "version"
+      ]
+    }
+  ],
+  "note": "No vulnerability repaired or waived. Added low entries aggregate existing elliptic findings through browser polyfills. Installed flags refer only to this final local npm ci; optional installation risk remains."
+}
