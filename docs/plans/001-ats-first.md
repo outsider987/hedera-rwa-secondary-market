@@ -152,6 +152,42 @@ T00 自然拆為 `chore: initialize HoldBook guardrails` 與
 `feat(web): add HoldBook testnet shell`。其後按實際完成工作提交，
 沒有手動鏈上驗收時不使用已證明 lifecycle 的敘述。
 
+### 2026-09-05 T01b-1 獨立錢包切片授權（目前有效）
+
+使用者要求實作 [T01b-1 計畫](../prompts/010-t01b-1-wallet.md)，以實際
+HEAD `25bc5de9a6e54ae3f4a8a257055f8cb07c319d3e` 開始，沿用目前分支。
+本授權僅解除獨立錢包切片的 T01a 前置門檻：T01a 仍未通過。頁面移除
+ATS 載入入口與 import，保留既有 ATS 診斷程式。只做使用者手動 MetaMask
+連線、chain 296 識別及三個不同公開帳戶的 Testnet Mirror 驗證／本機綁定。
+不讀合約、不初始化 ATS、不接 Terminal3、不簽署或送交易。
+
+新增 exact `wagmi 3.7.7`、`@tanstack/react-query 5.102.8`，將既有
+`viem 2.56.3` 列直接依賴；其餘 pins 保留，不新增 override 或批准 scripts。
+關閉多錢包探索、wagmi 儲存及自動重連；injected shimDisconnect=false。
+查詢須取消／10 秒逾時、無自動重試／背景刷新；切換狀態即清除驗證、
+過期結果不能回寫。角色只存公開 EVM 地址，重載待驗證，三者地址與
+Mirror 回傳 Hedera ID 都須不同；替換先 Clear。不宣稱鏈上角色權限。
+
+程式 exact allowed files：`package.json`、`package-lock.json`、
+`src/main.tsx`、`src/App.tsx`、`src/styles.css`、`src/wallet.ts`、
+`src/guards.ts`、`tests/shell.test.mjs`、`tests/wallet.test.mjs`；新增
+本輪 browser harness／evidence 於 `docs/evidence/008-t01b-1-*`。
+文件：本授權、`docs/prompts/010-t01b-1-wallet.md`、`docs/HANDOFF.md`、
+`docs/ATTRIBUTION.md`、`AI_USAGE.md`、單一 `docs/ai-usage/009-t01b-1-wallet.md`。
+
+驗收以本輪 prompt 為準：npm ci/test/typecheck/build、完整 lock/audit 差異、
+Node guards/storage tests、真實 wagmi 加模擬 provider 的 browser 邊界案例、
+dev/preview × desktop/mobile、產物排除 ATS/protobuf/Terminal3。
+自動化通過可提交；Victor 真實桌面 MetaMask 三帳戶／切網／重載未做須
+標 pending，手機只驗收排版。文件與成果一起 commit；不 push/merge。
+protobuf 在重新接入 ATS 解碼前處理；Terminal3/BBS/tar 在 VC 接入或
+相關安裝變更前處理。本輪不再修補，不啟動 ATS config／VC 或下一票。
+
+本輪結果：[T01b-1 證據](../evidence/008-t01b-1-wallet.md)：9 Node tests、
+20 模擬 provider browser cases 與 ci/typecheck/build 通過；真實 MetaMask 待驗。
+既有套件版本未改；完整 npm ls 額外揭露未使用的可選 Base peer 衝突，
+詳見證據，未宣稱全樹有效。T01a 的安全門檻仍未通過。
+
 ### 操作介面與安全入口
 
 單頁：上方 network／active account／required role，中間按順序操作，

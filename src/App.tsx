@@ -1,20 +1,126 @@
-import { useState } from 'react';
-import { loadAts, type AtsLoadState } from './ats';
+import { useRef, useState, useSyncExternalStore } from 'react';
+import { useQueries } from '@tanstack/react-query';
+import { useConnect, useConnection, useDisconnect } from 'wagmi';
+import { bindingProblem, loadRoles, roleNames, saveRoles, storageWarning, type MirrorAccount, type Roles } from './guards';
+import { getWalletSession, lookupAccount, queryClient, subscribeWalletSession, testnetChainId, walletConfig } from './wallet';
 
-const loadMessages = {
-  idle: 'ATS SDK not loaded. Start the isolated loading check when ready.',
-  loading: 'Loading ATS SDK… Please wait. No second attempt will be started.',
-  loaded: 'ATS SDK loaded; the required configuration API exists. Network and wallet readiness remain unverified.',
-  failed: 'ATS SDK loading failed or the required API is missing. Stop here and review the diagnostic evidence with a mentor.',
-};
+function Accounts({ session, address, ready, roles, changeRoles }: {
+  session: number; address: string | undefined; ready: boolean; roles: Roles; changeRoles: (update: (roles: Roles) => Roles) => void;
+}) {
+  const addresses = [...new Set([address, ...Object.values(roles)].filter((value): value is string => !!value).map(value => value.toLowerCase()))];
+  const queries = useQueries({ queries: addresses.map(evm => ({
+    queryKey: ['mirror', session, evm],
+    queryFn: ({ signal }: { signal: AbortSignal }) => lookupAccount(evm, signal),
+    enabled: ready,
+  })) });
+  const verified = new Map<string, MirrorAccount>();
+  queries.forEach((query, index) => {
+    if (ready && query.isSuccess && !query.isFetching) verified.set(addresses[index], query.data);
+  });
+  const current = address ? verified.get(address.toLowerCase()) : undefined;
+
+  function accountStatus(evm: string) {
+    const query = queries[addresses.indexOf(evm.toLowerCase())];
+    if (!ready) return 'Saved, awaiting verification. Connect on Hedera Testnet.';
+    if (query?.isError) return query.error.message;
+    if (!query?.data || query.isFetching) return 'Checking Testnet Mirror…';
+    return `Mirror verified · Hedera ID ${query.data.accountId}`;
+  }
+
+  function retry(evm: string) {
+    if (!ready || session !== getWalletSession()) return;
+    if (queryClient.getQueryState(['mirror', session, evm.toLowerCase()])?.fetchStatus === 'fetching') return;
+    const query = queries[addresses.indexOf(evm.toLowerCase())];
+    if (query.isError && !query.isFetching) void query.refetch();
+  }
+
+  return (
+    <section className="accounts" aria-labelledby="accounts-heading">
+      <h2 id="accounts-heading">Set up three accounts</h2>
+      <p>Switch the active account in MetaMask, then assign it below. Admin also serves as Escrow and the test VC issuer.</p>
+      <p>Assignments are local labels; they do not grant or prove on-chain permissions. Clear a role before replacing it.</p>
+      {ready && address && <div className="current-lookup">
+        <p role="status" aria-live="polite">Current account: {accountStatus(address)}</p>
+        {queries[addresses.indexOf(address.toLowerCase())]?.isError && <button type="button" onClick={() => retry(address)}>Retry current account</button>}
+      </div>}
+      <div className="role-list">
+        {roleNames.map(role => {
+          const evm = roles[role];
+          const account = evm ? verified.get(evm) : undefined;
+          const conflict = account && roleNames.some(other => other !== role && roles[other]
+            && verified.get(roles[other]!)?.accountId === account.accountId);
+          const problem = bindingProblem(role, current, roles, verified);
+          const failed = evm && ready && queries[addresses.indexOf(evm)]?.isError;
+          return <section className="role-row" key={role} aria-labelledby={`${role}-heading`}>
+            <h3 id={`${role}-heading`}>{role}</h3>
+            <div className="role-details">
+              <p className="address">{evm ? <code>{evm}</code> : 'Not assigned'}</p>
+              <p id={`${role}-status`} role="status" aria-live="polite">
+                {conflict ? 'Duplicate Hedera ID. Clear one of the conflicting roles.' : evm ? accountStatus(evm) : problem ?? 'Current account is ready to assign.'}
+              </p>
+            </div>
+            <div className="actions">
+              <button type="button" aria-describedby={`${role}-status`} disabled={!!problem} onClick={() => {
+                changeRoles(latest => session !== getWalletSession() || bindingProblem(role, current, latest, verified)
+                  ? latest : { ...latest, [role]: current!.address });
+              }}>Use current account</button>
+              <button type="button" className="secondary" disabled={!evm} onClick={() => {
+                changeRoles(latest => {
+                  const next = { ...latest };
+                  delete next[role];
+                  return next;
+                });
+              }}>Clear</button>
+              {failed && <button type="button" className="secondary" onClick={() => retry(evm)}>Retry {role}</button>}
+            </div>
+          </section>;
+        })}
+      </div>
+    </section>
+  );
+}
 
 export default function App() {
-  const [loadState, setLoadState] = useState<AtsLoadState>('idle');
+  const connection = useConnection();
+  const connect = useConnect();
+  const disconnect = useDisconnect();
+  const session = useSyncExternalStore(subscribeWalletSession, getWalletSession, () => 0);
+  const [saved, setSaved] = useState(() => typeof window === 'undefined' ? { roles: {}, warning: '' } : loadRoles());
+  const savedRef = useRef(saved);
+  const [walletMessage, setWalletMessage] = useState('');
+  const [busy, setBusy] = useState(false);
+  const operation = useRef(false);
+  const ready = connection.isConnected && connection.chainId === testnetChainId && !busy;
 
-  async function handleLoad() {
-    if (loadState !== 'idle') return;
-    setLoadState('loading');
-    setLoadState(await loadAts());
+  async function handleWallet() {
+    if (operation.current) return;
+    operation.current = true;
+    setBusy(true);
+    setWalletMessage('');
+    try {
+      if (connection.isConnected) await disconnect.mutateAsync({});
+      else {
+        const connector = walletConfig.connectors[0];
+        if (!await connector.getProvider()) {
+          setWalletMessage('MetaMask was not found. Install and enable MetaMask in desktop Chrome, then reload.');
+          return;
+        }
+        await connect.mutateAsync({ connector });
+      }
+    } catch {
+      setWalletMessage('The wallet request was not completed. Check MetaMask, then try again when ready.');
+    } finally {
+      operation.current = false;
+      setBusy(false);
+    }
+  }
+
+  function changeRoles(update: (roles: Roles) => Roles) {
+    const latest = savedRef.current;
+    const roles = update(latest.roles);
+    if (roles === latest.roles) return;
+    savedRef.current = { roles, warning: latest.warning || (saveRoles(roles) ? '' : storageWarning) };
+    setSaved(savedRef.current);
   }
 
   return (
@@ -25,18 +131,28 @@ export default function App() {
           <h1>HoldBook</h1>
           <p>Equity lifecycle verification</p>
         </div>
-        <p className="network">Hedera Testnet · Chain 296<br />Configured, not verified</p>
+        <p className="network">Hedera Testnet · Chain 296 / 0x128<br />Local account setup</p>
       </header>
 
       <main id="main">
         <section className="notice" aria-labelledby="status-heading">
-          <h2 id="status-heading">T01a · Isolated SDK loading</h2>
-          <p>Wallet not connected. This check only loads the SDK and inspects its required API.</p>
-          <p>Use an isolated browser without a wallet. Dependency risks remain unresolved; wallet and chain operations are unavailable.</p>
-          <p><button type="button" onClick={handleLoad} disabled={loadState !== 'idle'} aria-describedby="sdk-load-status">Load ATS SDK</button></p>
-          <p id="sdk-load-status" role="status" aria-live="polite">{loadMessages[loadState]}</p>
-          <p>One attempt per page load. Reload returns to idle and never starts a check automatically.</p>
+          <h2 id="status-heading">Connect MetaMask</h2>
+          <p>Use desktop Chrome with only MetaMask installed. Connect when ready; reloading always requires a new connection.</p>
+          <dl className="wallet-details">
+            <div><dt>Active account</dt><dd data-testid="active-account">{connection.address ? <code>{connection.address}</code> : 'Wallet not connected.'}</dd></div>
+            <div><dt>Wallet chain ID</dt><dd data-testid="chain-id">{connection.chainId === undefined ? 'Not available' : `${connection.chainId} / 0x${connection.chainId.toString(16)}`}</dd></div>
+          </dl>
+          <p id="wallet-status" role="status" aria-live="polite">
+            {busy ? 'Wallet request pending. Complete or reject it in MetaMask.' : connection.isConnected
+              ? ready ? 'Connected to Hedera Testnet.' : 'Wrong network. Switch to Hedera Testnet (296 / 0x128) in MetaMask.'
+              : 'Wallet not connected. Press Connect to begin.'}
+          </p>
+          <div className="actions"><button type="button" disabled={busy} aria-describedby="wallet-status" onClick={handleWallet}>{connection.isConnected ? 'Disconnect' : 'Connect'}</button></div>
+          {walletMessage && <p role="alert">{walletMessage}</p>}
         </section>
+
+        {saved.warning && <p className="storage-warning" role="alert">{saved.warning}</p>}
+        <Accounts key={session} session={session} address={connection.address} ready={ready} roles={saved.roles} changeRoles={changeRoles} />
 
         <div className="columns">
           <section aria-labelledby="asset-heading">
@@ -68,7 +184,7 @@ export default function App() {
         <section className="evidence" aria-labelledby="evidence-heading">
           <h2 id="evidence-heading">Transaction evidence</h2>
           <p>No transactions yet.</p>
-          <p>This diagnostic does not connect to a wallet or send transactions. Public identifiers and verified results will appear here in later tickets.</p>
+          <p>This account setup only reads public Mirror account records. Contract reads, signatures and transactions are unavailable.</p>
         </section>
       </main>
 

@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "kind": "wallet-slice-verification",
+  "recordedAt": "2026-09-05T08:35:45.428Z",
+  "baseCommit": "25bc5de9a6e54ae3f4a8a257055f8cb07c319d3e",
+  "sourceHashes": {
+    "package.json": "75ff9edb98f219e8dcc46b9c00cc6e93325501b44fb0e662f30f4aa82acfa8af",
+    "package-lock.json": "f3cb293795c8bfe1dc82aca4e2e05ecf8e1e9b0c9ded471d60266c80b9fd7a9f",
+    "src/main.tsx": "e6a83fea4a963ed07c9a276ef5588a292e9a3bfbdadf693ec5b1710ef89f4dd2",
+    "src/App.tsx": "3b4f0d50c7b1e3454b287fad626f9b98adffd3a46417b8cedca212699fbc40c4",
+    "src/styles.css": "21edd5c8f2cc645087e461711cafbcb3a821818bccc2df5859d5aef2a96cc782",
+    "src/wallet.ts": "be535e8d365cee6852e55df165b4ac13ab08807d1ab019438514edab22f3b8f0",
+    "src/guards.ts": "ec7d4896bfd1a8572891ac8ddcf6a54a0211e09f78ad11c0895f0363867dee85",
+    "tests/shell.test.mjs": "7cfe8ade013a9e00cd15d8734be8cba03685eb2d1e6fca8d98a52404348bfabe",
+    "tests/wallet.test.mjs": "c0ac680542790b5fe371ca4230709be0b0b78b10adee1e71ed5f0276a4fa73c1",
+    "docs/evidence/008-t01b-1-browser.mjs": "02c54c15db9f7c76c4fc387b81163a25cdacd34a3a4a1afd85f08feba0a3905c"
+  },
+  "checks": [
+    {
+      "command": "npm ci",
+      "exitCode": 0,
+      "note": "1250 packages added; deprecation, audit and unapproved-script warnings retained; no script approval"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "command": "npm ls --json",
+      "exitCode": 0,
+      "note": "Direct dependencies only"
+    },
+    {
+      "command": "npm ls --all --json",
+      "exitCode": 1,
+      "problems": [
+        "Existing TypeScript 7.0.2 versus 40 Solana peer requirements for ^5.0.0",
+        "New optional @base-org/account 2.4.0 versus @wagmi/connectors 8.2.0 requirement ^2.5.1"
+      ],
+      "peerMismatchCounts": {
+        "before": 40,
+        "after": 41
+      },
+      "note": "Full tree is not valid; neither Base/Solana connector is used or rendered. Versions kept as requested; no override/alternate-wallet repair."
+    },
+    {
+      "command": "npm audit --json (before / after)",
+      "exitCode": 1,
+      "note": "Existing vulnerabilities; not a security pass"
+    },
+    {
+      "command": "node docs/evidence/008-t01b-1-browser.mjs EXTERNAL_PLAYWRIGHT NEW_RESULT",
+      "exitCode": 0,
+      "passed": 20,
+      "manualMetaMask": "pending"
+    },
+    {
+      "command": "Vite build({build:{write:false}}) final output membership and hashes",
+      "exitCode": 0,
+      "note": "Every asset hash matches production build; zero ATS/protobuf/Terminal3 rendered modules"
+    }
+  ],
+  "audit": {
+    "before": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 22,
+        "moderate": 32,
+        "high": 27,
+        "critical": 2,
+        "total": 83
+      },
+      "dependencies": {
+        "prod": 860,
+        "dev": 112,
+        "optional": 216,
+        "peer": 227,
+        "peerOptional": 0,
+        "total": 1387
+      }
+    },
+    "after": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 22,
+        "moderate": 32,
+        "high": 27,
+        "critical": 2,
+        "total": 83
+      },
+      "dependencies": {
+        "prod": 868,
+        "dev": 112,
+        "optional": 216,
+        "peer": 227,
+        "peerOptional": 0,
+        "total": 1395
+      }
+    },
+    "affectedLocations": 104,
+    "newAdvisoryIds": [],
+    "removedAdvisoryIds": [],
+    "changedEntries": [
+      {
+        "name": "@ethersproject/hdnode",
+        "before": {
+          "name": "@ethersproject/hdnode",
+          "severity": "low",
+          "isDirect": false,
+          "via": [
+            "@ethersproject/abstract-signer",
+            "@ethersproject/signing-key",
+            "@ethersproject/transactions",
+            "@ethersproject/wordlists"
+          ],
+          "effects": [],
+          "range": "*",
+          "nodes": [
+            "node_modules/@ethersproject/hdnode"
+          ],
+          "fixAvailable": true
+        },
+        "after": {
+          "name": "@ethersproject/hdnode",
+          "severity": "low",
+          "isDirect": false,
+          "via": [
+            "@ethersproject/abstract-signer",
+            "@ethersproject/signing-key",
+            "@ethersproject/transactions",
+            "@ethersproject/wordlists"
+          ],
+          "effects": [
+            "@ethersproject/json-wallets"
+          ],
+          "range": "*",
+          "nodes": [
+            "node_modules/@ethersproject/hdnode"
+          ],
+          "fixAvailable": true
+        }
+      },
+      {
+        "name": "@ethersproject/transactions",
+        "before": {
+          "name": "@ethersproject/transactions",
+          "severity": "low",
+          "isDirect": false,
+          "via": [
+            "@ethersproject/signing-key"
+          ],
+          "effects": [
+            "@ethersproject/abstract-provider",
+            "@ethersproject/contracts",
+            "@ethersproject/json-wallets",
+            "@ethersproject/providers"
+          ],
+          "range": "<=5.8.0",
+          "nodes": [
+            "node_modules/@ethersproject/transactions"
+          ],
+          "fixAvailable": {
+            "name": "@hashgraph/asset-tokenization-sdk",
+            "version": "1.13.0",
+            "isSemVerMajor": true
+          }
+        },
+        "after": {
+          "name": "@ethersproject/transactions",
+          "severity": "low",
+          "isDirect": false,
+          "via": [
+            "@ethersproject/signing-key"
+          ],
+          "effects": [
+            "@ethersproject/abstract-provider",
+            "@ethersproject/contracts",
+            "@ethersproject/providers"
+          ],
+          "range": "<=5.8.0",
+          "nodes": [
+            "node_modules/@ethersproject/transactions"
+          ],
+          "fixAvailable": {
+            "name": "@hashgraph/asset-tokenization-sdk",
+            "version": "1.13.0",
+            "isSemVerMajor": true
+          }
+        }
+      }
+    ]
+  },
+  "limits": [
+    "No live Mirror or real MetaMask acceptance",
+    "No signatures, transactions, RPC/contract reads, ATS or VC integration",
+    "T01a remains blocked; protobuf before ATS decoding; Terminal3/BBS/tar before VC or related install changes",
+    "Screenshots are ignored local artifacts; simulated addresses have no ownership claim"
+  ],
+  "review": {
+    "kind": "AI read-only finish review",
+    "disposition": "ship local UI slice",
+    "scope": "App/styles/supporting guards and wallet, dev desktop/mobile screenshots, harness source",
+    "limits": "No real wallet/live Mirror/screen reader/detector or human review"
+  },
+  "recordChecks": {
+    "allowedChangedFiles": 24,
+    "validLocalLinks": 51,
+    "sourceHashes": "match",
+    "atsDiagnostics": "unchanged",
+    "gitDiffCheck": "passed"
+  }
+}

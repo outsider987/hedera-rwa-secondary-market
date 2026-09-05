@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-05 | T01b-1 independent wagmi wallet slice | [Local account setup, automated checks, manual MetaMask pending](docs/ai-usage/009-t01b-1-wallet.md) |
 | 2026-09-05 | T01a bounded decoder rebuild trial | [Dependency-tree gate failed before generation; restored](docs/ai-usage/008-t01a-protobuf-rebuild.md) |
 | 2026-09-05 | T01a upstream repair research | [Static decoder rebuild and narrower override candidates](docs/ai-usage/007-t01a-protobuf-research.md) |
 | 2026-09-05 | T01a protobufjs bounded trial | [Failed decoder/tree gates; dependencies restored](docs/ai-usage/006-t01a-protobuf.md) |
