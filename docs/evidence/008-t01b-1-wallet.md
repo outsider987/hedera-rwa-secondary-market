@@ -1,46 +1,46 @@
-# T01b-1：MetaMask 三帳戶操作台
+# T01b-1: MetaMask account setup
 
-已完成本機錢包切片；**真實 MetaMask 驗收待 Victor 完成，T01a 安全問題仍未解決。**
+Local wallet setup is implemented. **Victor's real MetaMask checks are pending; T01a security issues remain unresolved.**
 
-## 可以做什麼
+## What works
 
-- 手動連接 MetaMask，顯示實際地址與網路；只有 Hedera Testnet 296 可綁定。
-- 經 Mirror 查詢驗證後設定 Admin／Seller／Buyer；地址與 Hedera ID 必須不同。
-- 切換帳戶／網路即重新驗證；查詢逾時或失敗可手動 Retry。
-- 只保存公開角色地址；重載須手動連線再驗證，儲存失敗時提示並使用記憶體。
+- Connect MetaMask manually and display its actual address and network. Role assignment requires Hedera Testnet, chain 296.
+- Assign Admin, Seller and Buyer after Mirror verification. EVM addresses and Hedera IDs must be distinct.
+- Revalidate after account or network changes. Retry failed or timed-out lookups manually.
+- Save only public role addresses. Reload requires manual connection and verification; storage failure shows a warning and keeps changes in memory.
 
-角色設定不代表鏈上權限。本輪沒有合約讀取、簽署或交易，沒有交易 ID。
+Role labels do not prove on-chain permissions. This work performed no contract reads, signatures or transactions; no transaction ID exists.
 
-## 驗證結果
+## Verification
 
-| 檢查 | 結果 |
+| Check | Result |
 | --- | --- |
-| npm ci／typecheck／build | 通過 |
-| Node 測試 | 9 通過 |
-| 真實 wagmi＋模擬 provider | 20 案例通過；包含拒絕、重複點擊、切換、斷線、逾時、舊回應、儲存異常 |
-| dev／preview × 桌面／手機尺寸 | 通過；鍵盤焦點、排版、重載無自動連線；無非預期外部請求 |
-| 瀏覽器產物 | 無 ATS／protobuf／Terminal3；JS 約 304 kB |
-| 依賴差異 | 新增 8 個套件位置；既有套件版本未變，無新 advisory ID |
+| npm ci / typecheck / build | Passed |
+| Node tests | 9 passed |
+| Real wagmi with a simulated provider | 20 cases passed: rejection, duplicate clicks, switching, disconnect, timeout, stale responses and storage failures |
+| Dev / preview at desktop / mobile sizes | Passed: keyboard focus, layout, no automatic connection on reload and no unexpected external requests |
+| Browser bundle | No ATS, protobuf or Terminal3; approximately 304 kB of JavaScript |
+| Dependency changes | 8 package locations added; existing versions unchanged; no new advisory IDs |
 
-自動化使用合成帳戶及 Mirror 回應；手機只驗排版，沒有真人或真實錢包通過的宣稱。
+Automation used synthetic accounts and Mirror responses. Mobile checks cover layout only. Human review and real-wallet acceptance are not claimed.
 
-## 尚未完成
+## Still pending
 
-- Victor：以桌面 MetaMask 驗證三個不同帳戶、拒絕連線、切網、斷線及重載。
-- 安全：audit 仍有原有 83 項／104 個位置（含 2 critical）。protobuf 在 ATS 解碼接回前處理；Terminal3／BBS／tar 在 VC 或相關安裝變更前處理。
-- 完整依賴樹：`npm ls --all` 失敗；40 個既有 TypeScript peer 不符，另增 1 個未使用的可選 Base wallet peer 不符（2.4.0／要求 ^2.5.1）。未擅自改版。
+- **Victor:** verify three distinct accounts, connection rejection, network switching, disconnect and reload in desktop MetaMask.
+- **Security:** audit retains 83 entries across 104 locations, including 2 critical entries. Resolve protobuf before restoring ATS decoding, and Terminal3/BBS/tar before VC integration or related installation changes.
+- **Full dependency tree:** `npm ls --all` fails on 40 existing TypeScript peer mismatches and 1 new, unused optional Base wallet mismatch (2.4.0 installed; ^2.5.1 required). Versions were kept as authorized.
 
-## 查核與重現
+## Evidence and reproduction
 
-[測試與差異摘要](008-t01b-1-verification.json) · [瀏覽器結果](008-t01b-1-browser.json) ·
-[套件差異](008-t01b-1-lock-diff.json) · [peer 比較](008-t01b-1-peer-comparison.json) ·
-[audit 前](008-t01b-1-before-audit.json)／[後](008-t01b-1-after-audit.json) · [產物清單](008-t01b-1-bundle.json)
+[Checks and changes](008-t01b-1-verification.json) · [Browser results](008-t01b-1-browser.json) ·
+[Lock diff](008-t01b-1-lock-diff.json) · [Peer comparison](008-t01b-1-peer-comparison.json) ·
+[Audit before](008-t01b-1-before-audit.json) / [after](008-t01b-1-after-audit.json) · [Bundle inventory](008-t01b-1-bundle.json)
 
-執行 `npm ci`、`npm test`、`npm run typecheck`、`npm run build`。
-另開 dev／preview，再以外部 Playwright 執行：
+Run `npm ci`, `npm test`, `npm run typecheck` and `npm run build`.
+Start dev and preview separately, then run with an external Playwright installation:
 
 ```sh
 node docs/evidence/008-t01b-1-browser.mjs /absolute/path/to/playwright/package.json NEW-result.json
 ```
 
-基準 `25bc5de9a6e54ae3f4a8a257055f8cb07c319d3e`；[使用者授權](../prompts/010-t01b-1-wallet.md)。
+Implementation base: `25bc5de9a6e54ae3f4a8a257055f8cb07c319d3e`. [User authorization](../prompts/010-t01b-1-wallet.md).
