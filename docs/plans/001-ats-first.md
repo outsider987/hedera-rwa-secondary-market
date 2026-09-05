@@ -132,6 +132,22 @@ npm ci／test／typecheck／build 與 dev/preview × desktop/mobile 隔離載入
 重生解碼器、擴大 override、批准 scripts、操作錢包或啟動 T01b。
 Terminal3／tar 等其餘風險仍是 blockers；文件與成果一起提交，不合併 draft PR。
 
+### 2026-09-05 T01a 原 schema 解碼器重建試驗授權
+
+使用者在上游研究與具體重建建議後回覆「好」，核准
+[限定重建試驗](../prompts/009-t01a-protobuf-rebuild.md)，起始 HEAD 為
+`b5640298d0839640d444135da1180f0d5461bd11`。僅為兩套既定 proto 的
+原始發布 schema 解除禁止重生解碼器的限制；候選編譯器
+`protobufjs-cli 1.3.3`／runtime `protobufjs 7.6.6`，四個父套件保持原版，
+override 加上舊 child 版本條件。其餘版本、資產、介面、scripts 審批與
+安全界線不變。先查編譯器 audit，再做全型別重建及完整回歸；精確檔案與
+驗收見本輪紀錄。失敗還原並提交診斷；通過亦不解除 B2 或啟動 T01b。
+
+本輪結果：[安裝圖驗收失敗](../evidence/007-t01a-protobuf-rebuild.md)。
+npm ci 成功，但兩個 Hashgraph runtime 仍為 7.2.5，npm ls 回報 INVALID；
+限定更新亦未改變 lock。依停止條件還原，相依回到基準，生成檔未變動。
+未執行解碼器重生，試驗已關閉；本次授權不延伸為新一輪修補或 T01b。
+
 T00 自然拆為 `chore: initialize HoldBook guardrails` 與
 `feat(web): add HoldBook testnet shell`。其後按實際完成工作提交，
 沒有手動鏈上驗收時不使用已證明 lifecycle 的敘述。

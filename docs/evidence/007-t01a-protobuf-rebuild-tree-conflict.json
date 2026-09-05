@@ -1,0 +1,138 @@
+{
+  "baseCommit": "b5640298d0839640d444135da1180f0d5461bd11",
+  "node": "v24.19.0",
+  "npm": "11.17.0",
+  "command": "npm ls protobufjs --all --json",
+  "exitCode": 1,
+  "lockSha256": "ffe297439a74385ab3024b8bb59c3054bd038ee54422c146a3b9cc348acf19f6",
+  "result": {
+    "version": "0.0.0",
+    "name": "holdbook",
+    "problems": [
+      "invalid: protobufjs@7.2.5 node_modules/@hashgraph/sdk/node_modules/protobufjs",
+      "invalid: protobufjs@7.2.5 node_modules/@hashgraph/proto/node_modules/protobufjs"
+    ],
+    "dependencies": {
+      "@hashgraph/asset-tokenization-sdk": {
+        "version": "8.0.0",
+        "resolved": "https://registry.npmjs.org/@hashgraph/asset-tokenization-sdk/-/asset-tokenization-sdk-8.0.0.tgz",
+        "overridden": false,
+        "dependencies": {
+          "@hashgraph/hedera-wallet-connect": {
+            "version": "2.1.2",
+            "resolved": "https://registry.npmjs.org/@hashgraph/hedera-wallet-connect/-/hedera-wallet-connect-2.1.2.tgz",
+            "overridden": false,
+            "dependencies": {
+              "@hiero-ledger/sdk": {
+                "version": "2.79.0",
+                "resolved": "https://registry.npmjs.org/@hiero-ledger/sdk/-/sdk-2.79.0.tgz",
+                "overridden": true,
+                "dependencies": {
+                  "@grpc/grpc-js": {
+                    "version": "1.12.6",
+                    "resolved": "https://registry.npmjs.org/@grpc/grpc-js/-/grpc-js-1.12.6.tgz",
+                    "overridden": false,
+                    "dependencies": {
+                      "@grpc/proto-loader": {
+                        "version": "0.7.15",
+                        "resolved": "https://registry.npmjs.org/@grpc/proto-loader/-/proto-loader-0.7.15.tgz",
+                        "overridden": false,
+                        "dependencies": {
+                          "protobufjs": {
+                            "version": "7.6.6"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "protobufjs": {
+                    "version": "7.6.6"
+                  }
+                }
+              }
+            }
+          },
+          "@hashgraph/sdk": {
+            "version": "2.64.5",
+            "resolved": "https://registry.npmjs.org/@hashgraph/sdk/-/sdk-2.64.5.tgz",
+            "overridden": true,
+            "dependencies": {
+              "@grpc/grpc-js": {
+                "version": "1.14.4",
+                "resolved": "https://registry.npmjs.org/@grpc/grpc-js/-/grpc-js-1.14.4.tgz",
+                "overridden": false,
+                "dependencies": {
+                  "@grpc/proto-loader": {
+                    "version": "0.8.1",
+                    "resolved": "https://registry.npmjs.org/@grpc/proto-loader/-/proto-loader-0.8.1.tgz",
+                    "overridden": false,
+                    "dependencies": {
+                      "protobufjs": {
+                        "version": "7.6.6"
+                      }
+                    }
+                  }
+                }
+              },
+              "@hashgraph/proto": {
+                "version": "2.18.5",
+                "resolved": "https://registry.npmjs.org/@hashgraph/proto/-/proto-2.18.5.tgz",
+                "overridden": true,
+                "dependencies": {
+                  "protobufjs": {
+                    "version": "7.2.5",
+                    "resolved": "https://registry.npmjs.org/protobufjs/-/protobufjs-7.2.5.tgz",
+                    "overridden": false,
+                    "invalid": "\"7.6.6\" from node_modules/@hashgraph/proto",
+                    "problems": [
+                      "invalid: protobufjs@7.2.5 node_modules/@hashgraph/proto/node_modules/protobufjs"
+                    ]
+                  }
+                }
+              },
+              "protobufjs": {
+                "version": "7.2.5",
+                "resolved": "https://registry.npmjs.org/protobufjs/-/protobufjs-7.2.5.tgz",
+                "overridden": false,
+                "invalid": "\"7.6.6\" from node_modules/@hashgraph/sdk",
+                "problems": [
+                  "invalid: protobufjs@7.2.5 node_modules/@hashgraph/sdk/node_modules/protobufjs"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "@hiero-ledger/proto": {
+        "version": "2.25.0",
+        "resolved": "https://registry.npmjs.org/@hiero-ledger/proto/-/proto-2.25.0.tgz",
+        "overridden": true,
+        "dependencies": {
+          "protobufjs": {
+            "version": "7.6.6"
+          }
+        }
+      },
+      "protobufjs-cli": {
+        "version": "1.3.3",
+        "resolved": "https://registry.npmjs.org/protobufjs-cli/-/protobufjs-cli-1.3.3.tgz",
+        "overridden": false,
+        "dependencies": {
+          "protobufjs": {
+            "version": "7.6.6"
+          }
+        }
+      },
+      "protobufjs": {
+        "version": "7.6.6",
+        "resolved": "https://registry.npmjs.org/protobufjs/-/protobufjs-7.6.6.tgz",
+        "overridden": true
+      }
+    },
+    "error": {
+      "code": "ELSPROBLEMS",
+      "summary": "invalid: protobufjs@7.2.5 node_modules/@hashgraph/sdk/node_modules/protobufjs\ninvalid: protobufjs@7.2.5 node_modules/@hashgraph/proto/node_modules/protobufjs",
+      "detail": ""
+    }
+  }
+}
