@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "kind": "dependency-audit-comparison",
+  "command": "npm audit --json",
+  "exitCode": 1,
+  "before": "001-t01a-audit.json",
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 17,
+      "moderate": 32,
+      "high": 27,
+      "critical": 2,
+      "total": 78
+    },
+    "dependencies": {
+      "prod": 858,
+      "dev": 37,
+      "optional": 216,
+      "peer": 228,
+      "peerOptional": 0,
+      "total": 1311
+    }
+  },
+  "comparedFields": [
+    "name",
+    "severity",
+    "isDirect",
+    "range",
+    "via:title/url/severity/range",
+    "nodes:path"
+  ],
+  "unchangedAdvisoryEntries": 78,
+  "unchangedInstalledVersionLocations": 98,
+  "newHighOrCriticalEntries": [],
+  "fixSuggestionChanges": [
+    {
+      "name": "@dfns/sdk",
+      "before": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      },
+      "after": true
+    },
+    {
+      "name": "@dfns/sdk-keysigner",
+      "before": true,
+      "after": {
+        "name": "@hashgraph/asset-tokenization-sdk",
+        "version": "1.13.0",
+        "isSemVerMajor": true
+      }
+    }
+  ],
+  "matchingProjectionSha256": "185997c084e4672d3acc6b053726ddc4d994d71659c5db06248725f354e059a4",
+  "lockfileSha256": "766b3d6d0850b8166ba5ab6c0fbfec3c2dbc6cd85ffaa93a6c37f08f172faaed",
+  "note": "Complete before inventory plus fixSuggestionChanges reconstructs the compared after fields. All advisory entries and final local version/presence observations are unchanged. npm suggestions are not approved or verified remediation."
+}

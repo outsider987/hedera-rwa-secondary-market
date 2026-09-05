@@ -1,0 +1,3987 @@
+{
+  "schemaVersion": 1,
+  "kind": "public-build-membership",
+  "baseCommit": "b5640298d0839640d444135da1180f0d5461bd11",
+  "lockSha256": "02230cb1fc129226e28f1e8fc0be6999d2106907818a84629255d86c033a6203",
+  "assetSha256": {
+    "AlertController-CZ-dutSf.js": "5f07c2fd0268d0108267b12574484cef70ff8e571a192430835b3f149bac533c",
+    "CaipNetworkUtil-CeLaBlQ5.js": "7e4984bfb20cd034c531534ec87547612ac29b3d1b7a9923afecac0c3e910bc2",
+    "ConstantsUtil-ZKTcDMdd.js": "63d0a8e0e2fc3bf7659fa888f17f1a13bb5e5d73886f1abc32832bf4c1461d03",
+    "ConstantsUtil-ldxptZe8.js": "49ed4fdcf7b3b3b1b010629f2a9ed8ba2e7dc82071f2cefefae8b9b2eb4117d5",
+    "ErrorUtil-DVCSn7gS.js": "3b67cb0772f42cba9f7aa4dcfa1a8f90f9f7e96132ffda7308465c2192983a2f",
+    "ExchangeController-CWidpk8R.js": "ce6ceaab80a7e9cd887c76bdc4dff9232850d06a24fa9e5b818f014b6503344c",
+    "HelpersUtil-BTdBT55x.js": "6a6f4e82c5b50af642cef9ce1e3749eccb45f7aa5d15be05b666d9f3b1ebf359",
+    "HelpersUtil-DHcsNQmW.js": "70839fe08a279df3c48c5a7baabad913dce0b8b9436057f5641367feefdd74bd",
+    "MathUtil-B2UslVSw.js": "fb8b38a9ca5258be772abd49f82e17077146832762b6d108fec138d974811598",
+    "ModalController-B3bX_3Ua.js": "d2d9096070646602549847a28d435f5592a8ac1aef538dd4d775d87cfd44e9a6",
+    "ModalController-GxAuJ3Ql.js": "115482e68b0a356b9a4d38e78ab665ab0163964a1a5c11b888e0886746f342a7",
+    "NavigationUtil-CLCRNDHF.js": "2d7cbe15ee2d4e66fa77e2777c182b89fb9976fc34609d0bfc3223340d21dc67",
+    "OptionsController-DyDLzb_k.js": "fb83d36285ed5707d460091d2f9666befd6e159e828da37a1b0ef212a7b83d7e",
+    "PhArrowCircleDown-D97G-BOA.js": "cd09b715605e95df6b765f4d383ba5ab17ba932a4aa0f14b5e5b2d02eda92752",
+    "PhArrowClockwise-DVgyFuez.js": "dc366b1772ee8c49d66c398eb66f8d839e5c1b06af69d997b82016874f286692",
+    "PhArrowDown-87b1BizM.js": "27e5d16e5a4bc15932e679bfb5f4dcbe7ed2e512b97e68c50a32359f971c154d",
+    "PhArrowLeft-Da0MfnbK.js": "4868784de27eab23916c7f137a249d6bb85f57a9c1bfabeb139408a7e71eeb97",
+    "PhArrowRight-AdrIL4DW.js": "f4b30a6f49cd9d22288edf119a888dd9179aa7cea98e5b40e304310b039d7014",
+    "PhArrowSquareOut-Bk2CMG3I.js": "14fc0e87f52ca49578ecbf0cd35c18f284ea63e8b5f46bfff56490a01e3eaf24",
+    "PhArrowUp-4sgyKPGx.js": "901d5735350a65b0de28e9954bbecc5a39c58945b4f7982dc00fe11986a98360",
+    "PhArrowUpRight-BNghD2zq.js": "6b2478c0ab886ee1ad426fef8458b63c6b96cf90ecc376d3db088709ec59b8ad",
+    "PhArrowsClockwise-BXRn1GEl.js": "622675d81c93ba0dee2566b01c94af8bcd77ed677ea663e49dfebb11e4cc10b7",
+    "PhArrowsDownUp-DM09Jo_3.js": "c6281b624825aa2ab97d014acd639d62392be82467e5ddda6c4bc210e3118917",
+    "PhArrowsLeftRight-MuKBLUoF.js": "6634d3e90724cdbf3a2be9c7f0cf6643cad46ebf3b931179b8ee624cd14cc816",
+    "PhBank-fHbgCqqZ.js": "05ad25db4d5c40ff9b8e7208a6dc178d1408cb2baa6e1d2f80619a2476041adb",
+    "PhBrowser-2-9m-AkM.js": "627bbdfca082ba1041075395286227072771a708d61681e5f5c30e19623da287",
+    "PhCaretDown-BDNabFuL.js": "79d4bd82b1271f8206e6a0a042a18ed7ce554df853b064bd190e4bf6d479e5c8",
+    "PhCaretLeft-CI460R-A.js": "c250bc414dfe7d12f84e6d8f53074476e4887b57edbf647acccd1cb6cf3c66bc",
+    "PhCaretRight-D7ZS3Ls8.js": "b30aafe7979f880158bfe56f9b944e5cf23fb9452204233f753a6d4da26cbeb4",
+    "PhCaretUp-C-iIfyvO.js": "72b76a67cf5128f2d1a272a7cdb5d18c3f984f2b3c86b47b0b7521696ac0b850",
+    "PhCheck-DxQXn57r.js": "37ecda917a0bfb4d7cf7af7a9b2e9f6f73b5b2108b8ccd77a7ea487fc9f5bc95",
+    "PhCircleHalf-MJZeRBGF.js": "3f27ef95ce05e937e470cb04051e439250a2763c782a37e09a29616dd65ed35d",
+    "PhClock-x3MS3Mwi.js": "f79ab5edd36435e9c65c99da94bbb7c157ba5a1326a7ed8f2a076dd5e6517665",
+    "PhCompass-hYn3HhGN.js": "44835318adbddced2b8741bef9200fd63ef8845615b58d3b7f379d2c40dcfd31",
+    "PhCopy-CWNYcABI.js": "d7eb4ae280560ba237746660ec1a7857762683b2cd4f9c67f48ad18cbab0af97",
+    "PhCreditCard-Fy4pzwtt.js": "dc47a94f844e4c8e5024c5d97aee9c8af8380c8bd9c6ca0a007aee37f34edfaf",
+    "PhCurrencyDollar-BgiaenCi.js": "d905c156afd1057385231ff4642a367013e914718140023eff5507a5085cec66",
+    "PhDesktop-CxrzCSv5.js": "bb2c6a7bdeb0db9964583c14a5fd3ca0d3482bfa24ad19f4f78a91832b85fbd1",
+    "PhDeviceMobile-CsyA5Goi.js": "ebee60a4e68437d10d236e97ad784923477dc31c0a807a199095b588fd5218b5",
+    "PhDotsThree-D-k1BiYg.js": "44aac5f93b7bb5d8070ae6633c26b96d8c0fe1eed463bd447984951c64e325a3",
+    "PhEnvelope-D8kzeNox.js": "3316c1d210323046fbdfb2d9e78d978e4dd75533f565c499b97adb177da943be",
+    "PhFunnelSimple-CfQs5DAW.js": "3502aae6dafbbd5351a34cb9ac5bb64472424b249048114fb4cc062816501d9b",
+    "PhGlobe-DvmSc9_A.js": "33e7bb782b63b7dc38f3340701a1d584d862edf73593e8cb9b650cd19fd8add8",
+    "PhIdentificationCard-CfkZm-5K.js": "6218b0f322cf3c8c2af96c26a85b63da423775bcc533c7efc2c13731f7f0de4f",
+    "PhImage-Cf0J2ZfJ.js": "ddf43011bd78bef2746ef70d776c8b682729d7bdc610a885897b2434a8f47352",
+    "PhInfo-Bwi51-2X.js": "4b7077bedb91db53925c2afc0bcfff248197bb4fe5b545a0982cf69b810ea0d1",
+    "PhLightbulb-C4FZV7Es.js": "b2ee668c43f5fdd144710466fa52e8a02f1a3c6e963242c2727689797f05aa57",
+    "PhMagnifyingGlass-C9u8jSCJ.js": "f69ca45eb15552a1ed51226a263441383a8e5265de1a1eae5bce43e4eae58544",
+    "PhPaperPlaneRight-zxQVvPLX.js": "359848290c59314a6c46c3743238953002ff290da378b8c42a5aa1dc4483c95a",
+    "PhPlus-C4UoW-2n.js": "bd70992a36b2efa5b78a5a9fdde3d43fba54b72fd39e51e07fdeb40677bfd508",
+    "PhPower-CFyWDmgD.js": "5c34232cf6b7445b9dc9d393c7a8a4c5a46da714b1d92ea13a90c6e58c845df1",
+    "PhPuzzlePiece-BjoNVfST.js": "5de7abab17011e53a5976ffd28150749b7a56d3e47900a84ad5a587c0902087a",
+    "PhQrCode-CP3tFauY.js": "1683fbf10ebe5595ef81a6903675cd9ee43fd8af4a9a3f0cad48de272b7ec086",
+    "PhQuestion-wOWJBd3G.js": "ddc24c7bae410a0b4fd0ac7cacab703d04b7d6688126f1cc7f595a7d0f88c266",
+    "PhQuestionMark-CV0k9C0Y.js": "73d0b7642fdcf147a2d7e5a778d676a879499f92892572b691d131fa237bc3cc",
+    "PhSealCheck-vIKzREuN.js": "c2f0c81cbccdb1c3f6efd8c6f460616124ac50f6c639e16e8d53c3856d0a4073",
+    "PhSignOut-CxELV-i0.js": "60d6c11e5fbcf0ad99521f23d4be0bc65179bb629304b8cd1164b9eea3c296f7",
+    "PhSpinner-CGDmbzUd.js": "189ce08a86580ed0bcb3389c622792ffd27a989d1b62d068bcf8408c1090d30f",
+    "PhTrash-C9PD0SAt.js": "8e2f1fa24b05306a29a7cf5dc36eb3ee823600f581eb15f1d06f43bbcc18a020",
+    "PhUser-0sWNXQeZ.js": "a1ae0d2970df48bb8f91a16e79ead755ee4fea5d413a4f316661415d9ab0b2ee",
+    "PhVault-6JTskUcC.js": "8debca15c8ee281939b675438f3b06e155a9d354cbe8f855eb2d000b7e026c53",
+    "PhWallet-DzNiREN9.js": "628ebc58c49aa32e27adfcef7985b08d11900c42f88405f2778abbf9003d7c5d",
+    "PhWarning-CoKs3gz6.js": "51ed3f9e9ee32aac473f334a55f829868080adf922bc7c14ae28c0ce66d57c7b",
+    "PhWarningCircle-BXHw1fCt.js": "b047ffc981e413a9702fefb07c1e1ca78fc07713bc13b4650475b02598cef24a",
+    "PhX-DX0SFIqC.js": "12130c71a9c6d2bbfbac031f668467daed3b201c37057591c5cff6aaec3e0dd7",
+    "SwapController-Qhc8HQoy.js": "72afa9d7a01f733860ddb1ab483bb997a65fbd41841eb4b52e26000712937548",
+    "W3mFrameHelpers-DdsOUMTS.js": "3d6a32a79714f0e6662adb5e70a53dac209a3f0203fdedd4e02a9b53e9069f2d",
+    "_esm-BVQeMOG3.js": "62a85e6c8a72d91dc32f2dc0751f953938082ff0e1e97354e09d4565d039cd1e",
+    "browser-BLmJMKa5.js": "04f0e4574446bf54a0d891acb60116d4cc0820ae11f00bc90a15603544b082b8",
+    "browser-ponyfill-CxeAQu6t.js": "a91dd36e5f681bc8487fa3649aa335ac3718471007103a04b0cc6e4d6ed4be57",
+    "ccip-BQ9cyi4W.js": "708f33ca0faf82b04e58f556015e68af03098113afa9b3cb634ce04dcbbfc578",
+    "data-capture-C2CDdfSv.js": "50dd358d14deaa6441acd4a8a65e1e979f960e75490fd0e55d72d90a95c73a4e",
+    "dist-CKI6iC9k.js": "c5c41da29a98c80bdcaac8d868f59cd25a9792dca70ed9249a4c689466f9e8db",
+    "dist-DLli_1s6.js": "080a8e5cad07be6182f7d5db8e38a01db20c3caebb6f014b960a9f4464100ffe",
+    "dist-DPKNlvg4.js": "e9611cc197f2451b86e86e92cccb3d3a3ab409bed8047321989b0d8d4313efe8",
+    "dist-ZKTSEBXW.js": "6ffae489273b2909d4dd91133dd97c0923e792b42a83e2629412b95392633273",
+    "email-BASWy7aO.js": "6ddea7373b6de4d5c1315650465d4fe7e5f3cdc269ed432733e2bc6bdc4aabe3",
+    "embedded-wallet-BPa7wAVg.js": "617beb9c33d5d837a3f750e8d9c64a05f043b0b5057e46d9229961e997bc105a",
+    "exports-BRRKDtEO.js": "36c154332c03f92af856b6c3bb18afdebe2db7e01b589f006f3d806e1025b855",
+    "exports-CXGh-36k.js": "37bf12957242b9c7cec6350b1c2b533cfef1f89d10a242914957d591170c1aed",
+    "exports-DW9uLfQk.js": "eb20f0488fa7654803f6bdbba95716e2ec79b7988b99dab358a5bb34875a68fa",
+    "exports-GL0dN1cC.js": "439b327bd8737bae5df729105992d5206527b73703da5bbb817cc1e48525cb56",
+    "features-CIr4WZRp.js": "0b2af05fdce606ff0d46c149e49fd97e48ec8fca7b5ec4648130d262c551eddd",
+    "hex-encoding-B19xAT_7.js": "54cfd064536f1e343453e2807d7e6b248d608f32cc4f26431a2220bf36052c05",
+    "hmac-BSeZHieH.js": "3c0df61a479946fbf8a039fec19bafbd4e5c814a279c4be299ced014d4bdd36d",
+    "if-defined-CuYKaY4o.js": "d231b78548e9b4aa058a37504214494485af97e20489671bbac5cc023946a68e",
+    "index-CH8usqme.js": "7e9302ede13a12c6822801107d0ded63d608eb3a5a578f83ff6e64e38182de7f",
+    "index-CMn6R95X.css": "bff2a7d2669cc128b6dde02b8c553dec0672f1b36d1fdf7cfc998b58675bbd3e",
+    "index.browser-BDf4v9YX.js": "33749de732f9a49e15a41b402309a443460d50b5d5d8b3a1c0cc6c89fe07d06c",
+    "index.es-DRnSRf6g.js": "8df4732e6a73905ed7898841ca6dc069cf2524808d98deac21ebae0579c95f13",
+    "onramp-CJUajFZ5.js": "2aedcbd1437a6eabd909ea6dc751c9da0fc8a1e50d01cbf167b1064bddd4bede",
+    "pay-with-exchange-Kfig3Z9V.js": "4e166e80e445d527434960551dadae64e8e4bf92b05d4f1211069e67a8843898",
+    "property-DuZ9DLP4.js": "dc46afe280b5fff73b371305e3a3fd4119e6f34ac2f42463bc16f2c7be4bdae2",
+    "provider-browser-BsSHmNLb.js": "ce7997fb808bb5cb5e437ce149dbf01b9f1b330a5f139b521c8f665b92f81c7e",
+    "receive-C3KiNEt5.js": "2f0cbc9df5e5a7ba92f937675f2820d664f88bca1de9cdc18e12d8df0a4cb5a9",
+    "ref-CgxekcQ6.js": "3fdfd2112eedea598bad9c3ae645290da9f3900b0884a4c308b2b832b2e574fc",
+    "rolldown-runtime-BcKkbAw3.js": "b84665f3317d324ca85c2a761d2f2711c34b50ccd4fe964664c48e4bef11864c",
+    "secp256k1-CZeT5Ut3.js": "dc5e8a18c7f4a58c0973f6a82bf6e26b65cb78892200e48cc5d2771728a66df8",
+    "secp256k1-D_3IvMuz.js": "0facc62162345d8326aecab958e5428f5a4013c9c6a7e066ad00219ac86d6bb0",
+    "secp256k1-I33RQ7_Z.js": "2ae6865c4bc00f2aa978d2df1bbf5bf846a8400e07458cc51f8dc3fd2f88958a",
+    "send-Chg06uwg.js": "e60aa13495b3c2c772712819cbcfac322e41fefaba9abf4c02ba443075b7b716",
+    "socials-D7IElfZp.js": "a5c5954f1aa0c615d42ad8cc5b3ee83a974dae6b2e6def68a8d6b6684a5fd1b1",
+    "src-Ckws4D3v.js": "ff8e4507b4dc8fb16637f9b2078290552ba8b409fd9ba655e7217c81d99cc783",
+    "src-wx_AQVdB.js": "a69f651fec440da1bc49dd88abd3184b2f831f360af12e4ec21ca266416d4aed",
+    "swaps-DJkPK5mA.js": "a00952e00b2c96e2695b6f759c9fafc7fda068d4b0b17dc17231e92235b25879",
+    "transactions-DVRqt7mH.js": "a49e2aa911b168d85d8f92a047ea70fb21cc47462f17e4ff5814f93cdf59b6f4",
+    "utils-62W0Csdc.js": "72a7fa17665945d31a8dfb94665ce12959a855cdda088f0602ad7841d3088aba",
+    "utils-Br0svb7K.js": "ab321b19ade23b97c4ed647c1eafd9c89577966f9fba636700c9a4cccd44ab82",
+    "w3m-activity-list-2kYuoLTn.js": "86955dea8218591ca086f649ff387b3522557db0b279153cc651b700e7ad315e",
+    "w3m-email-otp-widget-BAkA7pz5.js": "9b2af035e999169190c57138d509b2e9d25f690b199575a470b487cbafb6d9dc",
+    "w3m-modal-C0uJNZva.js": "931a9996c9a8f3b6927773b55165cbeafb1300ea5ccab1570844584ec9c3d2e6",
+    "w3m-onramp-providers-footer-D1tcc2XW.js": "acf07efeb1133777177996a16b3e91864a6e9a212be8ebf090b4460ceb863237",
+    "w3m-tooltip-DUn_cECI.js": "466bca3bb0af8466bb585a419ebefb899abc4d8b426279f743c864320670ca31",
+    "wui-avatar-Dq9vWvUo.js": "709bfdcb0f205c14086d5815cb6facbd18f6278a3e07192e38dee7465ad57329",
+    "wui-button-CSvUk59Y.js": "aa6ca2a5601b90afd1460f0c0a17066c6f4350891beebd9b49843c2f1be5f078",
+    "wui-email-input-BDpl4UjN.js": "1755574b3aedccf67da19764d2866a2858d9cb8573205e37f8599b3e7d5ac32a",
+    "wui-icon-BiqQm5g4.js": "5c4442d813be773b183e8044d8ee2bbd9d9e8a3eb1e9d164ff3d2beafae88906",
+    "wui-icon-box-C6OjZGIM.js": "778f86379f65ebcb7f722470e1c935ce41b964db3e32d1f204b55a8ffe8f28e6",
+    "wui-icon-box-nSIAFEYA.js": "4d06ca6b768f81abc0acb3cb7042426020a6cb28fa6dd0246398b99381e2d198",
+    "wui-icon-link-ZOKuOPKB.js": "3e71eea8dfaa8dd960b3f52cc0026bb8ceccfcc22c1b4995fa22dec61015cfaf",
+    "wui-image-DAkPpuW0.js": "28e89f55cb7e2326f295422e317758263d5b2505d0a139de7d13f9dc45a2581c",
+    "wui-image-dNtSPigF.js": "e7bda221864961bd1ab875f4d28e528765b64b816844e54f2ffeddaa15bd1229",
+    "wui-input-amount-C7OxXZEi.js": "be858713182995d28e67352b9cb9cd9f2316c915fae403ba0f53337240431e6c",
+    "wui-input-text-Dx4Ad_-l.js": "e4ed9a35f5230aca7c0b8c607e2c6f3e88861bcf32c148747997801f5caef8d6",
+    "wui-input-text-kPjPmRus.js": "2166a12394e99297a8e05765d0a63980c295ba168b9d80bf45409472c49b71dd",
+    "wui-link-BZvP6TUr.js": "134c931d623897aa792358539ffafecab857ebef0f6b393a471f2a4e8e316243",
+    "wui-list-item-CItAHz9O.js": "f3807116b056a1d2292a62edbc6460de0ee66516bdd06fe7a1d3df442e098313",
+    "wui-list-social-D468HKw1.js": "04fd9d54211ab0f0543e290cc6b99717538e648f8f191807b0092df53b193c4b",
+    "wui-list-token-BtMsS8rk.js": "54981ff7c0360752daea8904ce1016cc9cba7557fbaa09c929529477d373066c",
+    "wui-list-wallet-D6UF3gl0.js": "b2cc0cea108c16bbdd61df8870dbc518472b8816f8dbee0d6b3b6ec4dfca7753",
+    "wui-loading-spinner-D-Zjq-ne.js": "126e6bac63991b30db64efec29e3ae9c9f8ae8675945e56e1a28684c8cfec5b2",
+    "wui-loading-spinner-UOiD4p3u.js": "663ffa3e8b9edaa6c7229f975023cfa34d65e6f471e857f3d068941af2313f36",
+    "wui-loading-thumbnail-CGAWFFi4.js": "e740b2a7cc2fd2a33afd7c17213bf6239023a943536df74666542841c12670f2",
+    "wui-qr-code-CckexWfs.js": "1b72ed9f304d023979b50d1b20963bd71b1f4e778897515f2a56e5a0fd64f87c",
+    "wui-separator-DG3pZ2cu.js": "f1bee073e29dcae3e412752c7bb4f4343698afd1f083384fa8df532617323386",
+    "wui-shimmer-C9PzvNKF.js": "d84e22cf7d37f98af9e2474da232a3b0d345873bf70170cc4a043e99bc1a55cb",
+    "wui-shimmer-C_mGSPeO.js": "735959c0ff17e656692516451ca874d019870d73aaaa1ea5be4142dec9fc319b",
+    "wui-text-CEGXXNnG.js": "2c7865c446420f67daa95c9b07fbe073d80420146cef38ef099202db98ba2adf",
+    "wui-token-button-7sT26BM2.js": "8a44050a412f3fe081cdc64f19cd433a6633e2a00365763b9c9b94539ce7baa2",
+    "wui-visual-3dxL-tgf.js": "89f6099278f64263cb8fdf213250e717b5693c7aaee3cf15467b1e8304b63887",
+    "wui-wallet-switch-BpvMyj7D.js": "6b5815f0d58bce8fbcb27cc542b35a721be3b7c47eb957439b4edbd9e7cdcb95"
+  },
+  "phase": "restored",
+  "note": "Vite generateBundle renderedLength > 0; all chunks, including lazy chunks. Inclusion is not execution or exploitability. Zero is not a waiver for installation or future VC paths.",
+  "chunks": [
+    {
+      "file": "assets/_esm-BVQeMOG3.js",
+      "bytes": 124740,
+      "gzipBytes": 37384
+    },
+    {
+      "file": "assets/AlertController-CZ-dutSf.js",
+      "bytes": 642,
+      "gzipBytes": 406
+    },
+    {
+      "file": "assets/browser-BLmJMKa5.js",
+      "bytes": 24009,
+      "gzipBytes": 9021
+    },
+    {
+      "file": "assets/browser-ponyfill-CxeAQu6t.js",
+      "bytes": 14375,
+      "gzipBytes": 4665
+    },
+    {
+      "file": "assets/CaipNetworkUtil-CeLaBlQ5.js",
+      "bytes": 10321,
+      "gzipBytes": 4728
+    },
+    {
+      "file": "assets/ccip-BQ9cyi4W.js",
+      "bytes": 108275,
+      "gzipBytes": 30360
+    },
+    {
+      "file": "assets/ConstantsUtil-ldxptZe8.js",
+      "bytes": 496,
+      "gzipBytes": 363
+    },
+    {
+      "file": "assets/ConstantsUtil-ZKTcDMdd.js",
+      "bytes": 2065,
+      "gzipBytes": 769
+    },
+    {
+      "file": "assets/data-capture-C2CDdfSv.js",
+      "bytes": 18369,
+      "gzipBytes": 5685
+    },
+    {
+      "file": "assets/dist-CKI6iC9k.js",
+      "bytes": 1522230,
+      "gzipBytes": 602817
+    },
+    {
+      "file": "assets/dist-DLli_1s6.js",
+      "bytes": 110370,
+      "gzipBytes": 33582
+    },
+    {
+      "file": "assets/dist-DPKNlvg4.js",
+      "bytes": 11746,
+      "gzipBytes": 4302
+    },
+    {
+      "file": "assets/dist-ZKTSEBXW.js",
+      "bytes": 26898,
+      "gzipBytes": 8239
+    },
+    {
+      "file": "assets/email-BASWy7aO.js",
+      "bytes": 10506,
+      "gzipBytes": 2779
+    },
+    {
+      "file": "assets/embedded-wallet-BPa7wAVg.js",
+      "bytes": 25618,
+      "gzipBytes": 6795
+    },
+    {
+      "file": "assets/ErrorUtil-DVCSn7gS.js",
+      "bytes": 96386,
+      "gzipBytes": 24082
+    },
+    {
+      "file": "assets/ExchangeController-CWidpk8R.js",
+      "bytes": 7971,
+      "gzipBytes": 3061
+    },
+    {
+      "file": "assets/exports-BRRKDtEO.js",
+      "bytes": 506252,
+      "gzipBytes": 149710
+    },
+    {
+      "file": "assets/exports-CXGh-36k.js",
+      "bytes": 220334,
+      "gzipBytes": 42241
+    },
+    {
+      "file": "assets/exports-DW9uLfQk.js",
+      "bytes": 186400,
+      "gzipBytes": 45662
+    },
+    {
+      "file": "assets/exports-GL0dN1cC.js",
+      "bytes": 37268,
+      "gzipBytes": 11082
+    },
+    {
+      "file": "assets/features-CIr4WZRp.js",
+      "bytes": 5757,
+      "gzipBytes": 2262
+    },
+    {
+      "file": "assets/HelpersUtil-BTdBT55x.js",
+      "bytes": 3268,
+      "gzipBytes": 1336
+    },
+    {
+      "file": "assets/HelpersUtil-DHcsNQmW.js",
+      "bytes": 83229,
+      "gzipBytes": 23013
+    },
+    {
+      "file": "assets/hex-encoding-B19xAT_7.js",
+      "bytes": 2246,
+      "gzipBytes": 1048
+    },
+    {
+      "file": "assets/hmac-BSeZHieH.js",
+      "bytes": 9709,
+      "gzipBytes": 4606
+    },
+    {
+      "file": "assets/if-defined-CuYKaY4o.js",
+      "bytes": 66,
+      "gzipBytes": 80
+    },
+    {
+      "file": "assets/index-CH8usqme.js",
+      "bytes": 197943,
+      "gzipBytes": 62013
+    },
+    {
+      "file": "assets/index.browser-BDf4v9YX.js",
+      "bytes": 13337,
+      "gzipBytes": 4599
+    },
+    {
+      "file": "assets/index.es-DRnSRf6g.js",
+      "bytes": 16162,
+      "gzipBytes": 5751
+    },
+    {
+      "file": "assets/MathUtil-B2UslVSw.js",
+      "bytes": 227,
+      "gzipBytes": 185
+    },
+    {
+      "file": "assets/ModalController-B3bX_3Ua.js",
+      "bytes": 109098,
+      "gzipBytes": 29904
+    },
+    {
+      "file": "assets/ModalController-GxAuJ3Ql.js",
+      "bytes": 109141,
+      "gzipBytes": 29925
+    },
+    {
+      "file": "assets/NavigationUtil-CLCRNDHF.js",
+      "bytes": 66,
+      "gzipBytes": 86
+    },
+    {
+      "file": "assets/onramp-CJUajFZ5.js",
+      "bytes": 26135,
+      "gzipBytes": 6533
+    },
+    {
+      "file": "assets/OptionsController-DyDLzb_k.js",
+      "bytes": 26520,
+      "gzipBytes": 7779
+    },
+    {
+      "file": "assets/pay-with-exchange-Kfig3Z9V.js",
+      "bytes": 15808,
+      "gzipBytes": 4117
+    },
+    {
+      "file": "assets/PhArrowCircleDown-D97G-BOA.js",
+      "bytes": 2786,
+      "gzipBytes": 1162
+    },
+    {
+      "file": "assets/PhArrowClockwise-DVgyFuez.js",
+      "bytes": 2560,
+      "gzipBytes": 1172
+    },
+    {
+      "file": "assets/PhArrowDown-87b1BizM.js",
+      "bytes": 2070,
+      "gzipBytes": 994
+    },
+    {
+      "file": "assets/PhArrowLeft-Da0MfnbK.js",
+      "bytes": 2093,
+      "gzipBytes": 985
+    },
+    {
+      "file": "assets/PhArrowRight-AdrIL4DW.js",
+      "bytes": 2085,
+      "gzipBytes": 991
+    },
+    {
+      "file": "assets/PhArrowsClockwise-BXRn1GEl.js",
+      "bytes": 3841,
+      "gzipBytes": 1570
+    },
+    {
+      "file": "assets/PhArrowsDownUp-DM09Jo_3.js",
+      "bytes": 2902,
+      "gzipBytes": 1157
+    },
+    {
+      "file": "assets/PhArrowsLeftRight-MuKBLUoF.js",
+      "bytes": 2779,
+      "gzipBytes": 1164
+    },
+    {
+      "file": "assets/PhArrowSquareOut-Bk2CMG3I.js",
+      "bytes": 2899,
+      "gzipBytes": 1228
+    },
+    {
+      "file": "assets/PhArrowUp-4sgyKPGx.js",
+      "bytes": 2145,
+      "gzipBytes": 986
+    },
+    {
+      "file": "assets/PhArrowUpRight-BNghD2zq.js",
+      "bytes": 2037,
+      "gzipBytes": 997
+    },
+    {
+      "file": "assets/PhBank-fHbgCqqZ.js",
+      "bytes": 2913,
+      "gzipBytes": 1231
+    },
+    {
+      "file": "assets/PhBrowser-2-9m-AkM.js",
+      "bytes": 2188,
+      "gzipBytes": 952
+    },
+    {
+      "file": "assets/PhCaretDown-BDNabFuL.js",
+      "bytes": 1917,
+      "gzipBytes": 936
+    },
+    {
+      "file": "assets/PhCaretLeft-CI460R-A.js",
+      "bytes": 1857,
+      "gzipBytes": 900
+    },
+    {
+      "file": "assets/PhCaretRight-D7ZS3Ls8.js",
+      "bytes": 1933,
+      "gzipBytes": 926
+    },
+    {
+      "file": "assets/PhCaretUp-C-iIfyvO.js",
+      "bytes": 1997,
+      "gzipBytes": 917
+    },
+    {
+      "file": "assets/PhCheck-DxQXn57r.js",
+      "bytes": 2083,
+      "gzipBytes": 964
+    },
+    {
+      "file": "assets/PhCircleHalf-MJZeRBGF.js",
+      "bytes": 2692,
+      "gzipBytes": 1192
+    },
+    {
+      "file": "assets/PhClock-x3MS3Mwi.js",
+      "bytes": 2346,
+      "gzipBytes": 1012
+    },
+    {
+      "file": "assets/PhCompass-hYn3HhGN.js",
+      "bytes": 2957,
+      "gzipBytes": 1254
+    },
+    {
+      "file": "assets/PhCopy-CWNYcABI.js",
+      "bytes": 2336,
+      "gzipBytes": 995
+    },
+    {
+      "file": "assets/PhCreditCard-Fy4pzwtt.js",
+      "bytes": 2907,
+      "gzipBytes": 1136
+    },
+    {
+      "file": "assets/PhCurrencyDollar-BgiaenCi.js",
+      "bytes": 3220,
+      "gzipBytes": 1310
+    },
+    {
+      "file": "assets/PhDesktop-CxrzCSv5.js",
+      "bytes": 2759,
+      "gzipBytes": 1095
+    },
+    {
+      "file": "assets/PhDeviceMobile-CsyA5Goi.js",
+      "bytes": 2546,
+      "gzipBytes": 1047
+    },
+    {
+      "file": "assets/PhDotsThree-D-k1BiYg.js",
+      "bytes": 2225,
+      "gzipBytes": 925
+    },
+    {
+      "file": "assets/PhEnvelope-D8kzeNox.js",
+      "bytes": 2661,
+      "gzipBytes": 1158
+    },
+    {
+      "file": "assets/PhFunnelSimple-CfQs5DAW.js",
+      "bytes": 2338,
+      "gzipBytes": 985
+    },
+    {
+      "file": "assets/PhGlobe-DvmSc9_A.js",
+      "bytes": 5696,
+      "gzipBytes": 1902
+    },
+    {
+      "file": "assets/PhIdentificationCard-CfkZm-5K.js",
+      "bytes": 4194,
+      "gzipBytes": 1625
+    },
+    {
+      "file": "assets/PhImage-Cf0J2ZfJ.js",
+      "bytes": 3408,
+      "gzipBytes": 1424
+    },
+    {
+      "file": "assets/PhInfo-Bwi51-2X.js",
+      "bytes": 2749,
+      "gzipBytes": 1194
+    },
+    {
+      "file": "assets/PhLightbulb-C4FZV7Es.js",
+      "bytes": 4889,
+      "gzipBytes": 1832
+    },
+    {
+      "file": "assets/PhMagnifyingGlass-C9u8jSCJ.js",
+      "bytes": 2188,
+      "gzipBytes": 1056
+    },
+    {
+      "file": "assets/PhPaperPlaneRight-zxQVvPLX.js",
+      "bytes": 3068,
+      "gzipBytes": 1401
+    },
+    {
+      "file": "assets/PhPlus-C4UoW-2n.js",
+      "bytes": 2081,
+      "gzipBytes": 951
+    },
+    {
+      "file": "assets/PhPower-CFyWDmgD.js",
+      "bytes": 2752,
+      "gzipBytes": 1256
+    },
+    {
+      "file": "assets/PhPuzzlePiece-BjoNVfST.js",
+      "bytes": 5349,
+      "gzipBytes": 1941
+    },
+    {
+      "file": "assets/PhQrCode-CP3tFauY.js",
+      "bytes": 4898,
+      "gzipBytes": 1452
+    },
+    {
+      "file": "assets/PhQuestion-wOWJBd3G.js",
+      "bytes": 3288,
+      "gzipBytes": 1424
+    },
+    {
+      "file": "assets/PhQuestionMark-CV0k9C0Y.js",
+      "bytes": 2817,
+      "gzipBytes": 1284
+    },
+    {
+      "file": "assets/PhSealCheck-vIKzREuN.js",
+      "bytes": 12077,
+      "gzipBytes": 3995
+    },
+    {
+      "file": "assets/PhSignOut-CxELV-i0.js",
+      "bytes": 2739,
+      "gzipBytes": 1141
+    },
+    {
+      "file": "assets/PhSpinner-CGDmbzUd.js",
+      "bytes": 4425,
+      "gzipBytes": 1624
+    },
+    {
+      "file": "assets/PhTrash-C9PD0SAt.js",
+      "bytes": 3090,
+      "gzipBytes": 1169
+    },
+    {
+      "file": "assets/PhUser-0sWNXQeZ.js",
+      "bytes": 2658,
+      "gzipBytes": 1245
+    },
+    {
+      "file": "assets/PhVault-6JTskUcC.js",
+      "bytes": 2938,
+      "gzipBytes": 1178
+    },
+    {
+      "file": "assets/PhWallet-DzNiREN9.js",
+      "bytes": 2803,
+      "gzipBytes": 1156
+    },
+    {
+      "file": "assets/PhWarning-CoKs3gz6.js",
+      "bytes": 3880,
+      "gzipBytes": 1466
+    },
+    {
+      "file": "assets/PhWarningCircle-BXHw1fCt.js",
+      "bytes": 2404,
+      "gzipBytes": 1032
+    },
+    {
+      "file": "assets/PhX-DX0SFIqC.js",
+      "bytes": 2471,
+      "gzipBytes": 1043
+    },
+    {
+      "file": "assets/property-DuZ9DLP4.js",
+      "bytes": 16177,
+      "gzipBytes": 6048
+    },
+    {
+      "file": "assets/provider-browser-BsSHmNLb.js",
+      "bytes": 2512611,
+      "gzipBytes": 578595
+    },
+    {
+      "file": "assets/receive-C3KiNEt5.js",
+      "bytes": 6612,
+      "gzipBytes": 2374
+    },
+    {
+      "file": "assets/ref-CgxekcQ6.js",
+      "bytes": 1878,
+      "gzipBytes": 890
+    },
+    {
+      "file": "assets/rolldown-runtime-BcKkbAw3.js",
+      "bytes": 1348,
+      "gzipBytes": 728
+    },
+    {
+      "file": "assets/secp256k1-CZeT5Ut3.js",
+      "bytes": 27968,
+      "gzipBytes": 10748
+    },
+    {
+      "file": "assets/secp256k1-D_3IvMuz.js",
+      "bytes": 30349,
+      "gzipBytes": 11965
+    },
+    {
+      "file": "assets/secp256k1-I33RQ7_Z.js",
+      "bytes": 25135,
+      "gzipBytes": 9772
+    },
+    {
+      "file": "assets/send-Chg06uwg.js",
+      "bytes": 33219,
+      "gzipBytes": 7493
+    },
+    {
+      "file": "assets/socials-D7IElfZp.js",
+      "bytes": 17960,
+      "gzipBytes": 4686
+    },
+    {
+      "file": "assets/src-Ckws4D3v.js",
+      "bytes": 12654,
+      "gzipBytes": 5172
+    },
+    {
+      "file": "assets/src-wx_AQVdB.js",
+      "bytes": 8759902,
+      "gzipBytes": 1643345
+    },
+    {
+      "file": "assets/SwapController-Qhc8HQoy.js",
+      "bytes": 13857,
+      "gzipBytes": 3945
+    },
+    {
+      "file": "assets/swaps-DJkPK5mA.js",
+      "bytes": 54745,
+      "gzipBytes": 9848
+    },
+    {
+      "file": "assets/transactions-DVRqt7mH.js",
+      "bytes": 966,
+      "gzipBytes": 576
+    },
+    {
+      "file": "assets/utils-62W0Csdc.js",
+      "bytes": 4295,
+      "gzipBytes": 1763
+    },
+    {
+      "file": "assets/utils-Br0svb7K.js",
+      "bytes": 2169,
+      "gzipBytes": 985
+    },
+    {
+      "file": "assets/w3m-activity-list-2kYuoLTn.js",
+      "bytes": 34769,
+      "gzipBytes": 10384
+    },
+    {
+      "file": "assets/w3m-email-otp-widget-BAkA7pz5.js",
+      "bytes": 9736,
+      "gzipBytes": 3163
+    },
+    {
+      "file": "assets/w3m-modal-C0uJNZva.js",
+      "bytes": 77720,
+      "gzipBytes": 19435
+    },
+    {
+      "file": "assets/w3m-onramp-providers-footer-D1tcc2XW.js",
+      "bytes": 4936,
+      "gzipBytes": 1783
+    },
+    {
+      "file": "assets/w3m-tooltip-DUn_cECI.js",
+      "bytes": 5550,
+      "gzipBytes": 1923
+    },
+    {
+      "file": "assets/W3mFrameHelpers-DdsOUMTS.js",
+      "bytes": 34549,
+      "gzipBytes": 13334
+    },
+    {
+      "file": "assets/wui-avatar-Dq9vWvUo.js",
+      "bytes": 2464,
+      "gzipBytes": 1029
+    },
+    {
+      "file": "assets/wui-button-CSvUk59Y.js",
+      "bytes": 5637,
+      "gzipBytes": 1525
+    },
+    {
+      "file": "assets/wui-email-input-BDpl4UjN.js",
+      "bytes": 1344,
+      "gzipBytes": 701
+    },
+    {
+      "file": "assets/wui-icon-BiqQm5g4.js",
+      "bytes": 31,
+      "gzipBytes": 51
+    },
+    {
+      "file": "assets/wui-icon-box-C6OjZGIM.js",
+      "bytes": 35,
+      "gzipBytes": 55
+    },
+    {
+      "file": "assets/wui-icon-box-nSIAFEYA.js",
+      "bytes": 2946,
+      "gzipBytes": 972
+    },
+    {
+      "file": "assets/wui-icon-link-ZOKuOPKB.js",
+      "bytes": 2755,
+      "gzipBytes": 986
+    },
+    {
+      "file": "assets/wui-image-DAkPpuW0.js",
+      "bytes": 3081,
+      "gzipBytes": 1191
+    },
+    {
+      "file": "assets/wui-image-dNtSPigF.js",
+      "bytes": 32,
+      "gzipBytes": 52
+    },
+    {
+      "file": "assets/wui-input-amount-C7OxXZEi.js",
+      "bytes": 4049,
+      "gzipBytes": 1520
+    },
+    {
+      "file": "assets/wui-input-text-Dx4Ad_-l.js",
+      "bytes": 6265,
+      "gzipBytes": 1934
+    },
+    {
+      "file": "assets/wui-input-text-kPjPmRus.js",
+      "bytes": 37,
+      "gzipBytes": 57
+    },
+    {
+      "file": "assets/wui-link-BZvP6TUr.js",
+      "bytes": 2961,
+      "gzipBytes": 1014
+    },
+    {
+      "file": "assets/wui-list-item-CItAHz9O.js",
+      "bytes": 3728,
+      "gzipBytes": 1309
+    },
+    {
+      "file": "assets/wui-list-social-D468HKw1.js",
+      "bytes": 4132,
+      "gzipBytes": 1768
+    },
+    {
+      "file": "assets/wui-list-token-BtMsS8rk.js",
+      "bytes": 3304,
+      "gzipBytes": 1249
+    },
+    {
+      "file": "assets/wui-list-wallet-D6UF3gl0.js",
+      "bytes": 23664,
+      "gzipBytes": 6598
+    },
+    {
+      "file": "assets/wui-loading-spinner-D-Zjq-ne.js",
+      "bytes": 42,
+      "gzipBytes": 62
+    },
+    {
+      "file": "assets/wui-loading-spinner-UOiD4p3u.js",
+      "bytes": 4791,
+      "gzipBytes": 1966
+    },
+    {
+      "file": "assets/wui-loading-thumbnail-CGAWFFi4.js",
+      "bytes": 7822,
+      "gzipBytes": 2380
+    },
+    {
+      "file": "assets/wui-qr-code-CckexWfs.js",
+      "bytes": 5214,
+      "gzipBytes": 2131
+    },
+    {
+      "file": "assets/wui-separator-DG3pZ2cu.js",
+      "bytes": 1491,
+      "gzipBytes": 745
+    },
+    {
+      "file": "assets/wui-shimmer-C_mGSPeO.js",
+      "bytes": 34,
+      "gzipBytes": 54
+    },
+    {
+      "file": "assets/wui-shimmer-C9PzvNKF.js",
+      "bytes": 1525,
+      "gzipBytes": 750
+    },
+    {
+      "file": "assets/wui-text-CEGXXNnG.js",
+      "bytes": 58215,
+      "gzipBytes": 18761
+    },
+    {
+      "file": "assets/wui-token-button-7sT26BM2.js",
+      "bytes": 4686,
+      "gzipBytes": 1442
+    },
+    {
+      "file": "assets/wui-visual-3dxL-tgf.js",
+      "bytes": 45986,
+      "gzipBytes": 13809
+    },
+    {
+      "file": "assets/wui-wallet-switch-BpvMyj7D.js",
+      "bytes": 10161,
+      "gzipBytes": 3029
+    }
+  ],
+  "packages": [
+    {
+      "path": "node_modules/@adraffy/ens-normalize",
+      "version": "1.11.1",
+      "renderedModules": 2,
+      "renderedBytes": 96802
+    },
+    {
+      "path": "node_modules/@aws-sdk/client-kms",
+      "version": "3.1127.0",
+      "renderedModules": 15,
+      "renderedBytes": 45130
+    },
+    {
+      "path": "node_modules/@aws-sdk/core",
+      "version": "3.977.9",
+      "renderedModules": 38,
+      "renderedBytes": 66216
+    },
+    {
+      "path": "node_modules/@dfns/sdk",
+      "version": "0.1.0-beta.5",
+      "renderedModules": 51,
+      "renderedBytes": 142155
+    },
+    {
+      "path": "node_modules/@dfns/sdk-keysigner",
+      "version": "0.1.0-beta.5",
+      "renderedModules": 1,
+      "renderedBytes": 2077
+    },
+    {
+      "path": "node_modules/@ethersproject/abi",
+      "version": "5.8.0",
+      "renderedModules": 14,
+      "renderedBytes": 24020
+    },
+    {
+      "path": "node_modules/@ethersproject/address",
+      "version": "5.8.0",
+      "renderedModules": 2,
+      "renderedBytes": 2640
+    },
+    {
+      "path": "node_modules/@ethersproject/bignumber",
+      "version": "5.8.0",
+      "renderedModules": 2,
+      "renderedBytes": 6501
+    },
+    {
+      "path": "node_modules/@ethersproject/bytes",
+      "version": "5.8.0",
+      "renderedModules": 2,
+      "renderedBytes": 4590
+    },
+    {
+      "path": "node_modules/@ethersproject/constants",
+      "version": "5.8.0",
+      "renderedModules": 1,
+      "renderedBytes": 339
+    },
+    {
+      "path": "node_modules/@ethersproject/keccak256",
+      "version": "5.8.0",
+      "renderedModules": 1,
+      "renderedBytes": 231
+    },
+    {
+      "path": "node_modules/@ethersproject/logger",
+      "version": "5.8.0",
+      "renderedModules": 2,
+      "renderedBytes": 8293
+    },
+    {
+      "path": "node_modules/@ethersproject/properties",
+      "version": "5.8.0",
+      "renderedModules": 2,
+      "renderedBytes": 1091
+    },
+    {
+      "path": "node_modules/@ethersproject/rlp",
+      "version": "5.8.0",
+      "renderedModules": 2,
+      "renderedBytes": 3901
+    },
+    {
+      "path": "node_modules/@ethersproject/strings",
+      "version": "5.8.0",
+      "renderedModules": 2,
+      "renderedBytes": 4949
+    },
+    {
+      "path": "node_modules/@hashgraph/asset-tokenization-contracts",
+      "version": "8.0.0",
+      "renderedModules": 733,
+      "renderedBytes": 6563684
+    },
+    {
+      "path": "node_modules/@hashgraph/asset-tokenization-sdk",
+      "version": "8.0.0",
+      "renderedModules": 1329,
+      "renderedBytes": 1810942
+    },
+    {
+      "path": "node_modules/@hashgraph/hedera-custodians-integration",
+      "version": "1.4.1",
+      "renderedModules": 11,
+      "renderedBytes": 10884
+    },
+    {
+      "path": "node_modules/@hashgraph/hedera-wallet-connect",
+      "version": "2.1.2",
+      "renderedModules": 23,
+      "renderedBytes": 99449
+    },
+    {
+      "path": "node_modules/@hashgraph/proto",
+      "version": "2.18.5",
+      "renderedModules": 2,
+      "renderedBytes": 706372
+    },
+    {
+      "path": "node_modules/@hashgraph/proto/node_modules/long",
+      "version": "5.3.2",
+      "renderedModules": 1,
+      "renderedBytes": 22748
+    },
+    {
+      "path": "node_modules/@hashgraph/proto/node_modules/protobufjs",
+      "version": "7.2.5",
+      "renderedModules": 11,
+      "renderedBytes": 27346
+    },
+    {
+      "path": "node_modules/@hiero-ledger/cryptography",
+      "version": "1.15.0",
+      "renderedModules": 35,
+      "renderedBytes": 118825
+    },
+    {
+      "path": "node_modules/@hiero-ledger/cryptography/node_modules/@noble/curves",
+      "version": "1.8.1",
+      "renderedModules": 6,
+      "renderedBytes": 47157
+    },
+    {
+      "path": "node_modules/@hiero-ledger/cryptography/node_modules/@noble/hashes",
+      "version": "1.7.1",
+      "renderedModules": 6,
+      "renderedBytes": 10769
+    },
+    {
+      "path": "node_modules/@hiero-ledger/cryptography/node_modules/asn1js",
+      "version": "3.0.6",
+      "renderedModules": 1,
+      "renderedBytes": 74861
+    },
+    {
+      "path": "node_modules/@hiero-ledger/cryptography/node_modules/bignumber.js",
+      "version": "9.1.1",
+      "renderedModules": 1,
+      "renderedBytes": 35609
+    },
+    {
+      "path": "node_modules/@hiero-ledger/proto",
+      "version": "2.25.0",
+      "renderedModules": 2,
+      "renderedBytes": 982429
+    },
+    {
+      "path": "node_modules/@hiero-ledger/proto/node_modules/long",
+      "version": "5.3.1",
+      "renderedModules": 1,
+      "renderedBytes": 22767
+    },
+    {
+      "path": "node_modules/@hiero-ledger/sdk",
+      "version": "2.79.0",
+      "renderedModules": 209,
+      "renderedBytes": 664787
+    },
+    {
+      "path": "node_modules/@hiero-ledger/sdk/node_modules/bignumber.js",
+      "version": "9.1.1",
+      "renderedModules": 1,
+      "renderedBytes": 36006
+    },
+    {
+      "path": "node_modules/@hiero-ledger/sdk/node_modules/long",
+      "version": "5.3.1",
+      "renderedModules": 1,
+      "renderedBytes": 20320
+    },
+    {
+      "path": "node_modules/@hiero-ledger/sdk/node_modules/pino",
+      "version": "10.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 13076
+    },
+    {
+      "path": "node_modules/@lit/reactive-element",
+      "version": "2.1.2",
+      "renderedModules": 4,
+      "renderedBytes": 10799
+    },
+    {
+      "path": "node_modules/@mattrglobal/bbs-signatures",
+      "version": "1.4.0",
+      "renderedModules": 5,
+      "renderedBytes": 570211
+    },
+    {
+      "path": "node_modules/@metamask/detect-provider",
+      "version": "2.0.0",
+      "renderedModules": 1,
+      "renderedBytes": 1491
+    },
+    {
+      "path": "node_modules/@motionone/animation",
+      "version": "10.18.0",
+      "renderedModules": 2,
+      "renderedBytes": 4444
+    },
+    {
+      "path": "node_modules/@motionone/dom",
+      "version": "10.18.0",
+      "renderedModules": 17,
+      "renderedBytes": 14022
+    },
+    {
+      "path": "node_modules/@motionone/easing",
+      "version": "10.18.0",
+      "renderedModules": 2,
+      "renderedBytes": 1232
+    },
+    {
+      "path": "node_modules/@motionone/types",
+      "version": "10.17.1",
+      "renderedModules": 1,
+      "renderedBytes": 350
+    },
+    {
+      "path": "node_modules/@motionone/utils",
+      "version": "10.18.0",
+      "renderedModules": 17,
+      "renderedBytes": 3280
+    },
+    {
+      "path": "node_modules/@msgpack/msgpack",
+      "version": "3.1.3",
+      "renderedModules": 13,
+      "renderedBytes": 36546
+    },
+    {
+      "path": "node_modules/@multiformats/base-x",
+      "version": "4.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 3239
+    },
+    {
+      "path": "node_modules/@noble/ciphers",
+      "version": "1.2.1",
+      "renderedModules": 5,
+      "renderedBytes": 30378
+    },
+    {
+      "path": "node_modules/@noble/curves",
+      "version": "1.9.7",
+      "renderedModules": 25,
+      "renderedBytes": 250689
+    },
+    {
+      "path": "node_modules/@noble/hashes",
+      "version": "1.8.0",
+      "renderedModules": 21,
+      "renderedBytes": 85388
+    },
+    {
+      "path": "node_modules/@notabene/pii-sdk",
+      "version": "1.17.2",
+      "renderedModules": 1,
+      "renderedBytes": 15841
+    },
+    {
+      "path": "node_modules/@notabene/pii-sdk/node_modules/@ethersproject/bytes",
+      "version": "5.7.0",
+      "renderedModules": 2,
+      "renderedBytes": 10280
+    },
+    {
+      "path": "node_modules/@notabene/pii-sdk/node_modules/@noble/ciphers",
+      "version": "0.4.1",
+      "renderedModules": 5,
+      "renderedBytes": 29784
+    },
+    {
+      "path": "node_modules/@notabene/pii-sdk/node_modules/base-x",
+      "version": "4.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 3245
+    },
+    {
+      "path": "node_modules/@notabene/pii-sdk/node_modules/bs58",
+      "version": "5.0.0",
+      "renderedModules": 1,
+      "renderedBytes": 302
+    },
+    {
+      "path": "node_modules/@notabene/pii-sdk/node_modules/did-jwt",
+      "version": "7.4.7",
+      "renderedModules": 1,
+      "renderedBytes": 69466
+    },
+    {
+      "path": "node_modules/@notabene/pii-sdk/node_modules/multiformats",
+      "version": "9.9.0",
+      "renderedModules": 11,
+      "renderedBytes": 24083
+    },
+    {
+      "path": "node_modules/@phosphor-icons/webcomponents",
+      "version": "2.1.5",
+      "renderedModules": 52,
+      "renderedBytes": 171198
+    },
+    {
+      "path": "node_modules/@protobufjs/aspromise",
+      "version": "1.1.2",
+      "renderedModules": 1,
+      "renderedBytes": 889
+    },
+    {
+      "path": "node_modules/@protobufjs/base64",
+      "version": "1.1.2",
+      "renderedModules": 1,
+      "renderedBytes": 2239
+    },
+    {
+      "path": "node_modules/@protobufjs/eventemitter",
+      "version": "1.1.1",
+      "renderedModules": 1,
+      "renderedBytes": 1117
+    },
+    {
+      "path": "node_modules/@protobufjs/float",
+      "version": "1.0.2",
+      "renderedModules": 1,
+      "renderedBytes": 7033
+    },
+    {
+      "path": "node_modules/@protobufjs/inquire",
+      "version": "1.1.2",
+      "renderedModules": 1,
+      "renderedBytes": 426
+    },
+    {
+      "path": "node_modules/@protobufjs/pool",
+      "version": "1.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 580
+    },
+    {
+      "path": "node_modules/@protobufjs/utf8",
+      "version": "1.1.2",
+      "renderedModules": 1,
+      "renderedBytes": 2498
+    },
+    {
+      "path": "node_modules/@reown/appkit",
+      "version": "1.8.19",
+      "renderedModules": 18,
+      "renderedBytes": 103233
+    },
+    {
+      "path": "node_modules/@reown/appkit-common",
+      "version": "1.8.19",
+      "renderedModules": 17,
+      "renderedBytes": 24297
+    },
+    {
+      "path": "node_modules/@reown/appkit-controllers",
+      "version": "1.8.23",
+      "renderedModules": 41,
+      "renderedBytes": 225307
+    },
+    {
+      "path": "node_modules/@reown/appkit-controllers/node_modules/@reown/appkit-common",
+      "version": "1.8.23",
+      "renderedModules": 13,
+      "renderedBytes": 21924
+    },
+    {
+      "path": "node_modules/@reown/appkit-controllers/node_modules/@reown/appkit-wallet",
+      "version": "1.8.23",
+      "renderedModules": 4,
+      "renderedBytes": 9841
+    },
+    {
+      "path": "node_modules/@reown/appkit-controllers/node_modules/@walletconnect/universal-provider",
+      "version": "2.23.7",
+      "renderedModules": 1,
+      "renderedBytes": 297
+    },
+    {
+      "path": "node_modules/@reown/appkit-pay",
+      "version": "1.8.19",
+      "renderedModules": 26,
+      "renderedBytes": 101969
+    },
+    {
+      "path": "node_modules/@reown/appkit-pay/node_modules/@reown/appkit-controllers",
+      "version": "1.8.19",
+      "renderedModules": 36,
+      "renderedBytes": 200276
+    },
+    {
+      "path": "node_modules/@reown/appkit-scaffold-ui",
+      "version": "1.8.19",
+      "renderedModules": 194,
+      "renderedBytes": 571623
+    },
+    {
+      "path": "node_modules/@reown/appkit-scaffold-ui/node_modules/@reown/appkit-controllers",
+      "version": "1.8.19",
+      "renderedModules": 51,
+      "renderedBytes": 271477
+    },
+    {
+      "path": "node_modules/@reown/appkit-scaffold-ui/node_modules/@walletconnect/universal-provider",
+      "version": "2.23.7",
+      "renderedModules": 1,
+      "renderedBytes": 345
+    },
+    {
+      "path": "node_modules/@reown/appkit-ui",
+      "version": "1.8.19",
+      "renderedModules": 209,
+      "renderedBytes": 423012
+    },
+    {
+      "path": "node_modules/@reown/appkit-ui/node_modules/@reown/appkit-controllers",
+      "version": "1.8.19",
+      "renderedModules": 9,
+      "renderedBytes": 52898
+    },
+    {
+      "path": "node_modules/@reown/appkit-utils",
+      "version": "1.8.19",
+      "renderedModules": 7,
+      "renderedBytes": 20430
+    },
+    {
+      "path": "node_modules/@reown/appkit-utils/node_modules/@reown/appkit-controllers",
+      "version": "1.8.19",
+      "renderedModules": 37,
+      "renderedBytes": 200383
+    },
+    {
+      "path": "node_modules/@reown/appkit-wallet",
+      "version": "1.8.19",
+      "renderedModules": 8,
+      "renderedBytes": 52215
+    },
+    {
+      "path": "node_modules/@reown/appkit-wallet/node_modules/zod",
+      "version": "3.22.4",
+      "renderedModules": 1,
+      "renderedBytes": 94120
+    },
+    {
+      "path": "node_modules/@reown/appkit/node_modules/@reown/appkit-controllers",
+      "version": "1.8.19",
+      "renderedModules": 47,
+      "renderedBytes": 252832
+    },
+    {
+      "path": "node_modules/@reown/appkit/node_modules/@walletconnect/core",
+      "version": "2.23.7",
+      "renderedModules": 1,
+      "renderedBytes": 114909
+    },
+    {
+      "path": "node_modules/@reown/appkit/node_modules/@walletconnect/sign-client",
+      "version": "2.23.7",
+      "renderedModules": 1,
+      "renderedBytes": 83149
+    },
+    {
+      "path": "node_modules/@reown/appkit/node_modules/@walletconnect/types",
+      "version": "2.23.7",
+      "renderedModules": 1,
+      "renderedBytes": 2052
+    },
+    {
+      "path": "node_modules/@reown/appkit/node_modules/@walletconnect/universal-provider",
+      "version": "2.23.7",
+      "renderedModules": 1,
+      "renderedBytes": 37993
+    },
+    {
+      "path": "node_modules/@reown/appkit/node_modules/@walletconnect/utils",
+      "version": "2.23.7",
+      "renderedModules": 1,
+      "renderedBytes": 129864
+    },
+    {
+      "path": "node_modules/@reown/appkit/node_modules/ox",
+      "version": "0.9.3",
+      "renderedModules": 15,
+      "renderedBytes": 25636
+    },
+    {
+      "path": "node_modules/@reown/appkit/node_modules/ox/node_modules/@noble/curves",
+      "version": "1.9.1",
+      "renderedModules": 6,
+      "renderedBytes": 45652
+    },
+    {
+      "path": "node_modules/@reown/walletkit",
+      "version": "1.5.6",
+      "renderedModules": 1,
+      "renderedBytes": 17326
+    },
+    {
+      "path": "node_modules/@reown/walletkit/node_modules/@walletconnect/sign-client",
+      "version": "2.23.10",
+      "renderedModules": 1,
+      "renderedBytes": 83161
+    },
+    {
+      "path": "node_modules/@reown/walletkit/node_modules/@walletconnect/utils",
+      "version": "2.23.10",
+      "renderedModules": 1,
+      "renderedBytes": 28677
+    },
+    {
+      "path": "node_modules/@reown/walletkit/node_modules/ox",
+      "version": "0.9.3",
+      "renderedModules": 15,
+      "renderedBytes": 25853
+    },
+    {
+      "path": "node_modules/@reown/walletkit/node_modules/ox/node_modules/@noble/curves",
+      "version": "1.9.1",
+      "renderedModules": 6,
+      "renderedBytes": 45731
+    },
+    {
+      "path": "node_modules/@scure/base",
+      "version": "1.2.6",
+      "renderedModules": 2,
+      "renderedBytes": 30384
+    },
+    {
+      "path": "node_modules/@smithy/core",
+      "version": "3.33.3",
+      "renderedModules": 142,
+      "renderedBytes": 163007
+    },
+    {
+      "path": "node_modules/@smithy/fetch-http-handler",
+      "version": "5.8.0",
+      "renderedModules": 3,
+      "renderedBytes": 4980
+    },
+    {
+      "path": "node_modules/@smithy/signature-v4",
+      "version": "5.7.3",
+      "renderedModules": 12,
+      "renderedBytes": 19086
+    },
+    {
+      "path": "node_modules/@smithy/types",
+      "version": "4.18.0",
+      "renderedModules": 3,
+      "renderedBytes": 693
+    },
+    {
+      "path": "node_modules/@stablelib/binary",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 8918
+    },
+    {
+      "path": "node_modules/@stablelib/ed25519",
+      "version": "1.0.3",
+      "renderedModules": 1,
+      "renderedBytes": 18351
+    },
+    {
+      "path": "node_modules/@stablelib/ed25519/node_modules/@stablelib/random",
+      "version": "1.0.2",
+      "renderedModules": 4,
+      "renderedBytes": 5189
+    },
+    {
+      "path": "node_modules/@stablelib/int",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 1044
+    },
+    {
+      "path": "node_modules/@stablelib/random",
+      "version": "1.0.0",
+      "renderedModules": 4,
+      "renderedBytes": 5205
+    },
+    {
+      "path": "node_modules/@stablelib/sha512",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 13635
+    },
+    {
+      "path": "node_modules/@stablelib/wipe",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 318
+    },
+    {
+      "path": "node_modules/@terminal3/bbs_vc",
+      "version": "0.2.18",
+      "renderedModules": 8,
+      "renderedBytes": 43116
+    },
+    {
+      "path": "node_modules/@terminal3/bbs_vc/node_modules/uuid",
+      "version": "10.0.0",
+      "renderedModules": 21,
+      "renderedBytes": 29764
+    },
+    {
+      "path": "node_modules/@terminal3/ecdsa_vc",
+      "version": "0.1.16",
+      "renderedModules": 5,
+      "renderedBytes": 8325
+    },
+    {
+      "path": "node_modules/@terminal3/revoke_vc",
+      "version": "0.1.15",
+      "renderedModules": 2,
+      "renderedBytes": 3285
+    },
+    {
+      "path": "node_modules/@terminal3/vc_core",
+      "version": "0.0.19",
+      "renderedModules": 7,
+      "renderedBytes": 9233
+    },
+    {
+      "path": "node_modules/@terminal3/vc_core/node_modules/uuid",
+      "version": "10.0.0",
+      "renderedModules": 21,
+      "renderedBytes": 29903
+    },
+    {
+      "path": "node_modules/@terminal3/verify_vc",
+      "version": "0.0.20",
+      "renderedModules": 2,
+      "renderedBytes": 2690
+    },
+    {
+      "path": "node_modules/@terminal3/verify_vc_core",
+      "version": "0.0.19",
+      "renderedModules": 2,
+      "renderedBytes": 3610
+    },
+    {
+      "path": "node_modules/@walletconnect/core",
+      "version": "2.23.10",
+      "renderedModules": 1,
+      "renderedBytes": 88087
+    },
+    {
+      "path": "node_modules/@walletconnect/core/node_modules/@noble/ciphers",
+      "version": "1.3.0",
+      "renderedModules": 4,
+      "renderedBytes": 22278
+    },
+    {
+      "path": "node_modules/@walletconnect/core/node_modules/@walletconnect/utils",
+      "version": "2.23.10",
+      "renderedModules": 1,
+      "renderedBytes": 15663
+    },
+    {
+      "path": "node_modules/@walletconnect/environment",
+      "version": "1.0.1",
+      "renderedModules": 3,
+      "renderedBytes": 2014
+    },
+    {
+      "path": "node_modules/@walletconnect/environment/node_modules/tslib",
+      "version": "1.14.1",
+      "renderedModules": 1,
+      "renderedBytes": 9751
+    },
+    {
+      "path": "node_modules/@walletconnect/events",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 101
+    },
+    {
+      "path": "node_modules/@walletconnect/heartbeat",
+      "version": "1.2.2",
+      "renderedModules": 1,
+      "renderedBytes": 1062
+    },
+    {
+      "path": "node_modules/@walletconnect/jsonrpc-http-connection",
+      "version": "1.0.8",
+      "renderedModules": 1,
+      "renderedBytes": 3562
+    },
+    {
+      "path": "node_modules/@walletconnect/jsonrpc-provider",
+      "version": "1.0.14",
+      "renderedModules": 1,
+      "renderedBytes": 2332
+    },
+    {
+      "path": "node_modules/@walletconnect/jsonrpc-types",
+      "version": "1.0.4",
+      "renderedModules": 1,
+      "renderedBytes": 284
+    },
+    {
+      "path": "node_modules/@walletconnect/jsonrpc-utils",
+      "version": "1.0.8",
+      "renderedModules": 8,
+      "renderedBytes": 8158
+    },
+    {
+      "path": "node_modules/@walletconnect/jsonrpc-ws-connection",
+      "version": "1.0.16",
+      "renderedModules": 1,
+      "renderedBytes": 3742
+    },
+    {
+      "path": "node_modules/@walletconnect/keyvaluestorage",
+      "version": "1.1.1",
+      "renderedModules": 1,
+      "renderedBytes": 4309
+    },
+    {
+      "path": "node_modules/@walletconnect/keyvaluestorage/node_modules/unstorage",
+      "version": "1.17.5",
+      "renderedModules": 2,
+      "renderedBytes": 12931
+    },
+    {
+      "path": "node_modules/@walletconnect/logger",
+      "version": "3.0.2",
+      "renderedModules": 1,
+      "renderedBytes": 16922
+    },
+    {
+      "path": "node_modules/@walletconnect/modal",
+      "version": "2.7.0",
+      "renderedModules": 1,
+      "renderedBytes": 671
+    },
+    {
+      "path": "node_modules/@walletconnect/modal-core",
+      "version": "2.7.0",
+      "renderedModules": 1,
+      "renderedBytes": 15485
+    },
+    {
+      "path": "node_modules/@walletconnect/modal-core/node_modules/proxy-compare",
+      "version": "2.5.1",
+      "renderedModules": 1,
+      "renderedBytes": 389
+    },
+    {
+      "path": "node_modules/@walletconnect/modal-core/node_modules/valtio",
+      "version": "1.11.2",
+      "renderedModules": 1,
+      "renderedBytes": 7120
+    },
+    {
+      "path": "node_modules/@walletconnect/modal-ui",
+      "version": "2.7.0",
+      "renderedModules": 1,
+      "renderedBytes": 114924
+    },
+    {
+      "path": "node_modules/@walletconnect/modal-ui/node_modules/@lit/reactive-element",
+      "version": "1.6.3",
+      "renderedModules": 6,
+      "renderedBytes": 10826
+    },
+    {
+      "path": "node_modules/@walletconnect/modal-ui/node_modules/lit-element",
+      "version": "3.3.3",
+      "renderedModules": 1,
+      "renderedBytes": 1273
+    },
+    {
+      "path": "node_modules/@walletconnect/modal-ui/node_modules/lit-html",
+      "version": "2.8.0",
+      "renderedModules": 4,
+      "renderedBytes": 12469
+    },
+    {
+      "path": "node_modules/@walletconnect/pay",
+      "version": "1.0.9",
+      "renderedModules": 1,
+      "renderedBytes": 293052
+    },
+    {
+      "path": "node_modules/@walletconnect/pay/node_modules/@walletconnect/utils",
+      "version": "2.23.10",
+      "renderedModules": 1,
+      "renderedBytes": 968
+    },
+    {
+      "path": "node_modules/@walletconnect/relay-api",
+      "version": "1.0.11",
+      "renderedModules": 1,
+      "renderedBytes": 1064
+    },
+    {
+      "path": "node_modules/@walletconnect/relay-auth",
+      "version": "1.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 48425
+    },
+    {
+      "path": "node_modules/@walletconnect/safe-json",
+      "version": "1.0.2",
+      "renderedModules": 1,
+      "renderedBytes": 1226
+    },
+    {
+      "path": "node_modules/@walletconnect/sign-client",
+      "version": "2.19.2",
+      "renderedModules": 1,
+      "renderedBytes": 78689
+    },
+    {
+      "path": "node_modules/@walletconnect/sign-client/node_modules/@walletconnect/core",
+      "version": "2.19.2",
+      "renderedModules": 1,
+      "renderedBytes": 111082
+    },
+    {
+      "path": "node_modules/@walletconnect/sign-client/node_modules/@walletconnect/logger",
+      "version": "2.1.2",
+      "renderedModules": 1,
+      "renderedBytes": 5701
+    },
+    {
+      "path": "node_modules/@walletconnect/sign-client/node_modules/@walletconnect/types",
+      "version": "2.19.2",
+      "renderedModules": 1,
+      "renderedBytes": 2102
+    },
+    {
+      "path": "node_modules/@walletconnect/sign-client/node_modules/multiformats",
+      "version": "9.9.0",
+      "renderedModules": 21,
+      "renderedBytes": 18528
+    },
+    {
+      "path": "node_modules/@walletconnect/sign-client/node_modules/pino",
+      "version": "7.11.0",
+      "renderedModules": 1,
+      "renderedBytes": 9864
+    },
+    {
+      "path": "node_modules/@walletconnect/sign-client/node_modules/uint8arrays",
+      "version": "3.1.0",
+      "renderedModules": 3,
+      "renderedBytes": 1682
+    },
+    {
+      "path": "node_modules/@walletconnect/time",
+      "version": "1.0.2",
+      "renderedModules": 10,
+      "renderedBytes": 6145
+    },
+    {
+      "path": "node_modules/@walletconnect/time/node_modules/tslib",
+      "version": "1.14.1",
+      "renderedModules": 1,
+      "renderedBytes": 9744
+    },
+    {
+      "path": "node_modules/@walletconnect/types",
+      "version": "2.23.10",
+      "renderedModules": 1,
+      "renderedBytes": 1440
+    },
+    {
+      "path": "node_modules/@walletconnect/universal-provider",
+      "version": "2.21.9",
+      "renderedModules": 1,
+      "renderedBytes": 36354
+    },
+    {
+      "path": "node_modules/@walletconnect/universal-provider/node_modules/@msgpack/msgpack",
+      "version": "3.1.2",
+      "renderedModules": 13,
+      "renderedBytes": 36878
+    },
+    {
+      "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/core",
+      "version": "2.21.9",
+      "renderedModules": 1,
+      "renderedBytes": 112481
+    },
+    {
+      "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/logger",
+      "version": "2.1.2",
+      "renderedModules": 1,
+      "renderedBytes": 5690
+    },
+    {
+      "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/sign-client",
+      "version": "2.21.9",
+      "renderedModules": 1,
+      "renderedBytes": 80677
+    },
+    {
+      "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/types",
+      "version": "2.21.9",
+      "renderedModules": 1,
+      "renderedBytes": 2083
+    },
+    {
+      "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/utils",
+      "version": "2.21.9",
+      "renderedModules": 1,
+      "renderedBytes": 129233
+    },
+    {
+      "path": "node_modules/@walletconnect/universal-provider/node_modules/pino",
+      "version": "7.11.0",
+      "renderedModules": 1,
+      "renderedBytes": 9869
+    },
+    {
+      "path": "node_modules/@walletconnect/universal-provider/node_modules/viem",
+      "version": "2.36.0",
+      "renderedModules": 16,
+      "renderedBytes": 13935
+    },
+    {
+      "path": "node_modules/@walletconnect/universal-provider/node_modules/viem/node_modules/@noble/curves",
+      "version": "1.9.6",
+      "renderedModules": 6,
+      "renderedBytes": 51500
+    },
+    {
+      "path": "node_modules/@walletconnect/utils",
+      "version": "2.19.2",
+      "renderedModules": 1,
+      "renderedBytes": 101986
+    },
+    {
+      "path": "node_modules/@walletconnect/utils/node_modules/@noble/curves",
+      "version": "1.8.1",
+      "renderedModules": 6,
+      "renderedBytes": 46595
+    },
+    {
+      "path": "node_modules/@walletconnect/utils/node_modules/@noble/hashes",
+      "version": "1.7.1",
+      "renderedModules": 8,
+      "renderedBytes": 16817
+    },
+    {
+      "path": "node_modules/@walletconnect/utils/node_modules/multiformats",
+      "version": "9.9.0",
+      "renderedModules": 21,
+      "renderedBytes": 18802
+    },
+    {
+      "path": "node_modules/@walletconnect/utils/node_modules/uint8arrays",
+      "version": "3.1.0",
+      "renderedModules": 5,
+      "renderedBytes": 2547
+    },
+    {
+      "path": "node_modules/@walletconnect/utils/node_modules/viem",
+      "version": "2.23.2",
+      "renderedModules": 16,
+      "renderedBytes": 13875
+    },
+    {
+      "path": "node_modules/@walletconnect/window-getters",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 2133
+    },
+    {
+      "path": "node_modules/@walletconnect/window-metadata",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 2523
+    },
+    {
+      "path": "node_modules/aes-js",
+      "version": "4.0.0-beta.5",
+      "renderedModules": 14,
+      "renderedBytes": 126630
+    },
+    {
+      "path": "node_modules/asn1-ts",
+      "version": "8.0.5",
+      "renderedModules": 129,
+      "renderedBytes": 291695
+    },
+    {
+      "path": "node_modules/asn1.js",
+      "version": "4.10.1",
+      "renderedModules": 14,
+      "renderedBytes": 40932
+    },
+    {
+      "path": "node_modules/asn1.js/node_modules/bn.js",
+      "version": "4.12.5",
+      "renderedModules": 1,
+      "renderedBytes": 73795
+    },
+    {
+      "path": "node_modules/available-typed-arrays",
+      "version": "1.0.7",
+      "renderedModules": 1,
+      "renderedBytes": 523
+    },
+    {
+      "path": "node_modules/axios",
+      "version": "1.20.0",
+      "renderedModules": 54,
+      "renderedBytes": 209882
+    },
+    {
+      "path": "node_modules/axios-oauth-client",
+      "version": "1.5.0",
+      "renderedModules": 3,
+      "renderedBytes": 2090
+    },
+    {
+      "path": "node_modules/axios-token-interceptor",
+      "version": "0.2.0",
+      "renderedModules": 2,
+      "renderedBytes": 2108
+    },
+    {
+      "path": "node_modules/base-x",
+      "version": "5.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 3061
+    },
+    {
+      "path": "node_modules/base64-js",
+      "version": "1.5.1",
+      "renderedModules": 1,
+      "renderedBytes": 3248
+    },
+    {
+      "path": "node_modules/base64url",
+      "version": "3.0.1",
+      "renderedModules": 3,
+      "renderedBytes": 2133
+    },
+    {
+      "path": "node_modules/big.js",
+      "version": "6.2.2",
+      "renderedModules": 1,
+      "renderedBytes": 10845
+    },
+    {
+      "path": "node_modules/blakejs",
+      "version": "1.2.1",
+      "renderedModules": 4,
+      "renderedBytes": 12787
+    },
+    {
+      "path": "node_modules/bn.js",
+      "version": "5.2.5",
+      "renderedModules": 1,
+      "renderedBytes": 75874
+    },
+    {
+      "path": "node_modules/brorand",
+      "version": "1.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 1386
+    },
+    {
+      "path": "node_modules/brotli",
+      "version": "1.3.3",
+      "renderedModules": 11,
+      "renderedBytes": 121376
+    },
+    {
+      "path": "node_modules/browserify-aes",
+      "version": "1.2.0",
+      "renderedModules": 17,
+      "renderedBytes": 27768
+    },
+    {
+      "path": "node_modules/browserify-cipher",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 2134
+    },
+    {
+      "path": "node_modules/browserify-des",
+      "version": "1.0.2",
+      "renderedModules": 2,
+      "renderedBytes": 1775
+    },
+    {
+      "path": "node_modules/browserify-rsa",
+      "version": "4.1.1",
+      "renderedModules": 1,
+      "renderedBytes": 1278
+    },
+    {
+      "path": "node_modules/browserify-sign",
+      "version": "4.2.6",
+      "renderedModules": 6,
+      "renderedBytes": 13502
+    },
+    {
+      "path": "node_modules/bs58",
+      "version": "6.0.0",
+      "renderedModules": 1,
+      "renderedBytes": 169
+    },
+    {
+      "path": "node_modules/buffer-equal-constant-time",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 887
+    },
+    {
+      "path": "node_modules/buffer-xor",
+      "version": "1.0.3",
+      "renderedModules": 1,
+      "renderedBytes": 356
+    },
+    {
+      "path": "node_modules/call-bind",
+      "version": "1.0.9",
+      "renderedModules": 1,
+      "renderedBytes": 724
+    },
+    {
+      "path": "node_modules/call-bind-apply-helpers",
+      "version": "1.0.2",
+      "renderedModules": 6,
+      "renderedBytes": 1914
+    },
+    {
+      "path": "node_modules/call-bound",
+      "version": "1.0.4",
+      "renderedModules": 1,
+      "renderedBytes": 576
+    },
+    {
+      "path": "node_modules/canonicalize",
+      "version": "2.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 980
+    },
+    {
+      "path": "node_modules/cbor",
+      "version": "9.0.2",
+      "renderedModules": 13,
+      "renderedBytes": 58266
+    },
+    {
+      "path": "node_modules/cipher-base",
+      "version": "1.0.7",
+      "renderedModules": 1,
+      "renderedBytes": 2367
+    },
+    {
+      "path": "node_modules/core-util-is",
+      "version": "1.0.3",
+      "renderedModules": 1,
+      "renderedBytes": 1843
+    },
+    {
+      "path": "node_modules/create-ecdh",
+      "version": "4.0.4",
+      "renderedModules": 1,
+      "renderedBytes": 2711
+    },
+    {
+      "path": "node_modules/create-ecdh/node_modules/bn.js",
+      "version": "4.12.5",
+      "renderedModules": 1,
+      "renderedBytes": 73799
+    },
+    {
+      "path": "node_modules/create-hash",
+      "version": "1.2.0",
+      "renderedModules": 2,
+      "renderedBytes": 1024
+    },
+    {
+      "path": "node_modules/create-hmac",
+      "version": "1.1.7",
+      "renderedModules": 2,
+      "renderedBytes": 2735
+    },
+    {
+      "path": "node_modules/cross-fetch",
+      "version": "3.1.6",
+      "renderedModules": 1,
+      "renderedBytes": 14056
+    },
+    {
+      "path": "node_modules/crypto-browserify",
+      "version": "3.12.1",
+      "renderedModules": 1,
+      "renderedBytes": 2641
+    },
+    {
+      "path": "node_modules/dayjs",
+      "version": "1.11.13",
+      "renderedModules": 4,
+      "renderedBytes": 14068
+    },
+    {
+      "path": "node_modules/decode-uri-component",
+      "version": "0.2.2",
+      "renderedModules": 1,
+      "renderedBytes": 1968
+    },
+    {
+      "path": "node_modules/define-data-property",
+      "version": "1.1.4",
+      "renderedModules": 1,
+      "renderedBytes": 2151
+    },
+    {
+      "path": "node_modules/des.js",
+      "version": "1.1.0",
+      "renderedModules": 6,
+      "renderedBytes": 16931
+    },
+    {
+      "path": "node_modules/destr",
+      "version": "2.0.5",
+      "renderedModules": 1,
+      "renderedBytes": 1769
+    },
+    {
+      "path": "node_modules/detect-browser",
+      "version": "5.3.0",
+      "renderedModules": 1,
+      "renderedBytes": 6158
+    },
+    {
+      "path": "node_modules/did-jwt",
+      "version": "8.0.18",
+      "renderedModules": 1,
+      "renderedBytes": 71307
+    },
+    {
+      "path": "node_modules/did-jwt/node_modules/@scure/base",
+      "version": "2.4.0",
+      "renderedModules": 1,
+      "renderedBytes": 24624
+    },
+    {
+      "path": "node_modules/did-jwt/node_modules/multiformats",
+      "version": "9.9.0",
+      "renderedModules": 11,
+      "renderedBytes": 23405
+    },
+    {
+      "path": "node_modules/did-resolver",
+      "version": "4.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 4225
+    },
+    {
+      "path": "node_modules/diffie-hellman",
+      "version": "5.0.3",
+      "renderedModules": 4,
+      "renderedBytes": 14441
+    },
+    {
+      "path": "node_modules/diffie-hellman/node_modules/bn.js",
+      "version": "4.12.5",
+      "renderedModules": 1,
+      "renderedBytes": 73802
+    },
+    {
+      "path": "node_modules/dijkstrajs",
+      "version": "1.0.3",
+      "renderedModules": 1,
+      "renderedBytes": 2431
+    },
+    {
+      "path": "node_modules/dunder-proto",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 787
+    },
+    {
+      "path": "node_modules/ecdsa-sig-formatter",
+      "version": "1.0.11",
+      "renderedModules": 2,
+      "renderedBytes": 5367
+    },
+    {
+      "path": "node_modules/elliptic",
+      "version": "6.6.1",
+      "renderedModules": 16,
+      "renderedBytes": 97850
+    },
+    {
+      "path": "node_modules/elliptic/node_modules/bn.js",
+      "version": "4.12.5",
+      "renderedModules": 1,
+      "renderedBytes": 73796
+    },
+    {
+      "path": "node_modules/encode-utf8",
+      "version": "1.0.3",
+      "renderedModules": 1,
+      "renderedBytes": 1228
+    },
+    {
+      "path": "node_modules/es-define-property",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 361
+    },
+    {
+      "path": "node_modules/es-errors",
+      "version": "1.3.0",
+      "renderedModules": 7,
+      "renderedBytes": 1138
+    },
+    {
+      "path": "node_modules/es-object-atoms",
+      "version": "1.1.2",
+      "renderedModules": 1,
+      "renderedBytes": 176
+    },
+    {
+      "path": "node_modules/es-toolkit",
+      "version": "1.45.1",
+      "renderedModules": 8,
+      "renderedBytes": 6517
+    },
+    {
+      "path": "node_modules/ethereum-cryptography",
+      "version": "2.2.1",
+      "renderedModules": 2,
+      "renderedBytes": 875
+    },
+    {
+      "path": "node_modules/ethereum-cryptography/node_modules/@noble/hashes",
+      "version": "1.4.0",
+      "renderedModules": 4,
+      "renderedBytes": 8381
+    },
+    {
+      "path": "node_modules/ethers",
+      "version": "6.17.0",
+      "renderedModules": 199,
+      "renderedBytes": 967191
+    },
+    {
+      "path": "node_modules/ethers/node_modules/@noble/curves",
+      "version": "1.2.0",
+      "renderedModules": 13,
+      "renderedBytes": 99457
+    },
+    {
+      "path": "node_modules/ethers/node_modules/@noble/hashes",
+      "version": "1.3.2",
+      "renderedModules": 24,
+      "renderedBytes": 83941
+    },
+    {
+      "path": "node_modules/ethers/node_modules/tslib",
+      "version": "2.7.0",
+      "renderedModules": 1,
+      "renderedBytes": 17058
+    },
+    {
+      "path": "node_modules/events",
+      "version": "3.3.0",
+      "renderedModules": 1,
+      "renderedBytes": 11085
+    },
+    {
+      "path": "node_modules/evp_bytestokey",
+      "version": "1.0.3",
+      "renderedModules": 1,
+      "renderedBytes": 1302
+    },
+    {
+      "path": "node_modules/fast-safe-stringify",
+      "version": "2.1.1",
+      "renderedModules": 1,
+      "renderedBytes": 5143
+    },
+    {
+      "path": "node_modules/filter-obj",
+      "version": "1.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 470
+    },
+    {
+      "path": "node_modules/fireblocks-sdk",
+      "version": "5.11.0",
+      "renderedModules": 8,
+      "renderedBytes": 83354
+    },
+    {
+      "path": "node_modules/fireblocks-sdk/node_modules/axios",
+      "version": "0.27.2",
+      "renderedModules": 32,
+      "renderedBytes": 43204
+    },
+    {
+      "path": "node_modules/fireblocks-sdk/node_modules/uuid",
+      "version": "8.3.2",
+      "renderedModules": 15,
+      "renderedBytes": 15809
+    },
+    {
+      "path": "node_modules/for-each",
+      "version": "0.3.5",
+      "renderedModules": 1,
+      "renderedBytes": 1527
+    },
+    {
+      "path": "node_modules/forge-light",
+      "version": "1.1.4",
+      "renderedModules": 4,
+      "renderedBytes": 43347
+    },
+    {
+      "path": "node_modules/function-bind",
+      "version": "1.1.2",
+      "renderedModules": 2,
+      "renderedBytes": 2071
+    },
+    {
+      "path": "node_modules/generator-function",
+      "version": "2.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 231
+    },
+    {
+      "path": "node_modules/get-intrinsic",
+      "version": "1.3.0",
+      "renderedModules": 1,
+      "renderedBytes": 13464
+    },
+    {
+      "path": "node_modules/get-proto",
+      "version": "1.0.1",
+      "renderedModules": 3,
+      "renderedBytes": 1158
+    },
+    {
+      "path": "node_modules/gopd",
+      "version": "1.2.0",
+      "renderedModules": 2,
+      "renderedBytes": 435
+    },
+    {
+      "path": "node_modules/has-property-descriptors",
+      "version": "1.0.2",
+      "renderedModules": 1,
+      "renderedBytes": 601
+    },
+    {
+      "path": "node_modules/has-symbols",
+      "version": "1.1.0",
+      "renderedModules": 2,
+      "renderedBytes": 1850
+    },
+    {
+      "path": "node_modules/has-tostringtag",
+      "version": "1.0.2",
+      "renderedModules": 1,
+      "renderedBytes": 279
+    },
+    {
+      "path": "node_modules/hash-base",
+      "version": "3.1.2",
+      "renderedModules": 2,
+      "renderedBytes": 3045
+    },
+    {
+      "path": "node_modules/hash.js",
+      "version": "1.1.7",
+      "renderedModules": 12,
+      "renderedBytes": 29814
+    },
+    {
+      "path": "node_modules/hasown",
+      "version": "2.0.4",
+      "renderedModules": 1,
+      "renderedBytes": 298
+    },
+    {
+      "path": "node_modules/hey-listen",
+      "version": "1.0.8",
+      "renderedModules": 1,
+      "renderedBytes": 100
+    },
+    {
+      "path": "node_modules/hmac-drbg",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 2838
+    },
+    {
+      "path": "node_modules/idb-keyval",
+      "version": "6.2.1",
+      "renderedModules": 1,
+      "renderedBytes": 1923
+    },
+    {
+      "path": "node_modules/inherits",
+      "version": "2.0.4",
+      "renderedModules": 1,
+      "renderedBytes": 737
+    },
+    {
+      "path": "node_modules/is-arguments",
+      "version": "1.2.0",
+      "renderedModules": 1,
+      "renderedBytes": 1062
+    },
+    {
+      "path": "node_modules/is-callable",
+      "version": "1.2.7",
+      "renderedModules": 1,
+      "renderedBytes": 2856
+    },
+    {
+      "path": "node_modules/is-generator-function",
+      "version": "1.1.2",
+      "renderedModules": 1,
+      "renderedBytes": 891
+    },
+    {
+      "path": "node_modules/is-regex",
+      "version": "1.2.1",
+      "renderedModules": 1,
+      "renderedBytes": 1249
+    },
+    {
+      "path": "node_modules/is-typed-array",
+      "version": "1.1.15",
+      "renderedModules": 1,
+      "renderedBytes": 288
+    },
+    {
+      "path": "node_modules/isarray",
+      "version": "1.0.0",
+      "renderedModules": 1,
+      "renderedBytes": 267
+    },
+    {
+      "path": "node_modules/js-sha3",
+      "version": "0.8.0",
+      "renderedModules": 1,
+      "renderedBytes": 19389
+    },
+    {
+      "path": "node_modules/jsonld",
+      "version": "8.3.3",
+      "renderedModules": 23,
+      "renderedBytes": 165735
+    },
+    {
+      "path": "node_modules/jsonld/node_modules/canonicalize",
+      "version": "1.0.8",
+      "renderedModules": 1,
+      "renderedBytes": 817
+    },
+    {
+      "path": "node_modules/jsonwebtoken",
+      "version": "9.0.0",
+      "renderedModules": 12,
+      "renderedBytes": 22916
+    },
+    {
+      "path": "node_modules/jwa",
+      "version": "1.4.2",
+      "renderedModules": 1,
+      "renderedBytes": 6517
+    },
+    {
+      "path": "node_modules/jws",
+      "version": "3.2.3",
+      "renderedModules": 5,
+      "renderedBytes": 8410
+    },
+    {
+      "path": "node_modules/klona",
+      "version": "2.0.6",
+      "renderedModules": 1,
+      "renderedBytes": 1586
+    },
+    {
+      "path": "node_modules/lit-element",
+      "version": "4.2.2",
+      "renderedModules": 1,
+      "renderedBytes": 927
+    },
+    {
+      "path": "node_modules/lit-html",
+      "version": "3.3.3",
+      "renderedModules": 8,
+      "renderedBytes": 15395
+    },
+    {
+      "path": "node_modules/lock",
+      "version": "1.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 1542
+    },
+    {
+      "path": "node_modules/lodash",
+      "version": "4.18.1",
+      "renderedModules": 1,
+      "renderedBytes": 181322
+    },
+    {
+      "path": "node_modules/lru-cache",
+      "version": "6.0.0",
+      "renderedModules": 1,
+      "renderedBytes": 6787
+    },
+    {
+      "path": "node_modules/math-intrinsics",
+      "version": "1.1.0",
+      "renderedModules": 8,
+      "renderedBytes": 1512
+    },
+    {
+      "path": "node_modules/md5.js",
+      "version": "1.3.5",
+      "renderedModules": 1,
+      "renderedBytes": 4702
+    },
+    {
+      "path": "node_modules/miller-rabin",
+      "version": "4.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 2195
+    },
+    {
+      "path": "node_modules/miller-rabin/node_modules/bn.js",
+      "version": "4.12.5",
+      "renderedModules": 1,
+      "renderedBytes": 73800
+    },
+    {
+      "path": "node_modules/minimalistic-assert",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 403
+    },
+    {
+      "path": "node_modules/minimalistic-crypto-utils",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 1186
+    },
+    {
+      "path": "node_modules/motion",
+      "version": "10.16.2",
+      "renderedModules": 1,
+      "renderedBytes": 449
+    },
+    {
+      "path": "node_modules/ms",
+      "version": "2.1.3",
+      "renderedModules": 1,
+      "renderedBytes": 2255
+    },
+    {
+      "path": "node_modules/multibase",
+      "version": "4.0.6",
+      "renderedModules": 5,
+      "renderedBytes": 7768
+    },
+    {
+      "path": "node_modules/multicodec",
+      "version": "3.2.1",
+      "renderedModules": 4,
+      "renderedBytes": 15456
+    },
+    {
+      "path": "node_modules/nofilter",
+      "version": "3.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 11222
+    },
+    {
+      "path": "node_modules/object-inspect",
+      "version": "1.13.4",
+      "renderedModules": 1,
+      "renderedBytes": 16010
+    },
+    {
+      "path": "node_modules/os-browserify",
+      "version": "0.3.0",
+      "renderedModules": 1,
+      "renderedBytes": 1093
+    },
+    {
+      "path": "node_modules/parse-asn1",
+      "version": "5.1.9",
+      "renderedModules": 5,
+      "renderedBytes": 10906
+    },
+    {
+      "path": "node_modules/pbkdf2",
+      "version": "3.1.6",
+      "renderedModules": 6,
+      "renderedBytes": 8200
+    },
+    {
+      "path": "node_modules/platform",
+      "version": "1.3.6",
+      "renderedModules": 1,
+      "renderedBytes": 25698
+    },
+    {
+      "path": "node_modules/possible-typed-array-names",
+      "version": "1.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 408
+    },
+    {
+      "path": "node_modules/process-nextick-args",
+      "version": "2.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 1191
+    },
+    {
+      "path": "node_modules/protobufjs",
+      "version": "7.5.4",
+      "renderedModules": 11,
+      "renderedBytes": 26996
+    },
+    {
+      "path": "node_modules/proxy-compare",
+      "version": "3.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 547
+    },
+    {
+      "path": "node_modules/public-encrypt",
+      "version": "4.0.3",
+      "renderedModules": 6,
+      "renderedBytes": 6546
+    },
+    {
+      "path": "node_modules/public-encrypt/node_modules/bn.js",
+      "version": "4.12.5",
+      "renderedModules": 1,
+      "renderedBytes": 73800
+    },
+    {
+      "path": "node_modules/pvtsutils",
+      "version": "1.3.6",
+      "renderedModules": 1,
+      "renderedBytes": 9143
+    },
+    {
+      "path": "node_modules/pvutils",
+      "version": "1.2.0",
+      "renderedModules": 1,
+      "renderedBytes": 3825
+    },
+    {
+      "path": "node_modules/qrcode",
+      "version": "1.5.3",
+      "renderedModules": 27,
+      "renderedBytes": 49525
+    },
+    {
+      "path": "node_modules/qs",
+      "version": "6.16.0",
+      "renderedModules": 5,
+      "renderedBytes": 32436
+    },
+    {
+      "path": "node_modules/query-string",
+      "version": "7.1.3",
+      "renderedModules": 1,
+      "renderedBytes": 11010
+    },
+    {
+      "path": "node_modules/quick-format-unescaped",
+      "version": "4.0.4",
+      "renderedModules": 1,
+      "renderedBytes": 2433
+    },
+    {
+      "path": "node_modules/randombytes",
+      "version": "2.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 1067
+    },
+    {
+      "path": "node_modules/randomfill",
+      "version": "1.0.4",
+      "renderedModules": 1,
+      "renderedBytes": 2958
+    },
+    {
+      "path": "node_modules/rdf-canonize",
+      "version": "3.4.0",
+      "renderedModules": 10,
+      "renderedBytes": 32178
+    },
+    {
+      "path": "node_modules/react",
+      "version": "19.2.8",
+      "renderedModules": 4,
+      "renderedBytes": 16445
+    },
+    {
+      "path": "node_modules/react-dom",
+      "version": "19.2.8",
+      "renderedModules": 4,
+      "renderedBytes": 459827
+    },
+    {
+      "path": "node_modules/readable-stream",
+      "version": "2.3.8",
+      "renderedModules": 9,
+      "renderedBytes": 43298
+    },
+    {
+      "path": "node_modules/readable-stream/node_modules/safe-buffer",
+      "version": "5.1.2",
+      "renderedModules": 1,
+      "renderedBytes": 1457
+    },
+    {
+      "path": "node_modules/reflect-metadata",
+      "version": "0.2.2",
+      "renderedModules": 1,
+      "renderedBytes": 29421
+    },
+    {
+      "path": "node_modules/ripemd160",
+      "version": "2.0.3",
+      "renderedModules": 1,
+      "renderedBytes": 5202
+    },
+    {
+      "path": "node_modules/safe-buffer",
+      "version": "5.2.1",
+      "renderedModules": 1,
+      "renderedBytes": 1485
+    },
+    {
+      "path": "node_modules/safe-regex-test",
+      "version": "1.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 501
+    },
+    {
+      "path": "node_modules/scheduler",
+      "version": "0.27.0",
+      "renderedModules": 2,
+      "renderedBytes": 9252
+    },
+    {
+      "path": "node_modules/semver",
+      "version": "7.8.5",
+      "renderedModules": 46,
+      "renderedBytes": 52729
+    },
+    {
+      "path": "node_modules/set-function-length",
+      "version": "1.2.2",
+      "renderedModules": 1,
+      "renderedBytes": 1266
+    },
+    {
+      "path": "node_modules/setimmediate",
+      "version": "1.0.5",
+      "renderedModules": 1,
+      "renderedBytes": 4196
+    },
+    {
+      "path": "node_modules/sha.js",
+      "version": "2.4.12",
+      "renderedModules": 8,
+      "renderedBytes": 18923
+    },
+    {
+      "path": "node_modules/side-channel",
+      "version": "1.1.1",
+      "renderedModules": 1,
+      "renderedBytes": 1097
+    },
+    {
+      "path": "node_modules/side-channel-list",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 1663
+    },
+    {
+      "path": "node_modules/side-channel-map",
+      "version": "1.0.1",
+      "renderedModules": 1,
+      "renderedBytes": 1291
+    },
+    {
+      "path": "node_modules/side-channel-weakmap",
+      "version": "1.0.2",
+      "renderedModules": 1,
+      "renderedBytes": 1910
+    },
+    {
+      "path": "node_modules/spark-md5",
+      "version": "3.0.2",
+      "renderedModules": 1,
+      "renderedBytes": 14438
+    },
+    {
+      "path": "node_modules/split-on-first",
+      "version": "1.1.0",
+      "renderedModules": 1,
+      "renderedBytes": 567
+    },
+    {
+      "path": "node_modules/stream-browserify",
+      "version": "3.0.0",
+      "renderedModules": 1,
+      "renderedBytes": 2066
+    },
+    {
+      "path": "node_modules/stream-browserify/node_modules/readable-stream",
+      "version": "3.6.2",
+      "renderedModules": 14,
+      "renderedBytes": 66966
+    },
+    {
+      "path": "node_modules/strict-uri-encode",
+      "version": "2.0.0",
+      "renderedModules": 1,
+      "renderedBytes": 283
+    },
+    {
+      "path": "node_modules/string_decoder",
+      "version": "1.1.1",
+      "renderedModules": 1,
+      "renderedBytes": 6018
+    },
+    {
+      "path": "node_modules/string_decoder/node_modules/safe-buffer",
+      "version": "5.1.2",
+      "renderedModules": 1,
+      "renderedBytes": 1454
+    },
+    {
+      "path": "node_modules/to-buffer",
+      "version": "1.2.2",
+      "renderedModules": 1,
+      "renderedBytes": 2022
+    },
+    {
+      "path": "node_modules/to-buffer/node_modules/isarray",
+      "version": "2.0.5",
+      "renderedModules": 1,
+      "renderedBytes": 292
+    },
+    {
+      "path": "node_modules/tslib",
+      "version": "2.8.1",
+      "renderedModules": 1,
+      "renderedBytes": 18465
+    },
+    {
+      "path": "node_modules/tsyringe",
+      "version": "4.10.0",
+      "renderedModules": 21,
+      "renderedBytes": 22419
+    },
+    {
+      "path": "node_modules/tsyringe/node_modules/tslib",
+      "version": "1.14.1",
+      "renderedModules": 1,
+      "renderedBytes": 4246
+    },
+    {
+      "path": "node_modules/tweetnacl",
+      "version": "1.0.3",
+      "renderedModules": 1,
+      "renderedBytes": 61311
+    },
+    {
+      "path": "node_modules/typed-array-buffer",
+      "version": "1.0.3",
+      "renderedModules": 1,
+      "renderedBytes": 480
+    },
+    {
+      "path": "node_modules/uint8arrays",
+      "version": "3.1.1",
+      "renderedModules": 10,
+      "renderedBytes": 4695
+    },
+    {
+      "path": "node_modules/uint8arrays/node_modules/multiformats",
+      "version": "9.9.0",
+      "renderedModules": 23,
+      "renderedBytes": 20786
+    },
+    {
+      "path": "node_modules/util",
+      "version": "0.12.5",
+      "renderedModules": 3,
+      "renderedBytes": 22928
+    },
+    {
+      "path": "node_modules/util-deprecate",
+      "version": "1.0.2",
+      "renderedModules": 1,
+      "renderedBytes": 801
+    },
+    {
+      "path": "node_modules/uuid",
+      "version": "9.0.0",
+      "renderedModules": 16,
+      "renderedBytes": 21662
+    },
+    {
+      "path": "node_modules/valtio",
+      "version": "2.1.7",
+      "renderedModules": 2,
+      "renderedBytes": 10055
+    },
+    {
+      "path": "node_modules/varint",
+      "version": "6.0.0",
+      "renderedModules": 4,
+      "renderedBytes": 2156
+    },
+    {
+      "path": "node_modules/viem",
+      "version": "2.56.3",
+      "renderedModules": 215,
+      "renderedBytes": 329070
+    },
+    {
+      "path": "node_modules/viem/node_modules/@noble/curves",
+      "version": "1.9.1",
+      "renderedModules": 6,
+      "renderedBytes": 45581
+    },
+    {
+      "path": "node_modules/viem/node_modules/abitype",
+      "version": "1.2.3",
+      "renderedModules": 18,
+      "renderedBytes": 26819
+    },
+    {
+      "path": "node_modules/viem/node_modules/ox",
+      "version": "0.14.44",
+      "renderedModules": 27,
+      "renderedBytes": 71270
+    },
+    {
+      "path": "node_modules/vite-plugin-node-polyfills",
+      "version": "0.28.0",
+      "renderedModules": 4,
+      "renderedBytes": 115007
+    },
+    {
+      "path": "node_modules/vm-browserify",
+      "version": "1.1.2",
+      "renderedModules": 1,
+      "renderedBytes": 3521
+    },
+    {
+      "path": "node_modules/which-typed-array",
+      "version": "1.1.22",
+      "renderedModules": 1,
+      "renderedBytes": 2419
+    },
+    {
+      "path": "node_modules/ws",
+      "version": "7.5.13",
+      "renderedModules": 1,
+      "renderedBytes": 274
+    },
+    {
+      "path": "node_modules/yallist",
+      "version": "4.0.0",
+      "renderedModules": 2,
+      "renderedBytes": 8193
+    }
+  ],
+  "auditMembership": [
+    {
+      "name": "@coinbase/cdp-sdk",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@coinbase/cdp-sdk",
+          "version": "1.55.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@dfns/sdk",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@dfns/sdk",
+          "version": "0.1.0-beta.5",
+          "renderedModules": 51
+        }
+      ]
+    },
+    {
+      "name": "@dfns/sdk-keysigner",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@dfns/sdk-keysigner",
+          "version": "0.1.0-beta.5",
+          "renderedModules": 1
+        }
+      ]
+    },
+    {
+      "name": "@digitalbazaar/http-client",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@digitalbazaar/http-client",
+          "version": "3.4.1",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/abi",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/abi",
+          "version": "5.8.0",
+          "renderedModules": 14
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/abstract-provider",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/abstract-provider",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/abstract-signer",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/abstract-signer",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/contracts",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/contracts",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/hash",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/hash",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/hdnode",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/hdnode",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/json-wallets",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/json-wallets",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/providers",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/providers",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/signing-key",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/signing-key",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/transactions",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/transactions",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/wallet",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/wallet",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@ethersproject/wordlists",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/wordlists",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@fireblocks/fireblocks-web3-provider",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@fireblocks/fireblocks-web3-provider",
+          "version": "1.2.5",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@grpc/grpc-js",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@hiero-ledger/sdk/node_modules/@grpc/grpc-js",
+          "version": "1.12.6",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@hashgraph/asset-tokenization-sdk",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@hashgraph/asset-tokenization-sdk",
+          "version": "8.0.0",
+          "renderedModules": 1329
+        }
+      ]
+    },
+    {
+      "name": "@hashgraph/hedera-custodians-integration",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@hashgraph/hedera-custodians-integration",
+          "version": "1.4.1",
+          "renderedModules": 11
+        }
+      ]
+    },
+    {
+      "name": "@hashgraph/hedera-wallet-connect",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@hashgraph/hedera-wallet-connect",
+          "version": "2.1.2",
+          "renderedModules": 23
+        }
+      ]
+    },
+    {
+      "name": "@hashgraph/proto",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@hashgraph/proto",
+          "version": "2.18.5",
+          "renderedModules": 2
+        }
+      ]
+    },
+    {
+      "name": "@hashgraph/sdk",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@hashgraph/sdk",
+          "version": "2.64.5",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@hiero-ledger/cryptography",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@hiero-ledger/cryptography",
+          "version": "1.15.0",
+          "renderedModules": 35
+        }
+      ]
+    },
+    {
+      "name": "@hiero-ledger/proto",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@hiero-ledger/proto",
+          "version": "2.25.0",
+          "renderedModules": 2
+        }
+      ]
+    },
+    {
+      "name": "@hiero-ledger/sdk",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@hiero-ledger/sdk",
+          "version": "2.79.0",
+          "renderedModules": 209
+        }
+      ]
+    },
+    {
+      "name": "@mapbox/node-pre-gyp",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@mapbox/node-pre-gyp",
+          "version": "1.0.11",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@mattrglobal/bbs-signatures",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@mattrglobal/bbs-signatures",
+          "version": "1.4.0",
+          "renderedModules": 5
+        }
+      ]
+    },
+    {
+      "name": "@mattrglobal/node-bbs-signatures",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@mattrglobal/node-bbs-signatures",
+          "version": "0.18.1",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@metamask/rpc-errors",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@metamask/rpc-errors",
+          "version": "6.4.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@metamask/utils",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@metamask/rpc-errors/node_modules/@metamask/utils",
+          "version": "9.3.0",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/@metamask/utils",
+          "version": "8.5.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@notabene/pii-sdk",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@notabene/pii-sdk",
+          "version": "1.17.2",
+          "renderedModules": 1
+        }
+      ]
+    },
+    {
+      "name": "@react-native/community-cli-plugin",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@react-native/community-cli-plugin",
+          "version": "0.87.1",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@react-native/virtualized-lists",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@react-native/virtualized-lists",
+          "version": "0.87.1",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "@stablelib/ed25519",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@stablelib/ed25519",
+          "version": "1.0.3",
+          "renderedModules": 1
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/bbs_vc",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/bbs_vc",
+          "version": "0.2.18",
+          "renderedModules": 8
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/ecdsa_vc",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/ecdsa_vc",
+          "version": "0.1.16",
+          "renderedModules": 5
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/revoke_vc",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/revoke_vc",
+          "version": "0.1.15",
+          "renderedModules": 2
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/vc_core",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/vc_core",
+          "version": "0.0.19",
+          "renderedModules": 7
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/verify_vc",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/verify_vc",
+          "version": "0.0.20",
+          "renderedModules": 2
+        }
+      ]
+    },
+    {
+      "name": "@terminal3/verify_vc_core",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@terminal3/verify_vc_core",
+          "version": "0.0.19",
+          "renderedModules": 2
+        }
+      ]
+    },
+    {
+      "name": "@walletconnect/core",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@walletconnect/sign-client/node_modules/@walletconnect/core",
+          "version": "2.19.2",
+          "renderedModules": 1
+        },
+        {
+          "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/core",
+          "version": "2.21.9",
+          "renderedModules": 1
+        }
+      ]
+    },
+    {
+      "name": "@walletconnect/sign-client",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@walletconnect/sign-client",
+          "version": "2.19.2",
+          "renderedModules": 1
+        },
+        {
+          "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/sign-client",
+          "version": "2.21.9",
+          "renderedModules": 1
+        }
+      ]
+    },
+    {
+      "name": "@walletconnect/universal-provider",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@walletconnect/universal-provider",
+          "version": "2.21.9",
+          "renderedModules": 1
+        }
+      ]
+    },
+    {
+      "name": "@walletconnect/utils",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@walletconnect/universal-provider/node_modules/@walletconnect/utils",
+          "version": "2.21.9",
+          "renderedModules": 1
+        },
+        {
+          "path": "node_modules/@walletconnect/utils",
+          "version": "2.19.2",
+          "renderedModules": 1
+        }
+      ]
+    },
+    {
+      "name": "axios",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@coinbase/cdp-sdk/node_modules/axios",
+          "version": "1.16.0",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/axios",
+          "version": "0.27.2",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/fireblocks-sdk/node_modules/axios",
+          "version": "0.27.2",
+          "renderedModules": 32
+        }
+      ]
+    },
+    {
+      "name": "bn.js",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@hiero-ledger/cryptography/node_modules/bn.js",
+          "version": "5.2.1",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/@hiero-ledger/sdk/node_modules/bn.js",
+          "version": "5.1.1",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/ethjs-unit/node_modules/bn.js",
+          "version": "4.11.6",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/number-to-bn/node_modules/bn.js",
+          "version": "4.11.6",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "browserify-sign",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/browserify-sign",
+          "version": "4.2.6",
+          "renderedModules": 6
+        }
+      ]
+    },
+    {
+      "name": "create-ecdh",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/create-ecdh",
+          "version": "4.0.4",
+          "renderedModules": 1
+        }
+      ]
+    },
+    {
+      "name": "crypto-browserify",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/crypto-browserify",
+          "version": "3.12.1",
+          "renderedModules": 1
+        }
+      ]
+    },
+    {
+      "name": "decode-uri-component",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/decode-uri-component",
+          "version": "0.2.2",
+          "renderedModules": 1
+        }
+      ]
+    },
+    {
+      "name": "elliptic",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/elliptic",
+          "version": "6.6.1",
+          "renderedModules": 16
+        }
+      ]
+    },
+    {
+      "name": "ethereum-cryptography",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/ethereumjs-util/node_modules/ethereum-cryptography",
+          "version": "0.1.3",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "ethereumjs-util",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/ethereumjs-util",
+          "version": "7.1.5",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "ethers",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/ethers",
+          "version": "5.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "ethjs-unit",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/ethjs-unit",
+          "version": "0.1.6",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "external-editor",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/external-editor",
+          "version": "3.1.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "fireblocks-sdk",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/fireblocks-sdk",
+          "version": "3.1.4",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/fireblocks-sdk",
+          "version": "5.11.0",
+          "renderedModules": 8
+        }
+      ]
+    },
+    {
+      "name": "image-size",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/image-size",
+          "version": "1.2.1",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "inquirer",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/inquirer",
+          "version": "7.3.3",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "jsonld",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/jsonld",
+          "version": "8.3.3",
+          "renderedModules": 23
+        }
+      ]
+    },
+    {
+      "name": "metro",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/metro",
+          "version": "0.87.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "metro-config",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/metro-config",
+          "version": "0.87.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "metro-transform-worker",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/metro-transform-worker",
+          "version": "0.87.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "neon-cli",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/neon-cli",
+          "version": "0.10.1",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "node-stdlib-browser",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/node-stdlib-browser",
+          "version": "1.3.1",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "number-to-bn",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/number-to-bn",
+          "version": "1.7.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "protobufjs",
+      "severity": "critical",
+      "nodes": [
+        {
+          "path": "node_modules/@hashgraph/proto/node_modules/protobufjs",
+          "version": "7.2.5",
+          "renderedModules": 11
+        },
+        {
+          "path": "node_modules/@hashgraph/sdk/node_modules/protobufjs",
+          "version": "7.2.5",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/protobufjs",
+          "version": "7.5.4",
+          "renderedModules": 11
+        }
+      ]
+    },
+    {
+      "name": "query-string",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/query-string",
+          "version": "7.1.3",
+          "renderedModules": 1
+        }
+      ]
+    },
+    {
+      "name": "react-native",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/react-native",
+          "version": "0.87.1",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "secp256k1",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/secp256k1",
+          "version": "4.0.5",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "tar",
+      "severity": "critical",
+      "nodes": [
+        {
+          "path": "node_modules/tar",
+          "version": "6.2.1",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "tmp",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/tmp",
+          "version": "0.0.33",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "toml",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/toml",
+          "version": "3.0.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "undici",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/undici",
+          "version": "5.29.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "uuid",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@fireblocks/fireblocks-web3-provider/node_modules/uuid",
+          "version": "8.3.2",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/@metamask/rpc-errors/node_modules/uuid",
+          "version": "9.0.1",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/@metamask/utils/node_modules/uuid",
+          "version": "9.0.1",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/@terminal3/bbs_vc/node_modules/uuid",
+          "version": "10.0.0",
+          "renderedModules": 21
+        },
+        {
+          "path": "node_modules/@terminal3/vc_core/node_modules/uuid",
+          "version": "10.0.0",
+          "renderedModules": 21
+        },
+        {
+          "path": "node_modules/fireblocks-sdk/node_modules/uuid",
+          "version": "8.3.2",
+          "renderedModules": 15
+        },
+        {
+          "path": "node_modules/uuid",
+          "version": "9.0.0",
+          "renderedModules": 16
+        }
+      ]
+    },
+    {
+      "name": "viem",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/@walletconnect/universal-provider/node_modules/viem",
+          "version": "2.36.0",
+          "renderedModules": 16
+        },
+        {
+          "path": "node_modules/@walletconnect/utils/node_modules/viem",
+          "version": "2.23.2",
+          "renderedModules": 16
+        }
+      ]
+    },
+    {
+      "name": "vite-plugin-node-polyfills",
+      "severity": "low",
+      "nodes": [
+        {
+          "path": "node_modules/vite-plugin-node-polyfills",
+          "version": "0.28.0",
+          "renderedModules": 4
+        }
+      ]
+    },
+    {
+      "name": "web3-core-helpers",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/web3-core-helpers",
+          "version": "1.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "web3-eth-iban",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/web3-eth-iban",
+          "version": "1.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "web3-providers-http",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/web3-providers-http",
+          "version": "1.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "web3-utils",
+      "severity": "moderate",
+      "nodes": [
+        {
+          "path": "node_modules/web3-utils",
+          "version": "1.8.0",
+          "renderedModules": 0
+        }
+      ]
+    },
+    {
+      "name": "ws",
+      "severity": "high",
+      "nodes": [
+        {
+          "path": "node_modules/@ethersproject/providers/node_modules/ws",
+          "version": "8.18.0",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/@walletconnect/universal-provider/node_modules/ws",
+          "version": "8.18.3",
+          "renderedModules": 0
+        },
+        {
+          "path": "node_modules/@walletconnect/utils/node_modules/ws",
+          "version": "8.18.0",
+          "renderedModules": 0
+        }
+      ]
+    }
+  ]
+}

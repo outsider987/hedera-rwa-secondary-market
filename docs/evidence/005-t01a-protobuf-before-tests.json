@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "kind": "offline-protobuf-security-gate",
+  "baseCommit": "ecf219c4690072757da8d165e3af36903cc43ee9",
+  "node": "v24.19.0",
+  "lockSha256": "02230cb1fc129226e28f1e8fc0be6999d2106907818a84629255d86c033a6203",
+  "timeoutMsPerChild": 5000,
+  "syntheticOnly": true,
+  "resolutions": [
+    {
+      "parent": "@hashgraph/sdk",
+      "parentVersion": "2.64.5",
+      "path": "node_modules/@hashgraph/sdk/node_modules/protobufjs",
+      "version": "7.2.5"
+    },
+    {
+      "parent": "@hashgraph/proto",
+      "parentVersion": "2.18.5",
+      "path": "node_modules/@hashgraph/proto/node_modules/protobufjs",
+      "version": "7.2.5"
+    },
+    {
+      "parent": "@hiero-ledger/proto",
+      "parentVersion": "2.25.0",
+      "path": "node_modules/protobufjs",
+      "version": "7.5.4"
+    },
+    {
+      "parent": "@hiero-ledger/sdk",
+      "parentVersion": "2.79.0",
+      "path": "node_modules/protobufjs",
+      "version": "7.5.4"
+    }
+  ],
+  "decoderSources": [
+    {
+      "package": "@hashgraph/proto",
+      "sha256": "f54bb54327798527bde4e3a04bcc32ca17100c4c6b1ac37b9d20f2a8ff614506"
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "sha256": "14132c16938f201fe38e15d6ff7d9286ef404822f0f13b28ebc2cae744cfe0fa"
+    }
+  ],
+  "cases": [
+    {
+      "package": "@hashgraph/proto",
+      "name": "compatibility",
+      "expected": "compatible",
+      "outcome": "compatible",
+      "fixtures": [
+        {
+          "type": "AccountID",
+          "name": "numeric",
+          "hex": "080010818080808080801018ffffffffffffffff7f",
+          "decoded": {
+            "shardNum": "0",
+            "realmNum": "9007199254740993",
+            "accountNum": "9223372036854775807"
+          }
+        },
+        {
+          "type": "AccountID",
+          "name": "alias",
+          "hex": "22142323232323232323232323232323232323232323",
+          "decoded": {
+            "alias": "2323232323232323232323232323232323232323"
+          }
+        },
+        {
+          "type": "ContractID",
+          "name": "numeric",
+          "hex": "080010818080808080801018ffffffffffffffff7f",
+          "decoded": {
+            "shardNum": "0",
+            "realmNum": "9007199254740993",
+            "contractNum": "9223372036854775807"
+          }
+        },
+        {
+          "type": "ContractID",
+          "name": "evm",
+          "hex": "22142323232323232323232323232323232323232323",
+          "decoded": {
+            "evmAddress": "2323232323232323232323232323232323232323"
+          }
+        },
+        {
+          "type": "Timestamp",
+          "name": "large",
+          "hex": "08818080808080801010ff93ebdc03",
+          "decoded": {
+            "seconds": "9007199254740993",
+            "nanos": 999999999
+          }
+        },
+        {
+          "type": "Timestamp",
+          "name": "negative",
+          "hex": "08808080808080808080011000",
+          "decoded": {
+            "seconds": "-9223372036854775808",
+            "nanos": 0
+          }
+        },
+        {
+          "type": "Key",
+          "name": "ed25519",
+          "hex": "1220000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+          "decoded": {
+            "ed25519": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"
+          }
+        },
+        {
+          "type": "Key",
+          "name": "list",
+          "hex": "32240a221220000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+          "decoded": {
+            "keyList": {
+              "keys": [
+                {
+                  "ed25519": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "package": "@hashgraph/proto",
+      "name": "truncated-varint",
+      "expected": "malformed-rejected",
+      "outcome": "malformed-rejected",
+      "inputBytes": 2,
+      "passed": true
+    },
+    {
+      "package": "@hashgraph/proto",
+      "name": "truncated-bytes",
+      "expected": "malformed-rejected",
+      "outcome": "malformed-rejected",
+      "inputBytes": 3,
+      "passed": true
+    },
+    {
+      "package": "@hashgraph/proto",
+      "name": "truncated-message",
+      "expected": "malformed-rejected",
+      "outcome": "malformed-rejected",
+      "inputBytes": 2,
+      "passed": true
+    },
+    {
+      "package": "@hashgraph/proto",
+      "name": "groups-4",
+      "expected": "accepted",
+      "outcome": "accepted",
+      "inputBytes": 8,
+      "passed": true
+    },
+    {
+      "package": "@hashgraph/proto",
+      "name": "groups-128",
+      "expected": "depth-rejected",
+      "outcome": "accepted",
+      "inputBytes": 256,
+      "passed": false
+    },
+    {
+      "package": "@hashgraph/proto",
+      "name": "groups-8192",
+      "expected": "depth-rejected",
+      "outcome": "accepted",
+      "inputBytes": 16384,
+      "passed": false
+    },
+    {
+      "package": "@hashgraph/proto",
+      "name": "keys-4",
+      "expected": "accepted",
+      "outcome": "accepted",
+      "inputBytes": 19,
+      "passed": true
+    },
+    {
+      "package": "@hashgraph/proto",
+      "name": "keys-128",
+      "expected": "depth-rejected",
+      "outcome": "accepted",
+      "inputBytes": 708,
+      "passed": false
+    },
+    {
+      "package": "@hashgraph/proto",
+      "name": "keys-8192",
+      "expected": "depth-rejected",
+      "outcome": "stack-overflow",
+      "inputBytes": 59994,
+      "passed": false
+    },
+    {
+      "package": "@hashgraph/proto",
+      "name": "option-eof",
+      "expected": "rejected",
+      "outcome": "rejected",
+      "passed": true
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "name": "compatibility",
+      "expected": "compatible",
+      "outcome": "compatible",
+      "fixtures": [
+        {
+          "type": "AccountID",
+          "name": "numeric",
+          "hex": "080010818080808080801018ffffffffffffffff7f",
+          "decoded": {
+            "shardNum": "0",
+            "realmNum": "9007199254740993",
+            "accountNum": "9223372036854775807"
+          }
+        },
+        {
+          "type": "AccountID",
+          "name": "alias",
+          "hex": "22142323232323232323232323232323232323232323",
+          "decoded": {
+            "alias": "2323232323232323232323232323232323232323"
+          }
+        },
+        {
+          "type": "ContractID",
+          "name": "numeric",
+          "hex": "080010818080808080801018ffffffffffffffff7f",
+          "decoded": {
+            "shardNum": "0",
+            "realmNum": "9007199254740993",
+            "contractNum": "9223372036854775807"
+          }
+        },
+        {
+          "type": "ContractID",
+          "name": "evm",
+          "hex": "22142323232323232323232323232323232323232323",
+          "decoded": {
+            "evmAddress": "2323232323232323232323232323232323232323"
+          }
+        },
+        {
+          "type": "Timestamp",
+          "name": "large",
+          "hex": "08818080808080801010ff93ebdc03",
+          "decoded": {
+            "seconds": "9007199254740993",
+            "nanos": 999999999
+          }
+        },
+        {
+          "type": "Timestamp",
+          "name": "negative",
+          "hex": "08808080808080808080011000",
+          "decoded": {
+            "seconds": "-9223372036854775808",
+            "nanos": 0
+          }
+        },
+        {
+          "type": "Key",
+          "name": "ed25519",
+          "hex": "1220000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+          "decoded": {
+            "ed25519": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"
+          }
+        },
+        {
+          "type": "Key",
+          "name": "list",
+          "hex": "32240a221220000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+          "decoded": {
+            "keyList": {
+              "keys": [
+                {
+                  "ed25519": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "name": "truncated-varint",
+      "expected": "malformed-rejected",
+      "outcome": "malformed-rejected",
+      "inputBytes": 2,
+      "passed": true
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "name": "truncated-bytes",
+      "expected": "malformed-rejected",
+      "outcome": "malformed-rejected",
+      "inputBytes": 3,
+      "passed": true
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "name": "truncated-message",
+      "expected": "malformed-rejected",
+      "outcome": "malformed-rejected",
+      "inputBytes": 2,
+      "passed": true
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "name": "groups-4",
+      "expected": "accepted",
+      "outcome": "accepted",
+      "inputBytes": 8,
+      "passed": true
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "name": "groups-128",
+      "expected": "depth-rejected",
+      "outcome": "accepted",
+      "inputBytes": 256,
+      "passed": false
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "name": "groups-8192",
+      "expected": "depth-rejected",
+      "outcome": "accepted",
+      "inputBytes": 16384,
+      "passed": false
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "name": "keys-4",
+      "expected": "accepted",
+      "outcome": "accepted",
+      "inputBytes": 19,
+      "passed": true
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "name": "keys-128",
+      "expected": "depth-rejected",
+      "outcome": "accepted",
+      "inputBytes": 708,
+      "passed": false
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "name": "keys-8192",
+      "expected": "depth-rejected",
+      "outcome": "stack-overflow",
+      "inputBytes": 59994,
+      "passed": false
+    },
+    {
+      "package": "@hiero-ledger/proto",
+      "name": "option-eof",
+      "expected": "rejected",
+      "outcome": "timeout",
+      "passed": false
+    }
+  ],
+  "securityGate": "failed"
+}

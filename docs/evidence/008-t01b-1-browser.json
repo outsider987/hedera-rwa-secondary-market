@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "kind": "synthetic-wallet-browser-verification",
+  "baseCommit": "25bc5de9a6e54ae3f4a8a257055f8cb07c319d3e",
+  "lockSha256": "f3cb293795c8bfe1dc82aca4e2e05ecf8e1e9b0c9ded471d60266c80b9fd7a9f",
+  "browser": "143.0.7499.169",
+  "playwright": "1.63.0",
+  "note": "Real wagmi; synthetic provider and intercepted Mirror responses. No real MetaMask, live account, signature or transaction validation. Mobile is layout only.",
+  "results": [
+    {
+      "label": "dev-desktop-lifecycle",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId",
+        "wallet_revokePermissions"
+      ],
+      "mirrorRequests": 20,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "screenshot": ".impeccable/review/t01b-1-dev-desktop.png",
+      "checks": [
+        "keyboard-focus",
+        "distinct-roles",
+        "duplicate-guard",
+        "wrong-chain",
+        "switch-revalidation",
+        "no-background-refresh",
+        "no-overflow",
+        "reload-manual-connect",
+        "disconnect",
+        "clear"
+      ]
+    },
+    {
+      "label": "dev-mobile-lifecycle",
+      "port": 5173,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId",
+        "wallet_revokePermissions"
+      ],
+      "mirrorRequests": 20,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "screenshot": ".impeccable/review/t01b-1-dev-mobile.png",
+      "checks": [
+        "keyboard-focus",
+        "distinct-roles",
+        "duplicate-guard",
+        "wrong-chain",
+        "switch-revalidation",
+        "no-background-refresh",
+        "no-overflow",
+        "reload-manual-connect",
+        "disconnect",
+        "clear"
+      ]
+    },
+    {
+      "label": "dev-missing-provider",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "dev-rejection-duplicate-disconnect",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 1,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "dev-timeout-retry-empty-accounts",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 2,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "dev-stale-response-and-rapid-transitions",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 7,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "dev-restored-id-conflict",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 8,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "dev-wrong-chain-connect-invalid-response-retry-role-race",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 3,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "dev-storage-read-failure",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 1,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "dev-storage-write-failure",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 1,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "preview-desktop-lifecycle",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId",
+        "wallet_revokePermissions"
+      ],
+      "mirrorRequests": 12,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "screenshot": ".impeccable/review/t01b-1-preview-desktop.png",
+      "checks": [
+        "keyboard-focus",
+        "distinct-roles",
+        "duplicate-guard",
+        "wrong-chain",
+        "switch-revalidation",
+        "no-background-refresh",
+        "no-overflow",
+        "reload-manual-connect",
+        "disconnect",
+        "clear"
+      ]
+    },
+    {
+      "label": "preview-mobile-lifecycle",
+      "port": 4173,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId",
+        "wallet_revokePermissions"
+      ],
+      "mirrorRequests": 12,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "screenshot": ".impeccable/review/t01b-1-preview-mobile.png",
+      "checks": [
+        "keyboard-focus",
+        "distinct-roles",
+        "duplicate-guard",
+        "wrong-chain",
+        "switch-revalidation",
+        "no-background-refresh",
+        "no-overflow",
+        "reload-manual-connect",
+        "disconnect",
+        "clear"
+      ]
+    },
+    {
+      "label": "preview-missing-provider",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "preview-rejection-duplicate-disconnect",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 1,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "preview-timeout-retry-empty-accounts",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 2,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "preview-stale-response-and-rapid-transitions",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 4,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "preview-restored-id-conflict",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 5,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "preview-wrong-chain-connect-invalid-response-retry-role-race",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 2,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "preview-storage-read-failure",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 1,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    {
+      "label": "preview-storage-write-failure",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [
+        "eth_requestAccounts",
+        "eth_chainId"
+      ],
+      "mirrorRequests": 1,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    }
+  ]
+}

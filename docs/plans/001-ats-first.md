@@ -94,9 +94,107 @@ Victor 核准先執行 **T01a — 依賴安全整理與 ATS 載入驗證**，通
   SDK 載入功能，也不開始 T01b。沒有 runtime 驗收就不能宣稱 SDK ready。
 - Commit messages 統一英文，以 type(scope): description 描述實際成果。
 
+### 2026-09-05 T01a 隔離診斷恢復授權
+
+Victor 在具體範圍說明後以「Go」核准
+[isolated load diagnostic](../prompts/003-t01a-isolated-load.md)：保留 B1/B2
+未解風險及所有依賴版本，允許手動官方入口載入與 dev/preview 隔離驗證。
+此授權取代上段「停止條件後不加載入功能」的診斷限制；其餘禁令仍適用。
+若需要改版、override 或 polyfill，保存錯誤後停止；不接錢包或鏈上服務。
+載入成功不代表漏洞修復，T01b 仍需另行解決依賴風險及啟動決策。
+
+### 2026-09-05 T01a 瀏覽器修復授權
+
+Victor 在閱讀具體研究與建議後回覆「go」，核准
+[bounded remediation](../prompts/005-t01a-remediation-decision.md)。允許增加
+exact `@hiero-ledger/proto 2.25.0`、`vite-plugin-node-polyfills 0.28.0`，以及
+必要的 Vite 8 設定與 dotenv／Winston browser adapters。此範圍取代先前
+對這些新增套件／polyfill 的禁止；既定 framework／ATS／Node/npm pins 不變。
+官方 SDK／VC 邏輯不得替換；不用 host 環境資料或任意 SDK 日誌。
+完成真實 dev／有效 production preview 載入與 audit 前後比較，仍停在 T01a。
+此授權沒有放行 override、其他直接套件、漏洞豁免或 T01b。
+
+### 2026-09-05 T01a protobufjs 限定試驗授權
+
+使用者要求實作 [protobufjs 限定計畫](../prompts/007-t01a-protobuf-trial.md)，
+以實作起始 HEAD `ecf219c4690072757da8d165e3af36903cc43ee9` 為基準。
+唯一 override 例外：`@hashgraph/sdk@2.64.5`、`@hashgraph/proto@2.18.5`、
+`@hiero-ledger/sdk@2.79.0`、`@hiero-ledger/proto@2.25.0` 的 protobufjs
+固定為 `7.6.5`；既有 gRPC `7.6.6` 不降版。其他 pins／資產設定不變。
+程式限 package.json、package-lock.json、既有隔離 browser harness，
+新增單一 Node 測試檔與結果於 `docs/evidence/005-t01a-protobuf*`；文件限
+本輪 prompt、handoff、此授權、attribution、AI usage work item／索引。
+保存完整 audit、lock 差異、bundle 清單，測兩套公開 proto 的合成資料／
+64 位元精度、截斷／過深群組／Key 遞迴（獨立子程序、固定逾時），以及
+npm ci／test／typecheck／build 與 dev/preview × desktop/mobile 隔離載入。
+安裝衝突、不相容、安全失敗或候選未涵蓋的新漏洞均停止並還原本輪依賴，
+只提交可重現診斷／mentor 問題；通過才保留修補。不得修改上游 source／
+重生解碼器、擴大 override、批准 scripts、操作錢包或啟動 T01b。
+Terminal3／tar 等其餘風險仍是 blockers；文件與成果一起提交，不合併 draft PR。
+
+### 2026-09-05 T01a 原 schema 解碼器重建試驗授權
+
+使用者在上游研究與具體重建建議後回覆「好」，核准
+[限定重建試驗](../prompts/009-t01a-protobuf-rebuild.md)，起始 HEAD 為
+`b5640298d0839640d444135da1180f0d5461bd11`。僅為兩套既定 proto 的
+原始發布 schema 解除禁止重生解碼器的限制；候選編譯器
+`protobufjs-cli 1.3.3`／runtime `protobufjs 7.6.6`，四個父套件保持原版，
+override 加上舊 child 版本條件。其餘版本、資產、介面、scripts 審批與
+安全界線不變。先查編譯器 audit，再做全型別重建及完整回歸；精確檔案與
+驗收見本輪紀錄。失敗還原並提交診斷；通過亦不解除 B2 或啟動 T01b。
+
+本輪結果：[安裝圖驗收失敗](../evidence/007-t01a-protobuf-rebuild.md)。
+npm ci 成功，但兩個 Hashgraph runtime 仍為 7.2.5，npm ls 回報 INVALID；
+限定更新亦未改變 lock。依停止條件還原，相依回到基準，生成檔未變動。
+未執行解碼器重生，試驗已關閉；本次授權不延伸為新一輪修補或 T01b。
+
 T00 自然拆為 `chore: initialize HoldBook guardrails` 與
 `feat(web): add HoldBook testnet shell`。其後按實際完成工作提交，
 沒有手動鏈上驗收時不使用已證明 lifecycle 的敘述。
+
+### 2026-09-05 T01b-1 獨立錢包切片授權（目前有效）
+
+使用者要求實作 [T01b-1 計畫](../prompts/010-t01b-1-wallet.md)，以實際
+HEAD `25bc5de9a6e54ae3f4a8a257055f8cb07c319d3e` 開始，沿用目前分支。
+本授權僅解除獨立錢包切片的 T01a 前置門檻：T01a 仍未通過。頁面移除
+ATS 載入入口與 import，保留既有 ATS 診斷程式。只做使用者手動 MetaMask
+連線、chain 296 識別及三個不同公開帳戶的 Testnet Mirror 驗證／本機綁定。
+不讀合約、不初始化 ATS、不接 Terminal3、不簽署或送交易。
+
+新增 exact `wagmi 3.7.7`、`@tanstack/react-query 5.102.8`，將既有
+`viem 2.56.3` 列直接依賴；其餘 pins 保留，不新增 override 或批准 scripts。
+關閉多錢包探索、wagmi 儲存及自動重連；injected shimDisconnect=false。
+查詢須取消／10 秒逾時、無自動重試／背景刷新；切換狀態即清除驗證、
+過期結果不能回寫。角色只存公開 EVM 地址，重載待驗證，三者地址與
+Mirror 回傳 Hedera ID 都須不同；替換先 Clear。不宣稱鏈上角色權限。
+
+程式 exact allowed files：`package.json`、`package-lock.json`、
+`src/main.tsx`、`src/App.tsx`、`src/styles.css`、`src/wallet.ts`、
+`src/guards.ts`、`tests/shell.test.mjs`、`tests/wallet.test.mjs`；新增
+本輪 browser harness／evidence 於 `docs/evidence/008-t01b-1-*`。
+文件：本授權、`docs/prompts/010-t01b-1-wallet.md`、`docs/HANDOFF.md`、
+`docs/ATTRIBUTION.md`、`AI_USAGE.md`、單一 `docs/ai-usage/009-t01b-1-wallet.md`。
+
+驗收以本輪 prompt 為準：npm ci/test/typecheck/build、完整 lock/audit 差異、
+Node guards/storage tests、真實 wagmi 加模擬 provider 的 browser 邊界案例、
+dev/preview × desktop/mobile、產物排除 ATS/protobuf/Terminal3。
+自動化通過可提交；Victor 真實桌面 MetaMask 三帳戶／切網／重載未做須
+標 pending，手機只驗收排版。文件與成果一起 commit；不 push/merge。
+protobuf 在重新接入 ATS 解碼前處理；Terminal3/BBS/tar 在 VC 接入或
+相關安裝變更前處理。本輪不再修補，不啟動 ATS config／VC 或下一票。
+
+本輪結果：[T01b-1 證據](../evidence/008-t01b-1-wallet.md)：9 Node tests、
+20 模擬 provider browser cases 與 ci/typecheck/build 通過；真實 MetaMask 待驗。
+既有套件版本未改；完整 npm ls 額外揭露未使用的可選 Base peer 衝突，
+詳見證據，未宣稱全樹有效。T01a 的安全門檻仍未通過。
+
+後續使用者以「我們是不是要先推送」要求同步，授權推送現有
+`diagnostic/t01a-sdk-load` 分支及同步紀錄；未授權 merge 或下一張實作票。
+見 [推送紀錄](../ai-usage/012-branch-push.md)。
+
+使用者隨後以「合併吧」核准將 PR #1 合併至 main；保留提交歷史並以
+最新 PR head CI 通過為整合條件。這只授權現有成果整合，不解除 T01a
+安全門檻、不宣稱 MetaMask 真人驗收通過，也不啟動下一票。
 
 ### 操作介面與安全入口
 
@@ -149,7 +247,16 @@ Mirror 尚未索引標 pending，只重查、不重送。模擬／拒簽沒有 t
 
 三層記憶：root `AGENTS.md`、本計畫、`../HANDOFF.md`。
 Handoff 記錄 objective、active ticket、based_on_commit、完成項目、測試、
-公開地址／交易證據、blockers、Victor 待辦、下一票 exact allowed files／acceptance tests。
+公開地址／交易證據、blockers、Victor 待辦、下一票 exact allowed files／acceptance tests
+的精確連結。未啟動票的完整範圍留在計畫，避免每次接手重讀。
+
+2026-09-05 Victor 以「go」核准
+[文件導覽整理](../prompts/006-docs-navigation.md)：`AI_USAGE.md` 保留為短索引，
+歷史原文移至 `docs/ai-usage/`，目前第三方來源集中在 `docs/ATTRIBUTION.md`。
+先完整讀 AGENTS／HANDOFF，再讀本次適用的 plan／spec／有效授權；歷史與大型
+evidence 按任務查閱，不因出現連結就遞迴全部讀取。需要完整 audit 時仍查完整清單。
+AI usage 記協作與決策，HANDOFF 記現況，evidence 記驗證；摘要不取代原始證據。
+此文件整理不變更資產參數、安全門檻、授權範圍或後續 ticket 的啟動條件。
 
 - `based_on_commit`＝本輪起始 commit；首次是 `unborn`，不填入包含自己的 commit hash。
 - Handoff／AI_USAGE 和工作一起提交；actual HEAD 由 Git 讀取。
@@ -170,3 +277,32 @@ T00 只允許：`AGENTS.md`、`AI_USAGE.md`、`README.md`、`.gitignore`、
 `src/styles.css`、`tests/shell.test.mjs`、`.github/workflows/ci.yml`。
 Node/npm、Git、remote 設定與被忽略的 build/test artifacts 可作正常工具操作。
 只 pin ATS，T00 不 import／connect SDK 或存取 MetaMask。
+
+## Deferred next ticket — T01b (not activated)
+
+Goal: real MetaMask guards; distinct Admin/Seller/Buyer public EVM/Hedera
+bindings; deployment/config reads; a synthetic Seller VC manually signed by
+Admin and accepted by the pinned Terminal3 verifier. No Equity/chain mutation.
+All account/network invalidation, serialization, rejection and evidence rules
+remain. Existing browser adapters must not replace SDK or VC verification.
+
+Proposed exact files when activated: `src/main.tsx`, `src/App.tsx`,
+`src/styles.css`, `src/ats.ts`, `src/guards.ts`, `src/credentials.ts`,
+`src/evidence.ts`; `tests/shell.test.mjs`, `tests/ats.test.mjs`;
+`package.json`, `package-lock.json`, `tsconfig.json`, `vite.config.ts`;
+`README.md`, `PRODUCT.md`, `AI_USAGE.md`, `docs/HANDOFF.md`,
+`docs/evidence/**`, `docs/prompts/**`.
+Direct Terminal3/ethers exact pins belong to T01b and need graph risk review.
+
+Acceptance: real distinct accounts on chain 296; missing/rejected wallet,
+duplicate/wrong accounts, wrong chain and switches; live Resolver/Factory
+bytecode; config integer payload >= 1; manual Admin VC accepted with
+expired/tampered/wrong-subject credentials rejected; persisted/exportable
+whitelist evidence without full VC/signature or invented transaction IDs.
+Manual checks remain pending until actually performed. Then document exact
+T02 allowed files; do not start T02 in T01b.
+
+Documentation routing amendment only: the above documentation allowance also
+covers `docs/ai-usage/**` and `docs/ATTRIBUTION.md`; `AI_USAGE.md` stays the index.
+The goal, code-file scope and acceptance remain unchanged. This section was
+moved from the handoff during the approved documentation maintenance.

@@ -1,0 +1,665 @@
+{
+  "before": [
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/accounts",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/addresses",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/assertions",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/codecs",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/codecs-core",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/codecs-data-structures",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/codecs-numbers",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/codecs-strings",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/errors",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/fast-stable-stringify",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/functional",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/instruction-plans",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/instructions",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/keys",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/kit",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/nominal-types",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/offchain-messages",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/options",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/plugin-core",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/programs",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/promises",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-api",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-parsed-types",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-spec",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-spec-types",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-subscriptions",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-subscriptions-api",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-subscriptions-channel-websocket",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-subscriptions-spec",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-transformers",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-transport-http",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-types",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/signers",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/subscribable",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/sysvars",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/transaction-confirmation",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/transaction-messages",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/transactions",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@hiero-ledger/sdk",
+      "name": "bn.js",
+      "range": "5.2.1",
+      "optional": false,
+      "resolved": "node_modules/@hiero-ledger/sdk/node_modules/bn.js",
+      "version": "5.1.1"
+    }
+  ],
+  "after": [
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/accounts",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/addresses",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/assertions",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/codecs",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/codecs-core",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/codecs-data-structures",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/codecs-numbers",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/codecs-strings",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/errors",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/fast-stable-stringify",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/functional",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/instruction-plans",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/instructions",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/keys",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/kit",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/nominal-types",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/offchain-messages",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/options",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/plugin-core",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/programs",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/promises",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-api",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-parsed-types",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-spec",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-spec-types",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-subscriptions",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-subscriptions-api",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-subscriptions-channel-websocket",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-subscriptions-spec",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-transformers",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-transport-http",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/rpc-types",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/signers",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/subscribable",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/sysvars",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/transaction-confirmation",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/transaction-messages",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@coinbase/cdp-sdk/node_modules/@solana/transactions",
+      "name": "typescript",
+      "range": "^5.0.0",
+      "optional": true,
+      "resolved": "node_modules/typescript",
+      "version": "7.0.2"
+    },
+    {
+      "parent": "node_modules/@hiero-ledger/sdk",
+      "name": "bn.js",
+      "range": "5.2.1",
+      "optional": false,
+      "resolved": "node_modules/@hiero-ledger/sdk/node_modules/bn.js",
+      "version": "5.1.1"
+    },
+    {
+      "parent": "node_modules/wagmi/node_modules/@wagmi/connectors",
+      "name": "@base-org/account",
+      "range": "^2.5.1",
+      "optional": true,
+      "resolved": "node_modules/@base-org/account",
+      "version": "2.4.0"
+    }
+  ],
+  "added": [
+    {
+      "parent": "node_modules/wagmi/node_modules/@wagmi/connectors",
+      "name": "@base-org/account",
+      "range": "^2.5.1",
+      "optional": true,
+      "resolved": "node_modules/@base-org/account",
+      "version": "2.4.0"
+    }
+  ],
+  "removed": []
+}

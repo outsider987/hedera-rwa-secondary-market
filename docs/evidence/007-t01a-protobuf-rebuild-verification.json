@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "kind": "bounded-rebuild-stop-and-rollback-verification",
+  "baseCommit": "b5640298d0839640d444135da1180f0d5461bd11",
+  "node": "v24.19.0",
+  "npm": "11.17.0",
+  "outcome": "failed-at-install-tree-gate-restored",
+  "decoderGeneration": "not-run",
+  "candidateDecoderAndBrowserAcceptance": "not-run",
+  "commands": [
+    {
+      "phase": "compiler",
+      "command": "npm install --package-lock-only --ignore-scripts --no-audit",
+      "exitCode": 0
+    },
+    {
+      "phase": "compiler",
+      "command": "npm ci --ignore-scripts --no-audit",
+      "exitCode": 0
+    },
+    {
+      "phase": "compiler",
+      "command": "npm audit --json",
+      "exitCode": 0
+    },
+    {
+      "phase": "candidate",
+      "command": "npm install --package-lock-only --ignore-scripts --no-audit",
+      "exitCode": 0
+    },
+    {
+      "phase": "candidate",
+      "command": "npm ci",
+      "exitCode": 0
+    },
+    {
+      "phase": "candidate",
+      "command": "npm update protobufjs --package-lock-only --ignore-scripts --no-audit",
+      "exitCode": 0,
+      "lockUnchanged": true
+    },
+    {
+      "phase": "candidate",
+      "command": "npm ls protobufjs --all --json",
+      "exitCode": 1,
+      "errorCode": "ELSPROBLEMS"
+    },
+    {
+      "phase": "restored",
+      "command": "npm ci",
+      "exitCode": 0
+    },
+    {
+      "phase": "restored",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": 6,
+      "failed": 0
+    },
+    {
+      "phase": "restored",
+      "command": "npm run typecheck",
+      "exitCode": 0
+    },
+    {
+      "phase": "restored",
+      "command": "npm run build",
+      "exitCode": 0
+    },
+    {
+      "phase": "restored",
+      "command": "npm ls protobufjs --all --json",
+      "exitCode": 0
+    },
+    {
+      "phase": "restored",
+      "command": "bundle membership build and artifact comparison",
+      "exitCode": 0
+    },
+    {
+      "phase": "restored",
+      "command": "002-t01a-browser.mjs with new output path",
+      "exitCode": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "package.json",
+      "sha256": "b0aa4267b37fc777c250a8cf6210e0941cb5dd5de0f67c67fda7cc9b1c5e2d51",
+      "matchesBase": true
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "02230cb1fc129226e28f1e8fc0be6999d2106907818a84629255d86c033a6203",
+      "matchesBase": true
+    }
+  ],
+  "candidateLockSha256": "ffe297439a74385ab3024b8bb59c3054bd038ee54422c146a3b9cc348acf19f6",
+  "schemaAndGeneratedSourcesMatchBase": true,
+  "audits": [
+    {
+      "phase": "before",
+      "entries": 83,
+      "affectedLocations": 104,
+      "counts": {
+        "info": 0,
+        "low": 22,
+        "moderate": 32,
+        "high": 27,
+        "critical": 2,
+        "total": 83
+      }
+    },
+    {
+      "phase": "candidate",
+      "entries": 82,
+      "affectedLocations": 102,
+      "counts": {
+        "info": 0,
+        "low": 22,
+        "moderate": 32,
+        "high": 26,
+        "critical": 2,
+        "total": 82
+      }
+    },
+    {
+      "phase": "restored",
+      "entries": 83,
+      "affectedLocations": 104,
+      "counts": {
+        "info": 0,
+        "low": 22,
+        "moderate": 32,
+        "high": 27,
+        "critical": 2,
+        "total": 83
+      }
+    },
+    {
+      "phase": "compiler",
+      "entries": 0,
+      "affectedLocations": 0,
+      "counts": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      }
+    }
+  ],
+  "restoredAuditSourcesRangesLocationsMatchBefore": true,
+  "offlineDiagnostics": [
+    {
+      "phase": "before",
+      "exitCode": 1,
+      "passed": 17,
+      "failed": 17,
+      "gate": "failed"
+    },
+    {
+      "phase": "restored",
+      "exitCode": 1,
+      "passed": 17,
+      "failed": 17,
+      "gate": "failed"
+    }
+  ],
+  "restoredWireAndPublicApiMatchBefore": true,
+  "restoredProbeOutcomesMatchBefore": true,
+  "browserCases": 4,
+  "walletAccesses": 0,
+  "externalAttempts": 0,
+  "bundlePackageLocations": 352,
+  "bundleAndAssetHashesMatch005Restored": true,
+  "remainingBlockers": [
+    "B1 static decoders and old runtimes",
+    "npm candidate tree invalid",
+    "B2 Terminal3 optional native BBS/tar and other applicable risks"
+  ],
+  "t01b": "inactive",
+  "scriptsApproved": false
+}

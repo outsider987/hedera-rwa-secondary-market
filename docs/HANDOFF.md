@@ -1,157 +1,55 @@
 # HoldBook handoff
 
-## Current objective / Git base
+## Current boundary / Git base
 
-- Active ticket: **T01a — dependency security and SDK loading: BLOCKED**.
-- T00-min is complete. T01a static triage is recorded; no repair or loader was
-  implemented because the approved upstream-range-only boundary was reached.
-- `based_on_commit: 10d69e7d2950f77e0aa4ee7a2842811fadf0f795` — this ticket's base.
-- `source_validated_commit: 00a5dd1f0cda654167d4abe3a94f82559c30930e`.
-- Actual HEAD: read Git. Source, tests, manifest, lockfile and CI are unchanged
-  from the validated source commit; the T01a changes are documentation only.
-- Read [active plan](plans/001-ats-first.md),
-  [T01a authorization](prompts/002-t01a-planning-record.md),
-  [triage/stop evidence](evidence/001-t01a-triage.md) and its audit snapshot.
+**T01b-1 錢包切片已實作、自動化通過；Victor 真實桌面 MetaMask 驗收待完成。**
+T01a 安全仍 blocked，ATS config／VC／T02 未啟動。
 
-## Completed / observed
+- `based_on_commit: 3dca593bdb72a74348418df694324929d2751af5`（本次整合起點，非包含此 handoff 的 commit）。
+- 整合來源 `diagnostic/t01a-sdk-load` → `main`；前次文件的 a675c89 已驗為祖先。使用者已明確核准合併 [PR #1](https://github.com/outsider987/hedera-rwa-secondary-market/pull/1)，合併後由 main 接手；實際 HEAD／merge 狀態由 Git 與 PR 讀取。
+- 評審文件英文、證據摘要約一頁的要求已寫入 [AGENTS](../AGENTS.md)。本次僅整合與文件紀錄，連結／差異已檢查，未重跑未變動的本機程式測試。
+- 起始 head 3dca593 的 [GitHub CI](https://github.com/outsider987/hedera-rwa-secondary-market/actions/runs/33960567848) 已通過；同步此整合紀錄後仍須等待最新 PR head 檢查通過再合併。保留逐步提交歷史；沒有公開部署或下一票啟動。
 
-- Public repo: https://github.com/outsider987/hedera-rwa-secondary-market, main.
-- T00 guardrails: `e162b247db651eca4ff2d6afa48d6b40711091d7`;
-  shell: `00a5dd1f0cda654167d4abe3a94f82559c30930e`;
-  T00 closeout: `10d69e7d2950f77e0aa4ee7a2842811fadf0f795`.
-- T01a reran npm audit and preserved all 78 vulnerable package entries and
-  98 affected locations, with dependency paths and initial static triage for
-  every critical/high package entry. This is not exhaustive exploit testing.
-- Confirmed exact protobufjs 7.2.5/7.5.4 parent/peer pins and optional tar
-  ^6.1.11 constraint. Registry candidates 7.6.5 / 7.5.21 lie outside those
-  constraints. No candidate was installed or compatibility-tested.
-- T01a application source, dependency versions and lockfile did not change.
-  No SDK import, loader UI, wallet connection, VC or Testnet transaction exists.
-- T01a triage committed/pushed as
-  `370cc0b0466665c2cc28e1b4936db9420c6a6ef4` (English documentation commit).
-  The subsequent closeout records its observed CI result, not new integration.
+## Reading map
 
-## Locked decisions / public identifiers
+完整讀 AGENTS／本檔，再讀 [ATS plan](plans/001-ats-first.md) 共用規則與最新 T01b-1 授權。
 
-- English commit messages using type(scope): description; truthful outcomes.
-- T01 split approved: T01a first, then separately T01b (original wallet/config/VC
-  requirements remain). Do not silently advance past the blocked T01a gate.
-- All existing direct pins and Node/npm stay fixed; transitive repairs may
-  satisfy existing upstream ranges only. No override, new package, force fix,
-  source patch, fake polyfill or blanket lifecycle-script approval.
-- Localhost English console; Traditional Chinese handoff.
-- Admin also Escrow / synthetic VC issuer; Seller and Buyer must be distinct.
-- Testnet 296; Resolver 0.0.9212226; Factory 0.0.9213391.
-- NOVA fields, config ID and synthetic VC parameters remain in the active plan.
-- No account mapping, Equity ID, Hold ID, transaction ID or chain evidence.
-  Deployment addresses have NOT been checked live.
+| 需要 | 讀取 |
+| --- | --- |
+| 本輪成果、檢查、限制 | [精簡證據](evidence/008-t01b-1-wallet.md)；原始結果按其中連結查閱 |
+| 使用者計畫與後續要求 | [Prompt 010](prompts/010-t01b-1-wallet.md) |
+| T01a blocker／mentor 問題 | [007 失敗試驗摘要](evidence/007-t01a-protobuf-rebuild.md) |
+| 協作與第三方來源 | [AI_USAGE](../AI_USAGE.md)、[ATTRIBUTION](ATTRIBUTION.md) |
 
-## Checks / blockers
+## Verified / blocked
 
-- T01a npm ci: exit 0, 1165 installed / 1166 audited.
-- npm audit: exit 1; 78 entries = 17 low, 32 moderate, 27 high, 2 critical.
-- Existing 1 Node shell test / typecheck / production build: passed.
-- Manifest and lockfile SHA-256 unchanged; audit snapshot version/presence
-  observations checked against the final local install.
-- Four dev/preview desktop/mobile Chrome checks: passed; zero page/console
-  errors or external requests, no overflow, keyboard skip link works.
-- Build: 16 modules; JS 193.81 kB / gzip 61.02 kB, unchanged. This is the static
-  shell, not an ATS bundle. SDK loading and loader tests were NOT performed.
-- Recorded T01a remote CI: **success**, run
-  [33944789582](https://github.com/outsider987/hedera-rwa-secondary-market/actions/runs/33944789582)
-  on `370cc0b0466665c2cc28e1b4936db9420c6a6ef4`; web job 101248814984,
-  1m4s. npm ci/test/typecheck/build passed; the Actions runtime notice remains.
-  This is the observed triage commit's result, not a predicted result for the
-  documentation closeout containing this note. The underlying source is unchanged.
-- Lifecycle-script/deprecation warnings remain, separately documented.
-  The prior Actions Node-runtime notice is not an npm critical vulnerability.
-- **B1:** exact protobufjs pins preclude in-range remediation. Static generated
-  schemas limit one code-generation precondition, not separate binary-decoding
-  recursion findings. Do not waive the entire package.
-- **B2:** optional native Terminal3/BBS branch requires tar ^6.1.11. Final local
-  absence is not proof that all installations/platforms exclude the branch.
-- No secrets requested/read, no signatures attempted, no external outreach.
-- Event eligibility and project license remain unresolved human decisions,
-  independently of the technical blocker.
+- 手動 wagmi injected 連線；停用 discovery／wagmi storage／載入重連，不自動切網。顯示實際帳戶及 chain，只允許 296。
+- 三角色經固定 Testnet Mirror endpoint 驗證，EVM／Hedera ID 都須不同；替換先 Clear。切換即取消舊查詢並清除驗證，含快速 A→B→A；10 秒逾時、手動 Retry、無背景刷新。
+- 只保存公開地址；重載待驗證，儲存失敗採記憶體並提示。角色標籤不證明鏈上權限。
+- App ATS import／按鈕已移除，既有 ATS 診斷、adapters、tests、Vite 設定及 NOVA 參數保留。
+- exact 新增 wagmi 3.7.7／Query 5.102.8，viem 2.56.3 升為直接依賴；其餘所有套件記錄不變，無 override／script 核准。
+- npm ci／9 Node tests／typecheck／build／直接 npm ls 通過；20 browser cases 通過（真 wagmi、模擬 provider／Mirror），dev／preview × desktop／mobile 無溢出、非預期請求或 browser errors。UI AI review 通過；非真人驗收。
+- 產物 14 個套件位置，無 ATS／protobuf／Terminal3；JS 303,643 bytes。原有 polyfill 僅 process shim 留在產物，不會修復解碼／安裝風險。
+- Audit 仍 83 項／104 個位置（22 low、32 moderate、27 high、2 critical），無新 advisory。兩項 effects-only metadata 差異留在原始結果。
+- 完整 npm ls --all 仍 exit 1：40 既有 Solana TypeScript ^5 peer 不符，新增 1 可選 Base peer 不符（connectors 8.2.0 要 ^2.5.1；既有 2.4.0）。未使用／未打包 Base 或 Solana；未宣稱全樹有效，未授權擴大修補。
+- B1：protobuf 在接回 ATS 解碼前處理；前次重建試驗已停止還原。B2：Terminal3／BBS／tar 在 VC 或相關安裝變更前處理。歷史失敗未因無關改動重跑。
+- 沒有真實帳戶／live Mirror 證據、合約讀取、簽署或交易 ID。未見賽前研究稿仍未檢視；活動資格及專案 license 仍由 Victor 處理。
 
-## Next action — resolve T01a, not T01b
+## Next action / exact allowed files
 
-Victor/mentor must decide how to handle the fixed dependency graph before
-implementation resumes: a specifically authorized transitive compatibility
-trial, an upstream-supported dependency-plan change, or a narrowly recorded
-risk decision permitting isolated load diagnostics. No option is preapproved.
-Do not interpret ordinary “continue” as permission for overrides or SDK upgrades.
+停在 T01b-1；下一步僅為 **Victor 手動驗收及紀錄**：桌面 Chrome 只安裝 MetaMask，
+Connect 到 296，綁定三個不同帳戶並核對 Mirror ID；測拒絕／Retry、切網／切帳戶、
+Disconnect、Clear／替換、重載後待驗證與手動重連。Mirror 未索引就維持未驗證、手動重查。
+只記公開 EVM／Hedera ID 與觀察，不需要簽署、交易或 profile 匯出；手機只驗排版。
+Victor 已表示 MetaMask 稍後驗收；T01b-2 部署唯讀檢查目前僅為建議，尚未啟動。
 
-Until then, the exact next task is documentation-only blocker clarification:
-record the decision and revised allowed files/acceptance tests. Do not
-repeatedly reinstall or re-audit an unchanged graph expecting pins to move.
+下輪 record-only exact files：`docs/HANDOFF.md`、`AI_USAGE.md`、新增
+`docs/ai-usage/014-t01b-1-manual.md`、`docs/prompts/011-t01b-1-manual.md`、
+`docs/evidence/009-t01b-1-manual.md`、`docs/evidence/009-t01b-1-manual.json`、
+`docs/plans/001-ats-first.md`（status／scope only）。保留本輪 dated records。
+若發現程式缺陷，先依證據界定修補票；不自動展開套件修補、ATS config／VC 或下一票。
+舊 [deferred T01b scope](plans/001-ats-first.md#deferred-next-ticket--t01b-not-activated) 除本輪切片外仍未啟動。
 
-### T01a allowed files after an explicit resume decision
-
-- Existing planned loader scope: `src/App.tsx`, `src/ats.ts`;
-  `tests/shell.test.mjs`, `tests/ats.test.mjs`.
-- Necessary tooling: `package.json`, `package-lock.json`, `tsconfig.json`,
-  `vite.config.ts`, still subject to the approved dependency boundary unless
-  a new decision explicitly changes it.
-- Records: `README.md`, `AI_USAGE.md`, `docs/HANDOFF.md`,
-  `docs/plans/001-ats-first.md` (ticket/policy amendment only),
-  `docs/evidence/**`, `docs/prompts/**`.
-- No changes to AGENTS, services, CI actions, unrelated source or styling.
-
-### Remaining T01a acceptance
-
-1. Resolve/document the dependency gate under explicit authorization; retain
-   complete before/after findings and justify new high/critical findings.
-2. Official SDK dynamic import in dev AND preview; verify the Management
-   function exists without calling it, initializing Network or accessing wallets.
-3. Honest idle/loading/loaded/failed UI; serialized load, no automatic retry,
-   reload resets; safe error summary. No mock/deep import/stub success claims.
-4. npm ci/test/typecheck/build; Node loader/state tests and isolated browser
-   checks, without provider calls or outbound network requests.
-5. Save evidence/AI usage and clean English ticket-boundary commit. If blocked
-   again, record it and stop; no T01b until these gates are resolved.
-
-## Deferred next ticket — T01b (not activated)
-
-Exact goal: real MetaMask guards, three public EVM/Hedera account bindings,
-live deployment/config reads and one synthetic Seller VC manually signed by
-Admin and accepted by the pinned Terminal3 verifier. No Equity or other chain
-mutation. Original T01 account/network invalidation, serialized operations,
-evidence whitelist and rejection/invalid credential checks remain required.
-
-Proposed allowed files when activated: `src/main.tsx`, `src/App.tsx`,
-`src/styles.css`, `src/ats.ts`, `src/guards.ts`, `src/credentials.ts`,
-`src/evidence.ts`; `tests/shell.test.mjs`, `tests/ats.test.mjs`;
-`package.json`, `package-lock.json`, `tsconfig.json`, `vite.config.ts`;
-`README.md`, `PRODUCT.md`, `AI_USAGE.md`, `docs/HANDOFF.md`,
-`docs/evidence/**`, `docs/prompts/**`.
-The previously approved exact Terminal3/ethers direct pins belong to T01b,
-not T01a; dependency risk must be rechecked when activating that graph.
-
-Acceptance: observed distinct public accounts on chain 296; missing wallet,
-rejection, duplicate account, wrong chain and account/network change guards;
-live Resolver/Factory bytecode; config integer payload >= 1 with no fallback;
-manual Admin VC signature accepted, tampered/expired/wrong-subject rejected;
-whitelisted persisted/exportable evidence with no full VC/signature or invented
-transaction IDs. Manual checks stay pending until Victor actually performs them.
-Then document exact T02 allowed files; do not start T02 in that ticket.
-
-## Victor's pending actions
-
-- Review B1/B2 mentor packet in the triage report and explicitly choose the
-  permitted remediation/diagnostic path. No message has been sent to a mentor.
-- No MetaMask action is needed now. Prepare three distinct public accounts and
-  Testnet HBAR for T01b only; never share keys, seeds or wallet/profile files.
-- Resolve pre-event planning eligibility with organizers and choose a project
-  license before claiming an open-source submission.
-
-## Run / handoff boundary
-
-`npm ci`, then `npm run dev` at http://127.0.0.1:5173 .
-`npm run build`, then `npm run preview` at http://127.0.0.1:4173 .
-No .env or wallet is required for the unchanged shell. Do not assume old server
-processes or ignored browser artifacts survive context handoff.
-
-No Go, PostgreSQL, CLOB, matching, payment leg, mainnet, custom contracts, real
-identity collection, public web deployment, branding/animation or automated
-signing/retries. No SDK runtime integration until T01a's gate is resolved.
+本機：`npm run dev` → http://127.0.0.1:5173；build 後 `npm run preview` → 4173。
+不要假設舊 server 存活。Browser harness 需外部 Playwright 與新結果路徑，使用隔離合成環境。
+文件與成果一起 commit，確認 clean boundary；後續仍不自動 push／merge，本輪 PR #1 合併依使用者明確要求。
