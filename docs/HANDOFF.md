@@ -3,10 +3,10 @@
 ## Current objective / Git base
 
 - Active ticket: **T00-min** — guardrails, public repo, minimal React shell, CI.
-- Status: guardrails authored; shell / install / tests / remote publication pending.
-- `based_on_commit: unborn` — this bootstrap started from an empty non-Git directory.
+- Status: shell / local validation complete; waiting for first remote shell CI.
+- `based_on_commit: e162b247db651eca4ff2d6afa48d6b40711091d7` — guardrails commit.
 - Actual HEAD: read with `git rev-parse HEAD`; never compare it to a self-written
-  hash in this file. The first commit will contain this bootstrap record.
+  hash in this file. This record accompanies the shell changes based on guardrails.
 - Plan: [001-ats-first](plans/001-ats-first.md).
 - Provenance: [planning record](prompts/001-planning-record.md), [AI usage](../AI_USAGE.md).
 
@@ -14,10 +14,13 @@
 
 - Confirmed local cwd `/home/outsider/github/ETHGlobal_Victor` was empty.
 - Confirmed Node 24.19.0 / npm 11.17.0 and Git identity were available.
-- GitHub login is `outsider987`; authenticated lookup found no target repo.
+- Created public repo https://github.com/outsider987/hedera-rwa-secondary-market;
+  default branch main. Guardrails committed/pushed as `e162b247db651eca4ff2d6afa48d6b40711091d7`.
 - Read npm metadata for the pinned React / React DOM / Vite / TypeScript / ATS versions.
-- Authored guardrails, approved plan, prompt/decision record, README and ignore rules.
-- No commits, browser tests, transactions or remote publication are claimed yet.
+- Added static React shell, exact dependencies/lockfile, runtime pins, Node smoke
+  test, CI and setup instructions; archived the original imported task text.
+- Local checks and independent shell review passed; see [T00 evidence](evidence/000-t00-validation.md).
+- No wallet, SDK runtime integration, VC signatures or Testnet transactions.
 
 ## Locked decisions / public identifiers
 
@@ -32,7 +35,15 @@
 ## Checks and blockers
 
 - Environment / npm metadata / GitHub lookup: passed as described above.
-- npm ci / test / typecheck / build / browser smoke: pending until shell exists.
+- npm ci / 1 Node test / typecheck / build: passed.
+- Dev/preview at desktop 1440 and mobile 390 widths: passed, zero page/console
+  errors, zero external requests, no overflow, working keyboard skip link.
+- Static detector: no findings. Independent minimal-shell review: ship.
+- Remote CI: pending first shell push; do not yet mark T00 remote acceptance complete.
+- Dependency audit: 78 vulnerable entries, including 2 critical (`protobufjs`
+  and optional lockfile `tar`). No dependency overrides/fixes/blanket lifecycle
+  script approvals. Details/reproduction are in the evidence. T01 must triage
+  this before importing ATS into a wallet flow; do not downgrade to npm's suggested 1.13.0.
 - No secrets requested, wallet files read, or signatures attempted.
 - Event eligibility: pre-event research draft was mentioned but not supplied;
   Victor must resolve project-specific prior design/asset questions with organizers.
@@ -40,9 +51,9 @@
 
 ## Resume T00-min only
 
-Remaining work: initialize Git/main; commit guardrails; add static React shell,
-exact manifest/lockfile and Node CI; verify dev/preview; publish public repo;
-record real results and update AI usage before the final shell commit.
+Remaining work: commit/push the verified shell; inspect GitHub CI; record the
+actual CI outcome in a documentation-only closeout; mark T01 as the next active
+ticket only after T00 acceptance passes. Do not start implementing T01 here.
 
 Allowed files: `AGENTS.md`, `AI_USAGE.md`, `README.md`, `.gitignore`, `docs/**`,
 `PRODUCT.md`, `package.json`, `package-lock.json`, `.npmrc`, `.nvmrc`,

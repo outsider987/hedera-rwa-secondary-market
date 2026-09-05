@@ -1,0 +1,49 @@
+:root {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: #172b3a;
+  background: #f7f9fb;
+  color-scheme: light;
+  font-synthesis: none;
+  font-variant-numeric: tabular-nums;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+header, main, footer { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
+header { display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding-block: 2.5rem 1.5rem; }
+h1, h2, p { margin: 0; }
+h1 { font-size: 2rem; line-height: 1.2; }
+h2 { font-size: 1.125rem; line-height: 1.4; margin-bottom: 0.75rem; text-wrap: balance; }
+p { max-width: 72ch; }
+p + p { margin-top: 0.5rem; }
+header p, footer p, li span { color: #485d6b; }
+.network { font-size: 0.875rem; text-align: right; }
+.notice { padding: 1.25rem 1.5rem; background: #e8f0f6; }
+.columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding-block: 2rem; }
+.asset-name { font-weight: 600; }
+dl { margin-block: 1.25rem; }
+dl div { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding-block: 0.5rem; border-bottom: 1px solid #d4dfe7; }
+dt { color: #485d6b; }
+dd { margin: 0; text-align: right; overflow-wrap: anywhere; }
+code { font-size: 0.9375em; }
+ol { padding-left: 1.5rem; margin-block: 0 1rem; }
+li { padding-left: 0.25rem; }
+li + li { margin-top: 1rem; }
+li span { display: block; }
+.evidence { border-top: 1px solid #d4dfe7; padding-block: 1.5rem; }
+footer { border-top: 1px solid #d4dfe7; padding-block: 1.5rem 2.5rem; font-size: 0.875rem; }
+footer a { display: inline-block; margin-top: 0.75rem; }
+a { color: #155781; text-underline-offset: 0.2em; }
+a:hover { color: #0a3652; text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid #155781; outline-offset: 4px; }
+::selection { color: #fff; background: #155781; }
+.skip-link { position: absolute; top: 0.75rem; left: 1.25rem; padding: 0.5rem 1rem; background: #fff; transform: translateY(-200%); }
+.skip-link:focus { transform: translateY(0); }
+
+@media (max-width: 700px) {
+  header { align-items: flex-start; flex-direction: column; gap: 0.75rem; padding-top: 2rem; }
+  .network { text-align: left; }
+  .columns { grid-template-columns: 1fr; gap: 2rem; }
+  .notice { padding: 1rem; }
+}

@@ -5,11 +5,37 @@ Hedera Testnet 上的 ATS-first 股權生命週期驗證。資產 **NOVA** 完�
 
 ## 目前狀態
 
-T00-min 建置中：先建立專案規則、交接文件與最小英文 React 驗證台。
-目前沒有 wallet integration、已建立的 Equity 或鏈上交易。
+T00-min：專案規則、交接文件與最小英文 React 驗證台。
+目前沒有 wallet integration、已建立的 Equity 或鏈上交易。ATS SDK 已鎖版，
+尚未 import；shell 能 build 不代表 ATS 已可於瀏覽器運作。
 
 完整計畫見 [ATS-first plan](docs/plans/001-ats-first.md)，
 接手請先讀 [AGENTS.md](AGENTS.md) 與 [HANDOFF](docs/HANDOFF.md)。
+
+## 本機執行
+
+需要 Node `24.19.0`、npm `11.17.0`。使用 nvm 時先執行 `nvm install`、
+`nvm use`；若 npm 版本不符，執行 `npm install --global npm@11.17.0`。
+
+```sh
+npm ci
+npm run dev
+```
+
+開啟 http://127.0.0.1:5173 。T00 不需要 `.env`、錢包或 HBAR，
+也不會連接 RPC／Mirror Node。Dev server 僅綁定 localhost。
+
+```sh
+npm test
+npm run typecheck
+npm run build
+npm run preview
+```
+
+Production preview：http://127.0.0.1:4173 。`npm test` 使用 Node 內建 runner
+與既有 Vite／React server renderer 驗證 shell 內容；它不是 MetaMask／ATS 測試。
+GitHub Actions 在 main push／pull request 執行 clean install、test、typecheck、build，
+不使用錢包、不部署網站、不發交易。
 
 ## 第一階段
 

@@ -38,3 +38,28 @@
 No logos, stock images, starter application, or pre-event master-plan file were
 copied into this repository. The prior user-supplied planning text was used and
 is disclosed separately; it must not be presented as newly discovered work.
+
+## 2026-09-05 — T00-min shell / validation
+
+- AI authored the static English React shell, native CSS, HTML entry, exact npm
+  manifest/runtime pins, TypeScript configuration, Node built-in smoke test,
+  read-only-permission GitHub CI, PRODUCT record, setup instructions and evidence.
+- Files: `src/main.tsx`, `src/App.tsx`, `src/styles.css`, `index.html`,
+  `package.json`, `package-lock.json` (npm-generated), `.npmrc`, `.nvmrc`,
+  `tsconfig.json`, `tests/shell.test.mjs`, `.github/workflows/ci.yml`,
+  `PRODUCT.md`, `README.md`, `docs/evidence/000-t00-validation.md`, handoff,
+  this file and the appended original imported planning text.
+- Checks: clean npm ci, 1 Node smoke test, typecheck, production build;
+  four isolated Chrome dev/preview desktop/mobile scenarios. Fixed a favicon
+  404 discovered by browser validation. The static detector returned no findings.
+- A separately spawned read-only Impeccable finish reviewer inspected source
+  and all four captures and returned **ship** for the minimal T00 shell. No
+  branding, generated imagery, animation or design-system work was introduced.
+- Playwright 1.63.0 was an ephemeral diagnostic tool only (Apache-2.0,
+  https://github.com/microsoft/playwright), not a new project dependency.
+- npm audit warnings are preserved in the evidence; they were NOT fixed or
+  waived. ATS was pinned but never imported or connected.
+- GitHub repo creation and incremental commits/pushes follow the user's
+  explicit approved plan. No private keys, wallet profiles or signatures used.
+- Human code review, event eligibility approval and MetaMask/chain testing
+  remain unevidenced. Remote CI is recorded separately after its actual run.
