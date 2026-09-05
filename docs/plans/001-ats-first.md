@@ -94,6 +94,15 @@ Victor 核准先執行 **T01a — 依賴安全整理與 ATS 載入驗證**，通
   SDK 載入功能，也不開始 T01b。沒有 runtime 驗收就不能宣稱 SDK ready。
 - Commit messages 統一英文，以 type(scope): description 描述實際成果。
 
+### 2026-09-05 T01a 隔離診斷恢復授權
+
+Victor 在具體範圍說明後以「Go」核准
+[isolated load diagnostic](../prompts/003-t01a-isolated-load.md)：保留 B1/B2
+未解風險及所有依賴版本，允許手動官方入口載入與 dev/preview 隔離驗證。
+此授權取代上段「停止條件後不加載入功能」的診斷限制；其餘禁令仍適用。
+若需要改版、override 或 polyfill，保存錯誤後停止；不接錢包或鏈上服務。
+載入成功不代表漏洞修復，T01b 仍需另行解決依賴風險及啟動決策。
+
 T00 自然拆為 `chore: initialize HoldBook guardrails` 與
 `feat(web): add HoldBook testnet shell`。其後按實際完成工作提交，
 沒有手動鏈上驗收時不使用已證明 lifecycle 的敘述。

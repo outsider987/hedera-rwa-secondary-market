@@ -1,5 +1,38 @@
 # AI usage / attribution
 
+## 2026-09-05 — authorized T01a isolated SDK load diagnostic
+
+- Human direction: Victor replied **“Go”** to a concrete isolated-load scope;
+  `docs/prompts/003-t01a-isolated-load.md`. No dependency changes, polyfills,
+  wallet use or T01b were approved.
+- Codex authored the official-root loader, native UI states, Node tests, browser
+  reproduction script/whitelisted JSON, audit comparison and blocker handoff.
+  Ponytail guided the single cached promise; Impeccable guided the bounded UI
+  checks. No branding, animation, styling or design-document work.
+- Files: `src/App.tsx`, `src/ats.ts`, `tests/shell.test.mjs`, `tests/ats.test.mjs`,
+  `package.json` (test flag only), README, handoff, this file, plan policy amendment,
+  `docs/prompts/003-t01a-isolated-load.md`, `docs/evidence/002-t01a-*`.
+- npm ci / 5 Node tests / typecheck passed. Build **failed** resolving
+  `@hiero-ledger/proto`; real browser SDK loading **failed** on undefined process.
+  Four dev/failed-build-preview desktop/mobile scenarios passed failure handling,
+  keyboard/focus, duplicate/reload and isolation assertions. Preview is not a
+  valid production build. Unit doubles are explicitly not SDK readiness proof.
+- The browser harness first mistook a different dependency chunk for a repeated
+  primary SDK request; its matcher was corrected, all four final cases passed.
+  App code was unchanged. Detector returned `[]`; six captures were opened.
+- A separate read-only AI Impeccable finish reviewer opened all six captures
+  and inspected code/evidence: **ship, diagnostic UI only**, no material findings.
+  This is not human review, a successful SDK load or release approval.
+- npm audit remained at 78 advisory entries / 98 affected locations; two npm
+  fixAvailable suggestions changed and were preserved. No new high/critical
+  findings. No vulnerability was repaired or waived.
+- Playwright 1.63.0 remains an external diagnostic tool (Apache-2.0,
+  https://github.com/microsoft/playwright), not a project dependency.
+- No dependency/lockfile/SDK source change, script approval, .env/secrets/wallet
+  profile access, provider calls, signatures, chain calls or mentor outreach.
+  `diagnostic/t01a-sdk-load` preserves the known failing diagnostic without
+  changing main. T01a remains blocked; T01b is inactive.
+
 ## 2026-09-05 — T01a blocked dependency triage
 
 - Human direction: Victor selected T01a only, upstream-range-compatible
@@ -62,7 +95,7 @@
 | React / React DOM 19.2.8 | UI library; MIT; https://github.com/facebook/react |
 | Vite 8.2.2 | Dev/build tooling; MIT; https://github.com/vitejs/vite |
 | TypeScript 7.0.2 | Type checking; Apache-2.0; https://github.com/microsoft/TypeScript |
-| ATS SDK 8.0.0 | Pinned for T01, not yet integrated; Apache-2.0; https://github.com/hashgraph/asset-tokenization-studio |
+| ATS SDK 8.0.0 | Official-root diagnostic import attempted; browser integration blocked; Apache-2.0; https://github.com/hashgraph/asset-tokenization-studio |
 | DefinitelyTyped React types | Type declarations; MIT; https://github.com/DefinitelyTyped/DefinitelyTyped |
 | Node.js / npm | Runtime/package manager; their upstream licenses apply |
 | GitHub checkout / setup-node actions | CI tooling; MIT; https://github.com/actions |

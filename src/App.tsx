@@ -1,4 +1,22 @@
+import { useState } from 'react';
+import { loadAts, type AtsLoadState } from './ats';
+
+const loadMessages = {
+  idle: 'ATS SDK not loaded. Start the isolated loading check when ready.',
+  loading: 'Loading ATS SDK… Please wait. No second attempt will be started.',
+  loaded: 'ATS SDK loaded; the required configuration API exists. Network and wallet readiness remain unverified.',
+  failed: 'ATS SDK loading failed or the required API is missing. Stop here and review the diagnostic evidence with a mentor.',
+};
+
 export default function App() {
+  const [loadState, setLoadState] = useState<AtsLoadState>('idle');
+
+  async function handleLoad() {
+    if (loadState !== 'idle') return;
+    setLoadState('loading');
+    setLoadState(await loadAts());
+  }
+
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
@@ -12,9 +30,12 @@ export default function App() {
 
       <main id="main">
         <section className="notice" aria-labelledby="status-heading">
-          <h2 id="status-heading">T00 · Shell ready</h2>
-          <p>Wallet not connected. ATS integration has not started.</p>
-          <p>Next: connect MetaMask and verify the ATS configuration in T01.</p>
+          <h2 id="status-heading">T01a · Isolated SDK loading</h2>
+          <p>Wallet not connected. This check only loads the SDK and inspects its required API.</p>
+          <p>Use an isolated browser without a wallet. Dependency risks remain unresolved; wallet and chain operations are unavailable.</p>
+          <p><button type="button" onClick={handleLoad} disabled={loadState !== 'idle'} aria-describedby="sdk-load-status">Load ATS SDK</button></p>
+          <p id="sdk-load-status" role="status" aria-live="polite">{loadMessages[loadState]}</p>
+          <p>One attempt per page load. Reload returns to idle and never starts a check automatically.</p>
         </section>
 
         <div className="columns">
@@ -47,7 +68,7 @@ export default function App() {
         <section className="evidence" aria-labelledby="evidence-heading">
           <h2 id="evidence-heading">Transaction evidence</h2>
           <p>No transactions yet.</p>
-          <p>T00 never connects to a wallet or sends transactions. Public identifiers and verified results will appear here in later tickets.</p>
+          <p>This diagnostic does not connect to a wallet or send transactions. Public identifiers and verified results will appear here in later tickets.</p>
         </section>
       </main>
 

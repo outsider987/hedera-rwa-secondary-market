@@ -5,12 +5,13 @@ Hedera Testnet 上的 ATS-first 股權生命週期驗證。資產 **NOVA** 完�
 
 ## 目前狀態
 
-T00-min 已完成；**T01a 停在依賴修補界線（blocked）**。
-已保存完整 audit 與 critical/high 分類，確認 ATS 的間接依賴精確鎖定受影響
-的 protobufjs 版本，無法只靠上游允許範圍內更新修掉。尚未改動依賴或加入
-SDK 載入按鈕；等待 Victor／mentor 的明確處理決策。
-目前沒有 wallet integration、已建立的 Equity 或鏈上交易。ATS SDK 已鎖版、
-尚未 import；shell 能 build 不代表 ATS 已可於瀏覽器運作。
+T00-min 已完成；**T01a 隔離診斷已執行，SDK readiness 仍 blocked**。
+診斷分支 `diagnostic/t01a-sdk-load` 加入手動載入按鈕、安全狀態與測試，
+保留依賴版本。Main 保留先前 shell；本分支尚不具備合併條件。
+Production build 無法解析 `@hiero-ledger/proto`，瀏覽器載入遇到
+`process is not defined`；原有 protobufjs／tar 風險也未解除。
+完整結果見 [load diagnostic](docs/evidence/002-t01a-sdk-load.md)。
+目前沒有 wallet integration、已建立的 Equity 或鏈上交易。
 
 完整計畫見 [ATS-first plan](docs/plans/001-ats-first.md)，
 接手請先讀 [AGENTS.md](AGENTS.md) 與 [HANDOFF](docs/HANDOFF.md)。
@@ -25,18 +26,20 @@ npm ci
 npm run dev
 ```
 
-開啟 http://127.0.0.1:5173 。T00 不需要 `.env`、錢包或 HBAR，
-也不會連接 RPC／Mirror Node。Dev server 僅綁定 localhost。
+開啟 http://127.0.0.1:5173 ，在無秘密、無錢包的隔離瀏覽器手動按
+「Load ATS SDK」。目前預期顯示失敗；不重試，reload 回到 idle。
+不需要 `.env` 或 HBAR；不連接 RPC／Mirror Node。Dev server 僅綁定 localhost。
 
 ```sh
 npm test
 npm run typecheck
 npm run build
-npm run preview
 ```
 
-Production preview：http://127.0.0.1:4173 。`npm test` 使用 Node 內建 runner
-與既有 Vite／React server renderer 驗證 shell 內容；它不是 MetaMask／ATS 測試。
+本分支的 `npm run build` **目前失敗**。單獨執行 `npm run preview` 可於
+http://127.0.0.1:4173 檢查失敗 build 留下的輸出，不算 production 驗收通過。
+`npm test` 使用 Node 內建 runner、明示 module doubles 與 Vite／React server
+renderer 檢查 loader/shell；unit success 不代表 SDK 真實載入成功。
 GitHub Actions 在 main push／pull request 執行 clean install、test、typecheck、build，
 不使用錢包、不部署網站、不發交易。
 
@@ -47,8 +50,8 @@ GitHub Actions 在 main push／pull request 執行 clean install、test、typech
 [T01a triage](docs/evidence/001-t01a-triage.md)。這是依賴警示數量，不是
 78 個已證實可利用的網站漏洞；目前不載入 ATS 也不是未來錢包流程的安全豁免。
 
-本輪僅允許原上游範圍內的間接依賴更新；protobufjs 的精確版本限制觸發了
-停止條件。沒有執行 override、升降版或全面批准安裝腳本。
+Victor 已核准在風險未解時執行上述隔離診斷；依賴精確版本限制仍在。
+沒有執行 override、升降版、polyfill 或全面批准安裝腳本。
 不要執行 `npm audit fix --force`：其 ATS 1.13.0 建議會偏離固定的 8.0.0。
 先解決 T01a，再另輪進行 T01b 的 MetaMask／config／VC 驗收。
 
