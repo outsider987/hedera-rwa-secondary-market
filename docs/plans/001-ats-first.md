@@ -188,6 +188,10 @@ protobuf 在重新接入 ATS 解碼前處理；Terminal3/BBS/tar 在 VC 接入�
 既有套件版本未改；完整 npm ls 額外揭露未使用的可選 Base peer 衝突，
 詳見證據，未宣稱全樹有效。T01a 的安全門檻仍未通過。
 
+後續使用者以「我們是不是要先推送」要求同步，授權推送現有
+`diagnostic/t01a-sdk-load` 分支及同步紀錄；未授權 merge 或下一張實作票。
+見 [推送紀錄](../ai-usage/012-branch-push.md)。
+
 ### 操作介面與安全入口
 
 單頁：上方 network／active account／required role，中間按順序操作，

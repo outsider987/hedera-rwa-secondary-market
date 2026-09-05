@@ -5,10 +5,10 @@
 **T01b-1 錢包切片已實作、自動化通過；Victor 真實桌面 MetaMask 驗收待完成。**
 T01a 安全仍 blocked，ATS config／VC／T02 未啟動。
 
-- `based_on_commit: 5740227d565bfced3b84d5f45606083b4663225d`（本次文件規則修正起點，非包含此 handoff 的 commit）。
-- 分支 `diagnostic/t01a-sdk-load`；前次文件的 4c29a34 已驗為祖先。實際 HEAD 由 Git 讀取。
-- 評審文件英文、證據摘要約一頁的要求已寫入 [AGENTS](../AGENTS.md)。本次僅文件規則／紀錄，連結與差異檢查通過；未重跑未變動的程式測試。
-- 未 push／merge／更新 PR／部署；未宣稱本輪 CI 通過。
+- `based_on_commit: a675c893c442ec1ca2c979669bfd005eb7d18785`（本次推送起點，非包含此 handoff 的 commit）。
+- 分支 `diagnostic/t01a-sdk-load`；前次文件的 5740227 已驗為祖先。實際 HEAD 由 Git 讀取。
+- 評審文件英文、證據摘要約一頁的要求已寫入 [AGENTS](../AGENTS.md)。本次推送及文件紀錄的遠端／連結／差異已檢查，未重跑未變動的程式測試。
+- 使用者核准推送目前分支：六筆既有提交已推送至 a675c89，並以 ls-remote 核對；本輪同步紀錄另與文件一起提交。未 merge／部署或宣稱 CI 通過。
 
 ## Reading map
 
@@ -41,9 +41,10 @@ T01a 安全仍 blocked，ATS config／VC／T02 未啟動。
 Connect 到 296，綁定三個不同帳戶並核對 Mirror ID；測拒絕／Retry、切網／切帳戶、
 Disconnect、Clear／替換、重載後待驗證與手動重連。Mirror 未索引就維持未驗證、手動重查。
 只記公開 EVM／Hedera ID 與觀察，不需要簽署、交易或 profile 匯出；手機只驗排版。
+Victor 已表示 MetaMask 稍後驗收；T01b-2 部署唯讀檢查目前僅為建議，尚未啟動。
 
 下輪 record-only exact files：`docs/HANDOFF.md`、`AI_USAGE.md`、新增
-`docs/ai-usage/012-t01b-1-manual.md`、`docs/prompts/011-t01b-1-manual.md`、
+`docs/ai-usage/013-t01b-1-manual.md`、`docs/prompts/011-t01b-1-manual.md`、
 `docs/evidence/009-t01b-1-manual.md`、`docs/evidence/009-t01b-1-manual.json`、
 `docs/plans/001-ats-first.md`（status／scope only）。保留本輪 dated records。
 若發現程式缺陷，先依證據界定修補票；不自動展開套件修補、ATS config／VC 或下一票。
@@ -51,4 +52,4 @@ Disconnect、Clear／替換、重載後待驗證與手動重連。Mirror 未索�
 
 本機：`npm run dev` → http://127.0.0.1:5173；build 後 `npm run preview` → 4173。
 不要假設舊 server 存活。Browser harness 需外部 Playwright 與新結果路徑，使用隔離合成環境。
-文件與成果一起 commit，確認 clean boundary；不 push／merge。
+文件與成果一起 commit，確認 clean boundary；後續仍不自動 push／merge，本輪推送依使用者明確要求。
