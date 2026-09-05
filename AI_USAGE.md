@@ -62,4 +62,13 @@ is disclosed separately; it must not be presented as newly discovered work.
 - GitHub repo creation and incremental commits/pushes follow the user's
   explicit approved plan. No private keys, wallet profiles or signatures used.
 - Human code review, event eligibility approval and MetaMask/chain testing
-  remain unevidenced. Remote CI is recorded separately after its actual run.
+  remain unevidenced.
+
+## 2026-09-05 — T00 documentation closeout
+
+- Observed successful GitHub CI run 33943246837 for source commit
+  `00a5dd1f0cda654167d4abe3a94f82559c30930e`; install/test/typecheck/build passed.
+- Updated `docs/HANDOFF.md`, `docs/evidence/000-t00-validation.md`, `README.md`
+  and this file with actual results, remaining warnings and exact T01 scope.
+- This closeout does not change app code, dependencies or CI; no T01 code was
+  implemented. T00 is complete, T01 and all MetaMask/chain checks remain pending.

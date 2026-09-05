@@ -37,6 +37,13 @@ Production preview：http://127.0.0.1:4173 。`npm test` 使用 Node 內建 runn
 GitHub Actions 在 main push／pull request 執行 clean install、test、typecheck、build，
 不使用錢包、不部署網站、不發交易。
 
+## 已知依賴風險
+
+固定的 ATS 相依圖有 78 個 npm audit 警示（含 2 個 critical）；目前 T00 不載入
+ATS，不代表未來 wallet integration 已獲安全驗證。詳細依賴路徑、測試與 CI
+證據見 [T00 validation](docs/evidence/000-t00-validation.md)。不要執行
+`npm audit fix --force` 偷換 ATS 版本；T01 必須先評估相容的處理方式。
+
 ## 第一階段
 
 Admin（兼 Escrow／測試 VC issuer）、Seller、Buyer 三個獨立 MetaMask 帳戶，

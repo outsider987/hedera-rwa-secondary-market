@@ -85,5 +85,12 @@ Do not silently change the version pins to make audit output green.
 - CI actions pinned to observed v4 commit refs: checkout
   `11d5960a326750d5838078e36cf38b85af677262`; setup-node
   `49933ea5288caeca8642d1e84afbd3f7d6820020`.
-- Remote shell CI result: pending first shell push; record its actual run before
-  marking T00 handed off. Local results above are already complete.
+- Shell source commit: `00a5dd1f0cda654167d4abe3a94f82559c30930e`.
+- Remote CI **success**: https://github.com/outsider987/hedera-rwa-secondary-market/actions/runs/33943246837
+  (web job 101244554098, 1m4s). npm ci, test, typecheck and build all passed.
+- The runner reported that the v4 actions' Node 20 runtime declaration is
+  deprecated and was forced to Node 24; all steps passed. The project Node
+  runtime itself was installed from `.nvmrc` (24.19.0).
+- The following closeout commit edits only documentation. This report records
+  the known completed run against its exact source commit, not a predicted
+  result for the commit containing this report.
