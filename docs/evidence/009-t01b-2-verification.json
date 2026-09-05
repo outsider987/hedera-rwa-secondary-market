@@ -1,0 +1,180 @@
+{
+  "baseCommit": "66dea387a64ef385e5e84d3f7eb0f62699ed69cf",
+  "sourceHashes": [
+    {
+      "path": "src/deployment.ts",
+      "sha256": "c6efd4a47f5d809c02c740edea6335fc07911b534f9d0dbd3f090f5e133f7c14"
+    },
+    {
+      "path": "src/App.tsx",
+      "sha256": "a75f9a1799b0aed3345e675d24feb2670f08429353c660c00b055fa14673cd69"
+    },
+    {
+      "path": "src/styles.css",
+      "sha256": "8a1d6990301156d2c55c7df219792124e85a42eb406c68f8637d9119e8ae9a67"
+    },
+    {
+      "path": "tests/deployment.test.mjs",
+      "sha256": "95c01fe59516b391e30f2a2e6277c50ee25a8ba40cc2abdca6ab2e0fe04822f1"
+    },
+    {
+      "path": "tests/shell.test.mjs",
+      "sha256": "25579b1f10bd7df3eaded43093d97489250fb52c3b49fa0e6d8dc30c5f132bef"
+    },
+    {
+      "path": "docs/evidence/009-t01b-2-browser.mjs",
+      "sha256": "55f61eadd3ee187ddb22cc82cca2c0c6fd3bfad4866e6f459cb154b3cce97aad"
+    },
+    {
+      "path": "docs/evidence/009-t01b-2-bundle.mjs",
+      "sha256": "cc0755d90ecfec45fb114c7875cd01368f75e00490bdc2f78c05388354b83d21"
+    }
+  ],
+  "unchangedFiles": [
+    {
+      "path": "package.json",
+      "sha256": "75ff9edb98f219e8dcc46b9c00cc6e93325501b44fb0e662f30f4aa82acfa8af",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "f3cb293795c8bfe1dc82aca4e2e05ecf8e1e9b0c9ded471d60266c80b9fd7a9f",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "src/wallet.ts",
+      "sha256": "be535e8d365cee6852e55df165b4ac13ab08807d1ab019438514edab22f3b8f0",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "src/guards.ts",
+      "sha256": "ec7d4896bfd1a8572891ac8ddcf6a54a0211e09f78ad11c0895f0363867dee85",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "src/ats.ts",
+      "sha256": "43d318f1dbd6badad37bad6e7b083cd77f83e7916eca022c5ff98a7788134803",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "e6a83fea4a963ed07c9a276ef5588a292e9a3bfbdadf693ec5b1710ef89f4dd2",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "f693a08509a00528b5a6a20002b1229c2e37e1daf7e0c0ea19c0b824c5fb5048",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "tests/wallet.test.mjs",
+      "sha256": "c0ac680542790b5fe371ca4230709be0b0b78b10adee1e71ed5f0276a4fa73c1",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "tests/ats.test.mjs",
+      "sha256": "0e8465768c5d9bc1101334d0713744531ed6261a6f3af38fa38258c76e27bdb8",
+      "unchangedFromBase": true
+    }
+  ],
+  "checks": {
+    "npmCi": {
+      "exitCode": 0,
+      "node": "24.19.0",
+      "npm": "11.17.0",
+      "auditCounts": {
+        "total": 83,
+        "low": 22,
+        "moderate": 32,
+        "high": 27,
+        "critical": 2
+      },
+      "installScriptApprovalsExpanded": false
+    },
+    "npmTest": {
+      "exitCode": 0,
+      "passed": 31,
+      "failed": 0
+    },
+    "typecheck": {
+      "exitCode": 0
+    },
+    "build": {
+      "exitCode": 0
+    },
+    "deploymentBrowser": {
+      "passed": 8,
+      "evidence": "009-t01b-2-browser-verified.json"
+    },
+    "walletRegression": {
+      "passed": 20,
+      "evidence": "009-t01b-2-wallet-verified.json"
+    },
+    "livePublicReads": {
+      "passed": 2,
+      "evidence": "009-t01b-2-live-verified.json"
+    },
+    "bundle": {
+      "evidence": "009-t01b-2-bundle.json",
+      "distHashesMatched": true
+    },
+    "documentation": {
+      "localLinksChecked": 59,
+      "jsonFilesParsed": 7,
+      "whitespace": "passed",
+      "responsiveScreenshots": "Desktop and mobile screenshots inspected; no overflow."
+    }
+  },
+  "tdd": [
+    {
+      "phase": "red",
+      "check": "node --test tests/deployment.test.mjs",
+      "passed": 0,
+      "failed": 20,
+      "reason": "Explicit Not implemented stubs; assertions exercised the intended behavior before implementation."
+    },
+    {
+      "phase": "red",
+      "check": "deployment browser",
+      "evidence": "009-t01b-2-browser-red.json",
+      "reason": "The Testnet deployment region and Not checked state did not exist."
+    },
+    {
+      "phase": "green",
+      "check": "core deployment Node tests",
+      "passed": 20,
+      "failed": 0
+    },
+    {
+      "phase": "refactor",
+      "check": "Use individual viem read actions; expand regression cases for bytecode RPC errors and line terminators.",
+      "finalJsBytes": 310557,
+      "initialDisplayedJsKilobytes": 541.03
+    },
+    {
+      "phase": "red",
+      "check": "unexpected query error must hide previous verification",
+      "evidence": "009-t01b-2-stale-error-red.json",
+      "reason": "The query retained two previous byte-length records after an unexpected error."
+    },
+    {
+      "phase": "green",
+      "check": "Hide results unless Query is successful and idle; final browser and 31 Node tests pass.",
+      "evidence": "009-t01b-2-browser-verified.json"
+    }
+  ],
+  "verificationToolCorrection": "The first bundle capture compared assets inside generateBundle, before finalization. The corrected capture checks final build output against dist and passes; no app or config change was needed.",
+  "humanAcceptance": {
+    "status": "Pending",
+    "scheduledDate": "2026-09-06",
+    "timezone": "Asia/Taipei",
+    "checklist": "../HANDOFF.md"
+  },
+  "limits": [
+    "No real MetaMask or live account Mirror acceptance claimed.",
+    "No signature, transaction, ATS config or VC verification performed.",
+    "T01a security and prior dependency peer failures remain unresolved.",
+    "latest reads are not a shared block snapshot or an ATS compatibility guarantee."
+  ],
+  "intermediateRuns": "Red reproductions and final green evidence are committed. Four intermediate green snapshots are retained locally under .artifacts/t01b-2 to avoid duplicate review material; no prior tracked evidence was changed."
+}

@@ -1,0 +1,81 @@
+{
+  "mode": "synthetic HTTP / real viem",
+  "results": [
+    {
+      "label": "keyboard, no wallet, presence, layout and reload",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0
+    },
+    {
+      "label": "keyboard, no wallet, presence, layout and reload",
+      "port": 5173,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "latest"
+          ]
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0
+    },
+    {
+      "status": "failed",
+      "assertion": "Unexpected query errors must not restore old verified records\n\n2 !== 0\n"
+    }
+  ]
+}

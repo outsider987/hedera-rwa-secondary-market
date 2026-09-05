@@ -61,10 +61,17 @@ button:disabled { color: #526572; background: #e7edf1; border-color: #c1cdd6; cu
 .storage-warning { padding-block: 1rem; color: #713600; }
 [role="alert"] { color: #85351b; }
 
+.deployment { padding-top: 2rem; }
+.deployment-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.deployment-list section { border-top: 1px solid #d4dfe7; padding-block: 1rem; }
+.deployment-list h3 { font-size: 1rem; margin: 0 0 0.5rem; }
+.deployment-note { margin-top: 0.75rem; color: #485d6b; font-size: 0.875rem; }
+
 @media (max-width: 700px) {
   header { align-items: flex-start; flex-direction: column; gap: 0.75rem; padding-top: 2rem; }
   .network { text-align: left; }
   .columns { grid-template-columns: 1fr; gap: 2rem; }
+  .deployment-list { grid-template-columns: 1fr; gap: 0; }
   .notice { padding: 1rem; }
   .wallet-details div { grid-template-columns: 1fr; gap: 0.25rem; }
   .role-row { grid-template-columns: 1fr; gap: 0.5rem; }

@@ -196,6 +196,52 @@ protobuf 在重新接入 ATS 解碼前處理；Terminal3/BBS/tar 在 VC 接入�
 最新 PR head CI 通過為整合條件。這只授權現有成果整合，不解除 T01a
 安全門檻、不宣稱 MetaMask 真人驗收通過，也不啟動下一票。
 
+### 2026-09-05 T01b-2 獨立部署唯讀切片授權（目前有效）
+
+使用者以 “Implement the proposed plan.” 核准 [Prompt 011](../prompts/011-t01b-2-deployment.md)
+的完整計畫，從 `66dea387a64ef385e5e84d3f7eb0f62699ed69cf` 開分支實作。
+本票允許獨立 viem 公開讀取，不以 T01b-1 真人驗收或 T01a 修復為前置；
+兩者仍未完成。固定 RPC 296 → Mirror Resolver／Factory → runtime bytecode，
+只允許手動啟動、10 秒期限、取消／過期隔離、無自動重試，依 TDD 驗收。
+
+Exact code/test files: `src/deployment.ts`, `src/App.tsx`, `src/styles.css`,
+`tests/deployment.test.mjs`, `tests/shell.test.mjs`, `docs/evidence/009-t01b-2-*`。
+文件：本計畫、`docs/HANDOFF.md`、`docs/ATTRIBUTION.md`、`AI_USAGE.md`、
+`docs/prompts/011-t01b-2-deployment.md`、`docs/ai-usage/014-t01b-2-deployment.md`。
+既有套件、lockfile、ATS 診斷與歷史 evidence 不改。
+
+Victor 真人驗收安排 2026-09-06（Asia/Taipei），帳戶、切換、重載與部署
+檢查的完整 checklist 保留在 handoff，實際做完才改狀態。自動化通過可提交，
+不自動 push／merge。部署存在不等於 ATS config 相容；protobuf、Terminal3
+安全門檻、config payload >= 1、合成 VC 正反向驗收均保留，不啟動 T02。
+
+### 2026-09-05 T01b-3 獨立鏈上 config 查詢授權（目前有效）
+
+使用者核准 [Prompt 012](../prompts/012-t01b-3-config.md)，選擇併入部署檢查。
+基於 `0828d797c403e13f150edc5b2d63170cb76a8689`，以既有 viem 對固定 Resolver
+呼叫 `getLatestVersionByConfiguration(bytes32)`。config ID 保持 bytes32(1)，
+結果需介於 1 與 Number.MAX_SAFE_INTEGER，bigint 檢查後以十進位字串記錄。
+
+本票明確分開「鏈上 config 查詢」與「ATS SDK 官方入口整合」：可在 T01a
+及真人驗收未完成時執行這個唯讀切片，但不載入 SDK／Terminal3，也不以
+viem 結果偽造 SDK payload 或宣稱 SDK ready。建立前仍需重新解析版本。
+
+Exact source/test files: `src/deployment.ts`, `src/App.tsx`,
+`tests/deployment.test.mjs`, `tests/shell.test.mjs`, `docs/evidence/010-t01b-3-*`。
+文件：本計畫、`docs/HANDOFF.md`、`docs/ATTRIBUTION.md`、`AI_USAGE.md`、
+`docs/prompts/012-t01b-3-config.md`、`docs/ai-usage/015-t01b-3-config.md`。
+套件／lock／既有歷史 evidence 不改；共用 10 秒期限，保持手動查詢、取消、
+過期隔離與各項獨立結果。TDD、browser、live dev/preview 和產物驗收依 prompt。
+真人驗收仍為 2026-09-06 Pending，清單加上 config；安全／SDK／VC 門檻保留。
+自動化通過可連同文件提交，不自動 push／merge，不啟動 T02。
+
+### 2026-09-05 T01b-2／T01b-3 推送與合併授權
+
+使用者以「合併推送」核准推送 `feat/t01b-3-config-check` 並合併至 main，
+包含尚未整合的 T01b-2 與 T01b-3。保留原提交，以最新 PR head CI 通過為
+合併條件；本次只更新整合紀錄、handoff、AI_USAGE 與此授權。
+真人驗收、T01a、SDK／VC 待辦不變，不啟動下一張實作票或公開部署。
+
 ### 操作介面與安全入口
 
 單頁：上方 network／active account／required role，中間按順序操作，

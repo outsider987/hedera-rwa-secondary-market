@@ -1,0 +1,9 @@
+# T01b-3: Equity config — 2026-09-05
+
+- **Human decisions:** Victor selected a combined deployment/config action and approved the [plan](../prompts/012-t01b-3-config.md). TDD, concise English evidence and the full September 6 manual checklist remain required. No push/merge or NOVA creation is authorized.
+- **AI assistance:** Codex traced SDK 8.0.0's public query through its RPC adapter, checked the installed contracts ABI, and implemented the independent viem read using the Ponytail workflow. No SDK or VC verification is replaced or claimed; no delegated/human code review is claimed.
+- **Affected files:** deployment/App, deployment/shell tests, this ticket's `docs/evidence/010-t01b-3-*`, prompt, plan authorization, handoff, attribution and AI index. No dependency, stylesheet, wallet implementation, ATS diagnostic or historical evidence changes.
+- **TDD and checks:** initial Node red (21 pass / 19 fail), missing-config browser red, then final 50 Node tests, 8 combined browser scenarios and 20 wallet regression scenarios passed. An additional red test demonstrated default CCIP gateway behavior; `ccipRead: false` removed it. npm ci/typecheck/build and final bundle hash checks passed. [Evidence and reproduction](../evidence/010-t01b-3-config.md).
+- **Live result:** dev and preview both returned Equity config version 1 on Testnet through the fixed Resolver. This is a dated public read, not a permanent value, SDK payload, signature or transaction.
+- **Boundaries:** real MetaMask remains Pending. Protobuf, Terminal3/BBS/tar, peer failures, SDK integration and VC acceptance remain unresolved. The unseen pre-event draft remains uninspected. No new model or human-review identity is inferred.
+- **Git:** clean base `0828d797c403e13f150edc5b2d63170cb76a8689`, new `feat/t01b-3-config-check` branch on unmerged T01b-2; prior handoff base verified as an ancestor. Code and records are committed together; read the resulting commit from Git.

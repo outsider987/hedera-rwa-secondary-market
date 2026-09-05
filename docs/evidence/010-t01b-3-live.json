@@ -1,0 +1,103 @@
+{
+  "mode": "live public reads",
+  "results": [
+    {
+      "label": "live fixed Testnet deployment",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xba2d5fc2083a0b8f164c50e65d782087fba18e0a",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xd1f118a40f3b02883d35909ef2517e7edd78379d",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_call",
+          "params": [
+            {
+              "data": "0x5bf316cf0000000000000000000000000000000000000000000000000000000000000001",
+              "to": "0xba2d5fc2083a0b8f164c50e65d782087fba18e0a"
+            },
+            "latest"
+          ]
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0,
+      "status": "passed",
+      "configVersion": "1",
+      "observation": "Testnet deployment\n\nCheck the fixed Resolver, Factory and Equity config without connecting a wallet.\n\nThese public reads do not establish full ATS SDK compatibility.\n\nDeployment and config verified.\n\nRPC chain ID\n296 / 0x128\nChecked at (UTC)\n2026-09-05T12:18:52.494Z\nResolver · 0.0.9212226\n\n0xba2d5fc2083a0b8f164c50e65d782087fba18e0a\n\nRuntime bytecode found.\n\n2115 bytes\n\nFactory · 0.0.9213391\n\n0xd1f118a40f3b02883d35909ef2517e7edd78379d\n\nRuntime bytecode found.\n\n390 bytes\n\nEquity config\nConfig ID\n0x0000000000000000000000000000000000000000000000000000000000000001\nLatest version\n1\n\nOn-chain Equity config verified.\n\nATS SDK integration remains unverified. Recheck the version before creating NOVA.\n\nCheck deployment and config\n\nPublic reads at latest block state; results are not a shared block snapshot. Reloading clears this check."
+    },
+    {
+      "label": "live fixed Testnet deployment",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "requests": [
+        {
+          "method": "eth_chainId"
+        },
+        {
+          "contractId": "0.0.9212226"
+        },
+        {
+          "contractId": "0.0.9213391"
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xba2d5fc2083a0b8f164c50e65d782087fba18e0a",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_getCode",
+          "params": [
+            "0xd1f118a40f3b02883d35909ef2517e7edd78379d",
+            "latest"
+          ]
+        },
+        {
+          "method": "eth_call",
+          "params": [
+            {
+              "data": "0x5bf316cf0000000000000000000000000000000000000000000000000000000000000001",
+              "to": "0xba2d5fc2083a0b8f164c50e65d782087fba18e0a"
+            },
+            "latest"
+          ]
+        }
+      ],
+      "forbiddenRequests": 0,
+      "pageErrors": 0,
+      "walletRequests": 0,
+      "status": "passed",
+      "configVersion": "1",
+      "observation": "Testnet deployment\n\nCheck the fixed Resolver, Factory and Equity config without connecting a wallet.\n\nThese public reads do not establish full ATS SDK compatibility.\n\nDeployment and config verified.\n\nRPC chain ID\n296 / 0x128\nChecked at (UTC)\n2026-09-05T12:18:54.228Z\nResolver · 0.0.9212226\n\n0xba2d5fc2083a0b8f164c50e65d782087fba18e0a\n\nRuntime bytecode found.\n\n2115 bytes\n\nFactory · 0.0.9213391\n\n0xd1f118a40f3b02883d35909ef2517e7edd78379d\n\nRuntime bytecode found.\n\n390 bytes\n\nEquity config\nConfig ID\n0x0000000000000000000000000000000000000000000000000000000000000001\nLatest version\n1\n\nOn-chain Equity config verified.\n\nATS SDK integration remains unverified. Recheck the version before creating NOVA.\n\nCheck deployment and config\n\nPublic reads at latest block state; results are not a shared block snapshot. Reloading clears this check."
+    }
+  ]
+}

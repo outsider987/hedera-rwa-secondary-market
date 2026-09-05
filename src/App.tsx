@@ -1,8 +1,59 @@
 import { useRef, useState, useSyncExternalStore } from 'react';
-import { useQueries } from '@tanstack/react-query';
+import { useQueries, useQuery } from '@tanstack/react-query';
 import { useConnect, useConnection, useDisconnect } from 'wagmi';
 import { bindingProblem, loadRoles, roleNames, saveRoles, storageWarning, type MirrorAccount, type Roles } from './guards';
 import { getWalletSession, lookupAccount, queryClient, subscribeWalletSession, testnetChainId, walletConfig } from './wallet';
+import { checkDeployment, deployments, equityConfigId } from './deployment';
+
+function Deployment() {
+  const operation = useRef(false);
+  const query = useQuery({ queryKey: ['deployment'], queryFn: ({ signal }) => checkDeployment(signal), enabled: false });
+  const result = query.isSuccess && !query.isFetching ? query.data : undefined;
+
+  async function check() {
+    if (operation.current) return;
+    operation.current = true;
+    try { await query.refetch({ cancelRefetch: false }); }
+    finally { operation.current = false; }
+  }
+
+  return <section className="deployment" aria-labelledby="deployment-heading">
+    <h2 id="deployment-heading">Testnet deployment</h2>
+    <p>Check the fixed Resolver, Factory and Equity config without connecting a wallet.</p>
+    <p>These public reads do not establish full ATS SDK compatibility.</p>
+    <p id="deployment-status" role="status" aria-live="polite">
+      {query.isFetching ? 'Checking deployment and config…' : query.isError ? 'Deployment and config check could not complete. Retry when ready.' : result?.message ?? 'Not checked.'}
+    </p>
+    <dl className="wallet-details">
+      <div><dt>RPC chain ID</dt><dd>{result?.chainId === undefined ? 'Not checked' : `${result.chainId} / 0x${result.chainId.toString(16)}`}</dd></div>
+      <div><dt>Checked at (UTC)</dt><dd>{result ? <time dateTime={result.checkedAt}>{result.checkedAt}</time> : 'Not checked'}</dd></div>
+    </dl>
+    <div className="deployment-list">
+      {deployments.map((deployment, index) => {
+        const contract = result?.contracts[index];
+        return <section key={deployment.id} aria-labelledby={`deployment-${deployment.name}`}>
+          <h3 id={`deployment-${deployment.name}`}>{deployment.name} · {deployment.id}</h3>
+          <p className="address">{contract?.address ? <code>{contract.address}</code> : 'EVM address not verified.'}</p>
+          <p>{query.isFetching ? 'Checking…' : contract?.message ?? 'Not checked.'}</p>
+          {contract?.byteLength !== undefined && <p>{contract.byteLength} bytes</p>}
+        </section>;
+      })}
+    </div>
+    <section aria-labelledby="config-heading">
+      <h3 id="config-heading">Equity config</h3>
+      <dl className="wallet-details">
+        <div><dt>Config ID</dt><dd><code>{equityConfigId}</code></dd></div>
+        <div><dt>Latest version</dt><dd data-testid="config-version">{result?.config.version ?? 'Not checked'}</dd></div>
+      </dl>
+      <p>{query.isFetching ? 'Checking…' : result?.config.message ?? 'Config not checked.'}</p>
+      <p>ATS SDK integration remains unverified. Recheck the version before creating NOVA.</p>
+    </section>
+    <div className="actions"><button type="button" disabled={query.isFetching} aria-describedby="deployment-status" onClick={check}>
+      {query.isFetching ? 'Checking deployment and config…' : result?.status === 'failed' || query.isError ? 'Retry deployment and config check' : 'Check deployment and config'}
+    </button></div>
+    <p className="deployment-note">Public reads at latest block state; results are not a shared block snapshot. Reloading clears this check.</p>
+  </section>;
+}
 
 function Accounts({ session, address, ready, roles, changeRoles }: {
   session: number; address: string | undefined; ready: boolean; roles: Roles; changeRoles: (update: (roles: Roles) => Roles) => void;
@@ -154,6 +205,8 @@ export default function App() {
         {saved.warning && <p className="storage-warning" role="alert">{saved.warning}</p>}
         <Accounts key={session} session={session} address={connection.address} ready={ready} roles={saved.roles} changeRoles={changeRoles} />
 
+        <Deployment />
+
         <div className="columns">
           <section aria-labelledby="asset-heading">
             <h2 id="asset-heading">Planned asset</h2>
@@ -184,7 +237,7 @@ export default function App() {
         <section className="evidence" aria-labelledby="evidence-heading">
           <h2 id="evidence-heading">Transaction evidence</h2>
           <p>No transactions yet.</p>
-          <p>This account setup only reads public Mirror account records. Contract reads, signatures and transactions are unavailable.</p>
+          <p>This page reads public Mirror records, Testnet deployment bytecode and the Equity config version. No signatures or transactions are requested.</p>
         </section>
       </main>
 

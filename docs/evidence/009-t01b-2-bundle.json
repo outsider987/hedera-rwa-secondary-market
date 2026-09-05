@@ -1,0 +1,80 @@
+{
+  "method": "Vite final build output: all chunks, renderedLength > 0; hashes match dist. Zero membership does not waive installation or future integration risks.",
+  "assets": [
+    {
+      "file": "assets/index-h4bk-VcQ.js",
+      "bytes": 310557,
+      "sha256": "b771b953da3542c6e80c26e4937afd5b24b85d4293af3c757371cfbba551b136"
+    },
+    {
+      "file": "assets/index-Df40B2yf.css",
+      "bytes": 3506,
+      "sha256": "208bfab60752892395867d0ff7d2cba42a4f06512b39977b9c07fe5c14ea3e19"
+    },
+    {
+      "file": "index.html",
+      "bytes": 581,
+      "sha256": "6afd34d592dac32426e18b2b9c3ecc5a31dddd13fb82af56e7df3aea6d6d2fc1"
+    }
+  ],
+  "renderedModules": 136,
+  "packages": [
+    {
+      "path": "node_modules/@noble/hashes",
+      "version": "1.8.0"
+    },
+    {
+      "path": "node_modules/@tanstack/query-core",
+      "version": "5.102.8"
+    },
+    {
+      "path": "node_modules/@tanstack/react-query",
+      "version": "5.102.8"
+    },
+    {
+      "path": "node_modules/eventemitter3",
+      "version": "5.0.1"
+    },
+    {
+      "path": "node_modules/mipd",
+      "version": "0.0.7"
+    },
+    {
+      "path": "node_modules/react",
+      "version": "19.2.8"
+    },
+    {
+      "path": "node_modules/react-dom",
+      "version": "19.2.8"
+    },
+    {
+      "path": "node_modules/scheduler",
+      "version": "0.27.0"
+    },
+    {
+      "path": "node_modules/use-sync-external-store",
+      "version": "1.4.0"
+    },
+    {
+      "path": "node_modules/viem",
+      "version": "2.56.3"
+    },
+    {
+      "path": "node_modules/vite-plugin-node-polyfills",
+      "version": "0.28.0"
+    },
+    {
+      "path": "node_modules/wagmi",
+      "version": "3.7.7"
+    },
+    {
+      "path": "node_modules/wagmi/node_modules/@wagmi/core",
+      "version": "3.6.5"
+    },
+    {
+      "path": "node_modules/wagmi/node_modules/@wagmi/core/node_modules/zustand",
+      "version": "5.0.0"
+    }
+  ],
+  "forbiddenModules": []
+}
