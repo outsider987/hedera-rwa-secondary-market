@@ -27,6 +27,9 @@
   constraints. No candidate was installed or compatibility-tested.
 - T01a application source, dependency versions and lockfile did not change.
   No SDK import, loader UI, wallet connection, VC or Testnet transaction exists.
+- T01a triage committed/pushed as
+  `370cc0b0466665c2cc28e1b4936db9420c6a6ef4` (English documentation commit).
+  The subsequent closeout records its observed CI result, not new integration.
 
 ## Locked decisions / public identifiers
 
@@ -54,10 +57,12 @@
   errors or external requests, no overflow, keyboard skip link works.
 - Build: 16 modules; JS 193.81 kB / gzip 61.02 kB, unchanged. This is the static
   shell, not an ATS bundle. SDK loading and loader tests were NOT performed.
-- Most recent recorded remote source CI:
-  [33943246837](https://github.com/outsider987/hedera-rwa-secondary-market/actions/runs/33943246837)
-  passed for source commit 00a5dd1. That is historical T00 evidence.
-  Check the new documentation commit's CI after pushing; do not infer its result.
+- Recorded T01a remote CI: **success**, run
+  [33944789582](https://github.com/outsider987/hedera-rwa-secondary-market/actions/runs/33944789582)
+  on `370cc0b0466665c2cc28e1b4936db9420c6a6ef4`; web job 101248814984,
+  1m4s. npm ci/test/typecheck/build passed; the Actions runtime notice remains.
+  This is the observed triage commit's result, not a predicted result for the
+  documentation closeout containing this note. The underlying source is unchanged.
 - Lifecycle-script/deprecation warnings remain, separately documented.
   The prior Actions Node-runtime notice is not an npm critical vulnerability.
 - **B1:** exact protobufjs pins preclude in-range remediation. Static generated

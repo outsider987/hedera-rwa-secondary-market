@@ -26,6 +26,14 @@
   RPC/Mirror call, chain mutation, package update or script approval occurred.
   T01a remains blocked; T01b and all real SDK/MetaMask checks remain pending.
 
+### T01a CI documentation closeout
+
+- Observed successful remote CI run 33944789582 for triage commit
+  `370cc0b0466665c2cc28e1b4936db9420c6a6ef4`; all four checks passed.
+- Updated this file, handoff and T01a triage evidence with the actual commit,
+  run/job identifiers and remaining Actions runtime notice. Documentation only;
+  no source/dependency change and no additional security or SDK clearance.
+
 ## 2026-09-05 — T00-min guardrails
 
 - Tool: Codex coding assistant. The exact runtime model identifier is not

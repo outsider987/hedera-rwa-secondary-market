@@ -142,11 +142,18 @@ stop condition occurred first. The page remains the honest T00 shell.
 | Browser dev/preview, desktop/mobile | Four isolated Chrome scenarios passed: 0 page/console errors, 0 external requests, no overflow, keyboard skip link works |
 | SDK browser loading / loader tests | NOT RUN / NOT IMPLEMENTED: blocked before import |
 | MetaMask / VC / chain | NOT RUN; explicitly outside T01a |
+| Remote CI on triage commit 370cc0b | Success; run 33944789582, web job 101248814984, 1m4s; npm ci/test/typecheck/build passed |
 
 Browser checks reran the existing ignored `.artifacts/t00-browser-smoke.mjs`
 with ephemeral Playwright 1.63.0 and new browser contexts, without wallet profiles.
 These validate the unchanged shell only; there is no SDK bundle-size comparison.
 No new test framework or runtime dependency was added.
+
+The triage was committed/pushed as `370cc0b0466665c2cc28e1b4936db9420c6a6ef4`.
+[Observed CI run](https://github.com/outsider987/hedera-rwa-secondary-market/actions/runs/33944789582)
+passed. It again reported that the pinned v4 actions target Node 20 and were
+forced to run on Node 24. This note is a documentation-only closeout; it records
+the completed run above rather than predicting its own commit's CI result.
 
 Reproduction: run npm ci, npm audit --json (expected nonzero), npm test,
 npm run typecheck and npm run build; compare the two SHA-256 values above.
