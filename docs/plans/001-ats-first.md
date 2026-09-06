@@ -242,6 +242,12 @@ Exact source/test files: `src/deployment.ts`, `src/App.tsx`,
 合併條件；本次只更新整合紀錄、handoff、AI_USAGE 與此授權。
 真人驗收、T01a、SDK／VC 待辦不變，不啟動下一張實作票或公開部署。
 
+### 2026-09-06 真人驗收紀錄
+
+Victor 已操作 dev／preview，核心錢包與部署/config 流程通過；截图與人工回報
+分列於 [manual evidence](../evidence/011-t01-manual.md)。待確認項目保留，
+不宣稱完整 T01 通過。只更新既定 record-only 文件，不啟動 SDK／VC／T02。
+
 ### 操作介面與安全入口
 
 單頁：上方 network／active account／required role，中間按順序操作，

@@ -1,0 +1,95 @@
+{
+  "date": "2026-09-06",
+  "timezone": "Asia/Taipei",
+  "based_on_commit": "c45a072bc646f0be75a9a30f3adc0960af069311",
+  "operator": "Victor",
+  "origins": [
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:4173"
+  ],
+  "source": "User-supplied screenshots and explicit reports in this conversation; agent did not operate MetaMask. Original screenshots remain conversation attachments; not copied because they contain unrelated browser UI.",
+  "accounts": [
+    {
+      "role": "Admin",
+      "evmAddress": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+      "hederaId": "0.0.10389090"
+    },
+    {
+      "role": "Seller",
+      "evmAddress": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+      "hederaId": "0.0.10389111"
+    },
+    {
+      "role": "Buyer",
+      "evmAddress": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+      "hederaId": "0.0.10389098"
+    }
+  ],
+  "checks": [
+    {
+      "check": "Three roles",
+      "status": "Passed",
+      "observation": "Screenshots: three distinct EVM addresses and Mirror IDs on dev and preview."
+    },
+    {
+      "check": "Assignment guards",
+      "status": "Passed",
+      "observation": "Dev screenshots show Buyer cleared, Seller blocked as duplicate, Buyer eligible; preview screenshot shows all roles assigned. Preview flow reported normal."
+    },
+    {
+      "check": "Account/network switches",
+      "status": "Passed",
+      "observation": "Dev screenshots show active Admin, Seller and Buyer; chain 1 invalidates roles, then 296 restores verification. Victor explicitly confirmed no reconnect or reload. Preview flow reported normal."
+    },
+    {
+      "check": "Reload/manual connection",
+      "status": "Passed",
+      "observation": "Victor confirmed manually pressing Connect after reload; saved roles revalidated. Preview flow reported normal."
+    },
+    {
+      "check": "Disconnect/reconnect",
+      "status": "Passed",
+      "observation": "Victor reported normal after being asked specifically about cleared active state, saved awaiting-verification roles and explicit reconnect. No disconnected screenshot supplied."
+    },
+    {
+      "check": "Connection rejection/retry",
+      "status": "Passed",
+      "observation": "Victor reported normal for rejection followed by retry; no rejection screenshot supplied."
+    },
+    {
+      "check": "Deployment/config result",
+      "status": "Passed",
+      "observation": "Dev and preview screenshots: Resolver 2115 bytes, Factory 390 bytes, Equity config version 1."
+    },
+    {
+      "check": "Mirror retry",
+      "status": "Passed",
+      "observation": "Initial Buyer lookup returned 404; later screenshots show the same public address verified. Retry recovery observed during guided testing; funding action not independently inspected."
+    },
+    {
+      "check": "Pending connection duplicate-click guard",
+      "status": "Pending",
+      "observation": "Automated coverage exists; no explicit human observation."
+    },
+    {
+      "check": "Independent account ID comparison",
+      "status": "Pending",
+      "observation": "UI shows three distinct Mirror IDs; a separate comparison of all three raw Mirror records was not recorded."
+    },
+    {
+      "check": "Disconnected deployment check / reload reset / no prompts",
+      "status": "Pending",
+      "observation": "Successful result screenshots do not establish disconnected execution, reset state or absence of every forbidden prompt."
+    },
+    {
+      "check": "Mobile layout",
+      "status": "Pending",
+      "observation": "Automated coverage exists; no human layout result supplied."
+    }
+  ],
+  "limitations": [
+    "Browser/MetaMask versions and exclusive-wallet installation not independently recorded.",
+    "No SDK integration, VC verification or NOVA creation demonstrated.",
+    "No transaction ID recorded; wallet connection rejection is not a rejected transaction."
+  ]
+}
