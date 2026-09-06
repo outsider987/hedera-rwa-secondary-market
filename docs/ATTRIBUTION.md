@@ -153,3 +153,19 @@ Undici 6.28.0 declare MIT. Native neon-cli references LICENSE-*; lock-only
 iniparser 1.0.5 lacks license metadata, so no license is inferred. These and
 existing dfns gaps require resolution for affected future work. Reusing the
 published verifier does not establish legal compliance or acceptance of a VC.
+
+The [isolated B2 trial](evidence/020-b2-dependency-trial.md) uses independently
+written bounded fixtures informed by maintainer advisories, linked there and
+in the raw results. No cryptographic implementation or SDK source was changed.
+The disposable candidate uses tar 7.5.22 (BlueOak-1.0.0), toml 4.2.0, tmp 0.2.7,
+Undici 6.28.0 and UUID 11.1.1 (MIT); none is retained in the repository manifest.
+Node-pre-gyp 1.0.11's extraction/packaging callers (BSD-3-Clause), neon-cli 0.10.1's
+Cargo parser and external-editor 3.1.0's temporary-file lifecycle (MIT) informed
+the compatibility tests. Both LICENSE-APACHE and LICENSE-MIT exist in neon-cli;
+retain both texts rather than inferring a license choice from its metadata.
+Native BBS 0.18.1 includes its Apache-2.0 text. The full **iniparser 1.0.5 README
+contains MIT license text**, resolving the prior metadata-only gap for this
+published package; its hash is recorded. Existing dfns license gaps remain.
+Native source inspection and scripts-disabled tests do not establish binary
+compatibility. Playwright 1.63.0 remains external diagnostic tooling; the
+standalone unsigned VC probe uses actual published Terminal3 public imports.

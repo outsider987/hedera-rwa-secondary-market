@@ -415,3 +415,29 @@ proposal is historical and must not trigger a downgrade. This is source
 compatibility reasoning, not VC runtime acceptance. [Evidence 019](../evidence/019-b2-vc-readiness.md)
 records current checks and the screenshot's limited successful SDK observation.
 Stop at research; isolated trial and retained repair require their own scopes.
+
+### 2026-09-06 B2 isolated dependency trial activation
+
+Victor's “開始吧” activates the exact isolated trial in HANDOFF and
+[Prompt 022](../prompts/022-b2-dependency-trial.md), based on `9d9f62f`.
+The later “對了,先推送吧” authorized pushing the existing committed branch
+first; origin was verified at `9d9f62f8fd1a4aa2b24069937540a8f5da4579fa`.
+No merge or automatic later push is included. Continue the trial afterward.
+
+Only disposable manifests/locks receive the six scoped override entries.
+Keep ATS/Terminal3/ethers and all existing pins/repairs; do not enable native
+scripts or change cryptographic code. Repository changes are limited to evidence
+020 MJS/test MJS/MD/JSON, prompt 022, work item 026, HANDOFF, this plan,
+ATTRIBUTION and AI_USAGE. Security/caller, full graph/audit/license, clean-install,
+Node/build and browser gates apply; native absence cannot establish compatibility.
+VC signing and NOVA remain later tickets with manual MetaMask approvals.
+
+Outcome: isolated candidate gates pass within their stated limits: 15 security/
+caller tests after seven baseline failures, 89 existing tests, clean install,
+typecheck/build, 20 SDK browser cases (four live payloads 1) and four unsigned
+negative VC browser cases. Audit 80 → 62; candidate Terminal3 closure 19 → 0
+matching entries. The normal install does not contain native BBS binaries;
+full B2 remains open, and no repair is retained. [Evidence 020](../evidence/020-b2-dependency-trial.md)
+records 22 scoped lock changes, complete inventories and the native support
+question. A retained repair requires separate activation and an explicit
+support boundary before B2 can be cleared for VC. No automatic push or next ticket.
