@@ -358,3 +358,7 @@ Documentation routing amendment only: the above documentation allowance also
 covers `docs/ai-usage/**` and `docs/ATTRIBUTION.md`; `AI_USAGE.md` stays the index.
 The goal, code-file scope and acceptance remain unchanged. This section was
 moved from the handoff during the approved documentation maintenance.
+
+### 2026-09-06 Screenshot evidence companion
+
+Victor requested an HTML record with the supplied screenshots. [Prompt 014](../prompts/014-t01-manual-gallery.md) defines the exact documentation files. This adds offline visual evidence only; prior records and pending acceptance remain unchanged. No application implementation or public deployment is activated.

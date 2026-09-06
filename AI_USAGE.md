@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-06 | Screenshot evidence HTML | [Offline page with original screenshots](docs/ai-usage/018-t01-manual-gallery.md) |
 | 2026-09-06 | T01 manual acceptance | [Real MetaMask observations and remaining checks](docs/ai-usage/017-t01-manual.md) |
 | 2026-09-05 | T01b-2 / T01b-3 integration | [Authorized push and merge with CI gate](docs/ai-usage/016-deployment-config-merge.md) |
 | 2026-09-05 | T01b-3 Equity config reads | [TDD and live config version; SDK integration remains pending](docs/ai-usage/015-t01b-3-config.md) |

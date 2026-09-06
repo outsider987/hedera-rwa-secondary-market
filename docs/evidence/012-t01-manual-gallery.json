@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-06",
+  "based_on_commit": "cebb5c3f3f5317c1a0136d36261088e43789b6d5",
+  "figures": [
+    {
+      "figure": 1,
+      "source_attachment": "tmp12E9.png",
+      "sha256": "f679599f8de76adcd7c87e7aa74714abb3c6e7599b2f464d4b332bb44f11912e",
+      "bytes": 193549,
+      "transformation": "None; original PNG embedded as a data URL."
+    },
+    {
+      "figure": 2,
+      "source_attachment": "tmpB7C2.png",
+      "sha256": "3dd29c4c2621576867e467083f6116fb408e535be51148fc6a1897e8fb4a287f",
+      "bytes": 212604,
+      "transformation": "None; original PNG embedded as a data URL."
+    },
+    {
+      "figure": 3,
+      "source_attachment": "tmp9B6D.png",
+      "sha256": "635f2801b6ae8eefe8ea83fe6b8af77d1dd47b2e1d3820249953905a4fd7a6e1",
+      "bytes": 334203,
+      "transformation": "None; original PNG embedded as a data URL."
+    },
+    {
+      "figure": 4,
+      "source_attachment": "tmp80E6.png",
+      "sha256": "e6238b8e8b649fda378abad824b139cb9d3f42fca1f8a002de24a0419f2c958b",
+      "bytes": 319212,
+      "transformation": "None; original PNG embedded as a data URL."
+    },
+    {
+      "figure": 5,
+      "source_attachment": "tmp2B8F.png",
+      "sha256": "c14ec41af3df8c6260f09692303ebbf0c20a8b810995b3bd06c2c36f9a91c088",
+      "bytes": 293014,
+      "transformation": "None; original PNG embedded as a data URL."
+    }
+  ]
+}

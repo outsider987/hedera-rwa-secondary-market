@@ -4,9 +4,11 @@
 
 **T01b-3 combined deployment and Equity config reads are implemented; automated and live public-endpoint checks pass. Victor has passed the core desktop MetaMask flows on dev/preview; specific remaining manual checks are listed below. T01 is not complete.**
 
-- `based_on_commit: c45a072bc646f0be75a9a30f3adc0960af069311` (manual-record base, not the commit containing this handoff).
+- `based_on_commit: cebb5c3f3f5317c1a0136d36261088e43789b6d5` (screenshot-page base, not the commit containing this handoff).
 - Integration completed in `c45a072` (PR #2); current work is documentation only. Historical integration: `feat/t01b-3-config-check` → `main`, including T01b-2 (`0828d79`) and T01b-3 (`5445208`). Previous handoff base `0828d79` was verified as an ancestor. User authorized push and merge; merge only after the latest PR head passes CI. Read the resulting HEAD/PR state from Git/GitHub; hand over on main after merge.
 - User authorized the independent read-only slice and TDD. Human acceptance is scheduled for **2026-09-06, Asia/Taipei**; postponement does not remove requirements. The user subsequently authorized pushing and merging this branch; no public deployment or next implementation ticket is included.
+
+Visual companion: [offline screenshot evidence HTML](evidence/012-t01-manual-gallery.html), with unchanged embedded screenshots and [hash manifest](evidence/012-t01-manual-gallery.json). User authorized this record-only addition; no acceptance requirement is removed.
 
 ## Reading map
 
