@@ -74,3 +74,5 @@ prompts are disclosed in [the planning record](prompts/001-planning-record.md).
 The mentioned pre-event draft was not supplied or inspected; Victor must resolve
 any project-specific eligibility question with organizers. The former shared
 source table remains verbatim in [the historical archive](ai-usage/000-t00.md#third-party-sources).
+
+The [npm resolution diagnosis](evidence/013-t01a-npm-resolution.md) uses installed npm 11.17.0 / Arborist (ISC) in a synthetic test fixture. It references upstream [place-dep.js](https://github.com/npm/cli/blob/v11.17.0/workspaces/arborist/lib/place-dep.js), [node.js](https://github.com/npm/cli/blob/v11.17.0/workspaces/arborist/lib/node.js), and the [nested install strategy](https://docs.npmjs.com/cli/v11/commands/npm-update/#install-strategy). No upstream source was copied into the repository. The isolated candidate used protobufjs 7.6.6 and protobufjs-cli 1.3.3 (BSD-3-Clause); neither is added as a direct application dependency by this diagnostic.

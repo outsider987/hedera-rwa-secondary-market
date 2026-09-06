@@ -362,3 +362,9 @@ moved from the handoff during the approved documentation maintenance.
 ### 2026-09-06 Screenshot evidence companion
 
 Victor requested an HTML record with the supplied screenshots. [Prompt 014](../prompts/014-t01-manual-gallery.md) defines the exact documentation files. This adds offline visual evidence only; prior records and pending acceptance remain unchanged. No application implementation or public deployment is activated.
+
+### 2026-09-06 T01a npm resolution diagnosis
+
+Victor replied “go” to investigating the failed protobuf resolution gate with TDD. [Prompt 015](../prompts/015-t01a-npm-resolution.md) defines the bounded isolated experiment and exact files. This supersedes the record-only boundary for diagnosis only; no retained app dependency/source change or SDK/VC/NOVA integration is authorized by this diagnostic ticket.
+
+Outcome: npm hoisting/pruning mismatch reproduced; targeted nested update passes the isolated graph and clean install without unrelated version changes. The original generated decoders still fail 12 checks; no candidate dependency changes are retained. See [evidence 013](../evidence/013-t01a-npm-resolution.md). Next proposed scope is original-schema regeneration, not SDK integration or NOVA creation.
