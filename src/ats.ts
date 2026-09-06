@@ -1,3 +1,4 @@
+import { acquireOperation, assertOperation, releaseOperation } from './guards';
 import { checkDeployment, equityConfigCalldata, equityConfigId, mirrorUrl, rpcUrl, type DeploymentCheck } from './deployment';
 
 export type AtsLoadState = 'idle' | 'loading' | 'loaded' | 'failed';
@@ -35,10 +36,12 @@ export function prepareAts(): Promise<'loaded' | 'failed'> {
   return preparation;
 }
 
-export async function checkSdkConfig(signal: AbortSignal): Promise<SdkConfigCheck> {
+export async function checkSdkConfig(signal: AbortSignal, owner?: symbol): Promise<SdkConfigCheck> {
   signal.throwIfAborted();
   if (reading) throw new Error('An SDK config check is already pending.');
   if (!prepared) throw new Error('Prepare ATS SDK before checking config.');
+  if (owner) assertOperation(owner);
+  const lease = owner ?? acquireOperation();
   const deadline = AbortSignal.timeout(10_000), controller = new AbortController();
   const combined = AbortSignal.any([signal, controller.signal, deadline]);
   const { sdk, ethers } = prepared;
@@ -93,5 +96,6 @@ export async function checkSdkConfig(signal: AbortSignal): Promise<SdkConfigChec
     controller.abort();
     provider?.destroy();
     reading = false;
+    if (!owner) releaseOperation(lease);
   }
 }

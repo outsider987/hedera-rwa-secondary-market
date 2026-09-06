@@ -1,10 +1,78 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { useQueries, useQuery } from '@tanstack/react-query';
 import { useConnect, useConnection, useDisconnect } from 'wagmi';
-import { bindingProblem, loadRoles, roleNames, saveRoles, storageWarning, type MirrorAccount, type Roles } from './guards';
-import { getWalletSession, lookupAccount, queryClient, subscribeWalletSession, testnetChainId, walletConfig } from './wallet';
+import { acquireOperation, getOperationBusy, releaseOperation, subscribeOperation, bindingProblem, loadRoles, roleNames, saveRoles, storageWarning, type MirrorAccount, type Roles } from './guards';
+import { checkWalletReview, invalidateWalletSession, reviewWallet, type WalletReview, getWalletSession, lookupAccount, queryClient, subscribeWalletSession, testnetChainId, walletConfig } from './wallet';
 import { checkDeployment, deployments, equityConfigId } from './deployment';
 import { checkSdkConfig, prepareAts, type AtsLoadState, type SdkConfigCheck } from './ats';
+
+import { prepareSellerCredential, signSellerCredential, type PreparedCredential, type CredentialResult } from './credentials';
+import { credentialEvidence, downloadEvidence } from './evidence';
+
+function Credentials({ roles }: { roles: Roles }) {
+  const locked = useSyncExternalStore(subscribeOperation, getOperationBusy, () => false);
+  const [review, setReview] = useState<{ wallet: WalletReview; vc: PreparedCredential }>();
+  const [accepted, setAccepted] = useState(false);
+  const [result, setResult] = useState<CredentialResult>();
+  const [message, setMessage] = useState('Prepare a synthetic Seller credential with Admin selected.');
+  const [working, setWorking] = useState(false);
+  const mounted = useRef(true), controller = useRef<AbortController | undefined>(undefined);
+  useEffect(() => {
+    mounted.current = true;
+    return () => { mounted.current = false; controller.current?.abort(); };
+  }, []);
+  async function prepareCredential() {
+    if (getOperationBusy()) return;
+    const lease = acquireOperation(), current = controller.current = new AbortController();
+    setWorking(true); setReview(undefined); setResult(undefined); setAccepted(false); setMessage('Checking three accounts and preparing Seller VC…');
+    try {
+      const wallet = await reviewWallet(roles, current.signal);
+      const vc = await prepareSellerCredential(wallet.roles.Admin, wallet.roles.Seller);
+      await checkWalletReview(wallet);
+      if (mounted.current) { setReview({ wallet, vc }); setMessage('Review the credential below before signing.'); }
+    } catch {
+      if (mounted.current) setMessage('Preparation did not complete. Verify three distinct roles and select Admin on Hedera Testnet, then try again.');
+    } finally { current.abort(); releaseOperation(lease); if (mounted.current) setWorking(false); }
+  }
+  async function sign() {
+    if (!review || !accepted || getOperationBusy()) return;
+    setWorking(true); setResult(undefined); setMessage('Awaiting your signature in MetaMask. Complete or reject the request there.');
+    try {
+      const verified = await signSellerCredential(review.vc, review.wallet.provider, () => checkWalletReview(review.wallet));
+      if (mounted.current) { setResult(verified); setMessage(verified.verified
+        ? 'Seller VC verified. Expired, tampered and wrong-subject checks passed. No on-chain KYC was granted.'
+        : 'Credential verification failed. Prepare again; do not use this credential.'); setAccepted(false); }
+    } catch (error) {
+      if (mounted.current) { setMessage(error instanceof Error ? error.message : 'Signature did not complete. Check MetaMask.'); setAccepted(false); }
+    } finally { if (mounted.current) setWorking(false); }
+  }
+  return <section className="deployment" aria-labelledby="credential-heading">
+    <h2 id="credential-heading">Seller credential</h2>
+    <p>Admin signs a fictional KYC passed claim for Seller. No personal data or revocation registry is used.</p>
+    <p>Full credentials and signatures stay in memory. Account, network or role changes and reload invalidate them.</p>
+    <p id="credential-status" role="status" aria-live="polite">{locked && !working ? 'Another operation is pending. Complete it before continuing.' : message}</p>
+    {review && <>
+      <dl className="wallet-details">
+        <div><dt>Issuer (Admin)</dt><dd><code>{review.vc.payload.issuer}</code></dd></div>
+        <div><dt>Subject (Seller)</dt><dd><code>{review.vc.payload.credentialSubject.id}</code></dd></div>
+        <div><dt>Claims</dt><dd>SyntheticKyc · passed: true</dd></div>
+        <div><dt>Valid from (UTC)</dt><dd>{review.vc.payload.validFrom}</dd></div>
+        <div><dt>Valid until (UTC)</dt><dd>{review.vc.payload.validUntil}</dd></div>
+        <div><dt>Credential digest</dt><dd><code data-testid="credential-digest">{review.vc.digest}</code></dd></div>
+      </dl>
+      <label className="review-check"><input type="checkbox" checked={accepted} disabled={locked || !!result?.verified} onChange={event => setAccepted(event.target.checked)} />I reviewed the issuer, Seller, fixed claims, dates and digest.</label>
+    </>}
+    <div className="actions">
+      <button type="button" disabled={locked || !roleNames.every(role => roles[role])} onClick={prepareCredential}>Prepare Seller VC</button>
+      <button type="button" disabled={locked || !review || !accepted || !!result?.verified} onClick={sign}>Sign in MetaMask and verify</button>
+      <button type="button" className="secondary" disabled={locked || !review || !result} onClick={() => {
+        if (review && result) downloadEvidence(credentialEvidence({ digest: review.vc.digest, issuer: review.vc.payload.issuer,
+          subject: review.vc.payload.credentialSubject.id, validFrom: review.vc.payload.validFrom!, validUntil: review.vc.payload.validUntil!, ...result }));
+      }}>Export VC result</button>
+    </div>
+    <p className="deployment-note">Desktop Chrome + MetaMask ECDSA only. A signature is not a transaction. Native BBS is not supported.</p>
+  </section>;
+}
 
 function Deployment() {
   const operation = useRef(false);
@@ -17,7 +85,8 @@ function Deployment() {
   const query = useQuery({ queryKey: ['deployment'], queryFn: ({ signal }) => checkDeployment(signal), enabled: false });
   const result = query.isSuccess && !query.isFetching && !sdkReading ? query.data : undefined;
   const checking = query.isFetching || sdkReading;
-  const busy = checking || sdkLoad === 'loading';
+  const locked = useSyncExternalStore(subscribeOperation, getOperationBusy, () => false);
+  const busy = checking || sdkLoad === 'loading' || locked;
 
   function invalidateSdk(message: string) {
     epoch.current++;
@@ -42,7 +111,8 @@ function Deployment() {
   }, []);
 
   async function prepare() {
-    if (operation.current) return;
+    if (operation.current || getOperationBusy()) return;
+    const lease = acquireOperation();
     operation.current = true;
     setSdkLoad('loading'); setSdkMessage('Preparing ATS SDK…');
     try {
@@ -51,11 +121,11 @@ function Deployment() {
         setSdkLoad(state);
         setSdkMessage(state === 'loaded' ? 'SDK prepared. Config has not been checked.' : 'SDK preparation failed. Retry preparation or reload when ready.');
       }
-    } finally { operation.current = false; }
+    } finally { operation.current = false; releaseOperation(lease); }
   }
 
   async function checkSdk() {
-    if (operation.current || sdkLoad !== 'loaded') return;
+    if (operation.current || getOperationBusy() || sdkLoad !== 'loaded') return;
     operation.current = true;
     const current = controller.current = new AbortController(), attempt = ++epoch.current;
     sdkAttempted.current = true;
@@ -78,13 +148,14 @@ function Deployment() {
   }
 
   async function check() {
-    if (operation.current) return;
+    if (operation.current || getOperationBusy()) return;
+    const lease = acquireOperation();
     operation.current = true;
     sdkAttempted.current = false;
     setSdkResult(undefined);
     setSdkMessage(sdkLoad === 'loaded' ? 'SDK prepared. Config has not been checked.' : 'SDK not prepared.');
     try { await query.refetch({ cancelRefetch: false }); }
-    finally { operation.current = false; }
+    finally { operation.current = false; releaseOperation(lease); }
   }
 
   return <section className="deployment" aria-labelledby="deployment-heading">
@@ -136,7 +207,7 @@ function Deployment() {
         </button>
         {sdkReading && <button type="button" className="secondary" disabled={controller.current?.signal.aborted} onClick={() => invalidateSdk('SDK check cancelled. Run a new check when ready.')}>Cancel SDK check</button>}
       </div>
-      <p className="deployment-note">This verifies the SDK config read only. Recheck before creating NOVA; VC verification remains pending.</p>
+      <p className="deployment-note">This verifies the SDK config read only. Recheck before creating NOVA. Review the Seller credential result below.</p>
     </section>
   </section>;
 }
@@ -226,11 +297,13 @@ export default function App() {
   const savedRef = useRef(saved);
   const [walletMessage, setWalletMessage] = useState('');
   const [busy, setBusy] = useState(false);
+  const locked = useSyncExternalStore(subscribeOperation, getOperationBusy, () => false);
   const operation = useRef(false);
   const ready = connection.isConnected && connection.chainId === testnetChainId && !busy;
 
   async function handleWallet() {
-    if (operation.current) return;
+    if (operation.current || getOperationBusy()) return;
+    const lease = acquireOperation();
     operation.current = true;
     setBusy(true);
     setWalletMessage('');
@@ -249,6 +322,7 @@ export default function App() {
     } finally {
       operation.current = false;
       setBusy(false);
+      releaseOperation(lease);
     }
   }
 
@@ -257,6 +331,7 @@ export default function App() {
     const roles = update(latest.roles);
     if (roles === latest.roles) return;
     savedRef.current = { roles, warning: latest.warning || (saveRoles(roles) ? '' : storageWarning) };
+    invalidateWalletSession();
     setSaved(savedRef.current);
   }
 
@@ -284,7 +359,7 @@ export default function App() {
               ? ready ? 'Connected to Hedera Testnet.' : 'Wrong network. Switch to Hedera Testnet (296 / 0x128) in MetaMask.'
               : 'Wallet not connected. Press Connect to begin.'}
           </p>
-          <div className="actions"><button type="button" disabled={busy} aria-describedby="wallet-status" onClick={handleWallet}>{connection.isConnected ? 'Disconnect' : 'Connect'}</button></div>
+          <div className="actions"><button type="button" disabled={busy || locked} aria-describedby="wallet-status" onClick={handleWallet}>{connection.isConnected ? 'Disconnect' : 'Connect'}</button></div>
           {walletMessage && <p role="alert">{walletMessage}</p>}
         </section>
 
@@ -292,6 +367,7 @@ export default function App() {
         <Accounts key={session} session={session} address={connection.address} ready={ready} roles={saved.roles} changeRoles={changeRoles} />
 
         <Deployment />
+        <Credentials key={`credential-${session}`} roles={saved.roles} />
 
         <div className="columns">
           <section aria-labelledby="asset-heading">
@@ -316,14 +392,14 @@ export default function App() {
               <li><strong>Seller KYC &amp; issuance</strong><span>Grant synthetic KYC and issue 100 NOVA.</span></li>
               <li><strong>Prove the Hold lifecycle</strong><span>Hold 10, verify KYC rejection, grant Buyer KYC, execute 6, release 4.</span></li>
             </ol>
-            <p>All steps are pending. Victor approves each signature in MetaMask.</p>
+            <p>Lifecycle steps require separate verification. Victor approves each signature in MetaMask.</p>
           </section>
         </div>
 
         <section className="evidence" aria-labelledby="evidence-heading">
           <h2 id="evidence-heading">Transaction evidence</h2>
           <p>No transactions yet.</p>
-          <p>This page reads public Mirror records, Testnet deployment bytecode and the Equity config version. No signatures or transactions are requested.</p>
+          <p>VC signatures are requested only after review. No transactions have been submitted by this page.</p>
         </section>
       </main>
 

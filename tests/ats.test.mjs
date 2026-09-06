@@ -9,8 +9,8 @@ import { registerHooks } from 'node:module';
 
 // Resolve this browser-style relative import for Node's native TypeScript loader.
 registerHooks({ resolve(specifier, context, next) {
-  return next(specifier === './deployment' && context.parentURL?.includes('/src/ats.ts')
-    ? new URL('./deployment.ts', context.parentURL).href : specifier, context);
+  return next(['./deployment', './guards'].includes(specifier) && context.parentURL?.includes('/src/ats.ts')
+    ? new URL(specifier + '.ts', context.parentURL).href : specifier, context);
 } });
 import { patchAtsReadonly, patches } from '../scripts/patch-ats-readonly.mjs';
 import { config } from '../src/compat/dotenv.ts';

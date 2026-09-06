@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-06 | Manual Seller VC implementation | [Review/sign/verify and pending human acceptance](docs/ai-usage/028-vc-implementation.md) |
 | 2026-09-06 | Retained ECDSA dependency repair | [Scoped repair and explicit native exclusion](docs/ai-usage/027-b2-retained-repair.md) |
 | 2026-09-06 | B2 isolated dependency trial | [Security/caller checks pass; native boundary remains](docs/ai-usage/026-b2-dependency-trial.md) |
 | 2026-09-06 | B2 VC dependency readiness | [Complete closure and scoped trial proposal](docs/ai-usage/025-b2-vc-readiness.md) |

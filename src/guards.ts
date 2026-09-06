@@ -67,3 +67,16 @@ export function saveRoles(roles: Roles, getStorage: () => Pick<Storage, 'setItem
     return false;
   }
 }
+
+// ponytail: one SDK singleton and one wallet prompt; a global lease is intentional.
+let operation: symbol | undefined;
+const operationListeners = new Set<() => void>();
+export const getOperationBusy = () => operation !== undefined;
+export function subscribeOperation(notify: () => void) { operationListeners.add(notify); return () => { operationListeners.delete(notify); }; }
+export function acquireOperation() {
+  if (operation) throw new Error('Another operation is pending. Complete it before continuing.');
+  operation = Symbol('operation'); operationListeners.forEach(notify => notify()); return operation;
+}
+export function assertOperation(lease: symbol) { if (operation !== lease) throw new Error('Stale operation.'); }
+export function releaseOperation(lease: symbol) { if (operation === lease) { operation = undefined; operationListeners.forEach(notify => notify()); } }
+export function assertSession(expected: number, current: number) { if (expected !== current) throw new Error('Session changed. Prepare and review again.'); }

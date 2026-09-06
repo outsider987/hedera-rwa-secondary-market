@@ -457,3 +457,11 @@ Dependency outcome: evidence 021 retains the exact trial delta plus the two
 approved Terminal3 root pins. Desktop ECDSA prerequisite passes the bounded
 security, clean-install and browser checks; native BBS is excluded. Proceed to
 the already-authorized VC implementation stage; human T01 remains Pending.
+
+
+VC implementation outcome: evidence 022 supplies reviewed manual ECDSA signing,
+genuine Terminal3 verification with expected fields/digest and negative checks,
+shared operation/session guards and public-only export. Automated Node/browser
+checks pass; positive human dev/preview signatures and retained T01 checks
+remain Pending. The already-authorized NOVA UI/automation may proceed; actual
+creation remains gated and preview-only. No T03/T04 activation.

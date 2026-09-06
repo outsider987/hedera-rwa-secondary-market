@@ -77,3 +77,6 @@ button:disabled { color: #526572; background: #e7edf1; border-color: #c1cdd6; cu
   .role-row { grid-template-columns: 1fr; gap: 0.5rem; }
   .role-row .actions { margin-top: 0.5rem; }
 }
+
+.review-check { display: flex; align-items: flex-start; gap: 0.75rem; margin-block: 1rem; max-width: 72ch; cursor: pointer; }
+.review-check input { flex: 0 0 auto; width: 1.25rem; height: 1.25rem; margin: 0.15rem 0 0; accent-color: #155781; }

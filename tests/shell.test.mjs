@@ -24,7 +24,7 @@ test('the shell renders planned data without claiming a wallet or chain result',
       'USNOVA000016',
       'Not created',
       'No transactions yet.',
-      'All steps are pending.',
+      'Lifecycle steps require separate verification.',
       'Set up three accounts',
       'Not assigned',
       'Assignments are local labels',
@@ -46,7 +46,9 @@ test('the shell renders planned data without claiming a wallet or chain result',
     assert.match(html, /disabled=""[^>]*>Check SDK config<\/button>/);
     assert.doesNotMatch(html, /SDK config verified|SDK prepared\./);
     assert.doesNotMatch(html, /Deployment and config verified|On-chain Equity config verified/);
-    assert.doesNotMatch(html, /<form|<input|<iframe/);
+    assert.doesNotMatch(html, /<iframe/);
+    assert.ok(html.includes('Prepare Seller VC'));
+    assert.ok(html.includes('Sign in MetaMask and verify'));
   } finally {
     await server.close();
   }

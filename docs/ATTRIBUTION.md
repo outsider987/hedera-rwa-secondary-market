@@ -177,3 +177,13 @@ Undici 6.28.0 and both scoped UUID 11.1.1 copies are MIT. Terminal3 vc_core
 Historical statements above that the candidate is unretained describe their
 dated stages. Native BBS is outside desktop ECDSA support, not verified.
 No cryptographic or existing SDK/proto repair source changed.
+
+The [VC flow](evidence/022-vc-implementation.md) uses Terminal3 vc_core 0.0.19,
+verify_vc 0.0.20 and the proof layout/hash semantics of ecdsa_vc 0.1.16 (MIT).
+The application independently adapts the proof fields to a manually approved
+wagmi provider personal_sign request, preserving UTF-8 hash-string semantics.
+Published verifier code is unchanged; no upstream private-key issuer or key
+fixture was copied. The [MetaMask signing guide](https://docs.metamask.io/metamask-connect/evm/guides/sign-data/)
+was consulted on September 6, 2026. Viem's existing keccak256/stringToHex/getAddress
+utilities implement matching JSON hash/checksum operations, checked against
+pinned ethers 6.17.0. Native BBS is explicitly outside this supported path.
