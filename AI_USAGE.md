@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-06 | T01b-4 official SDK config prerequisite | [Public initialization request missing; integration blocked](docs/ai-usage/021-t01b-4-sdk-config.md) |
 | 2026-09-06 | T01a original-schema decoder regeneration | [Reproducible repair; compatibility/security and browser gates pass](docs/ai-usage/020-t01a-decoder-rebuild.md) |
 | 2026-09-06 | T01a npm resolution diagnosis | [Hoisting failure explained; isolated resolution passes, decoder gate remains](docs/ai-usage/019-t01a-npm-resolution.md) |
 | 2026-09-06 | Screenshot evidence HTML | [Offline page with original screenshots](docs/ai-usage/018-t01-manual-gallery.md) |

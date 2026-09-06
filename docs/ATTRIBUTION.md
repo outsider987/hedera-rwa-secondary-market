@@ -14,7 +14,7 @@ license or event eligibility is asserted by public GitHub availability.
 | React / React DOM 19.2.8 | Console UI | MIT; [React](https://github.com/facebook/react) |
 | Vite 8.2.2 | Dev/build tooling | MIT; [Vite](https://github.com/vitejs/vite) |
 | TypeScript 7.0.2 | Typechecking | Apache-2.0; [TypeScript](https://github.com/microsoft/TypeScript) |
-| ATS SDK 8.0.0 | Retained diagnostic root loader; removed from the current page; wallet/VC/chain integration pending | Apache-2.0; [ATS](https://github.com/hashgraph/asset-tokenization-studio) |
+| ATS SDK 8.0.0 | Diagnostic public-entry loading and read-initialization prerequisite probe; current app SDK/VC integration pending | Apache-2.0; [ATS](https://github.com/hashgraph/asset-tokenization-studio) |
 | wagmi 3.7.7 / @wagmi/core 3.6.5 / @wagmi/connectors 8.2.0 | React connection state and injected EIP-1193 connector; no other connector activated | MIT; [wagmi](https://github.com/wevm/wagmi), [official integration](https://wagmi.sh/react/getting-started), [provider reconnect setting](https://wagmi.sh/react/api/WagmiProvider), [injected](https://wagmi.sh/react/api/connectors/injected) |
 | viem 2.56.3 | Direct dependency; wagmi utilities and public Testnet chain/bytecode reads using createClient with getChainId/getCode/readContract actions; CCIP Read disabled | MIT; [viem](https://github.com/wevm/viem) |
 | @tanstack/react-query / query-core 5.102.8 | Account/deployment query lifecycle and wagmi mutations | MIT; [TanStack Query](https://github.com/TanStack/query) |
@@ -93,3 +93,16 @@ The SDK bundle inventory accounts for six already-shipped embedded Lit files
 under @phosphor-icons/webcomponents; their owning locked package is unchanged.
 The compiler adds no rendered browser modules. This correction does not rewrite
 the outcomes of earlier rejected trials.
+
+The [T01b-4 prerequisite diagnostic](evidence/015-t01b-4-sdk-config.md) uses the
+unchanged public SDK entry and references the pinned
+[request exports](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/sdk/src/port/in/request/index.ts),
+[request validation](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/sdk/src/core/validation/Validation.ts),
+[Network API](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/sdk/src/port/in/network/Network.ts)
+and RPC adapter (Apache-2.0). Ethers 6.17.0 (MIT), already installed, was reviewed
+for provider/fetch defaults; it was not added as a direct dependency or used to
+replace the SDK transport. [Provider source](https://github.com/ethers-io/ethers.js/blob/v6.17.0/src.ts/providers/provider-jsonrpc.ts),
+[fetch source](https://github.com/ethers-io/ethers.js/blob/v6.17.0/src.ts/utils/fetch.ts).
+The independently written diagnostic reuses the existing deployment check and
+build/browser patterns. Only temporary probe source is generated; no upstream
+implementation is copied into Git, and no SDK config result is fabricated.
