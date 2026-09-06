@@ -398,3 +398,20 @@ Outcome: **isolated trial passed**, with genuine public-root request validation 
 Victor's “接吧” activates [Prompt 020](../prompts/020-t01b-4-sdk-integration.md), based on `95b00f9`. Reuse the verified local export/provider repair for explicit manual SDK preparation and config reads in the existing page. The original viem preflight, Testnet restrictions, safe payload, shared deadline/cancellation, serialization and full browser/live acceptance remain mandatory. No dependency/patch change, VC, transaction, NOVA creation or automatic push/merge is included. Remaining human checks and B2 stay open.
 
 Outcome: **main-app integration passed automated acceptance**. Manual SDK preparation/config controls now use the verified public-root request/provider path. All 89 Node tests, 116 app SDK browser cases (including four live payloads of `1`), 20 existing wallet browser cases and ci/typecheck/build pass. [Evidence 018](../evidence/018-t01b-4-sdk-integration.md) records the full inventory and limits. New real MetaMask acceptance, B2 and VC remain pending. The next proposed ticket is B2 readiness/repair research with exact files in HANDOFF; it is not activated.
+
+### 2026-09-06 B2 VC dependency readiness activation and outcome
+
+Victor asked whether to proceed with VC verification and NOVA creation.
+[Prompt 021](../prompts/021-b2-vc-readiness.md) activates the handoff's bounded
+prerequisite research, based on `6a331f3`. No dependency/app/patch change or
+signature/transaction is included. The intended lifecycle remains the goal;
+its T01/B2 and manual-signature requirements are preserved.
+
+Outcome: full 196-location Terminal3 closure reviewed; 19 intersecting audit
+entries. A five-target, six-parent scoped dependency trial is specified in
+HANDOFF. No tested compatible repair is yet available. Ethers 6.17.0 satisfies
+Terminal3's declared ranges and is the proposed trial pin; the old 6.15.0 VC
+proposal is historical and must not trigger a downgrade. This is source
+compatibility reasoning, not VC runtime acceptance. [Evidence 019](../evidence/019-b2-vc-readiness.md)
+records current checks and the screenshot's limited successful SDK observation.
+Stop at research; isolated trial and retained repair require their own scopes.

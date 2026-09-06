@@ -140,3 +140,16 @@ verified local patch and the existing viem preflight without dependency changes.
 SDK loading is explicit; its complete lazy bundle inventory is retained with
 the new evidence. Broad upstream modules may be bundled without being invoked;
 config-read acceptance does not establish VC or transaction compatibility.
+
+The [B2 readiness research](evidence/019-b2-vc-readiness.md) inspects published
+Terminal3 sources (vc_core/verify_vc/verify_vc_core/ecdsa_vc/bbs_vc/revoke_vc,
+MIT), MATTR BBS 1.4.0's native/WASM loader (Apache-2.0), and ATS KYC call paths
+(Apache-2.0). No upstream implementation was copied or altered. Current public
+npm metadata and maintainer advisories are linked in evidence 019, which records
+all 196 dependency/optional/peer locations and affected advisory paths.
+Proposed tar 7.5.22 declares **BlueOak-1.0.0**, unlike installed-lock tar 6.2.1's
+ISC; it has not been installed. Proposed UUID 11.1.1, tmp 0.2.7, toml 4.2.0 and
+Undici 6.28.0 declare MIT. Native neon-cli references LICENSE-*; lock-only
+iniparser 1.0.5 lacks license metadata, so no license is inferred. These and
+existing dfns gaps require resolution for affected future work. Reusing the
+published verifier does not establish legal compliance or acceptance of a VC.

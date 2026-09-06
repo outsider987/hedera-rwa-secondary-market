@@ -2,10 +2,10 @@
 
 ## Current boundary / Git base
 
-**T01b-4 main-app SDK config integration passed automated acceptance: four live Testnet SDK reads returned payload `1`. The page offers manual SDK preparation and a separate SDK payload after a fresh Testnet preflight. B1 remains repaired within its bounded gate. B2, VC and remaining human acceptance stay open; T01 is not complete.**
+**B2 dependency readiness research is complete; a scoped repair trial is proposed, not yet run. SDK config remains automated-passed, and Victor supplied a screenshot displaying payload `1`. B2, VC, NOVA and the remaining human checklist stay open; T01 is not complete.**
 
-- `based_on_commit: 95b00f958e5487a1680e3e277c49397d4ff79947` (integration base, not the commit containing this handoff). Previous base `5e81069a700cc597f04b3aa254b774e60d76ac63` was verified as an ancestor.
-- Current branch: `diagnostic/t01b-4-sdk-config`. Victor's “接吧” activated the main-app SDK config integration only. Commit work and documents locally; no automatic push/merge or next-ticket implementation. Read actual HEAD from Git.
+- `based_on_commit: 6a331f32404f07c977a0aecc14a41bcd9fc59797` (research base, not the commit containing this handoff). Previous base `95b00f958e5487a1680e3e277c49397d4ff79947` was verified as an ancestor.
+- Current branch: `diagnostic/t01b-4-sdk-config`. Victor's request to proceed with VC/NOVA activated the prerequisite B2 research scope in Prompt 021. Commit work and documents locally; no automatic push/merge or next-ticket implementation. Read actual HEAD from Git.
 - Historical integration: PR #2 merged as `c45a072`, including T01b-2 (`0828d79`) and T01b-3 (`5445208`). The screenshot record is at `2dfeff6`. Manual acceptance on **2026-09-06, Asia/Taipei** covers the recorded observations only; remaining requirements are preserved below.
 
 Visual companion: [offline screenshot evidence HTML](evidence/012-t01-manual-gallery.html), with unchanged embedded screenshots and [hash manifest](evidence/012-t01-manual-gallery.json). No acceptance requirement is removed.
@@ -16,6 +16,7 @@ Read AGENTS and this file fully, then the shared rules and latest activation/out
 
 | Need | Read |
 | --- | --- |
+| Current B2 research and proposed trial | [Readiness evidence](evidence/019-b2-vc-readiness.md), [Prompt 021](prompts/021-b2-vc-readiness.md) |
 | Current main-app SDK controls and checks | [Integration evidence](evidence/018-t01b-4-sdk-integration.md), [Prompt 020](prompts/020-t01b-4-sdk-integration.md) |
 | Retained patch, isolated transport checks and limits | [Trial evidence](evidence/017-sdk-readonly-trial.md), [Prompt 019](prompts/019-sdk-readonly-trial.md) |
 | Original public API gaps / repair rationale | [Read-only options](evidence/016-sdk-readonly-options.md) |
@@ -45,6 +46,8 @@ Read AGENTS and this file fully, then the shared rules and latest activation/out
 - **Still required for T01:** remaining manual checks below and B2 resolution; synthetic Admin-signed VC accepted and expired/tampered/wrong-subject credentials rejected. Victor approves every future VC signature and transaction manually in MetaMask. No T02/NOVA creation is activated.
 - The unseen pre-event research draft remains uninspected; Victor must resolve event eligibility and project-license questions. No real KYC or legal-compliance claims.
 
+B2 research enumerated all 196 Terminal3 dependency/optional/peer locations, including the absent native branch. Nineteen audit entries intersect that closure; full audit remains 80 with unchanged advisory ranges. The proposed five dependency targets require six parent-scoped overrides and cross declared ranges; none are installed. Current ci, 89 Node tests, typecheck/build and four controlled unchanged-app browser smoke cases passed. Source analysis supports retaining ethers 6.17.0 for a trial, not VC compatibility. See evidence 019 for exact versions, licenses and limitations.
+
 ## Victor acceptance — scheduled 2026-09-06 (Asia/Taipei)
 
 Use desktop Chrome with only MetaMask installed. Start `npm run dev` (5173); after build, `npm run preview` (4173). Run the desktop flow on both. Use only public EVM/Hedera IDs and short observations; never export a browser profile, wallet object, secrets or signatures. Local role labels do not establish on-chain permissions.
@@ -57,7 +60,7 @@ Core desktop results on dev/preview are recorded in [manual evidence](evidence/0
 | Independent comparison of all three raw Mirror account records | Pending |
 | Deployment check while disconnected; reload resets result; no signing/transaction/automatic switch prompt | Pending |
 | Mobile layout, focus and overflow (no mobile-wallet claim) | Pending |
-| New SDK controls on dev/preview: manual preparation, payload, cancellation and reload without a wallet prompt | Pending |
+| New SDK controls on dev/preview: manual preparation, payload, cancellation and reload without a wallet prompt | Partial: screenshot shows prepared/verified and payload 1; mode, cancellation, reload and prompt absence remain Pending |
 
 Browser/MetaMask versions and the single-wallet environment are not independently recorded. Do not require repeat screenshots for already confirmed behaviors.
 
@@ -65,14 +68,62 @@ Record each outcome as Pending / Passed / Failed / Blocked with the actual date 
 
 ## Next action / exact allowed files
 
-T01b-4 has reached its implementation boundary. Commit the verified work and documents together, then stop; no automatic push/merge. The existing local app remains available on 5173/4173. The browser harness closed its scratch servers 5185/4185 and fresh contexts. No B2/VC or NOVA work is activated.
+B2 research has reached its boundary. Commit these records locally and stop;
+no automatic push/merge or next-ticket implementation. No VC or NOVA is created.
+Existing local dev/preview remain available on 5173/4173.
 
-Next proposed ticket: **B2 VC dependency readiness and bounded repair proposal**, not activated. Assess the installed Terminal3/BBS/tar paths, current upstream advisory fixes and the earlier VC ethers pin against the retained 6.17.0 read path. Reuse prior inventories; inspect the affected closure completely. Produce a concrete compatible candidate and reproducible checks, or precise mentor diagnostics if no candidate satisfies the pins. No dependency change, SDK patch expansion, signer, secret, upstream test key, VC signature or transaction is included in this research ticket.
+Next proposed ticket: **isolated B2 dependency compatibility trial**, not activated.
+Keep application/framework/ATS/Terminal3 pins and ethers 6.17.0. In a disposable
+copy only, test these exact additional override entries (merge with retained
+protobuf overrides; never replace them):
 
-Exact repository files when separately activated:
+```json
+{
+  "@mapbox/node-pre-gyp@1.0.11": { "tar": "7.5.22" },
+  "neon-cli@0.10.1": { "toml": "4.2.0" },
+  "external-editor@3.1.0": { "tmp": "0.2.7" },
+  "@digitalbazaar/http-client@3.4.1": { "undici": "6.28.0" },
+  "@terminal3/vc_core@0.0.19": { "uuid": "11.1.1" },
+  "@terminal3/bbs_vc@0.2.18": { "uuid": "11.1.1" }
+}
+```
 
-- New `docs/evidence/019-b2-vc-readiness.mjs`, `.md`, `.json` for public dependency/source/advisory inspection and its results. Read installed/public library code and metadata; do not load wallet profiles, .env files or upstream private-key fixtures.
-- New `docs/prompts/021-b2-vc-readiness.md`, `docs/ai-usage/025-b2-vc-readiness.md`; HANDOFF, plan, ATTRIBUTION and AI_USAGE.
-- No application, manifest, lock or retained repair changes. Any proposed repair must identify exact files, versions, source/license changes and TDD/security/compatibility acceptance before separate activation.
+These are published candidate versions, not a compatible or approved repair.
+Do not change cryptographic implementations, disable the BBS verifier, enable
+native install scripts or globally omit optional dependencies to hide findings.
+Tar's license changes ISC to BlueOak-1.0.0. Preserve notices and inspect the
+native/neon license files and iniparser metadata gap before claiming coverage.
 
-Report all relevant advisory/peer/license findings and how the candidate affects the installed graph and browser bundle. Distinguish source analysis from runtime proof; do not call a VC accepted without the real verifier. Preserve every remaining human requirement and future manual MetaMask approval. No NOVA/T02 or next-ticket implementation follows automatically.
+Exact allowed repository files when separately activated:
+
+- New `docs/evidence/020-b2-dependency-trial.mjs`,
+  `docs/evidence/020-b2-dependency-trial.test.mjs`,
+  `docs/evidence/020-b2-dependency-trial.md`,
+  `docs/evidence/020-b2-dependency-trial.json`.
+- New `docs/prompts/022-b2-dependency-trial.md`,
+  `docs/ai-usage/026-b2-dependency-trial.md`; HANDOFF, plan, ATTRIBUTION, AI_USAGE.
+- Scratch manifests/locks may change; repository manifest/lock/app/patch files
+  remain unchanged. Any retained repair needs its own exact scope afterward.
+
+Acceptance: TDD security checks fail against affected baseline dependencies,
+pass against candidates; inspect callers before writing tests. Cover tar
+traversal/depth/PAX/size boundaries and node-pre-gyp extraction API; toml
+prototype/recursion and neon parsing; tmp path validation and external-editor
+cleanup; http-client/Undici Agent behavior with controlled local HTTP; UUID
+v4 format and affected buffer bounds. Do not execute upstream private-key
+fixtures. Test actual public verifier loading and malformed/expired rejection
+without any signer; positive Admin-signed VC acceptance stays pending for the
+later manual VC ticket. No fabricated signature or mock verifier counts.
+
+Compare the entire scratch lock, transitive audit, peers, licenses, optional
+closure and browser bundle; no unrelated drift/new advisory accepted. Reproduce
+with clean install and unchanged script approvals, retained proto/SDK gates,
+89 Node tests, typecheck/build and SDK dev/preview checks. Do not infer native
+binary compatibility from absent optional modules; if that path cannot be
+verified, record the limit and request mentor guidance rather than clear B2.
+
+Mentor questions if blocked: which supported installation repairs tar/toml/tmp
+without changing ATS 8.0.0 or Terminal3 verification? Is a maintained WASM-only
+BBS distribution available with identical public verification semantics? Can
+Terminal3 validate the proposed UUID/Undici range changes? These questions are
+drafted, not sent. No T02/NOVA or chain mutation follows automatically.
