@@ -2,7 +2,8 @@
 
 Current uses include the independent wagmi wallet slice and the viem deployment
 and Equity config checks based on `0828d79`.
-The earlier decoder rebuild trial remains stopped/restored. Dated AI/human
+The earlier stopped trial is historical; the bounded original-schema repair is
+now retained in evidence 014. Dated AI/human
 contributions are indexed in [AI_USAGE.md](../AI_USAGE.md).
 This list covers directly used libraries, tools and references; transitive
 versions remain in [package-lock.json](../package-lock.json). No project-wide
@@ -24,8 +25,8 @@ license or event eligibility is asserted by public GitHub availability.
 | Existing nested abitype 1.2.3 / ox 0.14.44 | Additional rendered viem ABI/RPC helpers for readContract; versions and lock unchanged | MIT; [ABIType](https://github.com/wevm/abitype), [Ox](https://github.com/wevm/ox); [bundle membership](evidence/010-t01b-3-bundle.json) |
 | @hiero-ledger/proto 2.25.0 | Supplies wallet-connect's missing runtime import | Apache-2.0; [Hiero SDK repository](https://github.com/hiero-ledger/hiero-sdk-js) |
 | @hashgraph/proto 2.18.5 / @hashgraph/sdk 2.64.5 / @hiero-ledger/sdk 2.79.0 | Existing transitive parents; public proto compatibility and decoder diagnostic | Apache-2.0; [Hiero SDK repository](https://github.com/hiero-ledger/hiero-sdk-js), exact versions in lockfile |
-| protobufjs 7.2.5 / 7.5.4 / 7.6.6; rejected candidates 7.6.5 and 7.6.6 | Runtime baseline and bounded trials; no upstream source copied or regenerated | BSD-3-Clause; [protobuf.js](https://github.com/protobufjs/protobuf.js), [7.6.6 source](https://github.com/protobufjs/protobuf.js/tree/protobufjs-v7.6.6) |
-| protobufjs-cli 1.3.3 | Installed/audited for the bounded rebuild trial; removed from project dependencies before generation or candidate browser build | BSD-3-Clause; [CLI source](https://github.com/protobufjs/protobuf.js/tree/protobufjs-cli-v1.3.3/cli); exact temporary closure and declared licenses in [compiler lock](evidence/007-t01a-protobuf-rebuild-compiler-lock.json) |
+| protobufjs 7.6.6 | Retained exact runtime/dev pin and four qualified parent overrides; older runtime trials remain historical | BSD-3-Clause; [protobuf.js](https://github.com/protobufjs/protobuf.js), [7.6.6 source](https://github.com/protobufjs/protobuf.js/tree/protobufjs-v7.6.6) |
+| protobufjs-cli 1.3.3 | Retained exact dev tool for root postinstall regeneration; native static-module ES6/CommonJS wrappers | BSD-3-Clause; [CLI source](https://github.com/protobufjs/protobuf.js/tree/protobufjs-cli-v1.3.3/cli); full added closure/licenses in [repair record](evidence/014-t01a-decoder-rebuild.json) |
 | @hiero-ledger/proto 2.31.0 | Published source inspected for prior repair research only; not installed or bundled | Apache-2.0; [published metadata](https://registry.npmjs.org/@hiero-ledger%2Fproto/2.31.0) |
 | long 5.3.1 / 5.3.2 (proto paths) | Existing transitive 64-bit representation; public Long.isLong in diagnostic only | Apache-2.0; [long.js](https://github.com/dcodeIO/long.js), all paths/versions in lockfile |
 | vite-plugin-node-polyfills 0.28.0 | Vite 8 browser compatibility | MIT; [plugin](https://github.com/davidmyersdev/vite-plugin-node-polyfills/tree/v0.28.0) |
@@ -76,3 +77,19 @@ any project-specific eligibility question with organizers. The former shared
 source table remains verbatim in [the historical archive](ai-usage/000-t00.md#third-party-sources).
 
 The [npm resolution diagnosis](evidence/013-t01a-npm-resolution.md) uses installed npm 11.17.0 / Arborist (ISC) in a synthetic test fixture. It references upstream [place-dep.js](https://github.com/npm/cli/blob/v11.17.0/workspaces/arborist/lib/place-dep.js), [node.js](https://github.com/npm/cli/blob/v11.17.0/workspaces/arborist/lib/node.js), and the [nested install strategy](https://docs.npmjs.com/cli/v11/commands/npm-update/#install-strategy). No upstream source was copied into the repository. The isolated candidate used protobufjs 7.6.6 and protobufjs-cli 1.3.3 (BSD-3-Clause); neither is added as a direct application dependency by this diagnostic.
+
+The subsequent [retained repair](evidence/014-t01a-decoder-rebuild.md) regenerates
+the unchanged Apache-2.0 schemas in @hashgraph/proto 2.18.5 and
+@hiero-ledger/proto 2.25.0 using their pinned Taskfiles above and the BSD-3-Clause
+compiler. Generated outputs remain inside the installed packages; upstream
+license files are retained. No schema or generated upstream implementation is
+committed to Git. Archive entrypoint selection is inferred from the unquoted
+Taskfile glob and checked against the exact original public API; see
+[shell pattern semantics](https://www.gnu.org/s/bash/manual/html_node/Pattern-Matching.html).
+The local generator resolves only verified archive files and uses pbjs private
+root names to keep the two public proto modules independent. The new Node test
+reuses the repository's synthetic diagnostics and adds both load orders.
+The SDK bundle inventory accounts for six already-shipped embedded Lit files
+under @phosphor-icons/webcomponents; their owning locked package is unchanged.
+The compiler adds no rendered browser modules. This correction does not rewrite
+the outcomes of earlier rejected trials.

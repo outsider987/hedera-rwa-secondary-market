@@ -2,25 +2,26 @@
 
 ## Current boundary / Git base
 
-**T01a npm resolution diagnosis is complete: the isolated graph workaround passes, but 12 generated-decoder security checks still fail. No app dependencies/source were changed. T01b-3 combined deployment and Equity config reads are implemented; automated and live public-endpoint checks pass. Victor has passed the core desktop MetaMask flows on dev/preview; specific remaining manual checks are listed below. T01 is not complete.**
+**T01a's bounded decoder repair passes and is retained: clean installation rebuilds both original schemas, all 36 proto tests pass, and the official SDK entry loads in isolated dev/preview browsers. B2 and full SDK config/VC integration remain open. T01b-3 public deployment/config reads and Victor's core desktop MetaMask acceptance remain intact. T01 is not complete.**
 
-- `based_on_commit: 2dfeff659419c18bac14d8e01f7046ba1af98d6a` (npm-diagnosis base, not the commit containing this handoff).
-- Integration completed in `c45a072` (PR #2); current branch is `diagnostic/t01a-npm-resolution`; user authorized the bounded diagnosis via “go”. Historical integration: `feat/t01b-3-config-check` → `main`, including T01b-2 (`0828d79`) and T01b-3 (`5445208`). Previous handoff base `0828d79` was verified as an ancestor. User authorized push and merge; merge only after the latest PR head passes CI. Read the resulting HEAD/PR state from Git/GitHub; hand over on main after merge.
-- User authorized the independent read-only slice and TDD. Human acceptance is scheduled for **2026-09-06, Asia/Taipei**; postponement does not remove requirements. The user subsequently authorized pushing and merging this branch; no public deployment or next implementation ticket is included.
+- `based_on_commit: 301833451e18cb993b4db480116f82def4b870e6` (regeneration base, not the commit containing this handoff). Previous base `2dfeff659419c18bac14d8e01f7046ba1af98d6a` was verified as an ancestor.
+- Current branch: `fix/t01a-decoder-rebuild`, from the local npm diagnosis. Victor's “Go” activated this bounded repair and local commit. No automatic push/merge or next ticket is included; read actual HEAD from Git.
+- Historical integration: PR #2 merged as `c45a072`, including T01b-2 (`0828d79`) and T01b-3 (`5445208`). The screenshot record is at `2dfeff6`. Manual acceptance on **2026-09-06, Asia/Taipei** covers the recorded observations only; remaining requirements are preserved below.
 
 Visual companion: [offline screenshot evidence HTML](evidence/012-t01-manual-gallery.html), with unchanged embedded screenshots and [hash manifest](evidence/012-t01-manual-gallery.json). User authorized this record-only addition; no acceptance requirement is removed.
 
 ## Reading map
 
-Read AGENTS and this file fully, then the shared rules and latest T01b-3 authorization in the [plan](plans/001-ats-first.md).
+Read AGENTS and this file fully, then the shared rules and latest regeneration outcome in the [plan](plans/001-ats-first.md). Future implementation requires its own activation.
 
 | Need | Read |
 | --- | --- |
-| Current diagnosis and reproduction | [npm resolution evidence](evidence/013-t01a-npm-resolution.md), [Prompt 015](prompts/015-t01a-npm-resolution.md) |
+| Current repair and reproduction | [Decoder repair evidence](evidence/014-t01a-decoder-rebuild.md), [Prompt 016](prompts/016-t01a-decoder-rebuild.md) |
+| npm lock-resolution decisions | [npm resolution evidence](evidence/013-t01a-npm-resolution.md) |
 | Delivered application | [One-page config evidence](evidence/010-t01b-3-config.md) |
 | Accepted plan and user decisions | [Prompt 012](prompts/012-t01b-3-config.md) |
 | Wallet behavior and prior dependency findings | [Wallet evidence](evidence/008-t01b-1-wallet.md) |
-| T01a blocker / mentor questions | [Stopped decoder rebuild trial](evidence/007-t01a-protobuf-rebuild.md) |
+| Original schema hashes / compatibility oracle | Evidence 007 source inventory and restored tests, referenced directly by the generator/test scripts; the stopped trial remains historical |
 | Provenance / current sources | [AI_USAGE](../AI_USAGE.md), [ATTRIBUTION](ATTRIBUTION.md) |
 
 ## Verified / remaining requirements
@@ -28,11 +29,11 @@ Read AGENTS and this file fully, then the shared rules and latest T01b-3 authori
 - Manual deployment check uses actual RPC chain 296, fixed Testnet Mirror contract IDs, and viem runtime bytecode reads. Resolver `0.0.9212226` resolves to `0xba2d5fc2083a0b8f164c50e65d782087fba18e0a` (2,115 bytes); Factory `0.0.9213391` to `0xd1f118a40f3b02883d35909ef2517e7edd78379d` (390 bytes). Both were read through dev and preview. These are observations at check time, not config/ABI compatibility guarantees.
 - The same manual action reads `getLatestVersionByConfiguration(bytes32)` from the verified Resolver for Equity config ID `0x0000000000000000000000000000000000000000000000000000000000000001`. Dev and preview both returned **version 1** on 2026-09-05. The result is checked as bigint in 1..Number.MAX_SAFE_INTEGER and recorded as a decimal string, not an SDK payload. Requery before creating NOVA.
 - Checks are independent of MetaMask, manually triggered, limited to 10 seconds, cancellable and never automatically retried/refreshed. Each new attempt hides previous verification; errors and late responses cannot restore it. Reload clears deployment/config results. The entire operation shares one 10-second deadline. CCIP Read is disabled: OffchainLookup cannot trigger gateway requests. Factory failure does not hide an independently verified config, but overall success requires all three results.
-- `npm ci`, 50 Node tests, typecheck and build pass. Eight combined deployment/config browser scenarios cover dev/preview and desktop/mobile; 20 existing wallet browser regression scenarios also pass. Live public reads and synthetic cases are recorded separately. No signatures, transactions or transaction IDs.
-- Package manifest/lockfile and existing ATS diagnostics are unchanged. The final JS totals 393,895 bytes across main and a lazy viem CCIP chunk; 16 rendered package locations, no ATS/protobuf/Terminal3 modules. The lazy chunk remains bundled despite disabled gateway lookup; no external gateway request is allowed. Bundle capture matches the browser-tested artifact hashes.
+- Current checks: two default clean installs run the guarded generator; 50 app tests, 36 proto tests, typecheck and build pass. Four current-app smoke checks and four isolated real SDK-entry load checks pass across dev/preview and desktop/mobile. The earlier eight deployment/config and 20 wallet browser scenarios remain historical regression evidence; they were not rerun in this repair. No signatures, transactions or transaction IDs.
+- Manifest/lock now retain exact compiler/runtime 1.3.3/7.6.6, four qualified parent overrides and root postinstall. Existing ATS diagnostics and application source are unchanged. Main-app assets are byte-identical to evidence 013: final JS 393,895 bytes, 16 rendered package locations, no ATS/protobuf/Terminal3 modules. The lazy viem CCIP chunk remains bundled despite disabled gateway lookup; no gateway request is allowed. Separate SDK diagnostic membership contains both regenerated decoders; inclusion does not prove execution or full SDK compatibility.
 - T01b-1 remains implemented with manual wagmi connection, distinct EVM/Hedera role checks, switch invalidation, cancellation, 10-second Mirror timeout, memory fallback on storage failure and address-only persistence. Real desktop observations are now recorded in [manual evidence](evidence/011-t01-manual.md); remaining checks are explicit.
-- **B1 remains blocked:** resolve protobuf before restoring ATS decoding. The prior rebuild trial remains stopped/restored. New isolated evidence 013 explains the npm gate: hoisting KEEP plus unequal override sets prevents pruning. A targeted nested update, clean install and subsequent default lock-only install pass; runtime 7.6.6 still leaves 12 static decoder failures. No repair is retained in the app.
-- **B2 remains blocked:** Terminal3/BBS/tar must be addressed before VC integration or related installation changes. `npm ci` still reports 83 vulnerabilities (22 low, 32 moderate, 27 high, 2 critical); install-script approvals were not expanded. Prior full-tree peer failures (40 TypeScript + 1 optional Base) remain recorded, not waived by zero bundle membership.
+- **B1 bounded repair passed:** both original published schema inventories/hashes are checked before generation. Exact public APIs, wire/64-bit fixtures, malformed/recursive/length-boundary cases and both package load orders pass. Generated output is deterministic and survives clean installation. `npm test` includes this gate; skipping postinstall leaves unsafe original decoders and fails it. This is bounded evidence, not a blanket protobuf safety claim. Historical failures in 007/013 remain unchanged.
+- **B2 remains blocked:** Terminal3/BBS/tar must be addressed before VC integration or related installation changes. Current audit reports 80 vulnerabilities (23 low, 32 moderate, 24 high, 1 critical), with no new advisory source IDs versus the prior baseline; install-script approvals were not expanded. Targeted protobuf tree checks pass, but full `npm ls --all` still exits 1 for TypeScript 7.0.2 and optional Base 2.4.0 peer incompatibilities. Current complete observations are in evidence 014, not waived by zero app bundle membership.
 - **Still required for T01:** remaining manual acceptance checks below; ATS SDK official-entry integration including config result compatibility; synthetic Admin-signed VC accepted and expired/tampered/wrong-subject credentials rejected. VC signatures require Victor's explicit MetaMask approval. No T02/NOVA creation is activated.
 - The unseen pre-event research draft remains uninspected; Victor must resolve event eligibility and project-license questions. No real KYC or legal-compliance claims.
 
@@ -55,15 +56,16 @@ Record each outcome as Pending / Passed / Failed / Blocked with the actual date 
 
 ## Next action / exact allowed files
 
-The bounded npm diagnosis is complete; commit its records and stop here. Do not auto-push/merge. The existing wallet app and manual evidence remain intact. Do not restart the already diagnosed npm experiment without new evidence.
+The decoder repair is complete; commit code and records together and stop. Do not auto-push/merge. Preserve the running user dev/preview servers (5173/4173); task diagnostic servers use separate ports and are stopped at handoff.
 
-Next proposed ticket is **original-schema decoder regeneration**, requiring a separate implementation activation. Keep exact compiler/runtime 1.3.3/7.6.6, the four qualified parent overrides and the now-proven targeted nested resolution command. No parent SDK upgrades, schema edits, manual upstream decoder patches, broad overrides or script approvals. Require public API/wire/64-bit compatibility and every existing malformed/recursive/length-boundary check to pass, then clean install/audit/lock accounting and official-entry dev/preview loading. Stop/restore on incompatibility or a failed security gate. Do not activate SDK config integration, VC or NOVA creation with this ticket.
+Next proposed ticket: **T01b-4 official ATS SDK config integration**, not activated. First inspect the pinned official API's initialization/query requirements; retain the existing public deployment verification and accept only an integer SDK payload >= 1. Use the fixed Testnet Resolver and Equity config. No SDK/parent upgrades, new dependencies, wallet prompts, VC or chain mutation. If the official query cannot meet these constraints or the pinned deployment is incompatible, record diagnostics and stop rather than bypassing the SDK.
 
 Proposed exact files when activated:
 
-- `package.json`, `package-lock.json`, `scripts/rebuild-proto.mjs`.
-- New `docs/evidence/014-t01a-decoder-rebuild.test.mjs`, `.md`, `.json`, `.patch` (patch only if a candidate is rejected).
-- `docs/prompts/016-t01a-decoder-rebuild.md`, `docs/ai-usage/020-t01a-decoder-rebuild.md`.
+- `src/ats.ts`, `src/App.tsx`, `src/deployment.ts`.
+- `tests/ats.test.mjs`, `tests/shell.test.mjs`, `tests/deployment.test.mjs`.
+- New `docs/evidence/015-t01b-4-sdk-config.mjs`, `.md`, `.json`.
+- `docs/prompts/017-t01b-4-sdk-config.md`, `docs/ai-usage/021-t01b-4-sdk-config.md`.
 - `docs/HANDOFF.md`, `docs/plans/001-ats-first.md`, `docs/ATTRIBUTION.md`, `AI_USAGE.md`.
 
-Existing tests and browser harnesses may be reused without changing historical files. Scratch diagnostic pages, build probes and generated artifacts stay outside the application and must be reproducible in the new evidence. B2 and all remaining human/SDK/VC acceptance stay open. Before any actual future transaction or VC signature, Victor approves it manually in MetaMask.
+Acceptance: TDD for SDK result validation, rejection/timeout/cancellation and stale-result prevention; clean install, all tests, typecheck/build; official-entry dev/preview browser and live public-read evidence kept separate from synthetic cases; no wallet/signing/transaction or unapproved endpoint requests. Recheck complete rendered membership because bringing the SDK into the app changes its bundle. B2 must still be resolved before VC integration or related installation changes. Victor approves every future VC signature or transaction manually in MetaMask.

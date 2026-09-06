@@ -1,0 +1,8 @@
+# T01a original-schema decoder regeneration — September 6, 2026
+
+- Human decision: Victor's “Go” activated the bounded regeneration ticket after the npm diagnosis. [Prompt 016](../prompts/016-t01a-decoder-rebuild.md) preserves scope and decisions.
+- Codex used Ponytail guidance, the installed compiler and existing Node/browser diagnostics. No subagents or external reviewers were used. Original schemas and all parent/framework pins are retained; generation is reproducible through root postinstall.
+- Implementation choices: verified archive-only import resolution, upstream entrypoint selection, native ES6/CommonJS wrappers and separate private root names. Tests caught added public types and a runtime registry collision before the final candidate passed.
+- Actual checks: two default clean installs; repeat output hashes; 50 app and 36 proto tests; typecheck/build; eight browser checks across the current app and isolated SDK page; complete lock/audit and rendered-package accounting. [Concise evidence and structured details](../evidence/014-t01a-decoder-rebuild.md).
+- Files: package manifest/lock, `scripts/rebuild-proto.mjs`, evidence 014 test/MD/JSON, prompt 016, this record, HANDOFF, plan, ATTRIBUTION and AI_USAGE. Historical evidence and application source are unchanged. Base `301833451e18cb993b4db480116f82def4b870e6`; prior handoff base verified as an ancestor.
+- B1's bounded gate passes. B2, full SDK config/VC integration, remaining human acceptance and eligibility questions remain. No install-script approval, wallet/profile access, chain request, signature, transaction, push or merge. Local commit only; next ticket is not activated.

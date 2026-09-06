@@ -368,3 +368,9 @@ Victor requested an HTML record with the supplied screenshots. [Prompt 014](../p
 Victor replied “go” to investigating the failed protobuf resolution gate with TDD. [Prompt 015](../prompts/015-t01a-npm-resolution.md) defines the bounded isolated experiment and exact files. This supersedes the record-only boundary for diagnosis only; no retained app dependency/source change or SDK/VC/NOVA integration is authorized by this diagnostic ticket.
 
 Outcome: npm hoisting/pruning mismatch reproduced; targeted nested update passes the isolated graph and clean install without unrelated version changes. The original generated decoders still fail 12 checks; no candidate dependency changes are retained. See [evidence 013](../evidence/013-t01a-npm-resolution.md). Next proposed scope is original-schema regeneration, not SDK integration or NOVA creation.
+
+### 2026-09-06 Original-schema regeneration activation
+
+Victor replied “Go” to rebuilding the two original proto schemas with the now-verified npm workaround. [Prompt 016](../prompts/016-t01a-decoder-rebuild.md) activates the exact handoff scope and validation gates. Use pbjs built-in ES6/CommonJS wrappers, with upstream semantic flags and public-API verification; no added Babel toolchain or handwritten decoder edits. Retain a repair only after the security/compatibility and clean-install/browser gates pass. B2/SDK config/VC/NOVA remain outside this ticket.
+
+Outcome: retained generator passes all 36 proto tests, two default clean installs and isolated official-entry browser loading; 50 application tests and unchanged app assets pass. See [evidence 014](../evidence/014-t01a-decoder-rebuild.md). B1 is cleared within this bounded gate; B2 and the remaining T01 requirements stay open. The next proposed SDK config slice requires a separate activation and the exact scope in HANDOFF; it does not include VC or NOVA creation.
