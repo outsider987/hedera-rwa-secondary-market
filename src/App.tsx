@@ -6,10 +6,10 @@ import { checkWalletReview, invalidateWalletSession, reviewWallet, type WalletRe
 import { checkDeployment, deployments, equityConfigId } from './deployment';
 import { checkSdkConfig, prepareAts, type AtsLoadState, type SdkConfigCheck } from './ats';
 
-import { prepareSellerCredential, signSellerCredential, type PreparedCredential, type CredentialResult } from './credentials';
+import { prepareSellerCredential, signSellerCredential, type PreparedCredential, type CredentialResult, type VerifiedSeller } from './credentials';
 import { credentialEvidence, downloadEvidence } from './evidence';
 
-function Credentials({ roles }: { roles: Roles }) {
+function Credentials({ roles, onVerified }: { roles: Roles; onVerified: (seller: VerifiedSeller | undefined) => void }) {
   const locked = useSyncExternalStore(subscribeOperation, getOperationBusy, () => false);
   const [review, setReview] = useState<{ wallet: WalletReview; vc: PreparedCredential }>();
   const [accepted, setAccepted] = useState(false);
@@ -24,6 +24,7 @@ function Credentials({ roles }: { roles: Roles }) {
   async function prepareCredential() {
     if (getOperationBusy()) return;
     const lease = acquireOperation(), current = controller.current = new AbortController();
+    onVerified(undefined);
     setWorking(true); setReview(undefined); setResult(undefined); setAccepted(false); setMessage('Checking three accounts and preparing Seller VC…');
     try {
       const wallet = await reviewWallet(roles, current.signal);
@@ -39,7 +40,9 @@ function Credentials({ roles }: { roles: Roles }) {
     setWorking(true); setResult(undefined); setMessage('Awaiting your signature in MetaMask. Complete or reject the request there.');
     try {
       const verified = await signSellerCredential(review.vc, review.wallet.provider, () => checkWalletReview(review.wallet));
-      if (mounted.current) { setResult(verified); setMessage(verified.verified
+      if (mounted.current) {
+        onVerified(verified.verified && verified.credential ? { prepared: review.vc, credential: verified.credential, session: review.wallet.session } : undefined);
+        setResult(verified); setMessage(verified.verified
         ? 'Seller VC verified. Expired, tampered and wrong-subject checks passed. No on-chain KYC was granted.'
         : 'Credential verification failed. Prepare again; do not use this credential.'); setAccepted(false); }
     } catch (error) {
@@ -71,6 +74,155 @@ function Credentials({ roles }: { roles: Roles }) {
       }}>Export VC result</button>
     </div>
     <p className="deployment-note">Desktop Chrome + MetaMask ECDSA only. A signature is not a transaction. Native BBS is not supported.</p>
+  </section>;
+}
+
+import { canCreateNova, createNova, creationStorageAvailable, isCreationOrigin, loadNovaRecord, novaSettings, novaStorageKey,
+  recoverNova, reviewNova, saveNovaRecord, type NovaRecord, type NovaReview } from './nova';
+
+const t01Requirements = [
+  'Duplicate clicks while connection is pending (dev and preview)',
+  'Independent comparison of all three raw Mirror account records',
+  'Disconnected deployment check, reload reset and no signing, transaction or network-switch prompts (dev and preview)',
+  'Mobile layout, visible keyboard focus and no overflow',
+  'SDK manual preparation, payload, cancellation and reload without a wallet prompt (dev and preview)',
+  'Admin-signed Seller VC accepted, with expired, tampered and wrong-subject checks passed (dev and preview)',
+];
+const parameterLabels: Record<string, string> = { name: 'Name', symbol: 'Symbol', isin: 'ISIN', decimals: 'Decimals',
+  numberOfShares: 'Cap (authorized shares)', nominalValue: 'Nominal value', nominalValueDecimals: 'Nominal decimals', currency: 'Currency (USD)',
+  internalKycActivated: 'Internal KYC', isControllable: 'Controllable', clearingActive: 'Clearing', isMultiPartition: 'Multiple partitions',
+  arePartitionsProtected: 'Protected partitions', erc20VotesActivated: 'ERC20 votes', isWhiteList: 'Whitelist (false = blacklist)',
+  votingRight: 'Voting right', informationRight: 'Information right', liquidationRight: 'Liquidation right', subscriptionRight: 'Subscription right',
+  conversionRight: 'Conversion right', redemptionRight: 'Redemption right', putRight: 'Put right', dividendRight: 'Dividend type (2 = COMMON)',
+  regulationType: 'Regulation (1 = REG_S)', regulationSubType: 'Subtype (0 = NONE)', isCountryControlListWhiteList: 'Country whitelist',
+  countries: 'Countries', info: 'Fictional asset statement', externalPausesIds: 'External pause lists', externalControlListsIds: 'External control lists', externalKycListsIds: 'External KYC lists' };
+const novaMessages: Record<NovaRecord['status'], string> = {
+  'awaiting-signature': 'Awaiting signature. Check MetaMask before doing anything else.',
+  rejected: 'Transaction rejected. No transaction hash exists. Review again only when ready.',
+  pending: 'Transaction submitted. Confirmation is pending; do not submit another.',
+  unknown: 'Transaction result unknown. Check MetaMask and recover by hash; do not submit another.',
+  confirmed: 'Deployment confirmed; readback is incomplete. Query again to verify the settings.',
+  'mirror-pending': 'Deployment confirmed; Mirror indexing is pending. Query again; do not create another.',
+  mismatch: 'Verification failed. Inspect the recorded operation; do not create another.',
+  complete: 'NOVA deployment and all required settings verified.',
+};
+function Nova({ roles, session, seller }: { roles: Roles; session: number; seller?: VerifiedSeller }) {
+  const locked = useSyncExternalStore(subscribeOperation, getOperationBusy, () => false);
+  const [record, setRecord] = useState<NovaRecord | undefined>(() => { try { return loadNovaRecord(); } catch { return undefined; } });
+  const [storageOK, setStorageOK] = useState(() => creationStorageAvailable());
+  const [hash, setHash] = useState(record?.transactionHash ?? '');
+  const [review, setReview] = useState<NovaReview>();
+  const [approved, setApproved] = useState(false), [checks, setChecks] = useState<boolean[]>(t01Requirements.map(() => false));
+  const [versions, setVersions] = useState(''), [singleWallet, setSingleWallet] = useState(false);
+  const [message, setMessage] = useState('Review the fixed settings. Creation requires all T01 human checks and a current verified Seller VC.');
+  const [checkedHere, setCheckedHere] = useState(false), [reading, setReading] = useState(false);
+  const controller = useRef<AbortController | undefined>(undefined);
+  const preview = typeof window !== 'undefined' && isCreationOrigin(window.location.origin, import.meta.env.PROD);
+  const t01Accepted = checks.every(Boolean) && singleWallet && versions.trim().length > 0;
+  useEffect(() => {
+    controller.current?.abort(); setReading(false); setReview(undefined); setApproved(false);
+    setMessage(current => /^(Rechecking|Querying)/.test(current) ? 'Wallet session changed. Review again; existing transaction records are retained.' : current);
+  }, [session]);
+  useEffect(() => {
+    const refresh = (event: StorageEvent) => {
+      if (event.key !== novaStorageKey) return;
+      try { const current = loadNovaRecord(); setRecord(current); if (current?.transactionHash) setHash(current.transactionHash); } catch { setStorageOK(false); }
+      setCheckedHere(false); setReview(undefined); setApproved(false);
+      setMessage('Another tab updated the saved operation. Query its hash to verify chain state.');
+    };
+    window.addEventListener('storage', refresh);
+    return () => { window.removeEventListener('storage', refresh); controller.current?.abort(); };
+  }, []);
+  const receive = (next: NovaRecord) => { setRecord(next); if (next.transactionHash) setHash(next.transactionHash); setCheckedHere(true); setMessage(novaMessages[next.status]); };
+  async function prepareNovaReview() {
+    if (getOperationBusy()) return;
+    const current = controller.current = new AbortController(); setReading(true); setReview(undefined); setApproved(false);
+    setMessage('Rechecking three accounts, Testnet deployment and SDK config…');
+    try {
+      const next = await reviewNova(roles, current.signal);
+      if (!current.signal.aborted && next.wallet.session === getWalletSession()) { setReview(next); setMessage('Review the current accounts, config version and all fixed settings below.'); }
+    } catch { if (!current.signal.aborted) setMessage('NOVA review failed. Recheck Admin, three roles and the pinned SDK/deployment. If incompatible, stop and record diagnostics for a mentor.'); }
+    finally { if (!current.signal.aborted) setReading(false); }
+  }
+  async function create() {
+    if (!review || !seller || !approved || !t01Accepted || getOperationBusy() || !preview || !storageOK || !canCreateNova(record)) return;
+    setApproved(false); setMessage('Rechecking the reviewed inputs before requesting the one NOVA transaction in MetaMask…');
+    try {
+      const result = await createNova(review, seller.prepared, seller.credential, t01Accepted, receive);
+      if (result.review) { setReview(result.review); setMessage('Accounts or config changed. Review the updated values before continuing.'); }
+      if (result.record) { receive(result.record); setMessage(novaMessages[result.record.status]); }
+    } catch { setMessage('Creation was not started. Verify the current VC, complete T01, check other tabs and review again.'); }
+    finally { setStorageOK(creationStorageAvailable()); }
+  }
+  async function recover() {
+    if (getOperationBusy()) return;
+    const current = controller.current = new AbortController(); setReading(true); setCheckedHere(false); setMessage('Querying receipt, Factory event and current asset settings…');
+    try {
+      const result = await recoverNova(hash.trim(), record?.admin ?? roles.Admin ?? '', current.signal, record);
+      receive(result); setMessage(novaMessages[result.status]);
+      try { saveNovaRecord(result); } catch { setStorageOK(false); setMessage(novaMessages[result.status] + ' Storage unavailable; export this public result.'); }
+    } catch { if (!current.signal.aborted) setMessage('Recovery did not verify this hash. Check MetaMask, Admin and the recorded hash, then query again. No creation was retried.'); }
+    finally { if (!current.signal.aborted) setReading(false); }
+  }
+  return <section className="deployment" aria-labelledby="nova-heading">
+    <h2 id="nova-heading">Create NOVA once</h2>
+    <p>Preview is the only creation origin: <code>http://127.0.0.1:4173</code>. Victor approves the transaction manually in MetaMask.</p>
+    {!preview && <p>Development mode: review settings and query an existing asset. Creation is disabled.</p>}
+    {!storageOK && <p role="alert">Durable storage or browser locking is unavailable. Creation is disabled; public queries and exports remain available.</p>}
+    <p id="nova-status" role="status" aria-live="polite">{message}</p>
+    {record && <p>{checkedHere ? novaMessages[record.status] : `Saved operation (${record.status}). Query the hash to verify chain state.`}</p>}
+    <details className="nova-settings" open>
+      <summary>Fixed NOVA settings and current review</summary>
+      <dl className="wallet-details">
+        <div><dt>Network</dt><dd>Hedera Testnet · 296 / 0x128</dd></div>
+        <div><dt>Admin / owner</dt><dd><code>{review?.wallet.roles.Admin ?? roles.Admin ?? 'Not assigned'}</code></dd></div>
+        <div><dt>Admin role</dt><dd>DEFAULT_ADMIN_ROLE</dd></div>
+        {review?.wallet.accounts.map((account, index) => <div key={account.address}><dt>{roleNames[index]} Hedera ID</dt><dd>{account.accountId} · <code>{account.address}</code></dd></div>)}
+        {Object.entries(novaSettings).map(([key, value]) => <div key={key}><dt>{parameterLabels[key]}</dt><dd>{Array.isArray(value) || value === '' ? 'None' : String(value)}</dd></div>)}
+        <div><dt>Initial supply</dt><dd>0</dd></div>
+        <div><dt>Initial blacklist</dt><dd>Empty</dd></div>
+        <div><dt>External compliance / identity registry</dt><dd>None / None</dd></div>
+        <div><dt>Resolver / Factory</dt><dd>0.0.9212226 / 0.0.9213391</dd></div>
+        <div><dt>Equity config ID</dt><dd><code>{equityConfigId}</code></dd></div>
+        <div><dt>Reviewed SDK config version</dt><dd data-testid="nova-config-version">{review?.configVersion ?? 'Not checked'}</dd></div>
+        <div><dt>Deployment calldata digest</dt><dd><code>{review?.digest ?? 'Not prepared'}</code></dd></div>
+      </dl>
+      <p>Rights and regulation are fictional metadata. No real securities or legal compliance claim is made.</p>
+    </details>
+    <details className="nova-settings">
+      <summary>Remaining T01 human acceptance — required before creation</summary>
+      <p>Check only outcomes you actually observed. Previously recorded acceptance remains in the handoff.</p>
+      {t01Requirements.map((text, index) => <label className="review-check" key={text}><input type="checkbox" checked={checks[index]} disabled={locked}
+        onChange={event => setChecks(checks.map((value, i) => i === index ? event.target.checked : value))} />{text}</label>)}
+      <label className="review-check"><input type="checkbox" checked={singleWallet} disabled={locked} onChange={event => setSingleWallet(event.target.checked)} />Desktop Chrome with only MetaMask installed</label>
+      <label className="text-field">Chrome and MetaMask versions (public observation)<input value={versions} disabled={locked} maxLength={160} onChange={event => setVersions(event.target.value)} /></label>
+      <p>Do not collect personal information or paste credentials or signatures here.</p>
+    </details>
+    <label className="review-check"><input type="checkbox" checked={approved} disabled={locked || !review} onChange={event => setApproved(event.target.checked)} />I reviewed every NOVA setting and the current three accounts/config. Create this asset once.</label>
+    <div className="actions">
+      <button type="button" disabled={locked} onClick={prepareNovaReview}>Prepare NOVA review</button>
+      <button type="button" disabled={locked || !preview || !storageOK || !canCreateNova(record) || !review || !approved || !t01Accepted || !seller}
+        onClick={create}>Create NOVA in MetaMask</button>
+    </div>
+    <p className="deployment-note">A current verified Seller VC and every T01 checkbox are required. Submitted or unknown operations can only be queried. No automatic resubmission.</p>
+    <h3>Recover or read an existing NOVA</h3>
+    <label className="text-field">Public transaction hash<input value={hash} onChange={event => setHash(event.target.value)} spellCheck={false} autoComplete="off" maxLength={66} placeholder="0x…" /></label>
+    <div className="actions">
+      <button type="button" disabled={locked || !/^0x[\da-f]{64}$/i.test(hash.trim())} onClick={recover}>Query NOVA transaction</button>
+      {reading && <button type="button" className="secondary" onClick={() => { controller.current?.abort(); setReading(false); setMessage('Read cancelled. Existing transaction records are retained.'); }}>Cancel NOVA read</button>}
+      <button type="button" className="secondary" disabled={!record} onClick={() => { if (record) downloadEvidence(record); }}>Export NOVA result</button>
+    </div>
+    {record && <>
+      <dl className="wallet-details">
+        <div><dt>Recorded Admin</dt><dd><code>{record.admin}</code></dd></div>
+        <div><dt>Transaction hash</dt><dd><code>{record.transactionHash ?? 'Not available. Check MetaMask before retrying.'}</code></dd></div>
+        <div><dt>Security ID / address</dt><dd>{record.securityId ?? 'Not indexed'} / <code>{record.securityAddress ?? 'Not verified'}</code></dd></div>
+        <div><dt>Hedera transaction ID</dt><dd>{record.transactionId ?? 'Not indexed'}</dd></div>
+        <div><dt>Consensus timestamp</dt><dd>{record.consensusTimestamp ?? 'Not indexed'}</dd></div>
+      </dl>
+      {record.transactionHash && <a href={`https://hashscan.io/testnet/transaction/${record.transactionHash}`} target="_blank" rel="noreferrer">View transaction on HashScan</a>}
+      {record.comparisons && <div className="comparison-table"><table><caption>{checkedHere ? 'Chain verification results' : 'Saved comparison results — query to verify again'}</caption><thead><tr><th>Setting</th><th>Expected</th><th>Observed</th><th>Result / source</th></tr></thead><tbody>{record.comparisons.map(row => <tr key={row.field}><th scope="row">{row.field}</th><td>{row.expected || 'Empty'}</td><td>{row.actual || 'Empty'}</td><td>{row.matches ? 'Match' : 'Mismatch'} · {row.source}</td></tr>)}</tbody></table></div>}
+    </>}
   </section>;
 }
 
@@ -295,6 +447,8 @@ export default function App() {
   const session = useSyncExternalStore(subscribeWalletSession, getWalletSession, () => 0);
   const [saved, setSaved] = useState(() => typeof window === 'undefined' ? { roles: {}, warning: '' } : loadRoles());
   const savedRef = useRef(saved);
+  const [verifiedSeller, setVerifiedSeller] = useState<VerifiedSeller>();
+  useEffect(() => { setVerifiedSeller(undefined); }, [session]);
   const [walletMessage, setWalletMessage] = useState('');
   const [busy, setBusy] = useState(false);
   const locked = useSyncExternalStore(subscribeOperation, getOperationBusy, () => false);
@@ -367,7 +521,8 @@ export default function App() {
         <Accounts key={session} session={session} address={connection.address} ready={ready} roles={saved.roles} changeRoles={changeRoles} />
 
         <Deployment />
-        <Credentials key={`credential-${session}`} roles={saved.roles} />
+        <Credentials key={`credential-${session}`} roles={saved.roles} onVerified={setVerifiedSeller} />
+        <Nova roles={saved.roles} session={session} seller={verifiedSeller?.session === session ? verifiedSeller : undefined} />
 
         <div className="columns">
           <section aria-labelledby="asset-heading">
@@ -379,9 +534,9 @@ export default function App() {
               <div><dt>ISIN</dt><dd><code>USNOVA000016</code></dd></div>
               <div><dt>Decimals</dt><dd>0</dd></div>
               <div><dt>Authorized shares</dt><dd>1,000</dd></div>
-              <div><dt>Security ID</dt><dd>Not created</dd></div>
+              <div><dt>Security ID</dt><dd>See NOVA operation result</dd></div>
             </dl>
-            <p>These are planned settings, not balances or verified on-chain data.</p>
+            <p>Use the NOVA operation result above for verified on-chain data.</p>
           </section>
 
           <section aria-labelledby="sequence-heading">
@@ -398,8 +553,7 @@ export default function App() {
 
         <section className="evidence" aria-labelledby="evidence-heading">
           <h2 id="evidence-heading">Transaction evidence</h2>
-          <p>No transactions yet.</p>
-          <p>VC signatures are requested only after review. No transactions have been submitted by this page.</p>
+          <p>Use the NOVA operation panel to query a public hash and export verified results. Local records alone do not establish chain success.</p>
         </section>
       </main>
 

@@ -465,3 +465,13 @@ shared operation/session guards and public-only export. Automated Node/browser
 checks pass; positive human dev/preview signatures and retained T01 checks
 remain Pending. The already-authorized NOVA UI/automation may proceed; actual
 creation remains gated and preview-only. No T03/T04 activation.
+
+
+### 2026-09-07 T02 implementation boundary
+
+The authorized managed SDK patch, full fixed NOVA review, preview-only manual
+creation, durable recovery and source-labelled readback are implemented.
+Evidence 023 records automated checks; they do not satisfy human VC/T01 or
+prove a deployed asset. Victor must finish the retained checklist and positive
+VC checks on dev/preview before approving one preview creation. Stop after that
+single verified deployment. T03/KYC/issuance/Hold remain inactive.

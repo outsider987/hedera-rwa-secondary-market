@@ -217,3 +217,26 @@ test('SDK config requires manual preparation, verified preflight and an owned re
     assert.equal(destroyed, requests.length);
   } finally { sdk.restore(); }
 });
+
+test('managed wallet patch is pinned, all-or-nothing, idempotent and does not overlap the read-only patch', async () => {
+  const { patchAtsWallet, walletPatches } = await import('../scripts/patch-ats-wallet.mjs');
+  assert(walletPatches.every(p => !patches.some(other => p.path === other.path)));
+  const source = fileURLToPath(new URL('../node_modules/@hashgraph/asset-tokenization-sdk/', import.meta.url));
+  const scratch = mkdtempSync(join(tmpdir(), 'holdbook-wallet-patch-'));
+  try {
+    writeFileSync(join(scratch,'package.json'),JSON.stringify({name:'@hashgraph/asset-tokenization-sdk',version:'8.0.0'}));
+    for(const entry of walletPatches){
+      let text=readFileSync(join(source,entry.path),'utf8');
+      if(text.startsWith('// HoldBook: managed')) {text=text.slice(text.indexOf('\n')+1);if(entry.append)text=text.slice(0,-entry.append.length);for(const [before,after]of [...entry.edits].reverse())text=text.replace(after,before);}
+      mkdirSync(dirname(join(scratch,entry.path)),{recursive:true});writeFileSync(join(scratch,entry.path),text);
+    }
+    assert.throws(()=>patchAtsWallet(scratch,true),/missing/);
+    const last=walletPatches.at(-1), original=readFileSync(join(scratch,last.path),'utf8');
+    writeFileSync(join(scratch,last.path),'drift');assert.throws(()=>patchAtsWallet(scratch),/Unexpected/);
+    assert(!readFileSync(join(scratch,walletPatches[0].path),'utf8').startsWith('// HoldBook: managed'));
+    writeFileSync(join(scratch,last.path),original);assert.equal(patchAtsWallet(scratch).changed,16);
+    assert.equal(patchAtsWallet(scratch).changed,0);assert.equal(patchAtsWallet(undefined,true).changed,0);
+    writeFileSync(join(scratch,'package.json'),JSON.stringify({name:'@hashgraph/asset-tokenization-sdk',version:'8.0.1'}));
+    assert.throws(()=>patchAtsWallet(scratch),/Only pinned/);
+  }finally{rmSync(scratch,{recursive:true,force:true});}
+});

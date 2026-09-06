@@ -2,6 +2,7 @@ import { getAddress, keccak256, stringToHex } from 'viem';
 import type { CredentialPayload, SignedCredential } from '@terminal3/vc_core';
 import { acquireOperation, releaseOperation } from './guards';
 
+export type VerifiedSeller = { prepared: PreparedCredential; credential: SignedCredential; session: number };
 export type WalletProvider = { request: (args: { method: string; params?: unknown[] }) => Promise<unknown> };
 export type PreparedCredential = { payload: CredentialPayload; digest: string; preparedAt: number };
 export type CredentialResult = { verified: boolean; verifier: boolean; rules: boolean; negatives?: { expired: boolean; tampered: boolean; wrongSubject: boolean } };

@@ -2,36 +2,64 @@
 
 ## Current boundary / Git base
 
-**Seller VC implementation passes automated checks; human VC/T01 remains Pending.
-Next authorized stage is T02 NOVA implementation, with actual creation gated.**
+**VC and T02 implementation are ready; actual human VC/T01 and the single NOVA
+creation/readback remain Pending. Do not advance to T03.**
 
-- `based_on_commit: b4a267b171cbb12b4d85a51ec4b3f73f9ff4c380` (VC stage base; read actual HEAD from Git).
-- Branch `diagnostic/t01b-4-sdk-config`; no automatic push/merge.
-- [Prompt 023](prompts/023-vc-nova-implementation.md) controls dependency → VC →
-  T02 activation and exact files, superseding historical boundaries below.
-- [Dependency evidence 021](evidence/021-b2-retained-repair.md) retains the six
-  overrides and Terminal3 direct pins. Desktop ECDSA only; native BBS excluded.
-  Remaining 62 audit findings, peers and dfns license gaps are not waived.
-- [VC evidence 022](evidence/022-vc-implementation.md): genuine Terminal3 payload
-  and verifier, manual wagmi personal_sign over UTF-8 hash text, strict review
-  binding and dates, negative checks after real acceptance, shared operation
-  lease/session invalidation and public-only export. Full VC/signature in memory.
-- 57 app + 36 proto tests, typecheck/build, 28 VC browser scenarios and four
-  final-copy smoke cases passed. SDK regression has 20 cases including four
-  live payloads 1. No valid signature or transaction was fabricated. The UI
-  reviewer's one contradictory-copy finding was fixed and scored resolved.
-- Victor was asked to sign on dev 5173 and preview 4173 and report public results
-  plus Chrome/MetaMask versions; both remain Pending until actually reported.
-  All retained human checks below remain mandatory. Do not repeat completed ones.
-- Next stage exact code files: `src/nova.ts`, `src/credentials.ts`, `src/evidence.ts`,
-  `src/App.tsx`, `src/styles.css`, `src/wallet.ts`, `src/guards.ts`, `src/ats.ts`;
-  `scripts/patch-ats-wallet.mjs`; `package.json` (postinstall only);
-  `tests/{nova,ats,guards,evidence,shell}.test.mjs`; evidence `023-nova-*`,
-  work item 029 and shared docs listed in Prompt 023. Existing proto/read-only
-  patch scripts, verifier and Equity.create remain unchanged.
-- Actual NOVA creation waits for all T01 human acceptance and is allowed once
-  at `http://127.0.0.1:4173`, manually approved in MetaMask. Dev reads existing
-  assets only. Stop at T02: no on-chain KYC, issuance or Hold.
+- `based_on_commit: 859d7f397356ee7287c7564fdbcc9829e87f58cd` (T02 implementation
+  base; read actual HEAD from Git). Earlier stage commits are `b4a267b` and
+  `859d7f3`. Branch `diagnostic/t01b-4-sdk-config`; no automatic push/merge.
+- [Prompt 023](prompts/023-vc-nova-implementation.md) is the effective dependency
+  → VC → T02 authorization and support decision. Historical prohibitions below
+  do not override it. Native BBS is excluded; desktop Chrome + MetaMask ECDSA only.
+- [Dependency 021](evidence/021-b2-retained-repair.md),
+  [VC 022](evidence/022-vc-implementation.md), and
+  [NOVA 023](evidence/023-nova-implementation.md) record the implementation and
+  its actual checks. Retain 62 audit findings, peer incompatibilities and dfns
+  license omissions. The original proto and SDK read-only patch scripts remain.
+- T02 adds the independent version/hash-guarded managed wallet patch, full fixed
+  review, exact deployEquity guard, public intent/hash persistence, native
+  cross-tab exclusion, bounded post-send lookup and SDK Mirror HTTP reads,
+  and independent receipt/event/
+  current-getter/Mirror recovery. Full VC/signature stays only in memory.
+- npm ci reproduced all three repairs with an unchanged lockfile. 65 app + 36
+  proto tests and typecheck/build passed. Final checks include six managed SDK
+  cases, eight SDK config cases (four live payloads 1) and four UI smoke cases;
+  the earlier full UI/VC/wallet regressions are preserved. See
+  [final verification](evidence/023-nova-final-verification.json). Detailed
+  browser/bundle results and the
+  temporary dev optimizer failure/rerun are in evidence 023. Automation uses
+  synthetic wallet/HTTP boundaries except explicitly labelled public live reads;
+  it never fabricates positive VC/SDK/chain acceptance.
+- Current dev 5173 and production preview 4173 serve the final build. A clean
+  install/restart invalidated any in-memory VC. Human positive results on both
+  origins, all remaining T01 observations below, browser/MetaMask versions and
+  the single-wallet environment remain Pending until actually reported.
+
+## Next action / exact allowed files (current)
+
+Victor completes the retained T01 checklist below and signs a Seller VC with
+Admin on dev and preview. Use the current app's **Prepare Seller VC → review →
+Sign in MetaMask and verify** and export only the public result. Existing manual
+acceptance remains valid; do not repeat already confirmed observations.
+
+After those checks pass, use **only http://127.0.0.1:4173**: expand remaining T01
+acceptance, record actual observations/versions, prepare NOVA review, inspect
+all fixed settings and three accounts/config, then manually approve one creation
+in MetaMask. Export the verified NOVA result. A recorded/unknown/submitted
+operation is query-only; inspect MetaMask and recover its public hash instead of
+creating another. Dev can query that same hash. No on-chain KYC, issuance or Hold.
+
+The next record-only work item may change exactly:
+
+- `docs/evidence/024-vc-nova-manual.md`, `.json` and optional
+  `024-vc-nova-gallery.html`, `.json` for actual public observations/captures;
+- `docs/ai-usage/030-vc-nova-manual.md`, `docs/HANDOFF.md`,
+  `docs/plans/001-ats-first.md`, `docs/ATTRIBUTION.md`, `AI_USAGE.md`.
+
+If a real acceptance defect appears, record it and its evidence-backed repair
+scope within Prompt 023's T02 files before fixing and revalidating. No next-ticket
+implementation is activated. Complete T02 only after an actually accepted
+Admin-signed Seller VC and the one matching confirmed NOVA deployment/readback.
 
 ## Historical boundary / Git base
 

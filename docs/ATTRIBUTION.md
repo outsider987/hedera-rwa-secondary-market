@@ -1,7 +1,7 @@
 # Third-party sources / attribution
 
-Current uses include the independent wagmi wallet slice and the viem deployment
-and Equity config checks based on `0828d79`.
+Current uses include wagmi wallet state, viem/SDK deployment and config reads,
+manual Terminal3 Seller VC verification, and guarded NOVA creation/readback.
 The earlier stopped trial is historical; the bounded original-schema repair is
 now retained in evidence 014. Dated AI/human
 contributions are indexed in [AI_USAGE.md](../AI_USAGE.md).
@@ -14,15 +14,15 @@ license or event eligibility is asserted by public GitHub availability.
 | React / React DOM 19.2.8 | Console UI | MIT; [React](https://github.com/facebook/react) |
 | Vite 8.2.2 | Dev/build tooling | MIT; [Vite](https://github.com/vitejs/vite) |
 | TypeScript 7.0.2 | Typechecking | Apache-2.0; [TypeScript](https://github.com/microsoft/TypeScript) |
-| ATS SDK 8.0.0 | Locally patched public request export and optional read-provider injection for manual main-app config reads; broader SDK/VC integration pending | Apache-2.0; [ATS](https://github.com/hashgraph/asset-tokenization-studio), [patch scope/evidence](evidence/017-sdk-readonly-trial.md) |
-| ethers 6.17.0 | Exact direct dependency, previously installed transitively; caller-owned read provider and per-request transport for manual config reads | MIT; [ethers source](https://github.com/ethers-io/ethers.js/tree/v6.17.0), [fetch controls](https://docs.ethers.org/v6/api/utils/fetching/) |
+| ATS SDK 8.0.0 | Locally patched public requests and owned read/manual-wallet providers; guarded NOVA creation/readback implemented, human acceptance Pending | Apache-2.0; [ATS](https://github.com/hashgraph/asset-tokenization-studio), [patch scope/evidence](evidence/017-sdk-readonly-trial.md) |
+| ethers 6.17.0 | Exact direct dependency; owned read/wallet providers, UTF-8 ECDSA verification semantics and ABI encoding/decoding | MIT; [ethers source](https://github.com/ethers-io/ethers.js/tree/v6.17.0), [fetch controls](https://docs.ethers.org/v6/api/utils/fetching/) |
 | wagmi 3.7.7 / @wagmi/core 3.6.5 / @wagmi/connectors 8.2.0 | React connection state and injected EIP-1193 connector; no other connector activated | MIT; [wagmi](https://github.com/wevm/wagmi), [official integration](https://wagmi.sh/react/getting-started), [provider reconnect setting](https://wagmi.sh/react/api/WagmiProvider), [injected](https://wagmi.sh/react/api/connectors/injected) |
 | viem 2.56.3 | Direct dependency; wagmi utilities and public Testnet chain/bytecode reads using createClient with getChainId/getCode/readContract actions; CCIP Read disabled | MIT; [viem](https://github.com/wevm/viem) |
 | @tanstack/react-query / query-core 5.102.8 | Account/deployment query lifecycle and wagmi mutations | MIT; [TanStack Query](https://github.com/TanStack/query) |
 | mipd 0.0.7 / use-sync-external-store 1.4.0 / nested zustand 5.0.0 | New wagmi closure; provider discovery is disabled | MIT; [mipd](https://github.com/wevm/mipd), [React](https://github.com/facebook/react), [Zustand](https://github.com/pmndrs/zustand); full [added package metadata](evidence/008-t01b-1-lock-diff.json) |
 | Hedera Mirror Node account REST API | Public EVM-to-Hedera-ID lookup on Testnet; browser evidence uses synthetic responses | [Official account endpoint documentation](https://docs.hedera.com/reference/rest-api/accounts); no documentation code copied |
 | Hedera Mirror Node contract REST API / fixed ATS v8 deployments | Public Testnet contract ID-to-EVM lookup; runtime code independently read through JSON-RPC | [Official contract endpoint](https://docs.hedera.com/api-reference/contracts/get-contract-by-id), [pinned deployment IDs](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/apps/ats/web/.env.example); no documentation code copied |
-| ATS contracts 8.0.0 DiamondCutManager ABI | Minimal view-function ABI used for Equity config lookup; tests compare calldata with the installed official artifact, without importing SDK/contract modules into the app | Apache-2.0; [pinned contract](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/contracts/contracts/infrastructure/diamond/DiamondCutManager.sol#L118-L122), [SDK query semantics](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/sdk/src/port/out/rpc/RPCQueryAdapter.ts#L719-L729) |
+| ATS contracts 8.0.0 DiamondCutManager ABI | Minimal initial ABI for independent config lookup; Factory/IAsset ABIs are additionally loaded lazily for NOVA calldata, events and current getters | Apache-2.0; [pinned contract](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/contracts/contracts/infrastructure/diamond/DiamondCutManager.sol#L118-L122), [SDK query semantics](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/sdk/src/port/out/rpc/RPCQueryAdapter.ts#L719-L729) |
 | Existing nested abitype 1.2.3 / ox 0.14.44 | Additional rendered viem ABI/RPC helpers for readContract; versions and lock unchanged | MIT; [ABIType](https://github.com/wevm/abitype), [Ox](https://github.com/wevm/ox); [bundle membership](evidence/010-t01b-3-bundle.json) |
 | @hiero-ledger/proto 2.25.0 | Supplies wallet-connect's missing runtime import | Apache-2.0; [Hiero SDK repository](https://github.com/hiero-ledger/hiero-sdk-js) |
 | @hashgraph/proto 2.18.5 / @hashgraph/sdk 2.64.5 / @hiero-ledger/sdk 2.79.0 | Existing transitive parents; public proto compatibility and decoder diagnostic | Apache-2.0; [Hiero SDK repository](https://github.com/hiero-ledger/hiero-sdk-js), exact versions in lockfile |
@@ -35,13 +35,14 @@ license or event eligibility is asserted by public GitHub availability.
 | Node 24.19.0 / npm 11.17.0 | Runtime/package manager | Their upstream licenses apply; [Node](https://github.com/nodejs/node), [npm](https://github.com/npm/cli) |
 | GitHub checkout / setup-node actions | CI tooling; exact refs in the workflow | MIT; [checkout](https://github.com/actions/checkout), [setup-node](https://github.com/actions/setup-node) |
 | Playwright 1.63.0 | External diagnostic tool, not a project dependency | Apache-2.0; [Playwright](https://github.com/microsoft/playwright) |
-| Terminal3 verify_vc 0.0.20 / vc_core 0.0.19 | Planning/compatibility references and ATS transitive dependencies; no VC flow implemented | MIT in published manifests; [verify_vc](https://www.npmjs.com/package/@terminal3/verify_vc/v/0.0.20), [vc_core](https://www.npmjs.com/package/@terminal3/vc_core/v/0.0.19) |
+| Terminal3 verify_vc 0.0.20 / vc_core 0.0.19 | Exact direct dependencies for genuine payload preparation and manual ECDSA verification; human positive acceptance Pending | MIT in published manifests; [verify_vc](https://www.npmjs.com/package/@terminal3/verify_vc/v/0.0.20), [vc_core](https://www.npmjs.com/package/@terminal3/vc_core/v/0.0.19) |
 | Ponytail / Impeccable skills | AI workflow guidance; not bundled application code/assets | [Dated usage records](../AI_USAGE.md) |
 
 Browser configuration and adapter conventions reference the
 [pinned ATS v8 configuration](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/apps/ats/web/vite.config.ts)
 (Apache-2.0). The local dotenv/logging boundaries were written around observed
-APIs; no upstream SDK file was patched or vendored. Details and source links:
+APIs. That historical remediation did not patch SDK files; later dated sections
+below disclose the retained patches. Details and source links:
 [remediation evidence](evidence/004-t01a-remediation.md).
 
 The independently written protobuf test uses synthetic fields and a BigInt wire
@@ -187,3 +188,31 @@ fixture was copied. The [MetaMask signing guide](https://docs.metamask.io/metama
 was consulted on September 6, 2026. Viem's existing keccak256/stringToHex/getAddress
 utilities implement matching JSON hash/checksum operations, checked against
 pinned ethers 6.17.0. Native BBS is explicitly outside this supported path.
+
+
+## September 7, 2026 — managed NOVA creation and readback
+
+[Evidence 023](evidence/023-nova-implementation.md) extends the current uses above:
+ATS SDK 8.0.0 is locally adapted in 16 published ESM/CJS/type files for the public
+Network provider option, RPC adapter, MetaMask service and genuine configuration
+request export. The separate patch checks version and original/patched SHA-256
+before writing; upstream Apache-2.0 notices remain. The managed RPC adapter
+sets the configured Mirror instance HTTP timeout to 10 seconds; the Mirror
+adapter source is unchanged. Equity.create and existing
+proto/read-only patches are unchanged. Source: the installed published SDK,
+[ATS repository at the pinned source revision](https://github.com/hashgraph/asset-tokenization-studio/tree/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/sdk).
+
+The installed contracts 8.0.0 Factory and IAsset ABIs (Apache-2.0) now supply
+lazy calldata/event encoding and current getter decoding. The deployment event
+is the stated source for rights omitted by the SDK's Equity getter. No Solidity
+contract is copied or deployed from custom code. ethers 6.17.0 (MIT) supplies
+owned browser/read providers and ABI Interface; its public getTransaction method
+is wrapped on the owned instance to stop the signer's post-send retry after a
+bounded lookup failure. [Signer/provider source](https://github.com/ethers-io/ethers.js/blob/v6.17.0/src.ts/providers/provider-jsonrpc.ts).
+
+Public receipt/RPC and Mirror REST records provide chain evidence; the
+[Mirror OpenAPI schema](https://testnet.mirrornode.hedera.com/api/v1/docs/openapi.yml)
+was consulted for contract results and timestamp-filtered transactions. Native
+Web Locks and Web Storage provide same-origin exclusion and public operation
+persistence. Existing licenses, the 62 audit findings, peer incompatibilities
+and dfns license omissions remain; no native BBS support is asserted.

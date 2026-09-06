@@ -22,8 +22,6 @@ test('the shell renders planned data without claiming a wallet or chain result',
       'Wallet not connected.',
       'NOVA',
       'USNOVA000016',
-      'Not created',
-      'No transactions yet.',
       'Lifecycle steps require separate verification.',
       'Set up three accounts',
       'Not assigned',
@@ -47,6 +45,8 @@ test('the shell renders planned data without claiming a wallet or chain result',
     assert.doesNotMatch(html, /SDK config verified|SDK prepared\./);
     assert.doesNotMatch(html, /Deployment and config verified|On-chain Equity config verified/);
     assert.doesNotMatch(html, /<iframe/);
+    assert.ok(html.includes('Create NOVA once'));
+    assert.ok(html.includes('Query NOVA transaction'));
     assert.ok(html.includes('Prepare Seller VC'));
     assert.ok(html.includes('Sign in MetaMask and verify'));
   } finally {
