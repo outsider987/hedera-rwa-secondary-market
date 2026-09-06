@@ -106,3 +106,13 @@ replace the SDK transport. [Provider source](https://github.com/ethers-io/ethers
 The independently written diagnostic reuses the existing deployment check and
 build/browser patterns. Only temporary probe source is generated; no upstream
 implementation is copied into Git, and no SDK config result is fabricated.
+
+The subsequent [read-only options research](evidence/016-sdk-readonly-options.md)
+compares those sources with the [official SDK integration guide](https://docs.tokenization-studio.hedera.com/ats/developer-guides/sdk-integration/),
+ATS initialization/request fields, MetaMask discovery/listeners, contract-address
+selection and Mirror retry implementation (Apache-2.0). It also references
+[ethers FetchRequest controls](https://docs.ethers.org/v6/api/utils/fetching/)
+and the [6.17.0 browser transport](https://github.com/ethers-io/ethers.js/blob/v6.17.0/src.ts/utils/geturl-browser.ts)
+(MIT). GitHub public API metadata/search results were read on September 6, 2026;
+no maintainer response, new upstream repair or runtime compatibility is claimed.
+No source implementation was copied or dependency changed in this research.
