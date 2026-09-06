@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-06 | Isolated ATS read-only compatibility trial | [Scoped request/provider patch and verification](docs/ai-usage/023-sdk-readonly-trial.md) |
 | 2026-09-06 | SDK read-only API research | [Public API gaps and a bounded repair proposal](docs/ai-usage/022-sdk-readonly-options.md) |
 | 2026-09-06 | T01b-4 official SDK config prerequisite | [Public initialization request missing; integration blocked](docs/ai-usage/021-t01b-4-sdk-config.md) |
 | 2026-09-06 | T01a original-schema decoder regeneration | [Reproducible repair; compatibility/security and browser gates pass](docs/ai-usage/020-t01a-decoder-rebuild.md) |

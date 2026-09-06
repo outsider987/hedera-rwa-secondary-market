@@ -14,7 +14,8 @@ license or event eligibility is asserted by public GitHub availability.
 | React / React DOM 19.2.8 | Console UI | MIT; [React](https://github.com/facebook/react) |
 | Vite 8.2.2 | Dev/build tooling | MIT; [Vite](https://github.com/vitejs/vite) |
 | TypeScript 7.0.2 | Typechecking | Apache-2.0; [TypeScript](https://github.com/microsoft/TypeScript) |
-| ATS SDK 8.0.0 | Diagnostic public-entry loading and read-initialization prerequisite probe; current app SDK/VC integration pending | Apache-2.0; [ATS](https://github.com/hashgraph/asset-tokenization-studio) |
+| ATS SDK 8.0.0 | Locally patched public request export and optional read-provider injection for the isolated trial; app SDK/VC integration pending | Apache-2.0; [ATS](https://github.com/hashgraph/asset-tokenization-studio), [patch scope/evidence](evidence/017-sdk-readonly-trial.md) |
+| ethers 6.17.0 | Exact direct dependency, previously installed transitively; caller-owned read provider and per-request transport in the isolated trial only | MIT; [ethers source](https://github.com/ethers-io/ethers.js/tree/v6.17.0), [fetch controls](https://docs.ethers.org/v6/api/utils/fetching/) |
 | wagmi 3.7.7 / @wagmi/core 3.6.5 / @wagmi/connectors 8.2.0 | React connection state and injected EIP-1193 connector; no other connector activated | MIT; [wagmi](https://github.com/wevm/wagmi), [official integration](https://wagmi.sh/react/getting-started), [provider reconnect setting](https://wagmi.sh/react/api/WagmiProvider), [injected](https://wagmi.sh/react/api/connectors/injected) |
 | viem 2.56.3 | Direct dependency; wagmi utilities and public Testnet chain/bytecode reads using createClient with getChainId/getCode/readContract actions; CCIP Read disabled | MIT; [viem](https://github.com/wevm/viem) |
 | @tanstack/react-query / query-core 5.102.8 | Account/deployment query lifecycle and wagmi mutations | MIT; [TanStack Query](https://github.com/TanStack/query) |
@@ -116,3 +117,20 @@ and the [6.17.0 browser transport](https://github.com/ethers-io/ethers.js/blob/v
 (MIT). GitHub public API metadata/search results were read on September 6, 2026;
 no maintainer response, new upstream repair or runtime compatibility is claimed.
 No source implementation was copied or dependency changed in this research.
+
+The subsequent [isolated compatibility trial](evidence/017-sdk-readonly-trial.md)
+adapts small published ATS snippets in four logical targets: request exports,
+[JsonRpcRelay](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/sdk/src/domain/context/network/JsonRpcRelay.ts),
+[SetNetworkCommandHandler](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/packages/ats/sdk/src/app/usecase/command/network/setNetwork/SetNetworkCommandHandler.ts)
+and RPCQueryAdapter (Apache-2.0). Original notices remain in every patched
+implementation; the repository stores replacement snippets and hashes, not a
+fork or node_modules. The request constructor and validation implementation are
+unchanged. Ethers 6.17.0 uses its public per-request/provider options; its source
+is not patched or vendored. The isolated page/harness independently reuses this
+repository's existing deployment checks and diagnostic patterns. This local
+adaptation is not an upstream-supported read-only API or a VC acceptance claim.
+The [trial inventory](evidence/017-sdk-readonly-trial.json) covers all 348
+rendered SDK package locations. Existing `@dfns/sdk` and `@dfns/sdk-keysigner`
+0.1.0-beta.5 have no license field or top-level license/notice file in the
+installed packages; their license is not inferred. No such module is added to
+the unchanged main-app bundle.

@@ -1,0 +1,11 @@
+# Isolated SDK compatibility trial — September 6, 2026
+
+Victor replied **“好go”** after the supported-API findings and proposed isolated repair. This activates the exact export/provider trial in HANDOFF from `5e81069a700cc597f04b3aa254b774e60d76ac63`; its previous base `0bf2681` is an ancestor.
+
+Export the genuine ATS 8.0.0 `SetNetworkRequest` and pass an optional caller-owned read provider through `rpcNode` to `RPCQueryAdapter`. Preserve original validation/default behavior and upstream notices. Guard published ESM/CJS/type files by version and SHA-256; apply idempotently after clean installation. The four allowed upstream logical targets are request/index, JsonRpcRelay, SetNetworkCommandHandler and RPCQueryAdapter. No wallet initialization, deep import, fabricated validation, global transport hook, SDK upgrade, VC or mutation.
+
+Allowed repository files: `scripts/patch-ats-readonly.mjs`, `package.json`, `package-lock.json`, `tests/ats.test.mjs`; new evidence `017-sdk-readonly-trial.mjs/.md/.json`; this prompt, work record `023-sdk-readonly-trial.md`, HANDOFF, plan, ATTRIBUTION and AI_USAGE. Ethers 6.17.0 may become an exact direct dependency without changing its installed version or unrelated resolutions. No application source changes; preserve historical evidence.
+
+Use TDD. In an isolated page, share a 10-second deadline and native cancellation across the existing fixed Testnet preflight and real public SDK config read. Use the fresh verified Resolver EVM address; validate safe integer payload >= 1. Serialize attempts, cancel on invalidation, reject stale responses, and disable automatic retries, redirects and unapproved endpoints/methods including CCIP gateways. Destroy the provider and abort outstanding work on completion/cancellation.
+
+Run npm ci/test/typecheck/build; public constructor/type/validation and patch guards; real SDK dev/preview desktop/mobile browsers, separate controlled and live reads, timeout including delayed body, cancellation, 429/network-error, redirect/OffchainLookup and stale cases; full rendered dependency accounting. If incompatible, retain diagnostics and stop. Passing this trial permits proposing app integration only. B2/VC and manual acceptance remain open. Commit work/docs together; no automatic push/merge or next ticket.

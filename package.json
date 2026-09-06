@@ -14,13 +14,14 @@
     "typecheck": "tsc --noEmit",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
-    "postinstall": "node scripts/rebuild-proto.mjs",
+    "postinstall": "node scripts/rebuild-proto.mjs && node scripts/patch-ats-readonly.mjs",
     "test:proto": "node docs/evidence/014-t01a-decoder-rebuild.test.mjs --candidate --compare docs/evidence/007-t01a-protobuf-rebuild-restored-tests.json"
   },
   "dependencies": {
     "@hashgraph/asset-tokenization-sdk": "8.0.0",
     "@hiero-ledger/proto": "2.25.0",
     "@tanstack/react-query": "5.102.8",
+    "ethers": "6.17.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "viem": "2.56.3",
