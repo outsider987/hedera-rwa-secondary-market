@@ -1,18 +1,88 @@
-import { useRef, useState, useSyncExternalStore } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { useQueries, useQuery } from '@tanstack/react-query';
 import { useConnect, useConnection, useDisconnect } from 'wagmi';
 import { bindingProblem, loadRoles, roleNames, saveRoles, storageWarning, type MirrorAccount, type Roles } from './guards';
 import { getWalletSession, lookupAccount, queryClient, subscribeWalletSession, testnetChainId, walletConfig } from './wallet';
 import { checkDeployment, deployments, equityConfigId } from './deployment';
+import { checkSdkConfig, prepareAts, type AtsLoadState, type SdkConfigCheck } from './ats';
 
 function Deployment() {
   const operation = useRef(false);
+  const controller = useRef<AbortController | undefined>(undefined);
+  const epoch = useRef(0), mounted = useRef(true), sdkAttempted = useRef(false);
+  const [sdkLoad, setSdkLoad] = useState<AtsLoadState>('idle');
+  const [sdkReading, setSdkReading] = useState(false);
+  const [sdkResult, setSdkResult] = useState<SdkConfigCheck>();
+  const [sdkMessage, setSdkMessage] = useState('SDK not prepared.');
   const query = useQuery({ queryKey: ['deployment'], queryFn: ({ signal }) => checkDeployment(signal), enabled: false });
-  const result = query.isSuccess && !query.isFetching ? query.data : undefined;
+  const result = query.isSuccess && !query.isFetching && !sdkReading ? query.data : undefined;
+  const checking = query.isFetching || sdkReading;
+  const busy = checking || sdkLoad === 'loading';
+
+  function invalidateSdk(message: string) {
+    epoch.current++;
+    controller.current?.abort();
+    setSdkResult(undefined);
+    setSdkMessage(message);
+    void queryClient.resetQueries({ queryKey: ['deployment'], exact: true });
+  }
+
+  useEffect(() => {
+    mounted.current = true;
+    let session = getWalletSession();
+    const unsubscribe = subscribeWalletSession(() => {
+      const current = getWalletSession();
+      if (session === current) return;
+      session = current;
+      if (sdkAttempted.current) invalidateSdk('Wallet changed. Run a new SDK check when ready.');
+    });
+    const abort = () => { epoch.current++; controller.current?.abort(); };
+    window.addEventListener('pagehide', abort);
+    return () => { mounted.current = false; abort(); unsubscribe(); window.removeEventListener('pagehide', abort); };
+  }, []);
+
+  async function prepare() {
+    if (operation.current) return;
+    operation.current = true;
+    setSdkLoad('loading'); setSdkMessage('Preparing ATS SDK…');
+    try {
+      const state = await prepareAts();
+      if (mounted.current) {
+        setSdkLoad(state);
+        setSdkMessage(state === 'loaded' ? 'SDK prepared. Config has not been checked.' : 'SDK preparation failed. Retry preparation or reload when ready.');
+      }
+    } finally { operation.current = false; }
+  }
+
+  async function checkSdk() {
+    if (operation.current || sdkLoad !== 'loaded') return;
+    operation.current = true;
+    const current = controller.current = new AbortController(), attempt = ++epoch.current;
+    sdkAttempted.current = true;
+    setSdkReading(true); setSdkResult(undefined); setSdkMessage('Checking deployment and SDK config…');
+    void queryClient.resetQueries({ queryKey: ['deployment'], exact: true });
+    try {
+      const checked = await checkSdkConfig(current.signal);
+      if (mounted.current && attempt === epoch.current && !current.signal.aborted) {
+        setSdkResult(checked); setSdkMessage(checked.message);
+        if (checked.deployment) queryClient.setQueryData(['deployment'], checked.deployment);
+      }
+    } catch {
+      if (mounted.current && attempt === epoch.current && !current.signal.aborted) setSdkMessage('SDK check could not complete. Retry when ready.');
+    } finally {
+      current.abort();
+      controller.current = undefined;
+      operation.current = false;
+      if (mounted.current) setSdkReading(false);
+    }
+  }
 
   async function check() {
     if (operation.current) return;
     operation.current = true;
+    sdkAttempted.current = false;
+    setSdkResult(undefined);
+    setSdkMessage(sdkLoad === 'loaded' ? 'SDK prepared. Config has not been checked.' : 'SDK not prepared.');
     try { await query.refetch({ cancelRefetch: false }); }
     finally { operation.current = false; }
   }
@@ -22,7 +92,7 @@ function Deployment() {
     <p>Check the fixed Resolver, Factory and Equity config without connecting a wallet.</p>
     <p>These public reads do not establish full ATS SDK compatibility.</p>
     <p id="deployment-status" role="status" aria-live="polite">
-      {query.isFetching ? 'Checking deployment and config…' : query.isError ? 'Deployment and config check could not complete. Retry when ready.' : result?.message ?? 'Not checked.'}
+      {checking ? 'Checking deployment and config…' : query.isError ? 'Deployment and config check could not complete. Retry when ready.' : result?.message ?? 'Not checked.'}
     </p>
     <dl className="wallet-details">
       <div><dt>RPC chain ID</dt><dd>{result?.chainId === undefined ? 'Not checked' : `${result.chainId} / 0x${result.chainId.toString(16)}`}</dd></div>
@@ -34,7 +104,7 @@ function Deployment() {
         return <section key={deployment.id} aria-labelledby={`deployment-${deployment.name}`}>
           <h3 id={`deployment-${deployment.name}`}>{deployment.name} · {deployment.id}</h3>
           <p className="address">{contract?.address ? <code>{contract.address}</code> : 'EVM address not verified.'}</p>
-          <p>{query.isFetching ? 'Checking…' : contract?.message ?? 'Not checked.'}</p>
+          <p>{checking ? 'Checking…' : contract?.message ?? 'Not checked.'}</p>
           {contract?.byteLength !== undefined && <p>{contract.byteLength} bytes</p>}
         </section>;
       })}
@@ -45,13 +115,29 @@ function Deployment() {
         <div><dt>Config ID</dt><dd><code>{equityConfigId}</code></dd></div>
         <div><dt>Latest version</dt><dd data-testid="config-version">{result?.config.version ?? 'Not checked'}</dd></div>
       </dl>
-      <p>{query.isFetching ? 'Checking…' : result?.config.message ?? 'Config not checked.'}</p>
-      <p>ATS SDK integration remains unverified. Recheck the version before creating NOVA.</p>
+      <p>{checking ? 'Checking…' : result?.config.message ?? 'Config not checked.'}</p>
+      <p>This is the on-chain result. Check the SDK result below before continuing.</p>
     </section>
-    <div className="actions"><button type="button" disabled={query.isFetching} aria-describedby="deployment-status" onClick={check}>
-      {query.isFetching ? 'Checking deployment and config…' : result?.status === 'failed' || query.isError ? 'Retry deployment and config check' : 'Check deployment and config'}
+    <div className="actions"><button type="button" disabled={busy} aria-describedby="deployment-status" onClick={check}>
+      {checking ? 'Checking deployment and config…' : result?.status === 'failed' || query.isError ? 'Retry deployment and config check' : 'Check deployment and config'}
     </button></div>
     <p className="deployment-note">Public reads at latest block state; results are not a shared block snapshot. Reloading clears this check.</p>
+    <section aria-labelledby="sdk-heading">
+      <h3 id="sdk-heading">ATS SDK config</h3>
+      <p>Prepare the SDK, then check config. Each check rechecks the Testnet deployment without connecting a wallet.</p>
+      <p id="sdk-status" role="status" aria-live="polite">{sdkMessage}</p>
+      <dl className="wallet-details"><div><dt>SDK payload</dt><dd data-testid="sdk-payload">{sdkResult?.payload ?? 'Not checked'}</dd></div></dl>
+      <div className="actions">
+        <button type="button" disabled={busy || sdkLoad === 'loaded'} aria-describedby="sdk-status" onClick={prepare}>
+          {sdkLoad === 'loading' ? 'Preparing SDK…' : sdkLoad === 'loaded' ? 'SDK prepared' : sdkLoad === 'failed' ? 'Retry SDK preparation' : 'Prepare ATS SDK'}
+        </button>
+        <button type="button" disabled={busy || sdkLoad !== 'loaded'} aria-describedby="sdk-status" onClick={checkSdk}>
+          {sdkReading ? 'Checking SDK config…' : sdkResult?.status === 'failed' ? 'Retry SDK config check' : 'Check SDK config'}
+        </button>
+        {sdkReading && <button type="button" className="secondary" disabled={controller.current?.signal.aborted} onClick={() => invalidateSdk('SDK check cancelled. Run a new check when ready.')}>Cancel SDK check</button>}
+      </div>
+      <p className="deployment-note">This verifies the SDK config read only. Recheck before creating NOVA; VC verification remains pending.</p>
+    </section>
   </section>;
 }
 

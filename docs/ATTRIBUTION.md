@@ -14,8 +14,8 @@ license or event eligibility is asserted by public GitHub availability.
 | React / React DOM 19.2.8 | Console UI | MIT; [React](https://github.com/facebook/react) |
 | Vite 8.2.2 | Dev/build tooling | MIT; [Vite](https://github.com/vitejs/vite) |
 | TypeScript 7.0.2 | Typechecking | Apache-2.0; [TypeScript](https://github.com/microsoft/TypeScript) |
-| ATS SDK 8.0.0 | Locally patched public request export and optional read-provider injection for the isolated trial; app SDK/VC integration pending | Apache-2.0; [ATS](https://github.com/hashgraph/asset-tokenization-studio), [patch scope/evidence](evidence/017-sdk-readonly-trial.md) |
-| ethers 6.17.0 | Exact direct dependency, previously installed transitively; caller-owned read provider and per-request transport in the isolated trial only | MIT; [ethers source](https://github.com/ethers-io/ethers.js/tree/v6.17.0), [fetch controls](https://docs.ethers.org/v6/api/utils/fetching/) |
+| ATS SDK 8.0.0 | Locally patched public request export and optional read-provider injection for manual main-app config reads; broader SDK/VC integration pending | Apache-2.0; [ATS](https://github.com/hashgraph/asset-tokenization-studio), [patch scope/evidence](evidence/017-sdk-readonly-trial.md) |
+| ethers 6.17.0 | Exact direct dependency, previously installed transitively; caller-owned read provider and per-request transport for manual config reads | MIT; [ethers source](https://github.com/ethers-io/ethers.js/tree/v6.17.0), [fetch controls](https://docs.ethers.org/v6/api/utils/fetching/) |
 | wagmi 3.7.7 / @wagmi/core 3.6.5 / @wagmi/connectors 8.2.0 | React connection state and injected EIP-1193 connector; no other connector activated | MIT; [wagmi](https://github.com/wevm/wagmi), [official integration](https://wagmi.sh/react/getting-started), [provider reconnect setting](https://wagmi.sh/react/api/WagmiProvider), [injected](https://wagmi.sh/react/api/connectors/injected) |
 | viem 2.56.3 | Direct dependency; wagmi utilities and public Testnet chain/bytecode reads using createClient with getChainId/getCode/readContract actions; CCIP Read disabled | MIT; [viem](https://github.com/wevm/viem) |
 | @tanstack/react-query / query-core 5.102.8 | Account/deployment query lifecycle and wagmi mutations | MIT; [TanStack Query](https://github.com/TanStack/query) |
@@ -132,5 +132,11 @@ adaptation is not an upstream-supported read-only API or a VC acceptance claim.
 The [trial inventory](evidence/017-sdk-readonly-trial.json) covers all 348
 rendered SDK package locations. Existing `@dfns/sdk` and `@dfns/sdk-keysigner`
 0.1.0-beta.5 have no license field or top-level license/notice file in the
-installed packages; their license is not inferred. No such module is added to
-the unchanged main-app bundle.
+installed packages; their license is not inferred. Trial 017 left the main-app
+bundle unchanged; the subsequent integration accounts for the SDK lazy bundle.
+
+The [main-app integration](evidence/018-t01b-4-sdk-integration.md) reuses that
+verified local patch and the existing viem preflight without dependency changes.
+SDK loading is explicit; its complete lazy bundle inventory is retained with
+the new evidence. Broad upstream modules may be bundled without being invoked;
+config-read acceptance does not establish VC or transaction compatibility.

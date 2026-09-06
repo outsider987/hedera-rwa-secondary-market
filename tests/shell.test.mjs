@@ -32,7 +32,10 @@ test('the shell renders planned data without claiming a wallet or chain result',
       'Not checked',
       'Check deployment and config',
       'Equity config',
-      'ATS SDK integration remains unverified',
+      'Prepare ATS SDK',
+      'Check SDK config',
+      'SDK not prepared.',
+      'SDK payload',
     ]) {
       assert.ok(html.includes(text), `Missing honest shell state: ${text}`);
     }
@@ -40,7 +43,8 @@ test('the shell renders planned data without claiming a wallet or chain result',
     assert.match(html, /<main id="main">/);
     assert.match(html, /aria-describedby="wallet-status">Connect<\/button>/);
     assert.match(html, /id="wallet-status" role="status" aria-live="polite"/);
-    assert.doesNotMatch(html, /Load ATS SDK/);
+    assert.match(html, /disabled=""[^>]*>Check SDK config<\/button>/);
+    assert.doesNotMatch(html, /SDK config verified|SDK prepared\./);
     assert.doesNotMatch(html, /Deployment and config verified|On-chain Equity config verified/);
     assert.doesNotMatch(html, /<form|<input|<iframe/);
   } finally {

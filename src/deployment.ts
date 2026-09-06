@@ -1,11 +1,15 @@
-import { createClient, http, type Address } from 'viem';
+import { createClient, encodeFunctionData, http, type Address } from 'viem';
 import { getChainId, getCode, readContract } from 'viem/actions';
 
+export const rpcUrl = 'https://testnet.hashio.io/api';
+export const mirrorUrl = 'https://testnet.mirrornode.hedera.com/api/v1/';
 export const equityConfigId = '0x0000000000000000000000000000000000000000000000000000000000000001';
 // ATS contracts 8.0.0 DiamondCutManager ABI (Apache-2.0); no SDK module import.
 const configAbi = [{ type: 'function', name: 'getLatestVersionByConfiguration', stateMutability: 'view',
   inputs: [{ name: '_configurationId', type: 'bytes32' }], outputs: [{ name: 'latestVersion_', type: 'uint256' }],
 }] as const;
+
+export const equityConfigCalldata = encodeFunctionData({ abi: configAbi, functionName: 'getLatestVersionByConfiguration', args: [equityConfigId] });
 
 export const deployments = [
   { name: 'Resolver', id: '0.0.9212226' },
@@ -34,14 +38,13 @@ export function validateContract(id: string, value: unknown): Address {
   return address;
 }
 
-export async function checkDeployment(signal: AbortSignal): Promise<DeploymentCheck> {
+export async function checkDeployment(signal: AbortSignal, deadline = AbortSignal.timeout(10_000)): Promise<DeploymentCheck> {
   signal.throwIfAborted();
-  const deadline = AbortSignal.timeout(10_000);
   const combined = AbortSignal.any([signal, deadline]);
   const fetchOptions: RequestInit = {
     signal: combined, credentials: 'omit', cache: 'no-store', redirect: 'error', referrerPolicy: 'no-referrer',
   };
-  const client = createClient({ ccipRead: false, transport: http('https://testnet.hashio.io/api', {
+  const client = createClient({ ccipRead: false, transport: http(rpcUrl, {
     retryCount: 0, timeout: 10_000, fetchOptions,
     methods: { include: ['eth_chainId', 'eth_getCode', 'eth_call'] },
   }) });
@@ -76,7 +79,7 @@ export async function checkDeployment(signal: AbortSignal): Promise<DeploymentCh
     let value: unknown;
     try {
       combined.throwIfAborted();
-      const response = await fetch(`https://testnet.mirrornode.hedera.com/api/v1/contracts/${contract.id}`, { ...fetchOptions, method: 'GET' });
+      const response = await fetch(`${mirrorUrl}contracts/${contract.id}`, { ...fetchOptions, method: 'GET' });
       if (!response.ok) throw new Error();
       value = await response.json();
       combined.throwIfAborted();

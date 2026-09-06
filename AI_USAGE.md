@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-06 | T01b-4 main-app SDK config integration | [Manual SDK controls and verified read lifecycle](docs/ai-usage/024-t01b-4-sdk-integration.md) |
 | 2026-09-06 | Isolated ATS read-only compatibility trial | [Scoped request/provider patch and verification](docs/ai-usage/023-sdk-readonly-trial.md) |
 | 2026-09-06 | SDK read-only API research | [Public API gaps and a bounded repair proposal](docs/ai-usage/022-sdk-readonly-options.md) |
 | 2026-09-06 | T01b-4 official SDK config prerequisite | [Public initialization request missing; integration blocked](docs/ai-usage/021-t01b-4-sdk-config.md) |
