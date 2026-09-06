@@ -52,7 +52,7 @@ Status: 使用者於 2026-09-05 核准實作。進度以 `../HANDOFF.md` 為準�
 ### 合成 VC
 
 - T01 直接使用的相依套件 exact pin：`@terminal3/vc_core 0.0.19`、
-  `@terminal3/verify_vc 0.0.20`、`ethers 6.15.0`，相容於 ATS 8.0.0 的相依鏈。
+  `@terminal3/verify_vc 0.0.20`、`ethers 6.17.0`，相容於 ATS 8.0.0 的相依鏈。
 - 用 `prepareCredentialPayload`、公開 DID 建立 issuer＝Admin、subject＝Seller
   或 Buyer、合成 KYC passed claim；有效七天，起始時間回退五分鐘。
 - 不接 external revocation registry；合成 VC 不是身分審核服務。
@@ -441,3 +441,19 @@ full B2 remains open, and no repair is retained. [Evidence 020](../evidence/020-
 records 22 scoped lock changes, complete inventories and the native support
 question. A retained repair requires separate activation and an explicit
 support boundary before B2 can be cleared for VC. No automatic push or next ticket.
+
+### 2026-09-06 VC / NOVA implementation activation (effective)
+
+The user's supplied plan activates dependency repair, VC UI/verification and
+T02 implementation in sequence, on base `2001f13`.
+[Prompt 023](../prompts/023-vc-nova-implementation.md) records the complete
+requirements and exact per-stage files, superseding historical research-only
+boundaries. Desktop Chrome + MetaMask ECDSA is supported; native BBS is excluded.
+Retain ethers 6.17.0. Automated work may proceed through T02; actual deployment
+requires retained T01 human acceptance and one manual approval at preview 4173.
+No automatic push/merge or T03/T04. Every stage commits docs with actual checks.
+
+Dependency outcome: evidence 021 retains the exact trial delta plus the two
+approved Terminal3 root pins. Desktop ECDSA prerequisite passes the bounded
+security, clean-install and browser checks; native BBS is excluded. Proceed to
+the already-authorized VC implementation stage; human T01 remains Pending.

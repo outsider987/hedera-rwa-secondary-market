@@ -2,6 +2,32 @@
 
 ## Current boundary / Git base
 
+**Dependency stage retained and verified; Seller VC implementation is next.**
+
+- `based_on_commit: 2001f1303eb7677c3152cacc1fd5cc8d66655603` (implementation base; read actual HEAD from Git).
+- Existing branch remains `diagnostic/t01b-4-sdk-config`; no push or merge.
+- [Prompt 023](prompts/023-vc-nova-implementation.md) is the effective user
+  authorization for dependency → VC → T02 implementation, superseding the
+  historical boundaries below. Exact stage files and acceptance are there.
+- [Evidence 021](evidence/021-b2-retained-repair.md): exact 22-location delta,
+  two direct Terminal3 pins, clean ci, 90 Node tests, typecheck/build, 15
+  security/caller checks, 20 SDK and four unsigned VC browser cases passed.
+- Desktop Chrome + MetaMask ECDSA dependency prerequisite is cleared within
+  those checks. Native BBS is excluded; remaining 62 audit entries, peers and
+  dfns license gaps remain. No positive VC or transaction exists.
+- Next authorized stage: Prompt 023 VC files (credentials/evidence, existing
+  App/styles/wallet/guards/ats, relevant Node tests, evidence 022 and work item
+  028 plus shared documentation). Implement only that stage before its commit.
+- Preserve all human checks below. Actual NOVA waits for T01 acceptance and is
+  permitted once at preview 4173 with Victor's manual MetaMask approval.
+
+## Historical boundary / Git base
+
+The following records are historical; Prompt 023 and the current section above
+control activation and support scope. The manual acceptance checklist remains
+current and mandatory.
+
+
 **The isolated B2 candidate passed 15 security/caller checks, 89 existing tests, 20 SDK browser cases and four unsigned VC browser cases. Its audit falls from 80 to 62, with zero affected Terminal3-closure entries. No dependency repair is retained; full B2 remains open because native binary compatibility is unverified. VC/NOVA and remaining human acceptance are unfinished.**
 
 - `based_on_commit: 9d9f62f8fd1a4aa2b24069937540a8f5da4579fa` (trial base, not the commit containing this handoff). Previous base `6a331f32404f07c977a0aecc14a41bcd9fc59797` was verified as an ancestor.

@@ -169,3 +169,11 @@ published package; its hash is recorded. Existing dfns license gaps remain.
 Native source inspection and scripts-disabled tests do not establish binary
 compatibility. Playwright 1.63.0 remains external diagnostic tooling; the
 standalone unsigned VC probe uses actual published Terminal3 public imports.
+
+The [retained repair](evidence/021-b2-retained-repair.md) now installs evidence
+020's exact six overrides. Tar 7.5.22 is BlueOak-1.0.0; toml 4.2.0, tmp 0.2.7,
+Undici 6.28.0 and both scoped UUID 11.1.1 copies are MIT. Terminal3 vc_core
+0.0.19 / verify_vc 0.0.20 are direct pins (MIT); ethers remains 6.17.0.
+Historical statements above that the candidate is unretained describe their
+dated stages. Native BBS is outside desktop ECDSA support, not verified.
+No cryptographic or existing SDK/proto repair source changed.
