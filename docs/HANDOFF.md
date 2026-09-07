@@ -7,9 +7,10 @@ attested to all retained T01 checks, and approved one preview NOVA deployment.
 Independent receipt/event/current-getter/Mirror verification passed 56 checks.
 Do not create another NOVA or advance to T03.**
 
-- `based_on_commit: b526a75c2c089a735baa5dd7ecfdc331533a36cc` is the manual
-  acceptance/repair base, verified in Git history; read actual HEAD from Git.
-  Branch remains `diagnostic/t01b-4-sdk-config`; no automatic push/merge.
+- `based_on_commit: ea66aa35299a33a877c31fbb112a65dd1460a827` is the consolidated
+  report base, verified in Git history; read actual HEAD from Git.
+  Branch remains `diagnostic/t01b-4-sdk-config`. Victor explicitly authorized
+  report consolidation and push on September 7; no merge is authorized.
 - [Evidence 024](evidence/024-vc-nova-manual.md), its public JSON and offline
   screenshot gallery preserve actual acceptance, original export/mismatch,
   repair and independent live results. T01 checkbox selections are operator
@@ -38,6 +39,16 @@ Do not create another NOVA or advance to T03.**
   incompatibilities, dfns license omissions and event eligibility questions are
   not waived. No KYC grant, issuance or Hold was performed.
 
+## Consolidated report / latest supplied export
+
+[Report 025](evidence/025-t02-followup.md) links a standalone HTML report with
+10 original screenshots, public downloads and all 56 verified comparisons.
+Victor's latest `(3).json` still reports the historical sender mismatch at block
+40209380; it is preserved separately and is not called a successful final export.
+The repaired independent result at block 40209603 and four browser recoveries
+remain the completed verification. No post-repair human export/screenshot was
+supplied. Current report checks and source hashes are in evidence 025.
+
 ## Next action / exact allowed files (current)
 
 Victor may reload preview 4173 and press **Query NOVA transaction** for the
@@ -45,9 +56,10 @@ saved hash, then export the complete public result. Reload invalidates the VC
 but does not erase the transaction; querying does not need another VC signature.
 Never clear the operation to create again. Dev can query the same asset.
 
-The implementation/acceptance ticket stops here. Optional additional user
-captures may be recorded in `docs/evidence/025-t02-followup.{md,json,html}`,
-`docs/ai-usage/031-t02-followup.md`, `AI_USAGE.md`, `docs/HANDOFF.md` and
+The report ticket ends with the explicitly requested normal push to origin.
+The implementation/acceptance ticket stays closed. Optional additional user
+captures may be recorded in `docs/evidence/026-t02-followup.{md,json,html}`,
+`docs/ai-usage/032-t02-followup.md`, `AI_USAGE.md`, `docs/HANDOFF.md` and
 `docs/plans/001-ats-first.md` only. No additional implementation files are
 activated. T03 requires a new explicit activation and exact scope first.
 

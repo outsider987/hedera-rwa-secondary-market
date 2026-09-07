@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-07 | Consolidated report and authorized push | [Screenshot/file mapping and latest export](docs/ai-usage/031-t02-followup.md) |
 | 2026-09-07 | Manual VC/NOVA acceptance and sender repair | [One confirmed deployment and verified recovery](docs/ai-usage/030-vc-nova-manual.md) |
 | 2026-09-07 | Guarded NOVA implementation | [Managed SDK, one creation gate and recovery](docs/ai-usage/029-nova-implementation.md) |
 | 2026-09-06 | Manual Seller VC implementation | [Review/sign/verify and pending human acceptance](docs/ai-usage/028-vc-implementation.md) |

@@ -494,3 +494,14 @@ revalidation are preserved in [evidence 024](../evidence/024-vc-nova-manual.md).
 Only query the existing hash; no further creation, KYC, issuance or Hold.
 T03 is inactive. Optional additional public captures are record-only in the
 exact files listed in the current handoff. No automatic push/merge.
+
+
+### 2026-09-07 consolidated report and push authorization
+
+Victor supplied export (3) and explicitly requested a report mapping screenshots
+and files, then push. Evidence 025 provides the offline report, ten original
+images, public JSON downloads and 56 comparison rows. Export (3) is the older
+sender mismatch, preserved as such; successful independent recovery remains
+in evidence 024. This documentation-only activation authorizes normal push of
+the current branch and preceding local commits, without merge. No T03 or chain
+mutation is activated. The current handoff defines subsequent record-only files.
