@@ -1,5 +1,5 @@
 import { getAddress, keccak256, type Hex } from 'viem';
-import { acquireOperation, assertOperation, isAddress, releaseOperation, type Roles } from './guards';
+import { acquireOperation, assertOperation, isAddress, releaseOperation, validateMirrorAccount, type Roles } from './guards';
 import { checkDeployment, deployments, equityConfigId, mirrorUrl, rpcUrl } from './deployment';
 import { checkSdkConfig, prepareAts } from './ats';
 import { checkWalletReview, getWalletSession, reviewWallet, type WalletReview } from './wallet';
@@ -230,7 +230,15 @@ export async function recoverNova(transactionHash: string, admin: string, signal
       compare('Mirror security active', false, contract.deleted, 'Mirror contract record');
       compare('Mirror security ID format', true, /^0\.0\.[1-9]\d*$/.test(contract.contract_id), 'Mirror contract record');
       compare('Mirror transaction hash', transactionHash, result.hash, 'Mirror contract result');
-      compare('Mirror transaction sender', admin, result.from, 'Mirror contract result');
+      // Mirror may report the sender's numeric EVM form. Resolve that exact
+      // address through Mirror; never derive the wallet's ECDSA alias locally.
+      let senderAddress = 'Invalid sender account';
+      if (isAddress(result.from)) {
+        const sender = await mirror('accounts/' + result.from.toLowerCase() + '?limit=1', signal);
+        if (!sender) return novaEvidence({ ...record, status: comparisons.some(row => !row.matches) ? 'mismatch' : 'mirror-pending' });
+        try { senderAddress = validateMirrorAccount(admin, sender).address; } catch { /* Explicit mismatch below. */ }
+      }
+      compare('Mirror transaction sender', admin, senderAddress, 'Mirror account lookup for ' + String(result.from).slice(0, 42));
       compare('Mirror transaction target', factoryAddress, result.to, 'Mirror contract result');
       compare('Mirror transaction success', 'SUCCESS', result.result, 'Mirror contract result');
       compare('Mirror calldata', true, result.function_parameters?.toLowerCase() === deployed.calldata.toLowerCase(), 'Mirror contract result');

@@ -14,7 +14,7 @@ license or event eligibility is asserted by public GitHub availability.
 | React / React DOM 19.2.8 | Console UI | MIT; [React](https://github.com/facebook/react) |
 | Vite 8.2.2 | Dev/build tooling | MIT; [Vite](https://github.com/vitejs/vite) |
 | TypeScript 7.0.2 | Typechecking | Apache-2.0; [TypeScript](https://github.com/microsoft/TypeScript) |
-| ATS SDK 8.0.0 | Locally patched public requests and owned read/manual-wallet providers; guarded NOVA creation/readback implemented, human acceptance Pending | Apache-2.0; [ATS](https://github.com/hashgraph/asset-tokenization-studio), [patch scope/evidence](evidence/017-sdk-readonly-trial.md) |
+| ATS SDK 8.0.0 | Locally patched public requests and owned read/manual-wallet providers; guarded NOVA creation/readback accepted in evidence 024 | Apache-2.0; [ATS](https://github.com/hashgraph/asset-tokenization-studio), [patch scope/evidence](evidence/017-sdk-readonly-trial.md) |
 | ethers 6.17.0 | Exact direct dependency; owned read/wallet providers, UTF-8 ECDSA verification semantics and ABI encoding/decoding | MIT; [ethers source](https://github.com/ethers-io/ethers.js/tree/v6.17.0), [fetch controls](https://docs.ethers.org/v6/api/utils/fetching/) |
 | wagmi 3.7.7 / @wagmi/core 3.6.5 / @wagmi/connectors 8.2.0 | React connection state and injected EIP-1193 connector; no other connector activated | MIT; [wagmi](https://github.com/wevm/wagmi), [official integration](https://wagmi.sh/react/getting-started), [provider reconnect setting](https://wagmi.sh/react/api/WagmiProvider), [injected](https://wagmi.sh/react/api/connectors/injected) |
 | viem 2.56.3 | Direct dependency; wagmi utilities and public Testnet chain/bytecode reads using createClient with getChainId/getCode/readContract actions; CCIP Read disabled | MIT; [viem](https://github.com/wevm/viem) |
@@ -216,3 +216,10 @@ was consulted for contract results and timestamp-filtered transactions. Native
 Web Locks and Web Storage provide same-origin exclusion and public operation
 persistence. Existing licenses, the 62 audit findings, peer incompatibilities
 and dfns license omissions remain; no native BBS support is asserted.
+
+
+September 7 acceptance correction: [evidence 024](evidence/024-vc-nova-manual.md)
+records actual manual ECDSA VC and NOVA acceptance. Readback resolves Mirror's
+reported sender through its public Testnet accounts endpoint and reuses the
+existing application account validator. This is an application repair, not an
+upstream SDK/contract change; no third-party code or dependency was added.

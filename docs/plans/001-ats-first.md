@@ -475,3 +475,22 @@ Evidence 023 records automated checks; they do not satisfy human VC/T01 or
 prove a deployed asset. Victor must finish the retained checklist and positive
 VC checks on dev/preview before approving one preview creation. Stop after that
 single verified deployment. T03/KYC/issuance/Hold remain inactive.
+
+
+### 2026-09-07 T02 manual acceptance and sender recovery repair
+
+Victor supplied verified VC screenshots on dev and preview, a matching public
+preview VC export, all retained T01 checkbox attestations and one manually
+approved preview NOVA transaction. Evidence 024 distinguishes observed UI,
+operator attestations and independently verified chain results. T02 is complete:
+security ID `0.0.10402368`, cap 1000, supply 0, config 1, matching Admin role,
+receipt/event/current settings and Mirror data (56 comparisons).
+
+The real Mirror sender-format mismatch activated a bounded repair under Prompt
+023: only `src/nova.ts`, `tests/nova.test.mjs` and acceptance documentation.
+Resolve result.from through Mirror and reuse strict account validation; never
+derive an ECDSA alias from its numeric ID. Original failure and successful
+revalidation are preserved in [evidence 024](../evidence/024-vc-nova-manual.md).
+Only query the existing hash; no further creation, KYC, issuance or Hold.
+T03 is inactive. Optional additional public captures are record-only in the
+exact files listed in the current handoff. No automatic push/merge.

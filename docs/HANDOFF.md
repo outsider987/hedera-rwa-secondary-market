@@ -2,64 +2,58 @@
 
 ## Current boundary / Git base
 
-**VC and T02 implementation are ready; actual human VC/T01 and the single NOVA
-creation/readback remain Pending. Do not advance to T03.**
+**T02 complete: Victor manually signed accepted Seller VCs on dev and preview,
+attested to all retained T01 checks, and approved one preview NOVA deployment.
+Independent receipt/event/current-getter/Mirror verification passed 56 checks.
+Do not create another NOVA or advance to T03.**
 
-- `based_on_commit: 859d7f397356ee7287c7564fdbcc9829e87f58cd` (T02 implementation
-  base; read actual HEAD from Git). Earlier stage commits are `b4a267b` and
-  `859d7f3`. Branch `diagnostic/t01b-4-sdk-config`; no automatic push/merge.
-- [Prompt 023](prompts/023-vc-nova-implementation.md) is the effective dependency
-  → VC → T02 authorization and support decision. Historical prohibitions below
-  do not override it. Native BBS is excluded; desktop Chrome + MetaMask ECDSA only.
-- [Dependency 021](evidence/021-b2-retained-repair.md),
-  [VC 022](evidence/022-vc-implementation.md), and
-  [NOVA 023](evidence/023-nova-implementation.md) record the implementation and
-  its actual checks. Retain 62 audit findings, peer incompatibilities and dfns
-  license omissions. The original proto and SDK read-only patch scripts remain.
-- T02 adds the independent version/hash-guarded managed wallet patch, full fixed
-  review, exact deployEquity guard, public intent/hash persistence, native
-  cross-tab exclusion, bounded post-send lookup and SDK Mirror HTTP reads,
-  and independent receipt/event/
-  current-getter/Mirror recovery. Full VC/signature stays only in memory.
-- npm ci reproduced all three repairs with an unchanged lockfile. 65 app + 36
-  proto tests and typecheck/build passed. Final checks include six managed SDK
-  cases, eight SDK config cases (four live payloads 1) and four UI smoke cases;
-  the earlier full UI/VC/wallet regressions are preserved. See
-  [final verification](evidence/023-nova-final-verification.json). Detailed
-  browser/bundle results and the
-  temporary dev optimizer failure/rerun are in evidence 023. Automation uses
-  synthetic wallet/HTTP boundaries except explicitly labelled public live reads;
-  it never fabricates positive VC/SDK/chain acceptance.
-- Current dev 5173 and production preview 4173 serve the final build. A clean
-  install/restart invalidated any in-memory VC. Human positive results on both
-  origins, all remaining T01 observations below, browser/MetaMask versions and
-  the single-wallet environment remain Pending until actually reported.
+- `based_on_commit: b526a75c2c089a735baa5dd7ecfdc331533a36cc` is the manual
+  acceptance/repair base, verified in Git history; read actual HEAD from Git.
+  Branch remains `diagnostic/t01b-4-sdk-config`; no automatic push/merge.
+- [Evidence 024](evidence/024-vc-nova-manual.md), its public JSON and offline
+  screenshot gallery preserve actual acceptance, original export/mismatch,
+  repair and independent live results. T01 checkbox selections are operator
+  attestations, not independent reproductions of every temporal behavior.
+- Security ID **0.0.10402368**, address
+  `0x261ce349df182988fa25d00868cf6cf434220c24`.
+  Transaction hash
+  `0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e`.
+  Hedera transaction ID `0.0.7314364-1788760174-678049391`;
+  consensus `1788760179.255892685`. Cap 1000, supply 0, config 1 and Admin's
+  default management role match; rights are verified from the deployment event.
+- Chrome 152.0.7977.76 / MetaMask 13.46.1 were operator-entered. Positive VC
+  screenshots/public export establish observed application verification;
+  full credentials/signatures were neither retained nor independently replayed.
+- A real T02 readback defect was repaired within Prompt 023 authorization:
+  Mirror reports the sender's numeric EVM form. Both that exact lookup and
+  Admin's alias resolve to active account 0.0.10389090. `src/nova.ts` now reuses
+  strict account validation after lookup; `tests/nova.test.mjs` covers wrong,
+  deleted, missing and matching mappings. No local alias derivation or weakened
+  transaction guard. Original mismatch remains in evidence 024.
+- Clean npm ci, 65 app + 36 proto tests, typecheck/build and four live browser
+  recovery cases (dev/preview at 1440/390 px) pass. After ci, dev was restarted
+  to clear stale optimizer imports; failed and successful checks are in 024. Dependency lock and retained patch
+  scripts are unchanged. Preserve evidence 021–023 and their historical results.
+- Desktop ECDSA only; native BBS excluded. Remaining 62 audit findings, peer
+  incompatibilities, dfns license omissions and event eligibility questions are
+  not waived. No KYC grant, issuance or Hold was performed.
 
 ## Next action / exact allowed files (current)
 
-Victor completes the retained T01 checklist below and signs a Seller VC with
-Admin on dev and preview. Use the current app's **Prepare Seller VC → review →
-Sign in MetaMask and verify** and export only the public result. Existing manual
-acceptance remains valid; do not repeat already confirmed observations.
+Victor may reload preview 4173 and press **Query NOVA transaction** for the
+saved hash, then export the complete public result. Reload invalidates the VC
+but does not erase the transaction; querying does not need another VC signature.
+Never clear the operation to create again. Dev can query the same asset.
 
-After those checks pass, use **only http://127.0.0.1:4173**: expand remaining T01
-acceptance, record actual observations/versions, prepare NOVA review, inspect
-all fixed settings and three accounts/config, then manually approve one creation
-in MetaMask. Export the verified NOVA result. A recorded/unknown/submitted
-operation is query-only; inspect MetaMask and recover its public hash instead of
-creating another. Dev can query that same hash. No on-chain KYC, issuance or Hold.
+The implementation/acceptance ticket stops here. Optional additional user
+captures may be recorded in `docs/evidence/025-t02-followup.{md,json,html}`,
+`docs/ai-usage/031-t02-followup.md`, `AI_USAGE.md`, `docs/HANDOFF.md` and
+`docs/plans/001-ats-first.md` only. No additional implementation files are
+activated. T03 requires a new explicit activation and exact scope first.
 
-The next record-only work item may change exactly:
-
-- `docs/evidence/024-vc-nova-manual.md`, `.json` and optional
-  `024-vc-nova-gallery.html`, `.json` for actual public observations/captures;
-- `docs/ai-usage/030-vc-nova-manual.md`, `docs/HANDOFF.md`,
-  `docs/plans/001-ats-first.md`, `docs/ATTRIBUTION.md`, `AI_USAGE.md`.
-
-If a real acceptance defect appears, record it and its evidence-backed repair
-scope within Prompt 023's T02 files before fixing and revalidating. No next-ticket
-implementation is activated. Complete T02 only after an actually accepted
-Admin-signed Seller VC and the one matching confirmed NOVA deployment/readback.
+The sections below are historical. Their Pending states and older activation
+prohibitions are superseded by Prompt 023 and evidence 024; their evidence and
+acceptance requirements remain preserved.
 
 ## Historical boundary / Git base
 

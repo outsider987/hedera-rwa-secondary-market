@@ -106,7 +106,11 @@ test('recovery uses real ABI decoding and explicit RPC/Mirror fixtures; delay, m
   if(url.endsWith('contracts/0.0.9213391'))return Response.json({contract_id:'0.0.9213391',evm_address:F,deleted:false});
   if(state==='delay')return new Response('',{status:404});
   if(url.endsWith('contracts/'+B))return Response.json({contract_id:'0.0.12345',evm_address:B,deleted:false});
-  if(url.endsWith('contracts/results/'+hash))return Response.json({hash,from:state==='mirror-mismatch'?B:A,to:F,result:'SUCCESS',timestamp:'1788700000.123456789',amount:0,function_parameters:tx.input});
+  if(url.endsWith('contracts/results/'+hash))return Response.json({hash,from:state==='mirror-mismatch'?B:state.startsWith('sender-')?'0x0000000000000000000000000000000000000065':A,to:F,result:'SUCCESS',timestamp:'1788700000.123456789',amount:0,function_parameters:tx.input});
+  if(url.includes('/accounts/')){
+   if(state==='sender-delay')return new Response('',{status:404});
+   return Response.json({account:'0.0.101',evm_address:state==='sender-wrong'||state==='mirror-mismatch'?B:A,deleted:state==='sender-deleted'});
+  }
   if(url.includes('/transactions?'))return Response.json({transactions:[{consensus_timestamp:'1788700000.123456789',result:'SUCCESS',transaction_id:'0.0.101-1788700000-000000001'}]});
   throw new Error('Unexpected external request');
  });
@@ -115,9 +119,10 @@ test('recovery uses real ABI decoding and explicit RPC/Mirror fixtures; delay, m
  txReady=false;const pending=await n.recoverNova(hash,A,new AbortController().signal,JSON.parse(JSON.stringify(saved)));assert.equal(pending.status,'pending');assert.equal(n.canCreateNova(pending),false);
  const noHash={...saved,status:'unknown'};delete noHash.transactionHash;delete noHash.hashScanLink;
  assert.equal((await n.recoverNova(hash,A,new AbortController().signal,noHash)).transactionHash,undefined);txReady=true;
- for(const current of ['cap-mismatch','mirror-mismatch','complete']){
+ for(const current of ['cap-mismatch','mirror-mismatch','sender-wrong','sender-deleted','sender-delay','sender-alias','complete']){
   state=current;const result=await n.recoverNova(hash,A,new AbortController().signal,saved);
-  assert.equal(result.status,current==='complete'?'complete':'mismatch');
+  assert.equal(result.status,current==='complete'||current==='sender-alias'?'complete':current==='sender-delay'?'mirror-pending':'mismatch',current);
+  assert.equal(n.canCreateNova(result),false);
   if(current==='complete'){assert.equal(result.securityId,'0.0.12345');assert.equal(result.transactionId,'0.0.101-1788700000-000000001');assert.match(result.hashScanLink,/hashscan.io\/testnet\/transaction/)}
  }
  assert.ok(calls.every(url=>url.startsWith('https://testnet.')));
