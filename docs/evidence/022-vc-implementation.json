@@ -1,0 +1,1241 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-06T15:47:47.490Z",
+  "based_on_commit": "b4a267b171cbb12b4d85a51ec4b3f73f9ff4c380",
+  "kind": "manual ECDSA implementation; positive human acceptance pending",
+  "sourceHashes": {
+    "src/credentials.ts": "e66684dca7aa28c65a1728353d4a2a540e1dcec5f129ad482c8e9aea6413f60e",
+    "src/evidence.ts": "c8f6fafdefc366ec9f9a0349d15b4941b8aaf5c29c5d4c98da578304ac2d4f6a",
+    "src/guards.ts": "aa888e4015ec369a02f91a38e292a2386b9d3bcbb132d9effc6e46e72250f256",
+    "src/wallet.ts": "a78f8eb5176a319ee33255082d430d3177b74c011a79817bb6a541143df170dc",
+    "src/ats.ts": "4d529f85afb8a88b092539c7edcc0e0787b59db4ebadc0f93edda7910220fbc2",
+    "src/App.tsx": "859b08b068c4c97f598a44913b796269ed0d9f5f04adea65830505eb2c276359",
+    "src/styles.css": "bf1b7105327621f5f6ee58ee5003f57dc81114efe2ad29371c32cd98e44e8150",
+    "tests/credentials.test.mjs": "e87c0c808f42f01c35941cb31beabc0fa08685a93f7ea6c1bfdd28b9159ecaec",
+    "tests/evidence.test.mjs": "c76c80e88d0edff2c2c41c9407620a495d3e3fb21895bf1f0c8afe7f3d32455c",
+    "tests/guards.test.mjs": "f049a6409b71f951699b8764b8a2e04dd2d28c8d3bee176619f00a3b54d1a547"
+  },
+  "checks": {
+    "ci": "reused unchanged clean install from stage 021; manifest/lock unchanged in stage 022",
+    "tdd": {
+      "initialFailed": 3,
+      "finalPassed": 3
+    },
+    "node": {
+      "app": 57,
+      "proto": 36
+    },
+    "typecheck": "passed",
+    "build": "passed",
+    "vcBrowser": {
+      "schemaVersion": 1,
+      "kind": "genuine wagmi/Terminal3; controlled provider and Mirror; no valid signature",
+      "results": [
+        {
+          "label": "dev-desktop-reject",
+          "port": 5173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reject",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-desktop-invalid",
+          "port": 5173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "invalid",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-desktop-account-change",
+          "port": 5173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 12,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "account-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-desktop-network-change",
+          "port": 5173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 12,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "network-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-desktop-role-change",
+          "port": 5173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 10,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "role-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-desktop-reload",
+          "port": 5173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reload",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-desktop-expired",
+          "port": 5173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "expired",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-mobile-reject",
+          "port": 5173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reject",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-mobile-invalid",
+          "port": 5173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "invalid",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-mobile-account-change",
+          "port": 5173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 12,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "account-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-mobile-network-change",
+          "port": 5173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 12,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "network-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-mobile-role-change",
+          "port": 5173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 10,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "role-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-mobile-reload",
+          "port": 5173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reload",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-mobile-expired",
+          "port": 5173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "expired",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-desktop-reject",
+          "port": 4173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reject",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-desktop-invalid",
+          "port": 4173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "invalid",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-desktop-account-change",
+          "port": 4173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 9,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "account-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-desktop-network-change",
+          "port": 4173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 9,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "network-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-desktop-role-change",
+          "port": 4173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 8,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "role-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-desktop-reload",
+          "port": 4173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reload",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-desktop-expired",
+          "port": 4173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "expired",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-mobile-reject",
+          "port": 4173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reject",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-mobile-invalid",
+          "port": 4173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "invalid",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-mobile-account-change",
+          "port": 4173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 9,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "account-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-mobile-network-change",
+          "port": 4173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 9,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "network-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-mobile-role-change",
+          "port": 4173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 8,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "role-change",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-mobile-reload",
+          "port": 4173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reload",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-mobile-expired",
+          "port": 4173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "expired",
+          "verification": "No valid signature supplied or accepted"
+        }
+      ]
+    },
+    "finalCopyBrowser": {
+      "schemaVersion": 1,
+      "kind": "genuine wagmi/Terminal3; controlled provider and Mirror; no valid signature",
+      "results": [
+        {
+          "label": "dev-desktop-reject",
+          "port": 5173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reject",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "dev-mobile-reject",
+          "port": 5173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reject",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-desktop-reject",
+          "port": 4173,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reject",
+          "verification": "No valid signature supplied or accepted"
+        },
+        {
+          "label": "preview-mobile-reject",
+          "port": 4173,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "providerMethods": [
+            "eth_requestAccounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "eth_accounts",
+            "eth_chainId",
+            "personal_sign"
+          ],
+          "mirrorRequests": 6,
+          "forbiddenExternalRequests": 0,
+          "pageErrors": 0,
+          "consoleErrors": 0,
+          "scenario": "reject",
+          "verification": "No valid signature supplied or accepted"
+        }
+      ]
+    },
+    "sdkBrowser": {
+      "record": "022-vc-sdk-browser.json",
+      "cases": 20,
+      "live": 4,
+      "note": "Captured before final unique-key and static-copy corrections; complete VC rerun and final 4-case smoke cover final App"
+    },
+    "wallet": {
+      "passed": 20,
+      "record": {
+        "schemaVersion": 1,
+        "kind": "synthetic-wallet-browser-verification",
+        "baseCommit": "b4a267b171cbb12b4d85a51ec4b3f73f9ff4c380",
+        "lockSha256": "7be813930eca4f8c8b23147f6b180217fb28d2ac3c398d062a6ed117b8f5a856",
+        "browser": "143.0.7499.169",
+        "playwright": "1.63.0",
+        "note": "Real wagmi; synthetic provider and intercepted Mirror responses. No real MetaMask, live account, signature or transaction validation. Mobile is layout only.",
+        "results": [
+          {
+            "label": "dev-desktop-lifecycle",
+            "port": 5173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId",
+              "wallet_revokePermissions"
+            ],
+            "mirrorRequests": 32,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0,
+            "screenshot": ".impeccable/review/t01b-1-dev-desktop.png",
+            "checks": [
+              "keyboard-focus",
+              "distinct-roles",
+              "duplicate-guard",
+              "wrong-chain",
+              "switch-revalidation",
+              "no-background-refresh",
+              "no-overflow",
+              "reload-manual-connect",
+              "disconnect",
+              "clear"
+            ]
+          },
+          {
+            "label": "dev-mobile-lifecycle",
+            "port": 5173,
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId",
+              "wallet_revokePermissions"
+            ],
+            "mirrorRequests": 32,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0,
+            "screenshot": ".impeccable/review/t01b-1-dev-mobile.png",
+            "checks": [
+              "keyboard-focus",
+              "distinct-roles",
+              "duplicate-guard",
+              "wrong-chain",
+              "switch-revalidation",
+              "no-background-refresh",
+              "no-overflow",
+              "reload-manual-connect",
+              "disconnect",
+              "clear"
+            ]
+          },
+          {
+            "label": "dev-missing-provider",
+            "port": 5173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [],
+            "mirrorRequests": 0,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "dev-rejection-duplicate-disconnect",
+            "port": 5173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 1,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "dev-timeout-retry-empty-accounts",
+            "port": 5173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 2,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "dev-stale-response-and-rapid-transitions",
+            "port": 5173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 7,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "dev-restored-id-conflict",
+            "port": 5173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 14,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "dev-wrong-chain-connect-invalid-response-retry-role-race",
+            "port": 5173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 5,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "dev-storage-read-failure",
+            "port": 5173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 5,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "dev-storage-write-failure",
+            "port": 5173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 5,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "preview-desktop-lifecycle",
+            "port": 4173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId",
+              "wallet_revokePermissions"
+            ],
+            "mirrorRequests": 18,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0,
+            "screenshot": ".impeccable/review/t01b-1-preview-desktop.png",
+            "checks": [
+              "keyboard-focus",
+              "distinct-roles",
+              "duplicate-guard",
+              "wrong-chain",
+              "switch-revalidation",
+              "no-background-refresh",
+              "no-overflow",
+              "reload-manual-connect",
+              "disconnect",
+              "clear"
+            ]
+          },
+          {
+            "label": "preview-mobile-lifecycle",
+            "port": 4173,
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId",
+              "wallet_revokePermissions"
+            ],
+            "mirrorRequests": 18,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0,
+            "screenshot": ".impeccable/review/t01b-1-preview-mobile.png",
+            "checks": [
+              "keyboard-focus",
+              "distinct-roles",
+              "duplicate-guard",
+              "wrong-chain",
+              "switch-revalidation",
+              "no-background-refresh",
+              "no-overflow",
+              "reload-manual-connect",
+              "disconnect",
+              "clear"
+            ]
+          },
+          {
+            "label": "preview-missing-provider",
+            "port": 4173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [],
+            "mirrorRequests": 0,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "preview-rejection-duplicate-disconnect",
+            "port": 4173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 1,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "preview-timeout-retry-empty-accounts",
+            "port": 4173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 2,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "preview-stale-response-and-rapid-transitions",
+            "port": 4173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 4,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "preview-restored-id-conflict",
+            "port": 4173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 8,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "preview-wrong-chain-connect-invalid-response-retry-role-race",
+            "port": 4173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 3,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "preview-storage-read-failure",
+            "port": 4173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 3,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          },
+          {
+            "label": "preview-storage-write-failure",
+            "port": 4173,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "providerMethods": [
+              "eth_requestAccounts",
+              "eth_chainId"
+            ],
+            "mirrorRequests": 3,
+            "forbiddenExternalRequests": 0,
+            "pageErrors": 0,
+            "consoleErrors": 0
+          }
+        ]
+      }
+    },
+    "detector": []
+  },
+  "screenshots": [
+    {
+      "mode": "dev-desktop",
+      "path": ".impeccable/review/vc022-dev-desktop.png",
+      "sha256": "4382992e7f34d764bc16f2bcbb5730a0f80fb0b683b53a9f3478e538d4364a38"
+    },
+    {
+      "mode": "dev-mobile",
+      "path": ".impeccable/review/vc022-dev-mobile.png",
+      "sha256": "8c85ae6f22adc77fdf24e68c6163730a0906879dd2013a173e9e063cf8a917a9"
+    },
+    {
+      "mode": "preview-desktop",
+      "path": ".impeccable/review/vc022-preview-desktop.png",
+      "sha256": "0e33ca344885191135887ba32efbfe5f075e8e6ab90011fe7738b6aa0405cda9"
+    },
+    {
+      "mode": "preview-mobile",
+      "path": ".impeccable/review/vc022-preview-mobile.png",
+      "sha256": "47cafaae9638b496e8dad07b10b517c31003fd92be4d45ea48cabc226223afe6"
+    }
+  ],
+  "human": {
+    "dev": "Pending",
+    "preview": "Pending"
+  },
+  "priorFailures": [
+    "Initial Node resolver hook accidentally intercepted transitive src paths; limited to repository src and all feature checks pass",
+    "Initial browser had duplicate sibling session keys and a dev optimizer reload during edits; keys fixed, 28 cases pass",
+    "UI reviewer found contradictory static VC pending text; corrected and screenshots recaptured"
+  ],
+  "limits": [
+    "No automated valid credential or signature fabricated",
+    "Native BBS excluded",
+    "All prior T01 human checks remain",
+    "No NOVA, KYC grant, issuance, Hold or transaction"
+  ],
+  "uiReview": {
+    "disposition": "ship",
+    "scope": "sole contradictory static-copy finding scored resolved; human signing not assessed"
+  }
+}

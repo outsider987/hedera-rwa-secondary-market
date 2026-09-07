@@ -1,0 +1,198 @@
+{
+  "date": "2026-09-06T16:28:15.712Z",
+  "kind": "App safety gates and synthetic saved records; no VC or transaction success",
+  "results": [
+    {
+      "label": "dev-desktop-gates",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "gates",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    },
+    {
+      "label": "dev-desktop-saved",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "saved",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    },
+    {
+      "label": "dev-desktop-storage",
+      "port": 5173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "storage",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    },
+    {
+      "label": "dev-mobile-gates",
+      "port": 5173,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "gates",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    },
+    {
+      "label": "dev-mobile-saved",
+      "port": 5173,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "saved",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    },
+    {
+      "label": "dev-mobile-storage",
+      "port": 5173,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "storage",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    },
+    {
+      "label": "preview-desktop-gates",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "gates",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    },
+    {
+      "label": "preview-desktop-saved",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "saved",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    },
+    {
+      "label": "preview-desktop-storage",
+      "port": 4173,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "storage",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    },
+    {
+      "label": "preview-mobile-gates",
+      "port": 4173,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "gates",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    },
+    {
+      "label": "preview-mobile-saved",
+      "port": 4173,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "saved",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    },
+    {
+      "label": "preview-mobile-storage",
+      "port": 4173,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "providerMethods": [],
+      "mirrorRequests": 0,
+      "forbiddenExternalRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "scenario": "storage",
+      "creationDisabled": true,
+      "humanAcceptance": "Not established"
+    }
+  ]
+}

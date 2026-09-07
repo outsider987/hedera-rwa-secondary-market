@@ -1,0 +1,162 @@
+{
+  "date": "2026-09-06T16:24:16.110Z",
+  "kind": "Actual SDK; synthetic rejected provider and HTTP only; no VC or transaction success",
+  "results": [
+    {
+      "port": 5186,
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "validation": true,
+      "connected": true,
+      "discoveryDelta": 0,
+      "released": true,
+      "diagnostic": "SDK rejected after manual-provider rejection",
+      "record": "rejected",
+      "crossTabExclusion": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "id": "0.0.9213391"
+        },
+        {
+          "kind": "mirror",
+          "id": "0.0.9212226"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "validation": true,
+      "connected": true,
+      "discoveryDelta": 0,
+      "released": true,
+      "diagnostic": "SDK rejected after bounded lookup; hash retained",
+      "record": "pending",
+      "crossTabExclusion": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "id": "0.0.9213391"
+        },
+        {
+          "kind": "mirror",
+          "id": "0.0.9212226"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "validation": true,
+      "connected": true,
+      "discoveryDelta": 0,
+      "released": true,
+      "diagnostic": "SDK rejected after manual-provider rejection",
+      "record": "rejected",
+      "crossTabExclusion": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "id": "0.0.9213391"
+        },
+        {
+          "kind": "mirror",
+          "id": "0.0.9212226"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "validation": true,
+      "connected": true,
+      "discoveryDelta": 0,
+      "released": true,
+      "diagnostic": "SDK rejected after bounded lookup; hash retained",
+      "record": "pending",
+      "crossTabExclusion": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "id": "0.0.9213391"
+        },
+        {
+          "kind": "mirror",
+          "id": "0.0.9212226"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        }
+      ],
+      "forbidden": []
+    }
+  ]
+}

@@ -77,3 +77,15 @@ button:disabled { color: #526572; background: #e7edf1; border-color: #c1cdd6; cu
   .role-row { grid-template-columns: 1fr; gap: 0.5rem; }
   .role-row .actions { margin-top: 0.5rem; }
 }
+
+.review-check { display: flex; align-items: flex-start; gap: 0.75rem; margin-block: 1rem; max-width: 72ch; cursor: pointer; }
+.review-check input { flex: 0 0 auto; width: 1.25rem; height: 1.25rem; margin: 0.15rem 0 0; accent-color: #155781; }
+
+.nova-settings { margin-block: 1.5rem; border-top: 1px solid #d4dfe7; padding-top: 1rem; }
+summary { cursor: pointer; font-weight: 600; padding-block: 0.25rem; }
+.text-field { display: grid; gap: 0.5rem; max-width: 72ch; margin-block: 1rem; }
+.text-field input { width: 100%; min-width: 0; min-height: 44px; padding: 0.5rem 0.75rem; font: inherit; color: #172b3a; background: #fff; border: 1px solid #485d6b; border-radius: 4px; }
+.comparison-table { overflow-x: auto; margin-block: 1.5rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+caption { text-align: left; font-weight: 600; margin-bottom: 0.75rem; }
+th, td { padding: 0.75rem; text-align: left; vertical-align: top; border-bottom: 1px solid #d4dfe7; overflow-wrap: anywhere; }

@@ -8,6 +8,20 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-07 | Authorized T02 integration | [PR #3 and CI-gated merge](docs/ai-usage/032-t02-merge.md) |
+| 2026-09-07 | Consolidated report and authorized push | [Screenshot/file mapping and latest export](docs/ai-usage/031-t02-followup.md) |
+| 2026-09-07 | Manual VC/NOVA acceptance and sender repair | [One confirmed deployment and verified recovery](docs/ai-usage/030-vc-nova-manual.md) |
+| 2026-09-07 | Guarded NOVA implementation | [Managed SDK, one creation gate and recovery](docs/ai-usage/029-nova-implementation.md) |
+| 2026-09-06 | Manual Seller VC implementation | [Review/sign/verify and pending human acceptance](docs/ai-usage/028-vc-implementation.md) |
+| 2026-09-06 | Retained ECDSA dependency repair | [Scoped repair and explicit native exclusion](docs/ai-usage/027-b2-retained-repair.md) |
+| 2026-09-06 | B2 isolated dependency trial | [Security/caller checks pass; native boundary remains](docs/ai-usage/026-b2-dependency-trial.md) |
+| 2026-09-06 | B2 VC dependency readiness | [Complete closure and scoped trial proposal](docs/ai-usage/025-b2-vc-readiness.md) |
+| 2026-09-06 | T01b-4 main-app SDK config integration | [Manual SDK controls and verified read lifecycle](docs/ai-usage/024-t01b-4-sdk-integration.md) |
+| 2026-09-06 | Isolated ATS read-only compatibility trial | [Scoped request/provider patch and verification](docs/ai-usage/023-sdk-readonly-trial.md) |
+| 2026-09-06 | SDK read-only API research | [Public API gaps and a bounded repair proposal](docs/ai-usage/022-sdk-readonly-options.md) |
+| 2026-09-06 | T01b-4 official SDK config prerequisite | [Public initialization request missing; integration blocked](docs/ai-usage/021-t01b-4-sdk-config.md) |
+| 2026-09-06 | T01a original-schema decoder regeneration | [Reproducible repair; compatibility/security and browser gates pass](docs/ai-usage/020-t01a-decoder-rebuild.md) |
+| 2026-09-06 | T01a npm resolution diagnosis | [Hoisting failure explained; isolated resolution passes, decoder gate remains](docs/ai-usage/019-t01a-npm-resolution.md) |
 | 2026-09-06 | Screenshot evidence HTML | [Offline page with original screenshots](docs/ai-usage/018-t01-manual-gallery.md) |
 | 2026-09-06 | T01 manual acceptance | [Real MetaMask observations and remaining checks](docs/ai-usage/017-t01-manual.md) |
 | 2026-09-05 | T01b-2 / T01b-3 integration | [Authorized push and merge with CI gate](docs/ai-usage/016-deployment-config-merge.md) |

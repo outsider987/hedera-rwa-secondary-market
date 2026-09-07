@@ -1,0 +1,220 @@
+{
+  "date": "2026-09-06T16:42:05.808Z",
+  "kind": "Actual SDK; synthetic rejected provider and HTTP only; no VC or transaction success",
+  "results": [
+    {
+      "port": 5186,
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "validation": true,
+      "connected": true,
+      "sdkCompleted": false,
+      "timedOutByHarness": false,
+      "elapsedMs": 70,
+      "discoveryDelta": 0,
+      "released": true,
+      "diagnostic": "SDK rejected after manual-provider rejection",
+      "record": "rejected",
+      "crossTabExclusion": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "id": "0.0.9213391"
+        },
+        {
+          "kind": "mirror",
+          "id": "0.0.9212226"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "validation": true,
+      "connected": true,
+      "sdkCompleted": false,
+      "timedOutByHarness": false,
+      "elapsedMs": 61,
+      "discoveryDelta": 0,
+      "released": true,
+      "diagnostic": "SDK rejected after bounded lookup; hash retained",
+      "record": "pending",
+      "crossTabExclusion": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "id": "0.0.9213391"
+        },
+        {
+          "kind": "mirror",
+          "id": "0.0.9212226"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "mode": "mirror-timeout",
+      "calls": [],
+      "updates": [],
+      "validation": true,
+      "connected": true,
+      "sdkCompleted": false,
+      "timedOutByHarness": false,
+      "elapsedMs": 10016,
+      "discoveryDelta": 0,
+      "released": true,
+      "diagnostic": "SDK Mirror timeout boundary",
+      "record": "awaiting-signature",
+      "crossTabExclusion": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "id": "0.0.9213391"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "validation": true,
+      "connected": true,
+      "sdkCompleted": false,
+      "timedOutByHarness": false,
+      "elapsedMs": 72,
+      "discoveryDelta": 0,
+      "released": true,
+      "diagnostic": "SDK rejected after manual-provider rejection",
+      "record": "rejected",
+      "crossTabExclusion": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "id": "0.0.9213391"
+        },
+        {
+          "kind": "mirror",
+          "id": "0.0.9212226"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "validation": true,
+      "connected": true,
+      "sdkCompleted": false,
+      "timedOutByHarness": false,
+      "elapsedMs": 58,
+      "discoveryDelta": 0,
+      "released": true,
+      "diagnostic": "SDK rejected after bounded lookup; hash retained",
+      "record": "pending",
+      "crossTabExclusion": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "id": "0.0.9213391"
+        },
+        {
+          "kind": "mirror",
+          "id": "0.0.9212226"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "mode": "mirror-timeout",
+      "calls": [],
+      "updates": [],
+      "validation": true,
+      "connected": true,
+      "sdkCompleted": false,
+      "timedOutByHarness": false,
+      "elapsedMs": 10020,
+      "discoveryDelta": 0,
+      "released": true,
+      "diagnostic": "SDK Mirror timeout boundary",
+      "record": "awaiting-signature",
+      "crossTabExclusion": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "id": "0.0.9213391"
+        }
+      ],
+      "forbidden": []
+    }
+  ]
+}

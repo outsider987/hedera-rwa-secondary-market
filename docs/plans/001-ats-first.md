@@ -52,7 +52,7 @@ Status: 使用者於 2026-09-05 核准實作。進度以 `../HANDOFF.md` 為準�
 ### 合成 VC
 
 - T01 直接使用的相依套件 exact pin：`@terminal3/vc_core 0.0.19`、
-  `@terminal3/verify_vc 0.0.20`、`ethers 6.15.0`，相容於 ATS 8.0.0 的相依鏈。
+  `@terminal3/verify_vc 0.0.20`、`ethers 6.17.0`，相容於 ATS 8.0.0 的相依鏈。
 - 用 `prepareCredentialPayload`、公開 DID 建立 issuer＝Admin、subject＝Seller
   或 Buyer、合成 KYC passed claim；有效七天，起始時間回退五分鐘。
 - 不接 external revocation registry；合成 VC 不是身分審核服務。
@@ -362,3 +362,155 @@ moved from the handoff during the approved documentation maintenance.
 ### 2026-09-06 Screenshot evidence companion
 
 Victor requested an HTML record with the supplied screenshots. [Prompt 014](../prompts/014-t01-manual-gallery.md) defines the exact documentation files. This adds offline visual evidence only; prior records and pending acceptance remain unchanged. No application implementation or public deployment is activated.
+
+### 2026-09-06 T01a npm resolution diagnosis
+
+Victor replied “go” to investigating the failed protobuf resolution gate with TDD. [Prompt 015](../prompts/015-t01a-npm-resolution.md) defines the bounded isolated experiment and exact files. This supersedes the record-only boundary for diagnosis only; no retained app dependency/source change or SDK/VC/NOVA integration is authorized by this diagnostic ticket.
+
+Outcome: npm hoisting/pruning mismatch reproduced; targeted nested update passes the isolated graph and clean install without unrelated version changes. The original generated decoders still fail 12 checks; no candidate dependency changes are retained. See [evidence 013](../evidence/013-t01a-npm-resolution.md). Next proposed scope is original-schema regeneration, not SDK integration or NOVA creation.
+
+### 2026-09-06 Original-schema regeneration activation
+
+Victor replied “Go” to rebuilding the two original proto schemas with the now-verified npm workaround. [Prompt 016](../prompts/016-t01a-decoder-rebuild.md) activates the exact handoff scope and validation gates. Use pbjs built-in ES6/CommonJS wrappers, with upstream semantic flags and public-API verification; no added Babel toolchain or handwritten decoder edits. Retain a repair only after the security/compatibility and clean-install/browser gates pass. B2/SDK config/VC/NOVA remain outside this ticket.
+
+Outcome: retained generator passes all 36 proto tests, two default clean installs and isolated official-entry browser loading; 50 application tests and unchanged app assets pass. See [evidence 014](../evidence/014-t01a-decoder-rebuild.md). B1 is cleared within this bounded gate; B2 and the remaining T01 requirements stay open. The next proposed SDK config slice requires a separate activation and the exact scope in HANDOFF; it does not include VC or NOVA creation.
+
+### 2026-09-06 T01b-4 official SDK config activation
+
+Victor replied “Go” to the proposed official SDK config slice. [Prompt 017](../prompts/017-t01b-4-sdk-config.md) activates the exact handoff scope from `938aeb7`. The public SDK query may initialize only read adapters and must preserve Testnet, input validation, cancellation/deadline, no automatic retry and request boundaries. No dependency change or VC/mutation is included. If the pinned public API cannot satisfy these constraints, record reproducible diagnostics and stop without substituting the existing viem result for an SDK payload.
+
+Outcome: **blocked before SDK config execution**. Six dev/preview prerequisite probes reproduce the missing public `SetNetworkRequest` and rejection of plain objects. Existing live viem reads return version 1; they are not SDK payloads. No application/dependency change is retained. [Evidence 015](../evidence/015-t01b-4-sdk-config.md) preserves the red public-entry gate, current passing app checks and source-only transport concerns. Next proposed work is supported read-only initialization/transport research, not a bypass or relaxed acceptance requirement.
+
+### 2026-09-06 Public SDK read-only research
+
+Victor's “好確認下” activates the research scope in [Prompt 018](../prompts/018-sdk-readonly-options.md), based on `0bf2681`. Official documentation, the unchanged upstream main and installed 8.0.0 source provide no public path satisfying wallet independence plus the required transport controls. `Network.init` is documented but broader; the missing request export and caller-owned transport remain separate gaps. No new runtime candidate or SDK patch was executed. [Evidence 016](../evidence/016-sdk-readonly-options.md) records the result.
+
+Next proposed ticket is an isolated, version/hash-guarded export/provider compatibility trial, with exact files in HANDOFF. It requires separate activation and must pass both initialization and transport gates before app integration can resume. No SDK upgrade, fake request validation, deep import, wallet initialization, VC or mutation is included. Existing Testnet/deployment, safe payload, cancellation/deadline, no-retry, endpoint and manual acceptance requirements remain mandatory.
+
+### 2026-09-06 Isolated SDK compatibility trial activation
+
+Victor's “好go” activates the bounded export/provider trial in [Prompt 019](../prompts/019-sdk-readonly-trial.md), based on `5e81069`. This explicitly permits the four scoped SDK logical targets, reproducible hash-guarded patch wiring and exact direct ethers 6.17.0 already installed. It does not activate application integration, VC, a dependency upgrade or any chain mutation. All original read, transport and acceptance requirements remain mandatory.
+
+Outcome: **isolated trial passed**, with genuine public-root request validation and four live SDK payloads of `1`. The 80 controlled browser cases, 88 Node tests, clean installation, typecheck/build and four unchanged-app smoke checks pass; [evidence 017](../evidence/017-sdk-readonly-trial.md) records the transport limits and full inventory. The patch is retained; main-app SDK integration is proposed with exact files in HANDOFF and is not activated. B2, VC and remaining human acceptance persist. The earlier VC proposal's ethers 6.15.0 pin must be reconciled separately before VC work; this trial validates only the owned read provider on 6.17.0.
+
+### 2026-09-06 T01b-4 main-app SDK integration activation
+
+Victor's “接吧” activates [Prompt 020](../prompts/020-t01b-4-sdk-integration.md), based on `95b00f9`. Reuse the verified local export/provider repair for explicit manual SDK preparation and config reads in the existing page. The original viem preflight, Testnet restrictions, safe payload, shared deadline/cancellation, serialization and full browser/live acceptance remain mandatory. No dependency/patch change, VC, transaction, NOVA creation or automatic push/merge is included. Remaining human checks and B2 stay open.
+
+Outcome: **main-app integration passed automated acceptance**. Manual SDK preparation/config controls now use the verified public-root request/provider path. All 89 Node tests, 116 app SDK browser cases (including four live payloads of `1`), 20 existing wallet browser cases and ci/typecheck/build pass. [Evidence 018](../evidence/018-t01b-4-sdk-integration.md) records the full inventory and limits. New real MetaMask acceptance, B2 and VC remain pending. The next proposed ticket is B2 readiness/repair research with exact files in HANDOFF; it is not activated.
+
+### 2026-09-06 B2 VC dependency readiness activation and outcome
+
+Victor asked whether to proceed with VC verification and NOVA creation.
+[Prompt 021](../prompts/021-b2-vc-readiness.md) activates the handoff's bounded
+prerequisite research, based on `6a331f3`. No dependency/app/patch change or
+signature/transaction is included. The intended lifecycle remains the goal;
+its T01/B2 and manual-signature requirements are preserved.
+
+Outcome: full 196-location Terminal3 closure reviewed; 19 intersecting audit
+entries. A five-target, six-parent scoped dependency trial is specified in
+HANDOFF. No tested compatible repair is yet available. Ethers 6.17.0 satisfies
+Terminal3's declared ranges and is the proposed trial pin; the old 6.15.0 VC
+proposal is historical and must not trigger a downgrade. This is source
+compatibility reasoning, not VC runtime acceptance. [Evidence 019](../evidence/019-b2-vc-readiness.md)
+records current checks and the screenshot's limited successful SDK observation.
+Stop at research; isolated trial and retained repair require their own scopes.
+
+### 2026-09-06 B2 isolated dependency trial activation
+
+Victor's “開始吧” activates the exact isolated trial in HANDOFF and
+[Prompt 022](../prompts/022-b2-dependency-trial.md), based on `9d9f62f`.
+The later “對了,先推送吧” authorized pushing the existing committed branch
+first; origin was verified at `9d9f62f8fd1a4aa2b24069937540a8f5da4579fa`.
+No merge or automatic later push is included. Continue the trial afterward.
+
+Only disposable manifests/locks receive the six scoped override entries.
+Keep ATS/Terminal3/ethers and all existing pins/repairs; do not enable native
+scripts or change cryptographic code. Repository changes are limited to evidence
+020 MJS/test MJS/MD/JSON, prompt 022, work item 026, HANDOFF, this plan,
+ATTRIBUTION and AI_USAGE. Security/caller, full graph/audit/license, clean-install,
+Node/build and browser gates apply; native absence cannot establish compatibility.
+VC signing and NOVA remain later tickets with manual MetaMask approvals.
+
+Outcome: isolated candidate gates pass within their stated limits: 15 security/
+caller tests after seven baseline failures, 89 existing tests, clean install,
+typecheck/build, 20 SDK browser cases (four live payloads 1) and four unsigned
+negative VC browser cases. Audit 80 → 62; candidate Terminal3 closure 19 → 0
+matching entries. The normal install does not contain native BBS binaries;
+full B2 remains open, and no repair is retained. [Evidence 020](../evidence/020-b2-dependency-trial.md)
+records 22 scoped lock changes, complete inventories and the native support
+question. A retained repair requires separate activation and an explicit
+support boundary before B2 can be cleared for VC. No automatic push or next ticket.
+
+### 2026-09-06 VC / NOVA implementation activation (effective)
+
+The user's supplied plan activates dependency repair, VC UI/verification and
+T02 implementation in sequence, on base `2001f13`.
+[Prompt 023](../prompts/023-vc-nova-implementation.md) records the complete
+requirements and exact per-stage files, superseding historical research-only
+boundaries. Desktop Chrome + MetaMask ECDSA is supported; native BBS is excluded.
+Retain ethers 6.17.0. Automated work may proceed through T02; actual deployment
+requires retained T01 human acceptance and one manual approval at preview 4173.
+No automatic push/merge or T03/T04. Every stage commits docs with actual checks.
+
+Dependency outcome: evidence 021 retains the exact trial delta plus the two
+approved Terminal3 root pins. Desktop ECDSA prerequisite passes the bounded
+security, clean-install and browser checks; native BBS is excluded. Proceed to
+the already-authorized VC implementation stage; human T01 remains Pending.
+
+
+VC implementation outcome: evidence 022 supplies reviewed manual ECDSA signing,
+genuine Terminal3 verification with expected fields/digest and negative checks,
+shared operation/session guards and public-only export. Automated Node/browser
+checks pass; positive human dev/preview signatures and retained T01 checks
+remain Pending. The already-authorized NOVA UI/automation may proceed; actual
+creation remains gated and preview-only. No T03/T04 activation.
+
+
+### 2026-09-07 T02 implementation boundary
+
+The authorized managed SDK patch, full fixed NOVA review, preview-only manual
+creation, durable recovery and source-labelled readback are implemented.
+Evidence 023 records automated checks; they do not satisfy human VC/T01 or
+prove a deployed asset. Victor must finish the retained checklist and positive
+VC checks on dev/preview before approving one preview creation. Stop after that
+single verified deployment. T03/KYC/issuance/Hold remain inactive.
+
+
+### 2026-09-07 T02 manual acceptance and sender recovery repair
+
+Victor supplied verified VC screenshots on dev and preview, a matching public
+preview VC export, all retained T01 checkbox attestations and one manually
+approved preview NOVA transaction. Evidence 024 distinguishes observed UI,
+operator attestations and independently verified chain results. T02 is complete:
+security ID `0.0.10402368`, cap 1000, supply 0, config 1, matching Admin role,
+receipt/event/current settings and Mirror data (56 comparisons).
+
+The real Mirror sender-format mismatch activated a bounded repair under Prompt
+023: only `src/nova.ts`, `tests/nova.test.mjs` and acceptance documentation.
+Resolve result.from through Mirror and reuse strict account validation; never
+derive an ECDSA alias from its numeric ID. Original failure and successful
+revalidation are preserved in [evidence 024](../evidence/024-vc-nova-manual.md).
+Only query the existing hash; no further creation, KYC, issuance or Hold.
+T03 is inactive. Optional additional public captures are record-only in the
+exact files listed in the current handoff. No automatic push/merge.
+
+
+### 2026-09-07 consolidated report and push authorization
+
+Victor supplied export (3) and explicitly requested a report mapping screenshots
+and files, then push. Evidence 025 provides the offline report, ten original
+images, public JSON downloads and 56 comparison rows. Export (3) is the older
+sender mismatch, preserved as such; successful independent recovery remains
+in evidence 024. This documentation-only activation authorizes normal push of
+the current branch and preceding local commits, without merge. No T03 or chain
+mutation is activated. The current handoff defines subsequent record-only files.
+
+
+### 2026-09-07 explicit merge activation
+
+After the report push, Victor explicitly said “合併吧”. This authorizes PR #3
+from `diagnostic/t01b-4-sdk-config` into `main`, preserving incremental commits
+and waiting for the repository CI. Scope is integration records only:
+`docs/ai-usage/032-t02-merge.md`, AI_USAGE, HANDOFF and this plan. No source or
+chain operations are activated. Verify the merged remote main; T03 stays closed.

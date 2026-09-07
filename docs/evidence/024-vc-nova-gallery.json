@@ -1,0 +1,82 @@
+[
+  {
+    "file": "tmpFC7F.png",
+    "caption": "Admin public Mirror account",
+    "sha256": "0922035c44a93fbf995a0ffd4e6bea6e332720d4772a7868c6893d626596eef2",
+    "bytes": 224617,
+    "source": "Victor supplied screenshot, 2026-09-07",
+    "transformation": "None; original PNG embedded"
+  },
+  {
+    "file": "tmp65C8.png",
+    "caption": "Seller public Mirror account",
+    "sha256": "f7fd1ca5959f4a7bd315b64d75fd17599fecd34573b1306528cd9dcb40681d56",
+    "bytes": 209048,
+    "source": "Victor supplied screenshot, 2026-09-07",
+    "transformation": "None; original PNG embedded"
+  },
+  {
+    "file": "tmpAD7F.png",
+    "caption": "Buyer public Mirror account",
+    "sha256": "68983821ee55f44f1cfccc282ba92e001b4c1d0393b862a0c1e570029f1441b2",
+    "bytes": 210466,
+    "source": "Victor supplied screenshot, 2026-09-07",
+    "transformation": "None; original PNG embedded"
+  },
+  {
+    "file": "tmp4B3B.png",
+    "caption": "Dev: manual Admin signature request",
+    "sha256": "59d37d219f17fa2d5c30955e24a67d3b0ef75fbfcbfb54d70a26a126e0ed34ac",
+    "bytes": 294385,
+    "source": "Victor supplied screenshot, 2026-09-07",
+    "transformation": "None; original PNG embedded"
+  },
+  {
+    "file": "tmp92D3.png",
+    "caption": "Dev: accepted Seller VC and negative checks",
+    "sha256": "611de586a0bbc670225b424c92ca45e30c193e1f36c8ea50937b566f83c52742",
+    "bytes": 333032,
+    "source": "Victor supplied screenshot, 2026-09-07",
+    "transformation": "None; original PNG embedded"
+  },
+  {
+    "file": "tmpD09F.png",
+    "caption": "Preview: accepted Seller VC and negative checks",
+    "sha256": "8f68790d81ba7f1cd7a1e96530783b69f385bee05ee7115c202cbff0d5ed06ae",
+    "bytes": 375933,
+    "source": "Victor supplied screenshot, 2026-09-07",
+    "transformation": "None; original PNG embedded"
+  },
+  {
+    "file": "tmpF768.png",
+    "caption": "Reviewed NOVA settings, first supplied portion",
+    "sha256": "1371d33e420980ca6d8b8ee69f5f3b0f2cd835bc4723da735156526d1c7b9a3e",
+    "bytes": 162566,
+    "source": "Victor supplied screenshot, 2026-09-07",
+    "transformation": "None; original PNG embedded"
+  },
+  {
+    "file": "tmp2A5F.png",
+    "caption": "Reviewed NOVA settings, final supplied portion",
+    "sha256": "0d2ad0aef77dade4892c893ad2ac836f77bbf20fea3efbd13f64a4164f0c916a",
+    "bytes": 146743,
+    "source": "Victor supplied screenshot, 2026-09-07",
+    "transformation": "None; original PNG embedded"
+  },
+  {
+    "file": "tmp4E8C.png",
+    "caption": "Preview: T01 operator attestations and manual transaction request",
+    "sha256": "19180113b4046c4d44949194b31d3f2dcc07c5e642f47c3c24e6426cc2ad9fe3",
+    "bytes": 361175,
+    "source": "Victor supplied screenshot, 2026-09-07",
+    "transformation": "None; original PNG embedded"
+  },
+  {
+    "file": "tmp828C.png",
+    "caption": "Preview: transaction hash retained after submission",
+    "sha256": "54adb0d33681d2bea03d2caed56d4aadb6dfcb972fa593704ab236ba0a0a9557",
+    "bytes": 340112,
+    "source": "Victor supplied screenshot, 2026-09-07",
+    "transformation": "None; original PNG embedded"
+  }
+]

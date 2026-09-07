@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 1,
+  "based_on_commit": "ea66aa35299a33a877c31fbb112a65dd1460a827",
+  "date": "2026-09-07",
+  "userRequest": "Consolidate this work into a report mapping screenshots and files, then push the current branch.",
+  "latestUserFile": {
+    "name": "holdbook-public-evidence (3).json",
+    "sha256": "a5f7825e8b3aa7ffd4c9ce800a4f037664e101427faee19c3301c26574180583",
+    "bytes": 11852,
+    "classification": "Historical sender-format mismatch; not a post-repair successful user export"
+  },
+  "latestUserExport": {
+    "schemaVersion": 1,
+    "kind": "nova-create",
+    "chainId": 296,
+    "operationId": "ed4623f4-5533-49c9-959f-24bf17062204",
+    "startedAt": "2026-09-07T05:49:27.014Z",
+    "admin": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+    "configVersion": 1,
+    "calldataDigest": "0x4ee7e95c6288f62319ac9886eac511bbb52be3d99428b6c290f3e0961e37d907",
+    "status": "mismatch",
+    "credentialDigest": "0x92c7fec33c3642a6d86cd3f26d88a3bbabda948691a890fa015bdc0843809ee3",
+    "transactionHash": "0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e",
+    "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+    "readBlock": "40209380",
+    "comparisons": [
+      {
+        "field": "Successful Factory deployment",
+        "expected": "true",
+        "actual": "true",
+        "source": "Receipt and EquityDeployed event",
+        "matches": true
+      },
+      {
+        "field": "votingRight",
+        "expected": "true",
+        "actual": "true",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "informationRight",
+        "expected": "true",
+        "actual": "true",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "liquidationRight",
+        "expected": "true",
+        "actual": "true",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "subscriptionRight",
+        "expected": "false",
+        "actual": "false",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "conversionRight",
+        "expected": "false",
+        "actual": "false",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "redemptionRight",
+        "expected": "false",
+        "actual": "false",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "putRight",
+        "expected": "false",
+        "actual": "false",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "dividendRight",
+        "expected": "2",
+        "actual": "2",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "regulationType",
+        "expected": "1",
+        "actual": "1",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "regulationSubType",
+        "expected": "0",
+        "actual": "0",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "isCountryControlListWhiteList",
+        "expected": "false",
+        "actual": "false",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "countries",
+        "expected": "",
+        "actual": "",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "info",
+        "expected": "Fictional Testnet asset. Synthetic KYC only; no real securities or legal compliance claims.",
+        "actual": "Fictional Testnet asset. Synthetic KYC only; no real securities or legal compliance claims.",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "Deployed runtime bytecode",
+        "expected": "true",
+        "actual": "true",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "name",
+        "expected": "Nova Private Equity Common Shares",
+        "actual": "Nova Private Equity Common Shares",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "symbol",
+        "expected": "NOVA",
+        "actual": "NOVA",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "isin",
+        "expected": "USNOVA000016",
+        "actual": "USNOVA000016",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "decimals",
+        "expected": "0",
+        "actual": "0",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Security type (Equity)",
+        "expected": "1",
+        "actual": "1",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Resolver",
+        "expected": "0xba2d5fc2083a0b8f164c50e65d782087fba18e0a",
+        "actual": "0xba2d5fc2083a0b8f164c50e65d782087fba18e0a",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Config ID",
+        "expected": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "actual": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Config version",
+        "expected": "1",
+        "actual": "1",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Total supply",
+        "expected": "0",
+        "actual": "0",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Cap",
+        "expected": "1000",
+        "actual": "1000",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Controllable",
+        "expected": "true",
+        "actual": "true",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Internal KYC",
+        "expected": "true",
+        "actual": "true",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Clearing",
+        "expected": "false",
+        "actual": "false",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Multiple partitions",
+        "expected": "false",
+        "actual": "false",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Protected partitions",
+        "expected": "false",
+        "actual": "false",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "ERC20 votes",
+        "expected": "false",
+        "actual": "false",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Whitelist mode",
+        "expected": "false",
+        "actual": "false",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Blacklist count",
+        "expected": "0",
+        "actual": "0",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "External pause lists",
+        "expected": "0",
+        "actual": "0",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "External control lists",
+        "expected": "0",
+        "actual": "0",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "External KYC lists",
+        "expected": "0",
+        "actual": "0",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Compliance",
+        "expected": "0x0000000000000000000000000000000000000000",
+        "actual": "0x0000000000000000000000000000000000000000",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Identity registry",
+        "expected": "0x0000000000000000000000000000000000000000",
+        "actual": "0x0000000000000000000000000000000000000000",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Paused",
+        "expected": "false",
+        "actual": "false",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Nominal value",
+        "expected": "1",
+        "actual": "1",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Nominal decimals",
+        "expected": "0",
+        "actual": "0",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Currency",
+        "expected": "0x555344",
+        "actual": "0x555344",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Issuance enabled",
+        "expected": "Reported current flag (not a creation input)",
+        "actual": "true",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Admin default management role",
+        "expected": "true",
+        "actual": "true",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Admin roles include default management",
+        "expected": "true",
+        "actual": "true",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Admin role ID 1",
+        "expected": "Reported current role ID",
+        "actual": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "source": "Current getter at block 40209380",
+        "matches": true
+      },
+      {
+        "field": "Mirror security EVM address",
+        "expected": "0x261ce349df182988fa25d00868cf6cf434220c24",
+        "actual": "0x261ce349df182988fa25d00868cf6cf434220c24",
+        "source": "Mirror contract record",
+        "matches": true
+      },
+      {
+        "field": "Mirror security active",
+        "expected": "false",
+        "actual": "false",
+        "source": "Mirror contract record",
+        "matches": true
+      },
+      {
+        "field": "Mirror security ID format",
+        "expected": "true",
+        "actual": "true",
+        "source": "Mirror contract record",
+        "matches": true
+      },
+      {
+        "field": "Mirror transaction hash",
+        "expected": "0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e",
+        "actual": "0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e",
+        "source": "Mirror contract result",
+        "matches": true
+      },
+      {
+        "field": "Mirror transaction sender",
+        "expected": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "actual": "0x00000000000000000000000000000000009e8662",
+        "source": "Mirror contract result",
+        "matches": false
+      },
+      {
+        "field": "Mirror transaction target",
+        "expected": "0xd1f118a40f3b02883d35909ef2517e7edd78379d",
+        "actual": "0xd1f118a40f3b02883d35909ef2517e7edd78379d",
+        "source": "Mirror contract result",
+        "matches": true
+      },
+      {
+        "field": "Mirror transaction success",
+        "expected": "SUCCESS",
+        "actual": "SUCCESS",
+        "source": "Mirror contract result",
+        "matches": true
+      },
+      {
+        "field": "Mirror calldata",
+        "expected": "true",
+        "actual": "true",
+        "source": "Mirror contract result",
+        "matches": true
+      },
+      {
+        "field": "Mirror transferred value",
+        "expected": "0",
+        "actual": "0",
+        "source": "Mirror contract result",
+        "matches": true
+      },
+      {
+        "field": "Mirror consensus timestamp format",
+        "expected": "true",
+        "actual": "true",
+        "source": "Mirror contract result",
+        "matches": true
+      }
+    ],
+    "hashScanLink": "https://hashscan.io/testnet/transaction/0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e"
+  },
+  "verifiedResultSource": {
+    "file": "024-vc-nova-manual.json",
+    "jsonPath": "verifiedNova",
+    "status": "complete",
+    "readBlock": "40209603",
+    "comparisons": 56
+  },
+  "evidenceMap": [
+    {
+      "stage": "Accounts",
+      "screenshots": "S01–S03",
+      "jsonPath": "publicRoles",
+      "file": "024-vc-nova-manual.json",
+      "meaning": "Active Admin, Seller and Buyer Mirror records"
+    },
+    {
+      "stage": "Dev VC",
+      "screenshots": "S04–S05",
+      "jsonPath": "humanAcceptance.vcBasis",
+      "file": "024-vc-nova-manual.json",
+      "meaning": "Manual signature prompt and verified VC / negative checks"
+    },
+    {
+      "stage": "Preview VC",
+      "screenshots": "S06",
+      "jsonPath": "previewVcExport",
+      "file": "024-vc-nova-manual.json",
+      "meaning": "Accepted VC; digest binds to the creation record"
+    },
+    {
+      "stage": "NOVA review",
+      "screenshots": "S07–S08",
+      "jsonPath": "verifiedNova.calldataDigest",
+      "file": "024-vc-nova-manual.json",
+      "meaning": "Visible settings; complete parameters additionally validated by exact calldata/event comparison"
+    },
+    {
+      "stage": "Human approval",
+      "screenshots": "S09–S10",
+      "jsonPath": "initialNovaExport",
+      "file": "024-vc-nova-manual.json",
+      "meaning": "T01 operator attestations, preview transaction request and retained hash"
+    },
+    {
+      "stage": "Sender defect",
+      "screenshots": "No new screenshot",
+      "jsonPath": "latestUserExport",
+      "file": "025-t02-followup.json",
+      "meaning": "Export (3): historical mismatch, block 40209380"
+    },
+    {
+      "stage": "Repaired readback",
+      "screenshots": "No human screenshot supplied",
+      "jsonPath": "verifiedNova; checks.browserFinal",
+      "file": "024-vc-nova-manual.json",
+      "meaning": "56/56 comparisons and four real read-only browser recoveries"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "tmpFC7F.png",
+      "caption": "Admin public Mirror account",
+      "sha256": "0922035c44a93fbf995a0ffd4e6bea6e332720d4772a7868c6893d626596eef2",
+      "bytes": 224617,
+      "source": "Victor supplied screenshot, 2026-09-07",
+      "transformation": "None; original PNG embedded"
+    },
+    {
+      "file": "tmp65C8.png",
+      "caption": "Seller public Mirror account",
+      "sha256": "f7fd1ca5959f4a7bd315b64d75fd17599fecd34573b1306528cd9dcb40681d56",
+      "bytes": 209048,
+      "source": "Victor supplied screenshot, 2026-09-07",
+      "transformation": "None; original PNG embedded"
+    },
+    {
+      "file": "tmpAD7F.png",
+      "caption": "Buyer public Mirror account",
+      "sha256": "68983821ee55f44f1cfccc282ba92e001b4c1d0393b862a0c1e570029f1441b2",
+      "bytes": 210466,
+      "source": "Victor supplied screenshot, 2026-09-07",
+      "transformation": "None; original PNG embedded"
+    },
+    {
+      "file": "tmp4B3B.png",
+      "caption": "Dev: manual Admin signature request",
+      "sha256": "59d37d219f17fa2d5c30955e24a67d3b0ef75fbfcbfb54d70a26a126e0ed34ac",
+      "bytes": 294385,
+      "source": "Victor supplied screenshot, 2026-09-07",
+      "transformation": "None; original PNG embedded"
+    },
+    {
+      "file": "tmp92D3.png",
+      "caption": "Dev: accepted Seller VC and negative checks",
+      "sha256": "611de586a0bbc670225b424c92ca45e30c193e1f36c8ea50937b566f83c52742",
+      "bytes": 333032,
+      "source": "Victor supplied screenshot, 2026-09-07",
+      "transformation": "None; original PNG embedded"
+    },
+    {
+      "file": "tmpD09F.png",
+      "caption": "Preview: accepted Seller VC and negative checks",
+      "sha256": "8f68790d81ba7f1cd7a1e96530783b69f385bee05ee7115c202cbff0d5ed06ae",
+      "bytes": 375933,
+      "source": "Victor supplied screenshot, 2026-09-07",
+      "transformation": "None; original PNG embedded"
+    },
+    {
+      "file": "tmpF768.png",
+      "caption": "Reviewed NOVA settings, first supplied portion",
+      "sha256": "1371d33e420980ca6d8b8ee69f5f3b0f2cd835bc4723da735156526d1c7b9a3e",
+      "bytes": 162566,
+      "source": "Victor supplied screenshot, 2026-09-07",
+      "transformation": "None; original PNG embedded"
+    },
+    {
+      "file": "tmp2A5F.png",
+      "caption": "Reviewed NOVA settings, final supplied portion",
+      "sha256": "0d2ad0aef77dade4892c893ad2ac836f77bbf20fea3efbd13f64a4164f0c916a",
+      "bytes": 146743,
+      "source": "Victor supplied screenshot, 2026-09-07",
+      "transformation": "None; original PNG embedded"
+    },
+    {
+      "file": "tmp4E8C.png",
+      "caption": "Preview: T01 operator attestations and manual transaction request",
+      "sha256": "19180113b4046c4d44949194b31d3f2dcc07c5e642f47c3c24e6426cc2ad9fe3",
+      "bytes": 361175,
+      "source": "Victor supplied screenshot, 2026-09-07",
+      "transformation": "None; original PNG embedded"
+    },
+    {
+      "file": "tmp828C.png",
+      "caption": "Preview: transaction hash retained after submission",
+      "sha256": "54adb0d33681d2bea03d2caed56d4aadb6dfcb972fa593704ab236ba0a0a9557",
+      "bytes": 340112,
+      "source": "Victor supplied screenshot, 2026-09-07",
+      "transformation": "None; original PNG embedded"
+    }
+  ],
+  "validation": {
+    "publicWhitelist": true,
+    "sameTransactionAndDigests": true,
+    "originalImageHashes": 10,
+    "passedComparisonsInPriorVerifiedResult": 56,
+    "priorApplicationChecks": "Evidence 024: npm ci, 65 app + 36 proto, typecheck/build, four dev/preview desktop/mobile live read-only recoveries. Not rerun for this documentation-only ticket.",
+    "offlineBrowser": [
+      {
+        "width": 1440,
+        "images": 10,
+        "comparisonRows": 56,
+        "downloads": 4,
+        "overflow": false,
+        "missingAnchors": 0,
+        "externalRequests": [],
+        "pageErrors": [],
+        "keyboardLinkFocus": true
+      },
+      {
+        "width": 390,
+        "images": 10,
+        "comparisonRows": 56,
+        "downloads": 4,
+        "overflow": false,
+        "missingAnchors": 0,
+        "externalRequests": [],
+        "pageErrors": [],
+        "keyboardLinkFocus": true
+      }
+    ],
+    "reportSha256": "99951c7a78a27ae0fdcff62990bc34304b185cfeffd365696ad022bd585f280d"
+  },
+  "pushAuthorization": {
+    "branch": "diagnostic/t01b-4-sdk-config",
+    "remote": "origin",
+    "merge": false
+  }
+}
