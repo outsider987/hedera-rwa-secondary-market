@@ -683,3 +683,19 @@ VC signature. Preserve each public export and screenshot. Evidence 029 / usage
 036 must independently verify actual hashes, simulations, VC inputs and final
 94/6/held 0 before closing T04. Exact allowed manual filenames are retained in
 the activation and current HANDOFF; no next ticket, T04 push or merge.
+
+### September 8, 2026 — partial T04 creation acceptance and recovery correction
+
+User-provided creation hash ending `6b2611e` and reviewed base 40227946 expose
+an application recovery defect: a transaction's consensus seconds were required
+to equal block-start seconds. Based on implementation `0c45b8994fdc151702d348ab37233b08d1ca47b6`,
+the repair matches the exact Mirror block number and retains every other binding.
+The failing regression now passes, including wrong-block rejection. Mandatory
+ci/tests/typecheck/build and four browser smoke/cancel cases pass. Actual public
+recovery verifies Hold 1, Seller 90/held 10, Buyer 0/held 0, supply 100 at block
+40227994. [Evidence 029](../evidence/029-t04-manual.md) retains the partial report,
+original error screenshot and raw public verification. No agent transaction or
+signature. Victor reloads preview, queries/exports the existing hash and then
+uses Admin for the un-KYC negative check. All remaining stages and final values
+are Pending; continue only the previously enumerated T04 manual/repair files.
+No T04 push/merge or next ticket.

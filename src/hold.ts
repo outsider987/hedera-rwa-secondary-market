@@ -254,7 +254,9 @@ export async function recoverHold(hash: string, action: HoldTransaction['action'
     if (!sender) return persist({...r,status:'mirror-pending'});
     if (validateMirrorAccount(expected.address,sender).accountId !== expected.accountId || result.hash !== hash || result.to?.toLowerCase() !== securityAddress
       || result.amount !== 0 || result.function_parameters?.toLowerCase() !== calldata.toLowerCase() || !/^\d+\.\d{9}$/.test(result.timestamp)
-      || result.timestamp.split('.')[0] !== after.timestamp || result.result !== (failed ? 'CONTRACT_REVERT_EXECUTED' : 'SUCCESS')) throw new Error('Mirror T04 identity, calldata or result differs.');
+      // A transaction's consensus time can be later than its block's start time.
+      || !Number.isSafeInteger(result.block_number) || String(result.block_number) !== after.block
+      || result.result !== (failed ? 'CONTRACT_REVERT_EXECUTED' : 'SUCCESS')) throw new Error('Mirror T04 identity, calldata or result differs.');
     const txs = await mirror('transactions?timestamp=eq:'+result.timestamp+'&limit=10',signal);
     const matches = txs?.transactions?.filter((t:{consensus_timestamp?:string;result?:string}) => t.consensus_timestamp === result.timestamp && t.result === result.result);
     if (!matches || matches.length !== 1) return persist({...r,status:'mirror-pending'});

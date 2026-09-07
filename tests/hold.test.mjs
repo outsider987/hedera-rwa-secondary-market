@@ -126,8 +126,8 @@ test('four T04 recoveries verify full historical state and Mirror identity; dela
   }
   if(url.includes('/accounts/')){const addr=url.split('/accounts/')[1].split('?')[0],account=Object.values(f.l.accounts).find(a=>a.address===addr)??f.l.accounts[active.r.signerRole];return Response.json({evm_address:mode==='wrong-sender'&&addr==='0x'+'0'.repeat(36)+'1234'?f.l.accounts.Buyer.address:account.address,account:account.accountId,deleted:false})}
   if(url.endsWith('/contracts/'+f.l.securityId))return Response.json({contract_id:f.l.securityId,evm_address:f.l.securityAddress,deleted:false});
-  if(url.includes('/contracts/results/')){if(mode==='delay')return new Response('',{status:404});return Response.json({hash:active.tx.hash,from:'0x'+'0'.repeat(36)+'1234',to:f.l.securityAddress,amount:0,result:'SUCCESS',timestamp:'1788790010.123456789',function_parameters:active.tx.input})}
-  if(url.includes('/transactions?'))return Response.json({transactions:[{transaction_id:'0.0.1234-1788790010-123456789',consensus_timestamp:'1788790010.123456789',result:'SUCCESS'}]});
+  if(url.includes('/contracts/results/')){if(mode==='delay')return new Response('',{status:404});return Response.json({hash:active.tx.hash,from:'0x'+'0'.repeat(36)+'1234',to:f.l.securityAddress,amount:0,result:'SUCCESS',block_number:mode==='wrong-block'?999:Number(BigInt(active.receipt.blockNumber)),timestamp:'1788790012.123456789',function_parameters:active.tx.input})}
+  if(url.includes('/transactions?'))return Response.json({transactions:[{transaction_id:'0.0.1234-1788790012-123456789',consensus_timestamp:'1788790012.123456789',result:'SUCCESS'}]});
   throw Error('Unexpected HTTP');
  });
  for(active of f.records){
@@ -136,7 +136,7 @@ test('four T04 recoveries verify full historical state and Mirror identity; dela
  }
  assert.equal(deletedGetterCalls,0);
  active=f.records[0];for(mode of ['delay','pending']){raw=JSON.stringify([{...active.r,status:'unknown'}]);assert.equal((await f.h.recoverHold(active.tx.hash,active.r.action,new AbortController().signal,()=>{})).status,mode==='delay'?'mirror-pending':'pending')}
- for(mode of ['wrong-sender','bad-state','no-history']){raw=JSON.stringify([{...active.r,status:'unknown'}]);await assert.rejects(f.h.recoverHold(active.tx.hash,active.r.action,new AbortController().signal,()=>{}))}
+ for(mode of ['wrong-sender','wrong-block','bad-state','no-history']){raw=JSON.stringify([{...active.r,status:'unknown'}]);await assert.rejects(f.h.recoverHold(active.tx.hash,active.r.action,new AbortController().signal,()=>{}))}
  mode='complete';raw=undefined;await assert.rejects(f.h.recoverHold(active.tx.hash,active.r.action,new AbortController().signal,()=>{}),/base block/);
  assert.equal((await f.h.recoverHold(active.tx.hash,active.r.action,new AbortController().signal,()=>{},f.input.baseBlock)).status,'complete');
 });

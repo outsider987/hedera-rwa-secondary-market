@@ -1,5 +1,31 @@
 # HoldBook handoff
 
+## T04 creation verified / recovery repair — September 8, 2026 (current)
+
+- `based_on_commit: 0c45b8994fdc151702d348ab37233b08d1ca47b6` is this repair's
+  implementation base; read actual HEAD from Git. T04 branch remains local.
+- User screenshots supplied Create Hold 10 hash
+  `0x9c3fe919cd41945554fa5677eefb8f1730c8b9a404d0766b50a9638f26b2611e`
+  and reviewed base block 40227946. [Evidence 029](evidence/029-t04-manual.md)
+  records partial acceptance and the original recovery-error screenshot.
+- Root cause: recovery incorrectly equated transaction consensus seconds with
+  block-start seconds. The narrow repair matches Mirror block_number to the
+  receipt block and keeps exact hash/calldata/result/sender/state checks.
+  Regression fails before repair, passes afterward, and rejects wrong blocks.
+  ci, 87 app + 36 proto tests, typecheck/build and four smoke/cancel cases pass;
+  actual original-hash recovery independently verifies Hold 1 at block 40227994,
+  Seller 90 / held 10, Buyer 0 / held 0, supply 100. No agent mutation/signature.
+- **Next Victor action:** reload preview 4173, use Select T04 query then Query
+  T04 transaction for the saved creation, and export its complete public result.
+  Keep original Admin selected for Review next T04 action / un-KYC negative
+  check. Do not create another Hold or prepare Buyer VC before that check passes.
+- Manual acceptance remains Pending for all subsequent stages and final 94/6/
+  held 0. Continue only the exact manual files listed below (029 report/JSON/
+  HTML/named captures, usage 036, AI_USAGE, HANDOFF and main plan). Concrete
+  repairs remain limited to the already authorized source/tests with failing
+  evidence. No T04 push/merge or next ticket. Prior no-T04-transaction statements
+  describe the implementation stage and are superseded by this actual creation.
+
 ## T04 code delivered / manual acceptance Pending — September 8, 2026 (current)
 
 - `based_on_commit: 61c411d70235ce7d882a8b4c84150e9b3c636d8c` is the verified

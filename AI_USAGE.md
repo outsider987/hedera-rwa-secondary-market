@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-08 | T04 partial manual verification / recovery repair | [Original Hold creation and Mirror block-time correction; acceptance pending](docs/ai-usage/036-t04-manual.md) |
 | 2026-09-08 | T03 merge and T04 code / automation | [CI-gated integration and guarded Hold lifecycle; manual acceptance pending](docs/ai-usage/035-t04-hold-lifecycle.md) |
 | 2026-09-07 | T03 manual acceptance | [Six transactions, VC evidence and independent final readback](docs/ai-usage/034-t03-manual.md) |
 | 2026-09-07 | T03 code and automated verification | [Seller KYC / issue 100 implementation; manual acceptance pending](docs/ai-usage/033-t03-kyc-issue.md) |
