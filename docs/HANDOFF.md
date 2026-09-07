@@ -7,10 +7,12 @@ attested to all retained T01 checks, and approved one preview NOVA deployment.
 Independent receipt/event/current-getter/Mirror verification passed 56 checks.
 Do not create another NOVA or advance to T03.**
 
-- `based_on_commit: ea66aa35299a33a877c31fbb112a65dd1460a827` is the consolidated
-  report base, verified in Git history; read actual HEAD from Git.
+- `based_on_commit: 526de706a9fc4290d18e50011cbbe7c8060016a9` is the PR integration
+  base, verified in Git history; read actual HEAD from Git.
   Branch remains `diagnostic/t01b-4-sdk-config`. Victor explicitly authorized
-  report consolidation and push on September 7; no merge is authorized.
+  report consolidation/push, then explicitly requested merge on September 7.
+  [PR #3](https://github.com/outsider987/hedera-rwa-secondary-market/pull/3)
+  integrates this branch into main after CI passes, preserving commit history.
 - [Evidence 024](evidence/024-vc-nova-manual.md), its public JSON and offline
   screenshot gallery preserve actual acceptance, original export/mismatch,
   repair and independent live results. T01 checkbox selections are operator
@@ -56,10 +58,11 @@ saved hash, then export the complete public result. Reload invalidates the VC
 but does not erase the transaction; querying does not need another VC signature.
 Never clear the operation to create again. Dev can query the same asset.
 
-The report ticket ends with the explicitly requested normal push to origin.
+The integration ticket finishes by merging PR #3 after CI passes and verifying
+remote main contains its merge commit. No source changes are part of integration.
 The implementation/acceptance ticket stays closed. Optional additional user
 captures may be recorded in `docs/evidence/026-t02-followup.{md,json,html}`,
-`docs/ai-usage/032-t02-followup.md`, `AI_USAGE.md`, `docs/HANDOFF.md` and
+`docs/ai-usage/033-t02-followup.md`, `AI_USAGE.md`, `docs/HANDOFF.md` and
 `docs/plans/001-ats-first.md` only. No additional implementation files are
 activated. T03 requires a new explicit activation and exact scope first.
 

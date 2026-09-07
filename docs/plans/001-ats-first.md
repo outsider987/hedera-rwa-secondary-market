@@ -505,3 +505,12 @@ sender mismatch, preserved as such; successful independent recovery remains
 in evidence 024. This documentation-only activation authorizes normal push of
 the current branch and preceding local commits, without merge. No T03 or chain
 mutation is activated. The current handoff defines subsequent record-only files.
+
+
+### 2026-09-07 explicit merge activation
+
+After the report push, Victor explicitly said “合併吧”. This authorizes PR #3
+from `diagnostic/t01b-4-sdk-config` into `main`, preserving incremental commits
+and waiting for the repository CI. Scope is integration records only:
+`docs/ai-usage/032-t02-merge.md`, AI_USAGE, HANDOFF and this plan. No source or
+chain operations are activated. Verify the merged remote main; T03 stays closed.
