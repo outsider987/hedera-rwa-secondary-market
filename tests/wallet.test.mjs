@@ -54,3 +54,19 @@ test('storage failures stay in memory; persisted payload contains only role addr
   assert.equal(saveRoles({ Admin: a }, () => ({ setItem: denied })), false);
   assert.match(loadRoles(() => ({ getItem: denied })).warning, /Storage unavailable/);
 });
+
+test('wallet review binds explicit Seller or Admin signer in both wagmi and provider',async(t)=>{
+ const {registerHooks}=await import('node:module');const hook=registerHooks({resolve(s,c,n){return n(s.startsWith('./')&&c.parentURL?.includes('/src/')&&!s.endsWith('.ts')?new URL(s+'.ts',c.parentURL).href:s,c)}});t.after(()=>hook.deregister());
+ const w=await import('../src/wallet.ts');const roles={Admin:a,Seller:b,Buyer:'0x'+'c'.repeat(40)};let selected=b,chain='0x128';
+ const provider={isMetaMask:true,request:async({method})=>method==='eth_accounts'?[selected]:method==='eth_chainId'?chain:Promise.reject(Error('Unexpected wallet method'))};
+ const original=w.walletConfig.state;t.after(()=>w.walletConfig.setState(original));
+ const select=(address,id=296)=>w.walletConfig.setState({...w.walletConfig.state,status:'connected',current:'synthetic',connections:new Map([['synthetic',{accounts:[address],chainId:id,connector:{getProvider:async()=>provider}}]])});select(b);
+ t.mock.method(globalThis,'fetch',async(url)=>{const address=String(url).split('/accounts/')[1].split('?')[0];return Response.json({evm_address:address,account:'0.0.'+(Object.values(roles).indexOf(address)+101),deleted:false})});
+ const review=await w.reviewWallet(roles,new AbortController().signal,'Seller');assert.equal(review.expectedRole,'Seller');await w.checkWalletReview(review);
+ await assert.rejects(w.reviewWallet(roles,new AbortController().signal),/Admin/);
+ selected=a;await assert.rejects(w.checkWalletReview(review),/changed/);selected=b;chain='0x1';await assert.rejects(w.checkWalletReview(review),/changed/);
+ chain='0x128';select(a);await assert.rejects(w.checkWalletReview(review),/Session changed/);selected=a;
+ const admin=await w.reviewWallet(roles,new AbortController().signal);assert.equal(admin.expectedRole,'Admin');await w.checkWalletReview(admin);
+ await assert.rejects(w.checkWalletReview({...admin,expectedRole:'Seller'}),/Seller/);await assert.rejects(w.checkWalletReview({...admin,expectedRole:'other'}),/Invalid/);
+ select(a,1);await assert.rejects(w.checkWalletReview(admin),/Session changed/);
+});

@@ -1,0 +1,1026 @@
+{
+  "recordedAt": "2026-09-07T16:06:32.142Z",
+  "kind": "Actual app, live chain reads, synthetic connection only; no signing/transaction",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1440,
+      "state": "T04 · Hold lifecycle\n\nNOVA 0.0.10402368 · Hold 10 → Buyer KYC → execute 6 → release 4. Four manual transactions and one Buyer VC signature; negative checks are read-only.\n\nCurrent stage\nCreate Hold 10\nRequired account\nSeller\nActive account\n0x740E4eF58151A169621622577a5B6D6FF5010836\nTransaction origin\nDev — credentials and read-only queries; use preview 4173 for transactions\n\nReview the exact action and required account below.\n\nCheck current T04 state\nReview next T04 action\nCurrent block / seconds\n40226702 / 1788797079\nSeller available / held\n100 / 0\nBuyer available / held\n0 / 0\nSupply / cap / config\n100 / 1000 / 1\nSeller KYC\nValid · 1788788191–1789393291 seconds\nBuyer KYC\nNot granted / invalid · No VC ID\nActive Seller Hold IDs\nNone\nHold remaining\nNo active Hold\nReview: Create Hold 10\nSigner / chain / value\nSeller · 0x740e4ef58151a169621622577a5b6d6ff5010836 · 296 / 0 HBAR\nAsset / partition\n0x261ce349df182988fa25d00868cf6cf434220c24 / 0x0000000000000000000000000000000000000000000000000000000000000001\nHolder / Escrow\nSeller / Admin\nHold ID / target\nRead from successful HeldByPartition event / Zero address\nReviewed expiry basis\nBlock 40226702 · 1788797079 + 86400 = 1788883479 Unix seconds\nData\nEmpty (0x)\nCalldata digest\n0x59e43df82c63dab677540b709b5f2be160c5f480f97069acfbf86ae3881b60c0\nExact reviewed calldata\nI reviewed this action, required account, fixed asset, Hold, amounts and exact expiry.\nApprove T04 transaction in MetaMask\n\nHold or KYC expiry stops the flow. No automatic renewal, reclaim, new asset, issuance or resubmission.\n\nRecover and export T04 evidence",
+      "screenshot": "docs/evidence/028-t04-5173-1440.png",
+      "focus": {
+        "active": true,
+        "outline": "solid"
+      },
+      "liveRead": true,
+      "accountChangeInvalidation": true,
+      "reloadInvalidation": true,
+      "crossTabJournal": true,
+      "unknownBlocks": true,
+      "forbidden": [],
+      "errors": [],
+      "external": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_chainId"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getBlockByNumber"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getLogs"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_chainId"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.9212226"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.9213391"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getCode"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getCode"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        }
+      ]
+    },
+    {
+      "port": 5173,
+      "width": 390,
+      "state": "T04 · Hold lifecycle\n\nNOVA 0.0.10402368 · Hold 10 → Buyer KYC → execute 6 → release 4. Four manual transactions and one Buyer VC signature; negative checks are read-only.\n\nCurrent stage\nCreate Hold 10\nRequired account\nSeller\nActive account\n0x740E4eF58151A169621622577a5B6D6FF5010836\nTransaction origin\nDev — credentials and read-only queries; use preview 4173 for transactions\n\nReview the exact action and required account below.\n\nCheck current T04 state\nReview next T04 action\nCurrent block / seconds\n40226721 / 1788797120\nSeller available / held\n100 / 0\nBuyer available / held\n0 / 0\nSupply / cap / config\n100 / 1000 / 1\nSeller KYC\nValid · 1788788191–1789393291 seconds\nBuyer KYC\nNot granted / invalid · No VC ID\nActive Seller Hold IDs\nNone\nHold remaining\nNo active Hold\nReview: Create Hold 10\nSigner / chain / value\nSeller · 0x740e4ef58151a169621622577a5b6d6ff5010836 · 296 / 0 HBAR\nAsset / partition\n0x261ce349df182988fa25d00868cf6cf434220c24 / 0x0000000000000000000000000000000000000000000000000000000000000001\nHolder / Escrow\nSeller / Admin\nHold ID / target\nRead from successful HeldByPartition event / Zero address\nReviewed expiry basis\nBlock 40226721 · 1788797120 + 86400 = 1788883520 Unix seconds\nData\nEmpty (0x)\nCalldata digest\n0x8ff4625a3225f9e9410b76889f63bed447d24cb0b8d7d9e2e31b4dbb7396901a\nExact reviewed calldata\nI reviewed this action, required account, fixed asset, Hold, amounts and exact expiry.\nApprove T04 transaction in MetaMask\n\nHold or KYC expiry stops the flow. No automatic renewal, reclaim, new asset, issuance or resubmission.\n\nRecover and export T04 evidence",
+      "screenshot": "docs/evidence/028-t04-5173-390.png",
+      "focus": {
+        "active": true,
+        "outline": "solid"
+      },
+      "liveRead": true,
+      "accountChangeInvalidation": true,
+      "reloadInvalidation": true,
+      "crossTabJournal": true,
+      "unknownBlocks": true,
+      "forbidden": [],
+      "errors": [],
+      "external": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_chainId"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getBlockByNumber"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getLogs"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_chainId"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.9212226"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.9213391"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getCode"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getCode"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        }
+      ]
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "state": "T04 · Hold lifecycle\n\nNOVA 0.0.10402368 · Hold 10 → Buyer KYC → execute 6 → release 4. Four manual transactions and one Buyer VC signature; negative checks are read-only.\n\nCurrent stage\nCreate Hold 10\nRequired account\nSeller\nActive account\n0x740E4eF58151A169621622577a5B6D6FF5010836\nTransaction origin\nProduction preview — manual MetaMask approval\n\nReview the exact action and required account below.\n\nCheck current T04 state\nReview next T04 action\nCurrent block / seconds\n40226731 / 1788797141\nSeller available / held\n100 / 0\nBuyer available / held\n0 / 0\nSupply / cap / config\n100 / 1000 / 1\nSeller KYC\nValid · 1788788191–1789393291 seconds\nBuyer KYC\nNot granted / invalid · No VC ID\nActive Seller Hold IDs\nNone\nHold remaining\nNo active Hold\nReview: Create Hold 10\nSigner / chain / value\nSeller · 0x740e4ef58151a169621622577a5b6d6ff5010836 · 296 / 0 HBAR\nAsset / partition\n0x261ce349df182988fa25d00868cf6cf434220c24 / 0x0000000000000000000000000000000000000000000000000000000000000001\nHolder / Escrow\nSeller / Admin\nHold ID / target\nRead from successful HeldByPartition event / Zero address\nReviewed expiry basis\nBlock 40226731 · 1788797141 + 86400 = 1788883541 Unix seconds\nData\nEmpty (0x)\nCalldata digest\n0x3ebf524963043147a437e79779f10ab321114f09083a6746c83f04ecb0c4be14\nExact reviewed calldata\nI reviewed this action, required account, fixed asset, Hold, amounts and exact expiry.\nApprove T04 transaction in MetaMask\n\nHold or KYC expiry stops the flow. No automatic renewal, reclaim, new asset, issuance or resubmission.\n\nRecover and export T04 evidence",
+      "screenshot": "docs/evidence/028-t04-4173-1440.png",
+      "focus": {
+        "active": true,
+        "outline": "solid"
+      },
+      "liveRead": true,
+      "accountChangeInvalidation": true,
+      "reloadInvalidation": true,
+      "crossTabJournal": true,
+      "unknownBlocks": true,
+      "forbidden": [],
+      "errors": [],
+      "external": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_chainId"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getBlockByNumber"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getLogs"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_chainId"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.9212226"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.9213391"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getCode"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getCode"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        }
+      ]
+    },
+    {
+      "port": 4173,
+      "width": 390,
+      "state": "T04 · Hold lifecycle\n\nNOVA 0.0.10402368 · Hold 10 → Buyer KYC → execute 6 → release 4. Four manual transactions and one Buyer VC signature; negative checks are read-only.\n\nCurrent stage\nCreate Hold 10\nRequired account\nSeller\nActive account\n0x740E4eF58151A169621622577a5B6D6FF5010836\nTransaction origin\nProduction preview — manual MetaMask approval\n\nReview the exact action and required account below.\n\nCheck current T04 state\nReview next T04 action\nCurrent block / seconds\n40226742 / 1788797164\nSeller available / held\n100 / 0\nBuyer available / held\n0 / 0\nSupply / cap / config\n100 / 1000 / 1\nSeller KYC\nValid · 1788788191–1789393291 seconds\nBuyer KYC\nNot granted / invalid · No VC ID\nActive Seller Hold IDs\nNone\nHold remaining\nNo active Hold\nReview: Create Hold 10\nSigner / chain / value\nSeller · 0x740e4ef58151a169621622577a5b6d6ff5010836 · 296 / 0 HBAR\nAsset / partition\n0x261ce349df182988fa25d00868cf6cf434220c24 / 0x0000000000000000000000000000000000000000000000000000000000000001\nHolder / Escrow\nSeller / Admin\nHold ID / target\nRead from successful HeldByPartition event / Zero address\nReviewed expiry basis\nBlock 40226742 · 1788797164 + 86400 = 1788883564 Unix seconds\nData\nEmpty (0x)\nCalldata digest\n0x3aa9fc0cae588b8e376ebc43ebda127d29f8fba3c8d527819ed542c36aba0fdc\nExact reviewed calldata\nI reviewed this action, required account, fixed asset, Hold, amounts and exact expiry.\nApprove T04 transaction in MetaMask\n\nHold or KYC expiry stops the flow. No automatic renewal, reclaim, new asset, issuance or resubmission.\n\nRecover and export T04 evidence",
+      "screenshot": "docs/evidence/028-t04-4173-390.png",
+      "focus": {
+        "active": true,
+        "outline": "solid"
+      },
+      "liveRead": true,
+      "accountChangeInvalidation": true,
+      "reloadInvalidation": true,
+      "crossTabJournal": true,
+      "unknownBlocks": true,
+      "forbidden": [],
+      "errors": [],
+      "external": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_chainId"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_blockNumber"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getBlockByNumber"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getLogs"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xfd8fdb4989a916c6f2420a2116c356e34c889840"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0x740e4ef58151a169621622577a5b6d6ff5010836"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0xa1f2872ee7a9f74523ae0887a9dc428ff1340706"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_chainId"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.9212226"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.9213391"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getCode"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_getCode"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        },
+        {
+          "kind": "rpc",
+          "method": "eth_call"
+        }
+      ]
+    }
+  ]
+}

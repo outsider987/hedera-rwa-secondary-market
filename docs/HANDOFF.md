@@ -1,5 +1,116 @@
 # HoldBook handoff
 
+## T04 code delivered / manual acceptance Pending — September 8, 2026 (current)
+
+- `based_on_commit: 61c411d70235ce7d882a8b4c84150e9b3c636d8c` is the verified
+  merged-main base; actual implementation HEAD is available from Git. Branch
+  `feat/t04-hold-lifecycle`. T03 PR #4 is merged; T04 remains local only.
+- [Evidence 028](evidence/028-t04-implementation.md) records delivered fixed
+  Hold/KYC/execute/release controls, 87 app + 36 proto tests, ci/typecheck/build,
+  18 genuine SDK boundary cases plus two unsigned Buyer VC rejections, four
+  live UI cases/captures and four final smoke/cancel cases. Dependencies and
+  retained patches are unchanged. Separate UI review ships the captured
+  create-Hold reviews only; later real stages remain unobserved.
+- Public readback at block 40226582: Seller available 100 / held 0, Buyer
+  available 0 / held 0 and not KYC, supply/cap 100/1000, config 1. T02 creation
+  supply 0 and all six T03 historical transactions were reverified. No T04
+  transaction or VC signature was performed. Manual acceptance is Pending.
+- **Victor's next action:** open preview http://127.0.0.1:4173, select original
+  Seller, and use Review next T04 action for Create Hold 10. Review the expiry
+  seconds, fixed inputs and checkbox before manually approving MetaMask.
+  Hash receipt triggers one full readback (180-second deadline). Export the
+  public result. Then select original Admin for the displayed negative KYC
+  check, Buyer VC preparation/sign/verify, Buyer KYC, permission/amount checks,
+  execute 6 and release 4. Each next review and approval remains manual.
+- Unknown/submitted/indexing-pending results require the original hash query;
+  never rebuild or resubmit. Lost creation intent requires its reviewed base
+  block; missing Buyer VC digest requires its original public JSON export.
+  Restore does not accept imported completion as chain proof. Cancel only stops
+  reads; it cannot cancel an existing transaction. Expired Hold/KYC or unexpected
+  state stops without renewal, reclaim, new issuance or dependency repair.
+- The next work item is **T04 manual verification only**, using the exact 029
+  evidence / 036 usage files listed in the activation below, plus HANDOFF,
+  AI_USAGE and the main plan. No manual report has been fabricated. Concrete
+  defects may be repaired only in the already enumerated source/test scope with
+  failing evidence. Do not start another ticket or push/merge T04.
+- Acceptance requires every actual receipt/event/full calldata/Mirror identity,
+  historical transition and simulation to agree with screenshots and public
+  JSON. Final Seller 94 / Buyer 6 / both held 0, Buyer valid KYC, supply/cap
+  100/1000 and active Seller Hold removal remain unverified. Native BBS,
+  audit/peer/dfns license and unresolved pre-event eligibility limits remain.
+
+## T04 activation — September 7, 2026 (effective)
+
+`based_on_commit: 61c411d70235ce7d882a8b4c84150e9b3c636d8c` is the verified
+merged-main base, not this document's commit. Branch: `feat/t04-hold-lifecycle`.
+The supplied T03 integration / T04 plan explicitly supersedes older stop and
+merge prohibitions for this scope. PR #4 merged by merge commit after the exact
+head 52deb83f0989f955c593150b081b00105066a5ea passed CI run 34138783453;
+remote main contains it. T03 is complete; T04 code/automation is active and
+manual acceptance is Pending. No T04 push or merge is authorized.
+
+Exact allowed implementation files (enumerated before implementation):
+`src/hold.ts`, `src/transport.ts`, `src/App.tsx`, `src/styles.css`,
+`src/wallet.ts`, `src/guards.ts`, `src/credentials.ts`, `src/lifecycle.ts`,
+`src/nova.ts`, `src/evidence.ts`, `src/ats.ts`;
+`tests/hold.test.mjs`, `tests/transport.test.mjs`, `tests/wallet.test.mjs`,
+`tests/guards.test.mjs`, `tests/credentials.test.mjs`, `tests/lifecycle.test.mjs`,
+`tests/nova.test.mjs`, `tests/evidence.test.mjs`, `tests/ats.test.mjs`,
+`tests/shell.test.mjs`.
+Exact documentation files: `docs/prompts/025-t04-hold-lifecycle.md`,
+`docs/evidence/028-t04-implementation.md`, `docs/evidence/028-t04-validation.json`,
+`docs/evidence/028-t04-development.json`, `docs/evidence/028-t04-sdk-browser.mjs`,
+`docs/evidence/028-t04-sdk-browser.json`, `docs/evidence/028-t04-ui-browser.mjs`,
+`docs/evidence/028-t04-ui-browser.json`, `docs/evidence/028-t04-live-read.mjs`,
+`docs/evidence/028-t04-live-read.json`, `docs/evidence/028-t04-5173-1440.png`,
+`docs/evidence/028-t04-5173-390.png`, `docs/evidence/028-t04-4173-1440.png`,
+`docs/evidence/028-t04-4173-390.png`, `docs/ai-usage/035-t04-hold-lifecycle.md`,
+`docs/HANDOFF.md`, `docs/plans/001-ats-first.md`, `docs/ATTRIBUTION.md`, `AI_USAGE.md`.
+Separate subsequent manual evidence: `docs/evidence/029-t04-manual.md`,
+`docs/evidence/029-t04-manual.json`, `docs/evidence/029-t04-manual.html`,
+`docs/evidence/029-t04-create.png`, `docs/evidence/029-t04-kyc-negative.png`,
+`docs/evidence/029-t04-buyer-vc.png`, `docs/evidence/029-t04-buyer-kyc.png`,
+`docs/evidence/029-t04-permission-negative.png`, `docs/evidence/029-t04-execute.png`,
+`docs/evidence/029-t04-release.png`, `docs/evidence/029-t04-final.png`,
+`docs/ai-usage/036-t04-manual.md`, AI_USAGE, HANDOFF and the main plan.
+No dependencies, lockfile, patches, other modules or asset parameters may change.
+
+Use original NOVA 0.0.10402368, three accounts, chain 296, config 1, cap 1000
+and default partition. Seller creates Hold 10, Escrow Admin, zero target,
+empty data, expiration fixed at reviewed latest chain timestamp +86400 seconds.
+Save base block and seconds; derive safe decimal Hold ID from HeldByPartition.
+Admin-connected SDK execute 6 must reject Buyer KYC; identical calldata/from
+Admin eth_call must return the exact KYC revert with unchanged state. Then
+Admin prepares/reviews/manually signs/verifies Buyer VC (seven days, five-minute
+backdate) and grants KYC through the genuine SDK. After KYC, read-only Seller
+execute 6 and Admin execute 11 must reject for escrow and balance respectively.
+Admin executes 6 and releases 4. Release targetId is original holder Seller.
+Normally four transactions and one Buyer signature, all manually approved by
+Victor on preview http://127.0.0.1:4173. Dev supports VC and reads.
+
+Before each mutation recheck wallet/session, expected signer role, fixed inputs,
+full asset/roles/KYC/Hold/balances, exact calldata and zero value. Never switch
+bindings to impersonate another role. Reuse leases/Web Lock; persist public
+intent before send, save late hashes, perform one automatic full recovery with
+a total 180-second deadline after hash. Unknown/indexing delays remain pending;
+only explicit queries, no automatic resubmission. Separate public transaction
+and simulation evidence; simulations have no transaction ID. No full VC/proof.
+Existing/unknown work requires original hash recovery; changed/expired state or
+pinned incompatibility stops for diagnostics, with no renew/reclaim/patch.
+T02 supply 0 and T03 completed history remain historical, independently of T04.
+
+TDD with Node built-in runner and genuine SDK network boundaries; no keys or
+fabricated valid VCs. Check all fixed-input/signature/calldata guards, VC binding
+and negative semantics, races/rejection/late hashes/reload/timeout/Mirror delay,
+full-release event/zero held/active-ID removal, history and evidence whitelist.
+Run npm ci/test/typecheck/build, dev/preview desktop/mobile, keyboard and request
+scope checks. Code commit keeps human acceptance Pending. Separate actual
+verification must establish Seller 94, Buyer 6, both held 0, Buyer valid KYC,
+supply/cap 100/1000 and every transaction/simulation/public VC input. Stop at T04;
+no next ticket or automatic push/merge. Existing native BBS/audit/peer/license
+and event eligibility limitations remain.
+
+
 ## T03 manual acceptance complete — September 7, 2026
 
 - `based_on_commit: b099e01` is the implementation base; actual HEAD remains available in Git. Branch `feat/t03-kyc-issue`.

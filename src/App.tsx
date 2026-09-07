@@ -1,21 +1,23 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { useQueries, useQuery } from '@tanstack/react-query';
 import { useConnect, useConnection, useDisconnect } from 'wagmi';
-import { acquireOperation, getOperationBusy, releaseOperation, subscribeOperation, bindingProblem, loadRoles, roleNames, saveRoles, storageWarning, type MirrorAccount, type Roles } from './guards';
-import { checkWalletReview, invalidateWalletSession, reviewWallet, type WalletReview, getWalletSession, lookupAccount, queryClient, subscribeWalletSession, testnetChainId, walletConfig } from './wallet';
+import { acquireOperation, getOperationBusy, releaseOperation, subscribeOperation, bindingProblem, loadRoles, rolesStorageKey, roleNames, saveRoles, storageWarning, type MirrorAccount, type Roles } from './guards';
+import { checkWalletReview, invalidateWalletSession, type WalletReview, getWalletSession, lookupAccount, queryClient, subscribeWalletSession, testnetChainId, walletConfig } from './wallet';
 import { checkDeployment, deployments, equityConfigId } from './deployment';
 import { checkSdkConfig, prepareAts, type AtsLoadState, type SdkConfigCheck } from './ats';
 
-import { prepareSellerCredential, signSellerCredential, type PreparedCredential, type CredentialResult, type VerifiedSeller } from './credentials';
-import { credentialEvidence, downloadEvidence, lifecycleActions, type LifecycleAction } from './evidence';
-import { accounts, securityId, securityAddress, creationHash, requiredRoles, actionLabels, lifecycleStorageKey, loadLifecycleRecords, reviewLifecycle, submitLifecycle, recoverLifecycle, type LifecycleRecord, type LifecycleState, type LifecycleReview } from './lifecycle';
+import { prepareCredential as prepareSubjectCredential, signCredential, type PreparedCredential, type CredentialResult, type VerifiedCredential } from './credentials';
+import { credentialEvidence, downloadEvidence } from './evidence';
+import { accounts, securityId, securityAddress, creationHash, actionLabels, loadLifecycleRecords, type LifecycleRecord, type LifecycleState } from './lifecycle';
+import { holdStorageKey, holdLabels, loadHoldRecords, readHoldState, reviewHold, runHoldAction, recoverHold, restoreHoldEvidence, nextHoldAction, verifyT03History, type HoldReview, type HoldRecord, type HoldState } from './hold';
+import { type HoldTransaction } from './evidence';
 
-function Credentials({ roles, onVerified }: { roles: Roles; onVerified: (seller: VerifiedSeller | undefined) => void }) {
+function Credentials({ roles, onVerified }: { roles: Roles; onVerified: (seller: VerifiedCredential | undefined) => void }) {
   const locked = useSyncExternalStore(subscribeOperation, getOperationBusy, () => false);
   const [review, setReview] = useState<{ wallet: WalletReview; vc: PreparedCredential }>();
   const [accepted, setAccepted] = useState(false);
   const [result, setResult] = useState<CredentialResult>();
-  const [message, setMessage] = useState('Prepare a synthetic Seller credential with Admin selected.');
+  const [message, setMessage] = useState('Prepare a synthetic Buyer credential with Admin selected.');
   const [working, setWorking] = useState(false);
   const mounted = useRef(true), controller = useRef<AbortController | undefined>(undefined);
   useEffect(() => {
@@ -23,51 +25,53 @@ function Credentials({ roles, onVerified }: { roles: Roles; onVerified: (seller:
     return () => { mounted.current = false; controller.current?.abort(); };
   }, []);
   async function prepareCredential() {
-    if (getOperationBusy()) return;
-    const lease = acquireOperation(), current = controller.current = new AbortController();
+    if (getOperationBusy() || controller.current) return;
+    const current = controller.current = new AbortController();
     onVerified(undefined);
-    setWorking(true); setReview(undefined); setResult(undefined); setAccepted(false); setMessage('Checking three accounts and preparing Seller VC…');
+    setWorking(true); setReview(undefined); setResult(undefined); setAccepted(false); setMessage('Checking three accounts and preparing Buyer VC…');
     try {
-      const wallet = await reviewWallet(roles, current.signal);
-      const vc = await prepareSellerCredential(wallet.roles.Admin, wallet.roles.Seller);
+      const stage = await reviewHold(roles, undefined, current.signal, setMessage);
+      if (stage.problem || stage.action !== 'buyer-kyc') throw new Error('Complete Hold creation and the un-KYC Buyer checks before preparing Buyer VC.');
+      const wallet = stage.wallet;
+      const vc = await prepareSubjectCredential(wallet.roles.Admin, wallet.roles.Buyer);
       await checkWalletReview(wallet);
       if (mounted.current) { setReview({ wallet, vc }); setMessage('Review the credential below before signing.'); }
-    } catch {
-      if (mounted.current) setMessage('Preparation did not complete. Verify three distinct roles and select Admin on Hedera Testnet, then try again.');
-    } finally { current.abort(); releaseOperation(lease); if (mounted.current) setWorking(false); }
+    } catch (error) {
+      if (mounted.current) setMessage(error instanceof Error ? error.message : 'Preparation did not complete. Select Admin on Hedera Testnet.');
+    } finally { current.abort(); controller.current = undefined; if (mounted.current) setWorking(false); }
   }
   async function sign() {
     if (!review || !accepted || getOperationBusy()) return;
     setWorking(true); setResult(undefined); setMessage('Awaiting your signature in MetaMask. Complete or reject the request there.');
     try {
-      const verified = await signSellerCredential(review.vc, review.wallet.provider, () => checkWalletReview(review.wallet));
+      const verified = await signCredential(review.vc, review.wallet.provider, () => checkWalletReview(review.wallet));
       if (mounted.current) {
         onVerified(verified.verified && verified.credential ? { prepared: review.vc, credential: verified.credential, session: review.wallet.session } : undefined);
         setResult(verified); setMessage(verified.verified
-        ? 'Seller VC verified. Expired, tampered and wrong-subject checks passed. No on-chain KYC was granted.'
+        ? 'Buyer VC verified. Expired, tampered and wrong-subject checks passed. No on-chain KYC was granted.'
         : 'Credential verification failed. Prepare again; do not use this credential.'); setAccepted(false); }
     } catch (error) {
       if (mounted.current) { setMessage(error instanceof Error ? error.message : 'Signature did not complete. Check MetaMask.'); setAccepted(false); }
     } finally { if (mounted.current) setWorking(false); }
   }
   return <section className="deployment" aria-labelledby="credential-heading">
-    <h2 id="credential-heading">Seller credential</h2>
-    <p>Admin signs a fictional KYC passed claim for Seller. No personal data or revocation registry is used.</p>
+    <h2 id="credential-heading">Buyer credential</h2>
+    <p>Admin signs a fictional KYC passed claim for Buyer. No personal data or revocation registry is used.</p>
     <p>Full credentials and signatures stay in memory. Account, network or role changes and reload invalidate them.</p>
     <p id="credential-status" role="status" aria-live="polite">{locked && !working ? 'Another operation is pending. Complete it before continuing.' : message}</p>
     {review && <>
       <dl className="wallet-details">
         <div><dt>Issuer (Admin)</dt><dd><code>{review.vc.payload.issuer}</code></dd></div>
-        <div><dt>Subject (Seller)</dt><dd><code>{review.vc.payload.credentialSubject.id}</code></dd></div>
+        <div><dt>Subject (Buyer)</dt><dd><code>{review.vc.payload.credentialSubject.id}</code></dd></div>
         <div><dt>Claims</dt><dd>SyntheticKyc · passed: true</dd></div>
         <div><dt>Valid from (UTC)</dt><dd>{review.vc.payload.validFrom}</dd></div>
         <div><dt>Valid until (UTC)</dt><dd>{review.vc.payload.validUntil}</dd></div>
         <div><dt>Credential digest</dt><dd><code data-testid="credential-digest">{review.vc.digest}</code></dd></div>
       </dl>
-      <label className="review-check"><input type="checkbox" checked={accepted} disabled={locked || !!result?.verified} onChange={event => setAccepted(event.target.checked)} />I reviewed the issuer, Seller, fixed claims, dates and digest.</label>
+      <label className="review-check"><input type="checkbox" checked={accepted} disabled={locked || !!result?.verified} onChange={event => setAccepted(event.target.checked)} />I reviewed the issuer, Buyer, fixed claims, dates and digest.</label>
     </>}
     <div className="actions">
-      <button type="button" disabled={locked || !roleNames.every(role => roles[role])} onClick={prepareCredential}>Prepare Seller VC</button>
+      <button type="button" disabled={locked || working || !roleNames.every(role => roles[role])} onClick={prepareCredential}>Prepare Buyer VC</button>
       <button type="button" disabled={locked || !review || !accepted || !!result?.verified} onClick={sign}>Sign in MetaMask and verify</button>
       <button type="button" className="secondary" disabled={locked || !review || !result} onClick={() => {
         if (review && result) downloadEvidence(credentialEvidence({ digest: review.vc.digest, issuer: review.vc.payload.issuer,
@@ -90,85 +94,126 @@ const novaMessages: Record<NovaRecord['status'], string> = {
   mismatch: 'Verification failed. Inspect the recorded operation; do not create another.',
   complete: 'NOVA deployment and all required settings verified.',
 };
-function Lifecycle({ roles, session, seller }: { roles: Roles; session: number; seller?: VerifiedSeller }) {
+function Lifecycle({ session }: { session: number }) {
   const locked = useSyncExternalStore(subscribeOperation, getOperationBusy, () => false);
-  const [records, setRecords] = useState<LifecycleRecord[]>(() => { try { return loadLifecycleRecords(); } catch { return []; } });
-  const [review, setReview] = useState<LifecycleReview>(), [approved, setApproved] = useState(false);
-  const [state, setState] = useState<LifecycleState>();
-  const [message, setMessage] = useState('Check the existing NOVA and original three accounts before each action. Manual acceptance is pending.');
-  const [hash, setHash] = useState(''), [action, setAction] = useState<LifecycleAction>('issuer-role');
-  const [reading, setReading] = useState(false);
-  const controller = useRef<AbortController | undefined>(undefined);
-  const preview = typeof window !== 'undefined' && isCreationOrigin(window.location.origin, import.meta.env.PROD);
-  useEffect(() => { controller.current?.abort(); setReview(undefined); setApproved(false); setState(undefined); setReading(false); }, [session, seller]);
-  useEffect(() => {
-    const refresh = () => { setReview(undefined); setApproved(false); setState(undefined); try { setRecords(loadLifecycleRecords()); setMessage('Saved operations changed. Query before continuing.'); } catch { setMessage('Storage is invalid. Check MetaMask and recover existing hashes.'); } };
-    const storage = (event: StorageEvent) => { if (event.key === lifecycleStorageKey || event.key === null) refresh(); };
-    window.addEventListener('storage', storage);
-    return () => { window.removeEventListener('storage', storage); controller.current?.abort(); };
-  }, []);
-  async function read(prepare: boolean) {
+  const [records,setRecords] = useState<LifecycleRecord[]>(() => { try {return loadLifecycleRecords();} catch {return [];} });
+  const [state,setState] = useState<LifecycleState>(), [message,setMessage] = useState('T03 completed at block 40224162. Query the original transactions to verify historical issuance and Seller KYC. All T03 mutations are closed.');
+  const [reading,setReading] = useState(false), controller = useRef<AbortController | undefined>(undefined);
+  useEffect(() => {controller.current?.abort();setReading(false);setState(undefined);},[session]);
+  useEffect(() => () => controller.current?.abort(),[]);
+  async function verify() {
     if (getOperationBusy()) return;
-    const current = controller.current = new AbortController(); setReading(true); setReview(undefined); setApproved(false); setState(undefined);
-    setMessage(prepare ? 'Checking T02 history, current asset, accounts and SDK config…' : 'Querying the existing transaction, event, historical state and Mirror…');
-    try {
-      if (prepare) {
-        const next = await reviewLifecycle(roles, seller, current.signal);
-        current.signal.throwIfAborted(); setReview(next); setState(next.state);
-        setMessage(next.problem ? next.problem : !next.action ? 'Final chain values and saved transaction evidence match T03. Human report acceptance is still pending.' : !next.calldata ? 'Prepare and verify the Seller credential above, then check T03 again.' : 'Review the next action and its exact inputs below.');
-      } else {
-        const next = await recoverLifecycle(hash.trim(), action, current.signal, setRecords);
-        current.signal.throwIfAborted(); setMessage(`Transaction ${next.status}. Check T03 current state before the next action.`);
-      }
-    } catch (error) { if (!current.signal.aborted) setMessage(error instanceof Error ? error.message : 'Read did not complete. Query again; never resubmit automatically.'); }
-    finally { if (controller.current === current) setReading(false); }
-  }
-  async function submit() {
-    if (getOperationBusy() || !review || !approved) return;
-    setApproved(false); setMessage('Rechecking approved inputs before MetaMask. Approve this one transaction manually.');
-    try {
-      const record = await submitLifecycle(review, setRecords);
-      if (record?.transactionHash) { setHash(record.transactionHash); setAction(record.action); }
-      setMessage(`Operation ${record?.status ?? 'stopped'}. Query its hash to verify; no automatic resubmission.`);
-    } catch (error) { setMessage(error instanceof Error ? error.message : 'Operation stopped. Check MetaMask before continuing.'); }
-    finally { setReview(undefined); setState(undefined); }
+    const current = controller.current = new AbortController();setReading(true);setState(undefined);
+    try {const next = await verifyT03History(current.signal,setMessage);current.signal.throwIfAborted();setState(next);setRecords(loadLifecycleRecords());setMessage('All six T03 transactions verified against their historical blocks. Issuance is closed.');}
+    catch(error){if(!current.signal.aborted)setMessage(error instanceof Error ? error.message : 'Historical verification incomplete.');}
+    finally{if(controller.current === current)setReading(false);}
   }
   return <section className="deployment" aria-labelledby="lifecycle-heading">
-    <h2 id="lifecycle-heading">T03 · Seller KYC and issue 100 NOVA</h2>
-    <p>Existing asset {securityId} · <code>{securityAddress}</code>. Cap 1000. Admin signs every transaction; Buyer stays without KYC.</p>
-    <p>Transactions are available only in production preview at http://127.0.0.1:4173. Dev supports credentials and queries.</p>
+    <h2 id="lifecycle-heading">T03 · Seller KYC and issuance history</h2>
+    <p>T03 is complete. Buyer KYC and T04 balances do not change the recorded T03 result.</p>
     <p role="status" aria-live="polite">{message}</p>
-    <div className="actions"><button disabled={locked} onClick={() => read(true)}>Check T03 and prepare review</button>
-      {reading && <button className="secondary" onClick={() => { controller.current?.abort(); setReading(false); setMessage('Read cancelled. Existing transactions are retained.'); }}>Cancel T03 read</button>}</div>
-    {state && <dl className="wallet-details">
-      <div><dt>Current block</dt><dd>{state.block}</dd></div>
-      {requiredRoles.map((name, i) => <div key={name}><dt>Admin {name}</dt><dd>{state.roles[i] ? 'Present' : 'Missing'}</dd></div>)}
-      <div><dt>Admin VC issuer</dt><dd>{state.issuer ? 'Registered' : 'Not registered'}</dd></div>
-      <div><dt>Seller KYC</dt><dd>{state.sellerKyc.status === 1 ? 'Valid' : 'Not granted / invalid'} · {state.sellerKyc.vcId || 'No VC ID'}</dd></div>
-      <div><dt>Seller KYC issuer / seconds</dt><dd>{state.sellerKyc.issuer} · {state.sellerKyc.validFrom}–{state.sellerKyc.validTo}</dd></div>
-      <div><dt>Supply / cap</dt><dd>{state.supply} / 1000</dd></div>
-      <div><dt>Seller available / held</dt><dd>{state.sellerBalance} / {state.sellerHeld}</dd></div>
-      <div><dt>Buyer available / held / KYC</dt><dd>{state.buyerBalance} / {state.buyerHeld} / {state.buyerKyc.status === 0 ? 'Not granted' : 'Granted'}</dd></div>
+    <div className="actions"><button disabled={locked || reading} onClick={verify}>Verify T03 history</button>
+      {reading && <button className="secondary" onClick={()=>{controller.current?.abort();setReading(false);setMessage('Historical query cancelled.');}}>Cancel T03 read</button>}</div>
+    {state && <p>Verified issuance block {state.block}: Seller {state.sellerBalance}, Buyer {state.buyerBalance}, held {state.sellerHeld}, supply {state.supply}/1000.</p>}
+    <details><summary>Six original T03 operations</summary><ol>{records.map(record=><li key={record.operationId}>{actionLabels[record.action]} · saved {record.status}
+      <p className="address"><code>{record.transactionHash ?? 'No saved hash'}</code></p><button className="secondary" onClick={()=>downloadEvidence(record)}>Export public operation</button>
+    </li>)}</ol></details>
+  </section>;
+}
+
+function Hold({roles,session,buyer,activeAccount}: {roles:Roles;session:number;buyer?:VerifiedCredential;activeAccount?:string}) {
+  const locked = useSyncExternalStore(subscribeOperation,getOperationBusy,()=>false);
+  const [records,setRecords] = useState<HoldRecord[]>(()=>{try{return loadHoldRecords();}catch{return [];}});
+  const [state,setState] = useState<HoldState>(),[review,setReview] = useState<HoldReview>(),[approved,setApproved] = useState(false);
+  const [message,setMessage] = useState('Check current T04 state. First action: select Seller and review Hold 10. Manual acceptance is pending.');
+  const [reading,setReading] = useState(false),controller = useRef<AbortController | undefined>(undefined);
+  const [hash,setHash] = useState(''),[action,setAction] = useState<HoldTransaction['action']>('create-hold'),[baseBlock,setBaseBlock] = useState('');
+  const preview = typeof window !== 'undefined' && isCreationOrigin(window.location.origin,import.meta.env.PROD);
+  useEffect(()=>{controller.current?.abort();setReview(undefined);setApproved(false);setState(undefined);setReading(false);setMessage('Wallet or credential changed. Check current state and review again.');},[session,buyer]);
+  useEffect(()=>{
+    const refresh = (event:StorageEvent)=>{if(event.key !== holdStorageKey && event.key !== null)return;controller.current?.abort();setReview(undefined);setApproved(false);setState(undefined);try{setRecords(loadHoldRecords());setMessage('T04 journal changed in another tab. Query before continuing.');}catch{setMessage('T04 storage is invalid. Recover original public evidence.');}};
+    window.addEventListener('storage',refresh);return()=>{window.removeEventListener('storage',refresh);controller.current?.abort();};
+  },[]);
+  let next: string = 'Not checked',required = 'Seller',problem: string | undefined;
+  if(state){try{const action = nextHoldAction(state,records);next = action ? holdLabels[action] : 'Final readback complete; human report pending';required = action === 'create-hold' ? 'Seller' : 'Admin';}catch(error){problem = error instanceof Error ? error.message : 'Recover existing evidence.';next = 'Recovery required';required = 'Query only';}}
+  async function read(mode:'state'|'review'|'recover') {
+    if(getOperationBusy())return;
+    const current = controller.current = new AbortController();setReading(true);setReview(undefined);setApproved(false);setState(undefined);
+    try{
+      if(mode === 'review'){
+        const result = await reviewHold(roles,buyer,current.signal,setMessage);current.signal.throwIfAborted();setReview(result);setState(result.state);setRecords(loadHoldRecords());
+        setMessage(result.problem ?? (result.action === 'buyer-kyc' && !result.calldata ? 'Select Admin, prepare/review/sign/verify Buyer VC below, then review this action again.' : result.action ? 'Review the exact action and required account below.' : 'Final state matches. Export evidence for the separate human acceptance report.'));
+      }else if(mode === 'recover'){
+        setMessage('Querying original receipt, full historical transition and Mirror identity…');
+        const result = await recoverHold(hash.trim(),action,current.signal,setRecords,baseBlock.trim() || undefined);current.signal.throwIfAborted();
+        setMessage(`Transaction ${result.status}. Check current state before starting another review.`);
+      }else{
+        const lease = acquireOperation();try{const result = await readHoldState(current.signal,undefined,setMessage);current.signal.throwIfAborted();setState(result);setRecords(loadHoldRecords());setMessage('Current chain state read. Saved journal statuses must be reverified by Review next T04 action.');}finally{releaseOperation(lease);}
+      }
+    }catch(error){if(!current.signal.aborted)setMessage(error instanceof Error ? error.message : 'Query incomplete. Check the saved hash; never resubmit automatically.');}
+    finally{if(controller.current === current)setReading(false);}
+  }
+  async function run() {
+    if(getOperationBusy() || !review || !approved)return;
+    const current = controller.current = new AbortController();setApproved(false);setState(undefined);
+    const simulation = review.action === 'kyc-negative' || review.action === 'permission-negative';setReading(simulation);
+    try{
+      const result = await runHoldAction(review,setRecords,current.signal,setMessage);
+      if(result.status === 'complete' && result.after)setState(result.after);
+      if(result.kind === 't04-transaction' && result.transactionHash){setHash(result.transactionHash);setAction(result.action);setBaseBlock(result.input.baseBlock);}
+      setMessage(result.kind === 't04-simulation' ? 'Read-only checks passed and state stayed unchanged. No transaction or signature exists for these simulations.'
+        : result.status === 'complete' ? 'Transaction and full readback verified. Start the next review manually.' : `Operation ${result.status}. Check MetaMask and query the saved hash; do not repeat the transaction.`);
+    }catch(error){if(!current.signal.aborted)setMessage(error instanceof Error ? error.message : 'Action stopped. Check MetaMask before continuing.');}
+    finally{setReview(undefined);setReading(false);}
+  }
+  const simulation = review?.action === 'kyc-negative' || review?.action === 'permission-negative';
+  return <section className="deployment" aria-labelledby="hold-heading">
+    <h2 id="hold-heading">T04 · Hold lifecycle</h2>
+    <p>NOVA {securityId} · Hold 10 → Buyer KYC → execute 6 → release 4. Four manual transactions and one Buyer VC signature; negative checks are read-only.</p>
+    <dl className="wallet-details"><div><dt>Current stage</dt><dd>{next}</dd></div><div><dt>Required account</dt><dd>{review?.wallet.expectedRole ?? required}</dd></div><div><dt>Active account</dt><dd><code>{activeAccount ?? "Not connected"}</code></dd></div>
+      <div><dt>Transaction origin</dt><dd>{preview ? 'Production preview — manual MetaMask approval' : 'Dev — credentials and read-only queries; use preview 4173 for transactions'}</dd></div></dl>
+    <p role="status" aria-live="polite">{message}</p>{problem && <p role="alert">{problem}</p>}
+    <div className="actions"><button disabled={locked || reading} onClick={()=>read('state')}>Check current T04 state</button>
+      <button disabled={locked || reading || !roleNames.every(role=>roles[role])} onClick={()=>read('review')}>Review next T04 action</button>
+      {reading && <button className="secondary" onClick={()=>{controller.current?.abort();setReading(false);setMessage('Read cancelled. Existing transactions are retained.');}}>Cancel T04 read</button>}</div>
+    {state && <dl className="wallet-details"><div><dt>Current block / seconds</dt><dd>{state.block} / {state.timestamp}</dd></div>
+      <div><dt>Seller available / held</dt><dd>{state.sellerBalance} / {state.sellerHeld}</dd></div><div><dt>Buyer available / held</dt><dd>{state.buyerBalance} / {state.buyerHeld}</dd></div>
+      <div><dt>Supply / cap / config</dt><dd>{state.supply} / 1000 / 1</dd></div>
+      <div><dt>Seller KYC</dt><dd>{state.sellerKyc.status === 1 ? 'Valid' : 'Invalid'} · {state.sellerKyc.validFrom}–{state.sellerKyc.validTo} seconds</dd></div>
+      <div><dt>Buyer KYC</dt><dd>{state.buyerKyc.status === 1 ? 'Valid' : 'Not granted / invalid'} · {state.buyerKyc.vcId || 'No VC ID'}</dd></div>
+      <div><dt>Active Seller Hold IDs</dt><dd>{state.sellerHoldIds.join(', ') || 'None'}</dd></div><div><dt>Hold remaining</dt><dd>{state.hold?.amount ?? 'No active Hold'}</dd></div>
     </dl>}
-    {review?.action && <><h3>Review: {actionLabels[review.action]}</h3><dl className="wallet-details">
-      <div><dt>Signer</dt><dd><code>{accounts.Admin.address}</code></dd></div>
-      <div><dt>Target / amount</dt><dd>{review.action === 'issue' || review.action === 'seller-kyc' ? accounts.Seller.address : accounts.Admin.address} · {review.action === 'issue' ? '100 NOVA, default partition, empty data' : 'No token issuance'}</dd></div>
-      <div><dt>Chain / value</dt><dd>296 / 0 HBAR</dd></div>
-      {review.kyc && <div><dt>KYC public inputs</dt><dd>{review.kyc.vcId} · {review.kyc.issuer} · {review.kyc.validFrom}–{review.kyc.validTo} Unix seconds</dd></div>}
-      <div><dt>Calldata digest</dt><dd><code>{review.digest ?? 'Verify Seller VC first'}</code></dd></div>
-    </dl><details><summary>Exact reviewed calldata</summary><p className="address"><code>{review.calldata ?? 'Not prepared'}</code></p></details>
-    <label className="review-check"><input type="checkbox" checked={approved} disabled={locked || !review.calldata} onChange={e => setApproved(e.target.checked)} />I reviewed this action, signer, asset and inputs.</label></>}
-    <div className="actions"><button disabled={locked || !preview || !approved || !review?.calldata} onClick={submit}>Approve T03 action in MetaMask</button></div>
-    <h3>Recover an existing T03 operation</h3>
-    <p>Submitted or unknown operations must be queried. For an existing KYC or issuance without a local record, select its action and enter its existing hash.</p>
-    <label className="text-field">Recorded action<select value={action} disabled={locked} onChange={e => setAction(e.target.value as LifecycleAction)}>{lifecycleActions.map(value => <option key={value} value={value}>{actionLabels[value]}</option>)}</select></label>
-    <label className="text-field">T03 public transaction hash<input value={hash} disabled={locked} onChange={e => setHash(e.target.value)} maxLength={66} autoComplete="off" spellCheck={false} /></label>
-    <div className="actions"><button disabled={locked || !/^0x[\da-f]{64}$/i.test(hash.trim())} onClick={() => read(false)}>Query T03 transaction</button></div>
-    <ol>{records.map(record => <li key={record.operationId}>{actionLabels[record.action]} · Saved status: {record.status}
-      <p className="address"><code>{record.transactionHash ?? 'No hash recorded. Check MetaMask before retrying.'}</code></p>
-      <button className="secondary" disabled={locked} onClick={() => { setAction(record.action); setHash(record.transactionHash ?? ''); }}>Select for query</button>{' '}
-      <button className="secondary" onClick={() => downloadEvidence(record)}>Export public operation</button>
-    </li>)}</ol>
+    {review?.action && <><h3>Review: {holdLabels[review.action]}</h3><dl className="wallet-details">
+      <div><dt>Signer / chain / value</dt><dd>{review.wallet.expectedRole} · <code>{accounts[review.wallet.expectedRole].address}</code> · 296 / 0 HBAR</dd></div>
+      <div><dt>Asset / partition</dt><dd><code>{review.input.securityAddress}</code> / <code>{review.input.partition}</code></dd></div>
+      <div><dt>Holder / Escrow</dt><dd>Seller / Admin</dd></div><div><dt>Hold ID / target</dt><dd>{review.input.holdId ?? 'Read from successful HeldByPartition event'} / {review.action === 'release' ? 'Seller (original holder)' : review.action === 'create-hold' ? 'Zero address' : 'Buyer'}</dd></div>
+      <div><dt>Reviewed expiry basis</dt><dd>Block {review.input.baseBlock} · {review.input.baseTimestamp} + 86400 = {review.input.expirationTimestamp} Unix seconds</dd></div>
+      <div><dt>Data</dt><dd>Empty (0x)</dd></div>{review.kyc && <div><dt>Buyer KYC inputs</dt><dd>{review.kyc.vcId} · {review.kyc.issuer} · {review.kyc.validFrom}–{review.kyc.validTo} · digest {review.kyc.digest}</dd></div>}
+      <div><dt>Calldata digest</dt><dd><code>{review.digest ?? 'Verify Buyer VC first'}</code></dd></div></dl>
+      {simulation && <p>{review.action === 'kyc-negative' ? 'Read-only execute 6: Admin (Escrow) to Buyer; SDK rejection and matching eth_call.' : 'Read-only execute 6 from Seller must reject non-Escrow; execute 11 from Admin must reject the amount.'}</p>}
+      <details><summary>Exact reviewed calldata</summary><p className="address"><code>{review.calldata ?? 'Not prepared'}</code></p>{review.overAmountCalldata && <><p>Admin execute 11:</p><p className="address"><code>{review.overAmountCalldata}</code></p></>}</details>
+      <label className="review-check"><input type="checkbox" checked={approved} disabled={locked || !review.calldata} onChange={e=>setApproved(e.target.checked)}/>I reviewed this action, required account, fixed asset, Hold, amounts and exact expiry.</label></>}
+    <div className="actions"><button disabled={locked || !approved || !review?.calldata || (!simulation && !preview)} onClick={run}>{simulation ? 'Run read-only T04 checks' : 'Approve T04 transaction in MetaMask'}</button></div>
+    <p className="deployment-note">Hold or KYC expiry stops the flow. No automatic renewal, reclaim, new asset, issuance or resubmission.</p>
+    <details><summary>Recover and export T04 evidence</summary><p>Query submitted or unknown operations. Preserve each public export. Simulations have no transaction ID.</p>
+      <label className="text-field">Restore an exported public T04 operation (JSON)
+        <input type="file" accept="application/json,.json" disabled={locked || reading} onChange={async e=>{
+          const file = e.target.files?.[0]; e.target.value = ''; if(!file || getOperationBusy())return;
+          const lease = acquireOperation(); setReview(undefined);setApproved(false);setState(undefined);
+          try{if(file.size > 100000)throw new Error('Public evidence file is too large. Select one T04 operation export.');setRecords(await restoreHoldEvidence(JSON.parse(await file.text())));setMessage('Public evidence restored. Query its hash; imported completion is not accepted as chain proof.');}
+          catch(error){setMessage(error instanceof Error ? error.message : 'Invalid public operation export.');}finally{releaseOperation(lease);}
+        }}/>
+      </label>
+      <label className="text-field">T04 recorded action<select value={action} disabled={locked} onChange={e=>setAction(e.target.value as HoldTransaction['action'])}>{(['create-hold','buyer-kyc','execute','release'] as const).map(a=><option value={a} key={a}>{holdLabels[a]}</option>)}</select></label>
+      <label className="text-field">T04 public transaction hash<input value={hash} maxLength={66} disabled={locked} onChange={e=>setHash(e.target.value)} autoComplete="off" spellCheck={false}/></label>
+      <label className="text-field">Original reviewed base block (creation recovery without a saved intent)<input value={baseBlock} inputMode="numeric" disabled={locked} onChange={e=>setBaseBlock(e.target.value)} autoComplete="off"/></label>
+      <button disabled={locked || !/^0x[\da-f]{64}$/i.test(hash.trim())} onClick={()=>read('recover')}>Query T04 transaction</button>
+      <ol>{records.map(r=><li key={r.operationId}>{holdLabels[r.action]} · saved {r.status} · {r.kind === 't04-simulation' ? 'Read-only simulation; no transaction ID' : 'Transaction'}
+        <p className="address"><code>{r.kind === 't04-transaction' ? r.transactionHash ?? 'No hash recorded. Check MetaMask.' : r.cases.map(c=>c.revert).join(', ')}</code></p>
+        {r.kind === 't04-transaction' && <button className="secondary" disabled={locked} onClick={()=>{setHash(r.transactionHash ?? '');setAction(r.action);setBaseBlock(r.input.baseBlock);}}>Select T04 query</button>}{' '}
+        <button className="secondary" onClick={()=>downloadEvidence(r)}>Export T04 public evidence</button>
+      </li>)}</ol>
+    </details>
   </section>;
 }
 
@@ -205,7 +250,7 @@ function Nova({ session }: { session: number }) {
       {reading && <button className="secondary" onClick={() => { controller.current?.abort(); setReading(false); setMessage('Historical query cancelled.'); }}>Cancel NOVA read</button>}
       <button className="secondary" disabled={!record} onClick={() => { if (record) downloadEvidence(record); }}>Export NOVA result</button></div>
     {record?.comparisons && <details><summary>{checkedHere ? 'T02 historical verification results' : 'Saved T02 results — query to verify history'}</summary>
-      <div className="comparison-table"><table><caption>Creation-block settings; current supply is shown in T03</caption><thead><tr><th>Setting</th><th>Expected</th><th>Observed</th><th>Result / source</th></tr></thead>
+      <div className="comparison-table"><table><caption>Creation-block settings; current supply is shown in T04</caption><thead><tr><th>Setting</th><th>Expected</th><th>Observed</th><th>Result / source</th></tr></thead>
         <tbody>{record.comparisons.map(row => <tr key={row.field}><th scope="row">{row.field}</th><td>{row.expected || 'Empty'}</td><td>{row.actual || 'Empty'}</td><td>{row.matches ? 'Match' : 'Mismatch'} · {row.source}</td></tr>)}</tbody></table></div>
     </details>}
   </section>;
@@ -344,7 +389,7 @@ function Deployment() {
         </button>
         {sdkReading && <button type="button" className="secondary" disabled={controller.current?.signal.aborted} onClick={() => invalidateSdk('SDK check cancelled. Run a new check when ready.')}>Cancel SDK check</button>}
       </div>
-      <p className="deployment-note">This verifies the SDK config read only. Recheck before creating NOVA. Review the Seller credential result below.</p>
+      <p className="deployment-note">This verifies the SDK config read only. Recheck before each T04 transaction. T02 creation is closed.</p>
     </section>
   </section>;
 }
@@ -432,8 +477,15 @@ export default function App() {
   const session = useSyncExternalStore(subscribeWalletSession, getWalletSession, () => 0);
   const [saved, setSaved] = useState(() => typeof window === 'undefined' ? { roles: {}, warning: '' } : loadRoles());
   const savedRef = useRef(saved);
-  const [verifiedSeller, setVerifiedSeller] = useState<VerifiedSeller>();
-  useEffect(() => { setVerifiedSeller(undefined); }, [session]);
+  const [verifiedBuyer, setVerifiedBuyer] = useState<VerifiedCredential>();
+  useEffect(() => { setVerifiedBuyer(undefined); }, [session]);
+  useEffect(() => {
+    const changed = (event: StorageEvent) => {
+      if (event.key !== rolesStorageKey && event.key !== null) return;
+      const next = loadRoles(); savedRef.current = next; setSaved(next); invalidateWalletSession();
+    };
+    window.addEventListener('storage', changed); return () => window.removeEventListener('storage', changed);
+  }, []);
   const [walletMessage, setWalletMessage] = useState('');
   const [busy, setBusy] = useState(false);
   const locked = useSyncExternalStore(subscribeOperation, getOperationBusy, () => false);
@@ -506,9 +558,10 @@ export default function App() {
         <Accounts key={session} session={session} address={connection.address} ready={ready} roles={saved.roles} changeRoles={changeRoles} />
 
         <Deployment />
-        <Credentials key={`credential-${session}`} roles={saved.roles} onVerified={setVerifiedSeller} />
+        <Hold activeAccount={connection.address} roles={saved.roles} session={session} buyer={verifiedBuyer?.session === session ? verifiedBuyer : undefined} />
+        <Credentials key={`credential-${session}`} roles={saved.roles} onVerified={setVerifiedBuyer} />
         <Nova session={session} />
-        <Lifecycle roles={saved.roles} session={session} seller={verifiedSeller?.session === session ? verifiedSeller : undefined} />
+        <Lifecycle session={session} />
 
         <div className="columns">
           <section aria-labelledby="asset-heading">
@@ -530,8 +583,8 @@ export default function App() {
             <ol>
               <li><strong>ATS readiness</strong><span>Connect three accounts, resolve config, verify a test VC.</span></li>
               <li><strong>Create NOVA</strong><span>Completed. Query the original creation history above.</span></li>
-              <li><strong>Seller KYC &amp; issuance</strong><span>Grant synthetic KYC and issue 100 NOVA.</span></li>
-              <li><strong>Prove the Hold lifecycle</strong><span>T04 is not active. No Hold or Buyer KYC is available in T03.</span></li>
+              <li><strong>Seller KYC &amp; issuance</strong><span>Completed. Verify the six historical transactions above.</span></li>
+              <li><strong>Prove the Hold lifecycle</strong><span>Create Hold 10, prove negative checks, grant Buyer KYC, execute 6 and release 4.</span></li>
             </ol>
             <p>Lifecycle steps require separate verification. Victor approves each signature in MetaMask.</p>
           </section>
@@ -539,7 +592,7 @@ export default function App() {
 
         <section className="evidence" aria-labelledby="evidence-heading">
           <h2 id="evidence-heading">Transaction evidence</h2>
-          <p>Use the T02 and T03 panels to query existing transactions and export public results. Local records alone do not establish chain success.</p>
+          <p>Use the T02, T03 and T04 panels to query existing transactions and export public results. Local records alone do not establish chain success.</p>
         </section>
       </main>
 

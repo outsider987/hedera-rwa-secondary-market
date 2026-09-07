@@ -1,3 +1,4 @@
+import { createAssetProviders } from './transport';
 import { getAddress, keccak256, type Hex } from 'viem';
 import type { SignedCredential } from '@terminal3/vc_core';
 import { acquireOperation, releaseOperation, validateMirrorAccount, type Roles } from './guards';
@@ -79,53 +80,60 @@ export async function actionCalldata(action: LifecycleAction, kyc?: KycInput) {
 export function assertLifecycleTransaction(tx: unknown, calldata: string) {
   assertNovaTransaction(tx, { admin: accounts.Admin.address, factory: securityAddress, calldata });
 }
-export async function readLifecycleState(signal: AbortSignal, blockTag?: string): Promise<LifecycleState> {
+export async function readLifecycleState(signal: AbortSignal, blockTag?: string, progress: (message: string) => void = () => {}): Promise<LifecycleState> {
   if (await rpc('eth_chainId', [], signal) !== '0x128') throw new Error('Wrong RPC chain.');
-  for (const expected of Object.values(accounts)) {
+  progress('Resolving original Admin, Seller and Buyer through Mirror…');
+  await Promise.all(Object.values(accounts).map(async expected => {
     const account = await lookupAccount(expected.address, signal);
     if (account.accountId !== expected.accountId) throw new Error('Original Mirror account mapping changed.');
-  }
+  }));
   const contract = await mirror('contracts/' + securityId, signal);
   if (!contract || contract.deleted !== false || contract.contract_id !== securityId || contract.evm_address?.toLowerCase() !== securityAddress) throw new Error('Original NOVA mapping unavailable or changed.');
   const { asset } = await interfaces();
   const block = blockTag ?? await rpc('eth_blockNumber', [], signal);
   if (typeof block !== 'string' || !/^0x[\da-f]+$/i.test(block)) throw new Error('Invalid state block.');
-  const header = await rpc('eth_getBlockByNumber', [block, false], signal) as { timestamp?: string };
-  if (!header || !/^0x[\da-f]+$/i.test(header.timestamp ?? '')) throw new Error('Missing state timestamp.');
+  const header = await rpc('eth_getBlockByNumber', [block, false], signal) as { timestamp?: string; number?: string };
+  if (!header || header.number !== block || !/^0x[\da-f]+$/i.test(header.timestamp ?? '')) throw new Error('Missing state timestamp.');
   const call = async (name: string, args: unknown[] = []) => asset.decodeFunctionResult(name, await rpc('eth_call', [{ to: securityAddress, data: asset.encodeFunctionData(name, args) }, block], signal) as string);
+  progress('Reading pinned NOVA configuration and metadata…');
   const config = await call('getConfigInfo');
   if (config[0].toLowerCase() !== resolverAddress || config[1] !== equityConfigId || config[2] !== 1n) throw new Error('Pinned NOVA config changed. Stop for mentor diagnostics.');
   const metadata = (await call('getERC20Metadata'))[0];
-  if (metadata.info.symbol !== 'NOVA' || metadata.info.decimals !== 0n || metadata.info.isin !== 'USNOVA000016' || metadata.securityType !== 1n) throw new Error('Wrong asset metadata.');
+  if (metadata.info.name !== 'Nova Private Equity Common Shares' || metadata.info.symbol !== 'NOVA' || metadata.info.decimals !== 0n || metadata.info.isin !== 'USNOVA000016' || metadata.securityType !== 1n) throw new Error('Wrong asset metadata.');
   const flags: [string, unknown][] = [['getMaxSupply', 1000n], ['paused', false], ['isIssuable', true], ['isInternalKycActivated', true],
     ['isControllable', true], ['isMultiPartition', false], ['arePartitionsProtected', false], ['isClearingActivated', false], ['isActivated', false],
     ['getControlListType', false], ['getControlListCount', 0n], ['getExternalPausesCount', 0n], ['getExternalControlListsCount', 0n], ['getExternalKycListsCount', 0n], ['compliance', zero], ['identityRegistry', zero]];
-  for (const [name, expected] of flags) if ((await call(name))[0] !== expected) throw new Error('NOVA restriction or parameter changed: ' + name);
+  progress('Verifying NOVA restrictions, cap and required roles…');
+  // At most four fixed-block public reads in flight; no retries or changing snapshot.
+  for (let i = 0; i < flags.length; i += 4) {
+    await Promise.all(flags.slice(i, i + 4).map(async ([name, expected]) => {
+      if ((await call(name))[0] !== expected) throw new Error('NOVA restriction or parameter changed: ' + name);
+    }));
+  }
   if (!(await call('hasRole', ['0x' + '0'.repeat(64), accounts.Admin.address]))[0]) throw new Error('Admin management role missing.');
-  const roles: boolean[] = [];
-  for (const role of roleIds) roles.push((await call('hasRole', [role, accounts.Admin.address]))[0]);
+  const roles: boolean[] = await Promise.all(roleIds.map(async role => (await call('hasRole', [role, accounts.Admin.address]))[0]));
   const kyc = async (address: string) => {
     const k = (await call('getKycFor', [address]))[0];
     return { status: Number(k.status), vcId: k.vcId, issuer: k.issuer.toLowerCase(), validFrom: String(k.validFrom), validTo: String(k.validTo) };
   };
   const balance = async (address: string) => {
-    const total = (await call('balanceOf', [address]))[0], available = (await call('balanceOfByPartition', [partition, address]))[0];
-    const held = (await call('getHeldAmountFor', [address]))[0], partitionHeld = (await call('getHeldAmountForByPartition', [partition, address]))[0];
+    const [[total], [available], [held], [partitionHeld]] = await Promise.all([call('balanceOf', [address]), call('balanceOfByPartition', [partition, address]), call('getHeldAmountFor', [address]), call('getHeldAmountForByPartition', [partition, address])]);
     if (total !== available || held !== partitionHeld) throw new Error('Unexpected non-default partition balances.');
     return { available: String(available), held: String(held) };
   };
+  progress('Reading Seller and Buyer KYC, available and held balances…');
   const seller = await balance(accounts.Seller.address), buyer = await balance(accounts.Buyer.address);
   return lifecycleStateEvidence({ block: BigInt(block).toString(), timestamp: BigInt(header.timestamp!).toString(), roles,
     issuer: (await call('isIssuer', [accounts.Admin.address]))[0], supply: String((await call('totalSupply'))[0]),
     sellerBalance: seller.available, buyerBalance: buyer.available, sellerHeld: seller.held, buyerHeld: buyer.held,
     sellerKyc: await kyc(accounts.Seller.address), buyerKyc: await kyc(accounts.Buyer.address) });
 }
-const stateDigest = (s: LifecycleState) => JSON.stringify({ ...lifecycleStateEvidence(s), block: undefined, timestamp: undefined });
+export const stateDigest = (s: LifecycleState) => JSON.stringify({ ...lifecycleStateEvidence(s), block: undefined, timestamp: undefined });
 export type LifecycleReview = { wallet: WalletReview; state: LifecycleState; action?: LifecycleAction; calldata?: string; digest?: string; kyc?: KycInput; seller?: VerifiedSeller; journal: string; problem?: string };
-async function credentialInput(seller: VerifiedSeller, wallet: WalletReview): Promise<KycInput> {
-  if (seller.session !== wallet.session || !(await verifySellerCredential(seller.credential, seller.prepared)).verified
+export async function credentialInput(seller: VerifiedSeller, wallet: WalletReview, subject: 'Seller' | 'Buyer' = 'Seller'): Promise<KycInput> {
+  if (wallet.expectedRole !== 'Admin' || seller.session !== wallet.session || !(await verifySellerCredential(seller.credential, seller.prepared)).verified
     || seller.prepared.payload.issuer !== 'did:ethr:' + getAddress(accounts.Admin.address)
-    || seller.prepared.payload.credentialSubject.id !== 'did:ethr:' + getAddress(accounts.Seller.address)) throw new Error('Prepare, review, sign and verify a current Admin-to-Seller VC.');
+    || seller.prepared.payload.credentialSubject.id !== 'did:ethr:' + getAddress(accounts[subject].address)) throw new Error(`Prepare, review, sign and verify a current Admin-to-${subject} VC.`);
   const p = seller.prepared.payload;
   return { vcId: p.id, issuer: accounts.Admin.address, validFrom: String(Math.floor(Date.parse(p.validFrom!) / 1000)),
     validTo: String(Math.floor(Date.parse(p.validUntil!) / 1000)), digest: seller.prepared.digest };
@@ -159,10 +167,7 @@ export async function reviewLifecycle(roles: Roles, seller: VerifiedSeller | und
 export const withLifecycleLock = withNovaLock;
 export async function createLifecycleProviders(review: LifecycleReview, initial: LifecycleRecord,
   update: (record: LifecycleRecord) => void, checkCurrent: (mutation?: boolean) => Promise<void>, signal: AbortSignal) {
-  const ethers = await import('ethers'), { asset } = await interfaces();
-  const controller = new AbortController(), combined = AbortSignal.any([signal, controller.signal]);
-  let record = initial, attempted = false, sending = false, closed = false, hash: string | undefined, deadline = Infinity;
-  const publish = (next: LifecycleRecord) => { record = lifecycleEvidence(next); update(record); };
+  const { asset } = await interfaces();
   const reads = [
     ...['getERC20Metadata', 'totalSupply', 'getMaxSupply', 'getControlListType', 'isActivated', 'isControllable', 'arePartitionsProtected',
       'isClearingActivated', 'isInternalKycActivated', 'isMultiPartition', 'isIssuable', 'paused', 'getControlListCount'].map(name => asset.encodeFunctionData(name)),
@@ -172,73 +177,10 @@ export async function createLifecycleProviders(review: LifecycleReview, initial:
     ...[0, 1].map(status => asset.encodeFunctionData('isExternallyGranted', [accounts.Seller.address, status])),
     ...['getKycFor', 'getKycStatusFor', 'isInControlList'].map(name => asset.encodeFunctionData(name, [accounts.Seller.address])),
   ];
-  const query = async (method: string, params: unknown[]): Promise<unknown> => {
-    combined.throwIfAborted(); if (closed) throw new Error('T03 provider closed.');
-    if (method === 'eth_chainId' || method === 'eth_blockNumber') { if (params.length) throw new Error('Unexpected parameters.'); return rpc(method, [], combined); }
-    if (method === 'eth_call') {
-      const tx = params[0] as { to?: string; data?: string };
-      if (params.length !== 2 || params[1] !== 'latest' || !tx || Object.keys(tx).sort().join(',') !== 'data,to'
-        || tx.to?.toLowerCase() !== securityAddress || !reads.includes(tx.data ?? '')) throw new Error('Unapproved T03 SDK read.');
-      return rpc(method, params, combined);
-    }
-    if (method === 'eth_getTransactionByHash' || method === 'eth_getTransactionReceipt') {
-      if (!hash || params.length !== 1 || params[0] !== hash) throw new Error('Unapproved transaction lookup.');
-      while (Date.now() < deadline) {
-        const result = await rpc(method, params, combined);
-        if (result !== null) {
-          if (method === 'eth_getTransactionReceipt') {
-            const tx = await rpc('eth_getTransactionByHash', [hash], combined) as Record<string, unknown>;
-            await verifyLifecycleReceipt(record, tx, result as Record<string, unknown>);
-            publish({ ...record, status: 'confirmed' });
-          }
-          return result;
-        }
-        await new Promise<void>(resolve => setTimeout(resolve, 1000)); combined.throwIfAborted();
-      }
-      throw new Error('Confirmation timed out. Recover the saved hash.');
-    }
-    throw new Error('Unapproved T03 provider method.');
-  };
-  const browser = new ethers.BrowserProvider({ request: async ({ method, params: parameters }) => {
-    if (parameters !== undefined && !Array.isArray(parameters)) throw new Error('Unexpected parameters.');
-    const params = parameters ?? [];
-    if (method === 'eth_accounts') { combined.throwIfAborted(); await checkCurrent(); return [getAddress(accounts.Admin.address)]; }
-    if (method !== 'eth_sendTransaction') return query(method, params);
-    combined.throwIfAborted();
-    if (closed || sending || attempted || params.length !== 1 || !review.calldata) throw new Error('T03 operation already requested.');
-    sending = true;
-    try {
-      await checkCurrent(true); combined.throwIfAborted();
-      assertLifecycleTransaction(params[0], review.calldata);
-      publish({ ...record, status: 'awaiting-signature' }); attempted = true;
-      try {
-        const result = await review.wallet.provider.request({ method, params });
-        if (typeof result !== 'string' || !/^0x[\da-f]{64}$/i.test(result)) throw new Error('Missing hash.');
-        hash = result.toLowerCase(); deadline = Date.now() + 60_000;
-        // Retain a late hash even if the wallet session changed while MetaMask was open.
-        publish({ ...record, transactionHash: hash, status: 'pending' }); return hash;
-      } catch (error) {
-        const rejected = !hash && error && typeof error === 'object' && 'code' in error && error.code === 4001;
-        publish({ ...record, status: rejected ? 'rejected' : 'unknown' });
-        throw new Error(rejected ? 'Rejected; no transaction hash exists.' : 'Unknown result. Check MetaMask and recover; do not retry.');
-      }
-    } finally { sending = false; }
-  } }, 296, { staticNetwork: true, cacheTimeout: -1 });
-  browser.disableCcipRead = true;
-  const getTransaction = browser.getTransaction.bind(browser);
-  browser.getTransaction = async hash => { try { return await getTransaction(hash); } catch { throw ethers.makeError('Recover saved transaction.', 'CANCELLED'); } };
-  const request = new ethers.FetchRequest(rpcUrl);
-  request.timeout = 10_000; request.retryFunc = async () => false; request.setThrottleParams({ maxAttempts: 1 });
-  request.getUrlFunc = async req => {
-    if (req.url !== rpcUrl || req.method !== 'POST' || req.credentials) throw new Error('Unapproved transport.');
-    const payload = JSON.parse(new TextDecoder().decode(req.body!));
-    const result = await query(payload.method, payload.params);
-    return { statusCode: 200, statusMessage: 'OK', headers: {}, body: new TextEncoder().encode(JSON.stringify({ jsonrpc: '2.0', id: payload.id, result })) };
-  };
-  const read = new ethers.JsonRpcProvider(request, 296, { staticNetwork: true, batchMaxCount: 1, cacheTimeout: -1 }); read.disableCcipRead = true;
-  return { browser, read, getRecord: () => record, wasAttempted: () => attempted,
-    close() { closed = true; controller.abort(); browser.destroy(); read.destroy(); } };
+  return createAssetProviders({ wallet: review.wallet, signer: accounts.Admin.address, securityAddress, calldata: review.calldata,
+    reads, initial, sanitize: lifecycleEvidence, update, checkCurrent, signal, verifyReceipt: verifyLifecycleReceipt });
 }
+
 export async function executeLifecycleSdk(review: LifecycleReview) {
   const sdk = await import('@hashgraph/asset-tokenization-sdk');
   const index = lifecycleActions.indexOf(review.action!);
@@ -251,7 +193,9 @@ export async function executeLifecycleSdk(review: LifecycleReview) {
   const vcBase64 = btoa(Array.from(new TextEncoder().encode(JSON.stringify(copy)), byte => String.fromCharCode(byte)).join(''));
   return sdk.Kyc.grantKyc(new sdk.GrantKycRequest({ securityId, targetId: accounts.Seller.address, vcBase64 }));
 }
+export const lifecycleClosed = true;
 export async function submitLifecycle(review: LifecycleReview, update: (records: LifecycleRecord[]) => void) {
+  if (lifecycleClosed) throw new Error('T03 is complete. Issuance and all T03 mutations are closed.');
   if (!isCreationOrigin(window.location.origin, import.meta.env.PROD)) throw new Error('Use production preview http://127.0.0.1:4173.');
   return withLifecycleLock(navigator.locks, async () => {
     const controller = new AbortController();

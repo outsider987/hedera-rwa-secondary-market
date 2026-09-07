@@ -12,8 +12,8 @@ export function credentialEvidence(input: CredentialEvidenceInput) {
     ...(input.negatives ? { negatives: { expired: input.negatives.expired === true,
       tampered: input.negatives.tampered === true, wrongSubject: input.negatives.wrongSubject === true } } : {}) };
 }
-export function downloadEvidence(value: ReturnType<typeof credentialEvidence> | NovaRecord | LifecycleRecord) {
-  const url = URL.createObjectURL(new Blob([JSON.stringify(value.kind === 't03' ? lifecycleEvidence(value) : value.kind === 'nova-create' ? novaEvidence(value) : credentialEvidence(value), null, 2) + '\n'], { type: 'application/json' }));
+export function downloadEvidence(value: ReturnType<typeof credentialEvidence> | NovaRecord | LifecycleRecord | HoldRecord) {
+  const url = URL.createObjectURL(new Blob([JSON.stringify(value.kind === 't04-transaction' || value.kind === 't04-simulation' ? holdEvidence(value) : value.kind === 't03' ? lifecycleEvidence(value) : value.kind === 'nova-create' ? novaEvidence(value) : credentialEvidence(value), null, 2) + '\n'], { type: 'application/json' }));
   const link = document.createElement('a'); link.href = url; link.download = 'holdbook-public-evidence.json'; link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
@@ -93,5 +93,71 @@ export function lifecycleEvidence(r: LifecycleRecord): LifecycleRecord {
   if (r.before) result.before = lifecycleStateEvidence(r.before);
   if (r.after) result.after = lifecycleStateEvidence(r.after);
   if (result.transactionHash) result.hashScanLink = 'https://hashscan.io/testnet/transaction/' + result.transactionHash;
+  return result;
+}
+
+export const holdActions = ['create-hold', 'kyc-negative', 'buyer-kyc', 'permission-negative', 'execute', 'release'] as const;
+export type HoldAction = typeof holdActions[number];
+export type HoldInput = { securityId: string; securityAddress: string; partition: string; holder: string; escrow: string;
+  destination: string; baseBlock: string; baseTimestamp: string; expirationTimestamp: string; holdId?: string };
+export type HoldDetails = { id: string; amount: string; expirationTimestamp: string; escrow: string; destination: string;
+  data: string; operatorData: string; thirdPartyType: number };
+export type HoldState = LifecycleState & { sellerHoldIds: string[]; buyerHoldIds: string[]; hold?: HoldDetails };
+export type SimulationCase = { check: 'kyc-negative' | 'non-escrow' | 'over-amount'; from: string; amount: '6' | '11';
+  calldata: string; revert: 'KycIsNotGranted' | 'InvalidKycStatus' | 'IsNotEscrow' | 'InsufficientHoldBalance'; block: string; afterBlock: string;
+  revertData: string; sdkRejection?: 'AccountNotKycd' };
+type HoldRecordBase = { schemaVersion: 1; chainId: 296; operationId: string; startedAt: string; input: HoldInput;
+  before?: HoldState; after?: HoldState };
+export type HoldTransaction = HoldRecordBase & { kind: 't04-transaction'; action: 'create-hold' | 'buyer-kyc' | 'execute' | 'release';
+  status: NovaStatus | 'failed'; calldataDigest: string; signerRole: 'Seller' | 'Admin'; kyc?: KycInput;
+  transactionHash?: string; transactionId?: string; consensusTimestamp?: string; hashScanLink?: string };
+export type HoldSimulation = HoldRecordBase & { kind: 't04-simulation'; action: 'kyc-negative' | 'permission-negative';
+  status: 'complete'; cases: SimulationCase[] };
+export type HoldRecord = HoldTransaction | HoldSimulation;
+export function holdInputEvidence(i: HoldInput): HoldInput {
+  if (!/^0\.0\.[1-9]\d*$/.test(i.securityId) || !/^0x[\da-f]{64}$/i.test(i.partition)) throw new Error('Invalid Hold identity.');
+  return { securityId: i.securityId, securityAddress: address(i.securityAddress), partition: i.partition.toLowerCase(),
+    holder: address(i.holder), escrow: address(i.escrow), destination: address(i.destination), baseBlock: decimal(i.baseBlock),
+    baseTimestamp: decimal(i.baseTimestamp), expirationTimestamp: decimal(i.expirationTimestamp), ...(i.holdId !== undefined ? { holdId: decimal(i.holdId) } : {}) };
+}
+export function holdStateEvidence(s: HoldState): HoldState {
+  if (![s.sellerHoldIds,s.buyerHoldIds].every(ids => Array.isArray(ids) && ids.length <= 1)) throw new Error('Unexpected active Holds. Stop and recover existing evidence.');
+  const result: HoldState = { ...lifecycleStateEvidence(s), sellerHoldIds: s.sellerHoldIds.map(decimal), buyerHoldIds: s.buyerHoldIds.map(decimal) };
+  if (s.hold) {
+    const h = s.hold;
+    if (h.data !== '0x' || h.operatorData !== '0x' || h.thirdPartyType !== 0) throw new Error('Unexpected Hold data or operator type.');
+    result.hold = { id: decimal(h.id), amount: decimal(h.amount), expirationTimestamp: decimal(h.expirationTimestamp),
+      escrow: address(h.escrow), destination: address(h.destination), data: '0x', operatorData: '0x', thirdPartyType: 0 };
+  }
+  return result;
+}
+export function holdEvidence(r: HoldRecord): HoldRecord {
+  if (!r || r.schemaVersion !== 1 || r.chainId !== 296 || !/^[\w-]{1,100}$/.test(r.operationId) || !Number.isFinite(Date.parse(r.startedAt))) throw new Error('Invalid T04 evidence. Recover the original hash.');
+  const base: HoldRecordBase = { schemaVersion: 1, chainId: 296, operationId: r.operationId, startedAt: r.startedAt,
+    input: holdInputEvidence(r.input), ...(r.before ? { before: holdStateEvidence(r.before) } : {}), ...(r.after ? { after: holdStateEvidence(r.after) } : {}) };
+  if (r.kind === 't04-simulation') {
+    const expected = r.action === 'kyc-negative' ? ['kyc-negative'] : r.action === 'permission-negative' ? ['non-escrow','over-amount'] : [];
+    if (r.status !== 'complete' || !expected.length || !Array.isArray(r.cases) || r.cases.length !== expected.length) throw new Error('Invalid simulation evidence.');
+    const cases = r.cases.map((c,i): SimulationCase => {
+      const revert = c.check === 'kyc-negative' ? c.revert : c.check === 'non-escrow' ? 'IsNotEscrow' : 'InsufficientHoldBalance';
+      if (c.check !== expected[i] || (c.check === 'kyc-negative' && !['KycIsNotGranted','InvalidKycStatus'].includes(c.revert)) || c.revert !== revert || c.amount !== (c.check === 'over-amount' ? '11' : '6')
+        || !/^0x(?:[\da-f]{2})+$/i.test(c.revertData) || c.revertData.length > 138 || !/^0x(?:[\da-f]{2})+$/i.test(c.calldata) || (c.check === 'kyc-negative' && c.sdkRejection !== 'AccountNotKycd')) throw new Error('Invalid negative verification.');
+      return { check: c.check, from: address(c.from), amount: c.amount, calldata: c.calldata, revert, revertData: c.revertData, block: decimal(c.block), afterBlock: decimal(c.afterBlock),
+        ...(c.check === 'kyc-negative' ? { sdkRejection: 'AccountNotKycd' as const } : {}) };
+    });
+    return { ...base, kind: 't04-simulation', action: r.action, status: 'complete', cases };
+  }
+  if (r.kind !== 't04-transaction' || !['create-hold','buyer-kyc','execute','release'].includes(r.action)
+    || !(r.status === 'failed' || novaStatuses.includes(r.status)) || !/^0x[\da-f]{64}$/i.test(r.calldataDigest)
+    || r.signerRole !== (r.action === 'create-hold' ? 'Seller' : 'Admin')) throw new Error('Invalid T04 transaction.');
+  const result: HoldTransaction = { ...base, kind: 't04-transaction', action: r.action, status: r.status, calldataDigest: r.calldataDigest, signerRole: r.signerRole };
+  // Reuse the existing public KYC and transaction-field validators, then copy only those fields.
+  const fields = lifecycleEvidence({ schemaVersion: 1, kind: 't03', chainId: 296, operationId: r.operationId, startedAt: r.startedAt,
+    action: 'seller-kyc', status: r.status, admin: r.input.escrow, securityAddress: r.input.securityAddress, calldataDigest: r.calldataDigest,
+    kyc: r.kyc, transactionHash: r.transactionHash, transactionId: r.transactionId, consensusTimestamp: r.consensusTimestamp });
+  if (fields.kyc) result.kyc = fields.kyc;
+  if (fields.transactionHash) { result.transactionHash = fields.transactionHash; result.hashScanLink = fields.hashScanLink; }
+  if (fields.transactionId) result.transactionId = fields.transactionId;
+  if (fields.consensusTimestamp) result.consensusTimestamp = fields.consensusTimestamp;
   return result;
 }
