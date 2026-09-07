@@ -8,6 +8,8 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-07 | T03 manual acceptance | [Six transactions, VC evidence and independent final readback](docs/ai-usage/034-t03-manual.md) |
+| 2026-09-07 | T03 code and automated verification | [Seller KYC / issue 100 implementation; manual acceptance pending](docs/ai-usage/033-t03-kyc-issue.md) |
 | 2026-09-07 | Authorized T02 integration | [PR #3 and CI-gated merge](docs/ai-usage/032-t02-merge.md) |
 | 2026-09-07 | Consolidated report and authorized push | [Screenshot/file mapping and latest export](docs/ai-usage/031-t02-followup.md) |
 | 2026-09-07 | Manual VC/NOVA acceptance and sender repair | [One confirmed deployment and verified recovery](docs/ai-usage/030-vc-nova-manual.md) |

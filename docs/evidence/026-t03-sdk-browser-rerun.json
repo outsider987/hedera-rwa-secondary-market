@@ -1,0 +1,280 @@
+{
+  "recordedAt": "2026-09-07T08:47:04.190Z",
+  "kind": "Genuine SDK with synthetic HTTP/rejecting provider; no real transaction or valid VC",
+  "results": [
+    {
+      "port": 5186,
+      "action": "issuer-role",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "Synthetic SDK boundary: rejected wallet or bounded lookup; no real transaction",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "issuer-role",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "Synthetic SDK boundary: rejected wallet or bounded lookup; no real transaction",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "ssi-role",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "Synthetic SDK boundary: rejected wallet or bounded lookup; no real transaction",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "ssi-role",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "Synthetic SDK boundary: rejected wallet or bounded lookup; no real transaction",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "kyc-role",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "Synthetic SDK boundary: rejected wallet or bounded lookup; no real transaction",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "kyc-role",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "Synthetic SDK boundary: rejected wallet or bounded lookup; no real transaction",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "register-issuer",
+      "mode": "reject",
+      "calls": [],
+      "updates": [],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "Synthetic SDK boundary: stopped before wallet (role getter absent from candidate whitelist)",
+      "status": "awaiting-signature",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        }
+      ],
+      "forbidden": []
+    }
+  ],
+  "sanitization": {
+    "originalSha256": "9b69738967dd07c4639233b7b5bc868adb52c6d8b23cfb4853321cc5cdc16c86",
+    "reason": "Omitted unfiltered synthetic SDK error strings before publication; outcomes and request inventory preserved."
+  }
+}

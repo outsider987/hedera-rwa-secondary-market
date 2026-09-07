@@ -223,3 +223,25 @@ records actual manual ECDSA VC and NOVA acceptance. Readback resolves Mirror's
 reported sender through its public Testnet accounts endpoint and reuses the
 existing application account validator. This is an application repair, not an
 upstream SDK/contract change; no third-party code or dependency was added.
+
+
+## September 7, 2026 — T03 lifecycle controls
+
+`src/lifecycle.ts` uses the published public APIs of
+[@hashgraph/asset-tokenization-sdk 8.0.0](https://www.npmjs.com/package/@hashgraph/asset-tokenization-sdk/v/8.0.0)
+and ABI exports from `@hashgraph/asset-tokenization-contracts 8.0.0` (both
+Apache-2.0). The four role IDs are copied from the pinned SDK's
+`build/esm/src/domain/context/security/SecurityRole.js` (SPDX Apache-2.0).
+The published Role, SsiManagement, Kyc and Security ports, their grantRole,
+addIssuer, grantKyc and issue command handlers, Terminal3 date conversion and
+RPC adapters were inspected to match genuine request/calldata semantics.
+No package source, cryptographic verifier, dependency pin or retained patch
+was changed. Existing ethers 6.17.0 (MIT), viem 2.56.3 (MIT), wagmi and Terminal3
+attribution above continues to apply. Native Web Locks and browser storage
+provide serialization/persistence without a new dependency.
+
+Evidence 026 screenshots are automated captures of the existing local console
+with live read-only chain data and a synthetic connection provider, not human
+MetaMask approvals. The externally installed Playwright harness is development
+verification tooling only; it was not added to the manifest/lock or app bundle.
+Historical audit, peer, native BBS and license limitations remain unchanged.

@@ -1,0 +1,2082 @@
+{
+  "recordedAt": "2026-09-07T08:49:22.771Z",
+  "kind": "Genuine SDK with synthetic HTTP/rejecting provider; no real transaction or valid VC",
+  "results": [
+    {
+      "port": 5186,
+      "action": "issuer-role",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK rejection boundary",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "issuer-role",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK bounded confirmation boundary",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "ssi-role",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK rejection boundary",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "ssi-role",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK bounded confirmation boundary",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "kyc-role",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK rejection boundary",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "kyc-role",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK bounded confirmation boundary",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "register-issuer",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK rejection boundary",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuer"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "register-issuer",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK bounded confirmation boundary",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuer"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "issue",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK rejection boundary",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListCount"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListMembers"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "issue",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK bounded confirmation boundary",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListCount"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListMembers"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "issuer-role",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK rejection boundary",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "issuer-role",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK bounded confirmation boundary",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "ssi-role",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK rejection boundary",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "ssi-role",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK bounded confirmation boundary",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "kyc-role",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK rejection boundary",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "kyc-role",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK bounded confirmation boundary",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "register-issuer",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK rejection boundary",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuer"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "register-issuer",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK bounded confirmation boundary",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuer"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "issue",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK rejection boundary",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListCount"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListMembers"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "issue",
+      "mode": "timeout",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "completed": false,
+      "timedOut": false,
+      "diagnostic": "SDK bounded confirmation boundary",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListCount"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListMembers"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable"
+        },
+        {
+          "kind": "getter",
+          "name": "paused"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389090"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        },
+        {
+          "kind": "getter",
+          "name": "hasRole"
+        }
+      ],
+      "forbidden": []
+    }
+  ]
+}

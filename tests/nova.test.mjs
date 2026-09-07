@@ -98,6 +98,7 @@ test('recovery uses real ABI decoding and explicit RPC/Mirror fixtures; delay, m
    else if(body.method==='eth_call'){
     if(body.params[0].to.toLowerCase()===n.resolverAddress)result='0x'+'1'.padStart(64,'0');
     else {const name=asset.parseTransaction({data:body.params[0].data}).name;
+     assert.equal(body.params[1],'0x10','T02 must query the creation block even if latest supply is 100');
      result=asset.encodeFunctionResult(name,state==='cap-mismatch'&&name==='getMaxSupply'?[999]:values[name]);}
    } else throw new Error('Unexpected RPC');
    return Response.json({jsonrpc:'2.0',id:body.id,result});
@@ -123,7 +124,7 @@ test('recovery uses real ABI decoding and explicit RPC/Mirror fixtures; delay, m
   state=current;const result=await n.recoverNova(hash,A,new AbortController().signal,saved);
   assert.equal(result.status,current==='complete'||current==='sender-alias'?'complete':current==='sender-delay'?'mirror-pending':'mismatch',current);
   assert.equal(n.canCreateNova(result),false);
-  if(current==='complete'){assert.equal(result.securityId,'0.0.12345');assert.equal(result.transactionId,'0.0.101-1788700000-000000001');assert.match(result.hashScanLink,/hashscan.io\/testnet\/transaction/)}
+  if(current==='complete'){assert.equal(result.readBlock,'16');assert.ok(result.comparisons.some(row=>row.field==='Total supply'&&row.source.includes('Historical creation-block')));assert.equal(result.securityId,'0.0.12345');assert.equal(result.transactionId,'0.0.101-1788700000-000000001');assert.match(result.hashScanLink,/hashscan.io\/testnet\/transaction/)}
  }
  assert.ok(calls.every(url=>url.startsWith('https://testnet.')));
 });

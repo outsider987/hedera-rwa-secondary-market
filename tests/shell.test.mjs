@@ -45,7 +45,9 @@ test('the shell renders planned data without claiming a wallet or chain result',
     assert.doesNotMatch(html, /SDK config verified|SDK prepared\./);
     assert.doesNotMatch(html, /Deployment and config verified|On-chain Equity config verified/);
     assert.doesNotMatch(html, /<iframe/);
-    assert.ok(html.includes('Create NOVA once'));
+    assert.ok(html.includes('T02 · NOVA creation history'));
+    assert.ok(html.includes('T03 · Seller KYC and issue 100 NOVA'));
+    assert.doesNotMatch(html, /Create NOVA in MetaMask/);
     assert.ok(html.includes('Query NOVA transaction'));
     assert.ok(html.includes('Prepare Seller VC'));
     assert.ok(html.includes('Sign in MetaMask and verify'));

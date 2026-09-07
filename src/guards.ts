@@ -80,3 +80,12 @@ export function acquireOperation() {
 export function assertOperation(lease: symbol) { if (operation !== lease) throw new Error('Stale operation.'); }
 export function releaseOperation(lease: symbol) { if (operation === lease) { operation = undefined; operationListeners.forEach(notify => notify()); } }
 export function assertSession(expected: number, current: number) { if (expected !== current) throw new Error('Session changed. Prepare and review again.'); }
+
+// One same-origin prompt across T02 history controls, T03 transactions and VC signing.
+export async function withTransactionLock<T>(locks: Pick<LockManager, 'request'> | undefined, action: () => Promise<T>) {
+  if (!locks) throw new Error('Browser locking is unavailable. Signing and transactions are disabled.');
+  return locks.request('holdbook-nova-create', { mode: 'exclusive', ifAvailable: true }, async lock => {
+    if (!lock) throw new Error('Another transaction or signature is pending in another tab. Query the existing operation.');
+    return action();
+  });
+}

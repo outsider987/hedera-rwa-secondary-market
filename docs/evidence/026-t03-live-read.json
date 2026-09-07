@@ -1,0 +1,446 @@
+{
+  "recordedAt": "2026-09-07T08:52:58.661Z",
+  "kind": "Live read-only Testnet RPC and Mirror; no signatures or transactions",
+  "history": {
+    "schemaVersion": 1,
+    "kind": "nova-create",
+    "chainId": 296,
+    "operationId": "5d477ccc-4292-45be-90e2-a2489a96fe30",
+    "startedAt": "2026-09-07T08:53:01.102Z",
+    "admin": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+    "configVersion": 1,
+    "calldataDigest": "0x4ee7e95c6288f62319ac9886eac511bbb52be3d99428b6c290f3e0961e37d907",
+    "status": "complete",
+    "transactionHash": "0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e",
+    "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+    "securityId": "0.0.10402368",
+    "transactionId": "0.0.7314364-1788760174-678049391",
+    "consensusTimestamp": "1788760179.255892685",
+    "readBlock": "40209377",
+    "comparisons": [
+      {
+        "field": "Successful Factory deployment",
+        "expected": "true",
+        "actual": "true",
+        "source": "Receipt and EquityDeployed event",
+        "matches": true
+      },
+      {
+        "field": "votingRight",
+        "expected": "true",
+        "actual": "true",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "informationRight",
+        "expected": "true",
+        "actual": "true",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "liquidationRight",
+        "expected": "true",
+        "actual": "true",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "subscriptionRight",
+        "expected": "false",
+        "actual": "false",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "conversionRight",
+        "expected": "false",
+        "actual": "false",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "redemptionRight",
+        "expected": "false",
+        "actual": "false",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "putRight",
+        "expected": "false",
+        "actual": "false",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "dividendRight",
+        "expected": "2",
+        "actual": "2",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "regulationType",
+        "expected": "1",
+        "actual": "1",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "regulationSubType",
+        "expected": "0",
+        "actual": "0",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "isCountryControlListWhiteList",
+        "expected": "false",
+        "actual": "false",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "countries",
+        "expected": "",
+        "actual": "",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "info",
+        "expected": "Fictional Testnet asset. Synthetic KYC only; no real securities or legal compliance claims.",
+        "actual": "Fictional Testnet asset. Synthetic KYC only; no real securities or legal compliance claims.",
+        "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+        "matches": true
+      },
+      {
+        "field": "Deployed runtime bytecode",
+        "expected": "true",
+        "actual": "true",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "name",
+        "expected": "Nova Private Equity Common Shares",
+        "actual": "Nova Private Equity Common Shares",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "symbol",
+        "expected": "NOVA",
+        "actual": "NOVA",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "isin",
+        "expected": "USNOVA000016",
+        "actual": "USNOVA000016",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "decimals",
+        "expected": "0",
+        "actual": "0",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Security type (Equity)",
+        "expected": "1",
+        "actual": "1",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Resolver",
+        "expected": "0xba2d5fc2083a0b8f164c50e65d782087fba18e0a",
+        "actual": "0xba2d5fc2083a0b8f164c50e65d782087fba18e0a",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Config ID",
+        "expected": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "actual": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Config version",
+        "expected": "1",
+        "actual": "1",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Total supply",
+        "expected": "0",
+        "actual": "0",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Cap",
+        "expected": "1000",
+        "actual": "1000",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Controllable",
+        "expected": "true",
+        "actual": "true",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Internal KYC",
+        "expected": "true",
+        "actual": "true",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Clearing",
+        "expected": "false",
+        "actual": "false",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Multiple partitions",
+        "expected": "false",
+        "actual": "false",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Protected partitions",
+        "expected": "false",
+        "actual": "false",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "ERC20 votes",
+        "expected": "false",
+        "actual": "false",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Whitelist mode",
+        "expected": "false",
+        "actual": "false",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Blacklist count",
+        "expected": "0",
+        "actual": "0",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "External pause lists",
+        "expected": "0",
+        "actual": "0",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "External control lists",
+        "expected": "0",
+        "actual": "0",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "External KYC lists",
+        "expected": "0",
+        "actual": "0",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Compliance",
+        "expected": "0x0000000000000000000000000000000000000000",
+        "actual": "0x0000000000000000000000000000000000000000",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Identity registry",
+        "expected": "0x0000000000000000000000000000000000000000",
+        "actual": "0x0000000000000000000000000000000000000000",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Paused",
+        "expected": "false",
+        "actual": "false",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Nominal value",
+        "expected": "1",
+        "actual": "1",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Nominal decimals",
+        "expected": "0",
+        "actual": "0",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Currency",
+        "expected": "0x555344",
+        "actual": "0x555344",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Issuance enabled",
+        "expected": "Reported current flag (not a creation input)",
+        "actual": "true",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Admin default management role",
+        "expected": "true",
+        "actual": "true",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Admin roles include default management",
+        "expected": "true",
+        "actual": "true",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Admin role ID 1",
+        "expected": "Reported current role ID",
+        "actual": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "source": "Historical creation-block getter at block 40209377",
+        "matches": true
+      },
+      {
+        "field": "Mirror security EVM address",
+        "expected": "0x261ce349df182988fa25d00868cf6cf434220c24",
+        "actual": "0x261ce349df182988fa25d00868cf6cf434220c24",
+        "source": "Mirror contract record",
+        "matches": true
+      },
+      {
+        "field": "Mirror security active",
+        "expected": "false",
+        "actual": "false",
+        "source": "Mirror contract record",
+        "matches": true
+      },
+      {
+        "field": "Mirror security ID format",
+        "expected": "true",
+        "actual": "true",
+        "source": "Mirror contract record",
+        "matches": true
+      },
+      {
+        "field": "Mirror transaction hash",
+        "expected": "0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e",
+        "actual": "0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e",
+        "source": "Mirror contract result",
+        "matches": true
+      },
+      {
+        "field": "Mirror transaction sender",
+        "expected": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "actual": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "source": "Mirror account lookup for 0x00000000000000000000000000000000009e8662",
+        "matches": true
+      },
+      {
+        "field": "Mirror transaction target",
+        "expected": "0xd1f118a40f3b02883d35909ef2517e7edd78379d",
+        "actual": "0xd1f118a40f3b02883d35909ef2517e7edd78379d",
+        "source": "Mirror contract result",
+        "matches": true
+      },
+      {
+        "field": "Mirror transaction success",
+        "expected": "SUCCESS",
+        "actual": "SUCCESS",
+        "source": "Mirror contract result",
+        "matches": true
+      },
+      {
+        "field": "Mirror calldata",
+        "expected": "true",
+        "actual": "true",
+        "source": "Mirror contract result",
+        "matches": true
+      },
+      {
+        "field": "Mirror transferred value",
+        "expected": "0",
+        "actual": "0",
+        "source": "Mirror contract result",
+        "matches": true
+      },
+      {
+        "field": "Mirror consensus timestamp format",
+        "expected": "true",
+        "actual": "true",
+        "source": "Mirror contract result",
+        "matches": true
+      }
+    ],
+    "hashScanLink": "https://hashscan.io/testnet/transaction/0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e"
+  },
+  "current": {
+    "block": "40214540",
+    "timestamp": "1788771183",
+    "roles": [
+      false,
+      false,
+      false
+    ],
+    "issuer": false,
+    "supply": "0",
+    "sellerBalance": "0",
+    "buyerBalance": "0",
+    "sellerHeld": "0",
+    "buyerHeld": "0",
+    "sellerKyc": {
+      "status": 0,
+      "vcId": "",
+      "issuer": "0x0000000000000000000000000000000000000000",
+      "validFrom": "0",
+      "validTo": "0"
+    },
+    "buyerKyc": {
+      "status": 0,
+      "vcId": "",
+      "issuer": "0x0000000000000000000000000000000000000000",
+      "validFrom": "0",
+      "validTo": "0"
+    }
+  },
+  "nextAction": "issuer-role"
+}

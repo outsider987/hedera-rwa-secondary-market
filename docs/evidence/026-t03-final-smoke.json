@@ -1,0 +1,37 @@
+{
+  "recordedAt": "2026-09-07T09:05:14.900Z",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1440,
+      "errors": [],
+      "external": [],
+      "creationClosed": true,
+      "unreviewedT03Disabled": true
+    },
+    {
+      "port": 5173,
+      "width": 390,
+      "errors": [],
+      "external": [],
+      "creationClosed": true,
+      "unreviewedT03Disabled": true
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "errors": [],
+      "external": [],
+      "creationClosed": true,
+      "unreviewedT03Disabled": true
+    },
+    {
+      "port": 4173,
+      "width": 390,
+      "errors": [],
+      "external": [],
+      "creationClosed": true,
+      "unreviewedT03Disabled": true
+    }
+  ]
+}

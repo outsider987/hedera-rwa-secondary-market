@@ -1,6 +1,6 @@
 import { getAddress, keccak256, stringToHex } from 'viem';
 import type { CredentialPayload, SignedCredential } from '@terminal3/vc_core';
-import { acquireOperation, releaseOperation } from './guards';
+import { acquireOperation, releaseOperation, withTransactionLock } from './guards';
 
 export type VerifiedSeller = { prepared: PreparedCredential; credential: SignedCredential; session: number };
 export type WalletProvider = { request: (args: { method: string; params?: unknown[] }) => Promise<unknown> };
@@ -41,6 +41,7 @@ export async function verifySellerCredential(value: unknown, expected: PreparedC
 
 export async function signSellerCredential(prepared: PreparedCredential, provider: WalletProvider,
   checkCurrent: () => Promise<void>): Promise<CredentialResult & { credential?: SignedCredential }> {
+  return withTransactionLock(navigator.locks, async () => {
   const lease = acquireOperation();
   try {
     if (credentialProblem(prepared.payload, prepared)) throw new Error('Credential review expired or changed. Prepare again.');
@@ -73,4 +74,5 @@ export async function signSellerCredential(prepared: PreparedCredential, provide
     return { ...result, verified: Object.values(negatives).every(Boolean), negatives,
       ...(Object.values(negatives).every(Boolean) ? { credential } : {}) };
   } finally { releaseOperation(lease); }
+  });
 }
