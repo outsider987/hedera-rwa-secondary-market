@@ -514,3 +514,61 @@ from `diagnostic/t01b-4-sdk-config` into `main`, preserving incremental commits
 and waiting for the repository CI. Scope is integration records only:
 `docs/ai-usage/032-t02-merge.md`, AI_USAGE, HANDOFF and this plan. No source or
 chain operations are activated. Verify the merged remote main; T03 stays closed.
+
+
+## T03 activation — September 7, 2026 (current)
+
+The user supplied and authorized the T03 implementation plan. Base is merged
+main `daf7dcc8e443277f0a64e87bc283f48cc7456325`; branch `feat/t03-kyc-issue`.
+This supersedes earlier T03 activation prohibitions only. T02 is complete.
+Reuse NOVA 0.0.10402368 / 0x261ce349df182988fa25d00868cf6cf434220c24.
+Real mutations are preview-only http://127.0.0.1:4173; Victor manually approves
+every transaction and the Admin-to-Seller VC signature in MetaMask.
+
+Exact allowed files: new `src/lifecycle.ts`, `tests/lifecycle.test.mjs`;
+necessary existing `src/{App.tsx,styles.css,nova.ts,evidence.ts,wallet.ts,guards.ts,ats.ts,credentials.ts}`
+and corresponding existing `tests/*.test.mjs`; new `docs/evidence/026-t03-*`,
+`docs/prompts/024-t03-kyc-issue.md`, `docs/ai-usage/033-t03-kyc-issue.md`;
+`docs/HANDOFF.md`, this plan, `docs/ATTRIBUTION.md`, `AI_USAGE.md`.
+No dependencies, lockfile, SDK/protobuf patches, asset parameters or other files.
+
+Sequence: fresh asset/deployment/three-account/config/cap/restriction readback;
+individually grant missing ISSUER, SSI_MANAGER, KYC roles to Admin; register
+Admin issuer if absent; prepare/review/manually sign/verify synthetic Seller VC;
+SDK grantKyc (UTF-8 JSON/Base64 copy, real internal verification); SDK issue
+exactly 100 using default partition and empty data. All transactions require
+fresh review, zero value, exact calldata and the existing wagmi/session lease.
+Persist public intent before send and hash immediately; serialize all T03 tabs
+with a preview Web Lock. Unknown/submitted operations permit recovery only.
+Receipt/event/calldata/Mirror sender and state must agree. Existing KYC/issuance
+without evidence requires an existing hash, never overwrite or resubmit.
+Pre-issue supply, Seller/Buyer balance and held must all be zero; no top-up.
+T02 uses creation-block getters; unavailable history stays incomplete. T03
+shows current values independently. Full VC/signature stays in memory only.
+
+TDD and npm ci/test/typecheck/build plus dev/preview desktop/mobile, keyboard,
+request-boundary and race/recovery checks are mandatory. Never fabricate valid
+VCs or use private keys. Existing native BBS, audit/peer/license limitations
+remain. Code/automation commit may mark manual acceptance Pending; only a
+second evidence commit after Victor's actual transactions and final readback
+may complete T03. No push/merge, new asset, Buyer KYC, Hold or T04.
+
+Final acceptance: Admin has three roles and issuer registration; Seller KYC
+issuer/ID/dates match its grant; Seller available 100, held 0; Buyer not KYC,
+balance 0; supply/cap 100/1000. Preserve historical evidence and failures.
+
+
+### T03 code-stage outcome — September 7, 2026
+
+[Evidence 026](../evidence/026-t03-implementation.md) delivers the authorized
+code and automated checks: ci, 75 app + 36 proto tests, typecheck/build, 20 SDK
+boundary browser cases, four live-read UI cases, 28 VC regressions and four
+final smoke cases. Source-derived role IDs and KYC state comparison defects
+were caught and repaired. Dependencies and retained patches are unchanged.
+T02 now verifies historical supply 0 independently of T03 current state.
+
+Manual T03 remains Pending. Current supply/balances/held are zero, roles and
+issuer are missing, Seller/Buyer have no KYC. Victor must perform each authorized
+preview operation and supply public evidence; a separate manual report/commit
+uses the exact files in HANDOFF. Do not mark T03 complete from automation or
+fixtures, and do not proceed to T04, push or merge.

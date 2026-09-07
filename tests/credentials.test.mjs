@@ -4,7 +4,10 @@ import { registerHooks } from 'node:module';
 registerHooks({ resolve(s,c,n) { return n(s.startsWith('./') && c.parentURL?.startsWith(new URL('../src/', import.meta.url).href) && !s.endsWith('.ts') ? new URL(s + '.ts', c.parentURL).href : s,c); } });
 const A='0x'+'a'.repeat(40), B='0x'+'b'.repeat(40), C='0x'+'c'.repeat(40);
 
-test('genuine Terminal3 payload, UTF-8 digest signing, rejection and invalid credentials', async () => {
+test('genuine Terminal3 payload, UTF-8 digest signing, rejection and invalid credentials', async (t) => {
+  let held=false;const descriptor=Object.getOwnPropertyDescriptor(globalThis,'navigator');
+  Object.defineProperty(globalThis,'navigator',{configurable:true,value:{locks:{request:async(name,options,fn)=>{if(held)return fn(null);held=true;try{return await fn({name})}finally{held=false}}}}});
+  t.after(()=>Object.defineProperty(globalThis,'navigator',descriptor));
   const { prepareSellerCredential, credentialProblem, verifySellerCredential, signSellerCredential } = await import('../src/credentials.ts');
   const { getAddress, solidityPackedKeccak256, toUtf8Bytes, hexlify } = await import('ethers');
   const now=Date.now(); const prepared=await prepareSellerCredential(A,B,now);

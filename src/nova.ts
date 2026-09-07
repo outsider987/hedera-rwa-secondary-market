@@ -1,5 +1,5 @@
 import { getAddress, keccak256, type Hex } from 'viem';
-import { acquireOperation, assertOperation, isAddress, releaseOperation, validateMirrorAccount, type Roles } from './guards';
+import { acquireOperation, assertOperation, isAddress, releaseOperation, validateMirrorAccount, withTransactionLock, type Roles } from './guards';
 import { checkDeployment, deployments, equityConfigId, mirrorUrl, rpcUrl } from './deployment';
 import { checkSdkConfig, prepareAts } from './ats';
 import { checkWalletReview, getWalletSession, reviewWallet, type WalletReview } from './wallet';
@@ -11,6 +11,7 @@ export type { NovaRecord } from './evidence';
 export const factoryAddress = '0xd1f118a40f3b02883d35909ef2517e7edd78379d';
 export const resolverAddress = '0xba2d5fc2083a0b8f164c50e65d782087fba18e0a';
 const zeroAddress = '0x' + '0'.repeat(40), adminRole = '0x' + '0'.repeat(64);
+export const novaCreationClosed = true;
 export const novaStorageKey = 'holdbook.testnet.nova.v1';
 export const novaInfo = 'Fictional Testnet asset. Synthetic KYC only; no real securities or legal compliance claims.';
 export const novaSettings = { name: 'Nova Private Equity Common Shares', symbol: 'NOVA', isin: 'USNOVA000016', decimals: 0,
@@ -26,7 +27,7 @@ export function novaParameters(admin: string, version: number) {
   return { ...novaSettings, diamondOwnerAccount: getAddress(admin), configId: equityConfigId, configVersion: version };
 }
 
-async function interfaces() {
+export async function interfaces() {
   const [{ Factory__factory, IAsset__factory }, { Interface }] = await Promise.all([import('@hashgraph/asset-tokenization-contracts'), import('ethers')]);
   return { factory: new Interface(Factory__factory.abi), asset: new Interface(IAsset__factory.abi) };
 }
@@ -66,13 +67,7 @@ export function saveNovaRecord(value: NovaRecord, storage: Pick<Storage, 'setIte
 }
 export const canCreateNova = (record?: NovaRecord) => !record || (record.status === 'rejected' && !record.transactionHash);
 export const isCreationOrigin = (origin: string, production: boolean) => production && origin === 'http://127.0.0.1:4173';
-export async function withNovaLock<T>(locks: Pick<LockManager, 'request'> | undefined, action: () => Promise<T>) {
-  if (!locks) throw new Error('Browser locking is unavailable. Creation is disabled.');
-  return locks.request('holdbook-nova-create', { mode: 'exclusive', ifAvailable: true }, async lock => {
-    if (!lock) throw new Error('NOVA creation is active in another tab. Query the existing operation.');
-    return action();
-  });
-}
+export const withNovaLock = withTransactionLock;
 export function creationStorageAvailable() {
   try {
     const storage = window.localStorage, key = novaStorageKey + '.probe';
@@ -101,7 +96,7 @@ export async function reviewNova(roles: Roles, signal: AbortSignal, owner?: symb
   } finally { if (!owner) releaseOperation(lease); }
 }
 
-async function rpc(method: string, params: unknown[], signal: AbortSignal): Promise<unknown> {
+export async function rpc(method: string, params: unknown[], signal: AbortSignal): Promise<unknown> {
   const response = await fetch(rpcUrl, { method: 'POST', headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params }), signal: AbortSignal.any([signal, AbortSignal.timeout(10_000)]),
     credentials: 'omit', cache: 'no-store', redirect: 'error', referrerPolicy: 'no-referrer' });
@@ -110,7 +105,7 @@ async function rpc(method: string, params: unknown[], signal: AbortSignal): Prom
   if (body.error || body.jsonrpc !== '2.0' || body.id !== 1 || !('result' in body)) throw new Error('Testnet RPC did not return a valid result.');
   return body.result;
 }
-async function mirror(path: string, signal: AbortSignal) {
+export async function mirror(path: string, signal: AbortSignal) {
   const response = await fetch(mirrorUrl + path, { signal: AbortSignal.any([signal, AbortSignal.timeout(10_000)]), credentials: 'omit',
     cache: 'no-store', redirect: 'error', referrerPolicy: 'no-referrer' });
   if (response.status === 404) return undefined;
@@ -145,12 +140,13 @@ export async function verifyNovaReceipt(transactionHash: string, admin: string, 
 }
 
 // Manual recovery never signs and never treats browser storage as chain evidence.
-export async function recoverNova(transactionHash: string, admin: string, signal: AbortSignal, existing?: NovaRecord): Promise<NovaRecord> {
+export async function recoverNova(transactionHash: string, admin: string, signal: AbortSignal, existing?: NovaRecord, owner?: symbol): Promise<NovaRecord> {
   if (!/^0x[\da-f]{64}$/i.test(transactionHash) || !isAddress(admin)) throw new Error('Enter a public transaction hash and bind Admin.');
   transactionHash = transactionHash.toLowerCase();
   if (existing?.transactionHash && existing.transactionHash.toLowerCase() !== transactionHash) throw new Error('A different NOVA hash is already recorded. Recover that operation first.');
   if (existing && existing.admin.toLowerCase() !== admin.toLowerCase()) throw new Error('Select the recorded Admin for recovery.');
-  const lease = acquireOperation();
+  if (owner) assertOperation(owner);
+  const lease = owner ?? acquireOperation();
   try {
     const deployment = await checkDeployment(signal);
     if (deployment.status !== 'passed' || deployment.contracts[0].address?.toLowerCase() !== resolverAddress
@@ -186,10 +182,10 @@ export async function recoverNova(transactionHash: string, admin: string, signal
     record.comparisons = comparisons;
     try {
       const { asset } = await interfaces();
-      const block = await rpc('eth_blockNumber', [], signal);
+      const block = receipt.blockNumber;
       if (typeof block !== 'string' || !/^0x[\da-f]+$/i.test(block)) throw new Error('Invalid block.');
       record.readBlock = BigInt(block).toString();
-      const source = 'Current getter at block ' + record.readBlock;
+      const source = 'Historical creation-block getter at block ' + record.readBlock;
       const code = await rpc('eth_getCode', [deployed.address, block], signal);
       compare('Deployed runtime bytecode', true, typeof code === 'string' && /^0x[\da-f]+$/i.test(code) && code.length > 2, source);
       const call = async (name: string, args: unknown[] = []) => asset.decodeFunctionResult(name,
@@ -254,7 +250,7 @@ export async function recoverNova(transactionHash: string, admin: string, signal
       signal.throwIfAborted(); return novaEvidence({ ...record, status: comparisons.some(row => !row.matches) ? 'mismatch' : 'mirror-pending' });
     }
     return novaEvidence({ ...record, status: comparisons.every(row => row.matches) ? 'complete' : 'mismatch' });
-  } finally { releaseOperation(lease); }
+  } finally { if (!owner) releaseOperation(lease); }
 }
 
 // One owned provider pair for the unchanged SDK create path; reads stay on fixed Testnet RPC.
@@ -351,6 +347,7 @@ export async function createNovaProviders(review: NovaReview, record: NovaRecord
 
 export async function createNova(review: NovaReview, prepared: PreparedCredential, credential: SignedCredential,
   t01Accepted: boolean, update: (record: NovaRecord) => void): Promise<{ review?: NovaReview; record?: NovaRecord }> {
+  if (novaCreationClosed) throw new Error('T02 is complete. Recover existing NOVA; never create another.');
   if (!isCreationOrigin(window.location.origin, import.meta.env.PROD)) throw new Error('Create NOVA only in production preview at http://127.0.0.1:4173.');
   if (!t01Accepted) throw new Error('Complete every retained T01 human check before creation.');
   const outcome = await withNovaLock(navigator.locks, async () => {
