@@ -1,5 +1,16 @@
 # HoldBook handoff
 
+## T03 manual acceptance complete — September 7, 2026
+
+- `based_on_commit: b099e01` is the implementation base; actual HEAD remains available in Git. Branch `feat/t03-kyc-issue`.
+- [Evidence 027](evidence/027-t03-manual.md), [public verification JSON](evidence/027-t03-manual.json) and [standalone screenshot report](evidence/027-t03-manual.html) retain eight user screenshots, exports (5)–(12), and independent live verification of all six actual transactions. Victor performed the preview MetaMask operations; the agent queried only.
+- Final block **40224162**: three Admin roles present and issuer registered; Seller KYC valid, available **100**, held **0**; Buyer not KYC, balance/held **0**; supply/cap **100/1000**, config **1**. T02 history remains supply **0** at creation block **40209377**. Receipt/calldata/events, historical transitions, Mirror sender mappings/results/IDs and public VC digest/dates agree.
+- VC signature and full credential were not retained or independently replayed. The original screenshot/export establish observed application verification. The latest screenshot is a journal, not a current balance capture; final values are independently queried. SSI role was recovered from the screenshot hash because no separate SSI export was supplied in (5)–(12).
+- Documentation-only acceptance: npm ci, 75 app + 36 proto tests, typecheck/build and four dev/preview smoke cases. No application, dependencies or patches changed. Existing native BBS/audit/peer/license/eligibility limits remain; details and harness correction are in evidence 027.
+- **Stop at T03. No further signatures or issuance; no push/merge or T04.** No next implementation ticket is activated and no source files are allowed for a next ticket. Any additional T03 evidence is limited to existing 027 report/JSON/HTML, `docs/evidence/027-t03-*.png`, `docs/ai-usage/034-t03-manual.md`, AI_USAGE, HANDOFF and the main plan. T04 requires separate explicit activation with exact files and acceptance checks.
+
+The code-stage Pending sections below are historical and superseded by this acceptance.
+
 ## T03 code delivered / manual acceptance Pending
 
 - `based_on_commit: daf7dcc8e443277f0a64e87bc283f48cc7456325` is the verified merged-main base; read actual HEAD from Git. Branch: `feat/t03-kyc-issue`.

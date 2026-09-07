@@ -572,3 +572,20 @@ issuer are missing, Seller/Buyer have no KYC. Victor must perform each authorize
 preview operation and supply public evidence; a separate manual report/commit
 uses the exact files in HANDOFF. Do not mark T03 complete from automation or
 fixtures, and do not proceed to T04, push or merge.
+
+
+### T03 manual acceptance outcome — September 7, 2026
+
+[Evidence 027](../evidence/027-t03-manual.md) completes the separately authorized
+manual stage based on implementation `b099e01`. Victor performed six preview
+transactions and one VC signature. Independent live recovery verified exact
+receipts/calldata/events, before/after state and Mirror identity/result/IDs for
+all six. Latest block 40224162 has Seller KYC valid, available 100/held 0,
+Buyer not KYC/balance 0/held 0, all three Admin roles and registered issuer,
+supply/cap 100/1000 and config 1. T02 block 40209377 still has supply 0.
+Public VC digest/issuer/subject/seconds match KYC evidence; full proof was
+intentionally not retained or independently replayed. Original exports and
+screenshots, their mapping and the harness correction remain in report 027.
+No source/dependency/patch changes. ci, 111 tests, typecheck/build and four
+browser smoke cases passed. Stop at T03; no next ticket, push or merge is
+activated. Existing audit/native/peer/license/event eligibility limits persist.
