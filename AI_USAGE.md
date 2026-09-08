@@ -8,6 +8,9 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-08 | Authorized T04 integration | [Push, exact-head CI gate and merge](docs/ai-usage/037-t04-merge.md) |
+| 2026-09-08 | T04 manual acceptance / recovery repair | [Four transactions, historical simulations and verified final 94/6/held 0](docs/ai-usage/036-t04-manual.md) |
+| 2026-09-08 | T03 merge and T04 code / automation | [CI-gated integration and guarded Hold lifecycle; manual acceptance pending](docs/ai-usage/035-t04-hold-lifecycle.md) |
 | 2026-09-07 | T03 manual acceptance | [Six transactions, VC evidence and independent final readback](docs/ai-usage/034-t03-manual.md) |
 | 2026-09-07 | T03 code and automated verification | [Seller KYC / issue 100 implementation; manual acceptance pending](docs/ai-usage/033-t03-kyc-issue.md) |
 | 2026-09-07 | Authorized T02 integration | [PR #3 and CI-gated merge](docs/ai-usage/032-t02-merge.md) |

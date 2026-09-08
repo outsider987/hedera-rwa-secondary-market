@@ -2,17 +2,18 @@ import { getAddress, keccak256, stringToHex } from 'viem';
 import type { CredentialPayload, SignedCredential } from '@terminal3/vc_core';
 import { acquireOperation, releaseOperation, withTransactionLock } from './guards';
 
-export type VerifiedSeller = { prepared: PreparedCredential; credential: SignedCredential; session: number };
+export type VerifiedCredential = { prepared: PreparedCredential; credential: SignedCredential; session: number };
+export type VerifiedSeller = VerifiedCredential;
 export type WalletProvider = { request: (args: { method: string; params?: unknown[] }) => Promise<unknown> };
 export type PreparedCredential = { payload: CredentialPayload; digest: string; preparedAt: number };
 export type CredentialResult = { verified: boolean; verifier: boolean; rules: boolean; negatives?: { expired: boolean; tampered: boolean; wrongSubject: boolean } };
 const digest = (payload: CredentialPayload) => keccak256(stringToHex(JSON.stringify(payload)));
 
-export async function prepareSellerCredential(admin: string, seller: string, now = Date.now()): Promise<PreparedCredential> {
-  if (!Number.isFinite(now) || getAddress(admin) === getAddress(seller)) throw new Error('Use distinct Admin and Seller accounts.');
+export async function prepareCredential(admin: string, subject: string, now = Date.now()): Promise<PreparedCredential> {
+  if (!Number.isFinite(now) || getAddress(admin) === getAddress(subject)) throw new Error('Use distinct Admin and subject accounts.');
   const { prepareCredentialPayload, DID } = await import('@terminal3/vc_core');
   const payload = await prepareCredentialPayload(['SyntheticKyc'], new DID('ethr', getAddress(admin)),
-    new DID('ethr', getAddress(seller)), { passed: true }, new Date(now - 300_000), new Date(now + 7 * 86400_000));
+    new DID('ethr', getAddress(subject)), { passed: true }, new Date(now - 300_000), new Date(now + 7 * 86400_000));
   return { payload, digest: digest(payload), preparedAt: now };
 }
 
@@ -28,7 +29,7 @@ export function credentialProblem(value: unknown, expected: PreparedCredential, 
   if (digest(data) !== expected.digest) return 'Credential digest does not match this review.';
 }
 
-export async function verifySellerCredential(value: unknown, expected: PreparedCredential): Promise<CredentialResult> {
+export async function verifyCredential(value: unknown, expected: PreparedCredential): Promise<CredentialResult> {
   let verifier = false;
   const rules = credentialProblem(value, expected) === undefined;
   // Always use the genuine verifier; never replace a rejected signature with app checks.
@@ -39,7 +40,7 @@ export async function verifySellerCredential(value: unknown, expected: PreparedC
   return { verified: verifier && rules, verifier, rules };
 }
 
-export async function signSellerCredential(prepared: PreparedCredential, provider: WalletProvider,
+export async function signCredential(prepared: PreparedCredential, provider: WalletProvider,
   checkCurrent: () => Promise<void>): Promise<CredentialResult & { credential?: SignedCredential }> {
   return withTransactionLock(navigator.locks, async () => {
   const lease = acquireOperation();
@@ -61,14 +62,14 @@ export async function signSellerCredential(prepared: PreparedCredential, provide
       type: 'EcdsaSecp256k1Signature2019', proofPurpose: 'assertionMethod',
       verificationMethod: prepared.payload.issuer + '#key-1', created: new Date().toISOString(), proofValue: signature,
     } };
-    const result = await verifySellerCredential(credential, prepared);
+    const result = await verifyCredential(credential, prepared);
     await checkCurrent();
     if (!result.verified) return result;
     const expired = { ...structuredClone(credential), validUntil: new Date(Date.now() - 86400_000).toISOString() };
     const tampered = { ...structuredClone(credential), credentialSubject: { ...credential.credentialSubject, passed: false } };
     // The original valid signature with a different expected subject tests app binding separately.
     const wrong = { ...prepared, payload: { ...prepared.payload, credentialSubject: { ...prepared.payload.credentialSubject, id: prepared.payload.issuer } } };
-    const [expiry, tamper, subject] = await Promise.all([verifySellerCredential(expired, prepared), verifySellerCredential(tampered, prepared), verifySellerCredential(credential, wrong)]);
+    const [expiry, tamper, subject] = await Promise.all([verifyCredential(expired, prepared), verifyCredential(tampered, prepared), verifyCredential(credential, wrong)]);
     await checkCurrent();
     const negatives = { expired: !expiry.verified && !expiry.verifier, tampered: !tamper.verified && !tamper.verifier, wrongSubject: !subject.verified && subject.verifier };
     return { ...result, verified: Object.values(negatives).every(Boolean), negatives,
@@ -76,3 +77,6 @@ export async function signSellerCredential(prepared: PreparedCredential, provide
   } finally { releaseOperation(lease); }
   });
 }
+
+// Retain the historical T02/T03 callers; T04 binds the same verifier to Buyer.
+export const prepareSellerCredential = prepareCredential, verifySellerCredential = verifyCredential, signSellerCredential = signCredential;

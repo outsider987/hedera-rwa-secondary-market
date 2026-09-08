@@ -1,0 +1,75 @@
+{
+  "recordedAt": "2026-09-07T16:23:46.761416+00:00",
+  "kind": "Dated development diagnostics, not chain failures",
+  "checks": [
+    {
+      "stage": "Initial red while npm ci was still running",
+      "outcome": "Harness/dependency timing failure: viem temporarily unavailable",
+      "correction": "Repeated red tests after install completed; this does not establish an application regression."
+    },
+    {
+      "stage": "Post-install red before implementation",
+      "outcome": "Missing Hold module and T03 mutation entry still open",
+      "correction": "Implemented fixed Hold module and closed T03 submission entry."
+    },
+    {
+      "stage": "Initial typecheck",
+      "outcome": "UI refactor name-shadow and setter type errors",
+      "correction": "Corrected bindings; final typecheck passed."
+    },
+    {
+      "stage": "Hold state test expansion",
+      "outcome": "A creation fixture incorrectly treated a fresh future review as an expired existing Hold",
+      "correction": "Asserted expiry against an already-created Hold with its original immutable expiry; tests passed."
+    },
+    {
+      "stage": "First SDK browser harness",
+      "outcome": "Harness template missing a closing brace",
+      "correction": "Fixed probe syntax; not an SDK or chain incompatibility."
+    },
+    {
+      "stage": "SDK runtime harness",
+      "outcome": "Fixture accessed argument zero for a no-argument getter",
+      "correction": "Restricted argument access to the relevant named getter; 18 final cases passed."
+    },
+    {
+      "stage": "First combined live history probe",
+      "outcome": "Harness total 180-second deadline expired across T02, six T03 recoveries and current state",
+      "correction": "Harness total changed to 600 seconds. Independent fixed-block reads now use at most four parallel calls. Production per-transaction automatic recovery remains 180 seconds; final public probe passed."
+    },
+    {
+      "stage": "Invalid-journal operation lease red test",
+      "outcome": "Expected busy false, actual true after loadHoldRecords threw before try/finally",
+      "correction": "Read/validate the journal before acquiring the lease; the same test passed."
+    },
+    {
+      "stage": "Unsigned Buyer SDK evidence flag",
+      "outcome": "Assertions passed but result object had already been copied before adding the public boolean",
+      "correction": "Attached the flag to the retained result; rerun recorded both passing unsigned Buyer checks."
+    },
+    {
+      "stage": "SDK public output correction",
+      "outcome": "Diagnostic strings could embed SDK error internals",
+      "correction": "Omitted errorMessage from harness and already-collected results. Retained only selected error codes/classifications and public request names. No behavior or assertion changed."
+    },
+    {
+      "stage": "Final UI readback visibility",
+      "outcome": "Successful automatic readback was cleared immediately from the visible balance panel",
+      "correction": "Keep the verified after-state visible; final shell, typecheck/build and four no-wallet smoke/cancel cases passed."
+    },
+    {
+      "stage": "Validation manifest assembly",
+      "outcome": "Builder referenced t02 instead of the existing creation JSON field; dependent link check ran before the manifest existed",
+      "correction": "Used actual creation.readBlock and the harness required output argument; regenerated and checked manifest. Application and chain results unchanged."
+    }
+  ],
+  "leaseRedExcerpt": [
+    "\u2716 invalid T04 journal cannot leak the operation lease; imported public intent remains pending until recovery (2420.005272ms)",
+    "\u2139 fail 1",
+    "\u2716 invalid T04 journal cannot leak the operation lease; imported public intent remains pending until recovery (2420.005272ms)",
+    "  true !== false"
+  ],
+  "leaseGreenLog": "\u2714 invalid T04 journal cannot leak the operation lease; imported public intent remains pending until recovery (2362.854639ms)\n\u2139 tests 1\n\u2139 suites 0\n\u2139 pass 1\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 2482.89222\n",
+  "finalResults": "028-t04-validation.json",
+  "manualT04": "Pending; no transaction or signature performed"
+}

@@ -589,3 +589,151 @@ screenshots, their mapping and the harness correction remain in report 027.
 No source/dependency/patch changes. ci, 111 tests, typecheck/build and four
 browser smoke cases passed. Stop at T03; no next ticket, push or merge is
 activated. Existing audit/native/peer/license/event eligibility limits persist.
+
+
+## T04 activation — September 7, 2026 (effective)
+
+`based_on_commit: 61c411d70235ce7d882a8b4c84150e9b3c636d8c` is the verified
+merged-main base, not this document's commit. Branch: `feat/t04-hold-lifecycle`.
+The supplied T03 integration / T04 plan explicitly supersedes older stop and
+merge prohibitions for this scope. PR #4 merged by merge commit after the exact
+head 52deb83f0989f955c593150b081b00105066a5ea passed CI run 34138783453;
+remote main contains it. T03 is complete; T04 code/automation is active and
+manual acceptance is Pending. No T04 push or merge is authorized.
+
+Exact allowed implementation files (enumerated before implementation):
+`src/hold.ts`, `src/transport.ts`, `src/App.tsx`, `src/styles.css`,
+`src/wallet.ts`, `src/guards.ts`, `src/credentials.ts`, `src/lifecycle.ts`,
+`src/nova.ts`, `src/evidence.ts`, `src/ats.ts`;
+`tests/hold.test.mjs`, `tests/transport.test.mjs`, `tests/wallet.test.mjs`,
+`tests/guards.test.mjs`, `tests/credentials.test.mjs`, `tests/lifecycle.test.mjs`,
+`tests/nova.test.mjs`, `tests/evidence.test.mjs`, `tests/ats.test.mjs`,
+`tests/shell.test.mjs`.
+Exact documentation files: `docs/prompts/025-t04-hold-lifecycle.md`,
+`docs/evidence/028-t04-implementation.md`, `docs/evidence/028-t04-validation.json`,
+`docs/evidence/028-t04-development.json`, `docs/evidence/028-t04-sdk-browser.mjs`,
+`docs/evidence/028-t04-sdk-browser.json`, `docs/evidence/028-t04-ui-browser.mjs`,
+`docs/evidence/028-t04-ui-browser.json`, `docs/evidence/028-t04-live-read.mjs`,
+`docs/evidence/028-t04-live-read.json`, `docs/evidence/028-t04-5173-1440.png`,
+`docs/evidence/028-t04-5173-390.png`, `docs/evidence/028-t04-4173-1440.png`,
+`docs/evidence/028-t04-4173-390.png`, `docs/ai-usage/035-t04-hold-lifecycle.md`,
+`docs/HANDOFF.md`, `docs/plans/001-ats-first.md`, `docs/ATTRIBUTION.md`, `AI_USAGE.md`.
+Separate subsequent manual evidence: `docs/evidence/029-t04-manual.md`,
+`docs/evidence/029-t04-manual.json`, `docs/evidence/029-t04-manual.html`,
+`docs/evidence/029-t04-create.png`, `docs/evidence/029-t04-kyc-negative.png`,
+`docs/evidence/029-t04-buyer-vc.png`, `docs/evidence/029-t04-buyer-kyc.png`,
+`docs/evidence/029-t04-permission-negative.png`, `docs/evidence/029-t04-execute.png`,
+`docs/evidence/029-t04-release.png`, `docs/evidence/029-t04-final.png`,
+`docs/ai-usage/036-t04-manual.md`, AI_USAGE, HANDOFF and the main plan.
+No dependencies, lockfile, patches, other modules or asset parameters may change.
+
+Use original NOVA 0.0.10402368, three accounts, chain 296, config 1, cap 1000
+and default partition. Seller creates Hold 10, Escrow Admin, zero target,
+empty data, expiration fixed at reviewed latest chain timestamp +86400 seconds.
+Save base block and seconds; derive safe decimal Hold ID from HeldByPartition.
+Admin-connected SDK execute 6 must reject Buyer KYC; identical calldata/from
+Admin eth_call must return the exact KYC revert with unchanged state. Then
+Admin prepares/reviews/manually signs/verifies Buyer VC (seven days, five-minute
+backdate) and grants KYC through the genuine SDK. After KYC, read-only Seller
+execute 6 and Admin execute 11 must reject for escrow and balance respectively.
+Admin executes 6 and releases 4. Release targetId is original holder Seller.
+Normally four transactions and one Buyer signature, all manually approved by
+Victor on preview http://127.0.0.1:4173. Dev supports VC and reads.
+
+Before each mutation recheck wallet/session, expected signer role, fixed inputs,
+full asset/roles/KYC/Hold/balances, exact calldata and zero value. Never switch
+bindings to impersonate another role. Reuse leases/Web Lock; persist public
+intent before send, save late hashes, perform one automatic full recovery with
+a total 180-second deadline after hash. Unknown/indexing delays remain pending;
+only explicit queries, no automatic resubmission. Separate public transaction
+and simulation evidence; simulations have no transaction ID. No full VC/proof.
+Existing/unknown work requires original hash recovery; changed/expired state or
+pinned incompatibility stops for diagnostics, with no renew/reclaim/patch.
+T02 supply 0 and T03 completed history remain historical, independently of T04.
+
+TDD with Node built-in runner and genuine SDK network boundaries; no keys or
+fabricated valid VCs. Check all fixed-input/signature/calldata guards, VC binding
+and negative semantics, races/rejection/late hashes/reload/timeout/Mirror delay,
+full-release event/zero held/active-ID removal, history and evidence whitelist.
+Run npm ci/test/typecheck/build, dev/preview desktop/mobile, keyboard and request
+scope checks. Code commit keeps human acceptance Pending. Separate actual
+verification must establish Seller 94, Buyer 6, both held 0, Buyer valid KYC,
+supply/cap 100/1000 and every transaction/simulation/public VC input. Stop at T04;
+no next ticket or automatic push/merge. Existing native BBS/audit/peer/license
+and event eligibility limitations remain.
+
+### September 8, 2026 — T04 code-stage outcome
+
+T03 PR #4 merged after CI success on exact head 52deb83; actual merged base for
+T04 is `61c411d70235ce7d882a8b4c84150e9b3c636d8c`. Branch
+`feat/t04-hold-lifecycle` contains the local implementation; no T04 push/merge.
+[Evidence 028](../evidence/028-t04-implementation.md) records the genuine SDK
+fixed Hold lifecycle, expected signer review, Buyer-bound VC reuse, read-only
+negative checks, one bounded recovery after a saved hash, public journals and
+historical T03 display with its mutation entry closed. No dependency or patch
+changed. npm ci, 87 app + 36 proto tests, typecheck/build, 18 SDK boundary cases
+plus two unsigned Buyer checks, four live UI cases and four final smoke/cancel
+cases pass. Live starting block 40226582 remains Seller 100, Buyer 0, both held
+0, Buyer not KYC, supply/cap 100/1000. T02 supply 0 and all T03 history verify.
+
+Manual T04 acceptance remains Pending; no T04 signatures/transactions were
+performed. Victor next uses original Seller on preview for Hold 10, then Admin
+for the displayed stages, manually approving four transactions and one Buyer
+VC signature. Preserve each public export and screenshot. Evidence 029 / usage
+036 must independently verify actual hashes, simulations, VC inputs and final
+94/6/held 0 before closing T04. Exact allowed manual filenames are retained in
+the activation and current HANDOFF; no next ticket, T04 push or merge.
+
+### September 8, 2026 — partial T04 creation acceptance and recovery correction
+
+User-provided creation hash ending `6b2611e` and reviewed base 40227946 expose
+an application recovery defect: a transaction's consensus seconds were required
+to equal block-start seconds. Based on implementation `0c45b8994fdc151702d348ab37233b08d1ca47b6`,
+the repair matches the exact Mirror block number and retains every other binding.
+The failing regression now passes, including wrong-block rejection. Mandatory
+ci/tests/typecheck/build and four browser smoke/cancel cases pass. Actual public
+recovery verifies Hold 1, Seller 90/held 10, Buyer 0/held 0, supply 100 at block
+40227994. [Evidence 029](../evidence/029-t04-manual.md) retains the partial report,
+original error screenshot and raw public verification. No agent transaction or
+signature. Victor reloads preview, queries/exports the existing hash and then
+uses Admin for the un-KYC negative check. All remaining stages and final values
+are Pending; continue only the previously enumerated T04 manual/repair files.
+No T04 push/merge or next ticket.
+
+### September 8, 2026 — T04 manual acceptance complete
+
+Based on code/repair `f3dfa0ba6e07a4d282fedcee770fb936ac5728f4`,
+[evidence 029](../evidence/029-t04-manual.md) closes the fixed NOVA Hold lifecycle.
+Victor supplied eight exports (13)–(20) and the stage screenshots. Four actual
+transactions independently verify Hold 10, Buyer KYC, execute 6 and release 4;
+both historical simulations replay successfully, including the real SDK KYC
+rejection and all three exact contract reverts. No agent mutation/signature.
+
+Final block **40241114**: Seller **94/held 0**, Buyer **6/held 0**, valid Buyer
+KYC, supply/cap **100/1000**, config 1 and no active Seller/Buyer Holds. Expiry
+basis, events, full calldata, state transitions, Mirror sender mapping and IDs
+agree with exports. The full-release proof never reads deleted Hold details.
+T02 historical supply 0 and all T03 history reverify. Buyer VC public metadata
+corresponds with the KYC record; screenshot/export establish observed application
+verification, without retaining or replaying a full credential/signature.
+
+The final journal screenshot does not show current balances; independent RPC
+establishes those values. The original recovery error/repair and pending Buyer
+export (16) remain preserved. This documentation-only acceptance passes npm ci,
+87 app + 36 proto tests, typecheck/build, four dev/preview smoke/cancel cases and
+two offline report viewport checks. No application/dependency/patch changes.
+Stop at T04; no further transactions/signatures, push/merge or next ticket is
+authorized. Additional evidence uses only the existing 029/036 files and exact
+named captures listed in HANDOFF, plus AI_USAGE, HANDOFF and this plan.
+Native BBS, audit/peer/license/eligibility limits and deferred settlement scope
+remain unchanged.
+
+### September 8, 2026 — authorized T04 integration
+
+Victor explicitly requested “好推送合併吧”, authorizing push and CI-gated merge
+of `feat/t04-hold-lifecycle`, based on completed acceptance
+`b1212e6b80b6f52f15be7e526aa6b3ddf0a3b994`. This supersedes the previous
+push/merge prohibition only. Preserve history with a merge commit, verify the
+final PR head's CI and remote main ancestry. Only usage 037, AI_USAGE, HANDOFF
+and this plan change during integration; GitHub records the actual result.
+No next implementation or further chain operation is activated.

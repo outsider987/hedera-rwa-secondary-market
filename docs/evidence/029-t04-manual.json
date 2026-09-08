@@ -1,0 +1,2241 @@
+{
+  "recordedAt": "2026-09-07T16:58:07.158Z",
+  "based_on_commit": "f3dfa0ba6e07a4d282fedcee770fb936ac5728f4",
+  "manualAcceptance": "Complete at independently verified block 40241114",
+  "kind": "Actual user-supplied transaction; agent read-only recovery, no signing/submission",
+  "creation": {
+    "schemaVersion": 1,
+    "chainId": 296,
+    "operationId": "bc78a1e0-6294-415f-9c7a-b7fbcc93aae1",
+    "startedAt": "2026-09-07T16:57:54.689Z",
+    "input": {
+      "securityId": "0.0.10402368",
+      "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+      "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+      "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+      "destination": "0x0000000000000000000000000000000000000000",
+      "baseBlock": "40227946",
+      "baseTimestamp": "1788799729",
+      "expirationTimestamp": "1788886129",
+      "holdId": "1"
+    },
+    "before": {
+      "block": "40227993",
+      "timestamp": "1788799830",
+      "roles": [
+        true,
+        true,
+        true
+      ],
+      "issuer": true,
+      "supply": "100",
+      "sellerBalance": "100",
+      "buyerBalance": "0",
+      "sellerHeld": "0",
+      "buyerHeld": "0",
+      "sellerKyc": {
+        "status": 1,
+        "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+        "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "validFrom": "1788788191",
+        "validTo": "1789393291"
+      },
+      "buyerKyc": {
+        "status": 0,
+        "vcId": "",
+        "issuer": "0x0000000000000000000000000000000000000000",
+        "validFrom": "0",
+        "validTo": "0"
+      },
+      "sellerHoldIds": [],
+      "buyerHoldIds": []
+    },
+    "after": {
+      "block": "40227994",
+      "timestamp": "1788799832",
+      "roles": [
+        true,
+        true,
+        true
+      ],
+      "issuer": true,
+      "supply": "100",
+      "sellerBalance": "90",
+      "buyerBalance": "0",
+      "sellerHeld": "10",
+      "buyerHeld": "0",
+      "sellerKyc": {
+        "status": 1,
+        "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+        "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "validFrom": "1788788191",
+        "validTo": "1789393291"
+      },
+      "buyerKyc": {
+        "status": 0,
+        "vcId": "",
+        "issuer": "0x0000000000000000000000000000000000000000",
+        "validFrom": "0",
+        "validTo": "0"
+      },
+      "sellerHoldIds": [
+        "1"
+      ],
+      "buyerHoldIds": [],
+      "hold": {
+        "id": "1",
+        "amount": "10",
+        "expirationTimestamp": "1788886129",
+        "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "destination": "0x0000000000000000000000000000000000000000",
+        "data": "0x",
+        "operatorData": "0x",
+        "thirdPartyType": 0
+      }
+    },
+    "kind": "t04-transaction",
+    "action": "create-hold",
+    "status": "complete",
+    "calldataDigest": "0x9ddc22a15f296fba807f2b79dff98d32968788324f24dedf23459151f9c173ad",
+    "signerRole": "Seller",
+    "transactionHash": "0x9c3fe919cd41945554fa5677eefb8f1730c8b9a404d0766b50a9638f26b2611e",
+    "hashScanLink": "https://hashscan.io/testnet/transaction/0x9c3fe919cd41945554fa5677eefb8f1730c8b9a404d0766b50a9638f26b2611e",
+    "transactionId": "0.0.7314364-1788799829-835192336",
+    "consensusTimestamp": "1788799834.713395188"
+  },
+  "diagnostic": {
+    "rpcBlockStartSeconds": "1788799832",
+    "mirrorConsensusTimestamp": "1788799834.713395188",
+    "verifiedBlock": "40227994",
+    "rootCause": "Transaction consensus second was incorrectly required to equal block start second. Recovery now matches exact Mirror block_number plus receipt/hash/calldata/result/sender and timestamp-filtered transaction identity.",
+    "mirrorBlock": {
+      "number": 40227994,
+      "timestamp": {
+        "from": "1788799832.946739104",
+        "to": "1788799835.071401576"
+      },
+      "source": "https://testnet.mirrornode.hedera.com/api/v1/blocks/40227994"
+    }
+  },
+  "repairValidation": {
+    "recordedAt": "2026-09-07T16:59:52.116876+00:00",
+    "redRegressionLog": "\u2716 four T04 recoveries verify full historical state and Mirror identity; delay/unknown/reload never authorizes replay (2762.592142ms)\n\u2139 tests 1\n\u2139 suites 0\n\u2139 pass 0\n\u2139 fail 1\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 2884.458712\n\n\u2716 failing tests:\n\ntest at tests/hold.test.mjs:104:1\n\u2716 four T04 recoveries verify full historical state and Mirror identity; delay/unknown/reload never authorizes replay (2762.592142ms)\n  Error: Mirror T04 identity, calldata or result differs.\n      at recover (file:///home/outsider/github/ETHGlobal_Victor/src/hold.ts:257:139)\n      at async file:///home/outsider/github/ETHGlobal_Victor/src/hold.ts:264:105\n      at async TestContext.<anonymous> (file:///home/outsider/github/ETHGlobal_Victor/tests/hold.test.mjs:134:85)\n      at async Test.run (node:internal/test_runner/test:1389:7)\n      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)\n",
+    "npmCi": {
+      "passed": true,
+      "log": "npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.\nnpm warn deprecated npmlog@5.0.1: This package is no longer supported.\nnpm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported\nnpm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\nnpm warn deprecated glob@8.1.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\nnpm warn deprecated are-we-there-yet@2.0.0: This package is no longer supported.\nnpm warn deprecated gauge@3.0.2: This package is no longer supported.\nnpm warn deprecated multibase@4.0.6: This module has been superseded by the multiformats module\nnpm warn deprecated multicodec@3.2.1: This module has been superseded by the multiformats module\nnpm warn deprecated @motionone/vue@10.16.4: Motion One for Vue is deprecated. Use Oku Motion instead https://oku-ui.com/motion\nnpm warn deprecated crypto-js@4.2.0: Active development of CryptoJS has been discontinued. This library is no longer maintained.\nnpm warn deprecated @walletconnect/modal@2.7.0: Please follow the migration guide on https://docs.reown.com/appkit/upgrade/wcm\nnpm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead\nnpm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).\nnpm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).\nnpm warn deprecated uuid@9.0.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).\nnpm warn deprecated uuid@9.0.1: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).\nnpm warn deprecated uuid@9.0.1: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).\nnpm warn deprecated @safe-global/safe-gateway-typescript-sdk@3.23.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.\nnpm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\nnpm warn deprecated @walletconnect/sign-client@2.19.2: Reliability and performance improvements. See: https://github.com/WalletConnect/walletconnect-monorepo/releases\n\n> holdbook@0.0.0 postinstall\n> node scripts/rebuild-proto.mjs && node scripts/patch-ats-readonly.mjs && node scripts/patch-ats-wallet.mjs\n\n{\"compiler\":\"protobufjs-cli 1.3.3\",\"runtime\":\"7.6.6\",\"importMappingCount\":428,\"packages\":[{\"name\":\"@hashgraph/proto\",\"namespace\":\"hashgraph_2_18_5\",\"inputs\":125,\"loaded\":135},{\"name\":\"@hiero-ledger/proto\",\"namespace\":\"hiero_2_25_0\",\"inputs\":174,\"loaded\":175}],\"outputs\":[{\"path\":\"node_modules/@hashgraph/proto/src/proto.js\",\"sha256\":\"cc0f3a72063f5193e37cd34282f8977aa67b01b996eb0c93f7df0bd619699591\",\"bytes\":3018373},{\"path\":\"node_modules/@hashgraph/proto/lib/proto.js\",\"sha256\":\"e78ae8d2888f3f2b3355a0a690c2fd7c4189e576c5fd27291dc013405e4ec90f\",\"bytes\":3018252},{\"path\":\"node_modules/@hiero-ledger/proto/src/proto.js\",\"sha256\":\"e0ca4ab92d3d21037507003b94b055328ae42cc213c075d6dc8fdb026cb8b3b8\",\"bytes\":4128621},{\"path\":\"node_modules/@hiero-ledger/proto/lib/proto.js\",\"sha256\":\"1e87d6c1ef5ca6443171b67d080af121e936d2558801c764d508af6021de4b7a\",\"bytes\":4128474}]}\n{\"version\":\"8.0.0\",\"checked\":12,\"changed\":12}\n{\"version\":\"8.0.0\",\"checked\":16,\"changed\":16}\n\nadded 1290 packages, and audited 1291 packages in 2m\n\n201 packages are looking for funding\n  run `npm fund` for details\n\n62 vulnerabilities (21 low, 25 moderate, 16 high)\n\nTo address issues that do not require attention, run:\n  npm audit fix\n\nTo address all issues (including breaking changes), run:\n  npm audit fix --force\n\nRun `npm audit` for details.\nnpm warn allow-scripts 4 packages have install scripts not yet covered by allowScripts:\nnpm warn allow-scripts   @reown/appkit@1.8.19 (postinstall: node scripts/appkit-version-check.js)\nnpm warn allow-scripts   keccak@3.0.4 (install: node-gyp-build || exit 0)\nnpm warn allow-scripts   protobufjs@7.6.6 (postinstall: node scripts/postinstall)\nnpm warn allow-scripts   secp256k1@4.0.5 (install: node-gyp-build || exit 0)\nnpm warn allow-scripts\nnpm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.\n"
+    },
+    "npmTest": {
+      "passed": true,
+      "application": 87,
+      "protobuf": 36,
+      "log": "\n> holdbook@0.0.0 test\n> node --experimental-test-module-mocks --test tests/*.test.mjs && npm run test:proto\n\n(node:323644) ExperimentalWarning: Module mocking is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n\u2714 browser adapters never inspect or emit SDK payloads or run formatters (4.504321ms)\n\u2714 public SDK types accept a genuine network request with a caller-owned read provider (373.497726ms)\n\u2714 SDK patch rejects version/content drift before writing and survives reapplication (35.42939ms)\n\u25b6 the loader caches one safe result and never calls the configuration API\n  \u2714 api-present (433.850779ms)\n  \u2714 api-missing (7.507409ms)\n  \u2714 probe-error (9.304418ms)\n\u2714 the loader caches one safe result and never calls the configuration API (452.474102ms)\n\u2714 SDK config requires manual preparation, verified preflight and an owned restricted provider (391.696748ms)\n\u2714 managed wallet patch is pinned, all-or-nothing, idempotent and does not overlap the read-only patch (48.979189ms)\n\u2714 genuine Terminal3 payload, UTF-8 digest signing, rejection and invalid credentials (1364.466196ms)\n\u2714 six scoped repair edges are pinned, including absent optional packages (26.391334ms)\n\u2714 contract records must match the fixed ID and contain a live, nonzero EVM address (2.629085ms)\n\u2714 real viem performs only the fixed chain, Mirror and bytecode reads; results are whitelisted (67.144008ms)\n\u25b6 wrong or malformed chain and RPC errors stop before contract queries without leaking error objects\n  \u2714 {\"chain\":\"0x1\"} (3.378769ms)\n  \u2714 {\"chain\":\"garbage\"} (1.78383ms)\n  \u2714 {\"rpcError\":true} (2.294357ms)\n\u2714 wrong or malformed chain and RPC errors stop before contract queries without leaking error objects (8.900143ms)\n\u2714 duplicate deployment addresses prevent both bytecode reads (3.157051ms)\n\u25b6 invalid Mirror, HTTP failures, empty and malformed code cannot pass; independent successes survive\n  \u2714 {\"records\":[{\"contract_id\":\"0.0.9213391\",\"evm_address\":\"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"deleted\":false},{\"contract_id\":\"0.0.9213391\",\"evm_address\":\"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"deleted\":false}]} (4.321108ms)\n  \u2714 {\"http\":404} (2.589262ms)\n  \u2714 {\"http\":429} (2.904742ms)\n  \u2714 {\"codeRpcError\":true} (4.369289ms)\n  \u2714 {\"code\":\"0x\"} (6.118923ms)\n  \u2714 {\"code\":\"0x0\"} (3.142944ms)\n  \u2714 {\"code\":\"0xzz\"} (2.943557ms)\n  \u2714 {\"code\":\"6000\"} (2.785135ms)\n  \u2714 {\"code\":42} (3.801742ms)\n  \u2714 {\"code\":\"0x6000\\r\\n\"} (8.140198ms)\n\u2714 invalid Mirror, HTTP failures, empty and malformed code cannot pass; independent successes survive (45.160776ms)\n\u2714 one 10-second deadline aborts requests, never retries and produces safe timeout status (20.784993ms)\n\u25b6 cancellation rejects, including a transport response arriving after cancellation\n  \u2714 false (4.617439ms)\n  \u2714 true (1.838441ms)\n\u2714 cancellation rejects, including a transport response arriving after cancellation (7.433352ms)\n\u25b6 config accepts safe positive versions and rejects zero, unsafe values, bad ABI and reverts\n  \u2714 1 (2.704144ms)\n  \u2714 9007199254740991 (2.38599ms)\n  \u2714 0 (2.143795ms)\n  \u2714 9007199254740992 (2.251234ms)\n  \u2714 0x (4.825007ms)\n  \u2714 0x01 (3.961523ms)\n  \u2714 revert (3.648242ms)\n\u2714 config accepts safe positive versions and rejects zero, unsafe values, bad ABI and reverts (23.285054ms)\n\u25b6 config requires verified Resolver; Factory failure does not suppress an independent config result\n  \u2714 chain (0.849173ms)\n  \u2714 resolver (1.040878ms)\n  \u2714 code (1.470885ms)\n  \u2714 duplicate (1.090886ms)\n  \u2714 factory (1.929329ms)\n\u2714 config requires verified Resolver; Factory failure does not suppress an independent config result (7.300491ms)\n\u25b6 config shares the original deadline and cannot publish after cancellation, even with a late reply\n  \u2714 timeout (10.192957ms)\n  \u2714 cancel (6.797876ms)\n  \u2714 late (12.314532ms)\n\u2714 config shares the original deadline and cannot publish after cancellation, even with a late reply (31.065361ms)\n\u2714 config never follows an OffchainLookup response to an external gateway (3.809644ms)\n\u2714 VC public evidence excludes all credential, proof, signature and arbitrary error data (115.194059ms)\n\u2714 one shared operation lease excludes siblings and stale release cannot unlock another (85.702214ms)\n\u2714 Hold IDs and expiry preserve canonical safe SDK seconds (2945.71585ms)\n\u2714 SDK KYC and chain revert classifications cannot pass transport or generic errors (231.099736ms)\n\u2714 T03 transaction entry is closed before any network or wallet operation (1.286939ms)\n\u2714 four exact receipt/events and historical transitions reject changed inputs and complete release without a deleted getter (1977.687209ms)\n\u2714 only the fixed six-stage lifecycle progresses; unknown work, skipped simulations and expired KYC/Hold stop (142.444214ms)\n\u2714 public T04 transaction/simulation evidence excludes credentials, proofs, wallet/error objects and simulation tx IDs (157.412132ms)\n\u2714 eth_call uses exact from/calldata/zero value at the recorded block; transport and wrong reverts never pass (362.956301ms)\n\u2714 four T04 recoveries verify full historical state and Mirror identity; delay/unknown/reload never authorizes replay (5524.561342ms)\n\u2714 invalid T04 journal cannot leak the operation lease; imported public intent remains pending until recovery (151.426404ms)\n\u2714 Buyer preparation binds exact public KYC seconds/digest and genuine verifier rejects unsigned, expired, tampered and wrong-subject inputs (467.690954ms)\n\u2714 T03 orders missing roles and issuer; never reissues changed supply or balances (1629.590721ms)\n\u2714 exact fixed calldata, zero value, fixed accounts and asset; no alternative actions (1198.507757ms)\n\u2714 public T03 evidence drops arbitrary objects, signatures and credentials (2.288323ms)\n\u2714 all six receipt actions require exact event, calldata, block and sender (2457.053956ms)\n\u2714 T03 provider rejects alternate methods and duplicates, and retains late hashes after cancellation (102.078536ms)\n\u2714 T03 provider rejection, stale preflight and bounded lookup keep retry decisions explicit (162.738584ms)\n\u2714 original account mapping is mandatory; UTF-8 KYC calldata preserves ID and Unix seconds (123.886724ms)\n\u2714 role IDs match the pinned SDK, not hashes inferred from enum labels (1.909491ms)\n\u2714 recovery verifies historical transition and Mirror mapping; delay, reload, failed receipt and missing history stay safe (2756.160703ms)\n\u2714 KYC transition compares values independent of JSON field order; final 100 can never issue again (54.798009ms)\n\u2714 NOVA request and calldata are fixed; every mutation field and unexpected method is guarded (2794.288798ms)\n\u2714 durable intent and immediate hash persist; reload and unknown never enable duplicate creation (2.768057ms)\n\u2714 same-origin lock is mandatory and never waits to submit a duplicate (1.035276ms)\n\u2714 receipt validation requires successful exact Factory event and canonical transaction/block binding (560.416789ms)\n\u2714 managed provider serializes concurrent requests; late hash is retained and unsafe methods never reach wallet (174.024088ms)\n\u2714 recovery uses real ABI decoding and explicit RPC/Mirror fixtures; delay, mismatch and reload do not create (2372.365261ms)\n\u2714 rejection, stale review, post-send timeout and late responses retain safe public state (106.392671ms)\n12:57:45 AM [vite] (client) [optimizer] bundling dependencies...\n\u2714 the shell renders planned data without claiming a wallet or chain result (3169.511344ms)\n\u2714 T04 shared transport preserves late hash, excludes duplicates, blocks all simulation mutations and delegates one recovery (2852.303185ms)\n\u2714 Mirror accepts only a matching EVM address, canonical Hedera ID and explicitly live account (3.779635ms)\n\u2714 role binding rejects replacement, duplicate address/ID and unverified saved accounts (1.349213ms)\n\u2714 storage failures stay in memory; persisted payload contains only role addresses (3.356178ms)\n\u2714 wallet review binds explicit Seller or Admin signer in both wagmi and provider (1603.365014ms)\n\u2139 tests 87\n\u2139 suites 0\n\u2139 pass 87\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 12140.439805\n\n> holdbook@0.0.0 test:proto\n> node docs/evidence/014-t01a-decoder-rebuild.test.mjs --candidate --compare docs/evidence/007-t01a-protobuf-rebuild-restored-tests.json\n\n\u2714 only approved runtime versions are installed (6.363679ms)\n\u2714 @hashgraph/proto: compatibility (130.559201ms)\n\u2714 @hashgraph/proto: public-api (141.067449ms)\n\u2714 @hashgraph/proto: truncated-varint (117.885298ms)\n\u2714 @hashgraph/proto: truncated-bytes (117.216455ms)\n\u2714 @hashgraph/proto: truncated-message (118.822785ms)\n\u2714 @hashgraph/proto: groups-4 (113.686717ms)\n\u2714 @hashgraph/proto: groups-128 (119.671776ms)\n\u2714 @hashgraph/proto: groups-8192 (121.781504ms)\n\u2714 @hashgraph/proto: keys-4 (114.332622ms)\n\u2714 @hashgraph/proto: keys-128 (131.264059ms)\n\u2714 @hashgraph/proto: keys-8192 (348.151001ms)\n\u2714 @hashgraph/proto: thresholds-4 (119.012994ms)\n\u2714 @hashgraph/proto: thresholds-128 (117.416105ms)\n\u2714 @hashgraph/proto: thresholds-8192 (469.868796ms)\n\u2714 @hashgraph/proto: nested-length-overrun (114.093493ms)\n\u2714 @hashgraph/proto: top-length-overrun (112.126534ms)\n\u2714 @hashgraph/proto: option-eof (135.689154ms)\n\u2714 @hiero-ledger/proto: compatibility (133.628444ms)\n\u2714 @hiero-ledger/proto: public-api (182.836687ms)\n\u2714 @hiero-ledger/proto: truncated-varint (121.770443ms)\n\u2714 @hiero-ledger/proto: truncated-bytes (127.516234ms)\n\u2714 @hiero-ledger/proto: truncated-message (133.969863ms)\n\u2714 @hiero-ledger/proto: groups-4 (136.111258ms)\n\u2714 @hiero-ledger/proto: groups-128 (134.091722ms)\n\u2714 @hiero-ledger/proto: groups-8192 (132.612542ms)\n\u2714 @hiero-ledger/proto: keys-4 (128.570334ms)\n\u2714 @hiero-ledger/proto: keys-128 (136.058503ms)\n\u2714 @hiero-ledger/proto: keys-8192 (340.110765ms)\n\u2714 @hiero-ledger/proto: thresholds-4 (132.840705ms)\n\u2714 @hiero-ledger/proto: thresholds-128 (142.743645ms)\n\u2714 @hiero-ledger/proto: thresholds-8192 (513.744555ms)\n\u2714 @hiero-ledger/proto: nested-length-overrun (130.049302ms)\n\u2714 @hiero-ledger/proto: top-length-overrun (126.367239ms)\n\u2714 @hiero-ledger/proto: option-eof (163.610669ms)\n\u2714 both public proto entries retain their own decoded classes in either load order (305.755356ms)\n\u2139 tests 36\n\u2139 suites 0\n\u2139 pass 36\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 5887.01045\n"
+    },
+    "typecheck": {
+      "passed": true,
+      "log": "\n> holdbook@0.0.0 typecheck\n> tsc --noEmit\n\n"
+    },
+    "build": {
+      "passed": true,
+      "log": "\n> holdbook@0.0.0 build\n> vite build\n\nvite v8.2.2 building client environment for production...\ntransforming...\n\u2713 10444 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                          1.20 kB \u2502 gzip:   0.49 kB\ndist/assets/index-DUGBwj1M.css                           4.39 kB \u2502 gzip:   1.50 kB\ndist/assets/wui-icon-CnqB7m0x.js                         0.03 kB \u2502 gzip:   0.05 kB\ndist/assets/wui-image-DSc9899t.js                        0.03 kB \u2502 gzip:   0.05 kB\ndist/assets/wui-shimmer-D5lzBlV2.js                      0.03 kB \u2502 gzip:   0.05 kB\ndist/assets/wui-icon-box-DM62s41m.js                     0.03 kB \u2502 gzip:   0.05 kB\ndist/assets/wui-input-text-Dwa9mFqP.js                   0.03 kB \u2502 gzip:   0.05 kB\ndist/assets/wui-loading-spinner-BwVb8-Sp.js              0.04 kB \u2502 gzip:   0.06 kB\ndist/assets/NavigationUtil-CLCRNDHF.js                   0.06 kB \u2502 gzip:   0.08 kB\ndist/assets/if-defined-CuYKaY4o.js                       0.06 kB \u2502 gzip:   0.08 kB\ndist/assets/dist-D6L6gF64.js                             0.10 kB \u2502 gzip:   0.11 kB\ndist/assets/MathUtil-B2UslVSw.js                         0.22 kB \u2502 gzip:   0.18 kB\ndist/assets/ConstantsUtil-Cp8ebnfI.js                    0.49 kB \u2502 gzip:   0.36 kB\ndist/assets/AlertController-BqOh6Stv.js                  0.64 kB \u2502 gzip:   0.40 kB\ndist/assets/transactions-CiR1kUzw.js                     0.96 kB \u2502 gzip:   0.57 kB\ndist/assets/preload-helper-Czpn1I53.js                   1.19 kB \u2502 gzip:   0.67 kB\ndist/assets/wui-email-input-AL4hfpJx.js                  1.34 kB \u2502 gzip:   0.69 kB\ndist/assets/rolldown-runtime-BcKkbAw3.js                 1.34 kB \u2502 gzip:   0.72 kB\ndist/assets/wui-separator-BkxkSWns.js                    1.49 kB \u2502 gzip:   0.74 kB\ndist/assets/wui-shimmer-DEiJ1R8g.js                      1.52 kB \u2502 gzip:   0.74 kB\ndist/assets/PhCaretLeft-CI460R-A.js                      1.85 kB \u2502 gzip:   0.90 kB\ndist/assets/dist-Cuadm9-o.js                             1.86 kB \u2502 gzip:   0.84 kB\ndist/assets/ref-D-bUnIrx.js                              1.87 kB \u2502 gzip:   0.89 kB\ndist/assets/PhCaretDown-BDNabFuL.js                      1.91 kB \u2502 gzip:   0.93 kB\ndist/assets/PhCaretRight-D7ZS3Ls8.js                     1.93 kB \u2502 gzip:   0.92 kB\ndist/assets/PhCaretUp-C-iIfyvO.js                        1.99 kB \u2502 gzip:   0.91 kB\ndist/assets/PhArrowUpRight-BNghD2zq.js                   2.03 kB \u2502 gzip:   0.99 kB\ndist/assets/ConstantsUtil-IgQrDvg6.js                    2.06 kB \u2502 gzip:   0.77 kB\ndist/assets/PhArrowDown-87b1BizM.js                      2.07 kB \u2502 gzip:   0.99 kB\ndist/assets/PhPlus-C4UoW-2n.js                           2.08 kB \u2502 gzip:   0.94 kB\ndist/assets/PhCheck-DxQXn57r.js                          2.08 kB \u2502 gzip:   0.96 kB\ndist/assets/PhArrowRight-AdrIL4DW.js                     2.08 kB \u2502 gzip:   0.99 kB\ndist/assets/PhArrowLeft-Da0MfnbK.js                      2.09 kB \u2502 gzip:   0.98 kB\ndist/assets/PhArrowUp-4sgyKPGx.js                        2.14 kB \u2502 gzip:   0.98 kB\ndist/assets/utils-Br0svb7K.js                            2.16 kB \u2502 gzip:   0.98 kB\ndist/assets/PhBrowser-2-9m-AkM.js                        2.18 kB \u2502 gzip:   0.95 kB\ndist/assets/PhMagnifyingGlass-C9u8jSCJ.js                2.18 kB \u2502 gzip:   1.05 kB\ndist/assets/PhDotsThree-D-k1BiYg.js                      2.22 kB \u2502 gzip:   0.92 kB\ndist/assets/hex-encoding-B19xAT_7.js                     2.24 kB \u2502 gzip:   1.05 kB\ndist/assets/PhCopy-CWNYcABI.js                           2.33 kB \u2502 gzip:   0.99 kB\ndist/assets/PhFunnelSimple-CfQs5DAW.js                   2.33 kB \u2502 gzip:   0.98 kB\ndist/assets/PhClock-x3MS3Mwi.js                          2.34 kB \u2502 gzip:   1.01 kB\ndist/assets/PhWarningCircle-BXHw1fCt.js                  2.40 kB \u2502 gzip:   1.03 kB\ndist/assets/wui-avatar-C5Kn650E.js                       2.46 kB \u2502 gzip:   1.02 kB\ndist/assets/PhX-DX0SFIqC.js                              2.47 kB \u2502 gzip:   1.04 kB\ndist/assets/PhDeviceMobile-CsyA5Goi.js                   2.54 kB \u2502 gzip:   1.05 kB\ndist/assets/PhArrowClockwise-DVgyFuez.js                 2.56 kB \u2502 gzip:   1.17 kB\ndist/assets/PhUser-0sWNXQeZ.js                           2.65 kB \u2502 gzip:   1.25 kB\ndist/assets/PhEnvelope-D8kzeNox.js                       2.66 kB \u2502 gzip:   1.16 kB\ndist/assets/PhCircleHalf-MJZeRBGF.js                     2.69 kB \u2502 gzip:   1.20 kB\ndist/assets/PhSignOut-CxELV-i0.js                        2.73 kB \u2502 gzip:   1.14 kB\ndist/assets/PhInfo-Bwi51-2X.js                           2.74 kB \u2502 gzip:   1.19 kB\ndist/assets/PhPower-CFyWDmgD.js                          2.75 kB \u2502 gzip:   1.26 kB\ndist/assets/wui-icon-link-DJfVhxTo.js                    2.75 kB \u2502 gzip:   0.98 kB\ndist/assets/PhDesktop-CxrzCSv5.js                        2.75 kB \u2502 gzip:   1.09 kB\ndist/assets/PhArrowsLeftRight-MuKBLUoF.js                2.77 kB \u2502 gzip:   1.16 kB\ndist/assets/PhArrowCircleDown-D97G-BOA.js                2.78 kB \u2502 gzip:   1.16 kB\ndist/assets/PhWallet-DzNiREN9.js                         2.80 kB \u2502 gzip:   1.15 kB\ndist/assets/PhQuestionMark-CV0k9C0Y.js                   2.81 kB \u2502 gzip:   1.28 kB\ndist/assets/PhArrowSquareOut-Bk2CMG3I.js                 2.89 kB \u2502 gzip:   1.23 kB\ndist/assets/PhArrowsDownUp-DM09Jo_3.js                   2.90 kB \u2502 gzip:   1.15 kB\ndist/assets/PhCreditCard-Fy4pzwtt.js                     2.90 kB \u2502 gzip:   1.13 kB\ndist/assets/PhBank-fHbgCqqZ.js                           2.91 kB \u2502 gzip:   1.23 kB\ndist/assets/PhVault-6JTskUcC.js                          2.93 kB \u2502 gzip:   1.18 kB\ndist/assets/wui-icon-box-DqQ8Qk2h.js                     2.94 kB \u2502 gzip:   0.97 kB\ndist/assets/PhCompass-hYn3HhGN.js                        2.95 kB \u2502 gzip:   1.25 kB\ndist/assets/wui-link-DbnMCW76.js                         2.96 kB \u2502 gzip:   1.00 kB\ndist/assets/PhPaperPlaneRight-zxQVvPLX.js                3.06 kB \u2502 gzip:   1.40 kB\ndist/assets/wui-image-DQFIUVgR.js                        3.08 kB \u2502 gzip:   1.19 kB\ndist/assets/PhTrash-C9PD0SAt.js                          3.09 kB \u2502 gzip:   1.17 kB\ndist/assets/PhCurrencyDollar-BgiaenCi.js                 3.22 kB \u2502 gzip:   1.32 kB\ndist/assets/HelpersUtil-D00TyYCu.js                      3.26 kB \u2502 gzip:   1.33 kB\ndist/assets/PhQuestion-wOWJBd3G.js                       3.28 kB \u2502 gzip:   1.43 kB\ndist/assets/wui-list-token-BieTCgEw.js                   3.30 kB \u2502 gzip:   1.24 kB\ndist/assets/PhImage-Cf0J2ZfJ.js                          3.40 kB \u2502 gzip:   1.43 kB\ndist/assets/wui-list-item-Cb3aQwLD.js                    3.72 kB \u2502 gzip:   1.30 kB\ndist/assets/PhArrowsClockwise-BXRn1GEl.js                3.84 kB \u2502 gzip:   1.57 kB\ndist/assets/PhWarning-CoKs3gz6.js                        3.88 kB \u2502 gzip:   1.47 kB\ndist/assets/wui-input-amount-D0IKS2mc.js                 4.04 kB \u2502 gzip:   1.51 kB\ndist/assets/wui-list-social-CuFuXp-W.js                  4.13 kB \u2502 gzip:   1.76 kB\ndist/assets/PhIdentificationCard-CfkZm-5K.js             4.19 kB \u2502 gzip:   1.63 kB\ndist/assets/utils-62W0Csdc.js                            4.29 kB \u2502 gzip:   1.76 kB\ndist/assets/PhSpinner-CGDmbzUd.js                        4.42 kB \u2502 gzip:   1.63 kB\ndist/assets/wui-token-button-Cvakr3Lv.js                 4.68 kB \u2502 gzip:   1.43 kB\ndist/assets/wui-loading-spinner-Dvb-aG8-.js              4.79 kB \u2502 gzip:   1.97 kB\ndist/assets/PhLightbulb-C4FZV7Es.js                      4.88 kB \u2502 gzip:   1.84 kB\ndist/assets/PhQrCode-CP3tFauY.js                         4.89 kB \u2502 gzip:   1.46 kB\ndist/assets/w3m-onramp-providers-footer-CrEsRajZ.js      4.93 kB \u2502 gzip:   1.77 kB\ndist/assets/wui-qr-code-CuEs9Fnl.js                      5.21 kB \u2502 gzip:   2.13 kB\ndist/assets/PhPuzzlePiece-BjoNVfST.js                    5.34 kB \u2502 gzip:   1.94 kB\ndist/assets/w3m-tooltip--Au7OVtS.js                      5.55 kB \u2502 gzip:   1.92 kB\ndist/assets/wui-button-Sl_OQ_HW.js                       5.63 kB \u2502 gzip:   1.52 kB\ndist/assets/PhGlobe-DvmSc9_A.js                          5.69 kB \u2502 gzip:   1.91 kB\ndist/assets/features-DoigsjeZ.js                         5.75 kB \u2502 gzip:   2.26 kB\ndist/assets/events-CMzhc0tf.js                           6.06 kB \u2502 gzip:   2.07 kB\ndist/assets/wui-input-text-B2Gtaka7.js                   6.26 kB \u2502 gzip:   1.93 kB\ndist/assets/receive-BBEnNA1n.js                          6.61 kB \u2502 gzip:   2.37 kB\ndist/assets/wui-loading-thumbnail-DHSobJ-d.js            7.82 kB \u2502 gzip:   2.37 kB\ndist/assets/ExchangeController-BKtah6L-.js               7.97 kB \u2502 gzip:   3.06 kB\ndist/assets/browser-ponyfill-BLzD8l_Q.js                 8.31 kB \u2502 gzip:   2.84 kB\ndist/assets/hmac-BSeZHieH.js                             9.70 kB \u2502 gzip:   4.61 kB\ndist/assets/w3m-email-otp-widget-CiVd1vsw.js             9.73 kB \u2502 gzip:   3.16 kB\ndist/assets/wui-wallet-switch-kmCnLUyK.js               10.16 kB \u2502 gzip:   3.03 kB\ndist/assets/CaipNetworkUtil-Ch4pFyLj.js                 10.32 kB \u2502 gzip:   4.74 kB\ndist/assets/email-DGLS8KyB.js                           10.50 kB \u2502 gzip:   2.79 kB\ndist/assets/dist-DPKNlvg4.js                            11.74 kB \u2502 gzip:   4.33 kB\ndist/assets/PhSealCheck-vIKzREuN.js                     12.07 kB \u2502 gzip:   4.06 kB\ndist/assets/src-Ckws4D3v.js                             12.65 kB \u2502 gzip:   5.19 kB\ndist/assets/index.browser-BDf4v9YX.js                   13.33 kB \u2502 gzip:   4.60 kB\ndist/assets/SwapController-1lSeVrvC.js                  13.85 kB \u2502 gzip:   3.96 kB\ndist/assets/pay-with-exchange-DhyJwFTK.js               15.80 kB \u2502 gzip:   4.11 kB\ndist/assets/property-DuZ9DLP4.js                        16.17 kB \u2502 gzip:   6.08 kB\ndist/assets/index.es-B2yz9O-G.js                        16.22 kB \u2502 gzip:   5.80 kB\ndist/assets/socials-BRvinZaP.js                         17.96 kB \u2502 gzip:   4.70 kB\ndist/assets/data-capture-ClhRBh1b.js                    18.36 kB \u2502 gzip:   5.69 kB\ndist/assets/wui-list-wallet-BSv8BQ_J.js                 23.64 kB \u2502 gzip:   6.61 kB\ndist/assets/browser-BLmJMKa5.js                         24.00 kB \u2502 gzip:   9.07 kB\ndist/assets/secp256k1-I33RQ7_Z.js                       25.13 kB \u2502 gzip:   9.85 kB\ndist/assets/embedded-wallet-CRJWnVYe.js                 25.61 kB \u2502 gzip:   6.80 kB\ndist/assets/onramp-BYavfjl6.js                          26.13 kB \u2502 gzip:   6.55 kB\ndist/assets/OptionsController-DgdkkawG.js               26.51 kB \u2502 gzip:   7.82 kB\ndist/assets/dist-ZKTSEBXW.js                            26.89 kB \u2502 gzip:   8.28 kB\ndist/assets/secp256k1-CZeT5Ut3.js                       27.96 kB \u2502 gzip:  10.82 kB\ndist/assets/secp256k1-D_3IvMuz.js                       30.34 kB \u2502 gzip:  12.04 kB\ndist/assets/send-DD1ybbtd.js                            33.21 kB \u2502 gzip:   7.50 kB\ndist/assets/W3mFrameHelpers-06hsKr9T.js                 34.54 kB \u2502 gzip:  13.38 kB\ndist/assets/w3m-activity-list-D6mkDJWk.js               34.76 kB \u2502 gzip:  10.42 kB\ndist/assets/exports-GL0dN1cC.js                         37.26 kB \u2502 gzip:  11.13 kB\ndist/assets/wui-visual-BMjhQwDp.js                      45.98 kB \u2502 gzip:  14.09 kB\ndist/assets/swaps-BMqm9nzp.js                           54.74 kB \u2502 gzip:   9.85 kB\ndist/assets/wui-text-BaeeCfo1.js                        60.39 kB \u2502 gzip:  20.00 kB\ndist/assets/w3m-modal-DRiVAnAq.js                       77.71 kB \u2502 gzip:  19.61 kB\ndist/assets/HelpersUtil-BTZ6zEvo.js                     83.54 kB \u2502 gzip:  23.35 kB\ndist/assets/ErrorUtil-CecG85IV.js                       96.38 kB \u2502 gzip:  24.21 kB\ndist/assets/ccip-DlO_9iB5.js                           108.28 kB \u2502 gzip:  30.83 kB\ndist/assets/ModalController-D0SvbAnd.js                109.44 kB \u2502 gzip:  30.29 kB\ndist/assets/ModalController-RWZM9FRL.js                109.48 kB \u2502 gzip:  30.32 kB\ndist/assets/dist-DLli_1s6.js                           110.37 kB \u2502 gzip:  33.84 kB\ndist/assets/_esm-Dv_5lK6H.js                           125.04 kB \u2502 gzip:  37.62 kB\ndist/assets/exports-DI4St4qv.js                        186.74 kB \u2502 gzip:  46.18 kB\ndist/assets/dist-B7ilBZ_Y.js                           192.76 kB \u2502 gzip:  66.45 kB\ndist/assets/exports-D8hG-dwq.js                        220.33 kB \u2502 gzip:  42.49 kB\ndist/assets/index-CdYy48SY.js                          378.34 kB \u2502 gzip: 113.09 kB\ndist/assets/lib.esm-ChneCZPO.js                        380.66 kB \u2502 gzip: 139.26 kB\ndist/assets/lib.commonjs-4KKTCd4p.js                   492.32 kB \u2502 gzip: 160.54 kB\ndist/assets/exports-Bh1J_AmC.js                        510.17 kB \u2502 gzip: 152.34 kB\ndist/assets/crypto-browserify-CbVQ8JtU.js              647.99 kB \u2502 gzip: 184.51 kB\ndist/assets/dist-B5sUpbNe.js                           804.93 kB \u2502 gzip: 280.13 kB\ndist/assets/dist-Cql2uBCA.js                         1,450.45 kB \u2502 gzip: 571.00 kB\ndist/assets/browser-qIle0TNX.js                      1,677.85 kB \u2502 gzip: 293.33 kB\ndist/assets/src-BvA_Pz9w.js                          2,364.15 kB \u2502 gzip: 413.05 kB\ndist/assets/typechain-types-D57rJW4J.js              5,007.72 kB \u2502 gzip: 761.00 kB\n\n[EVAL] Use of direct `eval` function is strongly discouraged as it poses security risks and may cause issues with minification.\n     \u256d\u2500[ node_modules/vm-browserify/index.js:110:12 ]\n     \u2502\n 110 \u2502     return eval(this.code); // maybe...\n     \u2502            \u2500\u2500\u252c\u2500  \n     \u2502              \u2570\u2500\u2500\u2500 Use of direct `eval` here.\n     \u2502 \n     \u2502 Help: Consider using indirect eval. For more information, check the documentation: https://rolldown.rs/guide/troubleshooting#avoiding-direct-eval\n\u2500\u2500\u2500\u2500\u2500\u256f\n\n[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n\u2713 built in 3.92s\n"
+    },
+    "actualPreviewRecovery": {
+      "passed": true,
+      "origin": "http://127.0.0.1:4173",
+      "kind": "Actual preview UI and live public recovery; preloaded public confirmed record, no wallet/signature/submission",
+      "status": "complete",
+      "transactionHash": "0x9c3fe919cd41945554fa5677eefb8f1730c8b9a404d0766b50a9638f26b2611e",
+      "rpcReadCount": 85,
+      "errors": []
+    },
+    "fourBrowserSmokeCases": {
+      "recordedAt": "2026-09-07T16:59:01.375Z",
+      "kind": "Final build no-wallet smoke and cancelled read; blocked RPC boundary",
+      "results": [
+        {
+          "port": 5173,
+          "width": 1440,
+          "passed": true,
+          "noAutomaticWallet": true,
+          "cancelledRead": true,
+          "operationReleased": true,
+          "noOverflow": true,
+          "errors": [],
+          "forbidden": []
+        },
+        {
+          "port": 5173,
+          "width": 390,
+          "passed": true,
+          "noAutomaticWallet": true,
+          "cancelledRead": true,
+          "operationReleased": true,
+          "noOverflow": true,
+          "errors": [],
+          "forbidden": []
+        },
+        {
+          "port": 4173,
+          "width": 1440,
+          "passed": true,
+          "noAutomaticWallet": true,
+          "cancelledRead": true,
+          "operationReleased": true,
+          "noOverflow": true,
+          "errors": [],
+          "forbidden": []
+        },
+        {
+          "port": 4173,
+          "width": 390,
+          "passed": true,
+          "noAutomaticWallet": true,
+          "cancelledRead": true,
+          "operationReleased": true,
+          "noOverflow": true,
+          "errors": [],
+          "forbidden": []
+        }
+      ]
+    },
+    "liveRecoveryHarness": "import {registerHooks} from 'node:module';\nimport {writeFileSync} from 'node:fs';\nregisterHooks({resolve(s,c,n){return n(s.startsWith('./')&&c.parentURL?.includes('/src/')&&!/\\.[a-z]+$/.test(s)?new URL(s+'.ts',c.parentURL).href:s,c)}});\nconst root='/home/outsider/github/ETHGlobal_Victor';\nconst store=new Map();globalThis.window={localStorage:{getItem:k=>store.get(k)??null,setItem:(k,v)=>store.set(k,v)}};\nObject.defineProperty(globalThis,'navigator',{configurable:true,value:{locks:{request:async(n,o,fn)=>fn({name:n})}}});\nconst hash='0x9c3fe919cd41945554fa5677eefb8f1730c8b9a404d0766b50a9638f26b2611e';\nconst {recoverHold}=await import(root+'/src/hold.ts');\nconst record=await recoverHold(hash,'create-hold',AbortSignal.timeout(180000),()=>{},'40227946');\nif(record.status!=='complete')throw Error('Recovery incomplete: '+record.status);\nconst result={recordedAt:new Date().toISOString(),based_on_commit:'0c45b8994fdc151702d348ab37233b08d1ca47b6',manualAcceptance:'Pending; creation only independently verified',kind:'Actual user-supplied transaction; agent read-only recovery, no signing/submission',creation:record,diagnostic:{rpcBlockStartSeconds:record.after.timestamp,mirrorConsensusTimestamp:record.consensusTimestamp,verifiedBlock:record.after.block,rootCause:'Transaction consensus second was incorrectly required to equal block start second. Recovery now matches exact Mirror block_number plus receipt/hash/calldata/result/sender and timestamp-filtered transaction identity.'}};\nwriteFileSync(root+'/docs/evidence/029-t04-manual.json',JSON.stringify(result,null,2)+'\\n');\nconsole.log(JSON.stringify({status:record.status,transactionHash:record.transactionHash,transactionId:record.transactionId,holdId:record.input.holdId,seller:record.after.sellerBalance,held:record.after.sellerHeld,buyer:record.after.buyerBalance,block:record.after.block}));\n",
+    "previewRecoveryHarness": "import assert from 'node:assert/strict';import {createRequire} from 'node:module';import {readFileSync,writeFileSync} from 'node:fs';\nconst {chromium}=createRequire('/home/outsider/github/h5/web/package.json')('playwright');\nconst evidence=JSON.parse(readFileSync('docs/evidence/029-t04-manual.json','utf8'));const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true});\ntry{const context=await browser.newContext({viewport:{width:1440,height:1000},serviceWorkers:'block'});const page=await context.newPage();const methods=[],errors=[];\nawait context.addInitScript(record=>localStorage.setItem('holdbook.testnet.t04.v1',JSON.stringify([{...record,status:'confirmed'}])),evidence.creation);\nawait context.route('**/*',route=>{const u=new URL(route.request().url());if(u.origin==='http://127.0.0.1:4173')return route.continue();if(u.origin==='https://testnet.mirrornode.hedera.com'&&u.pathname.startsWith('/api/v1/'))return route.continue();if(u.href==='https://testnet.hashio.io/api'){const m=route.request().postDataJSON().method;assert.ok(['eth_chainId','eth_call','eth_getBlockByNumber','eth_getTransactionByHash','eth_getTransactionReceipt'].includes(m));methods.push(m);return route.continue()}throw Error('Unexpected origin '+u.origin)});\npage.on('pageerror',e=>errors.push(e.name));await page.goto('http://127.0.0.1:4173');const panel=page.getByRole('region',{name:'T04 \u00b7 Hold lifecycle'});await panel.getByText('Recover and export T04 evidence',{exact:true}).click();await panel.getByRole('button',{name:'Select T04 query',exact:true}).click();await panel.getByRole('button',{name:'Query T04 transaction',exact:true}).click();await panel.getByText('Transaction complete. Check current state before starting another review.',{exact:true}).waitFor({timeout:180000});\nconst stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('holdbook.testnet.t04.v1'))[0]);assert.equal(stored.status,'complete');assert.equal(stored.transactionHash,evidence.creation.transactionHash);assert.deepEqual(errors,[]);\nconst result={passed:true,origin:'http://127.0.0.1:4173',kind:'Actual preview UI and live public recovery; preloaded public confirmed record, no wallet/signature/submission',status:stored.status,transactionHash:stored.transactionHash,rpcReadCount:methods.length,errors};writeFileSync('/tmp/holdbook-t04-mirror-ui.json',JSON.stringify(result,null,2)+'\\n');console.log(JSON.stringify(result));await context.close();}finally{await browser.close()}\n",
+    "smokeCommand": "node docs/evidence/028-t04-ui-browser.mjs /home/outsider/github/h5/web/package.json /tmp/holdbook-t04-mirror-smoke.json smoke",
+    "protectedUnchangedSha256": {
+      "package.json": "5e6b9c5ffa9602ef4b8c4d45847e4071c84047191599dfadd8eb6ef6e94bfc27",
+      "package-lock.json": "7be813930eca4f8c8b23147f6b180217fb28d2ac3c398d062a6ed117b8f5a856",
+      "vite.config.ts": "f693a08509a00528b5a6a20002b1229c2e37e1daf7e0c0ea19c0b824c5fb5048",
+      "scripts/rebuild-proto.mjs": "0f72a34c7d00858f0b8768693c6e1d03318736ece87e1a20712479973126c6d7",
+      "scripts/patch-ats-readonly.mjs": "28196e89dd385a7a86ad9d0cf08325331995a229768d99cfcabe5575ff06d024",
+      "scripts/patch-ats-wallet.mjs": "8a1c78c2de797d38777fd5767c39f888ffe02d4445e566ff2c88c386025f457c"
+    },
+    "sourceSha256": {
+      "src/hold.ts": "1b72685f3573d5e4ad8805c1ea95939acfb9034055c37ae0122fba9f730539a1",
+      "tests/hold.test.mjs": "6d0e82b30d641eb1d9d57d0c0262426507de25eeb0f60609912c3e87d3b6dcbf",
+      "docs/evidence/029-t04-create.png": "bbd4f78a4607935a37e7c39d614db906f76e346fb1833ee138f36dafb1db0a01"
+    },
+    "screenshotScope": "Original user-provided recovery-error screenshot before repair; not final acceptance screenshot."
+  },
+  "priorCreationSummary": "# T04 manual acceptance \u2014 September 8, 2026\n\n**Pending: only the original Create Hold 10 transaction has been independently\nverified.** Buyer VC/KYC, both negative-check stages, execute and release are\nnot accepted yet. Implementation base: `0c45b8994fdc151702d348ab37233b08d1ca47b6`.\n[Public evidence and repair validation](029-t04-manual.json).\n\nThe user supplied screenshots showing Seller connected, a pending contract\ninteraction, and subsequent Seller available 90 / held 10, Buyer 0 / held 0,\nactive Hold ID 1 and remaining 10. The latest [creation screenshot](029-t04-create.png)\nrecords the recovery error before repair, not a successful final acceptance UI.\nIt supplies original hash\n`0x9c3fe919cd41945554fa5677eefb8f1730c8b9a404d0766b50a9638f26b2611e`\nand reviewed base block **40227946**. No original public intent JSON was supplied;\nrecovery reconstructs fixed creation inputs from calldata and checks that base.\n\nThe real transaction receipt and Mirror both report success. The recovery guard\nincorrectly required its consensus seconds to equal its block's starting seconds:\nblock **40227994** starts at **1788799832**, while this transaction's consensus\ntimestamp is **1788799834.713395188**. Mirror's block interval contains that time.\nThe repair binds the exact Mirror `block_number` to the verified receipt block;\nhash, full calldata, zero value, sender account mapping, result and exact\ntimestamp-filtered transaction identity checks remain. No SDK/dependency change.\n\nA regression fixture now uses different block-start and consensus seconds for\nall four recoveries and rejects an incorrect Mirror block number. It failed on\nthe original code and passes with the repair. Mandatory ci/tests/typecheck/build\nand dev/preview browser smoke results are recorded in the JSON. Independent\nread-only recovery of this actual hash checks the event, historical before/after\nstate, original expiry basis and Mirror identity. It establishes Hold **1**,\nSeller **90 / held 10**, Buyer **0 / held 0**, supply **100**, and complete creation\nevidence. The agent performed no transaction or signature.\n\nThe rebuilt preview's actual Query T04 transaction button also recovers this\nhash to complete using live public endpoints (85 RPC reads, no page errors).\nThat browser check preloads the public confirmed record into an isolated context;\nit does not access the user's browser storage or wallet.\n\nNext: reload preview, query this saved Create Hold 10 hash, and preserve the\npublic export. Once complete, original Admin reviews the un-KYC Buyer negative\ncheck. Never recreate the Hold. The separate remaining stages must establish\nvalid Buyer KYC, Seller 94 / Buyer 6 / both held 0, supply/cap 100/1000 and active\nHold removal before T04 closes. No T04 push/merge. Existing native BBS,\naudit/peer/license and event eligibility limitations remain.\n",
+  "repairBasedOnCommit": "0c45b8994fdc151702d348ab37233b08d1ca47b6",
+  "acceptedAt": "2026-09-08T00:37:58.648794+00:00",
+  "acceptance": {
+    "recordedAt": "2026-09-08T00:37:46.030Z",
+    "kind": "Live public RPC/Mirror verification of actual supplied transactions; no signing/submission",
+    "sources": [
+      {
+        "number": 13,
+        "name": "holdbook-public-evidence (13).json",
+        "sha256": "851ee590f2540a3d077b0ddcb46b981eb80222b5adbd32fc21504150bfb95856",
+        "value": {
+          "schemaVersion": 1,
+          "chainId": 296,
+          "operationId": "708e2468-e10c-48f1-be2d-046011ddc34a",
+          "startedAt": "2026-09-07T16:49:52.654Z",
+          "input": {
+            "securityId": "0.0.10402368",
+            "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+            "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "baseBlock": "40227946",
+            "baseTimestamp": "1788799729",
+            "expirationTimestamp": "1788886129",
+            "holdId": "1"
+          },
+          "before": {
+            "block": "40227993",
+            "timestamp": "1788799830",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "100",
+            "buyerBalance": "0",
+            "sellerHeld": "0",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 0,
+              "vcId": "",
+              "issuer": "0x0000000000000000000000000000000000000000",
+              "validFrom": "0",
+              "validTo": "0"
+            },
+            "sellerHoldIds": [],
+            "buyerHoldIds": []
+          },
+          "after": {
+            "block": "40227994",
+            "timestamp": "1788799832",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "90",
+            "buyerBalance": "0",
+            "sellerHeld": "10",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 0,
+              "vcId": "",
+              "issuer": "0x0000000000000000000000000000000000000000",
+              "validFrom": "0",
+              "validTo": "0"
+            },
+            "sellerHoldIds": [
+              "1"
+            ],
+            "buyerHoldIds": [],
+            "hold": {
+              "id": "1",
+              "amount": "10",
+              "expirationTimestamp": "1788886129",
+              "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "destination": "0x0000000000000000000000000000000000000000",
+              "data": "0x",
+              "operatorData": "0x",
+              "thirdPartyType": 0
+            }
+          },
+          "kind": "t04-transaction",
+          "action": "create-hold",
+          "status": "complete",
+          "calldataDigest": "0x9ddc22a15f296fba807f2b79dff98d32968788324f24dedf23459151f9c173ad",
+          "signerRole": "Seller",
+          "transactionHash": "0x9c3fe919cd41945554fa5677eefb8f1730c8b9a404d0766b50a9638f26b2611e",
+          "hashScanLink": "https://hashscan.io/testnet/transaction/0x9c3fe919cd41945554fa5677eefb8f1730c8b9a404d0766b50a9638f26b2611e",
+          "transactionId": "0.0.7314364-1788799829-835192336",
+          "consensusTimestamp": "1788799834.713395188"
+        }
+      },
+      {
+        "number": 14,
+        "name": "holdbook-public-evidence (14).json",
+        "sha256": "2443723160a6029aacb0d1d5b2a93373ed6d959aa213fcdc7e7ffe4cb3976e8e",
+        "value": {
+          "schemaVersion": 1,
+          "chainId": 296,
+          "operationId": "f8ec33af-ac0b-4533-bd3b-678fb43bbda1",
+          "startedAt": "2026-09-07T17:05:33.635Z",
+          "input": {
+            "securityId": "0.0.10402368",
+            "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+            "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "baseBlock": "40227946",
+            "baseTimestamp": "1788799729",
+            "expirationTimestamp": "1788886129",
+            "holdId": "1"
+          },
+          "before": {
+            "block": "40228392",
+            "timestamp": "1788800683",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "90",
+            "buyerBalance": "0",
+            "sellerHeld": "10",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 0,
+              "vcId": "",
+              "issuer": "0x0000000000000000000000000000000000000000",
+              "validFrom": "0",
+              "validTo": "0"
+            },
+            "sellerHoldIds": [
+              "1"
+            ],
+            "buyerHoldIds": [],
+            "hold": {
+              "id": "1",
+              "amount": "10",
+              "expirationTimestamp": "1788886129",
+              "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "destination": "0x0000000000000000000000000000000000000000",
+              "data": "0x",
+              "operatorData": "0x",
+              "thirdPartyType": 0
+            }
+          },
+          "after": {
+            "block": "40228403",
+            "timestamp": "1788800706",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "90",
+            "buyerBalance": "0",
+            "sellerHeld": "10",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 0,
+              "vcId": "",
+              "issuer": "0x0000000000000000000000000000000000000000",
+              "validFrom": "0",
+              "validTo": "0"
+            },
+            "sellerHoldIds": [
+              "1"
+            ],
+            "buyerHoldIds": [],
+            "hold": {
+              "id": "1",
+              "amount": "10",
+              "expirationTimestamp": "1788886129",
+              "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "destination": "0x0000000000000000000000000000000000000000",
+              "data": "0x",
+              "operatorData": "0x",
+              "thirdPartyType": 0
+            }
+          },
+          "kind": "t04-simulation",
+          "action": "kyc-negative",
+          "status": "complete",
+          "cases": [
+            {
+              "check": "kyc-negative",
+              "from": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "amount": "6",
+              "calldata": "0x25fe87200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000740e4ef58151a169621622577a5b6d6ff50108360000000000000000000000000000000000000000000000000000000000000001000000000000000000000000a1f2872ee7a9f74523ae0887a9dc428ff13407060000000000000000000000000000000000000000000000000000000000000006",
+              "revert": "InvalidKycStatus",
+              "revertData": "0xfc855b1b000000000000000000000000a1f2872ee7a9f74523ae0887a9dc428ff1340706",
+              "block": "40228392",
+              "afterBlock": "40228403",
+              "sdkRejection": "AccountNotKycd"
+            }
+          ]
+        }
+      },
+      {
+        "number": 15,
+        "name": "holdbook-public-evidence (15).json",
+        "sha256": "a09431833c2840d6df9edad57b2ef5bba8c402aaa9603e69005fbe3279c0be87",
+        "value": {
+          "schemaVersion": 1,
+          "kind": "credential-verification",
+          "chainId": 296,
+          "checkedAt": "2026-09-07T17:10:24.422Z",
+          "digest": "0x43d43b06f6115a5c63853c0ebf0d6e02da1b2ea10430de58543f7f1e20323ab0",
+          "issuer": "did:ethr:0xfd8FDb4989a916c6F2420a2116C356E34c889840",
+          "subject": "did:ethr:0xa1f2872EE7A9f74523ae0887a9dc428Ff1340706",
+          "validFrom": "2026-09-07T17:04:52.459Z",
+          "validUntil": "2026-09-14T17:09:52.459Z",
+          "verified": true,
+          "verifier": true,
+          "negatives": {
+            "expired": true,
+            "tampered": true,
+            "wrongSubject": true
+          }
+        }
+      },
+      {
+        "number": 16,
+        "name": "holdbook-public-evidence (16).json",
+        "sha256": "d266b5340cfa6b4a3651fa2d5cd8931d8bed7bf1d4afec46a175e55b469604fb",
+        "value": {
+          "schemaVersion": 1,
+          "chainId": 296,
+          "operationId": "d5bd9f68-88dd-4e23-9312-932785accbc2",
+          "startedAt": "2026-09-07T23:21:43.819Z",
+          "input": {
+            "securityId": "0.0.10402368",
+            "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+            "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "baseBlock": "40227946",
+            "baseTimestamp": "1788799729",
+            "expirationTimestamp": "1788886129",
+            "holdId": "1"
+          },
+          "before": {
+            "block": "40228614",
+            "timestamp": "1788801153",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "90",
+            "buyerBalance": "0",
+            "sellerHeld": "10",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 0,
+              "vcId": "",
+              "issuer": "0x0000000000000000000000000000000000000000",
+              "validFrom": "0",
+              "validTo": "0"
+            },
+            "sellerHoldIds": [
+              "1"
+            ],
+            "buyerHoldIds": [],
+            "hold": {
+              "id": "1",
+              "amount": "10",
+              "expirationTimestamp": "1788886129",
+              "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "destination": "0x0000000000000000000000000000000000000000",
+              "data": "0x",
+              "operatorData": "0x",
+              "thirdPartyType": 0
+            }
+          },
+          "kind": "t04-transaction",
+          "action": "buyer-kyc",
+          "status": "pending",
+          "calldataDigest": "0xf9850051a92134de17fdd85d1b3dc54461593a964a30e89b790ddcecb329e030",
+          "signerRole": "Admin",
+          "kyc": {
+            "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788800692",
+            "validTo": "1789405792",
+            "digest": "0x43d43b06f6115a5c63853c0ebf0d6e02da1b2ea10430de58543f7f1e20323ab0"
+          },
+          "transactionHash": "0x9c707ed071031d75ea6fd76ba95a2ae659982b3852b27b9cb57c9ac973033b34",
+          "hashScanLink": "https://hashscan.io/testnet/transaction/0x9c707ed071031d75ea6fd76ba95a2ae659982b3852b27b9cb57c9ac973033b34"
+        }
+      },
+      {
+        "number": 17,
+        "name": "holdbook-public-evidence (17).json",
+        "sha256": "e0c0d4ceb8708d411f093c8926fdfd14414bef07fd8ba8ad3a39918d1bd7a78e",
+        "value": {
+          "schemaVersion": 1,
+          "chainId": 296,
+          "operationId": "d5bd9f68-88dd-4e23-9312-932785accbc2",
+          "startedAt": "2026-09-07T23:21:43.819Z",
+          "input": {
+            "securityId": "0.0.10402368",
+            "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+            "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "baseBlock": "40227946",
+            "baseTimestamp": "1788799729",
+            "expirationTimestamp": "1788886129",
+            "holdId": "1"
+          },
+          "before": {
+            "block": "40239020",
+            "timestamp": "1788823356",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "90",
+            "buyerBalance": "0",
+            "sellerHeld": "10",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 0,
+              "vcId": "",
+              "issuer": "0x0000000000000000000000000000000000000000",
+              "validFrom": "0",
+              "validTo": "0"
+            },
+            "sellerHoldIds": [
+              "1"
+            ],
+            "buyerHoldIds": [],
+            "hold": {
+              "id": "1",
+              "amount": "10",
+              "expirationTimestamp": "1788886129",
+              "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "destination": "0x0000000000000000000000000000000000000000",
+              "data": "0x",
+              "operatorData": "0x",
+              "thirdPartyType": 0
+            }
+          },
+          "after": {
+            "block": "40239021",
+            "timestamp": "1788823358",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "90",
+            "buyerBalance": "0",
+            "sellerHeld": "10",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788800692",
+              "validTo": "1789405792"
+            },
+            "sellerHoldIds": [
+              "1"
+            ],
+            "buyerHoldIds": [],
+            "hold": {
+              "id": "1",
+              "amount": "10",
+              "expirationTimestamp": "1788886129",
+              "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "destination": "0x0000000000000000000000000000000000000000",
+              "data": "0x",
+              "operatorData": "0x",
+              "thirdPartyType": 0
+            }
+          },
+          "kind": "t04-transaction",
+          "action": "buyer-kyc",
+          "status": "complete",
+          "calldataDigest": "0xf9850051a92134de17fdd85d1b3dc54461593a964a30e89b790ddcecb329e030",
+          "signerRole": "Admin",
+          "kyc": {
+            "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788800692",
+            "validTo": "1789405792",
+            "digest": "0x43d43b06f6115a5c63853c0ebf0d6e02da1b2ea10430de58543f7f1e20323ab0"
+          },
+          "transactionHash": "0x9c707ed071031d75ea6fd76ba95a2ae659982b3852b27b9cb57c9ac973033b34",
+          "hashScanLink": "https://hashscan.io/testnet/transaction/0x9c707ed071031d75ea6fd76ba95a2ae659982b3852b27b9cb57c9ac973033b34",
+          "transactionId": "0.0.7314364-1788823353-975460505",
+          "consensusTimestamp": "1788823360.263020613"
+        }
+      },
+      {
+        "number": 18,
+        "name": "holdbook-public-evidence (18).json",
+        "sha256": "64a5f2b65066c8093b8e55605e8d606a932e1b20186bdf5a203047b124d323b7",
+        "value": {
+          "schemaVersion": 1,
+          "chainId": 296,
+          "operationId": "2f46981f-4d9a-44fe-af9d-f10645d0bb6d",
+          "startedAt": "2026-09-07T23:42:15.374Z",
+          "input": {
+            "securityId": "0.0.10402368",
+            "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+            "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "baseBlock": "40227946",
+            "baseTimestamp": "1788799729",
+            "expirationTimestamp": "1788886129",
+            "holdId": "1"
+          },
+          "before": {
+            "block": "40239552",
+            "timestamp": "1788824485",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "90",
+            "buyerBalance": "0",
+            "sellerHeld": "10",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788800692",
+              "validTo": "1789405792"
+            },
+            "sellerHoldIds": [
+              "1"
+            ],
+            "buyerHoldIds": [],
+            "hold": {
+              "id": "1",
+              "amount": "10",
+              "expirationTimestamp": "1788886129",
+              "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "destination": "0x0000000000000000000000000000000000000000",
+              "data": "0x",
+              "operatorData": "0x",
+              "thirdPartyType": 0
+            }
+          },
+          "after": {
+            "block": "40239564",
+            "timestamp": "1788824511",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "90",
+            "buyerBalance": "0",
+            "sellerHeld": "10",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788800692",
+              "validTo": "1789405792"
+            },
+            "sellerHoldIds": [
+              "1"
+            ],
+            "buyerHoldIds": [],
+            "hold": {
+              "id": "1",
+              "amount": "10",
+              "expirationTimestamp": "1788886129",
+              "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "destination": "0x0000000000000000000000000000000000000000",
+              "data": "0x",
+              "operatorData": "0x",
+              "thirdPartyType": 0
+            }
+          },
+          "kind": "t04-simulation",
+          "action": "permission-negative",
+          "status": "complete",
+          "cases": [
+            {
+              "check": "non-escrow",
+              "from": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+              "amount": "6",
+              "calldata": "0x25fe87200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000740e4ef58151a169621622577a5b6d6ff50108360000000000000000000000000000000000000000000000000000000000000001000000000000000000000000a1f2872ee7a9f74523ae0887a9dc428ff13407060000000000000000000000000000000000000000000000000000000000000006",
+              "revert": "IsNotEscrow",
+              "revertData": "0xf86f2a37",
+              "block": "40239552",
+              "afterBlock": "40239564"
+            },
+            {
+              "check": "over-amount",
+              "from": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "amount": "11",
+              "calldata": "0x25fe87200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000740e4ef58151a169621622577a5b6d6ff50108360000000000000000000000000000000000000000000000000000000000000001000000000000000000000000a1f2872ee7a9f74523ae0887a9dc428ff1340706000000000000000000000000000000000000000000000000000000000000000b",
+              "revert": "InsufficientHoldBalance",
+              "revertData": "0x7ff7d816000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000b",
+              "block": "40239552",
+              "afterBlock": "40239564"
+            }
+          ]
+        }
+      },
+      {
+        "number": 19,
+        "name": "holdbook-public-evidence (19).json",
+        "sha256": "a4954db42b13a8b788c5f031821c5c136f7daa4aceba1cd55ace9bcfca093dc8",
+        "value": {
+          "schemaVersion": 1,
+          "chainId": 296,
+          "operationId": "a4f0c6a5-583c-4609-965b-548d90b8c63f",
+          "startedAt": "2026-09-08T00:12:18.177Z",
+          "input": {
+            "securityId": "0.0.10402368",
+            "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+            "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "baseBlock": "40227946",
+            "baseTimestamp": "1788799729",
+            "expirationTimestamp": "1788886129",
+            "holdId": "1"
+          },
+          "before": {
+            "block": "40240453",
+            "timestamp": "1788826413",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "90",
+            "buyerBalance": "0",
+            "sellerHeld": "10",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788800692",
+              "validTo": "1789405792"
+            },
+            "sellerHoldIds": [
+              "1"
+            ],
+            "buyerHoldIds": [],
+            "hold": {
+              "id": "1",
+              "amount": "10",
+              "expirationTimestamp": "1788886129",
+              "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "destination": "0x0000000000000000000000000000000000000000",
+              "data": "0x",
+              "operatorData": "0x",
+              "thirdPartyType": 0
+            }
+          },
+          "after": {
+            "block": "40240454",
+            "timestamp": "1788826415",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "90",
+            "buyerBalance": "6",
+            "sellerHeld": "4",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788800692",
+              "validTo": "1789405792"
+            },
+            "sellerHoldIds": [
+              "1"
+            ],
+            "buyerHoldIds": [],
+            "hold": {
+              "id": "1",
+              "amount": "4",
+              "expirationTimestamp": "1788886129",
+              "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "destination": "0x0000000000000000000000000000000000000000",
+              "data": "0x",
+              "operatorData": "0x",
+              "thirdPartyType": 0
+            }
+          },
+          "kind": "t04-transaction",
+          "action": "execute",
+          "status": "complete",
+          "calldataDigest": "0xeea2afc9f8b772041eb4b3974977ca9702bf938abdb45befcf603b9d46cecf47",
+          "signerRole": "Admin",
+          "transactionHash": "0x951426c62b60df031732f526ab90e82c6a3357e578ff4a7573cfcafbe8150d19",
+          "hashScanLink": "https://hashscan.io/testnet/transaction/0x951426c62b60df031732f526ab90e82c6a3357e578ff4a7573cfcafbe8150d19",
+          "transactionId": "0.0.7314364-1788826409-160110602",
+          "consensusTimestamp": "1788826417.255713396"
+        }
+      },
+      {
+        "number": 20,
+        "name": "holdbook-public-evidence (20).json",
+        "sha256": "5c8bf2d71e9237cdda080413fcbe814750368497802ff7d906f67f423e97c004",
+        "value": {
+          "schemaVersion": 1,
+          "chainId": 296,
+          "operationId": "04e490cc-e7a5-4918-884e-466792575959",
+          "startedAt": "2026-09-08T00:22:24.908Z",
+          "input": {
+            "securityId": "0.0.10402368",
+            "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+            "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "baseBlock": "40227946",
+            "baseTimestamp": "1788799729",
+            "expirationTimestamp": "1788886129",
+            "holdId": "1"
+          },
+          "before": {
+            "block": "40240717",
+            "timestamp": "1788826986",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "90",
+            "buyerBalance": "6",
+            "sellerHeld": "4",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788800692",
+              "validTo": "1789405792"
+            },
+            "sellerHoldIds": [
+              "1"
+            ],
+            "buyerHoldIds": [],
+            "hold": {
+              "id": "1",
+              "amount": "4",
+              "expirationTimestamp": "1788886129",
+              "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "destination": "0x0000000000000000000000000000000000000000",
+              "data": "0x",
+              "operatorData": "0x",
+              "thirdPartyType": 0
+            }
+          },
+          "after": {
+            "block": "40240718",
+            "timestamp": "1788826988",
+            "roles": [
+              true,
+              true,
+              true
+            ],
+            "issuer": true,
+            "supply": "100",
+            "sellerBalance": "94",
+            "buyerBalance": "6",
+            "sellerHeld": "0",
+            "buyerHeld": "0",
+            "sellerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788788191",
+              "validTo": "1789393291"
+            },
+            "buyerKyc": {
+              "status": 1,
+              "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+              "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+              "validFrom": "1788800692",
+              "validTo": "1789405792"
+            },
+            "sellerHoldIds": [],
+            "buyerHoldIds": []
+          },
+          "kind": "t04-transaction",
+          "action": "release",
+          "status": "complete",
+          "calldataDigest": "0x82b5968cef86111ae8e4878781c81ab9e2c7826b695a006ffa12f0d86e6bb3ef",
+          "signerRole": "Admin",
+          "transactionHash": "0xa908314838b4785b7e5bb017dd278e8e37297b09b3f3df2f6ed028e3dd8844b9",
+          "hashScanLink": "https://hashscan.io/testnet/transaction/0xa908314838b4785b7e5bb017dd278e8e37297b09b3f3df2f6ed028e3dd8844b9",
+          "transactionId": "0.0.7314364-1788826985-112569666",
+          "consensusTimestamp": "1788826988.853261025"
+        }
+      }
+    ],
+    "transactions": [
+      {
+        "schemaVersion": 1,
+        "chainId": 296,
+        "operationId": "708e2468-e10c-48f1-be2d-046011ddc34a",
+        "startedAt": "2026-09-07T16:49:52.654Z",
+        "input": {
+          "securityId": "0.0.10402368",
+          "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+          "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+          "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "destination": "0x0000000000000000000000000000000000000000",
+          "baseBlock": "40227946",
+          "baseTimestamp": "1788799729",
+          "expirationTimestamp": "1788886129",
+          "holdId": "1"
+        },
+        "before": {
+          "block": "40227993",
+          "timestamp": "1788799830",
+          "roles": [
+            true,
+            true,
+            true
+          ],
+          "issuer": true,
+          "supply": "100",
+          "sellerBalance": "100",
+          "buyerBalance": "0",
+          "sellerHeld": "0",
+          "buyerHeld": "0",
+          "sellerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788788191",
+            "validTo": "1789393291"
+          },
+          "buyerKyc": {
+            "status": 0,
+            "vcId": "",
+            "issuer": "0x0000000000000000000000000000000000000000",
+            "validFrom": "0",
+            "validTo": "0"
+          },
+          "sellerHoldIds": [],
+          "buyerHoldIds": []
+        },
+        "after": {
+          "block": "40227994",
+          "timestamp": "1788799832",
+          "roles": [
+            true,
+            true,
+            true
+          ],
+          "issuer": true,
+          "supply": "100",
+          "sellerBalance": "90",
+          "buyerBalance": "0",
+          "sellerHeld": "10",
+          "buyerHeld": "0",
+          "sellerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788788191",
+            "validTo": "1789393291"
+          },
+          "buyerKyc": {
+            "status": 0,
+            "vcId": "",
+            "issuer": "0x0000000000000000000000000000000000000000",
+            "validFrom": "0",
+            "validTo": "0"
+          },
+          "sellerHoldIds": [
+            "1"
+          ],
+          "buyerHoldIds": [],
+          "hold": {
+            "id": "1",
+            "amount": "10",
+            "expirationTimestamp": "1788886129",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "data": "0x",
+            "operatorData": "0x",
+            "thirdPartyType": 0
+          }
+        },
+        "kind": "t04-transaction",
+        "action": "create-hold",
+        "status": "complete",
+        "calldataDigest": "0x9ddc22a15f296fba807f2b79dff98d32968788324f24dedf23459151f9c173ad",
+        "signerRole": "Seller",
+        "transactionHash": "0x9c3fe919cd41945554fa5677eefb8f1730c8b9a404d0766b50a9638f26b2611e",
+        "hashScanLink": "https://hashscan.io/testnet/transaction/0x9c3fe919cd41945554fa5677eefb8f1730c8b9a404d0766b50a9638f26b2611e",
+        "transactionId": "0.0.7314364-1788799829-835192336",
+        "consensusTimestamp": "1788799834.713395188"
+      },
+      {
+        "schemaVersion": 1,
+        "chainId": 296,
+        "operationId": "d5bd9f68-88dd-4e23-9312-932785accbc2",
+        "startedAt": "2026-09-07T23:21:43.819Z",
+        "input": {
+          "securityId": "0.0.10402368",
+          "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+          "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+          "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "destination": "0x0000000000000000000000000000000000000000",
+          "baseBlock": "40227946",
+          "baseTimestamp": "1788799729",
+          "expirationTimestamp": "1788886129",
+          "holdId": "1"
+        },
+        "before": {
+          "block": "40239020",
+          "timestamp": "1788823356",
+          "roles": [
+            true,
+            true,
+            true
+          ],
+          "issuer": true,
+          "supply": "100",
+          "sellerBalance": "90",
+          "buyerBalance": "0",
+          "sellerHeld": "10",
+          "buyerHeld": "0",
+          "sellerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788788191",
+            "validTo": "1789393291"
+          },
+          "buyerKyc": {
+            "status": 0,
+            "vcId": "",
+            "issuer": "0x0000000000000000000000000000000000000000",
+            "validFrom": "0",
+            "validTo": "0"
+          },
+          "sellerHoldIds": [
+            "1"
+          ],
+          "buyerHoldIds": [],
+          "hold": {
+            "id": "1",
+            "amount": "10",
+            "expirationTimestamp": "1788886129",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "data": "0x",
+            "operatorData": "0x",
+            "thirdPartyType": 0
+          }
+        },
+        "after": {
+          "block": "40239021",
+          "timestamp": "1788823358",
+          "roles": [
+            true,
+            true,
+            true
+          ],
+          "issuer": true,
+          "supply": "100",
+          "sellerBalance": "90",
+          "buyerBalance": "0",
+          "sellerHeld": "10",
+          "buyerHeld": "0",
+          "sellerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788788191",
+            "validTo": "1789393291"
+          },
+          "buyerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788800692",
+            "validTo": "1789405792"
+          },
+          "sellerHoldIds": [
+            "1"
+          ],
+          "buyerHoldIds": [],
+          "hold": {
+            "id": "1",
+            "amount": "10",
+            "expirationTimestamp": "1788886129",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "data": "0x",
+            "operatorData": "0x",
+            "thirdPartyType": 0
+          }
+        },
+        "kind": "t04-transaction",
+        "action": "buyer-kyc",
+        "status": "complete",
+        "calldataDigest": "0xf9850051a92134de17fdd85d1b3dc54461593a964a30e89b790ddcecb329e030",
+        "signerRole": "Admin",
+        "kyc": {
+          "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+          "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "validFrom": "1788800692",
+          "validTo": "1789405792",
+          "digest": "0x43d43b06f6115a5c63853c0ebf0d6e02da1b2ea10430de58543f7f1e20323ab0"
+        },
+        "transactionHash": "0x9c707ed071031d75ea6fd76ba95a2ae659982b3852b27b9cb57c9ac973033b34",
+        "hashScanLink": "https://hashscan.io/testnet/transaction/0x9c707ed071031d75ea6fd76ba95a2ae659982b3852b27b9cb57c9ac973033b34",
+        "transactionId": "0.0.7314364-1788823353-975460505",
+        "consensusTimestamp": "1788823360.263020613"
+      },
+      {
+        "schemaVersion": 1,
+        "chainId": 296,
+        "operationId": "a4f0c6a5-583c-4609-965b-548d90b8c63f",
+        "startedAt": "2026-09-08T00:12:18.177Z",
+        "input": {
+          "securityId": "0.0.10402368",
+          "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+          "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+          "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "destination": "0x0000000000000000000000000000000000000000",
+          "baseBlock": "40227946",
+          "baseTimestamp": "1788799729",
+          "expirationTimestamp": "1788886129",
+          "holdId": "1"
+        },
+        "before": {
+          "block": "40240453",
+          "timestamp": "1788826413",
+          "roles": [
+            true,
+            true,
+            true
+          ],
+          "issuer": true,
+          "supply": "100",
+          "sellerBalance": "90",
+          "buyerBalance": "0",
+          "sellerHeld": "10",
+          "buyerHeld": "0",
+          "sellerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788788191",
+            "validTo": "1789393291"
+          },
+          "buyerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788800692",
+            "validTo": "1789405792"
+          },
+          "sellerHoldIds": [
+            "1"
+          ],
+          "buyerHoldIds": [],
+          "hold": {
+            "id": "1",
+            "amount": "10",
+            "expirationTimestamp": "1788886129",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "data": "0x",
+            "operatorData": "0x",
+            "thirdPartyType": 0
+          }
+        },
+        "after": {
+          "block": "40240454",
+          "timestamp": "1788826415",
+          "roles": [
+            true,
+            true,
+            true
+          ],
+          "issuer": true,
+          "supply": "100",
+          "sellerBalance": "90",
+          "buyerBalance": "6",
+          "sellerHeld": "4",
+          "buyerHeld": "0",
+          "sellerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788788191",
+            "validTo": "1789393291"
+          },
+          "buyerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788800692",
+            "validTo": "1789405792"
+          },
+          "sellerHoldIds": [
+            "1"
+          ],
+          "buyerHoldIds": [],
+          "hold": {
+            "id": "1",
+            "amount": "4",
+            "expirationTimestamp": "1788886129",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "data": "0x",
+            "operatorData": "0x",
+            "thirdPartyType": 0
+          }
+        },
+        "kind": "t04-transaction",
+        "action": "execute",
+        "status": "complete",
+        "calldataDigest": "0xeea2afc9f8b772041eb4b3974977ca9702bf938abdb45befcf603b9d46cecf47",
+        "signerRole": "Admin",
+        "transactionHash": "0x951426c62b60df031732f526ab90e82c6a3357e578ff4a7573cfcafbe8150d19",
+        "hashScanLink": "https://hashscan.io/testnet/transaction/0x951426c62b60df031732f526ab90e82c6a3357e578ff4a7573cfcafbe8150d19",
+        "transactionId": "0.0.7314364-1788826409-160110602",
+        "consensusTimestamp": "1788826417.255713396"
+      },
+      {
+        "schemaVersion": 1,
+        "chainId": 296,
+        "operationId": "04e490cc-e7a5-4918-884e-466792575959",
+        "startedAt": "2026-09-08T00:22:24.908Z",
+        "input": {
+          "securityId": "0.0.10402368",
+          "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+          "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+          "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "destination": "0x0000000000000000000000000000000000000000",
+          "baseBlock": "40227946",
+          "baseTimestamp": "1788799729",
+          "expirationTimestamp": "1788886129",
+          "holdId": "1"
+        },
+        "before": {
+          "block": "40240717",
+          "timestamp": "1788826986",
+          "roles": [
+            true,
+            true,
+            true
+          ],
+          "issuer": true,
+          "supply": "100",
+          "sellerBalance": "90",
+          "buyerBalance": "6",
+          "sellerHeld": "4",
+          "buyerHeld": "0",
+          "sellerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788788191",
+            "validTo": "1789393291"
+          },
+          "buyerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788800692",
+            "validTo": "1789405792"
+          },
+          "sellerHoldIds": [
+            "1"
+          ],
+          "buyerHoldIds": [],
+          "hold": {
+            "id": "1",
+            "amount": "4",
+            "expirationTimestamp": "1788886129",
+            "escrow": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "destination": "0x0000000000000000000000000000000000000000",
+            "data": "0x",
+            "operatorData": "0x",
+            "thirdPartyType": 0
+          }
+        },
+        "after": {
+          "block": "40240718",
+          "timestamp": "1788826988",
+          "roles": [
+            true,
+            true,
+            true
+          ],
+          "issuer": true,
+          "supply": "100",
+          "sellerBalance": "94",
+          "buyerBalance": "6",
+          "sellerHeld": "0",
+          "buyerHeld": "0",
+          "sellerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788788191",
+            "validTo": "1789393291"
+          },
+          "buyerKyc": {
+            "status": 1,
+            "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+            "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "validFrom": "1788800692",
+            "validTo": "1789405792"
+          },
+          "sellerHoldIds": [],
+          "buyerHoldIds": []
+        },
+        "kind": "t04-transaction",
+        "action": "release",
+        "status": "complete",
+        "calldataDigest": "0x82b5968cef86111ae8e4878781c81ab9e2c7826b695a006ffa12f0d86e6bb3ef",
+        "signerRole": "Admin",
+        "transactionHash": "0xa908314838b4785b7e5bb017dd278e8e37297b09b3f3df2f6ed028e3dd8844b9",
+        "hashScanLink": "https://hashscan.io/testnet/transaction/0xa908314838b4785b7e5bb017dd278e8e37297b09b3f3df2f6ed028e3dd8844b9",
+        "transactionId": "0.0.7314364-1788826985-112569666",
+        "consensusTimestamp": "1788826988.853261025"
+      }
+    ],
+    "vcCorrespondence": {
+      "issuer": true,
+      "subject": true,
+      "digest": true,
+      "unixSeconds": true,
+      "sevenDaysAndFiveMinuteBackdate": true,
+      "applicationVerificationObserved": true,
+      "fullCredentialOrSignatureRetained": false,
+      "signatureIndependentlyReplayed": false
+    },
+    "history": {
+      "t02": {
+        "schemaVersion": 1,
+        "kind": "nova-create",
+        "chainId": 296,
+        "operationId": "bf73def7-d030-4df2-864d-f4aaad272229",
+        "startedAt": "2026-09-08T00:34:16.432Z",
+        "admin": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "configVersion": 1,
+        "calldataDigest": "0x4ee7e95c6288f62319ac9886eac511bbb52be3d99428b6c290f3e0961e37d907",
+        "status": "complete",
+        "transactionHash": "0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e",
+        "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+        "securityId": "0.0.10402368",
+        "transactionId": "0.0.7314364-1788760174-678049391",
+        "consensusTimestamp": "1788760179.255892685",
+        "readBlock": "40209377",
+        "comparisons": [
+          {
+            "field": "Successful Factory deployment",
+            "expected": "true",
+            "actual": "true",
+            "source": "Receipt and EquityDeployed event",
+            "matches": true
+          },
+          {
+            "field": "votingRight",
+            "expected": "true",
+            "actual": "true",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "informationRight",
+            "expected": "true",
+            "actual": "true",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "liquidationRight",
+            "expected": "true",
+            "actual": "true",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "subscriptionRight",
+            "expected": "false",
+            "actual": "false",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "conversionRight",
+            "expected": "false",
+            "actual": "false",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "redemptionRight",
+            "expected": "false",
+            "actual": "false",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "putRight",
+            "expected": "false",
+            "actual": "false",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "dividendRight",
+            "expected": "2",
+            "actual": "2",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "regulationType",
+            "expected": "1",
+            "actual": "1",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "regulationSubType",
+            "expected": "0",
+            "actual": "0",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "isCountryControlListWhiteList",
+            "expected": "false",
+            "actual": "false",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "countries",
+            "expected": "",
+            "actual": "",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "info",
+            "expected": "Fictional Testnet asset. Synthetic KYC only; no real securities or legal compliance claims.",
+            "actual": "Fictional Testnet asset. Synthetic KYC only; no real securities or legal compliance claims.",
+            "source": "EquityDeployed event (exact calldata comparison; not a current getter)",
+            "matches": true
+          },
+          {
+            "field": "Deployed runtime bytecode",
+            "expected": "true",
+            "actual": "true",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "name",
+            "expected": "Nova Private Equity Common Shares",
+            "actual": "Nova Private Equity Common Shares",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "symbol",
+            "expected": "NOVA",
+            "actual": "NOVA",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "isin",
+            "expected": "USNOVA000016",
+            "actual": "USNOVA000016",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "decimals",
+            "expected": "0",
+            "actual": "0",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Security type (Equity)",
+            "expected": "1",
+            "actual": "1",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Resolver",
+            "expected": "0xba2d5fc2083a0b8f164c50e65d782087fba18e0a",
+            "actual": "0xba2d5fc2083a0b8f164c50e65d782087fba18e0a",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Config ID",
+            "expected": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "actual": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Config version",
+            "expected": "1",
+            "actual": "1",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Total supply",
+            "expected": "0",
+            "actual": "0",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Cap",
+            "expected": "1000",
+            "actual": "1000",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Controllable",
+            "expected": "true",
+            "actual": "true",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Internal KYC",
+            "expected": "true",
+            "actual": "true",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Clearing",
+            "expected": "false",
+            "actual": "false",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Multiple partitions",
+            "expected": "false",
+            "actual": "false",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Protected partitions",
+            "expected": "false",
+            "actual": "false",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "ERC20 votes",
+            "expected": "false",
+            "actual": "false",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Whitelist mode",
+            "expected": "false",
+            "actual": "false",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Blacklist count",
+            "expected": "0",
+            "actual": "0",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "External pause lists",
+            "expected": "0",
+            "actual": "0",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "External control lists",
+            "expected": "0",
+            "actual": "0",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "External KYC lists",
+            "expected": "0",
+            "actual": "0",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Compliance",
+            "expected": "0x0000000000000000000000000000000000000000",
+            "actual": "0x0000000000000000000000000000000000000000",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Identity registry",
+            "expected": "0x0000000000000000000000000000000000000000",
+            "actual": "0x0000000000000000000000000000000000000000",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Paused",
+            "expected": "false",
+            "actual": "false",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Nominal value",
+            "expected": "1",
+            "actual": "1",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Nominal decimals",
+            "expected": "0",
+            "actual": "0",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Currency",
+            "expected": "0x555344",
+            "actual": "0x555344",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Issuance enabled",
+            "expected": "Reported current flag (not a creation input)",
+            "actual": "true",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Admin default management role",
+            "expected": "true",
+            "actual": "true",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Admin roles include default management",
+            "expected": "true",
+            "actual": "true",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Admin role ID 1",
+            "expected": "Reported current role ID",
+            "actual": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "source": "Historical creation-block getter at block 40209377",
+            "matches": true
+          },
+          {
+            "field": "Mirror security EVM address",
+            "expected": "0x261ce349df182988fa25d00868cf6cf434220c24",
+            "actual": "0x261ce349df182988fa25d00868cf6cf434220c24",
+            "source": "Mirror contract record",
+            "matches": true
+          },
+          {
+            "field": "Mirror security active",
+            "expected": "false",
+            "actual": "false",
+            "source": "Mirror contract record",
+            "matches": true
+          },
+          {
+            "field": "Mirror security ID format",
+            "expected": "true",
+            "actual": "true",
+            "source": "Mirror contract record",
+            "matches": true
+          },
+          {
+            "field": "Mirror transaction hash",
+            "expected": "0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e",
+            "actual": "0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e",
+            "source": "Mirror contract result",
+            "matches": true
+          },
+          {
+            "field": "Mirror transaction sender",
+            "expected": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "actual": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+            "source": "Mirror account lookup for 0x00000000000000000000000000000000009e8662",
+            "matches": true
+          },
+          {
+            "field": "Mirror transaction target",
+            "expected": "0xd1f118a40f3b02883d35909ef2517e7edd78379d",
+            "actual": "0xd1f118a40f3b02883d35909ef2517e7edd78379d",
+            "source": "Mirror contract result",
+            "matches": true
+          },
+          {
+            "field": "Mirror transaction success",
+            "expected": "SUCCESS",
+            "actual": "SUCCESS",
+            "source": "Mirror contract result",
+            "matches": true
+          },
+          {
+            "field": "Mirror calldata",
+            "expected": "true",
+            "actual": "true",
+            "source": "Mirror contract result",
+            "matches": true
+          },
+          {
+            "field": "Mirror transferred value",
+            "expected": "0",
+            "actual": "0",
+            "source": "Mirror contract result",
+            "matches": true
+          },
+          {
+            "field": "Mirror consensus timestamp format",
+            "expected": "true",
+            "actual": "true",
+            "source": "Mirror contract result",
+            "matches": true
+          }
+        ],
+        "hashScanLink": "https://hashscan.io/testnet/transaction/0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e"
+      },
+      "t03": {
+        "block": "40223460",
+        "timestamp": "1788790168",
+        "roles": [
+          true,
+          true,
+          true
+        ],
+        "issuer": true,
+        "supply": "100",
+        "sellerBalance": "100",
+        "buyerBalance": "0",
+        "sellerHeld": "0",
+        "buyerHeld": "0",
+        "sellerKyc": {
+          "status": 1,
+          "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+          "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "validFrom": "1788788191",
+          "validTo": "1789393291"
+        },
+        "buyerKyc": {
+          "status": 0,
+          "vcId": "",
+          "issuer": "0x0000000000000000000000000000000000000000",
+          "validFrom": "0",
+          "validTo": "0"
+        }
+      }
+    },
+    "final": {
+      "block": "40241114",
+      "timestamp": "1788827844",
+      "roles": [
+        true,
+        true,
+        true
+      ],
+      "issuer": true,
+      "supply": "100",
+      "sellerBalance": "94",
+      "buyerBalance": "6",
+      "sellerHeld": "0",
+      "buyerHeld": "0",
+      "sellerKyc": {
+        "status": 1,
+        "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+        "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "validFrom": "1788788191",
+        "validTo": "1789393291"
+      },
+      "buyerKyc": {
+        "status": 1,
+        "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+        "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "validFrom": "1788800692",
+        "validTo": "1789405792"
+      },
+      "sellerHoldIds": [],
+      "buyerHoldIds": []
+    },
+    "nextAction": null,
+    "holdCreationHistoryMatches": true,
+    "rpcReadCount": 866,
+    "readMethods": [
+      "eth_chainId",
+      "eth_getTransactionByHash",
+      "eth_getTransactionReceipt",
+      "eth_getBlockByNumber",
+      "eth_call",
+      "eth_getCode",
+      "eth_blockNumber",
+      "eth_getLogs"
+    ],
+    "simulations": {
+      "recordedAt": "2026-09-08T00:34:28.269Z",
+      "kind": "Actual pinned SDK and live historical eth_call replay; fresh isolated browser, no wallet/signing/submission",
+      "results": [
+        {
+          "action": "kyc-negative",
+          "passed": true,
+          "cases": [
+            {
+              "check": "kyc-negative",
+              "revert": "InvalidKycStatus",
+              "block": "40228392",
+              "afterBlock": "40228403"
+            }
+          ],
+          "genuineSdkHistoricalRejection": true,
+          "fullHistoricalStateMatches": true,
+          "noTransactionOrSignature": true
+        },
+        {
+          "action": "permission-negative",
+          "passed": true,
+          "cases": [
+            {
+              "check": "non-escrow",
+              "revert": "IsNotEscrow",
+              "block": "40239552",
+              "afterBlock": "40239564"
+            },
+            {
+              "check": "over-amount",
+              "revert": "InsufficientHoldBalance",
+              "block": "40239552",
+              "afterBlock": "40239564"
+            }
+          ],
+          "genuineSdkHistoricalRejection": false,
+          "fullHistoricalStateMatches": true,
+          "noTransactionOrSignature": true
+        }
+      ],
+      "rpcReadCount": 303,
+      "forbidden": [],
+      "errors": []
+    },
+    "screenshots": [
+      {
+        "file": "029-t04-create.png",
+        "originalTemporaryFilename": "tmpF54E.png",
+        "sha256": "bbd4f78a4607935a37e7c39d614db906f76e346fb1833ee138f36dafb1db0a01",
+        "caption": "Original creation recovery error; fixed in f3dfa0b. Completion is independently verified and also appears in later journals."
+      },
+      {
+        "file": "029-t04-kyc-negative.png",
+        "originalTemporaryFilename": "tmp98AC.png",
+        "sha256": "6a4a5c2f97a059cecb47df98f905338b5aef8d380b9ce4d0d3f73125e1ec473b",
+        "caption": "Creation complete and un-KYC Buyer rejected with InvalidKycStatus; no simulation transaction ID."
+      },
+      {
+        "file": "029-t04-buyer-vc.png",
+        "originalTemporaryFilename": "tmpF526.png",
+        "sha256": "de9ce37f5a9e53b90a7c14e1d263b3b6eb499b7acfec260f29d72d950eda8808",
+        "caption": "Observed Admin-to-Buyer VC verification, public digest and dates; full VC/proof not retained."
+      },
+      {
+        "file": "029-t04-buyer-kyc.png",
+        "originalTemporaryFilename": "tmp48BA.png",
+        "sha256": "5e5f07f9ee3057493675e5e3cd210488f102f39229e1b66f155572b3e6165f78",
+        "caption": "Grant Buyer KYC complete; export (17) replaces the earlier pending export (16)."
+      },
+      {
+        "file": "029-t04-permission-negative.png",
+        "originalTemporaryFilename": "tmpC74D.png",
+        "sha256": "f79700863a62a3c5a939ae7b237a07c21ea3db97da68fbb992907f3411e4d0ba",
+        "caption": "Read-only restrictions passed with unchanged Seller 90/held 10, Buyer 0/held 0 and valid Buyer KYC."
+      },
+      {
+        "file": "029-t04-execute.png",
+        "originalTemporaryFilename": "tmp9F51.png",
+        "sha256": "c7eaeb08baff11e2c0b5689c07ab4d16c1d65f0f3c279c9b3de13343017f2005",
+        "caption": "Execute 6 complete in the journal; exact post-state is verified against export (19) and historical RPC."
+      },
+      {
+        "file": "029-t04-release.png",
+        "originalTemporaryFilename": "tmpC9AF.png",
+        "sha256": "abce9e4a47c7702737b88fe5e489ec2b48ec8313d4580be2f5e96e712aef2e31",
+        "caption": "Reviewed Release 4 to original Seller, Hold 1, Admin, fixed expiry and zero value, before submission."
+      },
+      {
+        "file": "029-t04-final.png",
+        "originalTemporaryFilename": "tmp9BF6.png",
+        "sha256": "7af8cb6b9e289c26d5cfcd8ff4dd2e6a6948a868f088f9f256f952cc3692463f",
+        "caption": "Latest user journal shows Release 4 complete. This is not a current balance screenshot; final 94/6/held 0 is independently read from RPC."
+      }
+    ]
+  },
+  "acceptanceValidation": {
+    "recordedAt": "2026-09-08T00:37:58.921782+00:00",
+    "scope": "Documentation-only acceptance; application, tests, dependencies and retained patches unchanged",
+    "npmCi": {
+      "passed": true,
+      "log": "npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.\nnpm warn deprecated npmlog@5.0.1: This package is no longer supported.\nnpm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported\nnpm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\nnpm warn deprecated glob@8.1.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\nnpm warn deprecated are-we-there-yet@2.0.0: This package is no longer supported.\nnpm warn deprecated gauge@3.0.2: This package is no longer supported.\nnpm warn deprecated multibase@4.0.6: This module has been superseded by the multiformats module\nnpm warn deprecated multicodec@3.2.1: This module has been superseded by the multiformats module\nnpm warn deprecated @motionone/vue@10.16.4: Motion One for Vue is deprecated. Use Oku Motion instead https://oku-ui.com/motion\nnpm warn deprecated crypto-js@4.2.0: Active development of CryptoJS has been discontinued. This library is no longer maintained.\nnpm warn deprecated @walletconnect/modal@2.7.0: Please follow the migration guide on https://docs.reown.com/appkit/upgrade/wcm\nnpm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead\nnpm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).\nnpm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).\nnpm warn deprecated uuid@9.0.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).\nnpm warn deprecated uuid@9.0.1: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).\nnpm warn deprecated uuid@9.0.1: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).\nnpm warn deprecated @safe-global/safe-gateway-typescript-sdk@3.23.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.\nnpm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me\nnpm warn deprecated @walletconnect/sign-client@2.19.2: Reliability and performance improvements. See: https://github.com/WalletConnect/walletconnect-monorepo/releases\n\n> holdbook@0.0.0 postinstall\n> node scripts/rebuild-proto.mjs && node scripts/patch-ats-readonly.mjs && node scripts/patch-ats-wallet.mjs\n\n{\"compiler\":\"protobufjs-cli 1.3.3\",\"runtime\":\"7.6.6\",\"importMappingCount\":428,\"packages\":[{\"name\":\"@hashgraph/proto\",\"namespace\":\"hashgraph_2_18_5\",\"inputs\":125,\"loaded\":135},{\"name\":\"@hiero-ledger/proto\",\"namespace\":\"hiero_2_25_0\",\"inputs\":174,\"loaded\":175}],\"outputs\":[{\"path\":\"node_modules/@hashgraph/proto/src/proto.js\",\"sha256\":\"cc0f3a72063f5193e37cd34282f8977aa67b01b996eb0c93f7df0bd619699591\",\"bytes\":3018373},{\"path\":\"node_modules/@hashgraph/proto/lib/proto.js\",\"sha256\":\"e78ae8d2888f3f2b3355a0a690c2fd7c4189e576c5fd27291dc013405e4ec90f\",\"bytes\":3018252},{\"path\":\"node_modules/@hiero-ledger/proto/src/proto.js\",\"sha256\":\"e0ca4ab92d3d21037507003b94b055328ae42cc213c075d6dc8fdb026cb8b3b8\",\"bytes\":4128621},{\"path\":\"node_modules/@hiero-ledger/proto/lib/proto.js\",\"sha256\":\"1e87d6c1ef5ca6443171b67d080af121e936d2558801c764d508af6021de4b7a\",\"bytes\":4128474}]}\n{\"version\":\"8.0.0\",\"checked\":12,\"changed\":12}\n{\"version\":\"8.0.0\",\"checked\":16,\"changed\":16}\n\nadded 1290 packages, and audited 1291 packages in 2m\n\n201 packages are looking for funding\n  run `npm fund` for details\n\n62 vulnerabilities (21 low, 25 moderate, 16 high)\n\nTo address issues that do not require attention, run:\n  npm audit fix\n\nTo address all issues (including breaking changes), run:\n  npm audit fix --force\n\nRun `npm audit` for details.\nnpm warn allow-scripts 4 packages have install scripts not yet covered by allowScripts:\nnpm warn allow-scripts   @reown/appkit@1.8.19 (postinstall: node scripts/appkit-version-check.js)\nnpm warn allow-scripts   keccak@3.0.4 (install: node-gyp-build || exit 0)\nnpm warn allow-scripts   protobufjs@7.6.6 (postinstall: node scripts/postinstall)\nnpm warn allow-scripts   secp256k1@4.0.5 (install: node-gyp-build || exit 0)\nnpm warn allow-scripts\nnpm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.\n"
+    },
+    "npmTest": {
+      "passed": true,
+      "application": 87,
+      "protobuf": 36,
+      "log": "\n> holdbook@0.0.0 test\n> node --experimental-test-module-mocks --test tests/*.test.mjs && npm run test:proto\n\n(node:433786) ExperimentalWarning: Module mocking is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n\u2714 browser adapters never inspect or emit SDK payloads or run formatters (8.930844ms)\n\u2714 public SDK types accept a genuine network request with a caller-owned read provider (1177.638715ms)\n\u2714 SDK patch rejects version/content drift before writing and survives reapplication (418.592783ms)\n\u25b6 the loader caches one safe result and never calls the configuration API\n  \u2714 api-present (1372.317547ms)\n  \u2714 api-missing (47.32169ms)\n  \u2714 probe-error (99.912069ms)\n\u2714 the loader caches one safe result and never calls the configuration API (1525.403018ms)\n\u2714 SDK config requires manual preparation, verified preflight and an owned restricted provider (823.138695ms)\n\u2714 managed wallet patch is pinned, all-or-nothing, idempotent and does not overlap the read-only patch (279.959827ms)\n\u2714 genuine Terminal3 payload, UTF-8 digest signing, rejection and invalid credentials (5117.985129ms)\n\u2714 six scoped repair edges are pinned, including absent optional packages (95.602438ms)\n\u2714 contract records must match the fixed ID and contain a live, nonzero EVM address (6.779326ms)\n\u2714 real viem performs only the fixed chain, Mirror and bytecode reads; results are whitelisted (156.866856ms)\n\u25b6 wrong or malformed chain and RPC errors stop before contract queries without leaking error objects\n  \u2714 {\"chain\":\"0x1\"} (6.891717ms)\n  \u2714 {\"chain\":\"garbage\"} (3.872399ms)\n  \u2714 {\"rpcError\":true} (5.127086ms)\n\u2714 wrong or malformed chain and RPC errors stop before contract queries without leaking error objects (18.120632ms)\n\u2714 duplicate deployment addresses prevent both bytecode reads (5.284355ms)\n\u25b6 invalid Mirror, HTTP failures, empty and malformed code cannot pass; independent successes survive\n  \u2714 {\"records\":[{\"contract_id\":\"0.0.9213391\",\"evm_address\":\"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"deleted\":false},{\"contract_id\":\"0.0.9213391\",\"evm_address\":\"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"deleted\":false}]} (8.435825ms)\n  \u2714 {\"http\":404} (5.068229ms)\n  \u2714 {\"http\":429} (5.798169ms)\n  \u2714 {\"codeRpcError\":true} (10.573214ms)\n  \u2714 {\"code\":\"0x\"} (8.101482ms)\n  \u2714 {\"code\":\"0x0\"} (7.915244ms)\n  \u2714 {\"code\":\"0xzz\"} (15.975266ms)\n  \u2714 {\"code\":\"6000\"} (4.103982ms)\n  \u2714 {\"code\":42} (8.098034ms)\n  \u2714 {\"code\":\"0x6000\\r\\n\"} (18.875507ms)\n\u2714 invalid Mirror, HTTP failures, empty and malformed code cannot pass; independent successes survive (99.911096ms)\n\u2714 one 10-second deadline aborts requests, never retries and produces safe timeout status (42.124643ms)\n\u25b6 cancellation rejects, including a transport response arriving after cancellation\n  \u2714 false (6.495545ms)\n  \u2714 true (5.891102ms)\n\u2714 cancellation rejects, including a transport response arriving after cancellation (15.862596ms)\n\u25b6 config accepts safe positive versions and rejects zero, unsafe values, bad ABI and reverts\n  \u2714 1 (11.191544ms)\n  \u2714 9007199254740991 (6.40154ms)\n  \u2714 0 (7.041875ms)\n  \u2714 9007199254740992 (5.201092ms)\n  \u2714 0x (7.05232ms)\n  \u2714 0x01 (6.826057ms)\n  \u2714 revert (8.705531ms)\n\u2714 config accepts safe positive versions and rejects zero, unsafe values, bad ABI and reverts (55.230492ms)\n\u25b6 config requires verified Resolver; Factory failure does not suppress an independent config result\n  \u2714 chain (1.650081ms)\n  \u2714 resolver (2.608403ms)\n  \u2714 code (6.220645ms)\n  \u2714 duplicate (2.333157ms)\n  \u2714 factory (6.486188ms)\n\u2714 config requires verified Resolver; Factory failure does not suppress an independent config result (21.18348ms)\n\u25b6 config shares the original deadline and cannot publish after cancellation, even with a late reply\n  \u2714 timeout (65.971844ms)\n  \u2714 cancel (39.297989ms)\n  \u2714 late (11.016654ms)\n\u2714 config shares the original deadline and cannot publish after cancellation, even with a late reply (118.998241ms)\n\u2714 config never follows an OffchainLookup response to an external gateway (9.816385ms)\n\u2714 VC public evidence excludes all credential, proof, signature and arbitrary error data (230.504555ms)\n\u2714 one shared operation lease excludes siblings and stale release cannot unlock another (217.879086ms)\n\u2714 Hold IDs and expiry preserve canonical safe SDK seconds (9852.859784ms)\n\u2714 SDK KYC and chain revert classifications cannot pass transport or generic errors (932.445802ms)\n\u2714 T03 transaction entry is closed before any network or wallet operation (2.75739ms)\n\u2714 four exact receipt/events and historical transitions reject changed inputs and complete release without a deleted getter (6081.00427ms)\n\u2714 only the fixed six-stage lifecycle progresses; unknown work, skipped simulations and expired KYC/Hold stop (272.798165ms)\n\u2714 public T04 transaction/simulation evidence excludes credentials, proofs, wallet/error objects and simulation tx IDs (377.376243ms)\n\u2714 eth_call uses exact from/calldata/zero value at the recorded block; transport and wrong reverts never pass (1134.673113ms)\n\u2714 four T04 recoveries verify full historical state and Mirror identity; delay/unknown/reload never authorizes replay (8863.896698ms)\n\u2714 invalid T04 journal cannot leak the operation lease; imported public intent remains pending until recovery (213.856926ms)\n\u2714 Buyer preparation binds exact public KYC seconds/digest and genuine verifier rejects unsigned, expired, tampered and wrong-subject inputs (968.962176ms)\n\u2714 T03 orders missing roles and issuer; never reissues changed supply or balances (5876.161206ms)\n\u2714 exact fixed calldata, zero value, fixed accounts and asset; no alternative actions (3901.994355ms)\n\u2714 public T03 evidence drops arbitrary objects, signatures and credentials (5.658247ms)\n\u2714 all six receipt actions require exact event, calldata, block and sender (8204.477442ms)\n\u2714 T03 provider rejects alternate methods and duplicates, and retains late hashes after cancellation (354.576906ms)\n\u2714 T03 provider rejection, stale preflight and bounded lookup keep retry decisions explicit (362.422045ms)\n\u2714 original account mapping is mandatory; UTF-8 KYC calldata preserves ID and Unix seconds (405.668516ms)\n\u2714 role IDs match the pinned SDK, not hashes inferred from enum labels (5.03738ms)\n\u2714 recovery verifies historical transition and Mirror mapping; delay, reload, failed receipt and missing history stay safe (3874.842544ms)\n\u2714 KYC transition compares values independent of JSON field order; final 100 can never issue again (79.557561ms)\n\u2714 NOVA request and calldata are fixed; every mutation field and unexpected method is guarded (9528.209546ms)\n\u2714 durable intent and immediate hash persist; reload and unknown never enable duplicate creation (8.93111ms)\n\u2714 same-origin lock is mandatory and never waits to submit a duplicate (2.260434ms)\n\u2714 receipt validation requires successful exact Factory event and canonical transaction/block binding (2897.128351ms)\n\u2714 managed provider serializes concurrent requests; late hash is retained and unsafe methods never reach wallet (324.621782ms)\n\u2714 recovery uses real ABI decoding and explicit RPC/Mirror fixtures; delay, mismatch and reload do not create (6169.497047ms)\n\u2714 rejection, stale review, post-send timeout and late responses retain safe public state (293.437377ms)\n8:33:18 AM [vite] (client) [optimizer] scanning dependencies...\n8:33:23 AM [vite] (client) [optimizer] bundling dependencies...\n\u2714 the shell renders planned data without claiming a wallet or chain result (13696.107167ms)\n\u2714 T04 shared transport preserves late hash, excludes duplicates, blocks all simulation mutations and delegates one recovery (9951.216093ms)\n\u2714 Mirror accepts only a matching EVM address, canonical Hedera ID and explicitly live account (11.418055ms)\n\u2714 role binding rejects replacement, duplicate address/ID and unverified saved accounts (1.701353ms)\n\u2714 storage failures stay in memory; persisted payload contains only role addresses (2.465323ms)\n\u2714 wallet review binds explicit Seller or Admin signer in both wagmi and provider (5642.893083ms)\n\u2139 tests 87\n\u2139 suites 0\n\u2139 pass 87\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 29196.683959\n\n> holdbook@0.0.0 test:proto\n> node docs/evidence/014-t01a-decoder-rebuild.test.mjs --candidate --compare docs/evidence/007-t01a-protobuf-rebuild-restored-tests.json\n\n\u2714 only approved runtime versions are installed (12.844578ms)\n\u2714 @hashgraph/proto: compatibility (195.285529ms)\n\u2714 @hashgraph/proto: public-api (215.187394ms)\n\u2714 @hashgraph/proto: truncated-varint (167.681251ms)\n\u2714 @hashgraph/proto: truncated-bytes (156.823299ms)\n\u2714 @hashgraph/proto: truncated-message (205.525365ms)\n\u2714 @hashgraph/proto: groups-4 (160.982765ms)\n\u2714 @hashgraph/proto: groups-128 (152.054034ms)\n\u2714 @hashgraph/proto: groups-8192 (178.065442ms)\n\u2714 @hashgraph/proto: keys-4 (179.240127ms)\n\u2714 @hashgraph/proto: keys-128 (187.831089ms)\n\u2714 @hashgraph/proto: keys-8192 (762.847287ms)\n\u2714 @hashgraph/proto: thresholds-4 (209.77609ms)\n\u2714 @hashgraph/proto: thresholds-128 (216.473976ms)\n\u2714 @hashgraph/proto: thresholds-8192 (915.986055ms)\n\u2714 @hashgraph/proto: nested-length-overrun (214.567332ms)\n\u2714 @hashgraph/proto: top-length-overrun (189.666957ms)\n\u2714 @hashgraph/proto: option-eof (290.913297ms)\n\u2714 @hiero-ledger/proto: compatibility (393.378302ms)\n\u2714 @hiero-ledger/proto: public-api (417.716285ms)\n\u2714 @hiero-ledger/proto: truncated-varint (292.514178ms)\n\u2714 @hiero-ledger/proto: truncated-bytes (322.237008ms)\n\u2714 @hiero-ledger/proto: truncated-message (287.494819ms)\n\u2714 @hiero-ledger/proto: groups-4 (248.263642ms)\n\u2714 @hiero-ledger/proto: groups-128 (221.445026ms)\n\u2714 @hiero-ledger/proto: groups-8192 (222.103703ms)\n\u2714 @hiero-ledger/proto: keys-4 (196.19308ms)\n\u2714 @hiero-ledger/proto: keys-128 (206.57546ms)\n\u2714 @hiero-ledger/proto: keys-8192 (596.025262ms)\n\u2714 @hiero-ledger/proto: thresholds-4 (200.669609ms)\n\u2714 @hiero-ledger/proto: thresholds-128 (250.182523ms)\n\u2714 @hiero-ledger/proto: thresholds-8192 (1220.63322ms)\n\u2714 @hiero-ledger/proto: nested-length-overrun (240.336524ms)\n\u2714 @hiero-ledger/proto: top-length-overrun (308.266737ms)\n\u2714 @hiero-ledger/proto: option-eof (373.55479ms)\n\u2714 both public proto entries retain their own decoded classes in either load order (493.709859ms)\n\u2139 tests 36\n\u2139 suites 0\n\u2139 pass 36\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 11127.07355\n"
+    },
+    "typecheck": {
+      "passed": true,
+      "log": "\n> holdbook@0.0.0 typecheck\n> tsc --noEmit\n\n"
+    },
+    "build": {
+      "passed": true,
+      "log": "\n> holdbook@0.0.0 build\n> vite build\n\nvite v8.2.2 building client environment for production...\ntransforming...\n\u2713 10444 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                          1.20 kB \u2502 gzip:   0.49 kB\ndist/assets/index-DUGBwj1M.css                           4.39 kB \u2502 gzip:   1.50 kB\ndist/assets/wui-icon-CnqB7m0x.js                         0.03 kB \u2502 gzip:   0.05 kB\ndist/assets/wui-image-DSc9899t.js                        0.03 kB \u2502 gzip:   0.05 kB\ndist/assets/wui-shimmer-D5lzBlV2.js                      0.03 kB \u2502 gzip:   0.05 kB\ndist/assets/wui-icon-box-DM62s41m.js                     0.03 kB \u2502 gzip:   0.05 kB\ndist/assets/wui-input-text-Dwa9mFqP.js                   0.03 kB \u2502 gzip:   0.05 kB\ndist/assets/wui-loading-spinner-BwVb8-Sp.js              0.04 kB \u2502 gzip:   0.06 kB\ndist/assets/NavigationUtil-CLCRNDHF.js                   0.06 kB \u2502 gzip:   0.08 kB\ndist/assets/if-defined-CuYKaY4o.js                       0.06 kB \u2502 gzip:   0.08 kB\ndist/assets/dist-D6L6gF64.js                             0.10 kB \u2502 gzip:   0.11 kB\ndist/assets/MathUtil-B2UslVSw.js                         0.22 kB \u2502 gzip:   0.18 kB\ndist/assets/ConstantsUtil-Cp8ebnfI.js                    0.49 kB \u2502 gzip:   0.36 kB\ndist/assets/AlertController-BqOh6Stv.js                  0.64 kB \u2502 gzip:   0.40 kB\ndist/assets/transactions-CiR1kUzw.js                     0.96 kB \u2502 gzip:   0.57 kB\ndist/assets/preload-helper-Czpn1I53.js                   1.19 kB \u2502 gzip:   0.67 kB\ndist/assets/wui-email-input-AL4hfpJx.js                  1.34 kB \u2502 gzip:   0.69 kB\ndist/assets/rolldown-runtime-BcKkbAw3.js                 1.34 kB \u2502 gzip:   0.72 kB\ndist/assets/wui-separator-BkxkSWns.js                    1.49 kB \u2502 gzip:   0.74 kB\ndist/assets/wui-shimmer-DEiJ1R8g.js                      1.52 kB \u2502 gzip:   0.74 kB\ndist/assets/PhCaretLeft-CI460R-A.js                      1.85 kB \u2502 gzip:   0.90 kB\ndist/assets/dist-Cuadm9-o.js                             1.86 kB \u2502 gzip:   0.84 kB\ndist/assets/ref-D-bUnIrx.js                              1.87 kB \u2502 gzip:   0.89 kB\ndist/assets/PhCaretDown-BDNabFuL.js                      1.91 kB \u2502 gzip:   0.93 kB\ndist/assets/PhCaretRight-D7ZS3Ls8.js                     1.93 kB \u2502 gzip:   0.92 kB\ndist/assets/PhCaretUp-C-iIfyvO.js                        1.99 kB \u2502 gzip:   0.91 kB\ndist/assets/PhArrowUpRight-BNghD2zq.js                   2.03 kB \u2502 gzip:   0.99 kB\ndist/assets/ConstantsUtil-IgQrDvg6.js                    2.06 kB \u2502 gzip:   0.77 kB\ndist/assets/PhArrowDown-87b1BizM.js                      2.07 kB \u2502 gzip:   0.99 kB\ndist/assets/PhPlus-C4UoW-2n.js                           2.08 kB \u2502 gzip:   0.94 kB\ndist/assets/PhCheck-DxQXn57r.js                          2.08 kB \u2502 gzip:   0.96 kB\ndist/assets/PhArrowRight-AdrIL4DW.js                     2.08 kB \u2502 gzip:   0.99 kB\ndist/assets/PhArrowLeft-Da0MfnbK.js                      2.09 kB \u2502 gzip:   0.98 kB\ndist/assets/PhArrowUp-4sgyKPGx.js                        2.14 kB \u2502 gzip:   0.98 kB\ndist/assets/utils-Br0svb7K.js                            2.16 kB \u2502 gzip:   0.98 kB\ndist/assets/PhBrowser-2-9m-AkM.js                        2.18 kB \u2502 gzip:   0.95 kB\ndist/assets/PhMagnifyingGlass-C9u8jSCJ.js                2.18 kB \u2502 gzip:   1.05 kB\ndist/assets/PhDotsThree-D-k1BiYg.js                      2.22 kB \u2502 gzip:   0.92 kB\ndist/assets/hex-encoding-B19xAT_7.js                     2.24 kB \u2502 gzip:   1.05 kB\ndist/assets/PhCopy-CWNYcABI.js                           2.33 kB \u2502 gzip:   0.99 kB\ndist/assets/PhFunnelSimple-CfQs5DAW.js                   2.33 kB \u2502 gzip:   0.98 kB\ndist/assets/PhClock-x3MS3Mwi.js                          2.34 kB \u2502 gzip:   1.01 kB\ndist/assets/PhWarningCircle-BXHw1fCt.js                  2.40 kB \u2502 gzip:   1.03 kB\ndist/assets/wui-avatar-C5Kn650E.js                       2.46 kB \u2502 gzip:   1.02 kB\ndist/assets/PhX-DX0SFIqC.js                              2.47 kB \u2502 gzip:   1.04 kB\ndist/assets/PhDeviceMobile-CsyA5Goi.js                   2.54 kB \u2502 gzip:   1.05 kB\ndist/assets/PhArrowClockwise-DVgyFuez.js                 2.56 kB \u2502 gzip:   1.17 kB\ndist/assets/PhUser-0sWNXQeZ.js                           2.65 kB \u2502 gzip:   1.25 kB\ndist/assets/PhEnvelope-D8kzeNox.js                       2.66 kB \u2502 gzip:   1.16 kB\ndist/assets/PhCircleHalf-MJZeRBGF.js                     2.69 kB \u2502 gzip:   1.20 kB\ndist/assets/PhSignOut-CxELV-i0.js                        2.73 kB \u2502 gzip:   1.14 kB\ndist/assets/PhInfo-Bwi51-2X.js                           2.74 kB \u2502 gzip:   1.19 kB\ndist/assets/PhPower-CFyWDmgD.js                          2.75 kB \u2502 gzip:   1.26 kB\ndist/assets/wui-icon-link-DJfVhxTo.js                    2.75 kB \u2502 gzip:   0.98 kB\ndist/assets/PhDesktop-CxrzCSv5.js                        2.75 kB \u2502 gzip:   1.09 kB\ndist/assets/PhArrowsLeftRight-MuKBLUoF.js                2.77 kB \u2502 gzip:   1.16 kB\ndist/assets/PhArrowCircleDown-D97G-BOA.js                2.78 kB \u2502 gzip:   1.16 kB\ndist/assets/PhWallet-DzNiREN9.js                         2.80 kB \u2502 gzip:   1.15 kB\ndist/assets/PhQuestionMark-CV0k9C0Y.js                   2.81 kB \u2502 gzip:   1.28 kB\ndist/assets/PhArrowSquareOut-Bk2CMG3I.js                 2.89 kB \u2502 gzip:   1.23 kB\ndist/assets/PhArrowsDownUp-DM09Jo_3.js                   2.90 kB \u2502 gzip:   1.15 kB\ndist/assets/PhCreditCard-Fy4pzwtt.js                     2.90 kB \u2502 gzip:   1.13 kB\ndist/assets/PhBank-fHbgCqqZ.js                           2.91 kB \u2502 gzip:   1.23 kB\ndist/assets/PhVault-6JTskUcC.js                          2.93 kB \u2502 gzip:   1.18 kB\ndist/assets/wui-icon-box-DqQ8Qk2h.js                     2.94 kB \u2502 gzip:   0.97 kB\ndist/assets/PhCompass-hYn3HhGN.js                        2.95 kB \u2502 gzip:   1.25 kB\ndist/assets/wui-link-DbnMCW76.js                         2.96 kB \u2502 gzip:   1.00 kB\ndist/assets/PhPaperPlaneRight-zxQVvPLX.js                3.06 kB \u2502 gzip:   1.40 kB\ndist/assets/wui-image-DQFIUVgR.js                        3.08 kB \u2502 gzip:   1.19 kB\ndist/assets/PhTrash-C9PD0SAt.js                          3.09 kB \u2502 gzip:   1.17 kB\ndist/assets/PhCurrencyDollar-BgiaenCi.js                 3.22 kB \u2502 gzip:   1.32 kB\ndist/assets/HelpersUtil-D00TyYCu.js                      3.26 kB \u2502 gzip:   1.33 kB\ndist/assets/PhQuestion-wOWJBd3G.js                       3.28 kB \u2502 gzip:   1.43 kB\ndist/assets/wui-list-token-BieTCgEw.js                   3.30 kB \u2502 gzip:   1.24 kB\ndist/assets/PhImage-Cf0J2ZfJ.js                          3.40 kB \u2502 gzip:   1.43 kB\ndist/assets/wui-list-item-Cb3aQwLD.js                    3.72 kB \u2502 gzip:   1.30 kB\ndist/assets/PhArrowsClockwise-BXRn1GEl.js                3.84 kB \u2502 gzip:   1.57 kB\ndist/assets/PhWarning-CoKs3gz6.js                        3.88 kB \u2502 gzip:   1.47 kB\ndist/assets/wui-input-amount-D0IKS2mc.js                 4.04 kB \u2502 gzip:   1.51 kB\ndist/assets/wui-list-social-CuFuXp-W.js                  4.13 kB \u2502 gzip:   1.76 kB\ndist/assets/PhIdentificationCard-CfkZm-5K.js             4.19 kB \u2502 gzip:   1.63 kB\ndist/assets/utils-62W0Csdc.js                            4.29 kB \u2502 gzip:   1.76 kB\ndist/assets/PhSpinner-CGDmbzUd.js                        4.42 kB \u2502 gzip:   1.63 kB\ndist/assets/wui-token-button-Cvakr3Lv.js                 4.68 kB \u2502 gzip:   1.43 kB\ndist/assets/wui-loading-spinner-Dvb-aG8-.js              4.79 kB \u2502 gzip:   1.97 kB\ndist/assets/PhLightbulb-C4FZV7Es.js                      4.88 kB \u2502 gzip:   1.84 kB\ndist/assets/PhQrCode-CP3tFauY.js                         4.89 kB \u2502 gzip:   1.46 kB\ndist/assets/w3m-onramp-providers-footer-CrEsRajZ.js      4.93 kB \u2502 gzip:   1.77 kB\ndist/assets/wui-qr-code-CuEs9Fnl.js                      5.21 kB \u2502 gzip:   2.13 kB\ndist/assets/PhPuzzlePiece-BjoNVfST.js                    5.34 kB \u2502 gzip:   1.94 kB\ndist/assets/w3m-tooltip--Au7OVtS.js                      5.55 kB \u2502 gzip:   1.92 kB\ndist/assets/wui-button-Sl_OQ_HW.js                       5.63 kB \u2502 gzip:   1.52 kB\ndist/assets/PhGlobe-DvmSc9_A.js                          5.69 kB \u2502 gzip:   1.91 kB\ndist/assets/features-DoigsjeZ.js                         5.75 kB \u2502 gzip:   2.26 kB\ndist/assets/events-CMzhc0tf.js                           6.06 kB \u2502 gzip:   2.07 kB\ndist/assets/wui-input-text-B2Gtaka7.js                   6.26 kB \u2502 gzip:   1.93 kB\ndist/assets/receive-BBEnNA1n.js                          6.61 kB \u2502 gzip:   2.37 kB\ndist/assets/wui-loading-thumbnail-DHSobJ-d.js            7.82 kB \u2502 gzip:   2.37 kB\ndist/assets/ExchangeController-BKtah6L-.js               7.97 kB \u2502 gzip:   3.06 kB\ndist/assets/browser-ponyfill-BLzD8l_Q.js                 8.31 kB \u2502 gzip:   2.84 kB\ndist/assets/hmac-BSeZHieH.js                             9.70 kB \u2502 gzip:   4.61 kB\ndist/assets/w3m-email-otp-widget-CiVd1vsw.js             9.73 kB \u2502 gzip:   3.16 kB\ndist/assets/wui-wallet-switch-kmCnLUyK.js               10.16 kB \u2502 gzip:   3.03 kB\ndist/assets/CaipNetworkUtil-Ch4pFyLj.js                 10.32 kB \u2502 gzip:   4.74 kB\ndist/assets/email-DGLS8KyB.js                           10.50 kB \u2502 gzip:   2.79 kB\ndist/assets/dist-DPKNlvg4.js                            11.74 kB \u2502 gzip:   4.33 kB\ndist/assets/PhSealCheck-vIKzREuN.js                     12.07 kB \u2502 gzip:   4.06 kB\ndist/assets/src-Ckws4D3v.js                             12.65 kB \u2502 gzip:   5.19 kB\ndist/assets/index.browser-BDf4v9YX.js                   13.33 kB \u2502 gzip:   4.60 kB\ndist/assets/SwapController-1lSeVrvC.js                  13.85 kB \u2502 gzip:   3.96 kB\ndist/assets/pay-with-exchange-DhyJwFTK.js               15.80 kB \u2502 gzip:   4.11 kB\ndist/assets/property-DuZ9DLP4.js                        16.17 kB \u2502 gzip:   6.08 kB\ndist/assets/index.es-B2yz9O-G.js                        16.22 kB \u2502 gzip:   5.80 kB\ndist/assets/socials-BRvinZaP.js                         17.96 kB \u2502 gzip:   4.70 kB\ndist/assets/data-capture-ClhRBh1b.js                    18.36 kB \u2502 gzip:   5.69 kB\ndist/assets/wui-list-wallet-BSv8BQ_J.js                 23.64 kB \u2502 gzip:   6.61 kB\ndist/assets/browser-BLmJMKa5.js                         24.00 kB \u2502 gzip:   9.07 kB\ndist/assets/secp256k1-I33RQ7_Z.js                       25.13 kB \u2502 gzip:   9.85 kB\ndist/assets/embedded-wallet-CRJWnVYe.js                 25.61 kB \u2502 gzip:   6.80 kB\ndist/assets/onramp-BYavfjl6.js                          26.13 kB \u2502 gzip:   6.55 kB\ndist/assets/OptionsController-DgdkkawG.js               26.51 kB \u2502 gzip:   7.82 kB\ndist/assets/dist-ZKTSEBXW.js                            26.89 kB \u2502 gzip:   8.28 kB\ndist/assets/secp256k1-CZeT5Ut3.js                       27.96 kB \u2502 gzip:  10.82 kB\ndist/assets/secp256k1-D_3IvMuz.js                       30.34 kB \u2502 gzip:  12.04 kB\ndist/assets/send-DD1ybbtd.js                            33.21 kB \u2502 gzip:   7.50 kB\ndist/assets/W3mFrameHelpers-06hsKr9T.js                 34.54 kB \u2502 gzip:  13.38 kB\ndist/assets/w3m-activity-list-D6mkDJWk.js               34.76 kB \u2502 gzip:  10.42 kB\ndist/assets/exports-GL0dN1cC.js                         37.26 kB \u2502 gzip:  11.13 kB\ndist/assets/wui-visual-BMjhQwDp.js                      45.98 kB \u2502 gzip:  14.09 kB\ndist/assets/swaps-BMqm9nzp.js                           54.74 kB \u2502 gzip:   9.85 kB\ndist/assets/wui-text-BaeeCfo1.js                        60.39 kB \u2502 gzip:  20.00 kB\ndist/assets/w3m-modal-DRiVAnAq.js                       77.71 kB \u2502 gzip:  19.61 kB\ndist/assets/HelpersUtil-BTZ6zEvo.js                     83.54 kB \u2502 gzip:  23.35 kB\ndist/assets/ErrorUtil-CecG85IV.js                       96.38 kB \u2502 gzip:  24.21 kB\ndist/assets/ccip-DlO_9iB5.js                           108.28 kB \u2502 gzip:  30.83 kB\ndist/assets/ModalController-D0SvbAnd.js                109.44 kB \u2502 gzip:  30.29 kB\ndist/assets/ModalController-RWZM9FRL.js                109.48 kB \u2502 gzip:  30.32 kB\ndist/assets/dist-DLli_1s6.js                           110.37 kB \u2502 gzip:  33.84 kB\ndist/assets/_esm-Dv_5lK6H.js                           125.04 kB \u2502 gzip:  37.62 kB\ndist/assets/exports-DI4St4qv.js                        186.74 kB \u2502 gzip:  46.18 kB\ndist/assets/dist-B7ilBZ_Y.js                           192.76 kB \u2502 gzip:  66.45 kB\ndist/assets/exports-D8hG-dwq.js                        220.33 kB \u2502 gzip:  42.49 kB\ndist/assets/index-CdYy48SY.js                          378.34 kB \u2502 gzip: 113.09 kB\ndist/assets/lib.esm-ChneCZPO.js                        380.66 kB \u2502 gzip: 139.26 kB\ndist/assets/lib.commonjs-4KKTCd4p.js                   492.32 kB \u2502 gzip: 160.54 kB\ndist/assets/exports-Bh1J_AmC.js                        510.17 kB \u2502 gzip: 152.34 kB\ndist/assets/crypto-browserify-CbVQ8JtU.js              647.99 kB \u2502 gzip: 184.51 kB\ndist/assets/dist-B5sUpbNe.js                           804.93 kB \u2502 gzip: 280.13 kB\ndist/assets/dist-Cql2uBCA.js                         1,450.45 kB \u2502 gzip: 571.00 kB\ndist/assets/browser-qIle0TNX.js                      1,677.85 kB \u2502 gzip: 293.33 kB\ndist/assets/src-BvA_Pz9w.js                          2,364.15 kB \u2502 gzip: 413.05 kB\ndist/assets/typechain-types-D57rJW4J.js              5,007.72 kB \u2502 gzip: 761.00 kB\n\n[EVAL] Use of direct `eval` function is strongly discouraged as it poses security risks and may cause issues with minification.\n     \u256d\u2500[ node_modules/vm-browserify/index.js:110:12 ]\n     \u2502\n 110 \u2502     return eval(this.code); // maybe...\n     \u2502            \u2500\u2500\u252c\u2500  \n     \u2502              \u2570\u2500\u2500\u2500 Use of direct `eval` here.\n     \u2502 \n     \u2502 Help: Consider using indirect eval. For more information, check the documentation: https://rolldown.rs/guide/troubleshooting#avoiding-direct-eval\n\u2500\u2500\u2500\u2500\u2500\u256f\n\n[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n\u2713 built in 5.38s\n"
+    },
+    "browserSmoke": {
+      "recordedAt": "2026-09-08T00:34:34.443Z",
+      "kind": "Final build no-wallet smoke and cancelled read; blocked RPC boundary",
+      "results": [
+        {
+          "port": 5173,
+          "width": 1440,
+          "passed": true,
+          "noAutomaticWallet": true,
+          "cancelledRead": true,
+          "operationReleased": true,
+          "noOverflow": true,
+          "errors": [],
+          "forbidden": []
+        },
+        {
+          "port": 5173,
+          "width": 390,
+          "passed": true,
+          "noAutomaticWallet": true,
+          "cancelledRead": true,
+          "operationReleased": true,
+          "noOverflow": true,
+          "errors": [],
+          "forbidden": []
+        },
+        {
+          "port": 4173,
+          "width": 1440,
+          "passed": true,
+          "noAutomaticWallet": true,
+          "cancelledRead": true,
+          "operationReleased": true,
+          "noOverflow": true,
+          "errors": [],
+          "forbidden": []
+        },
+        {
+          "port": 4173,
+          "width": 390,
+          "passed": true,
+          "noAutomaticWallet": true,
+          "cancelledRead": true,
+          "operationReleased": true,
+          "noOverflow": true,
+          "errors": [],
+          "forbidden": []
+        }
+      ]
+    },
+    "protectedUnchangedSha256": {
+      "package.json": "5e6b9c5ffa9602ef4b8c4d45847e4071c84047191599dfadd8eb6ef6e94bfc27",
+      "package-lock.json": "7be813930eca4f8c8b23147f6b180217fb28d2ac3c398d062a6ed117b8f5a856",
+      "vite.config.ts": "f693a08509a00528b5a6a20002b1229c2e37e1daf7e0c0ea19c0b824c5fb5048",
+      "scripts/rebuild-proto.mjs": "0f72a34c7d00858f0b8768693c6e1d03318736ece87e1a20712479973126c6d7",
+      "scripts/patch-ats-readonly.mjs": "28196e89dd385a7a86ad9d0cf08325331995a229768d99cfcabe5575ff06d024",
+      "scripts/patch-ats-wallet.mjs": "8a1c78c2de797d38777fd5767c39f888ffe02d4445e566ff2c88c386025f457c",
+      "src/App.tsx": "0e8bfebfe43ca1de25cf75efe2a1441655eb45bc4da7fbee8c8841da671a75f2",
+      "src/ats.ts": "4d529f85afb8a88b092539c7edcc0e0787b59db4ebadc0f93edda7910220fbc2",
+      "src/compat/dotenv.ts": "668241b2d0bc292b489e2e2a37ac36fa135d109021e1639774020b79ab7df516",
+      "src/compat/winston.ts": "db116da4a410917acb701b8a11f69af2f29efb23866484a9bee8cec88ae39f5e",
+      "src/credentials.ts": "73cd9984f3196bedae8acf6ed5e929b03dafd2f5b908ea9610fa2c971f5af8cb",
+      "src/deployment.ts": "01e909b59eb46786295d7fba83e4408b1b1d3426918f0b598fa86e991788b5dd",
+      "src/evidence.ts": "5f43f63a0baecc56cce8d08ad2b273c2b5e14d28bb58d683fc96147b8c8c0f5f",
+      "src/guards.ts": "5053d9e742e4220f19410ce497817bf5cfbb0127cf786eb77ecd83bce1c0143c",
+      "src/hold.ts": "1b72685f3573d5e4ad8805c1ea95939acfb9034055c37ae0122fba9f730539a1",
+      "src/lifecycle.ts": "8aed64bcf36c111fff547ad6ae0f1ff27232d9e150170640bad29a7d3f255b46",
+      "src/main.tsx": "e6a83fea4a963ed07c9a276ef5588a292e9a3bfbdadf693ec5b1710ef89f4dd2",
+      "src/nova.ts": "8258cd53dcc94c2d18bcfc022ce340b299b29d55cbc8202831840b71d120937b",
+      "src/styles.css": "baaafa66d45eaf9370d710abe98ea6d04fbf35f575d10adab402c86fbe3e6e64",
+      "src/transport.ts": "b2b482666b23f9f57f89542cef7415829f5117f9879a562c88620763b6e1612c",
+      "src/wallet.ts": "9b5a3ad917beb95488d942bfb24897ffb4e838231db8786ba5264e145dd3cd33",
+      "tests/ats.test.mjs": "588286e661a12aafc4e62eea6c54b8722a08367928a3f5a58300dd82975f8889",
+      "tests/credentials.test.mjs": "51836b5d9a1403ab17a195e52979a994559e1f9e508d08463d408ad089b7525e",
+      "tests/dependencies.test.mjs": "4bcb2405b384e946de0a195a056110bd542bab9888df3a8da181940607f64382",
+      "tests/deployment.test.mjs": "7c9282e1ed730979a78da501297a63839ec3d4a2eaf21ef2b484f1d20b47fde3",
+      "tests/evidence.test.mjs": "c76c80e88d0edff2c2c41c9407620a495d3e3fb21895bf1f0c8afe7f3d32455c",
+      "tests/guards.test.mjs": "f049a6409b71f951699b8764b8a2e04dd2d28c8d3bee176619f00a3b54d1a547",
+      "tests/hold.test.mjs": "6d0e82b30d641eb1d9d57d0c0262426507de25eeb0f60609912c3e87d3b6dcbf",
+      "tests/lifecycle.test.mjs": "a46816e9d67c7f2318618b297f01174999a292e5e76701da45931642001df01c",
+      "tests/nova.test.mjs": "020b4bd9ecf62569ac42ec82f6bbb06234e78e8dfc22fdd9d335dfe603525941",
+      "tests/shell.test.mjs": "16ab07989a0a12c5157005c63bd6e49c01b5b2b161927a7c0d2e96e280b1b693",
+      "tests/transport.test.mjs": "fbb4984df3146449ecf380e5695bef5bbac5ec4dc3f55bd215b7f9bb62fd1d5c",
+      "tests/wallet.test.mjs": "e5ddfd0180ea12e4dc8cd243b865488eae6e8c80d2b15370cf3247b10986e0d8"
+    },
+    "liveReplayHarness": "import assert from 'node:assert/strict';import {registerHooks} from 'node:module';import {readFileSync,writeFileSync} from 'node:fs';import {createHash} from 'node:crypto';\nregisterHooks({resolve(s,c,n){return n(s.startsWith('./')&&c.parentURL?.includes('/src/')&&!/\\.[a-z]+$/.test(s)?new URL(s+'.ts',c.parentURL).href:s,c)}});\nconst root='/home/outsider/github/ETHGlobal_Victor';const h=await import(root+'/src/hold.ts'),e=await import(root+'/src/evidence.ts'),n=await import(root+'/src/nova.ts'),l=await import(root+'/src/lifecycle.ts');\nconst store=new Map();globalThis.window={localStorage:{getItem:k=>store.get(k)??null,setItem:(k,v)=>store.set(k,v)}};Object.defineProperty(globalThis,'navigator',{value:{locks:{request:async(n,o,fn)=>fn({name:n})}},configurable:true});\nconst sources=[];for(let number=13;number<=20;number++){const name='holdbook-public-evidence ('+number+').json',raw=readFileSync('/mnt/c/Users/outsider/Downloads/'+name),j=JSON.parse(raw);const value=number===15?{...e.credentialEvidence(j),checkedAt:j.checkedAt}:e.holdEvidence(j);sources.push({number,name,sha256:createHash('sha256').update(raw).digest('hex'),value});}\nconst records=[13,14,17,18,19,20].map(number=>sources.find(s=>s.number===number).value);h.saveHoldRecords(records);\nconst methods=[],original=globalThis.fetch;globalThis.fetch=async(url,options={})=>{const u=new URL(url);assert.ok(['https://testnet.hashio.io','https://testnet.mirrornode.hedera.com'].includes(u.origin));if(options.body){const b=JSON.parse(options.body);assert.ok(['eth_chainId','eth_blockNumber','eth_call','eth_getCode','eth_getBlockByNumber','eth_getTransactionByHash','eth_getTransactionReceipt','eth_getLogs'].includes(b.method));methods.push(b.method)}return original(url,options)};\nconst signal=AbortSignal.timeout(600000),transactions=[];\nfor(const expected of records.filter(r=>r.kind==='t04-transaction')){console.log('Recovering '+expected.action);const actual=await h.recoverHold(expected.transactionHash,expected.action,signal,()=>{});assert.equal(actual.status,'complete');for(const field of ['input','kyc','before','after','calldataDigest','transactionHash','transactionId','consensusTimestamp'])assert.deepEqual(actual[field],expected[field],expected.action+':'+field);transactions.push(actual);console.log(JSON.stringify({action:actual.action,status:actual.status,block:actual.after.block}));}\nconst vc=sources.find(s=>s.number===15).value,grant=transactions.find(r=>r.action==='buyer-kyc');assert.equal(vc.verified,true);assert.equal(vc.verifier,true);assert.ok(Object.values(vc.negatives).every(v=>v===true));assert.equal(vc.issuer.slice(9).toLowerCase(),l.accounts.Admin.address);assert.equal(vc.subject.slice(9).toLowerCase(),l.accounts.Buyer.address);assert.equal(vc.digest,grant.kyc.digest);assert.equal(String(Math.floor(Date.parse(vc.validFrom)/1000)),grant.kyc.validFrom);assert.equal(String(Math.floor(Date.parse(vc.validUntil)/1000)),grant.kyc.validTo);assert.equal(BigInt(grant.kyc.validTo)-BigInt(grant.kyc.validFrom),605100n);\nconsole.log('Verifying historical T02/T03 independently of current Buyer KYC');const creation=await n.recoverNova(l.creationHash,l.accounts.Admin.address,signal);assert.equal(creation.status,'complete');const t03=await h.verifyT03History(signal,console.log);assert.equal(t03.supply,'100');assert.equal(t03.buyerKyc.status,0);\nconsole.log('Reading final current state and complete Hold history');const final=await h.readHoldState(signal,undefined,console.log);await h.assertNoUnrecordedHolds(final,records,signal);assert.equal(h.nextHoldAction(final,records),undefined);assert.equal(final.sellerBalance,'94');assert.equal(final.buyerBalance,'6');assert.equal(final.sellerHeld,'0');assert.equal(final.buyerHeld,'0');assert.equal(final.supply,'100');assert.equal(final.buyerKyc.status,1);assert.deepEqual(final.sellerHoldIds,[]);assert.deepEqual(final.buyerHoldIds,[]);assert.equal(final.hold,undefined);\nconst result={recordedAt:new Date().toISOString(),kind:'Live public RPC/Mirror verification of actual supplied transactions; no signing/submission',sources,transactions,vcCorrespondence:{issuer:true,subject:true,digest:true,unixSeconds:true,sevenDaysAndFiveMinuteBackdate:true,applicationVerificationObserved:true,fullCredentialOrSignatureRetained:false,signatureIndependentlyReplayed:false},history:{t02:creation,t03},final,nextAction:null,holdCreationHistoryMatches:true,rpcReadCount:methods.length,readMethods:[...new Set(methods)]};writeFileSync('/tmp/holdbook-t04-accept-live.json',JSON.stringify(result,null,2)+'\\n');console.log(JSON.stringify({passed:true,finalBlock:final.block,seller:final.sellerBalance,buyer:final.buyerBalance,sellerHeld:final.sellerHeld,buyerHeld:final.buyerHeld}));\n",
+    "simulationReplayHarness": "import assert from 'node:assert/strict';import {createRequire} from 'node:module';import {readFileSync,writeFileSync} from 'node:fs';\nconst {chromium}=createRequire('/home/outsider/github/h5/web/package.json')('playwright');const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true});const results=[],reads=[],forbidden=[],errors=[];\ntry{const context=await browser.newContext({serviceWorkers:'block'});const page=await context.newPage();await context.route('**/*',route=>{const u=new URL(route.request().url());if(u.origin==='http://127.0.0.1:5173')return route.continue();if(u.origin==='https://testnet.mirrornode.hedera.com'&&u.pathname.startsWith('/api/v1/'))return route.continue();if(u.href==='https://testnet.hashio.io/api'){const b=route.request().postDataJSON();if(['eth_chainId','eth_blockNumber','eth_call','eth_getBlockByNumber'].includes(b.method)){reads.push(b.method);return route.continue()}forbidden.push(b.method)}else forbidden.push(u.origin);return route.abort()});page.on('pageerror',e=>errors.push(e.name));await page.goto('http://127.0.0.1:5173');\nfor(const number of [14,18]){const record=JSON.parse(readFileSync('/mnt/c/Users/outsider/Downloads/holdbook-public-evidence ('+number+').json','utf8'));console.log('Replaying '+record.action);const result=await page.evaluate(async record=>{const h=await import('/src/hold.ts'),g=await import('/src/guards.ts');const lease=g.acquireOperation();try{await h.verifySavedSimulation(record,AbortSignal.timeout(180000));return {action:record.action,passed:true,cases:record.cases.map(c=>({check:c.check,revert:c.revert,block:c.block,afterBlock:c.afterBlock})),genuineSdkHistoricalRejection:record.action==='kyc-negative',fullHistoricalStateMatches:true,noTransactionOrSignature:true};}finally{g.releaseOperation(lease)}},record);results.push(result);console.log(JSON.stringify(result))}\nassert.deepEqual(forbidden,[]);assert.deepEqual(errors,[]);writeFileSync('/tmp/holdbook-t04-accept-sim.json',JSON.stringify({recordedAt:new Date().toISOString(),kind:'Actual pinned SDK and live historical eth_call replay; fresh isolated browser, no wallet/signing/submission',results,rpcReadCount:reads.length,forbidden,errors},null,2)+'\\n');await context.close();}finally{await browser.close()}\n",
+    "smokeCommand": "node docs/evidence/028-t04-ui-browser.mjs /home/outsider/github/h5/web/package.json /tmp/holdbook-t04-accept-smoke.json smoke",
+    "signatureLimit": "Public VC export and screenshot establish observed application verification and its association with KYC metadata. Full VC/proof/signature was neither retained nor independently cryptographically replayed; no valid VC fixture or private key was used.",
+    "offlineReport": {
+      "recordedAt": "2026-09-08T00:38:02.653Z",
+      "results": [
+        {
+          "width": 1440,
+          "passed": true,
+          "imagesLoaded": 8,
+          "noOverflow": true,
+          "visibleKeyboardFocus": true,
+          "externalRequests": [],
+          "pageErrors": []
+        },
+        {
+          "width": 390,
+          "passed": true,
+          "imagesLoaded": 8,
+          "noOverflow": true,
+          "visibleKeyboardFocus": true,
+          "externalRequests": [],
+          "pageErrors": []
+        }
+      ]
+    },
+    "offlineReportHarness": "import assert from 'node:assert/strict';import {createRequire} from 'node:module';import {writeFileSync} from 'node:fs';\nconst {chromium}=createRequire('/home/outsider/github/h5/web/package.json')('playwright');const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true});const results=[];\ntry{for(const width of [1440,390]){const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage(),requests=[],errors=[];await context.route('https://**/*',route=>{requests.push(route.request().url());return route.abort()});page.on('pageerror',e=>errors.push(e.name));await page.goto('file:///home/outsider/github/ETHGlobal_Victor/docs/evidence/029-t04-manual.html');await page.evaluate(async()=>{for(const img of document.images)img.loading='eager';await Promise.all([...document.images].map(img=>img.decode()))});assert.equal(await page.locator('img').count(),8);assert.equal(await page.evaluate(()=>[...document.images].every(img=>img.naturalWidth>0)),true);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),true);await page.locator('a').first().focus();assert.notEqual(await page.locator('a').first().evaluate(el=>getComputedStyle(el).outlineStyle),'none');assert.deepEqual(requests,[]);assert.deepEqual(errors,[]);results.push({width,passed:true,imagesLoaded:8,noOverflow:true,visibleKeyboardFocus:true,externalRequests:requests,pageErrors:errors});await context.close()}}finally{await browser.close()}\nwriteFileSync('/tmp/holdbook-t04-accept-report-browser.json',JSON.stringify({recordedAt:new Date().toISOString(),results},null,2)+'\\n');console.log(JSON.stringify(results));\n",
+    "affectedFiles": [
+      "AI_USAGE.md",
+      "docs/HANDOFF.md",
+      "docs/ai-usage/036-t04-manual.md",
+      "docs/evidence/029-t04-buyer-kyc.png",
+      "docs/evidence/029-t04-buyer-vc.png",
+      "docs/evidence/029-t04-execute.png",
+      "docs/evidence/029-t04-final.png",
+      "docs/evidence/029-t04-kyc-negative.png",
+      "docs/evidence/029-t04-manual.html",
+      "docs/evidence/029-t04-manual.json",
+      "docs/evidence/029-t04-manual.md",
+      "docs/evidence/029-t04-permission-negative.png",
+      "docs/evidence/029-t04-release.png",
+      "docs/plans/001-ats-first.md"
+    ],
+    "documentSha256": {
+      "AI_USAGE.md": "bcd0bad19d02d2f382091566bd2800b698f17bb38c4bb7cd1cc25b940cfe02e6",
+      "docs/HANDOFF.md": "ffe97132c421e4db8aa8e6a5000da1762c55a3f3a836248932c44186185ecdf0",
+      "docs/ai-usage/036-t04-manual.md": "2c0924c1f7277052e4c69bd1513aa24bbe011af35a75f87156d84242406f4bd2",
+      "docs/evidence/029-t04-buyer-kyc.png": "5e5f07f9ee3057493675e5e3cd210488f102f39229e1b66f155572b3e6165f78",
+      "docs/evidence/029-t04-buyer-vc.png": "de9ce37f5a9e53b90a7c14e1d263b3b6eb499b7acfec260f29d72d950eda8808",
+      "docs/evidence/029-t04-execute.png": "c7eaeb08baff11e2c0b5689c07ab4d16c1d65f0f3c279c9b3de13343017f2005",
+      "docs/evidence/029-t04-final.png": "7af8cb6b9e289c26d5cfcd8ff4dd2e6a6948a868f088f9f256f952cc3692463f",
+      "docs/evidence/029-t04-kyc-negative.png": "6a4a5c2f97a059cecb47df98f905338b5aef8d380b9ce4d0d3f73125e1ec473b",
+      "docs/evidence/029-t04-manual.html": "a61187628677aaed6943208e1a91c2a691b9f03f67f7f6a0f379788bf4c501dc",
+      "docs/evidence/029-t04-manual.md": "05d4c6b2435e47a04f4a27ac22a9c11543eb644b998030f8e646075131799802",
+      "docs/evidence/029-t04-permission-negative.png": "f79700863a62a3c5a939ae7b237a07c21ea3db97da68fbb992907f3411e4d0ba",
+      "docs/evidence/029-t04-release.png": "abce9e4a47c7702737b88fe5e489ec2b48ec8313d4580be2f5e96e712aef2e31",
+      "docs/plans/001-ats-first.md": "33dfbc36381e20b207e04bc6c33b6174437e3156c1095b601df87b1c157d4ed7"
+    },
+    "gitDiffCheckPassed": true
+  }
+}

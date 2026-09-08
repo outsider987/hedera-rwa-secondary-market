@@ -107,7 +107,7 @@ test('recovery verifies historical transition and Mirror mapping; delay, reload,
    const body=JSON.parse(options.body);let result;
    if(body.method==='eth_chainId')result='0x128';else if(body.method==='eth_getTransactionByHash')result=mode==='pending'?null:tx;
    else if(body.method==='eth_getTransactionReceipt')result=currentReceipt;
-   else if(body.method==='eth_getBlockByNumber')result={timestamp:'0x6aa70000'};
+   else if(body.method==='eth_getBlockByNumber')result={number:body.params[0],timestamp:'0x6aa70000'};
    else if(body.method==='eth_call'){
     const decoded=asset.parseTransaction({data:body.params[0].data}),name=decoded.name,after=body.params[1]==='0x10';
     if(mode==='no-history'&&!after)throw Error('Synthetic unavailable archive');

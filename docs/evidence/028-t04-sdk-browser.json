@@ -1,0 +1,5187 @@
+{
+  "recordedAt": "2026-09-07T16:16:57.146Z",
+  "kind": "Genuine SDK, synthetic network/wallet boundaries; no signatures or chain transactions",
+  "results": [
+    {
+      "port": 5186,
+      "action": "create-hold",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389111"
+        },
+        {
+          "kind": "getter",
+          "name": "balanceOf",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "create-hold",
+      "mode": "hash",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389111"
+        },
+        {
+          "kind": "getter",
+          "name": "balanceOf",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "execute",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "execute",
+      "mode": "hash",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "release",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "release",
+      "mode": "hash",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "kyc-negative",
+      "mode": "read-only",
+      "calls": [],
+      "updates": [],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "20026",
+      "status": "awaiting-signature",
+      "classified": true,
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        }
+      ],
+      "forbidden": [],
+      "unsignedBuyerSdkRejected": true
+    },
+    {
+      "port": 5186,
+      "action": "kyc-negative",
+      "mode": "historical",
+      "calls": [],
+      "updates": [],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "20026",
+      "status": "awaiting-signature",
+      "classified": true,
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "0x10"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 5186,
+      "action": "kyc-negative",
+      "mode": "transport",
+      "calls": [],
+      "updates": [],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30025",
+      "status": "awaiting-signature",
+      "classified": false,
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "create-hold",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389111"
+        },
+        {
+          "kind": "getter",
+          "name": "balanceOf",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "create-hold",
+      "mode": "hash",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/accounts/0.0.10389111"
+        },
+        {
+          "kind": "getter",
+          "name": "balanceOf",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "execute",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "execute",
+      "mode": "hash",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "release",
+      "mode": "reject",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "rejected",
+          "hasHash": false
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "rejected",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "release",
+      "mode": "hash",
+      "calls": [
+        "eth_sendTransaction"
+      ],
+      "updates": [
+        {
+          "status": "awaiting-signature",
+          "hasHash": false
+        },
+        {
+          "status": "pending",
+          "hasHash": true
+        }
+      ],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30024",
+      "status": "pending",
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "kyc-negative",
+      "mode": "read-only",
+      "calls": [],
+      "updates": [],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "20026",
+      "status": "awaiting-signature",
+      "classified": true,
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        }
+      ],
+      "forbidden": [],
+      "unsignedBuyerSdkRejected": true
+    },
+    {
+      "port": 4186,
+      "action": "kyc-negative",
+      "mode": "historical",
+      "calls": [],
+      "updates": [],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "20026",
+      "status": "awaiting-signature",
+      "classified": true,
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "0x10"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isExternallyGranted",
+          "block": "0x10"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "0x10"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "port": 4186,
+      "action": "kyc-negative",
+      "mode": "transport",
+      "calls": [],
+      "updates": [],
+      "connected": true,
+      "complete": false,
+      "timedOut": false,
+      "errorCode": "30025",
+      "status": "awaiting-signature",
+      "classified": false,
+      "released": true,
+      "requests": [
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getHoldForByPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getERC20Metadata",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "totalSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getMaxSupply",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "getControlListType",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isControllable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "arePartitionsProtected",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isClearingActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isMultiPartition",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "isIssuable",
+          "block": "latest"
+        },
+        {
+          "kind": "getter",
+          "name": "paused",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0x261ce349df182988fa25d00868cf6cf434220c24"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "isInternalKycActivated",
+          "block": "latest"
+        },
+        {
+          "kind": "mirror",
+          "path": "/api/v1/contracts/0.0.10402368"
+        },
+        {
+          "kind": "getter",
+          "name": "getKycStatusFor",
+          "block": "latest"
+        }
+      ],
+      "forbidden": []
+    }
+  ],
+  "publicExportCorrection": "Omitted SDK error message strings; only selected error codes, boolean classifications, public request names and boundary outcomes are retained. Harness output now applies the same whitelist."
+}

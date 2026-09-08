@@ -245,3 +245,30 @@ with live read-only chain data and a synthetic connection provider, not human
 MetaMask approvals. The externally installed Playwright harness is development
 verification tooling only; it was not added to the manifest/lock or app bundle.
 Historical audit, peer, native BBS and license limitations remain unchanged.
+
+## September 8, 2026 — T04 Hold lifecycle
+
+[Evidence 028](evidence/028-t04-implementation.md) uses ATS SDK 8.0.0 public
+`Security.createHoldByPartition`, `executeHoldByPartition`,
+`releaseHoldByPartition` and `Kyc.grantKyc` requests (Apache-2.0). The installed
+`build/esm/src/port/in/security/hold/Hold.js`, corresponding command handlers,
+AccountNotKycd error code and RPC transaction adapter informed fixed arguments,
+SDK rejection classification and empty data semantics. No SDK patch changed.
+
+The installed contracts 8.0.0 `HoldByPartitionFacet__factory` ABI supplies
+HeldByPartition, which is absent from the IAsset ABI. Existing IAsset exports
+supply execute/release/KYC events, getters and revert encodings. Published
+`contracts/facets/holdByPartition/HoldByPartition.sol`,
+`contracts/domain/asset/HoldStorageWrapper.sol`,
+`contracts/domain/asset/ERC1594StorageWrapper.sol` and
+`contracts/domain/asset/types/ThirdPartyType.sol` were inspected for exact event,
+escrow, amount, KYC and empty third-party semantics (Apache-2.0).
+No Solidity or cryptographic implementation was copied or deployed.
+
+The existing ethers 6.17.0 owned-provider pattern now hands saved hashes to the
+application's single bounded recovery; viem/Terminal3/wagmi uses and licenses
+above continue. Native Web Locks, AbortSignal and Web Storage provide locking,
+deadlines and public journals; native file input restores exported public JSON.
+External Playwright 1.63.0 is diagnostic tooling only. Four screenshots are
+automated captures of the original local console with live public reads and a
+synthetic account connection, not human approvals. No new assets or libraries.
