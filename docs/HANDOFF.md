@@ -1,5 +1,18 @@
 # HoldBook handoff
 
+## Judge documentation integration authorized — September 8, 2026 (effective)
+
+- `based_on_commit: 6a65097d8f2b6a3abd585e2eab56ef51421427b6` is the verified documentation
+  base. Victor requested “合併推送吧”, authorizing push and CI-gated merge of
+  `docs/judge-demo` into main. This supersedes its earlier local-only boundary.
+- Retain a merge commit, require CI success on the final PR head and verify
+  remote main contains it. GitHub PR/check history records the actual outcome.
+- Integration edits only `docs/ai-usage/039-judge-demo-merge.md`, AI_USAGE,
+  HANDOFF and the main plan. [Evidence 030](evidence/030-judge-demo.md) remains
+  the documentation validation record; application and evidence are unchanged.
+- Stop after integration. No new transaction, signature, recording or next
+  implementation is activated; no next source files are allowed.
+
 ## Judge presentation documentation — September 8, 2026 (effective)
 
 - `based_on_commit: f50cc999402b6ec7e6dbe8a0888fe5bf2062d2e1` is verified merged main;

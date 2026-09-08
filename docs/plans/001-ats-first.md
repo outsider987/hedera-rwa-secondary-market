@@ -762,3 +762,12 @@ two existing-gallery browser cases pass. The optional wallet-free preview read
 also passes. Evidence 030 records the temporary harness correction. Original
 source and evidence are unchanged; no transaction/signature or new human
 acceptance. Stop at the local documentation commit.
+
+### September 8, 2026 — judge documentation integration authorized
+
+Victor requested “合併推送吧”. Based on `6a65097d8f2b6a3abd585e2eab56ef51421427b6`,
+push `docs/judge-demo` and merge it into main after final-head CI success,
+retaining a merge commit and verifying remote ancestry. Only usage 039,
+AI_USAGE, HANDOFF and this plan change for integration. This supersedes the
+previous local-only boundary; no next implementation or chain operation is
+activated. GitHub PR/check history records the actual integration outcome.
