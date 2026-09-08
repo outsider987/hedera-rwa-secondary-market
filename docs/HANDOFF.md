@@ -1,5 +1,20 @@
 # HoldBook handoff
 
+## T08 connected role colors delivered — effective
+
+`based_on_commit: a4cb2ec2422ca5676f8552573bb5d77495577334`, verified Git HEAD.
+User requested distinct connected-role colors using installed Tailwind. Header
+now shows Admin purple, Seller amber, Buyer blue with explicit text; disconnected
+and unassigned accounts are neutral. Existing account lookup and wallet guards
+are preserved. npm ci retry,113 app+36 protobuf tests, typecheck, both builds and
+four isolated dev/preview desktop/mobile browser cases pass. See
+[Usage049](ai-usage/049-t08-role-colors.md) for evidence and installation retry.
+
+T08 remains active; all four chain cases and API persistence are verified.
+Victor browser reload confirmation, final static showcase and documentation/checks
+remain pending under the exact spec004 acceptance files below. No next ticket,
+wallet action, push, merge or publication is activated by this presentation work.
+
 ## T08 expired reclaim and API persistence verified — effective
 
 `based_on_commit: a1d5066` (actual prior HEAD; earlier Header work preserved).

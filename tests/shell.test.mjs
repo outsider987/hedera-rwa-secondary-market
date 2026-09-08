@@ -68,3 +68,22 @@ test('completed T05 exposes historical reads and no mutation reviews for either 
  for(const active of ['Seller','Buyer']){const html=renderToStaticMarkup(createElement(Panel,{roles:{},session:0,activeAccount:accounts[active].address,records:[],onRecords(){}}));assert.match(html,/Verify historical T05 state/);assert.match(html,/40247352/);assert.doesNotMatch(html,/Approve in MetaMask|Review purchase|Check readiness|Review cancellation/);}
  }finally{await server.close();}
 });
+
+test('Header distinguishes roles and clears role color when disconnected', async () => {
+  const server = await createServer({ server: { middlewareMode: true, hmr: false }, appType: 'custom' });
+  try {
+    const { default: Header } = await server.ssrLoadModule('/src/Header.tsx');
+    for (const [activeRole, connected, label, color] of [
+      ['Admin', true, 'Admin', 'purple'], ['Seller', true, 'Seller', 'amber'],
+      ['Buyer', true, 'Buyer', 'blue'], [undefined, true, 'Unassigned account', undefined],
+      ['Seller', false, 'Not connected', undefined],
+    ]) {
+      const html = renderToStaticMarkup(createElement(Header, { activeRole, connected, disabled: true, onWallet() {} }));
+      assert.ok(html.includes(label));
+      assert.ok(html.includes(connected ? 'Disconnect' : 'Connect'));
+      assert.match(html, /disabled=""/);
+      if (color) assert.ok(html.includes(`hb:bg-${color}-50 hb:text-${color}-900`));
+      else assert.doesNotMatch(html, /hb:bg-(purple|amber|blue)-50/);
+    }
+  } finally { await server.close(); }
+});

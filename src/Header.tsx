@@ -6,11 +6,20 @@ type HeaderProps = {
 };
 
 export default function Header({ activeRole, connected, disabled, onWallet }: HeaderProps) {
-  return <div className="hb:sticky hb:top-0 hb:z-10 hb:bg-[#f7f9fb]">
+  const role = connected ? activeRole : undefined;
+  const colors: Record<string, string> = {
+    Admin: 'hb:bg-purple-50 hb:text-purple-900',
+    Seller: 'hb:bg-amber-50 hb:text-amber-900',
+    Buyer: 'hb:bg-blue-50 hb:text-blue-900',
+  };
+  const roleColors = colors[role ?? ''] ?? 'hb:bg-[#f7f9fb] hb:text-[#485d6b]';
+  return <div className={`hb:sticky hb:top-0 hb:z-10 ${roleColors}`}>
     <header>
       <div><h1>HoldBook</h1></div>
       <div className="header-wallet">
-        <p className="network">Hedera Testnet · {activeRole ?? 'Not connected'}</p>
+        <p className="network">Hedera Testnet · <span className={`hb:inline-block hb:rounded hb:px-2 hb:py-1 hb:font-semibold ${roleColors}`}>
+          {connected ? role ?? 'Unassigned account' : 'Not connected'}
+        </span></p>
         <button type="button" className="secondary" disabled={disabled} aria-describedby="wallet-status" onClick={onWallet}>
           {connected ? 'Disconnect' : 'Connect'}
         </button>

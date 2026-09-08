@@ -154,3 +154,14 @@ locks. Use existing prefixed Tailwind sticky utilities, an opaque background,
 visible skip link and anchor clearance. Check npm ci/test/typecheck/both builds
 and dev/preview desktop/mobile scrolling and keyboard access. No next ticket or
 wallet/chain action is authorized by this presentation request.
+
+## September 8 connected role colors (authorized by user)
+
+User requested distinct colors when different roles connect. Use installed
+Tailwind in Header: Admin purple, Seller amber, Buyer blue; retain explicit role
+text and neutral disconnected/unassigned states. Scope: src/Header.tsx,
+tests/shell.test.mjs, DESIGN.md, this spec, docs/HANDOFF.md, AI_USAGE.md,
+docs/ai-usage/049-t08-role-colors.md, docs/evidence/041-t08-role-colors.mjs/.json,
+and 041-t08-role-colors-desktop.png/mobile.png. Check connection/account transitions,
+readable contrast, sticky behavior and responsive layout in isolated dev/preview
+browsers; npm ci/test/typecheck/both builds. No mutation or next-ticket changes.

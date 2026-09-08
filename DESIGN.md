@@ -168,3 +168,12 @@ The console Header component retains the existing title, Testnet/account label
 and guarded wallet button. Installed prefixed Tailwind utilities pin its opaque,
 full-width wrapper at top: 0 while scrolling. The skip link layers above it;
 root scroll padding leaves room for native anchor and keyboard navigation.
+
+## Connected account colors
+
+Header uses installed Tailwind purple-50/purple-900 for Admin,
+amber-50/amber-900 for Seller, and blue-50/blue-900 for Buyer. The opaque pinned
+header surface and explicit role label change together with the connected account.
+These identify bound accounts, not the buy/sell side of an individual match or
+transaction success. Disconnected and unassigned accounts retain neutral colors;
+an unknown connected account is labeled Unassigned account.
