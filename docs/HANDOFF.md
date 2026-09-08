@@ -1,5 +1,179 @@
 # HoldBook handoff
 
+## T05 integration authorized — September 8, 2026 (effective)
+
+`based_on_commit: db410a30284a3477ffca648ccb88bd928e4f2546`.
+Victor explicitly instructed “推送且合併” after completed T05 acceptance.
+This supersedes the local-only boundary below for pushing this branch, opening
+its PR and merging into main after CI passes. The worktree was clean and fetched
+origin/main remained d85d19c with no divergent commits. Integration changes only
+HANDOFF, AI work item 040 and AI_USAGE; no next ticket or chain mutation is
+authorized. CI must run npm ci, local Foundry tests, Node tests, typecheck and
+build. Confirm the merged PR and local/remote main afterward; do not bypass CI.
+
+## T05 complete — September 8, 2026 (effective boundary)
+
+`based_on_commit: 5c1a114b90e42ebeedc957ed31abd2bf788f728e` is the verified
+base of this final evidence update. Victor supplied exports (24)/(25) and final
+capture. Historical replay matched all three exact rejection cases at their
+original blocks and confirmed unchanged snapshots/runtime. Final block 40247352:
+Seller 84/0, Buyer 16/0, supply/cap 100/1000, swap Settled; Seller received
+1 HBAR principal. Three manually approved transactions, zero agent mutations.
+[Final English report](evidence/032-t05-manual.md), public JSON and captures
+record completed acceptance. Architecture, README, PRODUCT, DEMO, specs and AI
+provenance now point to this result. Older Pending sections below are history.
+
+Actual final checks: whitelisted imports, historical readHoldState/readSwap,
+assertTradeState/holdStateDigest and exact callTradeRevert replays passed;
+Markdown local links, JSON checkpoint assertions and git diff checks passed.
+No code changed in this evidence-only closure. Prior npm ci, 98 app + 36 proto,
+typecheck/build, 16 local contract tests and dev/preview results remain recorded.
+The supplied final screenshot and existing UI's static acceptance label still
+say Pending; this report is the completed human-evidence acceptance record.
+Cancellation/expiry/fault paths remain local VM coverage; existing dependency,
+native-BBS, license and event-eligibility limitations are not resolved by T05.
+
+Stop at local commits. No push, merge, new trade, new ticket or further mutation
+is authorized. **Next ticket allowed files: none; no next ticket is activated.**
+No further Victor signature or transaction is required for this ticket.
+
+## T05 settlement verified — September 8, 2026
+
+`based_on_commit: 0a33c8a2a8177e97e1d4456af53fbf60cae32caf`.
+Export (23) and Victor's capture show settle complete. Independent read-only
+recoverTrade verified receipt, same-hash ATS/swap events, historical balances,
+runtime and Mirror/payment evidence at block 40247134: Seller 84/0, Buyer 16/0,
+swap Settled (1), Seller principal 100000000 tinybars; transaction fee separately
+33893288 tinybars. Evidence 032 includes the sanitized record and capture.
+Next: Buyer runs duplicate rejection, exports original pre-purchase/duplicate
+simulation records from History, and supplies final UI capture. Overall
+acceptance remains Pending. No new purchase or next ticket. Existing allowed
+T05 evidence files continue to apply. Evidence-only update; prior code checks
+remain recorded and were not rerun. No agent transaction or signature.
+
+## T05 Seller Hold verified — September 8, 2026
+
+`based_on_commit: 6e641a81108976fbd198f0fd8ba2e402956bce8a`.
+Victor supplied public export (22) and the lock-complete screenshot. Independent
+read-only recovery verified Hold ID 2 from its event at block 40246787, matching
+10 NOVA, swap escrow, Buyer target, expiry, receipt/runtime and Mirror identity.
+Seller available/held is 84/10; Buyer 6/0; swap Open. Evidence 032 contains the
+whitelisted recovered record and supplied capture. No code or agent transaction
+changed; previous automated checks remain recorded, not rerun for evidence only.
+Next: Buyer readiness, pre-purchase read-only checks, then reviewed 1 HBAR
+purchase. Full acceptance remains Pending. Only the existing T05 scope and
+allowed files below apply; no subsequent ticket is activated.
+
+## T05 deployment recovery correction — September 8, 2026
+
+`based_on_commit: 2c7146ca76e5d16e664cf7f02609eb2314db2f61`.
+Victor supplied a public deployment intent and screenshots showing recovery
+complete, alongside a false “Swap already closed” message. Receipt block
+40245682 succeeded; a public read at 40246275 verified the expected runtime
+and Open (0) for swap `0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158`.
+Manual recovery now discards the older balance/runtime snapshot before journal
+updates. It requires fresh readiness afterward; no contract or guard changed.
+See [manual evidence 032](evidence/032-t05-manual.md). Overall acceptance remains
+Pending. Next Victor action: save the completed deployment export, switch to
+Seller, check readiness and review the new 10 NOVA Hold. Do not redeploy.
+The T05 scope and exact allowed files below continue to apply.
+Correction checks: npm ci, 98 app + 36 protobuf tests, typecheck and build pass.
+Both dev and preview replayed the original public deployment hash with no wallet:
+receipt/runtime/Mirror recovery complete, old snapshot cleared, no false closed
+warning, fresh readiness required, no forbidden requests or page errors. The
+contract is unchanged; prior 16 local VM checks remain the contract evidence.
+
+## T05 activated — September 8, 2026 (effective)
+
+- `based_on_commit: d85d19ca95fef467abf327a0620372c9b9f9ea88` is verified merged
+  main (PR #6), not this handoff's commit. Branch `feat/t05-atomic-trade` was
+  created from it with a clean worktree. Latest user plan activates T05 and
+  supersedes previous ticket stops/payment/custom-contract deferrals only for
+  this fixed trade. No T05 push/merge or agent chain mutation is authorized.
+- T02–T04 completed evidence remains historical. T04 final block 40241114:
+  Seller 94, Buyer 6, both held 0, supply/cap 100/1000, config 1. Current
+  public prerequisites at block 40244247 still match. T05 implementation and
+  automated checks are delivered; manual T05 acceptance remains Pending.
+  Preserve original records; never repeat T04 to test this ticket.
+- Read [T05 spec](plans/002-atomic-trade.md), [actual prompt](prompts/027-t05-atomic-trade.md)
+  and [UI direction](../DESIGN.md) before implementation. The original plan's
+  shared safety/attribution rules continue to apply. Follow this reading map
+  before older maps below when working on T05.
+
+Exact allowed implementation files, recorded before implementation:
+`contracts/NovaHbarSwap.sol`, `contracts/test/NovaHbarSwap.t.sol`, `foundry.toml`,
+`scripts/build-swap.mjs`, `src/swap-artifact.json`, `package.json`,
+`.github/workflows/ci.yml`, `src/trade.ts`, `src/TradePanel.tsx`,
+`tests/trade.test.mjs`, `src/App.tsx`, `src/styles.css`, `src/hold.ts`,
+`src/transport.ts`, `src/evidence.ts`, `tests/hold.test.mjs`,
+`tests/transport.test.mjs`, `tests/evidence.test.mjs`, `tests/shell.test.mjs`.
+
+Exact documentation/evidence files:
+`docs/plans/002-atomic-trade.md`, `DESIGN.md`,
+`docs/prompts/027-t05-atomic-trade.md`, `docs/ai-usage/040-t05-atomic-trade.md`,
+`docs/evidence/031-t05-implementation.md`, `docs/evidence/031-t05-validation.json`,
+`docs/evidence/031-t05-live-read.mjs`, `docs/evidence/031-t05-live-read.json`,
+`docs/evidence/031-t05-browser.mjs`, `docs/evidence/031-t05-browser.json`,
+`docs/evidence/031-t05-sdk-browser.mjs`, `docs/evidence/031-t05-sdk-browser.json`,
+`docs/evidence/031-t05-5173-1440.png`, `docs/evidence/031-t05-5173-390.png`,
+`docs/evidence/031-t05-4173-1440.png`, `docs/evidence/031-t05-4173-390.png`,
+`docs/evidence/031-t05-history.png`, `docs/evidence/031-t05-settings.png`,
+`docs/plans/001-ats-first.md`, `docs/HANDOFF.md`, `PRODUCT.md`, `README.md`,
+`docs/DEMO.md`, `docs/ARCHITECTURE.md`, `docs/ATTRIBUTION.md`, `AI_USAGE.md`.
+Subsequent manual evidence within this ticket only:
+`docs/evidence/032-t05-manual.md`, `docs/evidence/032-t05-manual.json`,
+`docs/evidence/032-t05-manual.html`, `docs/evidence/032-t05-deploy.png`,
+`docs/evidence/032-t05-lock.png`, `docs/evidence/032-t05-negative.png`,
+`docs/evidence/032-t05-purchase.png`, `docs/evidence/032-t05-final.png`,
+usage 040, HANDOFF, main plan and AI_USAGE. Create captures only when observed.
+No npm dependency, lockfile, existing patch, asset, account, or other file change.
+
+Normal flow: Admin deploys, Seller SDK locks 10, Buyer pays 1 HBAR to receive
+10; all three approvals manual in MetaMask on preview 4173. Start 94/6/held 0,
+locked 84/6/held 10, settled 84/16/held 0; supply/cap 100/1000 and Buyer held 0.
+Both KYC records cover reviewed block timestamp +86400 before deploy/lock.
+Unknown operations, expired KYC or pinned incompatibility stop for diagnostics.
+Wallet value 10^18 weibars; contract receives/pays 10^8 tinybars. No float math.
+Separate public T05 journal; immediate intent/hash persistence, session/role/
+chain/calldata/runtime guards, one 180-second recovery, no automatic resend.
+
+Required checks: npm ci/test/typecheck/build; Foundry 1.7.1, Solidity 0.8.36,
+Paris local VM contract suite; specified app races/guards; dev/preview browser
+desktop/mobile/keyboard/navigation/pending/request scope. Wrong Buyer/payment
+before live settlement and duplicate purchase afterward are read-only simulations
+with exact blocks/calldata and no transaction IDs. Manual acceptance stays
+Pending until actual receipt/event/Mirror/HBAR evidence and final state verify.
+Stop at T05; no next ticket or next implementation files are activated.
+
+Implementation boundary: [evidence 031](evidence/031-t05-implementation.md),
+[validation JSON](evidence/031-t05-validation.json) and
+[AI work item 040](ai-usage/040-t05-atomic-trade.md). npm ci, 98 app + 36 proto
+tests, typecheck, build and 16 local contract tests passed. Browser checks cover
+dev/preview at 1440/390, review/checkbox/preview gates, wallet invalidation,
+native navigation/focus, pending/reload and same-origin Web Lock exclusion.
+Fourteen genuine SDK controlled-boundary cases passed. No real transaction or
+signature was made; automated public reads do not observe MetaMask pending work.
+The fresh UI review's cancellation-role correction is resolved (`ship` at that
+fix's scope); DESIGN records the delivered interface and verification boundary.
+The relay's 1,000-block limit is handled by complete paginated history scans.
+SDK Hold creation lacks its own KYC precheck; the app enforces KYC before send.
+
+Next authorized work is only T05 manual acceptance on `127.0.0.1:4173`.
+Victor selects Admin, binds the original three accounts if absent, checks
+readiness, reviews deployment and confirms the absence of unknown MetaMask
+operations. He alone approves that transaction. Recover and export its receipt,
+runtime and Mirror evidence before Seller creates the new Hold. Buyer performs
+the pre-purchase read-only checks, then approves exactly 1 HBAR plus network
+fees and performs the duplicate rejection check. Follow [DEMO](DEMO.md).
+Expected final 84/16/held 0 is not yet an observed T05 result.
+
+The exact subsequent allowed files are the 032 manual-evidence paths listed
+above, usage 040, HANDOFF, the main plan and AI_USAGE. If acceptance reveals a
+defect, repair only the applicable T05 implementation/test files already listed
+above, update evidence 031 and rerun affected checks. No SDK/deployment fallback,
+KYC renewal, repeated T04, new trade or next ticket. Existing audit/peer/native
+BBS/license/event-eligibility limitations remain unresolved and disclosed.
+
 ## Judge documentation integration authorized — September 8, 2026 (effective)
 
 - `based_on_commit: 6a65097d8f2b6a3abd585e2eab56ef51421427b6` is the verified documentation

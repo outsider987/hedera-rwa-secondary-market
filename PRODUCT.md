@@ -17,22 +17,27 @@ the workflow and inspect its public transaction evidence.
 
 ## Product Purpose
 
-Prove a fictional ATS equity lifecycle on Hedera Testnet before designing a
-secondary market. NOVA is synthetic, not a real security or identity service.
+Prove one fixed atomic trade of 10 fictional NOVA shares for 1 Testnet HBAR,
+building on the completed ATS equity lifecycle. NOVA and KYC are synthetic.
 
 ## Operating Context
 
 Localhost English console, Traditional Chinese handoff, three distinct accounts:
-Admin (also Escrow / test VC issuer), Seller and Buyer. Victor manually approved
-the recorded MetaMask operations. The [judge demo](docs/DEMO.md) uses existing
-evidence and optional read-only queries.
+Admin (original test VC issuer), Seller and Buyer. Admin was T04 escrow; the
+fixed swap contract is T05 escrow. Victor approves each MetaMask transaction
+on preview 4173. Trade / History / Settings separates the next action from
+dated evidence and setup. The [demo](docs/DEMO.md) distinguishes manual T05
+acceptance from completed T02–T04 history.
 
 ## Capabilities and Constraints
 
 T02 NOVA creation, T03 Seller KYC / issuance and T04 Hold lifecycle are complete.
 T04 demonstrates Hold 10, Buyer KYC, execute 6 and release 4, with three expected
-read-only rejections. Creation and T03 issuance controls are closed.
-No backend, order book, cash settlement, real KYC, public site deployment,
+read-only rejections. All T02–T04 mutation controls are closed.
+T05 adds only the non-upgradeable NovaHbarSwap and its fixed HBAR payment.
+Manual acceptance completed September 8: Seller 84 / Buyer 16 / held 0,
+Seller principal 1 HBAR, final verification block 40247352. See
+[T05 evidence](docs/evidence/032-t05-manual.md). No backend, order book, real KYC, public site deployment,
 branding project, illustrative assets or animation in this slice.
 
 ## Evidence on Hand

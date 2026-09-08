@@ -1,0 +1,127 @@
+# T05 atomic trade — September 8, 2026
+
+Base: `d85d19ca95fef467abf327a0620372c9b9f9ea88`, verified merged main;
+branch `feat/t05-atomic-trade`. Victor supplied the full
+[T05 plan](../prompts/027-t05-atomic-trade.md), authorizing the single fixed
+payment contract, contract tooling, UI reorganization and tests. The scope
+supersedes previous payment/custom-contract deferrals only for this ticket.
+He fixed the three accounts, original NOVA, 10 shares / 1 HBAR, 24-hour expiry,
+manual MetaMask approvals, pinned dependencies and local-commit boundary.
+
+Codex read repository status/history, effective handoff, applicable shared
+plan rules and the T02–T04 evidence/source summaries before implementing.
+It saved the supplied prompt, T05 specification, UI direction and exact allowed
+files before code changes. No unseen pre-event file was imported or verified.
+Ponytail guided reuse of existing reads, providers, locks and journals;
+Impeccable guided the native Trade / History / Settings surface within Victor's
+fixed navy/light/system-font brief. No branding exercise, generated image,
+motion, UI package, dependency upgrade or upstream patch change was made.
+
+AI assistance produced the new Solidity swap and local VM suite, reproducible
+artifact build/check, guarded T05 orchestration/recovery, whitelist evidence,
+the three-page interface and Node/browser checks. It inspected installed ATS
+8.0.0 Hold semantics and genuine SDK requests and consulted primary Hedera unit
+and Mirror documentation. Human approval is not inferred from automated tests.
+No real T05 transaction, VC signature or human acceptance occurred in this work.
+
+Changed implementation files: `contracts/NovaHbarSwap.sol`,
+`contracts/test/NovaHbarSwap.t.sol`, `foundry.toml`, `scripts/build-swap.mjs`,
+`src/swap-artifact.json`, `package.json`, `.github/workflows/ci.yml`,
+`src/trade.ts`, `src/TradePanel.tsx`, `src/App.tsx`, `src/styles.css`,
+`src/hold.ts`, `src/transport.ts`, `src/evidence.ts`, `tests/trade.test.mjs`,
+`tests/hold.test.mjs`, `tests/transport.test.mjs`, `tests/shell.test.mjs`.
+Changed documentation: T05 plan/prompt, DESIGN, PRODUCT, README, DEMO,
+ARCHITECTURE, ATTRIBUTION, HANDOFF, main plan, this record and AI_USAGE;
+evidence 031 report, validation JSON, three runnable browser/read harnesses,
+their JSON outputs and six page screenshots. The validation inventory records
+exact paths and protected-file comparisons.
+
+[Evidence 031](../evidence/031-t05-implementation.md) distinguishes actual
+local checks, live public preflight, controlled SDK responses and outstanding
+human acceptance. It retains development corrections for the relay log range,
+the SDK KYC probe assumption, stale shell expectations and browser capture
+timing. No test response or simulation is represented as an actual transaction.
+A fresh Impeccable finish reviewer found a cancellation-review account indicator
+comparing against the normal Buyer stage instead of the reviewed Seller role.
+Codex corrected the shared role selection and added an actual-component render
+regression. The reviewer's final `ship` disposition covers that correction;
+it does not assert manual acceptance or contract security. The subsequent
+documenter is restricted to DESIGN.md by the user's exact file scope.
+
+Victor's next action is the Admin review on preview 4173, followed only after
+verified recovery by Seller's new Hold and Buyer's payment, with the required
+read-only rejections. Unknown outcomes, changed state, expired KYC or pinned
+incompatibility stop progress. Manual evidence 032 remains uncreated until
+observed. Stop at local T05 commits; no push, merge or next ticket.
+
+## Deployment recovery correction — September 8
+
+Base `2c7146ca76e5d16e664cf7f02609eb2314db2f61`. Victor supplied
+`holdbook-public-evidence (21).json` and screenshots of a successful recovery
+with a conflicting closed-swap message. Codex inspected only that public
+export, source and public chain data. It confirmed successful deployment and
+Open (0), traced the false message to an old component snapshot surviving
+manual recovery, and cleared that snapshot before journal updates. The fresh
+readiness requirement and all transaction guards remain. No new transaction,
+signature, contract, dependency or SDK change occurred.
+
+Changes: TradePanel, the existing browser harness/results, evidence 031's
+report/validation additions, manual evidence 032 MD/JSON and Victor's supplied
+deployment capture, HANDOFF, main plan, this entry and AI_USAGE. The live
+browser regression replays the public hash with no wallet and verifies the
+stale-state sequence. Actual checks are appended to evidence 031; historical
+implementation results above remain dated history. Next manual stage is Seller
+Hold creation; complete T05 acceptance remains Pending.
+
+## Seller Hold evidence — September 8
+
+Base `6e641a81108976fbd198f0fd8ba2e402956bce8a`. Victor supplied public export
+(22) and a lock-complete screenshot. Codex reused recoverTrade with an isolated
+in-memory journal and a 180-second deadline to independently verify the original
+hash, HeldByPartition-derived ID 2, historical 84/10 and 6/0 balances, full Hold,
+runtime, expiry and Mirror identity. Recovery completed successfully; no wallet,
+signature or chain mutation was used. Updated evidence 032 MD/JSON/capture,
+HANDOFF, main plan and this AI_USAGE entry/index only. Prior automated checks
+were not rerun for this evidence-only update. Buyer checks/purchase and complete
+acceptance remain Pending; no next ticket or extra live trade is authorized.
+
+## Settlement evidence — September 8
+
+Base `0a33c8a2a8177e97e1d4456af53fbf60cae32caf`. Victor supplied export (23)
+and a settlement screenshot. Codex independently recovered the original hash
+using the existing verifier with in-memory public storage and a 180-second
+deadline. Receipt, same-hash ATS/swap events, historical 84/16/held 0 state,
+runtime, Mirror identity and Seller's 1 HBAR principal passed. The transaction
+fee is recorded separately. Updated only evidence 032 MD/JSON/purchase capture,
+HANDOFF, main plan and AI_USAGE entry/index. No code changed or automated suites
+reran; no agent transaction or signature occurred. Original simulation exports,
+post-settlement duplicate check and final UI capture remain outstanding.
+
+## Final acceptance — September 8
+
+Base `5c1a114b90e42ebeedc957ed31abd2bf788f728e`. Victor supplied original
+simulation exports (24)/(25) and the final UI capture. Codex whitelisted both
+records, independently read their historical states/runtime and replayed each
+original from/value/calldata at its original block. WrongAccount, WrongPayment
+and Closed matched exactly; snapshots stayed unchanged. All three cases passed
+with no transaction ID or signature. Final 84/16/held 0, 100/1000 supply/cap
+and Seller principal complete the three-transaction normal-flow acceptance.
+
+Updated evidence 032 MD/JSON/final capture, README, PRODUCT, DEMO, ARCHITECTURE,
+ATTRIBUTION, both plans, HANDOFF and AI_USAGE. Local links, JSON assertions and
+diff checks passed. No implementation code or dependency changed; earlier
+automated suites were not rerun. The static Pending UI label in the supplied
+capture is explicitly distinguished from final report acceptance. Local VM
+failure-path coverage and existing eligibility/security limitations remain.
+Stop at the local T05 boundary, with no further transaction or next ticket.
+
+## Authorized integration — September 8
+
+Base `db410a30284a3477ffca648ccb88bd928e4f2546`. Victor explicitly requested
+“推送且合併”, authorizing branch push, PR creation and merge after CI passes.
+Codex checked the clean worktree, Git history, fetched origin/main (no divergent
+commits), configured origin and existing PRs. Only HANDOFF, this entry and the
+AI_USAGE index change for integration provenance. The PR's CI runs the pinned
+install, local contract tests, Node tests, typecheck and build. Merge completion
+and its resulting hash are established by GitHub/Git, not preclaimed here.
+No application change, new ticket, chain transaction or signature is authorized.

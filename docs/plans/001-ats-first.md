@@ -1,6 +1,14 @@
 # HoldBook 第一階段：ATS／KYC／Hold 驗證
 
 Status: 使用者於 2026-09-05 核准實作。進度以 `../HANDOFF.md` 為準。
+2026-09-08 T05 已另行核准：[單筆原子買賣規格](002-atomic-trade.md)。
+僅該票範圍解除下文付款腿／自訂合約延後限制；先前完成紀錄保留。
+T05 合約、介面與自動驗證已交付：[實作證據 031](../evidence/031-t05-implementation.md)、
+[AI 工作項目 040](../ai-usage/040-t05-atomic-trade.md)；真人三筆交易與三個唯讀拒絕案例驗收已完成。
+部署已恢復驗證，並修正恢復後舊畫面狀態：[進行中的真人證據 032](../evidence/032-t05-manual.md)。
+Seller Hold ID 2 已於區塊 40246787 獨立核對：Seller 84/10、Buyer 6/0；下一步為 Buyer 唯讀拒絕檢查與購買，完整成交仍 Pending。
+後續成交已於區塊 40247134 獨立核對：Seller 84/0、Buyer 16/0，Seller 收到 1 HBAR 本金；原始拒絕模擬證據與最後 UI 驗收仍 Pending，詳見證據 032。
+最終更新：原始模擬重播與 Victor 最終截圖均已核對；區塊 40247352 維持 84/16/held 0。上述階段性 Pending 已解除，[證據 032](../evidence/032-t05-manual.md) 為完整驗收報告。T05 停在本地提交，下一票未啟用。
 本文件保存定案；bootstrap 第一張 active ticket 是 T00-min。
 
 ## 1. 目標與範圍

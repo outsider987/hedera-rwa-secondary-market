@@ -2,87 +2,17 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { useQueries, useQuery } from '@tanstack/react-query';
 import { useConnect, useConnection, useDisconnect } from 'wagmi';
 import { acquireOperation, getOperationBusy, releaseOperation, subscribeOperation, bindingProblem, loadRoles, rolesStorageKey, roleNames, saveRoles, storageWarning, type MirrorAccount, type Roles } from './guards';
-import { checkWalletReview, invalidateWalletSession, type WalletReview, getWalletSession, lookupAccount, queryClient, subscribeWalletSession, testnetChainId, walletConfig } from './wallet';
+import { invalidateWalletSession, getWalletSession, lookupAccount, queryClient, subscribeWalletSession, testnetChainId, walletConfig } from './wallet';
 import { checkDeployment, deployments, equityConfigId } from './deployment';
 import { checkSdkConfig, prepareAts, type AtsLoadState, type SdkConfigCheck } from './ats';
 
-import { prepareCredential as prepareSubjectCredential, signCredential, type PreparedCredential, type CredentialResult, type VerifiedCredential } from './credentials';
-import { credentialEvidence, downloadEvidence } from './evidence';
+import { downloadEvidence, type TradeRecord } from './evidence';
+import TradePanel from './TradePanel';
+import { loadTradeRecords, tradeLabels } from './trade';
 import { accounts, securityId, securityAddress, creationHash, actionLabels, loadLifecycleRecords, type LifecycleRecord, type LifecycleState } from './lifecycle';
-import { holdStorageKey, holdLabels, loadHoldRecords, readHoldState, reviewHold, runHoldAction, recoverHold, restoreHoldEvidence, nextHoldAction, verifyT03History, type HoldReview, type HoldRecord, type HoldState } from './hold';
-import { type HoldTransaction } from './evidence';
+import { verifyT03History } from './hold';
 
-function Credentials({ roles, onVerified }: { roles: Roles; onVerified: (seller: VerifiedCredential | undefined) => void }) {
-  const locked = useSyncExternalStore(subscribeOperation, getOperationBusy, () => false);
-  const [review, setReview] = useState<{ wallet: WalletReview; vc: PreparedCredential }>();
-  const [accepted, setAccepted] = useState(false);
-  const [result, setResult] = useState<CredentialResult>();
-  const [message, setMessage] = useState('Prepare a synthetic Buyer credential with Admin selected.');
-  const [working, setWorking] = useState(false);
-  const mounted = useRef(true), controller = useRef<AbortController | undefined>(undefined);
-  useEffect(() => {
-    mounted.current = true;
-    return () => { mounted.current = false; controller.current?.abort(); };
-  }, []);
-  async function prepareCredential() {
-    if (getOperationBusy() || controller.current) return;
-    const current = controller.current = new AbortController();
-    onVerified(undefined);
-    setWorking(true); setReview(undefined); setResult(undefined); setAccepted(false); setMessage('Checking three accounts and preparing Buyer VC…');
-    try {
-      const stage = await reviewHold(roles, undefined, current.signal, setMessage);
-      if (stage.problem || stage.action !== 'buyer-kyc') throw new Error('Complete Hold creation and the un-KYC Buyer checks before preparing Buyer VC.');
-      const wallet = stage.wallet;
-      const vc = await prepareSubjectCredential(wallet.roles.Admin, wallet.roles.Buyer);
-      await checkWalletReview(wallet);
-      if (mounted.current) { setReview({ wallet, vc }); setMessage('Review the credential below before signing.'); }
-    } catch (error) {
-      if (mounted.current) setMessage(error instanceof Error ? error.message : 'Preparation did not complete. Select Admin on Hedera Testnet.');
-    } finally { current.abort(); controller.current = undefined; if (mounted.current) setWorking(false); }
-  }
-  async function sign() {
-    if (!review || !accepted || getOperationBusy()) return;
-    setWorking(true); setResult(undefined); setMessage('Awaiting your signature in MetaMask. Complete or reject the request there.');
-    try {
-      const verified = await signCredential(review.vc, review.wallet.provider, () => checkWalletReview(review.wallet));
-      if (mounted.current) {
-        onVerified(verified.verified && verified.credential ? { prepared: review.vc, credential: verified.credential, session: review.wallet.session } : undefined);
-        setResult(verified); setMessage(verified.verified
-        ? 'Buyer VC verified. Expired, tampered and wrong-subject checks passed. No on-chain KYC was granted.'
-        : 'Credential verification failed. Prepare again; do not use this credential.'); setAccepted(false); }
-    } catch (error) {
-      if (mounted.current) { setMessage(error instanceof Error ? error.message : 'Signature did not complete. Check MetaMask.'); setAccepted(false); }
-    } finally { if (mounted.current) setWorking(false); }
-  }
-  return <section className="deployment" aria-labelledby="credential-heading">
-    <h2 id="credential-heading">Buyer credential</h2>
-    <p>Admin signs a fictional KYC passed claim for Buyer. No personal data or revocation registry is used.</p>
-    <p>Full credentials and signatures stay in memory. Account, network or role changes and reload invalidate them.</p>
-    <p id="credential-status" role="status" aria-live="polite">{locked && !working ? 'Another operation is pending. Complete it before continuing.' : message}</p>
-    {review && <>
-      <dl className="wallet-details">
-        <div><dt>Issuer (Admin)</dt><dd><code>{review.vc.payload.issuer}</code></dd></div>
-        <div><dt>Subject (Buyer)</dt><dd><code>{review.vc.payload.credentialSubject.id}</code></dd></div>
-        <div><dt>Claims</dt><dd>SyntheticKyc · passed: true</dd></div>
-        <div><dt>Valid from (UTC)</dt><dd>{review.vc.payload.validFrom}</dd></div>
-        <div><dt>Valid until (UTC)</dt><dd>{review.vc.payload.validUntil}</dd></div>
-        <div><dt>Credential digest</dt><dd><code data-testid="credential-digest">{review.vc.digest}</code></dd></div>
-      </dl>
-      <label className="review-check"><input type="checkbox" checked={accepted} disabled={locked || !!result?.verified} onChange={event => setAccepted(event.target.checked)} />I reviewed the issuer, Buyer, fixed claims, dates and digest.</label>
-    </>}
-    <div className="actions">
-      <button type="button" disabled={locked || working || !roleNames.every(role => roles[role])} onClick={prepareCredential}>Prepare Buyer VC</button>
-      <button type="button" disabled={locked || !review || !accepted || !!result?.verified} onClick={sign}>Sign in MetaMask and verify</button>
-      <button type="button" className="secondary" disabled={locked || !review || !result} onClick={() => {
-        if (review && result) downloadEvidence(credentialEvidence({ digest: review.vc.digest, issuer: review.vc.payload.issuer,
-          subject: review.vc.payload.credentialSubject.id, validFrom: review.vc.payload.validFrom!, validUntil: review.vc.payload.validUntil!, ...result }));
-      }}>Export VC result</button>
-    </div>
-    <p className="deployment-note">Desktop Chrome + MetaMask ECDSA only. A signature is not a transaction. Native BBS is not supported.</p>
-  </section>;
-}
-
-import { isCreationOrigin, loadNovaRecord, novaStorageKey, recoverNova, saveNovaRecord, type NovaRecord } from './nova';
+import { loadNovaRecord, novaStorageKey, recoverNova, saveNovaRecord, type NovaRecord } from './nova';
 
 const novaMessages: Record<NovaRecord['status'], string> = {
   'awaiting-signature': 'Awaiting signature. Check MetaMask before doing anything else.',
@@ -121,102 +51,6 @@ function Lifecycle({ session }: { session: number }) {
   </section>;
 }
 
-function Hold({roles,session,buyer,activeAccount}: {roles:Roles;session:number;buyer?:VerifiedCredential;activeAccount?:string}) {
-  const locked = useSyncExternalStore(subscribeOperation,getOperationBusy,()=>false);
-  const [records,setRecords] = useState<HoldRecord[]>(()=>{try{return loadHoldRecords();}catch{return [];}});
-  const [state,setState] = useState<HoldState>(),[review,setReview] = useState<HoldReview>(),[approved,setApproved] = useState(false);
-  const [message,setMessage] = useState('Check current T04 state. First action: select Seller and review Hold 10. Manual acceptance is pending.');
-  const [reading,setReading] = useState(false),controller = useRef<AbortController | undefined>(undefined);
-  const [hash,setHash] = useState(''),[action,setAction] = useState<HoldTransaction['action']>('create-hold'),[baseBlock,setBaseBlock] = useState('');
-  const preview = typeof window !== 'undefined' && isCreationOrigin(window.location.origin,import.meta.env.PROD);
-  useEffect(()=>{controller.current?.abort();setReview(undefined);setApproved(false);setState(undefined);setReading(false);setMessage('Wallet or credential changed. Check current state and review again.');},[session,buyer]);
-  useEffect(()=>{
-    const refresh = (event:StorageEvent)=>{if(event.key !== holdStorageKey && event.key !== null)return;controller.current?.abort();setReview(undefined);setApproved(false);setState(undefined);try{setRecords(loadHoldRecords());setMessage('T04 journal changed in another tab. Query before continuing.');}catch{setMessage('T04 storage is invalid. Recover original public evidence.');}};
-    window.addEventListener('storage',refresh);return()=>{window.removeEventListener('storage',refresh);controller.current?.abort();};
-  },[]);
-  let next: string = 'Not checked',required = 'Seller',problem: string | undefined;
-  if(state){try{const action = nextHoldAction(state,records);next = action ? holdLabels[action] : 'Final readback complete; human report pending';required = action === 'create-hold' ? 'Seller' : 'Admin';}catch(error){problem = error instanceof Error ? error.message : 'Recover existing evidence.';next = 'Recovery required';required = 'Query only';}}
-  async function read(mode:'state'|'review'|'recover') {
-    if(getOperationBusy())return;
-    const current = controller.current = new AbortController();setReading(true);setReview(undefined);setApproved(false);setState(undefined);
-    try{
-      if(mode === 'review'){
-        const result = await reviewHold(roles,buyer,current.signal,setMessage);current.signal.throwIfAborted();setReview(result);setState(result.state);setRecords(loadHoldRecords());
-        setMessage(result.problem ?? (result.action === 'buyer-kyc' && !result.calldata ? 'Select Admin, prepare/review/sign/verify Buyer VC below, then review this action again.' : result.action ? 'Review the exact action and required account below.' : 'Final state matches. Export evidence for the separate human acceptance report.'));
-      }else if(mode === 'recover'){
-        setMessage('Querying original receipt, full historical transition and Mirror identity…');
-        const result = await recoverHold(hash.trim(),action,current.signal,setRecords,baseBlock.trim() || undefined);current.signal.throwIfAborted();
-        setMessage(`Transaction ${result.status}. Check current state before starting another review.`);
-      }else{
-        const lease = acquireOperation();try{const result = await readHoldState(current.signal,undefined,setMessage);current.signal.throwIfAborted();setState(result);setRecords(loadHoldRecords());setMessage('Current chain state read. Saved journal statuses must be reverified by Review next T04 action.');}finally{releaseOperation(lease);}
-      }
-    }catch(error){if(!current.signal.aborted)setMessage(error instanceof Error ? error.message : 'Query incomplete. Check the saved hash; never resubmit automatically.');}
-    finally{if(controller.current === current)setReading(false);}
-  }
-  async function run() {
-    if(getOperationBusy() || !review || !approved)return;
-    const current = controller.current = new AbortController();setApproved(false);setState(undefined);
-    const simulation = review.action === 'kyc-negative' || review.action === 'permission-negative';setReading(simulation);
-    try{
-      const result = await runHoldAction(review,setRecords,current.signal,setMessage);
-      if(result.status === 'complete' && result.after)setState(result.after);
-      if(result.kind === 't04-transaction' && result.transactionHash){setHash(result.transactionHash);setAction(result.action);setBaseBlock(result.input.baseBlock);}
-      setMessage(result.kind === 't04-simulation' ? 'Read-only checks passed and state stayed unchanged. No transaction or signature exists for these simulations.'
-        : result.status === 'complete' ? 'Transaction and full readback verified. Start the next review manually.' : `Operation ${result.status}. Check MetaMask and query the saved hash; do not repeat the transaction.`);
-    }catch(error){if(!current.signal.aborted)setMessage(error instanceof Error ? error.message : 'Action stopped. Check MetaMask before continuing.');}
-    finally{setReview(undefined);setReading(false);}
-  }
-  const simulation = review?.action === 'kyc-negative' || review?.action === 'permission-negative';
-  return <section className="deployment" aria-labelledby="hold-heading">
-    <h2 id="hold-heading">T04 · Hold lifecycle</h2>
-    <p>NOVA {securityId} · Hold 10 → Buyer KYC → execute 6 → release 4. Four manual transactions and one Buyer VC signature; negative checks are read-only.</p>
-    <dl className="wallet-details"><div><dt>Current stage</dt><dd>{next}</dd></div><div><dt>Required account</dt><dd>{review?.wallet.expectedRole ?? required}</dd></div><div><dt>Active account</dt><dd><code>{activeAccount ?? "Not connected"}</code></dd></div>
-      <div><dt>Transaction origin</dt><dd>{preview ? 'Production preview — manual MetaMask approval' : 'Dev — credentials and read-only queries; use preview 4173 for transactions'}</dd></div></dl>
-    <p role="status" aria-live="polite">{message}</p>{problem && <p role="alert">{problem}</p>}
-    <div className="actions"><button disabled={locked || reading} onClick={()=>read('state')}>Check current T04 state</button>
-      <button disabled={locked || reading || !roleNames.every(role=>roles[role])} onClick={()=>read('review')}>Review next T04 action</button>
-      {reading && <button className="secondary" onClick={()=>{controller.current?.abort();setReading(false);setMessage('Read cancelled. Existing transactions are retained.');}}>Cancel T04 read</button>}</div>
-    {state && <dl className="wallet-details"><div><dt>Current block / seconds</dt><dd>{state.block} / {state.timestamp}</dd></div>
-      <div><dt>Seller available / held</dt><dd>{state.sellerBalance} / {state.sellerHeld}</dd></div><div><dt>Buyer available / held</dt><dd>{state.buyerBalance} / {state.buyerHeld}</dd></div>
-      <div><dt>Supply / cap / config</dt><dd>{state.supply} / 1000 / 1</dd></div>
-      <div><dt>Seller KYC</dt><dd>{state.sellerKyc.status === 1 ? 'Valid' : 'Invalid'} · {state.sellerKyc.validFrom}–{state.sellerKyc.validTo} seconds</dd></div>
-      <div><dt>Buyer KYC</dt><dd>{state.buyerKyc.status === 1 ? 'Valid' : 'Not granted / invalid'} · {state.buyerKyc.vcId || 'No VC ID'}</dd></div>
-      <div><dt>Active Seller Hold IDs</dt><dd>{state.sellerHoldIds.join(', ') || 'None'}</dd></div><div><dt>Hold remaining</dt><dd>{state.hold?.amount ?? 'No active Hold'}</dd></div>
-    </dl>}
-    {review?.action && <><h3>Review: {holdLabels[review.action]}</h3><dl className="wallet-details">
-      <div><dt>Signer / chain / value</dt><dd>{review.wallet.expectedRole} · <code>{accounts[review.wallet.expectedRole].address}</code> · 296 / 0 HBAR</dd></div>
-      <div><dt>Asset / partition</dt><dd><code>{review.input.securityAddress}</code> / <code>{review.input.partition}</code></dd></div>
-      <div><dt>Holder / Escrow</dt><dd>Seller / Admin</dd></div><div><dt>Hold ID / target</dt><dd>{review.input.holdId ?? 'Read from successful HeldByPartition event'} / {review.action === 'release' ? 'Seller (original holder)' : review.action === 'create-hold' ? 'Zero address' : 'Buyer'}</dd></div>
-      <div><dt>Reviewed expiry basis</dt><dd>Block {review.input.baseBlock} · {review.input.baseTimestamp} + 86400 = {review.input.expirationTimestamp} Unix seconds</dd></div>
-      <div><dt>Data</dt><dd>Empty (0x)</dd></div>{review.kyc && <div><dt>Buyer KYC inputs</dt><dd>{review.kyc.vcId} · {review.kyc.issuer} · {review.kyc.validFrom}–{review.kyc.validTo} · digest {review.kyc.digest}</dd></div>}
-      <div><dt>Calldata digest</dt><dd><code>{review.digest ?? 'Verify Buyer VC first'}</code></dd></div></dl>
-      {simulation && <p>{review.action === 'kyc-negative' ? 'Read-only execute 6: Admin (Escrow) to Buyer; SDK rejection and matching eth_call.' : 'Read-only execute 6 from Seller must reject non-Escrow; execute 11 from Admin must reject the amount.'}</p>}
-      <details><summary>Exact reviewed calldata</summary><p className="address"><code>{review.calldata ?? 'Not prepared'}</code></p>{review.overAmountCalldata && <><p>Admin execute 11:</p><p className="address"><code>{review.overAmountCalldata}</code></p></>}</details>
-      <label className="review-check"><input type="checkbox" checked={approved} disabled={locked || !review.calldata} onChange={e=>setApproved(e.target.checked)}/>I reviewed this action, required account, fixed asset, Hold, amounts and exact expiry.</label></>}
-    <div className="actions"><button disabled={locked || !approved || !review?.calldata || (!simulation && !preview)} onClick={run}>{simulation ? 'Run read-only T04 checks' : 'Approve T04 transaction in MetaMask'}</button></div>
-    <p className="deployment-note">Hold or KYC expiry stops the flow. No automatic renewal, reclaim, new asset, issuance or resubmission.</p>
-    <details><summary>Recover and export T04 evidence</summary><p>Query submitted or unknown operations. Preserve each public export. Simulations have no transaction ID.</p>
-      <label className="text-field">Restore an exported public T04 operation (JSON)
-        <input type="file" accept="application/json,.json" disabled={locked || reading} onChange={async e=>{
-          const file = e.target.files?.[0]; e.target.value = ''; if(!file || getOperationBusy())return;
-          const lease = acquireOperation(); setReview(undefined);setApproved(false);setState(undefined);
-          try{if(file.size > 100000)throw new Error('Public evidence file is too large. Select one T04 operation export.');setRecords(await restoreHoldEvidence(JSON.parse(await file.text())));setMessage('Public evidence restored. Query its hash; imported completion is not accepted as chain proof.');}
-          catch(error){setMessage(error instanceof Error ? error.message : 'Invalid public operation export.');}finally{releaseOperation(lease);}
-        }}/>
-      </label>
-      <label className="text-field">T04 recorded action<select value={action} disabled={locked} onChange={e=>setAction(e.target.value as HoldTransaction['action'])}>{(['create-hold','buyer-kyc','execute','release'] as const).map(a=><option value={a} key={a}>{holdLabels[a]}</option>)}</select></label>
-      <label className="text-field">T04 public transaction hash<input value={hash} maxLength={66} disabled={locked} onChange={e=>setHash(e.target.value)} autoComplete="off" spellCheck={false}/></label>
-      <label className="text-field">Original reviewed base block (creation recovery without a saved intent)<input value={baseBlock} inputMode="numeric" disabled={locked} onChange={e=>setBaseBlock(e.target.value)} autoComplete="off"/></label>
-      <button disabled={locked || !/^0x[\da-f]{64}$/i.test(hash.trim())} onClick={()=>read('recover')}>Query T04 transaction</button>
-      <ol>{records.map(r=><li key={r.operationId}>{holdLabels[r.action]} · saved {r.status} · {r.kind === 't04-simulation' ? 'Read-only simulation; no transaction ID' : 'Transaction'}
-        <p className="address"><code>{r.kind === 't04-transaction' ? r.transactionHash ?? 'No hash recorded. Check MetaMask.' : r.cases.map(c=>c.revert).join(', ')}</code></p>
-        {r.kind === 't04-transaction' && <button className="secondary" disabled={locked} onClick={()=>{setHash(r.transactionHash ?? '');setAction(r.action);setBaseBlock(r.input.baseBlock);}}>Select T04 query</button>}{' '}
-        <button className="secondary" onClick={()=>downloadEvidence(r)}>Export T04 public evidence</button>
-      </li>)}</ol>
-    </details>
-  </section>;
-}
-
 function Nova({ session }: { session: number }) {
   const locked = useSyncExternalStore(subscribeOperation, getOperationBusy, () => false);
   const [record, setRecord] = useState<NovaRecord | undefined>(() => { try { return loadNovaRecord(); } catch { return undefined; } });
@@ -250,7 +84,7 @@ function Nova({ session }: { session: number }) {
       {reading && <button className="secondary" onClick={() => { controller.current?.abort(); setReading(false); setMessage('Historical query cancelled.'); }}>Cancel NOVA read</button>}
       <button className="secondary" disabled={!record} onClick={() => { if (record) downloadEvidence(record); }}>Export NOVA result</button></div>
     {record?.comparisons && <details><summary>{checkedHere ? 'T02 historical verification results' : 'Saved T02 results — query to verify history'}</summary>
-      <div className="comparison-table"><table><caption>Creation-block settings; current supply is shown in T04</caption><thead><tr><th>Setting</th><th>Expected</th><th>Observed</th><th>Result / source</th></tr></thead>
+      <div className="comparison-table"><table><caption>Creation-block settings; current balances are shown in Trade</caption><thead><tr><th>Setting</th><th>Expected</th><th>Observed</th><th>Result / source</th></tr></thead>
         <tbody>{record.comparisons.map(row => <tr key={row.field}><th scope="row">{row.field}</th><td>{row.expected || 'Empty'}</td><td>{row.actual || 'Empty'}</td><td>{row.matches ? 'Match' : 'Mismatch'} · {row.source}</td></tr>)}</tbody></table></div>
     </details>}
   </section>;
@@ -389,7 +223,7 @@ function Deployment() {
         </button>
         {sdkReading && <button type="button" className="secondary" disabled={controller.current?.signal.aborted} onClick={() => invalidateSdk('SDK check cancelled. Run a new check when ready.')}>Cancel SDK check</button>}
       </div>
-      <p className="deployment-note">This verifies the SDK config read only. Recheck before each T04 transaction. T02 creation is closed.</p>
+      <p className="deployment-note">This verifies the SDK config read only. Each T05 review checks the pinned SDK again. T02–T04 mutations are closed.</p>
     </section>
   </section>;
 }
@@ -427,7 +261,7 @@ function Accounts({ session, address, ready, roles, changeRoles }: {
   return (
     <section className="accounts" aria-labelledby="accounts-heading">
       <h2 id="accounts-heading">Set up three accounts</h2>
-      <p>Switch the active account in MetaMask, then assign it below. Admin also serves as Escrow and the test VC issuer.</p>
+      <p>Switch the active account in MetaMask, then assign it below. Admin is the original test VC issuer. The T05 swap contract serves as escrow.</p>
       <p>Assignments are local labels; they do not grant or prove on-chain permissions. Clear a role before replacing it.</p>
       {ready && address && <div className="current-lookup">
         <p role="status" aria-live="polite">Current account: {accountStatus(address)}</p>
@@ -477,8 +311,9 @@ export default function App() {
   const session = useSyncExternalStore(subscribeWalletSession, getWalletSession, () => 0);
   const [saved, setSaved] = useState(() => typeof window === 'undefined' ? { roles: {}, warning: '' } : loadRoles());
   const savedRef = useRef(saved);
-  const [verifiedBuyer, setVerifiedBuyer] = useState<VerifiedCredential>();
-  useEffect(() => { setVerifiedBuyer(undefined); }, [session]);
+  const [page,setPage] = useState('trade');
+  const [tradeRecords,setTradeRecords] = useState<TradeRecord[]>(()=>{try{return loadTradeRecords();}catch{return [];}});
+  useEffect(()=>{const change=()=>{const value=window.location.hash.slice(1);setPage(['trade','history','settings'].includes(value) ? value : 'trade');};change();window.addEventListener('hashchange',change);return()=>window.removeEventListener('hashchange',change);},[]);
   useEffect(() => {
     const changed = (event: StorageEvent) => {
       if (event.key !== rolesStorageKey && event.key !== null) return;
@@ -526,80 +361,45 @@ export default function App() {
     setSaved(savedRef.current);
   }
 
-  return (
-    <>
-      <a className="skip-link" href="#main">Skip to content</a>
-      <header>
-        <div>
-          <h1>HoldBook</h1>
-          <p>Equity lifecycle verification</p>
-        </div>
-        <p className="network">Hedera Testnet · Chain 296 / 0x128<br />Local account setup</p>
-      </header>
-
-      <main id="main">
-        <section className="notice" aria-labelledby="status-heading">
-          <h2 id="status-heading">Connect MetaMask</h2>
-          <p>Use desktop Chrome with only MetaMask installed. Connect when ready; reloading always requires a new connection.</p>
-          <dl className="wallet-details">
-            <div><dt>Active account</dt><dd data-testid="active-account">{connection.address ? <code>{connection.address}</code> : 'Wallet not connected.'}</dd></div>
-            <div><dt>Wallet chain ID</dt><dd data-testid="chain-id">{connection.chainId === undefined ? 'Not available' : `${connection.chainId} / 0x${connection.chainId.toString(16)}`}</dd></div>
-          </dl>
-          <p id="wallet-status" role="status" aria-live="polite">
-            {busy ? 'Wallet request pending. Complete or reject it in MetaMask.' : connection.isConnected
-              ? ready ? 'Connected to Hedera Testnet.' : 'Wrong network. Switch to Hedera Testnet (296 / 0x128) in MetaMask.'
-              : 'Wallet not connected. Press Connect to begin.'}
-          </p>
-          <div className="actions"><button type="button" disabled={busy || locked} aria-describedby="wallet-status" onClick={handleWallet}>{connection.isConnected ? 'Disconnect' : 'Connect'}</button></div>
-          {walletMessage && <p role="alert">{walletMessage}</p>}
+  const activeRole=Object.entries(accounts).find(([,a])=>a.address === connection.address?.toLowerCase())?.[0];
+  const deployment=tradeRecords.find(r=>r.action === 'deploy' && r.status === 'complete');
+  return <>
+    <a className="skip-link" href="#main">Skip to content</a>
+    <header><div><h1>HoldBook</h1></div><div className="header-wallet"><p className="network">Hedera Testnet · {activeRole ?? 'Not connected'}</p>
+      <button type="button" className="secondary" disabled={busy || locked} aria-describedby="wallet-status" onClick={handleWallet}>{connection.isConnected ? 'Disconnect' : 'Connect'}</button></div></header>
+    <main id="main">
+      <nav className="page-nav" aria-label="Main navigation">{['trade','history','settings'].map(item=><a key={item} href={'#'+item} aria-current={page === item ? 'page' : undefined}>{item[0].toUpperCase()+item.slice(1)}</a>)}</nav>
+      <p id="wallet-status" role="status" aria-live="polite" className="wallet-status">{busy ? 'Wallet request pending. Complete or reject it in MetaMask.' : connection.isConnected ? ready ? 'Connected to Hedera Testnet.' : 'Wrong network. Switch to Hedera Testnet (296 / 0x128) in MetaMask.' : 'Wallet not connected. Connect when ready.'}</p>
+      {walletMessage && <p role="alert">{walletMessage}</p>}{saved.warning && <p className="storage-warning" role="alert">{saved.warning}</p>}
+      <div id="trade" hidden={page !== 'trade'}><TradePanel roles={saved.roles} session={session} activeAccount={connection.address} records={tradeRecords} onRecords={setTradeRecords}/></div>
+      <section id="history" hidden={page !== 'history'} aria-labelledby="history-heading" className="page-section">
+        <h2 id="history-heading">Trade and asset history</h2><p>Historical verification blocks describe recorded results. Check Trade for current balances.</p>
+        <section className="history-section"><h3>T05 · Atomic trade</h3><p>Manual acceptance Pending. Saved journal statuses are reverified before each new action.</p>
+          {tradeRecords.length ? <ol className="history-list">{tradeRecords.map(r=><li key={r.operationId}><strong>{tradeLabels[r.action]}</strong> · saved {r.status}
+            <p>{r.kind === 't05-simulation' ? 'Read-only simulation · no signature or transaction ID' : r.transactionHash ?? 'No hash recorded. Check MetaMask.'}</p>
+            {r.after && <p>Verification block {r.after.block} · Seller {r.after.sellerBalance}, Buyer {r.after.buyerBalance}, Seller held {r.after.sellerHeld}.</p>}
+            {r.kind === 't05-transaction' && r.payment && <p>Seller principal: 1 HBAR. Network fee: {r.payment.feeTinybars} tinybars.</p>}
+            <button className="secondary" onClick={()=>downloadEvidence(r)}>Export T05 public evidence</button></li>)}</ol> : <p>No T05 operation recorded in this browser.</p>}
         </section>
-
-        {saved.warning && <p className="storage-warning" role="alert">{saved.warning}</p>}
-        <Accounts key={session} session={session} address={connection.address} ready={ready} roles={saved.roles} changeRoles={changeRoles} />
-
-        <Deployment />
-        <Hold activeAccount={connection.address} roles={saved.roles} session={session} buyer={verifiedBuyer?.session === session ? verifiedBuyer : undefined} />
-        <Credentials key={`credential-${session}`} roles={saved.roles} onVerified={setVerifiedBuyer} />
-        <Nova session={session} />
-        <Lifecycle session={session} />
-
-        <div className="columns">
-          <section aria-labelledby="asset-heading">
-            <h2 id="asset-heading">Planned asset</h2>
-            <p className="asset-name">Nova Private Equity Common Shares</p>
-            <p>Fictional Testnet asset. Synthetic KYC only.</p>
-            <dl>
-              <div><dt>Symbol</dt><dd>NOVA</dd></div>
-              <div><dt>ISIN</dt><dd><code>USNOVA000016</code></dd></div>
-              <div><dt>Decimals</dt><dd>0</dd></div>
-              <div><dt>Authorized shares</dt><dd>1,000</dd></div>
-              <div><dt>Security ID</dt><dd>See NOVA operation result</dd></div>
-            </dl>
-            <p>Use the NOVA operation result above for verified on-chain data.</p>
-          </section>
-
-          <section aria-labelledby="sequence-heading">
-            <h2 id="sequence-heading">Verification sequence</h2>
-            <ol>
-              <li><strong>ATS readiness</strong><span>Connect three accounts, resolve config, verify a test VC.</span></li>
-              <li><strong>Create NOVA</strong><span>Completed. Query the original creation history above.</span></li>
-              <li><strong>Seller KYC &amp; issuance</strong><span>Completed. Verify the six historical transactions above.</span></li>
-              <li><strong>Prove the Hold lifecycle</strong><span>Create Hold 10, prove negative checks, grant Buyer KYC, execute 6 and release 4.</span></li>
-            </ol>
-            <p>Lifecycle steps require separate verification. Victor approves each signature in MetaMask.</p>
-          </section>
-        </div>
-
-        <section className="evidence" aria-labelledby="evidence-heading">
-          <h2 id="evidence-heading">Transaction evidence</h2>
-          <p>Use the T02, T03 and T04 panels to query existing transactions and export public results. Local records alone do not establish chain success.</p>
+        <section className="history-section" aria-labelledby="t04-history-heading"><h3 id="t04-history-heading">T04 · Hold lifecycle complete</h3>
+          <p>Verified at block 40241114 on September 8, 2026. Hold 10 → execute 6 → release 4.</p>
+          <dl><div><dt>Seller available / held</dt><dd>94 / 0 NOVA</dd></div><div><dt>Buyer available / held</dt><dd>6 / 0 NOVA</dd></div><div><dt>Supply / cap / config</dt><dd>100 / 1,000 / 1</dd></div></dl>
+          <details><summary>Three verified rejections</summary><ul><li>Buyer without KYC: SDK AccountNotKycd and contract InvalidKycStatus at block 40228392.</li>
+            <li>Seller executing as escrow: IsNotEscrow at block 40239552.</li><li>Admin executing 11 from Hold 10: InsufficientHoldBalance at block 40239552.</li></ul><p>Public simulations only. No signature or transaction ID exists for these rejections.</p></details>
+          <p><a href="https://github.com/outsider987/hedera-rwa-secondary-market/blob/main/docs/evidence/029-t04-manual.md">Open T04 verified report and screenshots</a></p>
         </section>
-      </main>
-
-      <footer>
-        <p>Testnet demonstration only. No real securities, identity checks, or legal compliance claims.</p>
-        <a href="https://github.com/outsider987/hedera-rwa-secondary-market/blob/main/docs/HANDOFF.md">Read the project handoff</a>
-      </footer>
-    </>
-  );
+        <details className="history-section"><summary>T03 · Seller KYC and issuance complete</summary><p>100 NOVA issued to Seller; final verification block 40224162.</p><Lifecycle session={session}/></details>
+        <details className="history-section"><summary>T02 · NOVA creation complete</summary><p>Creation block 40209377 · initial supply 0.</p><Nova session={session}/></details>
+      </section>
+      <section id="settings" hidden={page !== 'settings'} aria-labelledby="settings-heading" className="page-section">
+        <h2 id="settings-heading">Settings</h2><p>Use desktop Chrome and MetaMask. Transactions require manual approval on production preview 4173.</p>
+        <dl className="wallet-details"><div><dt>Active account</dt><dd data-testid="active-account"><code>{connection.address ?? 'Wallet not connected.'}</code></dd></div>
+          <div><dt>Wallet chain ID</dt><dd data-testid="chain-id">{connection.chainId ?? 'Not available'}</dd></div><div><dt>Swap address</dt><dd><code>{deployment?.input.escrow ?? 'Not deployed in this journal'}</code></dd></div>
+          <div><dt>NOVA / ISIN</dt><dd>0.0.10402368 / USNOVA000016</dd></div><div><dt>NOVA address</dt><dd><code>{securityAddress}</code></dd></div></dl>
+        <Accounts key={session} session={session} address={connection.address} ready={ready} roles={saved.roles} changeRoles={changeRoles}/>
+        <details className="settings-details"><summary>SDK, network and ATS deployment</summary><Deployment/></details>
+      </section>
+    </main>
+    <footer><p>Testnet demonstration only. Synthetic KYC; no real securities or identity checks.</p><a href="https://github.com/outsider987/hedera-rwa-secondary-market/blob/main/docs/HANDOFF.md">Project handoff</a></footer>
+  </>;
 }

@@ -13,6 +13,7 @@ import { holdActions, holdEvidence, holdInputEvidence, holdStateEvidence, type H
 export type { HoldRecord, HoldState, HoldTransaction } from './evidence';
 export const zero = '0x' + '0'.repeat(40);
 export const holdStorageKey = 'holdbook.testnet.t04.v1';
+export const t04Closed = true;
 export const holdLabels: Record<HoldAction,string> = { 'create-hold': 'Create Hold 10', 'kyc-negative': 'Verify Buyer without KYC is rejected',
   'buyer-kyc': 'Grant Buyer KYC', 'permission-negative': 'Verify escrow and amount restrictions', execute: 'Execute 6 to Buyer', release: 'Release 4 to Seller' };
 export const t03Hashes = [
@@ -78,7 +79,7 @@ export function saveHoldRecords(records: HoldRecord[], storage: Pick<Storage,'ge
 export const holdStateDigest = (s: HoldState) => JSON.stringify({ ...holdStateEvidence(s),block: undefined,timestamp: undefined });
 const completed = (records: HoldRecord[], action: HoldAction) => records.find(r => r.action === action && r.status === 'complete');
 const unresolved = (r: HoldRecord) => r.status !== 'complete' && r.status !== 'failed' && !(r.status === 'rejected' && r.kind === 't04-transaction' && !r.transactionHash);
-function validKyc(s: HoldState, subject: 'sellerKyc'|'buyerKyc', expiry: string) {
+export function validKyc(s: HoldState, subject: 'sellerKyc'|'buyerKyc', expiry: string) {
   const k = s[subject];
   if (k.status !== 1 || !k.vcId || k.issuer !== accounts.Admin.address || BigInt(k.validFrom) > BigInt(s.timestamp)
     || BigInt(k.validTo) <= BigInt(s.timestamp) || BigInt(k.validTo) < BigInt(expiry)) throw new Error(`${subject === 'sellerKyc' ? 'Seller' : 'Buyer'} KYC must remain valid through the reviewed Hold expiry. Stop; do not renew automatically.`);
@@ -424,6 +425,7 @@ export async function reviewHold(roles: Roles, buyer: VerifiedCredential | undef
 
 export async function runHoldAction(review: HoldReview, update: (records: HoldRecord[])=>void, signal: AbortSignal,
   progress: (message:string)=>void = ()=>{}): Promise<HoldRecord> {
+  if (t04Closed) throw new Error('T04 is complete. All T04 transaction and signature entry points are closed. Use historical queries.');
   const simulation = review.action === 'kyc-negative' || review.action === 'permission-negative';
   if (!simulation && !isCreationOrigin(window.location.origin,import.meta.env.PROD)) throw new Error('Use production preview http://127.0.0.1:4173 for transactions.');
   return withTransactionLock(navigator.locks,async()=> {

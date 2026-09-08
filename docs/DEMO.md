@@ -1,5 +1,44 @@
 # HoldBook · two-minute demo
 
+## T05 recorded operator flow — acceptance complete
+
+The following flow was completed September 8, 2026. Present the saved History
+and [acceptance evidence](evidence/032-t05-manual.md); do not repeat this trade.
+Final block 40247352: Seller 84, Buyer 16, both held 0; Seller received 1 HBAR.
+
+Open http://127.0.0.1:4173. Connect the original accounts in Settings, then use
+Trade. Start only with Seller 94, Buyer 6, both held 0, supply/cap 100/1000,
+config 1, KYC covering the reviewed 24-hour expiry, and no unknown MetaMask
+operation. The interface rechecks these conditions before each submission.
+
+1. **Admin:** Check readiness → Review deployment. Inspect the fixed contract,
+   accounts and expiry; check the review box and manually approve in MetaMask.
+   Save the exported public result after receipt/runtime/Mirror verification.
+2. **Seller:** Check readiness → Review Hold. Lock 10 NOVA with the new swap as
+   escrow and Buyer as target. Manually approve; verify **84 / 6 / held 10**.
+   The Hold ID comes from the event. Export the result.
+3. **Buyer:** Check readiness → Review checks → Run read-only checks. Wrong
+   Buyer and wrong payment must revert. Then Check readiness → Review purchase,
+   review **1 HBAR plus the network fee**, and manually approve. Verify
+   **Seller 84 / Buyer 16 / held 0** and Seller's **1 HBAR principal** separately
+   from fees. Export the result. Finally run the displayed duplicate-purchase
+   rejection check and export it.
+
+These are three transactions. Read-only checks have no signature or transaction
+ID. If a result is unknown or indexing is pending, open **Recover an existing
+operation**, select the saved action and query the original hash. Restore the
+original public intent JSON if needed. Never clear the journal to submit again.
+Cancellation starts a separate Seller review; after expiry the next action is
+reclaim. Those alternate paths are locally tested; normal human acceptance
+performs only this trade. Do not renew expired KYC or change pinned deployments.
+
+[Implementation report](evidence/031-t05-implementation.md) ·
+[Fixed specification](plans/002-atomic-trade.md).
+All three transactions and three read-only rejection cases are independently
+verified in [public evidence 032](evidence/032-t05-manual.json).
+
+## Completed T04 walkthrough
+
 **Show the completed run. No new transactions or signatures.**
 Open the [acceptance report](evidence/029-t04-manual.md) and
 [screenshot gallery](evidence/029-t04-manual.html). Open the gallery locally
@@ -14,7 +53,7 @@ from the cloned repository; GitHub displays its HTML source.
 | 0:35–0:55 | [Buyer credential](evidence/029-t04-buyer-vc.png), then [KYC grant](evidence/029-t04-buyer-kyc.png) | “Admin signed a synthetic Buyer credential and granted KYC. We also checked that Seller could not execute as escrow, and Admin could not execute more than the held amount.” |
 | 0:55–1:15 | [Execute 6](evidence/029-t04-execute.png) | “Admin executed 6 to Buyer. Four shares remained held.” |
 | 1:15–1:35 | [Release complete](evidence/029-t04-final.png) and balance table below | “Admin released the remaining 4 to Seller. Seller finished with 94, Buyer with 6, and no shares remained held.” |
-| 1:35–2:00 | [Transaction links and verification](evidence/029-t04-manual.md) | “Four transactions were manually approved in MetaMask. Receipts, events and historical balances were independently checked. This demonstrates the asset lifecycle; payment settlement remains future work.” |
+| 1:35–2:00 | [Transaction links and verification](evidence/029-t04-manual.md) | “Four transactions were manually approved in MetaMask. Receipts, events and historical balances were independently checked. T05 subsequently completed one atomic trade; its separate report verifies delivery and payment.” |
 
 ## Follow the shares
 
@@ -43,12 +82,12 @@ with **no transaction ID or signature**. [Evidence and historical replay](eviden
 
 ## Optional live view
 
-1. [Start the local console](../README.md#run-the-console-locally).
-2. Under **T04 · Hold lifecycle**, click **Check current T04 state**.
-3. Read the balances below the buttons. **Cancel T04 read** stops a slow query.
+1. [Start the local console](../README.md#run-locally).
+2. Open **Trade** and click **Check readiness**.
+3. Read the current balance snapshot and its block. **Cancel check** stops a slow query.
 
 This query needs internet, but no wallet connection or signature. Current KYC
-can expire; a fresh browser may show **Recovery required** without the saved
-journal. Use the dated report for acceptance and the earlier rejection checks.
-Do not use **Review next T04 action**, prepare another VC or approve a transaction
-for this walkthrough.
+can expire; saved journal status does not prove a current result. Use **History**
+and the dated report for T04 acceptance and its rejection checks. All T04
+transaction/signature entry points are closed. This historical walkthrough
+does not perform the separately authorized T05 flow above.

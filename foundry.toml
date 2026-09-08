@@ -1,0 +1,15 @@
+[profile.default]
+src = "contracts"
+test = "contracts/test"
+out = ".artifacts/swap/out"
+cache_path = ".cache/swap"
+libs = ["node_modules"]
+auto_detect_remappings = false
+remappings = ["@hashgraph/asset-tokenization-contracts/=node_modules/@hashgraph/asset-tokenization-contracts/"]
+solc = "0.8.36"
+evm_version = "paris"
+optimizer = true
+optimizer_runs = 200
+bytecode_hash = "none"
+cbor_metadata = false
+ffi = false

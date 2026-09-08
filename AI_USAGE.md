@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-08 | T05 atomic trade and interface | [Completed acceptance and explicitly authorized CI-gated integration](docs/ai-usage/040-t05-atomic-trade.md) |
 | 2026-09-08 | Judge documentation integration | [Authorized push and CI-gated merge](docs/ai-usage/039-judge-demo-merge.md) |
 | 2026-09-08 | Judge presentation documentation | [Concise English entry, demo script and evidence links](docs/ai-usage/038-judge-demo.md) |
 | 2026-09-08 | Authorized T04 integration | [Push, exact-head CI gate and merge](docs/ai-usage/037-t04-merge.md) |

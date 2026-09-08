@@ -12,8 +12,8 @@ export function credentialEvidence(input: CredentialEvidenceInput) {
     ...(input.negatives ? { negatives: { expired: input.negatives.expired === true,
       tampered: input.negatives.tampered === true, wrongSubject: input.negatives.wrongSubject === true } } : {}) };
 }
-export function downloadEvidence(value: ReturnType<typeof credentialEvidence> | NovaRecord | LifecycleRecord | HoldRecord) {
-  const url = URL.createObjectURL(new Blob([JSON.stringify(value.kind === 't04-transaction' || value.kind === 't04-simulation' ? holdEvidence(value) : value.kind === 't03' ? lifecycleEvidence(value) : value.kind === 'nova-create' ? novaEvidence(value) : credentialEvidence(value), null, 2) + '\n'], { type: 'application/json' }));
+export function downloadEvidence(value: ReturnType<typeof credentialEvidence> | NovaRecord | LifecycleRecord | HoldRecord | TradeRecord) {
+  const url = URL.createObjectURL(new Blob([JSON.stringify(value.kind === 't05-transaction' || value.kind === 't05-simulation' ? tradeEvidence(value) : value.kind === 't04-transaction' || value.kind === 't04-simulation' ? holdEvidence(value) : value.kind === 't03' ? lifecycleEvidence(value) : value.kind === 'nova-create' ? novaEvidence(value) : credentialEvidence(value), null, 2) + '\n'], { type: 'application/json' }));
   const link = document.createElement('a'); link.href = url; link.download = 'holdbook-public-evidence.json'; link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
@@ -159,5 +159,54 @@ export function holdEvidence(r: HoldRecord): HoldRecord {
   if (fields.transactionHash) { result.transactionHash = fields.transactionHash; result.hashScanLink = fields.hashScanLink; }
   if (fields.transactionId) result.transactionId = fields.transactionId;
   if (fields.consensusTimestamp) result.consensusTimestamp = fields.consensusTimestamp;
+  return result;
+}
+
+export const tradeActions = ['deploy','lock','settle','cancel','reclaim'] as const;
+export type TradeAction = typeof tradeActions[number];
+export type TradeTransaction = HoldRecordBase & { kind: 't05-transaction'; action: TradeAction; status: NovaStatus | 'failed';
+  signerRole: 'Admin' | 'Seller' | 'Buyer'; calldata: string; calldataDigest: string; walletValueWeibars: string;
+  transactionHash?: string; transactionId?: string; consensusTimestamp?: string; hashScanLink?: string;
+  runtimeDigest?: string; readBlock?: string; swapState?: number;
+  payment?: { sellerAccountId: string; buyerAccountId: string; sellerCreditTinybars: string; principalTinybars: string; feeTinybars: string } };
+export type TradeSimulation = HoldRecordBase & { kind: 't05-simulation'; action: 'purchase-negative' | 'duplicate-negative'; status: 'complete';
+  cases: { check: 'wrong-buyer' | 'wrong-payment' | 'duplicate'; from: string; walletValueWeibars: string; calldata: string;
+    block: string; afterBlock: string; revertData: string }[] };
+export type TradeRecord = TradeTransaction | TradeSimulation;
+const publicHex = (v: unknown, max: number) => {
+  if (typeof v !== 'string' || v.length > max || !/^0x(?:[\da-f]{2})+$/i.test(v)) throw new Error('Invalid public hex data.');
+  return v.toLowerCase();
+};
+export function tradeEvidence(r: TradeRecord): TradeRecord {
+  if (!r || r.schemaVersion !== 1 || r.chainId !== 296 || !/^[\w-]{1,100}$/.test(r.operationId) || !Number.isFinite(Date.parse(r.startedAt))) throw new Error('Invalid T05 evidence. Recover the original operation.');
+  const base: HoldRecordBase = { schemaVersion:1, chainId:296, operationId:r.operationId, startedAt:r.startedAt, input:holdInputEvidence(r.input),
+    ...(r.before ? {before:holdStateEvidence(r.before)} : {}), ...(r.after ? {after:holdStateEvidence(r.after)} : {}) };
+  if (r.kind === 't05-simulation') {
+    const expected = r.action === 'purchase-negative' ? ['wrong-buyer','wrong-payment'] : r.action === 'duplicate-negative' ? ['duplicate'] : [];
+    if (!expected.length || r.status !== 'complete' || !Array.isArray(r.cases) || r.cases.length !== expected.length) throw new Error('Invalid T05 simulation.');
+    const cases = r.cases.map((c,i) => {
+      if (c.check !== expected[i]) throw new Error('Wrong simulation sequence.');
+      return {check:c.check,from:address(c.from),walletValueWeibars:decimal(c.walletValueWeibars),calldata:publicHex(c.calldata,1000),
+        block:decimal(c.block),afterBlock:decimal(c.afterBlock),revertData:publicHex(c.revertData,10)};
+    });
+    return {...base,kind:r.kind,action:r.action,status:'complete',cases};
+  }
+  if (r.kind !== 't05-transaction' || !tradeActions.includes(r.action) || !(r.status === 'failed' || novaStatuses.includes(r.status))
+    || r.signerRole !== (r.action === 'deploy' ? 'Admin' : r.action === 'settle' ? 'Buyer' : 'Seller')
+    || !/^0x[\da-f]{64}$/i.test(r.calldataDigest) || r.walletValueWeibars !== (r.action === 'settle' ? '1000000000000000000' : '0')) throw new Error('Invalid T05 transaction.');
+  const result: TradeTransaction = {...base,kind:r.kind,action:r.action,status:r.status,signerRole:r.signerRole,
+    calldata:publicHex(r.calldata,50000),calldataDigest:r.calldataDigest,walletValueWeibars:r.walletValueWeibars};
+  for (const [key, pattern] of Object.entries({transactionHash:/^0x[\da-f]{64}$/i,transactionId:/^0\.0\.[1-9]\d*-\d+-\d+$/,
+    consensusTimestamp:/^\d+\.\d{9}$/,runtimeDigest:/^0x[\da-f]{64}$/i,readBlock:/^[1-9]\d*$/})) {
+    const value = r[key as keyof TradeTransaction];
+    if (value !== undefined) { if (typeof value !== 'string' || !pattern.test(value)) throw new Error('Invalid T05 public field.'); Object.assign(result,{[key]:value}); }
+  }
+  if (r.swapState !== undefined) { if (![0,1,2,3].includes(r.swapState)) throw new Error('Invalid swap state.'); result.swapState=r.swapState; }
+  if (r.payment) {
+    const p=r.payment;
+    if (r.action !== 'settle' || ![p.sellerAccountId,p.buyerAccountId].every(a=>/^0\.0\.[1-9]\d*$/.test(a))) throw new Error('Invalid payment evidence.');
+    result.payment={sellerAccountId:p.sellerAccountId,buyerAccountId:p.buyerAccountId,sellerCreditTinybars:decimal(p.sellerCreditTinybars),principalTinybars:decimal(p.principalTinybars),feeTinybars:decimal(p.feeTinybars)};
+  }
+  if (result.transactionHash) result.hashScanLink='https://hashscan.io/testnet/transaction/'+result.transactionHash;
   return result;
 }

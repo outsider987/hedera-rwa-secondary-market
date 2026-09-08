@@ -272,3 +272,45 @@ deadlines and public journals; native file input restores exported public JSON.
 External Playwright 1.63.0 is diagnostic tooling only. Four screenshots are
 automated captures of the original local console with live public reads and a
 synthetic account connection, not human approvals. No new assets or libraries.
+
+## September 8, 2026 — T05 atomic trade
+
+`NovaHbarSwap` is new AI-assisted project code, marked `UNLICENSED`; this does
+not assert a project license. It imports the installed ATS contracts 8.0.0
+`IHoldByPartition`, `IHoldTypes` and `ThirdPartyType` interfaces/types
+(Apache-2.0), retaining their upstream notices in the pinned package. The
+published Hold storage implementation informed full-Hold checks, exact expiry
+boundaries, escrow permissions and release/reclaim behavior. No ATS deployment,
+SDK version, dependency override or retained patch changed.
+
+The genuine SDK 8.0.0 `Security.createHoldByPartition` request creates the new
+Hold. Inspection and a controlled browser probe established that its create
+path does not itself enforce the application's KYC preflight; T05 checks both
+records and their expiry coverage before reaching the wallet boundary. Existing
+ethers 6.17.0 and viem 2.56.3 (MIT) supply ABI encoding, bytecode hashing and
+owned providers. Native navigation, details, Web Locks, storage and AbortSignal
+provide the UI and operation lifecycle, without new npm packages.
+
+The [Hedera Ethereum transaction documentation](https://docs.hedera.com/native/smart-contracts/ethereum-transaction)
+supplies the distinct wallet-value weibars and EVM tinybars semantics. The
+Testnet [Mirror OpenAPI](https://testnet.mirrornode.hedera.com/api/v1/docs/openapi.yml)
+informs contract-result identity, transaction timestamp, transfers and fee
+fields. These sources inform verification; [evidence 032](evidence/032-t05-manual.md)
+records subsequent completed T05 manual acceptance. Its screenshots were supplied
+by Victor and its public JSON exports were independently checked against chain
+records; no wallet profile, secret or new product asset was used.
+
+Local contract tooling: [Foundry 1.7.1](https://github.com/foundry-rs/foundry/tree/v1.7.1)
+(Apache-2.0 or MIT) and [Solidity 0.8.36](https://github.com/argotorg/solidity/blob/v0.8.36/LICENSE.txt)
+(GPL-3.0 compiler), targeting Paris. The CI
+[Foundry toolchain action](https://github.com/foundry-rs/foundry-toolchain/tree/908c540300062bd5a7e473851cdb4282204cee09)
+is pinned by commit ([MIT](https://github.com/foundry-rs/foundry-toolchain/blob/908c540300062bd5a7e473851cdb4282204cee09/LICENSE-MIT)). Tests use a local VM and a small declared cheatcode
+interface; no forge-std, copied wallet, private key, chain fork or CLI signer.
+
+Evidence 031 uses externally installed Playwright Core 1.50.1 (Apache-2.0)
+with Chrome 143.0.7499.169, not an npm dependency or a browser wallet profile.
+Its screenshots are actual local-page captures with public Testnet reads and
+synthetic account connections. Pending records and SDK wallet responses used
+for race/rejection tests are explicitly synthetic; they are not transaction
+evidence. No image, font or animation asset was added to the product. Existing
+dated attribution and audit/peer/native-BBS/license limitations remain intact.

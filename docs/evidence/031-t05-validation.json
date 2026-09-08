@@ -1,0 +1,1593 @@
+{
+  "schemaVersion": 1,
+  "ticket": "T05",
+  "recordedAt": "2026-09-08T03:09:25.505Z",
+  "based_on_commit": "d85d19ca95fef467abf327a0620372c9b9f9ea88",
+  "branch": "feat/t05-atomic-trade",
+  "manualAcceptance": "Pending",
+  "realTransactions": [],
+  "realSignatures": [],
+  "tools": {
+    "node": "v24.19.0",
+    "npm": "11.17.0",
+    "foundry": "forge Version: 1.7.1\nCommit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8\nBuild Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)\nBuild Profile: dist",
+    "compiler": "0.8.36+commit.8a079791",
+    "evmTarget": "paris",
+    "playwrightCore": "1.50.1",
+    "browser": "Chrome 143.0.7499.169"
+  },
+  "commands": [
+    {
+      "command": "npm ci",
+      "exitCode": 0,
+      "logUpdatedAt": "2026-09-08T02:24:31.975Z",
+      "summary": "1290 packages added; existing postinstall rebuild and ATS patches applied.",
+      "retainedWarnings": {
+        "audit": {
+          "total": 62,
+          "low": 21,
+          "moderate": 25,
+          "high": 16
+        },
+        "unapprovedPackageInstallScripts": [
+          "@reown/appkit@1.8.19",
+          "keccak@3.0.4",
+          "protobufjs@7.6.6",
+          "secp256k1@4.0.5"
+        ],
+        "peerAndDeprecationWarnings": true
+      }
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "logUpdatedAt": "2026-09-08T02:56:41.955Z",
+      "suites": [
+        {
+          "tests": 98,
+          "pass": 98,
+          "fail": 0
+        },
+        {
+          "tests": 36,
+          "pass": 36,
+          "fail": 0
+        }
+      ],
+      "passingChecks": [
+        "✔ browser adapters never inspect or emit SDK payloads or run formatters",
+        "✔ public SDK types accept a genuine network request with a caller-owned read provider",
+        "✔ SDK patch rejects version/content drift before writing and survives reapplication",
+        "✔ the loader caches one safe result and never calls the configuration API",
+        "✔ SDK config requires manual preparation, verified preflight and an owned restricted provider",
+        "✔ managed wallet patch is pinned, all-or-nothing, idempotent and does not overlap the read-only patch",
+        "✔ genuine Terminal3 payload, UTF-8 digest signing, rejection and invalid credentials",
+        "✔ six scoped repair edges are pinned, including absent optional packages",
+        "✔ contract records must match the fixed ID and contain a live, nonzero EVM address",
+        "✔ real viem performs only the fixed chain, Mirror and bytecode reads; results are whitelisted",
+        "✔ wrong or malformed chain and RPC errors stop before contract queries without leaking error objects",
+        "✔ duplicate deployment addresses prevent both bytecode reads",
+        "✔ invalid Mirror, HTTP failures, empty and malformed code cannot pass; independent successes survive",
+        "✔ one 10-second deadline aborts requests, never retries and produces safe timeout status",
+        "✔ cancellation rejects, including a transport response arriving after cancellation",
+        "✔ config accepts safe positive versions and rejects zero, unsafe values, bad ABI and reverts",
+        "✔ config requires verified Resolver; Factory failure does not suppress an independent config result",
+        "✔ config shares the original deadline and cannot publish after cancellation, even with a late reply",
+        "✔ config never follows an OffchainLookup response to an external gateway",
+        "✔ VC public evidence excludes all credential, proof, signature and arbitrary error data",
+        "✔ one shared operation lease excludes siblings and stale release cannot unlock another",
+        "✔ Hold IDs and expiry preserve canonical safe SDK seconds",
+        "✔ SDK KYC and chain revert classifications cannot pass transport or generic errors",
+        "✔ T03 transaction entry is closed before any network or wallet operation",
+        "✔ T04 entry is read-only before wallet or network access",
+        "✔ four exact receipt/events and historical transitions reject changed inputs and complete release without a deleted getter",
+        "✔ only the fixed six-stage lifecycle progresses; unknown work, skipped simulations and expired KYC/Hold stop",
+        "✔ public T04 transaction/simulation evidence excludes credentials, proofs, wallet/error objects and simulation tx IDs",
+        "✔ eth_call uses exact from/calldata/zero value at the recorded block; transport and wrong reverts never pass",
+        "✔ four T04 recoveries verify full historical state and Mirror identity; delay/unknown/reload never authorizes replay",
+        "✔ invalid T04 journal cannot leak the operation lease; imported public intent remains pending until recovery",
+        "✔ Buyer preparation binds exact public KYC seconds/digest and genuine verifier rejects unsigned, expired, tampered and wrong-subject inputs",
+        "✔ T03 orders missing roles and issuer; never reissues changed supply or balances",
+        "✔ exact fixed calldata, zero value, fixed accounts and asset; no alternative actions",
+        "✔ public T03 evidence drops arbitrary objects, signatures and credentials",
+        "✔ all six receipt actions require exact event, calldata, block and sender",
+        "✔ T03 provider rejects alternate methods and duplicates, and retains late hashes after cancellation",
+        "✔ T03 provider rejection, stale preflight and bounded lookup keep retry decisions explicit",
+        "✔ original account mapping is mandatory; UTF-8 KYC calldata preserves ID and Unix seconds",
+        "✔ role IDs match the pinned SDK, not hashes inferred from enum labels",
+        "✔ recovery verifies historical transition and Mirror mapping; delay, reload, failed receipt and missing history stay safe",
+        "✔ KYC transition compares values independent of JSON field order; final 100 can never issue again",
+        "✔ NOVA request and calldata are fixed; every mutation field and unexpected method is guarded",
+        "✔ durable intent and immediate hash persist; reload and unknown never enable duplicate creation",
+        "✔ same-origin lock is mandatory and never waits to submit a duplicate",
+        "✔ receipt validation requires successful exact Factory event and canonical transaction/block binding",
+        "✔ managed provider serializes concurrent requests; late hash is retained and unsafe methods never reach wallet",
+        "✔ recovery uses real ABI decoding and explicit RPC/Mirror fixtures; delay, mismatch and reload do not create",
+        "✔ rejection, stale review, post-send timeout and late responses retain safe public state",
+        "✔ the shell renders planned data without claiming a wallet or chain result",
+        "✔ a Seller cancellation review uses the reviewed role for both label and selection",
+        "✔ T05 fixed constructor, SDK Hold calldata, bytecode and integer HBAR units",
+        "✔ all five exact receipts, full events and historical transitions bind the same hash and Hold",
+        "✔ stage guards stop unknown work, altered state, insufficient KYC, missing evidence and expired purchases",
+        "✔ public journal strips non-whitelisted objects, detects storage failure and restores as unknown",
+        "✔ HBAR principal is exact and separate from safe integer fee fields",
+        "✔ history covers all blocks in relay-sized pages and detects an unrecorded operation",
+        "✔ simulations use recorded block, exact wei units and explicit from; transport errors cannot pass",
+        "✔ original-hash recovery retains pending and Mirror delay, verifies runtime, same receipt and payment",
+        "✔ T04 shared transport preserves late hash, excludes duplicates, blocks all simulation mutations and delegates one recovery",
+        "✔ T05 payable transport preserves late hashes, distinguishes rejection from unknown, serializes tabs and keeps ATS zero-value guards",
+        "✔ Mirror accepts only a matching EVM address, canonical Hedera ID and explicitly live account",
+        "✔ role binding rejects replacement, duplicate address/ID and unverified saved accounts",
+        "✔ storage failures stay in memory; persisted payload contains only role addresses",
+        "✔ wallet review binds explicit Seller or Admin signer in both wagmi and provider",
+        "✔ only approved runtime versions are installed",
+        "✔ @hashgraph/proto: compatibility",
+        "✔ @hashgraph/proto: public-api",
+        "✔ @hashgraph/proto: truncated-varint",
+        "✔ @hashgraph/proto: truncated-bytes",
+        "✔ @hashgraph/proto: truncated-message",
+        "✔ @hashgraph/proto: groups-4",
+        "✔ @hashgraph/proto: groups-128",
+        "✔ @hashgraph/proto: groups-8192",
+        "✔ @hashgraph/proto: keys-4",
+        "✔ @hashgraph/proto: keys-128",
+        "✔ @hashgraph/proto: keys-8192",
+        "✔ @hashgraph/proto: thresholds-4",
+        "✔ @hashgraph/proto: thresholds-128",
+        "✔ @hashgraph/proto: thresholds-8192",
+        "✔ @hashgraph/proto: nested-length-overrun",
+        "✔ @hashgraph/proto: top-length-overrun",
+        "✔ @hashgraph/proto: option-eof",
+        "✔ @hiero-ledger/proto: compatibility",
+        "✔ @hiero-ledger/proto: public-api",
+        "✔ @hiero-ledger/proto: truncated-varint",
+        "✔ @hiero-ledger/proto: truncated-bytes",
+        "✔ @hiero-ledger/proto: truncated-message",
+        "✔ @hiero-ledger/proto: groups-4",
+        "✔ @hiero-ledger/proto: groups-128",
+        "✔ @hiero-ledger/proto: groups-8192",
+        "✔ @hiero-ledger/proto: keys-4",
+        "✔ @hiero-ledger/proto: keys-128",
+        "✔ @hiero-ledger/proto: keys-8192",
+        "✔ @hiero-ledger/proto: thresholds-4",
+        "✔ @hiero-ledger/proto: thresholds-128",
+        "✔ @hiero-ledger/proto: thresholds-8192",
+        "✔ @hiero-ledger/proto: nested-length-overrun",
+        "✔ @hiero-ledger/proto: top-length-overrun",
+        "✔ @hiero-ledger/proto: option-eof",
+        "✔ both public proto entries retain their own decoded classes in either load order"
+      ]
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "output": "> holdbook@0.0.0 typecheck\n> tsc --noEmit"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "output": "dist/index.html                                          1.20 kB │ gzip:   0.48 kB\ndist/assets/index-D1p_GK9L.css                           7.50 kB │ gzip:   2.14 kB\ndist/assets/wui-icon-CnqB7m0x.js                         0.03 kB │ gzip:   0.05 kB\ndist/assets/wui-image-DSc9899t.js                        0.03 kB │ gzip:   0.05 kB\ndist/assets/wui-shimmer-D5lzBlV2.js                      0.03 kB │ gzip:   0.05 kB\ndist/assets/wui-icon-box-DM62s41m.js                     0.03 kB │ gzip:   0.05 kB\ndist/assets/wui-input-text-Dwa9mFqP.js                   0.03 kB │ gzip:   0.05 kB\ndist/assets/wui-loading-spinner-BwVb8-Sp.js              0.04 kB │ gzip:   0.06 kB\ndist/assets/NavigationUtil-CLCRNDHF.js                   0.06 kB │ gzip:   0.08 kB\ndist/assets/if-defined-CuYKaY4o.js                       0.06 kB │ gzip:   0.08 kB\ndist/assets/dist-D6L6gF64.js                             0.10 kB │ gzip:   0.11 kB\ndist/assets/MathUtil-B2UslVSw.js                         0.22 kB │ gzip:   0.18 kB\ndist/assets/ConstantsUtil-Cp8ebnfI.js                    0.49 kB │ gzip:   0.36 kB\ndist/assets/AlertController-BqOh6Stv.js                  0.64 kB │ gzip:   0.40 kB\ndist/assets/transactions-CiR1kUzw.js                     0.96 kB │ gzip:   0.57 kB\ndist/assets/preload-helper-Czpn1I53.js                   1.19 kB │ gzip:   0.67 kB\ndist/assets/wui-email-input-AL4hfpJx.js                  1.34 kB │ gzip:   0.69 kB\ndist/assets/rolldown-runtime-BcKkbAw3.js                 1.34 kB │ gzip:   0.72 kB\ndist/assets/wui-separator-BkxkSWns.js                    1.49 kB │ gzip:   0.74 kB\ndist/assets/wui-shimmer-DEiJ1R8g.js                      1.52 kB │ gzip:   0.74 kB\ndist/assets/PhCaretLeft-CI460R-A.js                      1.85 kB │ gzip:   0.90 kB\ndist/assets/dist-Cuadm9-o.js                             1.86 kB │ gzip:   0.84 kB\ndist/assets/ref-D-bUnIrx.js                              1.87 kB │ gzip:   0.89 kB\ndist/assets/PhCaretDown-BDNabFuL.js                      1.91 kB │ gzip:   0.93 kB\ndist/assets/PhCaretRight-D7ZS3Ls8.js                     1.93 kB │ gzip:   0.92 kB\ndist/assets/PhCaretUp-C-iIfyvO.js                        1.99 kB │ gzip:   0.91 kB\ndist/assets/PhArrowUpRight-BNghD2zq.js                   2.03 kB │ gzip:   0.99 kB\ndist/assets/ConstantsUtil-IgQrDvg6.js                    2.06 kB │ gzip:   0.77 kB\ndist/assets/PhArrowDown-87b1BizM.js                      2.07 kB │ gzip:   0.99 kB\ndist/assets/PhPlus-C4UoW-2n.js                           2.08 kB │ gzip:   0.94 kB\ndist/assets/PhCheck-DxQXn57r.js                          2.08 kB │ gzip:   0.96 kB\ndist/assets/PhArrowRight-AdrIL4DW.js                     2.08 kB │ gzip:   0.99 kB\ndist/assets/PhArrowLeft-Da0MfnbK.js                      2.09 kB │ gzip:   0.98 kB\ndist/assets/PhArrowUp-4sgyKPGx.js                        2.14 kB │ gzip:   0.98 kB\ndist/assets/utils-Br0svb7K.js                            2.16 kB │ gzip:   0.98 kB\ndist/assets/PhBrowser-2-9m-AkM.js                        2.18 kB │ gzip:   0.95 kB\ndist/assets/PhMagnifyingGlass-C9u8jSCJ.js                2.18 kB │ gzip:   1.05 kB\ndist/assets/PhDotsThree-D-k1BiYg.js                      2.22 kB │ gzip:   0.92 kB\ndist/assets/hex-encoding-B19xAT_7.js                     2.24 kB │ gzip:   1.05 kB\ndist/assets/PhCopy-CWNYcABI.js                           2.33 kB │ gzip:   0.99 kB\ndist/assets/PhFunnelSimple-CfQs5DAW.js                   2.33 kB │ gzip:   0.98 kB\ndist/assets/PhClock-x3MS3Mwi.js                          2.34 kB │ gzip:   1.01 kB\ndist/assets/PhWarningCircle-BXHw1fCt.js                  2.40 kB │ gzip:   1.03 kB\ndist/assets/wui-avatar-C5Kn650E.js                       2.46 kB │ gzip:   1.02 kB\ndist/assets/PhX-DX0SFIqC.js                              2.47 kB │ gzip:   1.04 kB\ndist/assets/PhDeviceMobile-CsyA5Goi.js                   2.54 kB │ gzip:   1.05 kB\ndist/assets/PhArrowClockwise-DVgyFuez.js                 2.56 kB │ gzip:   1.17 kB\ndist/assets/PhUser-0sWNXQeZ.js                           2.65 kB │ gzip:   1.25 kB\ndist/assets/PhEnvelope-D8kzeNox.js                       2.66 kB │ gzip:   1.16 kB\ndist/assets/PhCircleHalf-MJZeRBGF.js                     2.69 kB │ gzip:   1.20 kB\ndist/assets/PhSignOut-CxELV-i0.js                        2.73 kB │ gzip:   1.14 kB\ndist/assets/PhInfo-Bwi51-2X.js                           2.74 kB │ gzip:   1.19 kB\ndist/assets/PhPower-CFyWDmgD.js                          2.75 kB │ gzip:   1.26 kB\ndist/assets/wui-icon-link-DJfVhxTo.js                    2.75 kB │ gzip:   0.98 kB\ndist/assets/PhDesktop-CxrzCSv5.js                        2.75 kB │ gzip:   1.09 kB\ndist/assets/PhArrowsLeftRight-MuKBLUoF.js                2.77 kB │ gzip:   1.16 kB\ndist/assets/PhArrowCircleDown-D97G-BOA.js                2.78 kB │ gzip:   1.16 kB\ndist/assets/PhWallet-DzNiREN9.js                         2.80 kB │ gzip:   1.15 kB\ndist/assets/PhQuestionMark-CV0k9C0Y.js                   2.81 kB │ gzip:   1.28 kB\ndist/assets/PhArrowSquareOut-Bk2CMG3I.js                 2.89 kB │ gzip:   1.23 kB\ndist/assets/PhArrowsDownUp-DM09Jo_3.js                   2.90 kB │ gzip:   1.15 kB\ndist/assets/PhCreditCard-Fy4pzwtt.js                     2.90 kB │ gzip:   1.13 kB\ndist/assets/PhBank-fHbgCqqZ.js                           2.91 kB │ gzip:   1.23 kB\ndist/assets/PhVault-6JTskUcC.js                          2.93 kB │ gzip:   1.18 kB\ndist/assets/wui-icon-box-DqQ8Qk2h.js                     2.94 kB │ gzip:   0.97 kB\ndist/assets/PhCompass-hYn3HhGN.js                        2.95 kB │ gzip:   1.25 kB\ndist/assets/wui-link-DbnMCW76.js                         2.96 kB │ gzip:   1.00 kB\ndist/assets/PhPaperPlaneRight-zxQVvPLX.js                3.06 kB │ gzip:   1.40 kB\ndist/assets/wui-image-DQFIUVgR.js                        3.08 kB │ gzip:   1.19 kB\ndist/assets/PhTrash-C9PD0SAt.js                          3.09 kB │ gzip:   1.17 kB\ndist/assets/PhCurrencyDollar-BgiaenCi.js                 3.22 kB │ gzip:   1.32 kB\ndist/assets/HelpersUtil-D00TyYCu.js                      3.26 kB │ gzip:   1.33 kB\ndist/assets/PhQuestion-wOWJBd3G.js                       3.28 kB │ gzip:   1.43 kB\ndist/assets/wui-list-token-BieTCgEw.js                   3.30 kB │ gzip:   1.24 kB\ndist/assets/PhImage-Cf0J2ZfJ.js                          3.40 kB │ gzip:   1.43 kB\ndist/assets/wui-list-item-Cb3aQwLD.js                    3.72 kB │ gzip:   1.30 kB\ndist/assets/PhArrowsClockwise-BXRn1GEl.js                3.84 kB │ gzip:   1.57 kB\ndist/assets/PhWarning-CoKs3gz6.js                        3.88 kB │ gzip:   1.47 kB\ndist/assets/wui-input-amount-D0IKS2mc.js                 4.04 kB │ gzip:   1.51 kB\ndist/assets/wui-list-social-CuFuXp-W.js                  4.13 kB │ gzip:   1.76 kB\ndist/assets/PhIdentificationCard-CfkZm-5K.js             4.19 kB │ gzip:   1.63 kB\ndist/assets/utils-62W0Csdc.js                            4.29 kB │ gzip:   1.76 kB\ndist/assets/PhSpinner-CGDmbzUd.js                        4.42 kB │ gzip:   1.63 kB\ndist/assets/wui-token-button-Cvakr3Lv.js                 4.68 kB │ gzip:   1.43 kB\ndist/assets/wui-loading-spinner-Dvb-aG8-.js              4.79 kB │ gzip:   1.97 kB\ndist/assets/PhLightbulb-C4FZV7Es.js                      4.88 kB │ gzip:   1.84 kB\ndist/assets/PhQrCode-CP3tFauY.js                         4.89 kB │ gzip:   1.46 kB\ndist/assets/w3m-onramp-providers-footer-CrEsRajZ.js      4.93 kB │ gzip:   1.77 kB\ndist/assets/wui-qr-code-CuEs9Fnl.js                      5.21 kB │ gzip:   2.13 kB\ndist/assets/PhPuzzlePiece-BjoNVfST.js                    5.34 kB │ gzip:   1.94 kB\ndist/assets/w3m-tooltip--Au7OVtS.js                      5.55 kB │ gzip:   1.92 kB\ndist/assets/wui-button-Sl_OQ_HW.js                       5.63 kB │ gzip:   1.52 kB\ndist/assets/PhGlobe-DvmSc9_A.js                          5.69 kB │ gzip:   1.91 kB\ndist/assets/features-DoigsjeZ.js                         5.75 kB │ gzip:   2.26 kB\ndist/assets/wui-input-text-B2Gtaka7.js                   6.26 kB │ gzip:   1.93 kB\ndist/assets/receive-BBEnNA1n.js                          6.61 kB │ gzip:   2.37 kB\ndist/assets/wui-loading-thumbnail-DHSobJ-d.js            7.82 kB │ gzip:   2.37 kB\ndist/assets/ExchangeController-BKtah6L-.js               7.97 kB │ gzip:   3.06 kB\ndist/assets/hmac-BSeZHieH.js                             9.70 kB │ gzip:   4.61 kB\ndist/assets/w3m-email-otp-widget-CiVd1vsw.js             9.73 kB │ gzip:   3.16 kB\ndist/assets/wui-wallet-switch-kmCnLUyK.js               10.16 kB │ gzip:   3.03 kB\ndist/assets/CaipNetworkUtil-Ch4pFyLj.js                 10.32 kB │ gzip:   4.74 kB\ndist/assets/email-DGLS8KyB.js                           10.50 kB │ gzip:   2.79 kB\ndist/assets/dist-DPKNlvg4.js                            11.74 kB │ gzip:   4.33 kB\ndist/assets/PhSealCheck-vIKzREuN.js                     12.07 kB │ gzip:   4.06 kB\ndist/assets/src-Ckws4D3v.js                             12.65 kB │ gzip:   5.19 kB\ndist/assets/index.browser-BDf4v9YX.js                   13.33 kB │ gzip:   4.60 kB\ndist/assets/SwapController-1lSeVrvC.js                  13.85 kB │ gzip:   3.96 kB\ndist/assets/browser-ponyfill-D7h5ucDO.js                14.32 kB │ gzip:   4.67 kB\ndist/assets/pay-with-exchange-DhyJwFTK.js               15.80 kB │ gzip:   4.11 kB\ndist/assets/property-DuZ9DLP4.js                        16.17 kB │ gzip:   6.08 kB\ndist/assets/index.es-Bx83BAeO.js                        16.19 kB │ gzip:   5.79 kB\ndist/assets/socials-BRvinZaP.js                         17.96 kB │ gzip:   4.70 kB\ndist/assets/data-capture-ClhRBh1b.js                    18.36 kB │ gzip:   5.69 kB\ndist/assets/wui-list-wallet-B8rvC_RJ.js                 23.66 kB │ gzip:   6.62 kB\ndist/assets/browser-BLmJMKa5.js                         24.00 kB │ gzip:   9.07 kB\ndist/assets/secp256k1-I33RQ7_Z.js                       25.13 kB │ gzip:   9.85 kB\ndist/assets/embedded-wallet-CRJWnVYe.js                 25.61 kB │ gzip:   6.80 kB\ndist/assets/onramp-BYavfjl6.js                          26.13 kB │ gzip:   6.55 kB\ndist/assets/OptionsController-DgdkkawG.js               26.51 kB │ gzip:   7.82 kB\ndist/assets/dist-ZKTSEBXW.js                            26.89 kB │ gzip:   8.28 kB\ndist/assets/secp256k1-CZeT5Ut3.js                       27.96 kB │ gzip:  10.82 kB\ndist/assets/secp256k1-D_3IvMuz.js                       30.34 kB │ gzip:  12.04 kB\ndist/assets/send-DD1ybbtd.js                            33.21 kB │ gzip:   7.50 kB\ndist/assets/W3mFrameHelpers-06hsKr9T.js                 34.54 kB │ gzip:  13.38 kB\ndist/assets/w3m-activity-list-D6mkDJWk.js               34.76 kB │ gzip:  10.42 kB\ndist/assets/exports-GL0dN1cC.js                         37.26 kB │ gzip:  11.13 kB\ndist/assets/wui-visual-BMjhQwDp.js                      45.98 kB │ gzip:  14.09 kB\ndist/assets/swaps-BMqm9nzp.js                           54.74 kB │ gzip:   9.85 kB\ndist/assets/wui-text-BaeeCfo1.js                        60.39 kB │ gzip:  20.00 kB\ndist/assets/w3m-modal-DApPnlXm.js                       77.71 kB │ gzip:  19.61 kB\ndist/assets/HelpersUtil-BTZ6zEvo.js                     83.54 kB │ gzip:  23.35 kB\ndist/assets/ErrorUtil-CecG85IV.js                       96.38 kB │ gzip:  24.21 kB\ndist/assets/ccip-DlO_9iB5.js                           108.28 kB │ gzip:  30.83 kB\ndist/assets/ModalController-D0SvbAnd.js                109.44 kB │ gzip:  30.29 kB\ndist/assets/ModalController-RWZM9FRL.js                109.48 kB │ gzip:  30.32 kB\ndist/assets/dist-DLli_1s6.js                           110.37 kB │ gzip:  33.84 kB\ndist/assets/_esm-Dv_5lK6H.js                           125.04 kB │ gzip:  37.62 kB\ndist/assets/exports-DI4St4qv.js                        186.74 kB │ gzip:  46.18 kB\ndist/assets/exports-DlraBEkF.js                        220.33 kB │ gzip:  42.49 kB\ndist/assets/lib.esm-ChneCZPO.js                        380.66 kB │ gzip: 139.26 kB\ndist/assets/index-CLJpJ1u-.js                          389.60 kB │ gzip: 115.43 kB\ndist/assets/exports-DH3Dxmtv.js                        510.15 kB │ gzip: 152.33 kB\ndist/assets/dist-7dg9OLp2.js                         1,450.46 kB │ gzip: 571.00 kB\ndist/assets/browser-BUwey8wG.js                      2,369.39 kB │ gzip: 486.53 kB\ndist/assets/src-Dl-SJ9Cz.js                          3,361.93 kB │ gzip: 758.47 kB\ndist/assets/typechain-types-CDXKhyr1.js              5,500.09 kB │ gzip: 917.72 kB\n✓ built in 13.66s",
+      "retainedWarnings": [
+        "vm-browserify uses eval",
+        "Large pinned SDK/ABI chunks"
+      ]
+    },
+    {
+      "command": "npm run test:swap",
+      "exitCode": 0,
+      "localVmOnly": true,
+      "noForkOrSigner": true,
+      "tests": 16,
+      "pass": 16,
+      "fail": 0,
+      "artifactMatches": true,
+      "output": "Swap artifact matches pinned source/build.\n[PASS] testAtomicExchange() (gas: 114724)\n[PASS] testCancelAndReclaimFailureRollback() (gas: 149907)\n[PASS] testCancelWinsRace() (gas: 77680)\n[PASS] testConstructorGuards() (gas: 103103)\n[PASS] testDeliveryRevertFalseAndWrongPartitionRollback() (gas: 250946)\n[PASS] testEarlyReclaimAndUnauthorizedRecovery() (gas: 36194)\n[PASS] testExpiryEqualityAndAfter() (gas: 798324)\n[PASS] testFullHoldBinding() (gas: 4774264)\n[PASS] testLastSecondPurchase() (gas: 106247)\n[PASS] testPaymentFailureRollsBackDelivery() (gas: 105284)\n[PASS] testPurchaseWinsRace() (gas: 111439)\n[PASS] testRepeatedSettlement() (gas: 118117)\n[PASS] testSellerAndTokenReentrancy() (gas: 139490)\n[PASS] testUnderAndOverPayment() (gas: 52136)\n[PASS] testWrongBuyerAndAdmin() (gas: 37890)\n[PASS] testWrongHoldIds() (gas: 59586)\nSuite result: ok. 16 passed; 0 failed; 0 skipped; finished in 30.06ms (20.48ms CPU time)",
+      "warnings": [
+        "block.timestamp comparisons intentionally follow the specified expiry and ATS equality boundary"
+      ]
+    }
+  ],
+  "liveRead": {
+    "source": "docs/evidence/031-t05-live-read.mjs",
+    "output": "docs/evidence/031-t05-live-read.json",
+    "block": "40244247",
+    "seller": "94",
+    "buyer": "6",
+    "sellerHeld": "0",
+    "buyerHeld": "0",
+    "supply": "100",
+    "cap": "1000",
+    "config": "1",
+    "kycCoversReviewedExpiry": true,
+    "metamaskPendingOperations": "Not observed; Victor must attest during review"
+  },
+  "browser": {
+    "source": "docs/evidence/031-t05-browser.mjs",
+    "output": "docs/evidence/031-t05-browser.json",
+    "liveCases": 4,
+    "syntheticPendingCases": 2,
+    "noRealWalletApproval": true,
+    "rerunAfterReviewerFix": "Passed",
+    "recordedAt": "2026-09-08T03:01:24.713Z",
+    "requestCounts": [
+      {
+        "port": 5173,
+        "width": 1440,
+        "requestCount": 119
+      },
+      {
+        "port": 5173,
+        "width": 390,
+        "requestCount": 119
+      },
+      {
+        "port": 4173,
+        "width": 1440,
+        "requestCount": 118
+      },
+      {
+        "port": 4173,
+        "width": 390,
+        "requestCount": 118
+      }
+    ]
+  },
+  "sdkBrowser": {
+    "source": "docs/evidence/031-t05-sdk-browser.mjs",
+    "output": "docs/evidence/031-t05-sdk-browser.json",
+    "cases": 14,
+    "ports": [
+      5187,
+      4187
+    ],
+    "modes": [
+      "reject",
+      "hash",
+      "unknown",
+      "readonly",
+      "stale",
+      "calldata",
+      "kyc"
+    ],
+    "httpAndWalletResponses": "Controlled fixtures; genuine installed SDK caller",
+    "noChainMutation": true
+  },
+  "uiReview": {
+    "detector": {
+      "command": "node /home/outsider/.codex/skills/impeccable/scripts/detect.mjs src/App.tsx src/TradePanel.tsx src/styles.css --json",
+      "findings": []
+    },
+    "firstDisposition": "fix",
+    "materialFinding": "Seller cancellation review compared selected account against Buyer stage role.",
+    "repair": "Use review.wallet.expectedRole consistently for label and selected-account comparison.",
+    "regression": "Real TradePanel SSR cancellation review with Seller and Buyer active; both pass in shell.test.mjs.",
+    "finalDisposition": "ship",
+    "finalScope": "The one cancellation-role correction was resolved; no regression identified. Does not cover manual acceptance or contract security.",
+    "finalVerdict": {
+      "verdict": "Resolved. The label and selection indicator now use the same reviewed role. The passing regression test renders the actual component with Seller and Buyer active and verifies both messages.",
+      "remaining": "None for this correction; no regression identified. Manual acceptance remains Pending. This verdict does not cover contract security or actual MetaMask transactions."
+    },
+    "capturesValidatedByParent": true,
+    "documenter": "Completed after correction; wrote DESIGN.md only, based on actual source and evidence 031."
+  },
+  "corrections": [
+    {
+      "phase": "Foundry setup",
+      "finding": "Unsupported extra_output entry and literal address checksums rejected initial compile.",
+      "resolution": "Removed unsupported setting, verified public address checksums; pinned local suite and artifact check pass."
+    },
+    {
+      "phase": "check scheduling",
+      "finding": "An initial test/build attempt ran while npm ci was still replacing node_modules.",
+      "resolution": "Waited for npm ci completion, then reran required checks successfully."
+    },
+    {
+      "phase": "shell migration",
+      "finding": "Original shell assertions expected removed T04 mutation controls.",
+      "resolution": "Updated expectations to native navigation, read-only history and explicit T05 Pending."
+    },
+    {
+      "phase": "live review",
+      "finding": "Relay rejected a broad eth_getLogs range larger than 1000 blocks; no transaction was requested.",
+      "resolution": "Scan every block in contiguous pages of at most 1000, with a runnable range/unrecorded-operation test."
+    },
+    {
+      "phase": "controlled SDK KYC probe",
+      "finding": "The initial probe incorrectly expected SDK Hold creation itself to enforce KYC.",
+      "observedSynthetic": [
+        {
+          "port": 5187,
+          "mode": "kyc",
+          "status": "pending",
+          "attempted": true,
+          "hasHash": true,
+          "calls": [
+            "eth_sendTransaction"
+          ]
+        }
+      ],
+      "resolution": "The actual T05 app preflight enforces KYC before send. The corrected probe checks that guard with the genuine SDK; 14 controlled cases pass.",
+      "realTransaction": false
+    },
+    {
+      "phase": "capture timing",
+      "finding": "Initial Settings capture still displayed Mirror account lookups in progress.",
+      "resolution": "Waited for the three resolved public Hedera IDs and replaced the capture before review."
+    },
+    {
+      "phase": "pending browser harness",
+      "finding": "Exact select label locator included native option text and timed out.",
+      "resolution": "Used the semantic combobox role and label prefix; both native-lock/reload cases pass."
+    }
+  ],
+  "provenance": {
+    "humanDecisions": "Supplied T05 plan; no human acceptance inferred.",
+    "aiAssistance": "Codex implementation, tests, evidence and documentation; fresh Impeccable finish reviewer and subsequent DESIGN-only documenter.",
+    "skills": [
+      "ponytail",
+      "impeccable"
+    ],
+    "sources": "docs/ATTRIBUTION.md",
+    "prompt": "docs/prompts/027-t05-atomic-trade.md"
+  },
+  "scope": {
+    "changedFiles": [
+      ".github/workflows/ci.yml",
+      "AI_USAGE.md",
+      "DESIGN.md",
+      "PRODUCT.md",
+      "README.md",
+      "contracts/NovaHbarSwap.sol",
+      "contracts/test/NovaHbarSwap.t.sol",
+      "docs/ARCHITECTURE.md",
+      "docs/ATTRIBUTION.md",
+      "docs/DEMO.md",
+      "docs/HANDOFF.md",
+      "docs/ai-usage/040-t05-atomic-trade.md",
+      "docs/evidence/031-t05-4173-1440.png",
+      "docs/evidence/031-t05-4173-390.png",
+      "docs/evidence/031-t05-5173-1440.png",
+      "docs/evidence/031-t05-5173-390.png",
+      "docs/evidence/031-t05-browser.json",
+      "docs/evidence/031-t05-browser.mjs",
+      "docs/evidence/031-t05-history.png",
+      "docs/evidence/031-t05-implementation.md",
+      "docs/evidence/031-t05-live-read.json",
+      "docs/evidence/031-t05-live-read.mjs",
+      "docs/evidence/031-t05-sdk-browser.json",
+      "docs/evidence/031-t05-sdk-browser.mjs",
+      "docs/evidence/031-t05-settings.png",
+      "docs/evidence/031-t05-validation.json",
+      "docs/plans/001-ats-first.md",
+      "docs/plans/002-atomic-trade.md",
+      "docs/prompts/027-t05-atomic-trade.md",
+      "foundry.toml",
+      "package.json",
+      "scripts/build-swap.mjs",
+      "src/App.tsx",
+      "src/TradePanel.tsx",
+      "src/evidence.ts",
+      "src/hold.ts",
+      "src/styles.css",
+      "src/swap-artifact.json",
+      "src/trade.ts",
+      "src/transport.ts",
+      "tests/hold.test.mjs",
+      "tests/shell.test.mjs",
+      "tests/trade.test.mjs",
+      "tests/transport.test.mjs"
+    ],
+    "allWithinRecordedAuthorization": true,
+    "protectedFiles": [
+      {
+        "path": "package-lock.json",
+        "sha256": "7be813930eca4f8c8b23147f6b180217fb28d2ac3c398d062a6ed117b8f5a856",
+        "unchangedFromBase": true
+      },
+      {
+        "path": ".npmrc",
+        "sha256": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca",
+        "unchangedFromBase": true
+      },
+      {
+        "path": ".nvmrc",
+        "sha256": "7e8a2fa94951112b894a3dbe3d05efef5e9263741fa49125f0a70f40fedab4cc",
+        "unchangedFromBase": true
+      },
+      {
+        "path": "scripts/rebuild-proto.mjs",
+        "sha256": "0f72a34c7d00858f0b8768693c6e1d03318736ece87e1a20712479973126c6d7",
+        "unchangedFromBase": true
+      },
+      {
+        "path": "scripts/patch-ats-readonly.mjs",
+        "sha256": "28196e89dd385a7a86ad9d0cf08325331995a229768d99cfcabe5575ff06d024",
+        "unchangedFromBase": true
+      },
+      {
+        "path": "scripts/patch-ats-wallet.mjs",
+        "sha256": "8a1c78c2de797d38777fd5767c39f888ffe02d4445e566ff2c88c386025f457c",
+        "unchangedFromBase": true
+      },
+      {
+        "path": "vite.config.ts",
+        "sha256": "f693a08509a00528b5a6a20002b1229c2e37e1daf7e0c0ea19c0b824c5fb5048",
+        "unchangedFromBase": true
+      }
+    ],
+    "npmDependencyFieldsUnchanged": true,
+    "priorEvidenceUnchanged": true
+  },
+  "artifact": {
+    "path": "src/swap-artifact.json",
+    "sha256": "15dcefec4e8baced1a5058bfda78c2927740a8760199fa84ce8e27b6a35b3825",
+    "sourceSha256": "614ce5bd5216eb71378d391cc28ebdd23e5c14d3d371183fff97def9f1c720f5"
+  },
+  "remaining": [
+    "Victor manual Admin deployment, Seller Hold, Buyer purchase on 127.0.0.1:4173",
+    "Actual pre-purchase wrong-buyer/wrong-payment and post-purchase duplicate read-only rejections",
+    "Same-hash ATS/swap events, Mirror identity and 1 HBAR Seller principal independent of fees",
+    "Final 84/16/held 0 and supply/cap 100/1000; create manual evidence 032 only when observed"
+  ],
+  "restrictions": [
+    "No CLI signer, private key, automatic signature or chain mutation",
+    "No dependency/SDK/patch upgrade or fallback",
+    "No public deployment, push, merge, new asset or next ticket"
+  ],
+  "documentation": {
+    "localLinksChecked": 228,
+    "allTargetsExist": true,
+    "readmeRunAnchor": true,
+    "links": [
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/HANDOFF.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ATTRIBUTION.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/040-t05-atomic-trade.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/039-judge-demo-merge.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/038-judge-demo.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/037-t04-merge.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/036-t04-manual.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/035-t04-hold-lifecycle.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/034-t03-manual.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/033-t03-kyc-issue.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/032-t02-merge.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/031-t02-followup.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/030-vc-nova-manual.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/029-nova-implementation.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/028-vc-implementation.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/027-b2-retained-repair.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/026-b2-dependency-trial.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/025-b2-vc-readiness.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/024-t01b-4-sdk-integration.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/023-sdk-readonly-trial.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/022-sdk-readonly-options.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/021-t01b-4-sdk-config.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/020-t01a-decoder-rebuild.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/019-t01a-npm-resolution.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/018-t01-manual-gallery.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/017-t01-manual.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/016-deployment-config-merge.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/015-t01b-3-config.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/014-t01b-2-deployment.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/013-pr-1-merge.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/012-branch-push.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/011-documentation-rules.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/010-t01b-1-evidence-language.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/009-t01b-1-wallet.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/008-t01a-protobuf-rebuild.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/007-t01a-protobuf-research.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/006-t01a-protobuf.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/005-docs-navigation.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/004-t01a-remediation.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/003-t01a-research.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/002-t01a-sdk-load.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/001-t01a-triage.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/000-t00.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ATTRIBUTION.md"
+      },
+      {
+        "file": "AI_USAGE.md",
+        "target": "docs/ai-usage/000-t00.md#third-party-sources"
+      },
+      {
+        "file": "DESIGN.md",
+        "target": "src/App.tsx"
+      },
+      {
+        "file": "DESIGN.md",
+        "target": "src/TradePanel.tsx"
+      },
+      {
+        "file": "DESIGN.md",
+        "target": "src/styles.css"
+      },
+      {
+        "file": "DESIGN.md",
+        "target": "docs/evidence/031-t05-implementation.md"
+      },
+      {
+        "file": "PRODUCT.md",
+        "target": "docs/DEMO.md"
+      },
+      {
+        "file": "PRODUCT.md",
+        "target": "docs/evidence/029-t04-manual.md"
+      },
+      {
+        "file": "README.md",
+        "target": "docs/DEMO.md"
+      },
+      {
+        "file": "README.md",
+        "target": "docs/evidence/031-t05-implementation.md"
+      },
+      {
+        "file": "README.md",
+        "target": "docs/plans/002-atomic-trade.md"
+      },
+      {
+        "file": "README.md",
+        "target": "docs/ARCHITECTURE.md"
+      },
+      {
+        "file": "README.md",
+        "target": "docs/evidence/029-t04-manual.md"
+      },
+      {
+        "file": "README.md",
+        "target": "docs/evidence/029-t04-manual.json"
+      },
+      {
+        "file": "README.md",
+        "target": "docs/evidence/029-t04-manual.html"
+      },
+      {
+        "file": "README.md",
+        "target": "docs/evidence/029-t04-manual.md"
+      },
+      {
+        "file": "README.md",
+        "target": "docs/ATTRIBUTION.md"
+      },
+      {
+        "file": "README.md",
+        "target": "AI_USAGE.md"
+      },
+      {
+        "file": "README.md",
+        "target": "docs/prompts/001-planning-record.md"
+      },
+      {
+        "file": "README.md",
+        "target": "AGENTS.md"
+      },
+      {
+        "file": "README.md",
+        "target": "docs/HANDOFF.md"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "DEMO.md"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/App.tsx"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/wallet.ts"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/TradePanel.tsx"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/trade.ts"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../contracts/NovaHbarSwap.sol"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/hold.ts"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/guards.ts"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/credentials.ts"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/ats.ts"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/transport.ts"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/lifecycle.ts"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/nova.ts"
+      },
+      {
+        "file": "docs/ARCHITECTURE.md",
+        "target": "../src/evidence.ts"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "../AI_USAGE.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "../package-lock.json"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/017-sdk-readonly-trial.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/008-t01b-1-lock-diff.json"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/010-t01b-3-bundle.json"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/014-t01a-decoder-rebuild.json"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "../AI_USAGE.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/004-t01a-remediation.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/006-t01a-protobuf-research.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/005-t01a-protobuf.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/007-t01a-protobuf-rebuild.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "prompts/001-planning-record.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "ai-usage/000-t00.md#third-party-sources"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/013-t01a-npm-resolution.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/014-t01a-decoder-rebuild.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/015-t01b-4-sdk-config.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/016-sdk-readonly-options.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/017-sdk-readonly-trial.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/017-sdk-readonly-trial.json"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/018-t01b-4-sdk-integration.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/019-b2-vc-readiness.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/020-b2-dependency-trial.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/021-b2-retained-repair.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/022-vc-implementation.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/023-nova-implementation.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/024-vc-nova-manual.md"
+      },
+      {
+        "file": "docs/ATTRIBUTION.md",
+        "target": "evidence/028-t04-implementation.md"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "evidence/031-t05-implementation.md"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "plans/002-atomic-trade.md"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "evidence/029-t04-manual.html"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "evidence/029-t04-kyc-negative.png"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "evidence/029-t04-buyer-vc.png"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "evidence/029-t04-buyer-kyc.png"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "evidence/029-t04-execute.png"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "evidence/029-t04-final.png"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "evidence/029-t04-manual.json"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "target": "../README.md#run-locally"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "plans/002-atomic-trade.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "prompts/027-t05-atomic-trade.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "../DESIGN.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/031-t05-implementation.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/031-t05-validation.json"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "ai-usage/040-t05-atomic-trade.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "DEMO.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/030-judge-demo.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "../README.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "DEMO.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/030-judge-demo.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "ai-usage/037-t04-merge.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/029-t04-manual.json"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/029-t04-manual.html"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/028-t04-implementation.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/027-t03-manual.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/027-t03-manual.json"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/027-t03-manual.html"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/026-t03-implementation.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/024-vc-nova-manual.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/025-t02-followup.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/012-t01-manual-gallery.html"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/012-t01-manual-gallery.json"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "plans/001-ats-first.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/020-b2-dependency-trial.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "prompts/022-b2-dependency-trial.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/019-b2-vc-readiness.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "prompts/021-b2-vc-readiness.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/018-t01b-4-sdk-integration.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "prompts/020-t01b-4-sdk-integration.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/017-sdk-readonly-trial.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "prompts/019-sdk-readonly-trial.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/016-sdk-readonly-options.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/015-t01b-4-sdk-config.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/014-t01a-decoder-rebuild.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/013-t01a-npm-resolution.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/010-t01b-3-config.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "prompts/012-t01b-3-config.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/008-t01b-1-wallet.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "../AI_USAGE.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "ATTRIBUTION.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/018-t01b-4-sdk-integration.json"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/011-t01-manual.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/011-t01-manual.md"
+      },
+      {
+        "file": "docs/HANDOFF.md",
+        "target": "evidence/011-t01-manual.json"
+      },
+      {
+        "file": "docs/ai-usage/040-t05-atomic-trade.md",
+        "target": "../prompts/027-t05-atomic-trade.md"
+      },
+      {
+        "file": "docs/ai-usage/040-t05-atomic-trade.md",
+        "target": "../evidence/031-t05-implementation.md"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-validation.json"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-live-read.json"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-browser.json"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-sdk-browser.json"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-live-read.mjs"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-browser.mjs"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-sdk-browser.mjs"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-5173-1440.png"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-5173-390.png"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-4173-1440.png"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-4173-390.png"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-history.png"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "031-t05-settings.png"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "../DEMO.md"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "../ATTRIBUTION.md"
+      },
+      {
+        "file": "docs/evidence/031-t05-implementation.md",
+        "target": "029-t04-manual.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "002-atomic-trade.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/031-t05-implementation.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../ai-usage/040-t05-atomic-trade.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/002-t01a-planning-record.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/003-t01a-isolated-load.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/005-t01a-remediation-decision.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/007-t01a-protobuf-trial.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/009-t01a-protobuf-rebuild.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/007-t01a-protobuf-rebuild.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/010-t01b-1-wallet.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/008-t01b-1-wallet.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../ai-usage/012-branch-push.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/011-t01b-2-deployment.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/012-t01b-3-config.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/011-t01-manual.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/006-docs-navigation.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/014-t01-manual-gallery.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/015-t01a-npm-resolution.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/013-t01a-npm-resolution.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/016-t01a-decoder-rebuild.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/014-t01a-decoder-rebuild.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/017-t01b-4-sdk-config.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/015-t01b-4-sdk-config.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/018-sdk-readonly-options.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/016-sdk-readonly-options.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/019-sdk-readonly-trial.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/017-sdk-readonly-trial.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/020-t01b-4-sdk-integration.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/018-t01b-4-sdk-integration.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/021-b2-vc-readiness.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/019-b2-vc-readiness.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/022-b2-dependency-trial.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/020-b2-dependency-trial.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../prompts/023-vc-nova-implementation.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/024-vc-nova-manual.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/026-t03-implementation.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/027-t03-manual.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/028-t04-implementation.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/plans/001-ats-first.md",
+        "target": "../evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/plans/002-atomic-trade.md",
+        "target": "../evidence/031-t05-implementation.md"
+      },
+      {
+        "file": "docs/plans/002-atomic-trade.md",
+        "target": "../prompts/027-t05-atomic-trade.md"
+      },
+      {
+        "file": "docs/plans/002-atomic-trade.md",
+        "target": "../HANDOFF.md"
+      },
+      {
+        "file": "docs/plans/002-atomic-trade.md",
+        "target": "../../DESIGN.md"
+      }
+    ]
+  },
+  "fileDigests": [
+    {
+      "file": ".github/workflows/ci.yml",
+      "sha256": "0da1c1fb306c5c7b33315b302ddfe99900f8bee4681fdc21695ba7f2dca6951c"
+    },
+    {
+      "file": "AI_USAGE.md",
+      "sha256": "4c08d9fec7145f484751530d82f026191fc0b7f2e0df32f6af7ff1ef8afddc2b"
+    },
+    {
+      "file": "DESIGN.md",
+      "sha256": "4c61837c1ece0fd44e517295f30874347bd194b9a1cca35de313a322d0a509b7"
+    },
+    {
+      "file": "PRODUCT.md",
+      "sha256": "c010a2eedd9d4cc595bd529765860fbcbdcfca21faa2d1d89d406e1f25d067c4"
+    },
+    {
+      "file": "README.md",
+      "sha256": "f7806d424057bb7ee847728d4c9ea1d14737db41420d29c3200601181fac867f"
+    },
+    {
+      "file": "contracts/NovaHbarSwap.sol",
+      "sha256": "614ce5bd5216eb71378d391cc28ebdd23e5c14d3d371183fff97def9f1c720f5"
+    },
+    {
+      "file": "contracts/test/NovaHbarSwap.t.sol",
+      "sha256": "4c6e1c9c92118c15e002582a0c7c3abcf679dd92752ceebc99085dcc5e9fd30e"
+    },
+    {
+      "file": "docs/ARCHITECTURE.md",
+      "sha256": "f4afe3178b90fa401413818ba6f77b63751fda09e92beda7b3bfab573a7fb952"
+    },
+    {
+      "file": "docs/ATTRIBUTION.md",
+      "sha256": "aeb782aa8c7585e3ad73547a8c65beaa5975d7bd2b60be01761aa35177006207"
+    },
+    {
+      "file": "docs/DEMO.md",
+      "sha256": "730e52a4b00e7153fde2e519c027179a2a1f4dd139be9eaa8e49cb693ec85f23"
+    },
+    {
+      "file": "docs/HANDOFF.md",
+      "sha256": "c66b0753e0fcc8fc55f5eeddc3080ca171dde851d393afbc44a338b86457a5f1"
+    },
+    {
+      "file": "docs/ai-usage/040-t05-atomic-trade.md",
+      "sha256": "c39093ec228f2d4425fe2d212f7d214bb816a6f0f94c48f00b889598a73f555c"
+    },
+    {
+      "file": "docs/evidence/031-t05-4173-1440.png",
+      "sha256": "71d3a557ec2b949c7a9b54267de8a77bf7e7275b8aa5545570db3e4407c7186d"
+    },
+    {
+      "file": "docs/evidence/031-t05-4173-390.png",
+      "sha256": "9ebc0b7d59fc23daa2a4cd845f8380af424207977b00abf7eb9c282f0b3c2aad"
+    },
+    {
+      "file": "docs/evidence/031-t05-5173-1440.png",
+      "sha256": "3caa5b3cd53bc970acad6abdb4af4965d34fda7dce7c94719aa9ffd225610225"
+    },
+    {
+      "file": "docs/evidence/031-t05-5173-390.png",
+      "sha256": "926a9d9cfbefccc021d0cfa5f5d723657cc05c9824d03afaee32e0d54c5908a0"
+    },
+    {
+      "file": "docs/evidence/031-t05-browser.json",
+      "sha256": "3a7478e05a5fb1a458d3779197b10a2bb10e76d4c7f53e8f83b9af042283966d"
+    },
+    {
+      "file": "docs/evidence/031-t05-browser.mjs",
+      "sha256": "952cdc2f7cff275164c2bea00fc38a011ddcb47603ab9a7f1a449944fcb453a2"
+    },
+    {
+      "file": "docs/evidence/031-t05-history.png",
+      "sha256": "672b3826690800c442476855c0995b17df8f2c40b359776e81c9d9ac4db4d6d3"
+    },
+    {
+      "file": "docs/evidence/031-t05-implementation.md",
+      "sha256": "0970bcbe246af9b6720577904e2c0947a6fbade0909b58ff980d45eaa4a80dcb"
+    },
+    {
+      "file": "docs/evidence/031-t05-live-read.json",
+      "sha256": "9cb30c1cf11c1c5654dc72dbfd04cfe26039efb1a68cded852ca4c87c9533d0a"
+    },
+    {
+      "file": "docs/evidence/031-t05-live-read.mjs",
+      "sha256": "880fd8524bc82d52ec34c716b5c96eb44d407d430463b30271ae412612026cf2"
+    },
+    {
+      "file": "docs/evidence/031-t05-sdk-browser.json",
+      "sha256": "453bb3b2e6a92f3222b70fd7a1bcb00bdd1ba9828238430c42e707b4a97e2947"
+    },
+    {
+      "file": "docs/evidence/031-t05-sdk-browser.mjs",
+      "sha256": "0275ce90e3ae9009dc99bf2539acb24701d3b6695662bbd7fcc92935f51ff9d1"
+    },
+    {
+      "file": "docs/evidence/031-t05-settings.png",
+      "sha256": "19b191e2613d5ea5f15802a1922e8a1be008f2be82fc16601ea036816838101e"
+    },
+    {
+      "file": "docs/plans/001-ats-first.md",
+      "sha256": "0510359f70c676773fec03b92e3c73f2f23c0b8ccf7e189bd75e816291f45bb1"
+    },
+    {
+      "file": "docs/plans/002-atomic-trade.md",
+      "sha256": "13471f66148a9e7488beddba693038da406fac1458b62391b40f01dcce9f7411"
+    },
+    {
+      "file": "docs/prompts/027-t05-atomic-trade.md",
+      "sha256": "996b27d19e4442521f1015231d606c708720aa79b2220b87746b8926e4e6a360"
+    },
+    {
+      "file": "foundry.toml",
+      "sha256": "efca2eb45505a8146b003579aa5e224c40fdc4c85d39e9abd70f050ae201d781"
+    },
+    {
+      "file": "package.json",
+      "sha256": "8a10f58cadf2416b20cda8dd83e47869716bbe33751268e14b858c047ac1679a"
+    },
+    {
+      "file": "scripts/build-swap.mjs",
+      "sha256": "ca1c3acc6f34e313071fe1395124bc1bd709a84a3d6e7fd88ac14bd0d4b14b21"
+    },
+    {
+      "file": "src/App.tsx",
+      "sha256": "fef30c08fe3474ff3c81cf5fdcad8c2a66cb407e167271f85b33cd0e4f2a0881"
+    },
+    {
+      "file": "src/TradePanel.tsx",
+      "sha256": "8beeed62299f7b8088a285bbf92ca3a648a5e1389b48a38f93ec1fec4cd8c330"
+    },
+    {
+      "file": "src/evidence.ts",
+      "sha256": "2d8716ccfa196c80b215994495122acb5daceda0276f941d462913dcf54408ea"
+    },
+    {
+      "file": "src/hold.ts",
+      "sha256": "26bf82804892ba93c3fd1ea2523a4a9861512be290325d77e8ae066817e5c922"
+    },
+    {
+      "file": "src/styles.css",
+      "sha256": "009c1c9b23b61f3087c4aa1e64b1c71b2ce4757c9405fcf644b75281fccc1d06"
+    },
+    {
+      "file": "src/swap-artifact.json",
+      "sha256": "15dcefec4e8baced1a5058bfda78c2927740a8760199fa84ce8e27b6a35b3825"
+    },
+    {
+      "file": "src/trade.ts",
+      "sha256": "014ff9c5a5a8cadc72587d64272e34b7cb29f8f6a4d53743f10f7eb1a993642b"
+    },
+    {
+      "file": "src/transport.ts",
+      "sha256": "0a33131d90a18ffe576859b6877f619eb5b495095e0918c30e961a7b775f1f03"
+    },
+    {
+      "file": "tests/hold.test.mjs",
+      "sha256": "602dda220afcb443b3dc206d627dfac13670b24688d77691ad6badb48b053277"
+    },
+    {
+      "file": "tests/shell.test.mjs",
+      "sha256": "86381bea780b84715916c816e94be3385aa7e4109623aab6cd38c88eafe992d5"
+    },
+    {
+      "file": "tests/trade.test.mjs",
+      "sha256": "c5a1e89753dc3cb875be1ceace86a213c4479181cf445a29a12307241d2474cc"
+    },
+    {
+      "file": "tests/transport.test.mjs",
+      "sha256": "b234c8824089b37b16b0541f0aa0bceed84c80ed1e27580f62b809bc4cb10b15"
+    }
+  ],
+  "deploymentRecoveryCorrection": {
+    "recordedAt": "2026-09-08T03:49:27.635Z",
+    "based_on_commit": "2c7146ca76e5d16e664cf7f02609eb2314db2f61",
+    "reason": "Manual recovery updated the journal while retaining an older balance/runtime snapshot. Clear that pair before recovery; require fresh readiness.",
+    "commands": [
+      {
+        "command": "npm ci",
+        "exitCode": 0,
+        "logUpdatedAt": "2026-09-08T03:43:38.477Z"
+      },
+      {
+        "command": "npm test",
+        "exitCode": 0,
+        "logUpdatedAt": "2026-09-08T03:47:42.014Z"
+      },
+      {
+        "command": "npm run typecheck",
+        "exitCode": 0,
+        "logUpdatedAt": "2026-09-08T03:47:19.725Z"
+      },
+      {
+        "command": "npm run build",
+        "exitCode": 0,
+        "logUpdatedAt": "2026-09-08T03:47:29.965Z"
+      }
+    ],
+    "appTests": 98,
+    "protobufTests": 36,
+    "browserRegression": {
+      "command": "node docs/evidence/031-t05-browser.mjs <playwright-core-index.mjs> docs/evidence/031-t05-browser.json --recover-deployment <public-deployment-intent.json>",
+      "exitCode": 0,
+      "checks": [
+        {
+          "port": 5173,
+          "readThenRecover": true,
+          "oldSnapshotCleared": true,
+          "noFalseClosedError": true,
+          "freshReadRequired": true,
+          "status": "complete",
+          "swapState": 0,
+          "forbidden": [],
+          "errors": []
+        },
+        {
+          "port": 4173,
+          "readThenRecover": true,
+          "oldSnapshotCleared": true,
+          "noFalseClosedError": true,
+          "freshReadRequired": true,
+          "status": "complete",
+          "swapState": 0,
+          "forbidden": [],
+          "errors": []
+        }
+      ],
+      "evidence": "031-t05-browser.json"
+    },
+    "contract": "Unchanged; prior 16 local VM checks retained, not rerun for this component correction.",
+    "manualEvidence": "032-t05-manual.json",
+    "manualAcceptance": "Pending",
+    "agentTransactions": 0,
+    "agentSignatures": 0
+  }
+}

@@ -1,6 +1,6 @@
 # HoldBook · flow and architecture
 
-[Demo script](DEMO.md) · [Acceptance report](evidence/029-t04-manual.md)
+[Demo script](DEMO.md) · [T04 acceptance](evidence/029-t04-manual.md) · [T05 acceptance](evidence/032-t05-manual.md)
 
 ## Recorded flow
 
@@ -39,42 +39,62 @@ block: **40241114**, September 8, 2026.
 
 ## Current architecture
 
+T05 deployed and completed September 8, 2026. Final verification: block 40247352.
+The recorded T04 flow above remains historical and cannot be restarted in the UI.
+
+```text
+Recorded start: Seller 94, Buyer 6, held 0
+  Admin deployed NovaHbarSwap — block 40245682
+  Seller SDK created Hold 2 for 10 NOVA — block 40246787
+    Observed: Seller 84, Buyer 6, held 10
+  Read-only wrong-Buyer / wrong-payment rejections — block 40246969
+  Buyer paid 1 HBAR — block 40247134
+    Same transaction: ATS execute 10 + pay Seller 1 HBAR, or all effects revert
+    Observed: Seller 84, Buyer 16, held 0; Seller credited 1 HBAR
+  Read-only duplicate rejection — block 40247341; final readback 40247352
+```
+
 ```mermaid
 flowchart TB
     subgraph browser["Local browser · React / Vite"]
-        ui["Review, balances and history"]
-        flow["Hold lifecycle + wallet/session guards"]
-        vc["Synthetic VC · Terminal3 verification"]
+        ui["Trade / History / Settings"]
+        flow["Fixed trade + wallet/session guards"]
         sdk["ATS SDK 8.0.0 · existing local patches"]
         provider["Guarded SDK provider"]
-        journal["Public journal and JSON export"]
+        journal["Separate T05 public journal and JSON export"]
         ui --> flow
-        ui --> vc
-        vc -->|Verified credential|flow
         flow --> sdk
         sdk --> provider
         flow --> journal
         provider -->|Save returned hash|journal
     end
     wallet["MetaMask · Victor approves each request"]
-    chain["Hedera Testnet · chain 296<br/>JSON-RPC / deployed ATS NOVA"]
+    chain["Hedera Testnet · chain 296<br/>JSON-RPC / original ATS NOVA"]
+    swap["NovaHbarSwap · Settled, Hold 2<br/>0xf6fc…f158 · non-upgradeable"]
     mirror["Mirror Node · indexed records"]
-    vc -->|Signature request|wallet
     provider -->|Transaction request|wallet
     wallet -->|Submit approved transaction|chain
+    wallet -->|Manual deployment or swap call|swap
+    swap -->|Atomic execute Hold 10|chain
+    swap -->|Atomic 1 HBAR payment|seller["Original Seller"]
     provider -->|Allowlisted SDK reads|chain
     flow -->|State, receipts and historical reads|chain
     flow -->|Account mapping and transaction identity|mirror
 ```
 
 The application runs in the browser; RPC and Mirror are external services.
-There is no application server, database, order book or payment leg.
+There is no application server, database or order book. The payment leg lives
+only in the fixed swap contract. Solidity values use tinybars; wallet transaction
+values use weibars (1 HBAR = 10^8 tinybars = 10^18 weibars).
 
 ## Where it lives
 
 | Responsibility | Source |
 | --- | --- |
 | Review screens and wallet connection | [App.tsx](../src/App.tsx), [wallet.ts](../src/wallet.ts) |
+| Quote, reviews, next action and recovery UI | [TradePanel.tsx](../src/TradePanel.tsx) |
+| T05 guards, receipt/runtime/Mirror checks and simulations | [trade.ts](../src/trade.ts) |
+| Atomic delivery/payment, cancellation and expiry | [NovaHbarSwap.sol](../contracts/NovaHbarSwap.sol) |
 | Fixed Hold sequence, simulations and recovery | [hold.ts](../src/hold.ts) |
 | Session checks and operation locks | [guards.ts](../src/guards.ts) |
 | VC preparation, manual signing and verification | [credentials.ts](../src/credentials.ts) |
@@ -87,7 +107,10 @@ persist public intent. Save the returned hash immediately, then attempt one
 complete readback within **180 seconds**. An unknown or incomplete result
 requires querying the original hash; it is never automatically resubmitted.
 
-Full VC/proof stays in memory. Public journals retain only whitelisted fields;
-RPC/Mirror verification establishes completion. T02 creation and T03 issuance
-are closed history. The diagram describes an ATS lifecycle, with synthetic KYC;
-payment settlement remains deferred.
+Public journals retain only whitelisted fields; RPC/Mirror checks establish
+receipt completion. T05 verifies the constructor, runtime, full Hold and same-hash
+ATS/swap events, then checks Seller principal separately from network fees.
+T02–T04 are closed history. No new VC signature or KYC renewal is part of T05.
+Local contract tests model tinybar values without claiming Hedera RPC unit
+conversion or real MetaMask acceptance; evidence 032 separately verifies the
+completed manual normal flow. Failure/expiry paths remain local VM coverage.
