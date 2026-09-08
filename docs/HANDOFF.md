@@ -1,5 +1,13 @@
 # HoldBook handoff
 
+## Branch push authorized — September 9
+
+User requested「全部推送吧」. All current feat/t08-settlement commits are
+approved for push to origin under the same branch name. This supersedes earlier
+local-only push restrictions; merge and deployment remain outside this request.
+Clean status and remote state were checked. [Usage055](ai-usage/055-authorized-push.md)
+records the authorization; final push acceptance is checked in the session.
+
 ## Engine packages organized — September 9
 
 `based_on_commit: b6f60027a2fd8f002e741a8725f5be82428a11bf`. User requested
