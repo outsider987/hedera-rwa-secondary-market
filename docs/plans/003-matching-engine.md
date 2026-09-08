@@ -1,3 +1,100 @@
+# T06–T07 approved unfunded market
+
+September 8, 2026. Implementation authorized by the user-supplied T06–T07 plan,
+based on `cbf0c2240533dbe3e53db42913d4a6f162c7dac3`. This specification supersedes
+the planning-only/core-only scope below. Deliver T06 as an independent local
+commit, then continue T07 under this same authorization. No push, merge or T08.
+
+## Effective specification
+
+One NOVA/HBAR limit market on Testnet 296, original Seller and Buyer each able
+to buy or sell; Admin reads only. No reservation, payment or ATS Hold. Always
+label the book “Funds are not reserved” and fills “Matched · Not settled”.
+Preserve all T05 contracts, original evidence, npm lock and SDK patches.
+
+Price-time priority uses server acceptance sequence and resting price. Support
+partial/multiple fills and owner-only remainder cancellation. At a crossing
+self-order cancel incoming remainder without skipping; keep earlier valid fills.
+Quantity is 1–1000 whole shares; positive canonical tinybar price and notional
+fit int64, checked before multiplication. HBAR inputs allow at most eight decimal
+places, no exponent syntax. Expiry is preparation time +86400, inclusive boundary;
+signature submission deadline is preparation time +300. Server supplies time.
+
+EIP-712 domain: HoldBook Unfunded Orders / 1 / chainId 296 / permanent random
+32-byte database salt. OrderCommand fields in order: purpose (string), action
+(string Place/Cancel), owner (address), requestId (string), orderId (string),
+market (string NOVA/HBAR), side (string Buy/Sell; Cancel empty), quantity (uint256),
+price (uint256), expiresAt (uint256), deadline (uint256). Purpose is
+“Unfunded intent only. No assets reserved or transferred.” Cancel quantity,
+price and expiresAt are zero. Server prepares and stores the exact command,
+reconstructs typed data and recovers owner on submission. Request IDs execute
+once; exact repeats return original results, conflicting repeats reject.
+Raw signatures stay only in the local database; public export whitelists command,
+digest, verification and result fields. No test creates a private-key signer.
+
+Go 1.27.1, PostgreSQL 18.6, pgx v5.11.0, go-ethereum v1.17.5. Compose uses a
+project-specific volume, API loopback 8787, no host database port. Four tables:
+markets, commands, orders, matches. Every mutation locks the same market row,
+updates sequence/time/order/matches/command result in one transaction and replies
+only after commit. Reconstruct from persisted state; never replay accepted commands
+as new work. Expire each second and before matching. JSON integers are decimal
+strings. Strict bounded HTTP parsing, preview Origin 127.0.0.1:4173 for signing
+submission, reject wrong market/domain and unknown fields. Endpoints:
+GET /api/market, /api/health, /api/orders?owner=, /api/matches,
+/api/commands/{id}; POST /api/commands/prepare and /api/commands.
+
+Market is default tab, retaining Trade/History/Settings. Native responsive form,
+review with expiry/notional and acknowledgement, book, My orders and Matches.
+Use existing wallet session/lease/Web Lock. Persist public intent before signing;
+account/network change or late/rejected signature never sends. Unknown submission
+and reload query the same ID only; unblock only on confirmed terminal outcome.
+Poll visible Market every two seconds; stale data remains labelled offline and
+blocks new commands. No UI packages, images or animation.
+
+## Exact allowed files
+
+T06: `engine/go.mod`, `engine/book.go`, `engine/book_test.go`,
+`.github/workflows/ci.yml`, `docs/prompts/029-t06-matching-core.md`,
+`docs/ai-usage/042-t06-matching-core.md`,
+`docs/evidence/033-t06-matching-core.md`, `docs/evidence/033-t06-matching-core.json`.
+T07: `engine/go.mod`, `engine/go.sum`, `engine/auth.go`, `engine/auth_test.go`,
+`engine/store.go`, `engine/store_test.go`, `engine/http.go`, `engine/http_test.go`,
+`engine/migrations/001-market.sql`, `engine/cmd/api/main.go`, `engine/Dockerfile`,
+`compose.yaml`, `.github/workflows/ci.yml`, `src/market.ts`, `src/MarketPanel.tsx`,
+`src/App.tsx`, `src/styles.css`, `src/evidence.ts`, `vite.config.ts`,
+`tests/market.test.mjs`, `tests/shell.test.mjs`, `tests/evidence.test.mjs`,
+`docs/prompts/030-t07-signed-market.md`, `docs/ai-usage/043-t07-signed-market.md`,
+`docs/evidence/034-t07-implementation.md`, `docs/evidence/034-t07-validation.json`,
+`docs/evidence/034-t07-browser.mjs`, `docs/evidence/034-t07-browser.json`,
+`docs/evidence/034-t07-5173-1440.png`, `docs/evidence/034-t07-5173-390.png`,
+`docs/evidence/034-t07-4173-1440.png`, `docs/evidence/034-t07-4173-390.png`,
+`docs/evidence/035-t07-manual.md`, `docs/evidence/035-t07-manual.json`,
+`docs/evidence/035-t07-orders.png`, `docs/evidence/035-t07-matches.png`.
+Shared documentation: this file, `docs/HANDOFF.md`, `docs/plans/001-ats-first.md`,
+`AI_USAGE.md`, `README.md`, `PRODUCT.md`, `DESIGN.md`, `docs/DEMO.md`,
+`docs/ARCHITECTURE.md`, `docs/ATTRIBUTION.md`.
+
+## Required acceptance
+
+T06: standard Go test/race/vet/fuzz and deterministic replay: priority/FIFO,
+resting price, noncrossing, partial/multiple/remainder, cancel, self prevention,
+expiry equality, wrong owner, conservation, integer parsing and overflow.
+T07: public signature vector recovery plus wrong signer/domain/chain/market/field/
+deadline/request tests; explicit verifier doubles for HTTP/database integration.
+Real PostgreSQL concurrency, duplicate requests, commit interruption/lost response,
+restart and offline cases cannot duplicate matches. Retain npm ci/test/typecheck/
+build and Foundry. Browser dev/preview desktop/mobile/keyboard/tab locks, stale
+wallet/signature, reload, external requests and request scope checks.
+Manual fresh-book sequence (six Victor MetaMask signatures): Seller sells 4@0.09
+and 5@0.10; Buyer buys 6@0.10 → 4@0.09 + 2@0.10, 0.56 HBAR intent; Seller cancels
+remaining 3; Buyer sells 1 and Seller buys 1. Verify reload and service restart.
+English report, public JSON, actual captures and architecture diagram. Manual
+acceptance remains Pending until observed; no chain transaction IDs for matching.
+
+---
+
+## Historical planning draft (superseded where inconsistent)
+
 # Go matching engine and settlement roadmap
 
 Planning draft, September 8, 2026. Based on merged main

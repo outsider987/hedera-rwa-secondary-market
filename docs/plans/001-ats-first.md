@@ -1,5 +1,7 @@
 # HoldBook 第一階段：ATS／KYC／Hold 驗證
 
+2026-09-08：使用者核准 T06–T07 實作，範圍與驗收以 [003 有效規格](003-matching-engine.md) 為準；取代先前僅規劃限制。T08 未啟用。
+
 Status: 使用者於 2026-09-05 核准實作。進度以 `../HANDOFF.md` 為準。
 2026-09-08 T05 已合併至 main；使用者核准回讀並規劃原訂 Go CLOB／PostgreSQL 階段。
 [撮合草案 003](003-matching-engine.md) 提出 T06 核心、T07 持久化服務、T08 結算整合；本次僅規劃，尚未啟用下一票實作。

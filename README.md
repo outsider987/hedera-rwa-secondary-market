@@ -53,3 +53,5 @@ out of scope. Desktop MetaMask ECDSA is supported; native BBS is excluded.
 remain disclosed. No project license has been selected. The unseen pre-event
 draft and eligibility questions remain [unresolved for Victor](docs/prompts/001-planning-record.md).
 Maintainers: read [AGENTS](AGENTS.md) and [HANDOFF](docs/HANDOFF.md).
+
+T06 deterministic unfunded matching core: [verified Go checks](docs/evidence/033-t06-matching-core.md). T07 signed market implementation is authorized and pending; no funds are reserved or transferred by matching.

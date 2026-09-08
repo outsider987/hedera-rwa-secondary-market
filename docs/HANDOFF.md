@@ -1,5 +1,20 @@
 # HoldBook handoff
 
+## T06–T07 activated — September 8, 2026 (effective)
+
+`based_on_commit: cbf0c2240533dbe3e53db42913d4a6f162c7dac3`, verified actual HEAD.
+User supplied the two-milestone implementation plan: T06 core then T07 signed
+Go/PostgreSQL market and React interface. This supersedes earlier planning-only
+and T06-only stops. Exact allowed files and full acceptance are in the effective
+section of [spec 003](plans/003-matching-engine.md). Read that section first.
+T05 is complete and historical; worktree started clean on docs/matching-plan.
+Local commits only, no push/merge/T08, no agent signatures or chain mutations.
+T06 core passed Go test/race/vet/fuzz and deterministic replay; see
+[evidence 033](evidence/033-t06-matching-core.md). Commit this milestone, then
+continue active T07 under existing authorization and its exact spec 003 files. Six real MetaMask signatures must be performed manually by Victor.
+Official release pages confirm the requested Go/dependency versions. Docker
+Desktop launch requested; WSL engine readiness and all runtime checks pending.
+
 ## Matching roadmap planning — September 8, 2026 (effective)
 
 `based_on_commit: b2e489b0881d4317880a0eb8fcc2d7a9632a4852` is actual merged

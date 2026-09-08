@@ -314,3 +314,7 @@ synthetic account connections. Pending records and SDK wallet responses used
 for race/rejection tests are explicitly synthetic; they are not transaction
 evidence. No image, font or animation asset was added to the product. Existing
 dated attribution and audit/peer/native-BBS/license limitations remain intact.
+
+## T06 Go core — September 8, 2026
+
+Go 1.27.1 ([official release feed](https://go.dev/dl/?mode=json)), Go standard library, BSD-3-Clause. Core is newly AI-assisted project code, no copied upstream algorithm or external Go dependency. Test fixtures use synthetic public addresses, no private keys or signatures.
