@@ -1,5 +1,22 @@
 # HoldBook handoff
 
+## T08 balance visibility and busy feedback delivered — effective
+
+`based_on_commit: 2e46607204b5db27c8c06e4ada7d9f75eb97924a`. User requested visible NOVA ownership
+and a spinner during contract work. Market now shows current account available /
+locked / combined total with public block/time, refresh and stale states. Queries
+are isolated by account/session; active settlement work has a CSS spinner with
+reduced-motion support. Mutation paths are unchanged. [Usage047](ai-usage/047-t08-balances.md)
+and [evidence039](evidence/039-t08-balances.json) record112 app+36 protobuf tests,
+npm ci/typecheck/both builds and4 dev/preview browser cases passing. Direct read
+40259101 confirms Seller83/0, Buyer17/0. Refresh the production preview to load UI.
+
+T08 remains active: cancellation and expired reclaim plus final persistence and
+snapshot update are pending. Next manual action stays Seller Sell1@0.10, then
+Buyer Buy1@0.10, Seller lock/register/cancel; Buyer must not pay that case. Exact
+remaining acceptance files and manual approval restrictions below still apply;
+no next ticket, push, merge or publication.
+
 ## T08 reverse case settled — effective
 
 `based_on_commit: 8637f24ab0f8015d2ffe3d7e93e2a85bc0cf14b9`. Match17-1 verified Settled40258794,

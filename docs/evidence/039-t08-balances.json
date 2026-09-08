@@ -1,0 +1,92 @@
+{
+  "recordedAt": "2026-09-08T11:18:00.457Z",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1440,
+      "balanceAccountIsolation": true,
+      "availableHeldTotal": true,
+      "fixedBlockReads": true,
+      "offlineRetains": true,
+      "spinnerOnlyWhileRunning": true,
+      "reducedMotion": true,
+      "overflow": false,
+      "walletMutations": 0,
+      "kind": "Explicit public fixtures; no live transaction or signature"
+    },
+    {
+      "port": 5173,
+      "width": 390,
+      "balanceAccountIsolation": true,
+      "availableHeldTotal": true,
+      "fixedBlockReads": true,
+      "offlineRetains": true,
+      "spinnerOnlyWhileRunning": true,
+      "reducedMotion": true,
+      "overflow": false,
+      "walletMutations": 0,
+      "kind": "Explicit public fixtures; no live transaction or signature"
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "balanceAccountIsolation": true,
+      "availableHeldTotal": true,
+      "fixedBlockReads": true,
+      "offlineRetains": true,
+      "spinnerOnlyWhileRunning": true,
+      "reducedMotion": true,
+      "overflow": false,
+      "walletMutations": 0,
+      "kind": "Explicit public fixtures; no live transaction or signature"
+    },
+    {
+      "port": 4173,
+      "width": 390,
+      "balanceAccountIsolation": true,
+      "availableHeldTotal": true,
+      "fixedBlockReads": true,
+      "offlineRetains": true,
+      "spinnerOnlyWhileRunning": true,
+      "reducedMotion": true,
+      "overflow": false,
+      "walletMutations": 0,
+      "kind": "Explicit public fixtures; no live transaction or signature"
+    }
+  ],
+  "basedOnCommit": "2e46607204b5db27c8c06e4ada7d9f75eb97924a",
+  "checks": {
+    "npmCi": "passed; pinned SDK patches reproduced",
+    "applicationTests": {
+      "passed": 112,
+      "failed": 0
+    },
+    "protobufTests": {
+      "passed": 36,
+      "failed": 0
+    },
+    "typecheck": "passed",
+    "applicationBuild": "passed",
+    "showcaseBuild": "passed",
+    "visualInspection": "desktop/mobile captures inspected; no horizontal overflow",
+    "livePublicBalances": [
+      {
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "available": "83",
+        "held": "0",
+        "total": "83",
+        "block": "40259101",
+        "timestamp": "1788866292"
+      },
+      {
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "available": "17",
+        "held": "0",
+        "total": "17",
+        "block": "40259101",
+        "timestamp": "1788866292"
+      }
+    ],
+    "limitations": "Browser captures use explicit fixtures, including a held unit and failed balance refresh; they are not chain acceptance evidence. Original manual results remain in038. No wallet mutation or signature."
+  }
+}

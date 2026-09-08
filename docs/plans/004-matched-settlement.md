@@ -125,3 +125,20 @@ Go test/race/vet/existing fuzz, Foundry and dev/preview browser validation.
 Mirror/ATS/HBAR/fees, captures, reload/API restart agreement. Code and evidence
 committed together; never call manual acceptance passed from doubles. Stop at
 reviewable local version; no automatic signing, push, merge or deployment.
+
+## September8 balance visibility correction (authorized by user)
+
+User could not find current NOVA ownership. Add a compact current-account balance
+readout in Market: available, held and combined total, fixed public block/time,
+refresh, pending/error/stale states and account-isolated cache. Reuse existing
+RPC/ABI and TanStack Query, no signing or dependency change. Applicable existing
+allowed files: src/market.ts, src/MarketPanel.tsx, src/styles.css, tests/market.test.mjs,
+PRODUCT.md, DESIGN.md, HANDOFF and AI_USAGE. Additional exact evidence paths:
+docs/ai-usage/047-t08-balances.md, docs/evidence/039-t08-balances.mjs,
+docs/evidence/039-t08-balances.json, docs/evidence/039-t08-balances-desktop.png,
+docs/evidence/039-t08-balances-mobile.png. Preserve all manual transaction evidence.
+
+User additionally requested an inline spinner while contract work is running.
+Include src/SettlementPanel.tsx in this correction; animate only active preparation,
+manual wallet wait or verification, stop when the call finishes, retain status text
+and disable rotation for reduced motion. Do not spin for idle unknown outcomes.

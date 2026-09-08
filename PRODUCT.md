@@ -82,3 +82,9 @@ and remaining requirements are in [T08 spec](docs/plans/004-matched-settlement.m
 - Preserve unknown operations and historical evidence through recovery.
 - Label verified snapshots with their dates and blocks, never as current balances.
 - Prefer native accessible controls; disclose synthetic Testnet scope honestly.
+
+Current-account NOVA ownership is visible above the Market book: available,
+locked in Holds and their combined total, read from one public Testnet block.
+Account changes isolate cached values; failures retain the last successful read
+with its block/time. Manual refresh is available. Active contract work shows an
+inline spinner and status text; idle pending outcomes do not imply active progress.

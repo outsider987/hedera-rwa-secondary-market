@@ -46,3 +46,17 @@ test('populated Market renders partial cancellation and reverse matches honestly
  const server=await createServer({server:{middlewareMode:true,hmr:false},appType:'custom',plugins:[{name:'populated-market-fixture',enforce:'pre',transform(source,id){if(id.endsWith('/src/MarketPanel.tsx'))return source.replace('useState<Market>()','useState<Market>(globalThis.__marketFixture)').replace("useState<'Open'|'All'>('Open')","useState<'Open'|'All'>('All')").replace("useState<'Active'|'Needs your action'|'Completed'|'All'>('Active')","useState<'Active'|'Needs your action'|'Completed'|'All'>('All')")}}]});
  try{const {default:Panel}=await server.ssrLoadModule('/src/MarketPanel.tsx');const html=renderToStaticMarkup(createElement(Panel,{visible:true,roles:{},session:0,activeAccount:seller}));assert.match(html,/Remaining 0 · Matched 2 · Cancelled 2 · Expired 0/);assert.match(html,/Matched · Not settled/);assert.match(html,/Buyer: Seller account · Seller: Buyer account/);assert.doesNotMatch(html,/Cancel remaining [0-9]/);}finally{delete globalThis.__marketFixture;await server.close();}
 });
+test('NOVA balance uses one public block, includes held units, and rejects wrong chain or incomplete reads',async t=>{
+ const {interfaces}=await import('../src/nova.ts'),{asset}=await interfaces(),calls=[];
+ let chain='0x128',broken=false;
+ t.mock.method(globalThis,'fetch',async(_url,init)=>{
+  const {method,params}=JSON.parse(init.body);calls.push({method,params});let result;
+  if(method==='eth_chainId')result=chain;
+  else if(method==='eth_getBlockByNumber')result={number:'0x123',timestamp:'0x100'};
+  else {assert.equal(method,'eth_call');assert.equal(params[1],'0x123');assert.equal(params[0].to,'0x261ce349df182988fa25d00868cf6cf434220c24');const call=asset.parseTransaction({data:params[0].data});assert.equal(call.args[0].toLowerCase(),command.owner);result=broken?'0x':asset.encodeFunctionResult(call.name,[call.name==='balanceOf'?82n:2n]);}
+  return Response.json({jsonrpc:'2.0',id:1,result});
+ });
+ assert.deepEqual(await m.readMarketBalance(command.owner,AbortSignal.timeout(5000)),{owner:command.owner,available:'82',held:'2',total:'84',block:'291',timestamp:'256'});
+ assert.equal(calls.length,4);chain='0x1';await assert.rejects(m.readMarketBalance(command.owner,AbortSignal.timeout(5000)),/chain/);
+ chain='0x128';broken=true;await assert.rejects(m.readMarketBalance(command.owner,AbortSignal.timeout(5000)));await assert.rejects(m.readMarketBalance('0x'+'1'.repeat(40),AbortSignal.timeout(5000)),/original account/);
+});

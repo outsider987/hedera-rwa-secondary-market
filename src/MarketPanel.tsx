@@ -5,7 +5,7 @@ import {queryClient} from './wallet';
 import {useEffect,useRef,useState,useSyncExternalStore} from 'react';
 import {getOperationBusy,subscribeOperation,type Roles} from './guards';
 import {accounts} from './lifecycle';
-import {amount,hbar,loadIntent,marketEvidence,marketStorageKey,pending,prepareOrder,readMarket,recoverIntent,signOrder,status,type Intent,type Market,type Order,type Review,type Side} from './market';
+import {amount,hbar,loadIntent,marketEvidence,marketStorageKey,pending,prepareOrder,readMarketBalance,readMarket,recoverIntent,signOrder,status,type Intent,type Market,type Order,type Review,type Side} from './market';
 
 export default function MarketPanel({visible,roles,session,activeAccount}:{visible:boolean;roles:Roles;session:number;activeAccount?:string}){
  const [selectedMatch,setSelectedMatch]=useState<string>(),[matchFilter,setMatchFilter]=useState<'Active'|'Needs your action'|'Completed'|'All'>('Active');
@@ -22,6 +22,9 @@ export default function MarketPanel({visible,roles,session,activeAccount}:{visib
  const controller=useRef<AbortController|undefined>(undefined),epoch=useRef(0);
  const owner=activeAccount?.toLowerCase()??'',trader=owner===accounts.Seller.address||owner===accounts.Buyer.address;
  const role=owner===accounts.Seller.address?'Seller':owner===accounts.Buyer.address?'Buyer':owner===accounts.Admin.address?'Admin':'Not connected';
+ const balanceQuery=useQuery({queryKey:['nova-balance',owner,session],queryFn:({signal})=>readMarketBalance(owner,signal),enabled:visible&&role!=='Not connected'&&!locked,retry:false,refetchInterval:visible&&!locked?15000:false,refetchIntervalInBackground:false},queryClient);
+ const balance=balanceQuery.data;
+
  useEffect(()=>{setQuantity('');setPrice('');setDismissed(undefined);},[owner]);
  useEffect(()=>{if(review)ticketHeading.current?.focus();},[review]);
  const preview=typeof window!=='undefined'&&window.location.origin==='http://127.0.0.1:4173'&&import.meta.env.PROD;
@@ -50,6 +53,13 @@ export default function MarketPanel({visible,roles,session,activeAccount}:{visib
 
  return <section className="page-section market" aria-labelledby="market-heading">
   <div className="market-heading"><div><h2 id="market-heading">NOVA / HBAR</h2><p>Limit orders · Hedera Testnet</p></div><p><span role="status">{online?'Live':'Offline'}</span>{last?' · Last updated '+last:' · Waiting for market'}</p></div>
+  <section className="market-balance" aria-labelledby="balance-heading">
+   <div className="market-balance-heading"><h3 id="balance-heading">{role==='Not connected'?'Your NOVA balance':role+' account · NOVA balance'}</h3>{role!=='Not connected'&&<button className="secondary" disabled={balanceQuery.isFetching||locked} onClick={()=>void balanceQuery.refetch()}>{balanceQuery.isFetching?'Refreshing balance…':'Refresh balance'}</button>}</div>
+   {role==='Not connected'?<p>Connect an account to view its available and locked NOVA.</p>:<>
+    <dl><div><dt>Available</dt><dd>{balance?balance.available+' NOVA':'—'}</dd></div><div><dt>Locked in Holds</dt><dd>{balance?balance.held+' NOVA':'—'}</dd></div><div><dt>Total · available + locked</dt><dd>{balance?balance.total+' NOVA':'—'}</dd></div></dl>
+    <p className="muted" role="status">{balanceQuery.isError?(balance?'Balance update unavailable. Last successful read is retained.':'Balance unavailable. Refresh to try again.'):(balanceQuery.isFetching?'Reading current Testnet balances…':!balance?'Balance has not been read.':'Testnet balance read.')}{balance&&<> Last read: {new Date(Number(balance.timestamp)*1000).toLocaleString()} · Block {balance.block}.</>}</p>
+   </>}
+  </section>
   <p className="notice"><strong>Funds are not reserved.</strong> Orders do not reserve NOVA or HBAR. Each match separately shows its lock, payment and delivery status.</p>
   {(owner===accounts.Admin.address&&!settlementData?.deployment||settlementData?.pendingOperation)&&<div className="actions"><button className="secondary" onClick={()=>setSelectedMatch(settlementData?.pendingOperation?.settlementId||'setup')}>{settlementData?.pendingOperation?'Recover settlement operation':'Settlement setup'}</button></div>}
   <div className="market-layout">

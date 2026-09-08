@@ -248,3 +248,15 @@ footer a { min-height: 44px; padding-block: 0.5rem; }
 .showcase-architecture { grid-template-columns: repeat(3, minmax(0, 1fr)); padding-left: 1.5rem; }
 @media (max-width: 700px) { .showcase-balances, .showcase-architecture { grid-template-columns: 1fr; } }
 .showcase-case-picker button.secondary[aria-pressed="true"]:hover:not(:disabled) { background: #0a3652; color: white; }
+
+.market-balance { margin: 1.25rem 0; padding: 1rem 0; border-block: 1px solid #d4dfe7; }
+.market-balance-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; }
+.market-balance-heading h3 { margin: 0; }
+.market-balance dl { display: flex; flex-wrap: wrap; gap: 1rem 3rem; margin: 1rem 0 0.5rem; }
+.market-balance dl div { display: block; border: 0; padding: 0; }
+.market-balance dt, .market-balance .muted { font-size: 0.875rem; color: #485d6b; }
+.market-balance dd { margin: 0.25rem 0 0; font-size: 1.125rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.operation-spinner { display: inline-block; width: 1em; height: 1em; margin-left: 0.5em; vertical-align: -0.125em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: operation-spin 1s linear infinite; }
+@keyframes operation-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .operation-spinner { animation: none; } }

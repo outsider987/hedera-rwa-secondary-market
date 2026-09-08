@@ -1,7 +1,8 @@
 import {hashTypedData, recoverTypedDataAddress, type Hex} from 'viem';
 import {acquireOperation,releaseOperation,withTransactionLock,type Roles} from './guards';
 import {reviewWallet,checkWalletReview,type WalletReview} from './wallet';
-import {accounts,assertFixedAccounts} from './lifecycle';
+import {accounts,assertFixedAccounts,securityAddress} from './lifecycle';
+import {interfaces,rpc} from './nova';
 
 export const marketName='NOVA/HBAR';
 export const purpose='Unfunded intent only. No assets reserved or transferred.';
@@ -50,6 +51,18 @@ function publicMatch(m:Match):Match {for(const k of ['quantity','price','notiona
 export async function api<T>(path:string,signal:AbortSignal,body?:unknown,timeout=10000):Promise<T>{
  const r=await fetch('/api/'+path,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined,signal:AbortSignal.any([signal,AbortSignal.timeout(timeout)]),cache:'no-store',credentials:'omit',redirect:'error'});
  if(!r.ok)throw new Error('Market request incomplete. Query the original request; do not resubmit.');return r.json();
+}
+export async function readMarketBalance(owner:string,signal:AbortSignal){
+ if(!Object.values(accounts).some(a=>a.address===owner))throw new Error('Select an original account.');
+ if(await rpc('eth_chainId',[],signal)!=='0x128')throw new Error('Wrong balance RPC chain.');
+ const header=await rpc('eth_getBlockByNumber',['latest',false],signal) as {number?:string;timestamp?:string};
+ if(!header||!/^0x[0-9a-f]+$/i.test(header.number??'')||!/^0x[0-9a-f]+$/i.test(header.timestamp??''))throw new Error('Balance block unavailable.');
+ const block=header.number!,{asset}=await interfaces();
+ const [available,held]=await Promise.all(['balanceOf','getHeldAmountFor'].map(async name=>{
+  const value=asset.decodeFunctionResult(name,await rpc('eth_call',[{to:securityAddress,data:asset.encodeFunctionData(name,[owner])},block],signal) as string)[0];
+  if(typeof value!=='bigint'||value<0n||value>maxInt)throw new Error('Invalid NOVA balance.');return value;
+ }));
+ signal.throwIfAborted();return {owner,available:available.toString(),held:held.toString(),total:(available+held).toString(),block:BigInt(block).toString(),timestamp:BigInt(header.timestamp!).toString()};
 }
 export async function readMarket(signal:AbortSignal):Promise<Market>{const m=await api<Market>('market',signal);domainCheck(m.domain);if(m.market!==marketName||m.notice!=='Funds are not reserved')throw new Error('Unexpected market.');integer(m.serverTime);integer(m.version);return {...m,orders:m.orders.map(publicOrder),matches:m.matches.map(publicMatch)};}
 export function loadIntent(storage:Pick<Storage,'getItem'>=window.localStorage):Intent|undefined{const raw=storage.getItem(marketStorageKey);if(!raw)return;const v=JSON.parse(raw) as Intent;domainCheck(v.domain);return {domain:publicDomain(v.domain),record:publicRecord(v.record)};}

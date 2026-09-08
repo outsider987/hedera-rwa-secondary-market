@@ -140,10 +140,24 @@ Keep square section boundaries and thin separators.
 - Do keep full terms and recovery available through native details.
 - Don't imply an order reserves funds or an expired Hold has been returned.
 - Don't label T08 cases verified before actual manual evidence is recorded.
-- Don't expand motion beyond the approved state transitions or add Animate UI.
+- Keep motion to the approved state transitions and active-operation spinner; no Animate UI.
 
 Sources: [Market](src/MarketPanel.tsx), [settlement](src/SettlementPanel.tsx),
 [Trade](src/TradePanel.tsx), [showcase](src/showcase.tsx),
 [styles](src/styles.css), [T08 browser evidence](docs/evidence/037-t08-browser.json).
 Browser fixtures establish only their recorded scenarios; real MetaMask and
 full T08 acceptance remain separate requirements in [spec 004](docs/plans/004-matched-settlement.md).
+
+## T08 balance visibility and busy feedback correction
+
+The current account's balance sits below the Market heading and above the funds
+notice. Three plain definition-list items (available, locked, combined total) wrap
+on narrow screens; the account label, refresh control, source block and time stay
+visible. Failed reads retain values with explicit stale copy; missing values use
+an em dash rather than zero. Query keys include account/session; polling pauses
+while wallet operations hold the shared lease. No balance number is animated.
+
+A one-em CSS ring follows the active settlement status text, rotating linearly
+once per second only while preparation, wallet waiting or verification is running.
+It disappears when the call finishes, including failure; reduced motion disables
+rotation and retains the status text. The user explicitly requested this feedback.

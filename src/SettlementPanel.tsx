@@ -34,7 +34,7 @@ export default function SettlementPanel({match,settlement,deployment,pendingOper
    {!review&&!terminal&&next&&(next!=='deploy'||owner===accounts.Admin.address)&&<button disabled={blocked} onClick={()=>prepare(next)}>{next==='settle'?'Review payment':settlementLabels[next]}</button>}
    {!review&&settlement&&owner===settlement.terms.seller&&!terminal&&now<BigInt(settlement.terms.expiry)&&['Locked','Ready'].includes(settlement.status)&&<div className="actions"><button className="secondary" disabled={blocked} onClick={()=>prepare(settlement.status==='Locked'?'orphan':'cancel')}>{settlement.status==='Locked'?'Return unregistered Hold':'Cancel settlement'}</button></div>}
    {selectedSaved&&saved.operation.evidence&&<p>Network fee: {hbar(saved.operation.evidence.feeTinybars)} HBAR · <a href={'https://hashscan.io/testnet/transaction/'+saved.operation.hash} target="_blank" rel="noreferrer">Transaction evidence</a></p>}
-   {working&&<p role="status">{approved?'Waiting for manual approval…':'Preparing or verifying the original operation…'}</p>}
+   {working&&<p role="status" className="operation-progress">Preparing, waiting for MetaMask, or verifying the original operation…<span className="operation-spinner" aria-hidden="true"/></p>}
    {problem&&<p role="alert">{problem}</p>}
    {!online&&<p>Settlement service unavailable. Last received data is retained; actions requiring fresh data are disabled.</p>}
    {!preview&&<p>Use <a href="http://127.0.0.1:4173">production preview</a> for manual transactions.</p>}
