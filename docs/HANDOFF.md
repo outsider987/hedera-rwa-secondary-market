@@ -1,5 +1,15 @@
 # HoldBook handoff
 
+## T08 reverse case settled — effective
+
+`based_on_commit: 8637f24ab0f8015d2ffe3d7e93e2a85bc0cf14b9`. Match17-1 verified Settled40258794,
+1 NOVA/0.09 HBAR; Seller account83/0, Buyer account17/0. Three reverse operations
+and direct Mirror payment/fee agree; manual038 includes actual capture and proofs.
+Observed5 accepted order signatures,7 chain transactions. Next fresh cancellation
+case: Seller Sell1@0.10, Buyer Buy1@0.10, Seller locks/registers then cancels;
+Buyer does not pay. Cancel/reclaim/final persistence remain pending. Same allowed
+T08 files and manual approval boundary; no next ticket, push or publication.
+
 ## T08 normal case settled — effective
 
 `based_on_commit: 73eabc1dbb907ef8f01c2402b8be55eb76ba707d`. Match15-1 Settled verified at40258355:

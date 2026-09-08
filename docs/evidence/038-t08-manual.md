@@ -18,7 +18,7 @@ No transaction was resent and no code or verification rule was changed. The caus
 of the initial request failure is not established. Browser recovery confirmation
 still belongs to Victor; click Query original operation before continuing.
 
-Observed: **four chain transactions, three accepted order signatures**. All four settlement
+Observed: **seven chain transactions, five accepted order signatures**. All four settlement
 cases remain pending. Expected total: eight order signatures and thirteen chain
 transactions; record rejection/recovery extras separately. Next: Seller Sell2@0.10,
 then Buyer Buy2@0.10, only using newly accepted orders after this deployment cutoff.
@@ -110,3 +110,21 @@ Next is reverse: Buyer account sells1@0.09; Seller account buys1@0.09, then the
 selling Buyer account locks/registers and the buying Seller account pays0.09.
 Reverse/cancel/reclaim and final reload/restart comparison remain pending. Static
 showcase remains the earlier dated snapshot until the acceptance evidence update.
+
+### Reverse case17-1 settled — block40258794
+
+Buyer account sold1@0.09 (sequence16); Seller account bought it (sequence17).
+Buyer-held Hold1 was locked/registered, then Seller paid0.09 HBAR in
+`0x6b36f5c233252b4cf20bc38050daf71f8453e814030a0511c65c5e25d9789277`.
+All three original operations are verified by the production proof pipeline;
+full hashes, event indices, fees and balance transitions are in the public JSON.
+Direct Mirror read confirms Buyer account0.0.10389098 credit9,000,000 tinybars,
+Seller account0.0.10389111 debit44,105,070 including35,105,070 tinybar fee.
+Final account balances: Seller83/held0, Buyer17/held0. JSON seller/buyer balance
+field names follow this match's trading roles, so reverse-case seller means the
+Buyer account. [Actual user capture](038-t08-reverse.png) shows delivery/payment
+verified. No duplicate payment or extra chain transaction was observed.
+
+Next cancellation case: fresh Seller Sell1@0.10 and Buyer Buy1@0.10, Seller
+locks/registers, then Seller cancels before expiry; Buyer must not pay this case.
+Final persistence comparison, cancellation and expired reclaim remain pending.

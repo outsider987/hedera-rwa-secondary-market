@@ -102,3 +102,13 @@ normal screenshot (unchanged), manual038 MD/JSON, HANDOFF/index/this entry.
 Public proof assertions and diff checks passed; evidence-only, no code tests rerun.
 Reverse/cancel/reclaim and final persistence checks remain pending; dated static
 snapshot will be refreshed with final acceptance evidence.
+
+## Reverse settlement observed — September 8, 2026
+
+Based on `8637f24ab0f8015d2ffe3d7e93e2a85bc0cf14b9`. User supplied reverse locked/registered/settled
+screens. Codex queried public original operations/market/settlement and direct
+Mirror payment. A read-only settlement_operations ID lookup located the lock
+operation; no signatures or wallet files accessed. Verified1 NOVA/0.09 HBAR,
+actual fees and role-reversed balances. Updated manual038 MD/JSON/reverse capture,
+HANDOFF/index/this entry; public assertions/diff passed, no implementation tests
+rerun. Cancellation/reclaim/final persistence remain pending. No chain resubmission.
