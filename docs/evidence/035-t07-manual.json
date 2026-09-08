@@ -1,1 +1,170 @@
-{"ticket":"T07","date":"2026-09-08","status":"Pending","observedHumanSignatures":0,"expectedHumanSignatures":6,"expectedInitialIntentTinybars":"56000000","expectedTotalIntentTinybars":"66000000","observedOrders":[],"observedMatches":[],"fundsReserved":false,"settlement":"Not settled","reason":"Victor must perform the six reviewed MetaMask signatures and supply actual acceptance observations."}
+{
+  "ticket": "T07",
+  "date": "2026-09-08",
+  "status": "Pending",
+  "observedHumanSignatures": 1,
+  "expectedHumanSignatures": 6,
+  "expectedInitialIntentTinybars": "56000000",
+  "expectedTotalIntentTinybars": "66000000",
+  "observedOrders": [
+    {
+      "requestId": "7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2",
+      "orderId": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+      "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+      "market": "NOVA/HBAR",
+      "action": "Place",
+      "side": "Sell",
+      "quantity": "4",
+      "price": "9000000",
+      "expiresAt": "1788936436",
+      "sequence": "1",
+      "acceptedAt": "1788850043",
+      "remaining": "4",
+      "matched": "0",
+      "cancelled": "0",
+      "expired": "0",
+      "reason": ""
+    }
+  ],
+  "observedMatches": [],
+  "fundsReserved": false,
+  "settlement": "Not settled",
+  "reason": "First Seller order accepted and independently compared to the public API. Five signatures and final reload/restart acceptance remain pending.",
+  "initialStatus": {
+    "status": "Pending",
+    "observedHumanSignatures": 0,
+    "reason": "Victor must perform the six reviewed MetaMask signatures and supply actual acceptance observations."
+  },
+  "checkpoints": [
+    {
+      "step": 1,
+      "based_on_commit": "e7e97db1aef5a5e1c3a06d1af6f79107f9bb20d8",
+      "source": "Victor supplied holdbook-unfunded-market.json and screenshot tmp6510.png",
+      "sourceJsonSha256": "7d611d25e08452df2a3e6178cc8a8ba6efebd7081c34ea515974836002c10613",
+      "exported": {
+        "kind": "t07-unfunded-market",
+        "market": "NOVA/HBAR",
+        "chainId": "296",
+        "domain": {
+          "name": "HoldBook Unfunded Orders",
+          "version": "1",
+          "chainId": "296",
+          "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca"
+        },
+        "serverTime": "1788850087",
+        "version": "1",
+        "notice": "Funds are not reserved",
+        "settlement": "Matched · Not settled",
+        "orders": [
+          {
+            "requestId": "7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2",
+            "orderId": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+            "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "market": "NOVA/HBAR",
+            "action": "Place",
+            "side": "Sell",
+            "quantity": "4",
+            "price": "9000000",
+            "expiresAt": "1788936436",
+            "sequence": "1",
+            "acceptedAt": "1788850043",
+            "remaining": "4",
+            "matched": "0",
+            "cancelled": "0",
+            "expired": "0",
+            "reason": ""
+          }
+        ],
+        "matches": [],
+        "command": {
+          "prepared": {
+            "requestId": "7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2",
+            "orderId": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+            "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "market": "NOVA/HBAR",
+            "action": "Place",
+            "side": "Sell",
+            "quantity": "4",
+            "price": "9000000",
+            "expiresAt": "1788936436",
+            "deadline": "1788850336",
+            "preparedAt": "1788850036"
+          },
+          "status": "accepted",
+          "digest": "0x4e4921b889db5111e78d9b77bd427fbe82113701e9bcaa338ffeffc253c17e1b",
+          "verified": true,
+          "result": {
+            "sequence": "1",
+            "time": "1788850043",
+            "order": {
+              "requestId": "7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2",
+              "orderId": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+              "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+              "market": "NOVA/HBAR",
+              "action": "Place",
+              "side": "Sell",
+              "quantity": "4",
+              "price": "9000000",
+              "expiresAt": "1788936436",
+              "sequence": "1",
+              "acceptedAt": "1788850043",
+              "remaining": "4",
+              "matched": "0",
+              "cancelled": "0",
+              "expired": "0",
+              "reason": ""
+            },
+            "matches": []
+          },
+          "reason": ""
+        }
+      },
+      "live": {
+        "domain": {
+          "chainId": "296",
+          "name": "HoldBook Unfunded Orders",
+          "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca",
+          "version": "1"
+        },
+        "market": "NOVA/HBAR",
+        "matches": [],
+        "notice": "Funds are not reserved",
+        "orders": [
+          {
+            "requestId": "7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2",
+            "orderId": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+            "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "market": "NOVA/HBAR",
+            "action": "Place",
+            "side": "Sell",
+            "quantity": "4",
+            "price": "9000000",
+            "expiresAt": "1788936436",
+            "sequence": "1",
+            "acceptedAt": "1788850043",
+            "remaining": "4",
+            "matched": "0",
+            "cancelled": "0",
+            "expired": "0",
+            "reason": ""
+          }
+        ],
+        "serverTime": "1788850141",
+        "version": "1"
+      },
+      "checks": {
+        "publicExportWhitelist": true,
+        "originalRequestMatches": true,
+        "liveOrderMatches": true,
+        "domainMatches": true,
+        "independentTypedDigest": true,
+        "deadlineAndExpiry": true,
+        "acceptedBeforeDeadline": true,
+        "quantityConservation": true
+      },
+      "verificationLimit": "Backend reports signature verified. Raw signature was not read or exported; independent verification recomputes the typed-data digest only.",
+      "capture": "035-t07-orders.png",
+      "captureSha256": "bfebe90823e9a04548ceae59b7a918e2bf7698587ca5923e0aeadb7d3a144e95"
+    }
+  ]
+}

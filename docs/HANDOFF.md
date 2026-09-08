@@ -1,5 +1,22 @@
 # HoldBook handoff
 
+## T07 first Seller order verified — September 8, 2026 (effective)
+
+`based_on_commit: e7e97db1aef5a5e1c3a06d1af6f79107f9bb20d8` verified in Git.
+Victor supplied the first public export and preview/MetaMask screenshot.
+[Manual035](evidence/035-t07-manual.md) records 1/6 signatures: sequence1,
+Seller Sell4@0.09, remaining4, matched/cancelled/expired0, no matches. Original
+request and live order match the sanitized export; independently recomputed
+EIP-712 digest, permanent domain, deadlines and conservation all pass. Backend
+reports signature verified; raw signature was not read or exported. No code,
+agent signature or chain mutation. Prior automated checks remain recorded.
+
+Next: Seller places Sell5@0.10 on preview4173 with manual review/signature, then
+exports public evidence. Do not repeat the first order. Overall T07 Pending;
+remaining flow and exact allowed manual/repair files are unchanged below.
+Local evidence commit only; no push/merge/T08. Historical empty-book/no-owner-
+signature observations below describe implementation and are now superseded.
+
 ## T07 implementation verified / manual Pending — September 8, 2026 (effective)
 
 `based_on_commit: a485afb2c703ba632c83f205b1d9dcaf289173e0` is the independent T06

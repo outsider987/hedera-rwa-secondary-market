@@ -1,5 +1,7 @@
 # HoldBook 第一階段：ATS／KYC／Hold 驗證
 
+2026-09-08：T07 真人第一筆 Seller Sell4@0.09 已核對 accepted／remaining4／matched0，1/6；下一筆 Seller Sell5@0.10。見 [035](../evidence/035-t07-manual.md)。
+
 2026-09-08：T06 獨立提交 a485afb 完成；T07 程式與自動驗證已交付，真人六次簽名尚待 [035](../evidence/035-t07-manual.md)，不宣稱已完成交易所。
 
 2026-09-08：使用者核准 T06–T07 實作，範圍與驗收以 [003 有效規格](003-matching-engine.md) 為準；取代先前僅規劃限制。T08 未啟用。

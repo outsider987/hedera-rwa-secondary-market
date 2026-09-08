@@ -34,3 +34,14 @@ Victor actions remain the six manual MetaMask signatures and actual exported
 observations/captures. The real book is empty and human acceptance remains Pending.
 No agent generated a private signer, signed an order, submitted a chain transaction,
 reserved funds or ran T08. Local commits only; no push or merge.
+
+## First manual order — September 8, 2026
+
+Base e7e97db1aef5a5e1c3a06d1af6f79107f9bb20d8. Victor supplied public export
+and screenshot; Codex compared the public API original request/order, whitelisted
+fields, independently recomputed EIP-712 digest, owner/amount/time/conservation.
+First Seller Sell4@0.09 is accepted, remaining4, no matches; 1/6 signatures
+observed. Raw signature was not read/exported and no agent signed or transacted.
+Changed only manual035 report/JSON/orders capture, HANDOFF, this usage/index and
+main-plan progress. No application suite rerun for unchanged code. Next Seller
+Sell5@0.10; overall acceptance Pending, existing file boundary retained.
