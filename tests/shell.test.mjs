@@ -49,7 +49,7 @@ test('the shell renders planned data without claiming a wallet or chain result',
     assert.ok(html.includes('T03 · Seller KYC and issuance history'));
     assert.doesNotMatch(html, /Create NOVA in MetaMask|Approve T03 action in MetaMask/);
     assert.ok(html.includes('T04 · Hold lifecycle complete'));
-    assert.match(html, /href="#trade" aria-current="page"/);
+    assert.match(html, /href="#market" aria-current="page"/);
     assert.match(html, /id="history" hidden=""/);
     assert.match(html, /id="settings" hidden=""/);
     assert.ok(html.includes('Check readiness'));

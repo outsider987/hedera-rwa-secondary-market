@@ -1,6 +1,8 @@
 # HoldBook · flow and architecture
 
-[Demo script](DEMO.md) · [T04 acceptance](evidence/029-t04-manual.md) · [T05 acceptance](evidence/032-t05-manual.md)
+T07 manual acceptance passed with documented recovery: 12 accepted commands, nine orders, five unfunded matches and zero remaining; final reload/API restart preserve state. [Actual evidence](evidence/035-t07-manual.md). T08 settlement remains deferred.
+
+[Current T07 market](#t06t07-local-unfunded-market) · [Demo script](DEMO.md) · [T04 acceptance](evidence/029-t04-manual.md) · [T05 acceptance](evidence/032-t05-manual.md)
 
 ## Recorded flow
 
@@ -37,7 +39,7 @@ Four transactions, one VC signature. The three rejection checks are read-only
 and have no transaction IDs. Supply stayed **100**, cap **1000**. Acceptance
 block: **40241114**, September 8, 2026.
 
-## Current architecture
+## Historical T05 architecture
 
 T05 deployed and completed September 8, 2026. Final verification: block 40247352.
 The recorded T04 flow above remains historical and cannot be restarted in the UI.
@@ -114,3 +116,40 @@ T02–T04 are closed history. No new VC signature or KYC renewal is part of T05.
 Local contract tests model tinybar values without claiming Hedera RPC unit
 conversion or real MetaMask acceptance; evidence 032 separately verifies the
 completed manual normal flow. Failure/expiry paths remain local VM coverage.
+
+## T06–T07 local unfunded market
+
+```mermaid
+flowchart LR
+  V[Victor reviews each command] --> UI[React Market · preview 4173]
+  UI --> MM[MetaMask EIP-712 approval]
+  MM --> UI
+  UI -->|request ID + signature| API[Go API · loopback 8787]
+  API --> AUTH[Rebuild typed command and recover owner]
+  AUTH --> TX[Lock NOVA/HBAR market row]
+  TX --> CORE[Deterministic price-time core]
+  CORE --> DB[(PostgreSQL 18.6)]
+  DB -->|durable commit, then response| API
+  API -->|public orders and matches| UI
+  UI -->|original ID only after reload or timeout| API
+```
+
+The four tables are `markets` (permanent random salt, sequence, effective time,
+version), `commands` (prepared payload, local raw signature, digest, durable result),
+`orders` (conserved original/remaining/matched/cancelled/expired quantities) and
+`matches` (unique sequence/index IDs and resting prices). A single database
+transaction serializes every mutation and commits all resulting rows before
+success is returned. Restart reads rows; accepted commands are never re-executed.
+Prepared but unsigned commands have no order-book effect. Expiry runs each second
+and before matching. Invalid signatures do not consume another owner's request.
+
+Browser signing uses the existing wallet session checks, operation lease and
+same-origin Web Lock. It persists only whitelisted public intent before prompting.
+Unknown results are queried by original ID, without a retry POST. Polling runs
+only on the visible Market tab; stale data stays labelled offline and disables
+new submissions. The database is authoritative; browser storage is a recovery aid.
+
+This path has no signer, chain transaction, payment or ATS Hold. No funds are
+reserved and every match is **Matched · Not settled**. T08 needs separately
+approved funding, eligibility, contract and settlement-race design. The historical
+T05 contract and records are not inputs to new matches.

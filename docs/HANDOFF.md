@@ -1,5 +1,182 @@
 # HoldBook handoff
 
+## Submission review document prepared — September 8, 2026 (effective)
+
+`based_on_commit: ccd6905c539198cc2f0b5c922a8d716137733cd8`. User requested a
+submission-version document. Scope: docs/SUBMISSION.md, README.md, HANDOFF,
+AI_USAGE.md and docs/ai-usage/045-submission-review.md. English review entry
+consolidates actual T05/T06/T07 results, captures, architecture, setup and limits;
+no new implementation or wallet action. Relative links and result counts checked.
+Submission readiness is separate from platform submission: project license,
+event eligibility and platform-specific metadata/video remain Victor items.
+No external submission, push/merge or T08 is activated. Stop at local commit.
+
+## T07 completed with documented recovery — September 8, 2026 (effective)
+
+`based_on_commit: 6e3a47d80b5ac80a0375f563a866ef1a210988f6`, verified HEAD.
+[Manual035](evidence/035-t07-manual.md) now passes all functional observations:
+12 accepted commands (nine placements, three cancellations), nine orders, five
+matches, zero remaining, 1.16 HBAR unfunded intent. Original six-signature
+sequence deviated; additional Seller partial-cancel test passed matched2 /
+cancelled3. Export12 after operator reload equals export11 and post-API-restart
+state. All twelve digests independently recomputed; public API verifies owners.
+No raw signatures read. Historical Pending entries below are superseded.
+
+Closeout files: manual035 MD/JSON plus final-cancel/final-reload PNG captures
+(retaining earlier captures), usage043/index, HANDOFF, main plan/spec003,
+README/PRODUCT/DESIGN/DEMO/ARCHITECTURE for actual acceptance status. Evidence-only
+checks pass; latest implementation/UI test results remain in 034/036.
+Stop at local commit, clean worktree. No further human signatures are needed
+for T07. Next ticket is T08 planning only when requested; **no T08 implementation
+files are activated**. No push/merge/settlement/payment/ATS Hold is authorized.
+
+## T07 trading interface refinement — September 8, 2026 (effective)
+
+`based_on_commit: a15d2dfe61b8e6eeb394bed383ffe1f6ba6cc612`. User approved
+history columns, then the simplified exchange layout: book left, ticket right,
+Buy/Sell buttons, account identity, explicit success/New order flow, Open/All
+order table and direct remaining-quantity cancellation. Tailwind is permitted
+by the latest user message; this implementation reuses CSS without adding it.
+Tailwind, Framer Motion and Animate UI are explicitly permitted by the user
+for future work; no package/asset from them is introduced in this refinement.
+Scope: src/MarketPanel.tsx, src/styles.css, tests/market.test.mjs, DESIGN.md,
+HANDOFF, AI_USAGE.md, usage044 and evidence036 report/JSON/browser harness,
+public fixtures and six viewport captures. No backend or signing changes.
+[Evidence036](evidence/036-t07-layout.md) records final checks and fixture limits.
+npm ci, 104 app +36 protobuf tests, typecheck/build and six dev/preview cases
+pass. The detector reports no findings. Existing local manual orders are intact.
+
+Latest manual exports9/10 show supplementary Seller Sell5@0.10 accepted, then
+Buyer Buy2@0.10 matched: Seller order
+`2a362bc4488fb1a570a21b964bd232876207b84a1b258d0ab40f81eb2ba3e500`
+has remaining3/matched2. Next is ONLY Seller cancellation of this remainder,
+via My orders → Cancel remaining 3 → review/sign. Do not place another order.
+Then export and verify persistence. T07 manual acceptance remains Pending;
+manual035 allowed files remain as below. No push/merge/T08 or agent signature.
+
+## T07 reload/restart verified — September 8, 2026 (effective)
+
+`based_on_commit: 0ab0909f119ca3ff4a2f2236bd48ebbe6f8f02c4`. Manual035 now
+records nine accepted commands, seven orders, four matches, zero remaining,
+0.96 HBAR intent. Exports2–8 whitelist/digest/original-command checks pass;
+reload and real API restart preserve state. Buyer partial cancellation and
+reverse match pass. Original Seller partial cancellation remains Pending:
+extra Buyer Buy6 consumed Seller remaining3, then Buyer cancelled its own3.
+Next supplement Seller partial cancellation on the empty book with manually
+reviewed Seller Sell5@0.10, Buyer Buy2@0.10, Seller cancel remaining3; then
+repeat final persistence comparison. Never reset/erase the actual history.
+Allowed manual/repair files remain exactly as below. No code changes, raw
+signatures, agent signing, push/merge or T08. Earlier next actions superseded.
+
+## T07 second-order correction pending — September 8, 2026 (effective)
+
+`based_on_commit: 2af1f72878bc2238aac546c8e423069a6a309998` verified in Git.
+Two distinct accepted Seller Sell4@0.09 orders, no matches; only planned step 1
+is complete. [Manual035](evidence/035-t07-manual.md) preserves both checkpoints.
+Public API/export equality, independent digest, deadlines and conservation pass.
+Next Victor manually cancels newer order
+`31efe344743fd21a353f6774693c5365cbc42e2f9c32056ddb5542d69b45a6cf`,
+preserving sequence1, then exports evidence before correct Sell5@0.10 placement.
+Do not proceed to Buyer yet. Recovery projects eight signatures and six orders;
+original planned match amounts remain unchanged. No cause inferred for repeated
+input. No application changes or raw signatures read. T07 remains Pending;
+exact allowed files below remain effective. Local only; no push/merge/T08.
+
+## T07 first Seller order verified — September 8, 2026 (effective)
+
+`based_on_commit: e7e97db1aef5a5e1c3a06d1af6f79107f9bb20d8` verified in Git.
+Victor supplied the first public export and preview/MetaMask screenshot.
+[Manual035](evidence/035-t07-manual.md) records 1/6 signatures: sequence1,
+Seller Sell4@0.09, remaining4, matched/cancelled/expired0, no matches. Original
+request and live order match the sanitized export; independently recomputed
+EIP-712 digest, permanent domain, deadlines and conservation all pass. Backend
+reports signature verified; raw signature was not read or exported. No code,
+agent signature or chain mutation. Prior automated checks remain recorded.
+
+Next: Seller places Sell5@0.10 on preview4173 with manual review/signature, then
+exports public evidence. Do not repeat the first order. Overall T07 Pending;
+remaining flow and exact allowed manual/repair files are unchanged below.
+Local evidence commit only; no push/merge/T08. Historical empty-book/no-owner-
+signature observations below describe implementation and are now superseded.
+
+## T07 implementation verified / manual Pending — September 8, 2026 (effective)
+
+`based_on_commit: a485afb2c703ba632c83f205b1d9dcaf289173e0` is the independent T06
+commit, verified in Git. Active T07 implements the same user-approved two-stage
+plan; [effective spec 003](plans/003-matching-engine.md) is the reading map and
+exact implementation scope. Code/automation delivered; overall T07 is not complete.
+[Report 034](evidence/034-t07-implementation.md), [public checks](evidence/034-t07-validation.json)
+and [usage043](ai-usage/043-t07-signed-market.md) record actual outcomes.
+
+Go test/race/vet/fuzz and PostgreSQL concurrency/duplicate/rollback/lost-response/
+restart tests passed using explicitly labelled verifier doubles. Public EIP-712
+recovery and independent frontend/backend digest passed, with no private signer.
+npm ci, 104 app +36 proto, typecheck/build and 16 Foundry checks passed. Four
+browser dev/preview ×1440/390 cases cover review, keyboard, polling/offline,
+preview Web Lock, wallet invalidation/rejection/late response and pending reload.
+One live-region defect is fixed and its UI review closed at that scope.
+No actual T07 MetaMask owner signature has been observed. T05 history is unchanged.
+
+Docker API is running at loopback8787, preview4173 and dev5173 are available.
+Database has no host port; keep project volume holdbook-market_market-data.
+The permanent domain survived actual API restart and PostgreSQL stop/start;
+manual database holdbook still has zero orders/matches. Integration fixtures are
+isolated in holdbook_test. Browser automation created only unsigned preparations.
+Local docker socket access was repaired for the existing docker group; if the
+normal WSL socket remains disconnected, the verified session endpoint is
+unix:///mnt/wsl/docker-desktop/shared-sockets/guest-services/docker.proxy.sock.
+Never remove volumes/containers to resolve readiness.
+
+**Next action stays T07:** Victor follows [DEMO](DEMO.md#t07--unfunded-matching-acceptance-pending)
+on http://127.0.0.1:4173, starting Seller Sell4@0.09, then Sell5@0.10, Buyer Buy6@0.10,
+Seller cancel remaining3, Buyer Sell1@0.10 and Seller Buy1@0.10. Each signature is
+manual. Export public evidence, verify reload/restart and retain actual captures.
+[Manual report035](evidence/035-t07-manual.md) is explicitly Pending. No transaction
+ID, payment, fund reservation or settlement exists for these intents.
+
+Exact remaining manual files: docs/evidence/035-t07-manual.md,
+docs/evidence/035-t07-manual.json, docs/evidence/035-t07-orders.png,
+docs/evidence/035-t07-matches.png; usage043, AI_USAGE, HANDOFF, main plan,
+README, PRODUCT, DESIGN, DEMO and ARCHITECTURE for the actual acceptance update.
+Concrete defects may be fixed within the existing T07 spec003 implementation/test
+files with affected checks and evidence034 updated. No T08 files are activated.
+Stop at local commits; no public push/merge, new asset, payment or ATS Hold.
+
+## T06–T07 activated — September 8, 2026 (effective)
+
+`based_on_commit: cbf0c2240533dbe3e53db42913d4a6f162c7dac3`, verified actual HEAD.
+User supplied the two-milestone implementation plan: T06 core then T07 signed
+Go/PostgreSQL market and React interface. This supersedes earlier planning-only
+and T06-only stops. Exact allowed files and full acceptance are in the effective
+section of [spec 003](plans/003-matching-engine.md). Read that section first.
+T05 is complete and historical; worktree started clean on docs/matching-plan.
+Local commits only, no push/merge/T08, no agent signatures or chain mutations.
+T06 core passed Go test/race/vet/fuzz and deterministic replay; see
+[evidence 033](evidence/033-t06-matching-core.md). Commit this milestone, then
+continue active T07 under existing authorization and its exact spec 003 files. Six real MetaMask signatures must be performed manually by Victor.
+Official release pages confirm the requested Go/dependency versions. Docker
+Desktop launch requested; WSL engine readiness and all runtime checks pending.
+
+## Matching roadmap planning — September 8, 2026 (effective)
+
+`based_on_commit: b2e489b0881d4317880a0eb8fcc2d7a9632a4852` is actual merged
+T05 main (PR #7); prior T05 integration is complete. Victor asked to resume the
+matching goal and approved rereading/planning with “好”. Active work is planning
+only: [draft 003](plans/003-matching-engine.md), [prompt 028](prompts/028-matching-planning.md),
+[usage 041](ai-usage/041-matching-planning.md), HANDOFF, main plan and AI_USAGE.
+Those six files are the complete current scope; no application code changes.
+
+Original supplied provenance explicitly names Go CLOB/PostgreSQL after lifecycle.
+Draft proposes T06 Go matching core, T07 persistent order service, T08 matched
+settlement. It specifies matching rules, exact proposed T06 files and acceptance
+tests, and marks funding/authentication/settlement boundaries. T05's settled
+fixed swap is historical. Local links/diff checks pass; no new runtime test or
+chain mutation. Exact supported Go toolchain must be verified before code.
+Next implementation ticket is proposed T06, not activated by this planning
+approval. Its allowed files are listed in draft 003; T07/T08 require separate
+specs. Stay on local planning branch; T05 push/merge authorization does not
+authorize publishing this new work. No additional live trade or signature.
+
 ## T05 integration authorized — September 8, 2026 (effective)
 
 `based_on_commit: db410a30284a3477ffca648ccb88bd928e4f2546`.

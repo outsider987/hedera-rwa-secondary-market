@@ -3,6 +3,8 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 export default defineConfig({
   envDir: false,
+  server: {proxy: {'/api': {target: 'http://127.0.0.1:8787', changeOrigin: false}}},
+  preview: {proxy: {'/api': {target: 'http://127.0.0.1:8787', changeOrigin: false}}},
   resolve: {
     alias: {
       dotenv: new URL('./src/compat/dotenv.ts', import.meta.url).pathname,

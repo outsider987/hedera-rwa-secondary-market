@@ -1,0 +1,1078 @@
+{
+  "ticket": "T07",
+  "date": "2026-09-08",
+  "based_on_commit": "a485afb2c703ba632c83f205b1d9dcaf289173e0",
+  "status": "Implementation verified; manual acceptance Pending",
+  "toolchains": {
+    "go": "1.27.1",
+    "postgres": "18.6",
+    "node": "24.19.0",
+    "npm": "11.17.0",
+    "chrome": "143.0.7499.169",
+    "dockerDesktop": "4.44.3",
+    "dockerEngine": "28.3.2"
+  },
+  "checks": {
+    "npmCi": "passed",
+    "npmTests": {
+      "app": 104,
+      "protobuf": 36,
+      "failed": 0,
+      "skipped": 0
+    },
+    "typecheck": "passed",
+    "build": "passed",
+    "foundry": {
+      "passed": 16,
+      "failed": 0
+    },
+    "go": {
+      "test": "passed",
+      "race": "passed",
+      "vet": "passed",
+      "fuzzExecutions": 43988,
+      "databaseTests": "real PostgreSQL holdbook_test with explicit integration-verifier-double",
+      "publicSignatureVector": "EIP-712 Mail recovered; no private signer",
+      "projectDigest": "0xfa005ba248ae6e5452ef97894a69b89e0813a06d2f00bef6d503119e6384e28b",
+      "output": "=== RUN   TestPublicSignatureVector\n--- PASS: TestPublicSignatureVector (0.00s)\n=== RUN   TestOrderBinding\n    auth_test.go:87: project digest: 0xfa005ba248ae6e5452ef97894a69b89e0813a06d2f00bef6d503119e6384e28b\n--- PASS: TestOrderBinding (0.00s)\n=== RUN   TestReplay\n--- PASS: TestReplay (0.00s)\n=== RUN   TestPriority\n=== RUN   TestPriority/Buy\n=== RUN   TestPriority/Sell\n--- PASS: TestPriority (0.00s)\n    --- PASS: TestPriority/Buy (0.00s)\n    --- PASS: TestPriority/Sell (0.00s)\n=== RUN   TestSelfTradeAndExpiry\n--- PASS: TestSelfTradeAndExpiry (0.00s)\n=== RUN   TestBoundsAndNoncrossing\n--- PASS: TestBoundsAndNoncrossing (0.00s)\n=== RUN   TestHTTPGuards\n--- PASS: TestHTTPGuards (0.00s)\n=== RUN   TestHTTPPostgres\n--- PASS: TestHTTPPostgres (0.05s)\n=== RUN   TestPostgresDurability\n--- PASS: TestPostgresDurability (0.19s)\n=== RUN   TestPostgresConcurrentCancelAndPlace\n--- PASS: TestPostgresConcurrentCancelAndPlace (0.08s)\n=== RUN   TestPostgresConcurrentBuys\n--- PASS: TestPostgresConcurrentBuys (0.07s)\n=== RUN   FuzzConservation\n=== RUN   FuzzConservation/seed#0\n=== RUN   FuzzConservation/seed#1\n--- PASS: FuzzConservation (0.00s)\n    --- PASS: FuzzConservation/seed#0 (0.00s)\n    --- PASS: FuzzConservation/seed#1 (0.00s)\nPASS\nok  \tholdbook/engine\t0.415s\n?   \tholdbook/engine/cmd/api\t[no test files]\nok  \tholdbook/engine\t1.413s\n?   \tholdbook/engine/cmd/api\t[no test files]\nfuzz: elapsed: 0s, gathering baseline coverage: 0/2 completed\nfuzz: elapsed: 0s, gathering baseline coverage: 2/2 completed, now fuzzing with 20 workers\nfuzz: elapsed: 3s, execs: 43988 (14656/sec), new interesting: 85 (total: 87)\nfuzz: elapsed: 4s, execs: 43988 (0/sec), new interesting: 85 (total: 87)\nPASS\nok  \tholdbook/engine\t4.392s\n",
+      "finalHttpSubmissionAndRetry": {
+        "status": "passed",
+        "race": "passed",
+        "output": "=== RUN   TestPublicSignatureVector\n--- PASS: TestPublicSignatureVector (0.00s)\n=== RUN   TestOrderBinding\n    auth_test.go:87: project digest: 0xfa005ba248ae6e5452ef97894a69b89e0813a06d2f00bef6d503119e6384e28b\n--- PASS: TestOrderBinding (0.00s)\n=== RUN   TestReplay\n--- PASS: TestReplay (0.00s)\n=== RUN   TestPriority\n=== RUN   TestPriority/Buy\n=== RUN   TestPriority/Sell\n--- PASS: TestPriority (0.00s)\n    --- PASS: TestPriority/Buy (0.00s)\n    --- PASS: TestPriority/Sell (0.00s)\n=== RUN   TestSelfTradeAndExpiry\n--- PASS: TestSelfTradeAndExpiry (0.00s)\n=== RUN   TestBoundsAndNoncrossing\n--- PASS: TestBoundsAndNoncrossing (0.00s)\n=== RUN   TestHTTPGuards\n--- PASS: TestHTTPGuards (0.00s)\n=== RUN   TestHTTPPostgres\n--- PASS: TestHTTPPostgres (0.09s)\n=== RUN   TestPostgresDurability\n--- PASS: TestPostgresDurability (0.15s)\n=== RUN   TestPostgresConcurrentCancelAndPlace\n--- PASS: TestPostgresConcurrentCancelAndPlace (0.06s)\n=== RUN   TestPostgresConcurrentBuys\n--- PASS: TestPostgresConcurrentBuys (0.05s)\n=== RUN   FuzzConservation\n=== RUN   FuzzConservation/seed#0\n=== RUN   FuzzConservation/seed#1\n--- PASS: FuzzConservation (0.00s)\n    --- PASS: FuzzConservation/seed#0 (0.00s)\n    --- PASS: FuzzConservation/seed#1 (0.00s)\nPASS\nok  \tholdbook/engine\t0.367s\n?   \tholdbook/engine/cmd/api\t[no test files]\nok  \tholdbook/engine\t1.097s\n?   \tholdbook/engine/cmd/api\t[no test files]\n"
+      }
+    },
+    "restart": {
+      "apiProcessRestart": "passed",
+      "saltPreserved": true,
+      "ordersPreserved": true,
+      "matchesPreserved": true,
+      "manualBookOrders": 0
+    },
+    "databaseOutage": {
+      "actualDatabaseStop": "passed",
+      "checks": [
+        {
+          "path": "health",
+          "status": 503
+        },
+        {
+          "path": "market",
+          "status": 503
+        }
+      ]
+    },
+    "browser": {
+      "date": "2026-09-08",
+      "results": [
+        {
+          "port": 5173,
+          "width": 1440,
+          "liveAPI": true,
+          "mirror": "public reads",
+          "wallet": "controlled provider; no signature produced",
+          "review": "preview gate passed",
+          "overflow": false,
+          "keyboard": "skip link passed",
+          "liveRegion": "connection-only; repeated poll text stable",
+          "pollingStop": "passed",
+          "offlineRetention": "passed",
+          "crossTabAndLateRejection": "not applicable",
+          "signedSubmissions": 0,
+          "forbidden": [],
+          "errors": []
+        },
+        {
+          "port": 5173,
+          "width": 390,
+          "liveAPI": true,
+          "mirror": "public reads",
+          "wallet": "controlled provider; no signature produced",
+          "review": "preview gate passed",
+          "overflow": false,
+          "keyboard": "skip link passed",
+          "liveRegion": "connection-only; repeated poll text stable",
+          "pollingStop": "passed",
+          "offlineRetention": "passed",
+          "crossTabAndLateRejection": "not applicable",
+          "signedSubmissions": 0,
+          "forbidden": [],
+          "errors": []
+        },
+        {
+          "port": 4173,
+          "width": 1440,
+          "liveAPI": true,
+          "mirror": "public reads",
+          "wallet": "controlled provider; no signature produced",
+          "review": "passed",
+          "overflow": false,
+          "keyboard": "skip link + native form and review tab flow passed",
+          "liveRegion": "connection-only; repeated poll text stable",
+          "pollingStop": "passed",
+          "offlineRetention": "passed",
+          "crossTabAndLateRejection": "passed",
+          "signedSubmissions": 0,
+          "forbidden": [],
+          "errors": []
+        },
+        {
+          "port": 4173,
+          "width": 390,
+          "liveAPI": true,
+          "mirror": "public reads",
+          "wallet": "controlled provider; no signature produced",
+          "review": "passed",
+          "overflow": false,
+          "keyboard": "skip link + native form and review tab flow passed",
+          "liveRegion": "connection-only; repeated poll text stable",
+          "pollingStop": "passed",
+          "offlineRetention": "passed",
+          "crossTabAndLateRejection": "passed",
+          "signedSubmissions": 0,
+          "forbidden": [],
+          "errors": []
+        }
+      ],
+      "manualAcceptance": "Pending"
+    },
+    "externalPostOrigins": {
+      "missing": 403,
+      "dev5173": 403,
+      "external": 403
+    },
+    "uiReview": {
+      "disposition": "ship",
+      "scope": "single live-region fix resolved after final four captures",
+      "detector": []
+    },
+    "localMarkdownLinks": "passed",
+    "gitDiffCheck": "passed"
+  },
+  "staticAPIModules": [
+    {
+      "path": "github.com/ethereum/go-ethereum",
+      "version": "v1.17.5",
+      "licenseFiles": [
+        "COPYING",
+        "COPYING.LESSER"
+      ],
+      "licenseHeaders": [
+        "                    GNU GENERAL PUBLIC LICENSE                        Version 3, 29 June 2007   Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>",
+        "                   GNU LESSER GENERAL PUBLIC LICENSE                        Version 3, 29 June 2007   Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>"
+      ]
+    },
+    {
+      "path": "github.com/decred/dcrd/dcrec/secp256k1/v4",
+      "version": "v4.0.1",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "licenseHeaders": [
+        "ISC License  Copyright (c) 2013-2017 The btcsuite developers Copyright (c) 2015-2020 The Decred developers"
+      ]
+    },
+    {
+      "path": "github.com/holiman/uint256",
+      "version": "v1.3.2",
+      "licenseFiles": [
+        "COPYING"
+      ],
+      "licenseHeaders": [
+        "BSD 3-Clause License  Copyright 2020 uint256 Authors "
+      ]
+    },
+    {
+      "path": "golang.org/x/sys",
+      "version": "v0.41.0",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "licenseHeaders": [
+        "Copyright 2009 The Go Authors.  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are"
+      ]
+    },
+    {
+      "path": "github.com/consensys/gnark-crypto",
+      "version": "v0.18.1",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "licenseHeaders": [
+        "                                 Apache License                            Version 2.0, January 2004                         http://www.apache.org/licenses/ "
+      ]
+    },
+    {
+      "path": "github.com/bits-and-blooms/bitset",
+      "version": "v1.20.0",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "licenseHeaders": [
+        "Copyright (c) 2014 Will Fitzgerald. All rights reserved.  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are"
+      ]
+    },
+    {
+      "path": "github.com/crate-crypto/go-eth-kzg",
+      "version": "v1.5.0",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "licenseHeaders": [
+        "                                 Apache License                            Version 2.0, January 2004                         http://www.apache.org/licenses/ "
+      ]
+    },
+    {
+      "path": "golang.org/x/sync",
+      "version": "v0.19.0",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "licenseHeaders": [
+        "Copyright 2009 The Go Authors.  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are"
+      ]
+    },
+    {
+      "path": "github.com/jackc/pgx/v5",
+      "version": "v5.11.0",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "licenseHeaders": [
+        "Copyright (c) 2013-2021 Jack Christensen  MIT License "
+      ]
+    },
+    {
+      "path": "github.com/jackc/pgpassfile",
+      "version": "v1.0.0",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "licenseHeaders": [
+        "Copyright (c) 2019 Jack Christensen  MIT License "
+      ]
+    },
+    {
+      "path": "github.com/jackc/pgservicefile",
+      "version": "v0.0.0-20240606120523-5a60cdf6a761",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "licenseHeaders": [
+        "Copyright (c) 2020 Jack Christensen  MIT License "
+      ]
+    },
+    {
+      "path": "golang.org/x/text",
+      "version": "v0.34.0",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "licenseHeaders": [
+        "Copyright 2009 The Go Authors.  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are"
+      ]
+    },
+    {
+      "path": "github.com/jackc/puddle/v2",
+      "version": "v2.2.2",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "licenseHeaders": [
+        "Copyright (c) 2018 Jack Christensen  MIT License "
+      ]
+    }
+  ],
+  "moduleGraph": [
+    {
+      "path": "github.com/Azure/azure-sdk-for-go/sdk/azcore",
+      "version": "v1.7.0"
+    },
+    {
+      "path": "github.com/Azure/azure-sdk-for-go/sdk/internal",
+      "version": "v1.3.0"
+    },
+    {
+      "path": "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob",
+      "version": "v1.2.0"
+    },
+    {
+      "path": "github.com/DataDog/zstd",
+      "version": "v1.5.7"
+    },
+    {
+      "path": "github.com/Microsoft/go-winio",
+      "version": "v0.6.2"
+    },
+    {
+      "path": "github.com/ProjectZKM/Ziren/crates/go-runtime/zkvm_runtime",
+      "version": "v0.0.0-20251001021608-1fe7b43fc4d6"
+    },
+    {
+      "path": "github.com/RaduBerinde/axisds",
+      "version": "v0.1.0"
+    },
+    {
+      "path": "github.com/RaduBerinde/btreemap",
+      "version": "v0.0.0-20250419174037-3d62b7205d54"
+    },
+    {
+      "path": "github.com/StackExchange/wmi",
+      "version": "v1.2.1"
+    },
+    {
+      "path": "github.com/VictoriaMetrics/fastcache",
+      "version": "v1.13.0"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2",
+      "version": "v1.21.2"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2/config",
+      "version": "v1.18.45"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2/credentials",
+      "version": "v1.13.43"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2/feature/ec2/imds",
+      "version": "v1.13.13"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2/internal/configsources",
+      "version": "v1.1.43"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2/internal/endpoints/v2",
+      "version": "v2.4.37"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2/internal/ini",
+      "version": "v1.3.45"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2/service/internal/presigned-url",
+      "version": "v1.9.37"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2/service/route53",
+      "version": "v1.30.2"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2/service/sso",
+      "version": "v1.15.2"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2/service/ssooidc",
+      "version": "v1.17.3"
+    },
+    {
+      "path": "github.com/aws/aws-sdk-go-v2/service/sts",
+      "version": "v1.23.2"
+    },
+    {
+      "path": "github.com/aws/smithy-go",
+      "version": "v1.15.0"
+    },
+    {
+      "path": "github.com/beorn7/perks",
+      "version": "v1.0.1"
+    },
+    {
+      "path": "github.com/bits-and-blooms/bitset",
+      "version": "v1.20.0"
+    },
+    {
+      "path": "github.com/cenkalti/backoff/v5",
+      "version": "v5.0.3"
+    },
+    {
+      "path": "github.com/cespare/cp",
+      "version": "v0.1.0"
+    },
+    {
+      "path": "github.com/cespare/xxhash/v2",
+      "version": "v2.3.0"
+    },
+    {
+      "path": "github.com/cloudflare/cloudflare-go",
+      "version": "v0.114.0"
+    },
+    {
+      "path": "github.com/cockroachdb/crlib",
+      "version": "v0.0.0-20241112164430-1264a2edc35b"
+    },
+    {
+      "path": "github.com/cockroachdb/errors",
+      "version": "v1.11.3"
+    },
+    {
+      "path": "github.com/cockroachdb/fifo",
+      "version": "v0.0.0-20240606204812-0bbfbd93a7ce"
+    },
+    {
+      "path": "github.com/cockroachdb/logtags",
+      "version": "v0.0.0-20230118201751-21c54148d20b"
+    },
+    {
+      "path": "github.com/cockroachdb/pebble",
+      "version": "v1.1.5"
+    },
+    {
+      "path": "github.com/cockroachdb/pebble/v2",
+      "version": "v2.1.4"
+    },
+    {
+      "path": "github.com/cockroachdb/redact",
+      "version": "v1.1.5"
+    },
+    {
+      "path": "github.com/cockroachdb/swiss",
+      "version": "v0.0.0-20251224182025-b0f6560f979b"
+    },
+    {
+      "path": "github.com/cockroachdb/tokenbucket",
+      "version": "v0.0.0-20230807174530-cc333fc44b06"
+    },
+    {
+      "path": "github.com/consensys/bavard",
+      "version": "v0.1.31-0.20250406004941-2db259e4b582"
+    },
+    {
+      "path": "github.com/consensys/gnark-crypto",
+      "version": "v0.18.1"
+    },
+    {
+      "path": "github.com/cpuguy83/go-md2man/v2",
+      "version": "v2.0.5"
+    },
+    {
+      "path": "github.com/crate-crypto/go-eth-kzg",
+      "version": "v1.5.0"
+    },
+    {
+      "path": "github.com/davecgh/go-spew",
+      "version": "v1.1.1"
+    },
+    {
+      "path": "github.com/dchest/siphash",
+      "version": "v1.2.3"
+    },
+    {
+      "path": "github.com/deckarep/golang-set/v2",
+      "version": "v2.6.0"
+    },
+    {
+      "path": "github.com/decred/dcrd/crypto/blake256",
+      "version": "v1.0.0"
+    },
+    {
+      "path": "github.com/decred/dcrd/dcrec/secp256k1/v4",
+      "version": "v4.0.1"
+    },
+    {
+      "path": "github.com/deepmap/oapi-codegen",
+      "version": "v1.6.0"
+    },
+    {
+      "path": "github.com/dlclark/regexp2",
+      "version": "v1.7.0"
+    },
+    {
+      "path": "github.com/donovanhide/eventsource",
+      "version": "v0.0.0-20210830082556-c59027999da0"
+    },
+    {
+      "path": "github.com/dop251/goja",
+      "version": "v0.0.0-20230605162241-28ee0ee714f3"
+    },
+    {
+      "path": "github.com/emicklei/dot",
+      "version": "v1.6.2"
+    },
+    {
+      "path": "github.com/ethereum/c-kzg-4844/v2",
+      "version": "v2.1.8"
+    },
+    {
+      "path": "github.com/ethereum/go-bigmodexpfix",
+      "version": "v0.0.0-20250911101455-f9e208c548ab"
+    },
+    {
+      "path": "github.com/ethereum/go-ethereum",
+      "version": "v1.17.5"
+    },
+    {
+      "path": "github.com/ethereum/hid",
+      "version": "v1.0.1-0.20260421154323-c2ab8d9bf68a"
+    },
+    {
+      "path": "github.com/fatih/color",
+      "version": "v1.16.0"
+    },
+    {
+      "path": "github.com/ferranbt/fastssz",
+      "version": "v0.1.4"
+    },
+    {
+      "path": "github.com/fjl/gencodec",
+      "version": "v0.1.2"
+    },
+    {
+      "path": "github.com/fjl/jsonw",
+      "version": "v0.1.0"
+    },
+    {
+      "path": "github.com/fsnotify/fsnotify",
+      "version": "v1.6.0"
+    },
+    {
+      "path": "github.com/garslo/gogen",
+      "version": "v0.0.0-20170306192744-1d203ffc1f61"
+    },
+    {
+      "path": "github.com/gballet/go-libpcsclite",
+      "version": "v0.0.0-20190607065134-2772fd86a8ff"
+    },
+    {
+      "path": "github.com/getsentry/sentry-go",
+      "version": "v0.27.0"
+    },
+    {
+      "path": "github.com/go-logr/logr",
+      "version": "v1.4.3"
+    },
+    {
+      "path": "github.com/go-logr/stdr",
+      "version": "v1.2.2"
+    },
+    {
+      "path": "github.com/go-ole/go-ole",
+      "version": "v1.3.0"
+    },
+    {
+      "path": "github.com/go-sourcemap/sourcemap",
+      "version": "v2.1.3+incompatible"
+    },
+    {
+      "path": "github.com/goccy/go-json",
+      "version": "v0.10.4"
+    },
+    {
+      "path": "github.com/gofrs/flock",
+      "version": "v0.12.1"
+    },
+    {
+      "path": "github.com/gogo/protobuf",
+      "version": "v1.3.2"
+    },
+    {
+      "path": "github.com/golang-jwt/jwt/v4",
+      "version": "v4.5.2"
+    },
+    {
+      "path": "github.com/golang/protobuf",
+      "version": "v1.5.4"
+    },
+    {
+      "path": "github.com/golang/snappy",
+      "version": "v1.0.1-0.20260716114414-9ae09f520e93"
+    },
+    {
+      "path": "github.com/google/go-querystring",
+      "version": "v1.1.0"
+    },
+    {
+      "path": "github.com/google/gofuzz",
+      "version": "v1.2.0"
+    },
+    {
+      "path": "github.com/google/pprof",
+      "version": "v0.0.0-20230207041349-798e818bf904"
+    },
+    {
+      "path": "github.com/google/uuid",
+      "version": "v1.6.0"
+    },
+    {
+      "path": "github.com/gorilla/websocket",
+      "version": "v1.4.2"
+    },
+    {
+      "path": "github.com/grafana/pyroscope-go",
+      "version": "v1.2.7"
+    },
+    {
+      "path": "github.com/grafana/pyroscope-go/godeltaprof",
+      "version": "v0.1.9"
+    },
+    {
+      "path": "github.com/graph-gophers/graphql-go",
+      "version": "v1.3.0"
+    },
+    {
+      "path": "github.com/grpc-ecosystem/grpc-gateway/v2",
+      "version": "v2.28.0"
+    },
+    {
+      "path": "github.com/hashicorp/go-bexpr",
+      "version": "v0.1.10"
+    },
+    {
+      "path": "github.com/holiman/billy",
+      "version": "v0.0.0-20250707135307-f2f9b9aae7db"
+    },
+    {
+      "path": "github.com/holiman/bloomfilter/v2",
+      "version": "v2.0.3"
+    },
+    {
+      "path": "github.com/holiman/uint256",
+      "version": "v1.3.2"
+    },
+    {
+      "path": "github.com/huin/goupnp",
+      "version": "v1.3.0"
+    },
+    {
+      "path": "github.com/inconshreveable/mousetrap",
+      "version": "v1.1.0"
+    },
+    {
+      "path": "github.com/influxdata/influxdb-client-go/v2",
+      "version": "v2.4.0"
+    },
+    {
+      "path": "github.com/influxdata/influxdb1-client",
+      "version": "v0.0.0-20220302092344-a9ab5670611c"
+    },
+    {
+      "path": "github.com/influxdata/line-protocol",
+      "version": "v0.0.0-20200327222509-2487e7298839"
+    },
+    {
+      "path": "github.com/jackc/pgpassfile",
+      "version": "v1.0.0"
+    },
+    {
+      "path": "github.com/jackc/pgservicefile",
+      "version": "v0.0.0-20240606120523-5a60cdf6a761"
+    },
+    {
+      "path": "github.com/jackc/pgx/v5",
+      "version": "v5.11.0"
+    },
+    {
+      "path": "github.com/jackc/puddle/v2",
+      "version": "v2.2.2"
+    },
+    {
+      "path": "github.com/jackpal/go-nat-pmp",
+      "version": "v1.0.2"
+    },
+    {
+      "path": "github.com/jedisct1/go-minisign",
+      "version": "v0.0.0-20230811132847-661be99b8267"
+    },
+    {
+      "path": "github.com/jmespath/go-jmespath",
+      "version": "v0.4.0"
+    },
+    {
+      "path": "github.com/kilic/bls12-381",
+      "version": "v0.1.0"
+    },
+    {
+      "path": "github.com/klauspost/compress",
+      "version": "v1.17.11"
+    },
+    {
+      "path": "github.com/klauspost/cpuid/v2",
+      "version": "v2.0.9"
+    },
+    {
+      "path": "github.com/kr/pretty",
+      "version": "v0.3.1"
+    },
+    {
+      "path": "github.com/kr/text",
+      "version": "v0.2.0"
+    },
+    {
+      "path": "github.com/kylelemons/godebug",
+      "version": "v1.1.0"
+    },
+    {
+      "path": "github.com/leanovate/gopter",
+      "version": "v0.2.11"
+    },
+    {
+      "path": "github.com/mattn/go-colorable",
+      "version": "v0.1.13"
+    },
+    {
+      "path": "github.com/mattn/go-isatty",
+      "version": "v0.0.20"
+    },
+    {
+      "path": "github.com/mattn/go-runewidth",
+      "version": "v0.0.13"
+    },
+    {
+      "path": "github.com/matttproud/golang_protobuf_extensions",
+      "version": "v1.0.4"
+    },
+    {
+      "path": "github.com/minio/minlz",
+      "version": "v1.0.1-0.20250507153514-87eb42fe8882"
+    },
+    {
+      "path": "github.com/minio/sha256-simd",
+      "version": "v1.0.0"
+    },
+    {
+      "path": "github.com/mitchellh/mapstructure",
+      "version": "v1.4.1"
+    },
+    {
+      "path": "github.com/mitchellh/pointerstructure",
+      "version": "v1.2.0"
+    },
+    {
+      "path": "github.com/mmcloughlin/addchain",
+      "version": "v0.4.0"
+    },
+    {
+      "path": "github.com/naoina/go-stringutil",
+      "version": "v0.1.0"
+    },
+    {
+      "path": "github.com/naoina/toml",
+      "version": "v0.1.2-0.20170918210437-9fafd6967416"
+    },
+    {
+      "path": "github.com/opentracing/opentracing-go",
+      "version": "v1.1.0"
+    },
+    {
+      "path": "github.com/peterh/liner",
+      "version": "v1.1.1-0.20190123174540-a2c9a5303de7"
+    },
+    {
+      "path": "github.com/pion/dtls/v3",
+      "version": "v3.1.2"
+    },
+    {
+      "path": "github.com/pion/logging",
+      "version": "v0.2.4"
+    },
+    {
+      "path": "github.com/pion/stun/v3",
+      "version": "v3.1.2"
+    },
+    {
+      "path": "github.com/pion/transport/v4",
+      "version": "v4.0.1"
+    },
+    {
+      "path": "github.com/pkg/errors",
+      "version": "v0.9.1"
+    },
+    {
+      "path": "github.com/pmezard/go-difflib",
+      "version": "v1.0.0"
+    },
+    {
+      "path": "github.com/prometheus/client_golang",
+      "version": "v1.16.0"
+    },
+    {
+      "path": "github.com/prometheus/client_model",
+      "version": "v0.3.0"
+    },
+    {
+      "path": "github.com/prometheus/common",
+      "version": "v0.42.0"
+    },
+    {
+      "path": "github.com/prometheus/procfs",
+      "version": "v0.10.1"
+    },
+    {
+      "path": "github.com/protolambda/bls12-381-util",
+      "version": "v0.1.0"
+    },
+    {
+      "path": "github.com/protolambda/zrnt",
+      "version": "v0.34.1"
+    },
+    {
+      "path": "github.com/protolambda/ztyp",
+      "version": "v0.2.2"
+    },
+    {
+      "path": "github.com/rivo/uniseg",
+      "version": "v0.2.0"
+    },
+    {
+      "path": "github.com/rogpeppe/go-internal",
+      "version": "v1.14.1"
+    },
+    {
+      "path": "github.com/rs/cors",
+      "version": "v1.7.0"
+    },
+    {
+      "path": "github.com/russross/blackfriday/v2",
+      "version": "v2.1.0"
+    },
+    {
+      "path": "github.com/shirou/gopsutil",
+      "version": "v3.21.4-0.20210419000835-c7a38de76ee5+incompatible"
+    },
+    {
+      "path": "github.com/spf13/cobra",
+      "version": "v1.8.1"
+    },
+    {
+      "path": "github.com/spf13/pflag",
+      "version": "v1.0.6"
+    },
+    {
+      "path": "github.com/status-im/keycard-go",
+      "version": "v0.2.0"
+    },
+    {
+      "path": "github.com/stretchr/objx",
+      "version": "v0.1.0"
+    },
+    {
+      "path": "github.com/stretchr/testify",
+      "version": "v1.11.1"
+    },
+    {
+      "path": "github.com/supranational/blst",
+      "version": "v0.3.16"
+    },
+    {
+      "path": "github.com/syndtr/goleveldb",
+      "version": "v1.0.1-0.20210819022825-2ae1ddf74ef7"
+    },
+    {
+      "path": "github.com/tklauser/go-sysconf",
+      "version": "v0.3.12"
+    },
+    {
+      "path": "github.com/tklauser/numcpus",
+      "version": "v0.6.1"
+    },
+    {
+      "path": "github.com/urfave/cli/v2",
+      "version": "v2.27.5"
+    },
+    {
+      "path": "github.com/wlynxg/anet",
+      "version": "v0.0.5"
+    },
+    {
+      "path": "github.com/xrash/smetrics",
+      "version": "v0.0.0-20240521201337-686a1a2994c1"
+    },
+    {
+      "path": "go.opentelemetry.io/auto/sdk",
+      "version": "v1.2.1"
+    },
+    {
+      "path": "go.opentelemetry.io/otel",
+      "version": "v1.41.0"
+    },
+    {
+      "path": "go.opentelemetry.io/otel/exporters/otlp/otlptrace",
+      "version": "v1.41.0"
+    },
+    {
+      "path": "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc",
+      "version": "v1.41.0"
+    },
+    {
+      "path": "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp",
+      "version": "v1.41.0"
+    },
+    {
+      "path": "go.opentelemetry.io/otel/metric",
+      "version": "v1.41.0"
+    },
+    {
+      "path": "go.opentelemetry.io/otel/sdk",
+      "version": "v1.41.0"
+    },
+    {
+      "path": "go.opentelemetry.io/otel/trace",
+      "version": "v1.41.0"
+    },
+    {
+      "path": "go.opentelemetry.io/proto/otlp",
+      "version": "v1.9.0"
+    },
+    {
+      "path": "go.uber.org/automaxprocs",
+      "version": "v1.5.2"
+    },
+    {
+      "path": "go.uber.org/goleak",
+      "version": "v1.3.0"
+    },
+    {
+      "path": "golang.org/x/crypto",
+      "version": "v0.48.0"
+    },
+    {
+      "path": "golang.org/x/exp",
+      "version": "v0.0.0-20230626212559-97b1e661b5df"
+    },
+    {
+      "path": "golang.org/x/mod",
+      "version": "v0.32.0"
+    },
+    {
+      "path": "golang.org/x/net",
+      "version": "v0.50.0"
+    },
+    {
+      "path": "golang.org/x/sync",
+      "version": "v0.19.0"
+    },
+    {
+      "path": "golang.org/x/sys",
+      "version": "v0.41.0"
+    },
+    {
+      "path": "golang.org/x/text",
+      "version": "v0.34.0"
+    },
+    {
+      "path": "golang.org/x/time",
+      "version": "v0.10.0"
+    },
+    {
+      "path": "golang.org/x/tools",
+      "version": "v0.41.0"
+    },
+    {
+      "path": "google.golang.org/genproto/googleapis/api",
+      "version": "v0.0.0-20260209200024-4cfbd4190f57"
+    },
+    {
+      "path": "google.golang.org/genproto/googleapis/rpc",
+      "version": "v0.0.0-20260209200024-4cfbd4190f57"
+    },
+    {
+      "path": "google.golang.org/grpc",
+      "version": "v1.79.1"
+    },
+    {
+      "path": "google.golang.org/protobuf",
+      "version": "v1.36.11"
+    },
+    {
+      "path": "gopkg.in/check.v1",
+      "version": "v1.0.0-20201130134442-10cb98267c6c"
+    },
+    {
+      "path": "gopkg.in/natefinch/lumberjack.v2",
+      "version": "v2.2.1"
+    },
+    {
+      "path": "gopkg.in/yaml.v2",
+      "version": "v2.4.0"
+    },
+    {
+      "path": "gopkg.in/yaml.v3",
+      "version": "v3.0.1"
+    },
+    {
+      "path": "rsc.io/tmplfunc",
+      "version": "v0.0.3"
+    }
+  ],
+  "moduleGraphNote": "Complete selected module graph; membership beyond the static API package closure does not imply runtime inclusion or executed functionality.",
+  "files": {
+    ".github/workflows/ci.yml": "de8c2e2586b882fcd1b219dd3bcd996418541ed925560f59173c12dfed6c656e",
+    "compose.yaml": "ffc0ba3896b063c281f7eafb17db80c889d08354cb6a8ab32c9d889c21aa4981",
+    "engine/go.mod": "85156172160fb69499bb72748b25db9e5f1a746ef56a8d2850cf6f0b42d7b620",
+    "engine/go.sum": "843a35edcd2651b894236349180c44cea1cc5bc79a4b8eedd6481682517a166d",
+    "engine/book.go": "d6392d86ebe303d8198066df32927696ba2c0641f3238019c11eadc91e65d884",
+    "engine/book_test.go": "30f3f484e19a620974e9c50b0101645c0c235f5e6f30e4a779bcce5ee78a4f15",
+    "engine/auth.go": "4b5ac0889b62da38f1a1e8ec0283faee5376897790c29f7490aa0bb5177f985c",
+    "engine/auth_test.go": "a333dcaf7ced54b3455ae496923075e748c762dae76f431a68389c4cb85992dd",
+    "engine/store.go": "ff5c936be48e4896c2cb209d77460b9fcd725fd45ba742ef8a625660b509b330",
+    "engine/store_test.go": "38da223788d1c045c102ad17266cf32af3c3b316cd20377247e180d059e68b7a",
+    "engine/http.go": "a677478cfab017fe680f3b3d6e48db09231967b0c59b5877f1b5a09db28c9861",
+    "engine/http_test.go": "6597366d9250dcf9eadbd94842e27f70c43eb178d14237506360cb0b7e99445a",
+    "engine/migrations/001-market.sql": "2394581dbe9642a8e9df527386be5d586d94c51633873c04acc5b9d007f4e51b",
+    "engine/cmd/api/main.go": "d75f71bd8dd5955987722933aae311eeb421fbe157c6851b03d19487b1db8f07",
+    "engine/Dockerfile": "128040f86c5b9c1f8a065f9e18709502b6772f699d1c0f95fdba117f4681af71",
+    "src/market.ts": "3570b218926c2f1e060999f2b90b8f8b356427935e0c0c8f3a98f9745d839706",
+    "src/MarketPanel.tsx": "e0d3240dfc458a95e576d3c31fe17bf1e77580c190879d583e5a72f72fdc0345",
+    "src/App.tsx": "5e9a4d17a73c56d179494f61ea1245ea68f15a04c24738c025f2bb2c2ef16c86",
+    "src/styles.css": "dcfed40a74be779432e3c146f9e08565b30c80df142cc6ef6201b20045677d14",
+    "vite.config.ts": "ae320c2c31cec7c67b55bd7d0c4c451cee56382fcd1cad4fcee12feb6e5f84b6",
+    "tests/market.test.mjs": "ad757770e7b52192f9a433f8ef463bd7ad5ff17123f7ef2f3fa483c1c0161cc9",
+    "tests/shell.test.mjs": "806a0c6fed792c41be88dcee3201940918d5c718321666e8adcdd1c9e5a1fc13",
+    "docs/evidence/034-t07-5173-1440.png": "b0c35cf8b2f35c27329352320c36f50b6b7a67a57604c3a7e9a373cbee4c9b5a",
+    "docs/evidence/034-t07-5173-390.png": "b4a577b7181f07ebb4078e2cc0171897bd295c785a0d8253a2d0f087c0d8cd87",
+    "docs/evidence/034-t07-4173-1440.png": "f1e19a1644f2c239b549afb5e5dfd8b92fec52ab8bd9d867559f8df1cd715eb0",
+    "docs/evidence/034-t07-4173-390.png": "2d8cb9f0acde1564f06d871a47d6825e3ee5d2e7332481deef3cdcab474c19c5",
+    "docs/evidence/034-t07-browser.mjs": "a3f3689944ca60efffb60bc60c432ed6d8c62b0a59aa029cd251b57a717e5b92"
+  },
+  "finalLiveMarket": {
+    "domain": {
+      "chainId": "296",
+      "name": "HoldBook Unfunded Orders",
+      "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca",
+      "version": "1"
+    },
+    "market": "NOVA/HBAR",
+    "matches": [],
+    "notice": "Funds are not reserved",
+    "orders": [],
+    "serverTime": "1788847751",
+    "version": "0"
+  },
+  "limitations": [
+    "No successful T07 owner MetaMask signature observed; six human signatures pending.",
+    "Crypto uses a public vector; HTTP/database acceptance uses an explicit verifier double.",
+    "Before/after commit interruptions are injected faults on real PostgreSQL; process restart and database stop/start also tested.",
+    "Populated UI tested using an SSR fixture; captured book is empty.",
+    "Viewport emulation is not mobile-wallet acceptance; no actual screen-reader session.",
+    "No funds reserved, ATS Hold, payment, settlement, public push or merge.",
+    "Existing npm audit/peer/native-BBS/license/event-eligibility limitations remain."
+  ],
+  "correctedVerificationAttempts": [
+    "Stale Vite optimizer and preview proxy after npm ci required server restart.",
+    "Native select test locator was corrected; no product behavior changed for that failure.",
+    "A capture overlapped an API rebuild; final capture batch ran after health readiness.",
+    "Initial outage probe restarted PostgreSQL before the query finished; corrected ordered probe returned 503 on both endpoints.",
+    "WSL interop and socket access prevented initial Docker calls; a valid interop socket and existing docker-group permissions resolved access."
+  ],
+  "agentSignatures": 0,
+  "chainMutations": 0,
+  "runtimeNoticeFiles": {
+    "Go-LICENSE": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+    "_go_pkg_mod_github.com_jackc_pgx_v5@v5.11.0/LICENSE": "467f95e074fe23079a5623ed652619682692041b8551da27e3c2ddb9659a1507",
+    "_go_pkg_mod_github.com_bits-and-blooms_bitset@v1.20.0/LICENSE": "3ef376b769105f14098dd45e9d08ed3568c77d38ad33c470634606048e62119f",
+    "_go_pkg_mod_github.com_jackc_pgpassfile@v1.0.0/LICENSE": "adb1663fda031df8f4344aa68f299fd87d80353e31339406742ded21dae65702",
+    "_go_pkg_mod_golang.org_x_sync@v0.19.0/LICENSE": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+    "_go_pkg_mod_github.com_jackc_pgservicefile@v0.0.0-20240606120523-5a60cdf6a761/LICENSE": "fc505773403fe869ed64cc2235cdd13988a427bb7e3a7e7004a3f4b27420f8fc",
+    "_go_pkg_mod_github.com_ethereum_go-ethereum@v1.17.5/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "_go_pkg_mod_github.com_ethereum_go-ethereum@v1.17.5/COPYING.LESSER": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+    "_go_pkg_mod_github.com_decred_dcrd_dcrec_secp256k1_v4@v4.0.1/LICENSE": "4060146066c8519d1b04fe2b038649855db5530586e4ae5c3aa8c8cee6f8268a",
+    "_go_pkg_mod_github.com_consensys_gnark-crypto@v0.18.1/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "_go_pkg_mod_golang.org_x_sys@v0.41.0/LICENSE": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+    "_go_pkg_mod_github.com_jackc_puddle_v2@v2.2.2/LICENSE": "2d50e98a4900b4d6457a38d39c1432fdc156fc2f7b365f2e33ec9344acbb0057",
+    "_go_pkg_mod_github.com_holiman_uint256@v1.3.2/COPYING": "cbccee4c792c0ea79f6359889770ba844612d68e91f5b718de42fcb98355311f",
+    "_go_pkg_mod_golang.org_x_text@v0.34.0/LICENSE": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+    "_go_pkg_mod_github.com_crate-crypto_go-eth-kzg@v1.5.0/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  }
+}

@@ -1,4 +1,6 @@
-# HoldBook · two-minute demo
+# HoldBook · operator and judge demo
+
+Completed with documented recovery: [T07 unfunded market acceptance](#t07--unfunded-matching-acceptance-pending). The T05 walkthrough below is completed history.
 
 ## T05 recorded operator flow — acceptance complete
 
@@ -91,3 +93,44 @@ can expire; saved journal status does not prove a current result. Use **History*
 and the dated report for T04 acceptance and its rejection checks. All T04
 transaction/signature entry points are closed. This historical walkthrough
 does not perform the separately authorized T05 flow above.
+
+<a id="t07--unfunded-matching-acceptance-pending"></a>
+
+## T07 — unfunded matching acceptance (Passed with recovery)
+
+Actual acceptance: twelve accepted commands, nine orders, five matches,
+1.16 HBAR intent, zero remaining. Supplementary Seller partial cancellation
+and final reload/API restart passed. See [035](evidence/035-t07-manual.md) for
+actual deviations. The six-signature sequence below is the original scenario,
+not a claim that the observed run followed it without recovery.
+
+Open production preview http://127.0.0.1:4173 after `docker compose up -d --build`
+and `npm run build` / `npm run preview`. Market is the default tab. Keep the
+original three account bindings. The new book must have no orders or matches;
+do not clear an existing book to reproduce this example.
+
+Victor approves exactly six EIP-712 signatures in MetaMask; no chain transaction
+or gas payment is requested. Check the original account, Testnet 296, side,
+quantity, limit, 24-hour order expiry and five-minute signature deadline in each
+review. Check the acknowledgement and use **Sign in MetaMask**.
+
+| Signature | Account | Action | Expected observation |
+| --- | --- | --- | --- |
+| 1 | Seller | Sell 4 NOVA at 0.09 HBAR | Open ask: 4 |
+| 2 | Seller | Sell 5 NOVA at 0.10 HBAR | Open asks: 4 at 0.09, 5 at 0.10 |
+| 3 | Buyer | Buy 6 NOVA at 0.10 HBAR | 4 at 0.09 + 2 at 0.10; intent total 0.56 HBAR |
+| 4 | Seller | My orders: Cancel remaining 3 | Matched 2 retained; Cancelled 3; Remaining 0 |
+| 5 | Buyer | Sell 1 NOVA at 0.10 HBAR | Buyer account can act as seller |
+| 6 | Seller | Buy 1 NOVA at 0.10 HBAR | Seller account can act as buyer; third match 0.10 HBAR |
+
+After each signature wait for **Request accepted** and export public market
+evidence. Reload, reconnect manually, and verify the same orders and matches.
+Restart only this project's API (`docker compose restart api`) and recheck.
+Expected final: five orders, three matches, all remaining quantities zero;
+first two matches total 0.56 HBAR, all three total 0.66 HBAR of unfunded intent.
+No NOVA/HBAR transfer, reservation, ATS Hold, receipt or chain transaction ID
+exists for this flow. Human observations and captures go to [manual report 035](evidence/035-t07-manual.md).
+
+If a response is lost, retain the original request ID and use **Query original
+request**. Do not sign another order to replace an unknown one. Rejected/late
+wallet prompts remain pending until the server confirms deadline expiry.
