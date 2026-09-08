@@ -17,28 +17,34 @@
     "test:swap": "node scripts/build-swap.mjs --check && forge test -vv",
     "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
     "postinstall": "node scripts/rebuild-proto.mjs && node scripts/patch-ats-readonly.mjs && node scripts/patch-ats-wallet.mjs",
-    "test:proto": "node docs/evidence/014-t01a-decoder-rebuild.test.mjs --candidate --compare docs/evidence/007-t01a-protobuf-rebuild-restored-tests.json"
+    "test:proto": "node docs/evidence/014-t01a-decoder-rebuild.test.mjs --candidate --compare docs/evidence/007-t01a-protobuf-rebuild-restored-tests.json",
+    "build:settlement": "node scripts/build-settlement.mjs",
+    "test:settlement": "node scripts/build-settlement.mjs --check && forge test -vv"
   },
   "dependencies": {
     "@hashgraph/asset-tokenization-sdk": "8.0.0",
     "@hiero-ledger/proto": "2.25.0",
     "@tanstack/react-query": "5.102.8",
+    "@terminal3/vc_core": "0.0.19",
+    "@terminal3/verify_vc": "0.0.20",
     "ethers": "6.17.0",
+    "motion": "13.2.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "viem": "2.56.3",
-    "wagmi": "3.7.7",
-    "@terminal3/vc_core": "0.0.19",
-    "@terminal3/verify_vc": "0.0.20"
+    "wagmi": "3.7.7"
   },
   "devDependencies": {
+    "@openzeppelin/contracts": "5.6.1",
+    "@tailwindcss/vite": "4.3.3",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.7",
+    "protobufjs": "7.6.6",
+    "protobufjs-cli": "1.3.3",
+    "tailwindcss": "4.3.3",
     "typescript": "7.0.2",
     "vite": "8.2.2",
-    "vite-plugin-node-polyfills": "0.28.0",
-    "protobufjs": "7.6.6",
-    "protobufjs-cli": "1.3.3"
+    "vite-plugin-node-polyfills": "0.28.0"
   },
   "overrides": {
     "@hashgraph/sdk@2.64.5": {

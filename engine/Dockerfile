@@ -16,7 +16,9 @@ RUN mkdir -p /licenses && cp /usr/local/go/LICENSE /licenses/Go-LICENSE && \
     done
 FROM scratch
 USER 65532:65532
+COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build /api /api
 COPY --from=build /licenses /licenses
+COPY --from=build /usr/share/doc/ca-certificates/copyright /licenses/ca-certificates-copyright
 EXPOSE 8787
 ENTRYPOINT ["/api"]

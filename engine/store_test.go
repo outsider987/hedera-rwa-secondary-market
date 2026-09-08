@@ -25,7 +25,7 @@ func testStore(t *testing.T) *Store {
 	if e = s.Pool.QueryRow(context.Background(), "SELECT current_database()").Scan(&db); e != nil || db != "holdbook_test" {
 		t.Fatal("requires isolated holdbook_test database", e)
 	}
-	if _, e = s.Pool.Exec(context.Background(), "TRUNCATE commands,orders,matches; UPDATE markets SET sequence=0,effective_time=0,version=0"); e != nil {
+	if _, e = s.Pool.Exec(context.Background(), "TRUNCATE settlement_events,settlement_operations,settlements,settlement_deployment,commands,orders,matches; UPDATE markets SET sequence=0,effective_time=0,version=0"); e != nil {
 		t.Fatal(e)
 	}
 	s.now = func() int64 { return 1000 }

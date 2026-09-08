@@ -59,6 +59,7 @@ func typedJSON(p Prepared, salt string) map[string]any {
 }
 func Handler(s *Store) http.Handler {
 	mux := http.NewServeMux()
+	settlementRoutes(mux, s)
 	mux.HandleFunc("GET /api/health", func(w http.ResponseWriter, r *http.Request) {
 		if e := s.Pool.Ping(r.Context()); e != nil {
 			fail(w, 503, "Database offline")
@@ -185,7 +186,11 @@ func Handler(s *Store) http.Handler {
 			return
 		}
 		if strings.HasPrefix(r.URL.Path, "/api/") {
-			ctx, cancel := context.WithTimeout(r.Context(), 10*time.Second)
+			timeout := 10 * time.Second
+			if strings.HasPrefix(r.URL.Path, "/api/settlement-operations/") {
+				timeout = 180 * time.Second
+			}
+			ctx, cancel := context.WithTimeout(r.Context(), timeout)
 			defer cancel()
 			mux.ServeHTTP(w, r.WithContext(ctx))
 			return

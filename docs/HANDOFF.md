@@ -1,5 +1,20 @@
 # HoldBook handoff
 
+## T08 milestone 1 — contract/service delivered; ticket active
+
+`based_on_commit: 3088cb9e19abffdc3c6ed58e698c62a11d88f79e` verified against Git.
+The user activated [T08 spec 004](plans/004-matched-settlement.md), superseding
+older no-T08 boundaries. New contract, reproducible artifact, public digest vector,
+Go verification/persistence and migration are implemented. 31 Foundry tests and
+real PostgreSQL test/race/vet passed; conservation fuzz ran 35,717 executions.
+The local API image builds and original T07 nine orders/five matches survive API
+and database restart. No T08 deployment or manual chain action has occurred.
+
+Next is the already authorized UI/snapshot milestone, using exactly spec 004's
+UI/snapshot and documentation/evidence file lists. Final automated UI evidence
+and handoff accompany that commit. Manual acceptance remains pending Victor;
+he alone approves every wallet prompt. No next ticket, push, merge or publication.
+
 ## Submission review document prepared — September 8, 2026 (effective)
 
 `based_on_commit: ccd6905c539198cc2f0b5c922a8d716137733cd8`. User requested a

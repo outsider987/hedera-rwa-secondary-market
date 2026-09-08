@@ -17,6 +17,9 @@ import (
 //go:embed migrations/001-market.sql
 var migration string
 
+//go:embed migrations/002-settlement.sql
+var settlementMigration string
+
 type Store struct {
 	Pool *pgxpool.Pool
 	// Verify is the cryptographic boundary; integration tests explicitly substitute it.
@@ -71,6 +74,9 @@ func (s *Store) Init(ctx context.Context) error {
 		return e
 	}
 	if _, e = tx.Exec(ctx, migration); e != nil {
+		return e
+	}
+	if _, e = tx.Exec(ctx, settlementMigration); e != nil {
 		return e
 	}
 	if _, e = tx.Exec(ctx, "INSERT INTO markets(id,salt) VALUES($1,$2) ON CONFLICT DO NOTHING", Market, "0x"+ID()); e != nil {

@@ -348,3 +348,19 @@ x/sync v0.19.0, x/text v0.34.0 (BSD-3-Clause). Go module graph membership beyond
 that closure does not imply runtime use; go.mod/go.sum retain exact resolution.
 The existing npm audit, peer, native-BBS, dfns-license and event-eligibility
 limitations remain unchanged. This ticket does not reclassify historical findings.
+
+
+## T08 additions — September 8, 2026
+
+- Tailwind CSS and @tailwindcss/vite **4.3.3**, MIT: [source and releases](https://github.com/tailwindlabs/tailwindcss), [Preflight documentation](https://tailwindcss.com/docs/preflight). The hb prefix and explicit theme/utilities imports omit Preflight.
+- Motion **13.2.0**, MIT: [source](https://github.com/motiondivision/motion), [reduced-motion documentation](https://motion.dev/docs/react-use-reduced-motion). Only settlement review/progress/result opacity transitions use it; reduced motion disables them.
+- OpenZeppelin Contracts **5.6.1**, MIT: [source](https://github.com/OpenZeppelin/openzeppelin-contracts), [ReentrancyGuard documentation](https://docs.openzeppelin.com/contracts/5.x/api/utils#ReentrancyGuard). Imported unchanged from the pinned package; no transient guard or upgrade mechanism.
+- ATS Contracts **8.0.0** interfaces/ABI remain Apache-2.0 upstream. The new artifact builds from the published Hold ABI and selected published IAsset getters. No SDK patch or asset parameter changed.
+- Go API HTTPS uses the build image's CA certificate bundle. Its upstream ca-certificates copyright notice is copied into `/licenses/ca-certificates-copyright` alongside existing Go-module notices.
+
+The SDK browser harness adapts this repository's T05 harness (031); original
+source/evidence remain unchanged. New tests clearly distinguish SDK public-HTTP
+and wallet doubles from actual chain evidence. No test instantiates a private
+signer. Existing package audit remains **62** findings (21 low, 25 moderate,
+16 high, no critical); native BBS, peer, missing dfns license metadata and project
+license/event eligibility limits remain unresolved. No public deployment occurred.
