@@ -1,5 +1,16 @@
 # HoldBook handoff
 
+## Submission review document prepared — September 8, 2026 (effective)
+
+`based_on_commit: ccd6905c539198cc2f0b5c922a8d716137733cd8`. User requested a
+submission-version document. Scope: docs/SUBMISSION.md, README.md, HANDOFF,
+AI_USAGE.md and docs/ai-usage/045-submission-review.md. English review entry
+consolidates actual T05/T06/T07 results, captures, architecture, setup and limits;
+no new implementation or wallet action. Relative links and result counts checked.
+Submission readiness is separate from platform submission: project license,
+event eligibility and platform-specific metadata/video remain Victor items.
+No external submission, push/merge or T08 is activated. Stop at local commit.
+
 ## T07 completed with documented recovery — September 8, 2026 (effective)
 
 `based_on_commit: 6e3a47d80b5ac80a0375f563a866ef1a210988f6`, verified HEAD.

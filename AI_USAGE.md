@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-08 | Submission review document | [English review package and evidence index](docs/ai-usage/045-submission-review.md) |
 | 2026-09-08 | T07 trading interface refinement | [Exchange layout, explicit results and remaining cancellation](docs/ai-usage/044-t07-layout.md) |
 | 2026-09-08 | T07 signed unfunded market | [Durable order service and Market UI; manual acceptance passed with documented recovery; final persistence verified](docs/ai-usage/043-t07-signed-market.md) |
 | 2026-09-08 | T06 matching core | [Deterministic unfunded matching and Go checks](docs/ai-usage/042-t06-matching-core.md) |

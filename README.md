@@ -1,5 +1,7 @@
 # HoldBook
 
+**[Submission review version](docs/SUBMISSION.md)** — project summary, actual results, screenshots, architecture and verification boundaries.
+
 A local Hedera Testnet console with an unfunded NOVA/HBAR limit-order market.
 Review and sign orders in MetaMask, match by price/time priority, and cancel
 remaining quantities. **Funds are not reserved. Matched · Not settled.**
@@ -44,7 +46,7 @@ Existing npm dependencies, lockfile and SDK patches remain fixed.
 ## Review the work
 
 - [T07 implementation checks](docs/evidence/034-t07-implementation.md) and [public validation](docs/evidence/034-t07-validation.json).
-- [Operator and judge demo](docs/DEMO.md) — six T07 signatures and the historical T05 walkthrough.
+- [Operator and judge demo](docs/DEMO.md) — original T07 scenario, actual recovery results and the historical T05 walkthrough.
 - [T05 implementation checks](docs/evidence/031-t05-implementation.md) — actual checks and remaining acceptance.
 - [T05 specification](docs/plans/002-atomic-trade.md) and [architecture](docs/ARCHITECTURE.md).
 - [Completed T04 report](docs/evidence/029-t04-manual.md), [public data](docs/evidence/029-t04-manual.json) and [offline screenshot gallery](docs/evidence/029-t04-manual.html).
@@ -80,5 +82,5 @@ A rejected wallet prompt remains pending until the server confirms expiry,
 up to five minutes. No raw signature is exported or stored in browser storage.
 
 [Implementation and checks](docs/evidence/034-t07-implementation.md) ·
-[Six-signature manual acceptance](docs/evidence/035-t07-manual.md) ·
+[Completed manual acceptance with recovery](docs/evidence/035-t07-manual.md) ·
 [Demo](docs/DEMO.md). T07 human acceptance **passed with documented recovery**; see [actual results](docs/evidence/035-t07-manual.md).
