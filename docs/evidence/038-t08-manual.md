@@ -18,7 +18,7 @@ No transaction was resent and no code or verification rule was changed. The caus
 of the initial request failure is not established. Browser recovery confirmation
 still belongs to Victor; click Query original operation before continuing.
 
-Observed: **seven chain transactions, five accepted order signatures**. All four settlement
+Observed: **ten chain transactions, seven accepted order signatures**. All four settlement
 cases remain pending. Expected total: eight order signatures and thirteen chain
 transactions; record rejection/recovery extras separately. Next: Seller Sell2@0.10,
 then Buyer Buy2@0.10, only using newly accepted orders after this deployment cutoff.
@@ -128,3 +128,21 @@ verified. No duplicate payment or extra chain transaction was observed.
 Next cancellation case: fresh Seller Sell1@0.10 and Buyer Buy1@0.10, Seller
 locks/registers, then Seller cancels before expiry; Buyer must not pay this case.
 Final persistence comparison, cancellation and expired reclaim remain pending.
+
+### Registered cancellation19-1 verified — block40259539
+
+Fresh Seller18/Buyer19 orders matched1 NOVA@0.10. Seller locked and registered,
+then cancelled in transaction
+`0x4d048c904b49f8fd5aa0b0064446180465ea430d16e02e7bd708d99cf1f40b0c`.
+All three original operations are verified; their calldata-bound public proofs,
+Hold terms, event indices, fees and balance transitions are in JSON. Cancellation
+fee0.22002750 HBAR; principal0. Seller available82→83, held1→0; Buyer17/0 unchanged.
+Direct Mirror read confirms SUCCESS/value0/block40259539. [Actual capture](038-t08-cancel.png)
+shows Cancelled, Returned verified and HBAR Not paid. Matched order history is
+retained; the cancelled quantity is not automatically rebooked.
+
+Next is a separate expiry/reclaim case: fresh Seller Sell1@0.10 and Buyer Buy1@0.10,
+Seller locks/registers, Buyer does not pay and Seller does not cancel. Wait for
+that new Hold's preparation timestamp+1800 deadline, then verify expiry still
+leaves NOVA held and manually reclaim. Reclaim and final reload/restart checks
+remain pending; no future operation is claimed here.

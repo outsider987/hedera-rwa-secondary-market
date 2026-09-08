@@ -112,3 +112,13 @@ operation; no signatures or wallet files accessed. Verified1 NOVA/0.09 HBAR,
 actual fees and role-reversed balances. Updated manual038 MD/JSON/reverse capture,
 HANDOFF/index/this entry; public assertions/diff passed, no implementation tests
 rerun. Cancellation/reclaim/final persistence remain pending. No chain resubmission.
+
+## Registered cancellation observed — September8,2026
+
+Based on `d5fb5cc897f405b63e96a53554cccdf036a023ce`. User supplied cancellation review, active-spinner
+and final Cancelled/Returned verified captures. Codex read original19-1 operations
+and public market/settlement; a read-only ID lookup located lock/register. Existing
+proofs and direct Mirror agree on return1 NOVA, principal0 and actual network fee.
+Updated manual038 MD/JSON/cancel capture, HANDOFF/index/this entry. Assertions and
+diff passed; no code change/test rerun, wallet access, signature or resubmission.
+Expiry/reclaim and final persistence remain pending.

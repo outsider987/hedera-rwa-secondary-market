@@ -1,5 +1,17 @@
 # HoldBook handoff
 
+## T08 registered cancellation verified — effective
+
+`based_on_commit: d5fb5cc897f405b63e96a53554cccdf036a023ce`. Match19-1 Cancelled verified40259539;
+1 NOVA returned, principal0, fee0.22002750 HBAR. Seller83/0, Buyer17/0. Original
+lock/register/cancel proofs and actual capture are in manual038; direct Mirror
+execution agrees. Observed7 accepted order signatures,10 chain transactions.
+Next separate expiry case: Seller Sell1@0.10, Buyer Buy1@0.10; Seller lock/register,
+then wait for that Hold's preparation+1800 expiry. No Buyer payment or early
+Seller cancellation. At expiry confirm funds remain held, then manual reclaim.
+Final persistence/static snapshot remain pending. Exact T08 allowed files below
+remain effective; no next ticket, agent signing, push or publication.
+
 ## T08 balance visibility and busy feedback delivered — effective
 
 `based_on_commit: 2e46607204b5db27c8c06e4ada7d9f75eb97924a`. User requested visible NOVA ownership
