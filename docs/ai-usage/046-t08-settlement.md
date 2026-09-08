@@ -50,3 +50,16 @@ not completed by automated evidence. [Manual 038](../evidence/038-t08-manual.md)
 contains expected counts only. Stop at a reviewable local version; retain original
 operations for unknown outcomes, never automatically retry a transaction. Update
 actual public evidence and the snapshot after Victor's approvals and verification.
+
+## Manual deployment recovery — September 8, 2026
+
+Based on `41432152d411d7f1200405154ca1bd87d1536010`. Victor supplied review and pending-hash
+screenshots. Codex read only the saved public operation and public Mirror/RPC,
+matched the deployment hash to exact saved calldata/account/chain/value, then
+registered that original hash through the recovery API. Existing verification
+completed (runtime, Setup, domain, receipt and Mirror fee); no chain resubmission,
+private wallet read, code edit or bypass. Initial incomplete-request cause remains
+undetermined. Affected: evidence038 MD/JSON, HANDOFF, AI_USAGE and this appended
+entry. Public JSON consistency and diff checks passed; no implementation tests
+rerun for this evidence-only update. Browser refresh and all four trading cases
+remain Victor actions. This supersedes the initial zero-deployment observation.

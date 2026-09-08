@@ -1,17 +1,62 @@
 {
-  "recordedAt": "2026-09-08",
+  "recordedAt": "2026-09-08T10:16:12.341667+00:00",
   "status": "Pending",
   "chainId": "296",
-  "deployment": null,
+  "deployment": {
+    "operationId": "fec278d6f29475810653aecf08ae58138fad4a55ea1d6bebdfdd76c6b6892a30",
+    "status": "verified",
+    "address": "0xa90da61f67c37473f38000e70623a77ad277304c",
+    "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca",
+    "cutoff": "12",
+    "evidence": {
+      "hash": "0xf0448adc0a4d1f76777cec55f0151c8a86e7bcb6b8b58de7a94f9179dbc6d0d0",
+      "block": "40257294",
+      "timestamp": "1788862421",
+      "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+      "holdId": "0",
+      "feeTinybars": "160459090",
+      "principalTinybars": "0",
+      "transactionId": "0.0.7314364-1788862415-305439174",
+      "logIndices": [
+        "0"
+      ],
+      "reverted": false
+    },
+    "recovery": "User screenshot showed locally pending hash and incomplete request; backend originally retained prepared operation without hash. Original hash was found in public Mirror and matched against saved sender, calldata, value and chain. Original-operation hash registration and verification completed without resubmission. Initial request failure cause was not established."
+  },
   "observedOrderSignatures": "0",
-  "observedChainTransactions": "0",
+  "observedChainTransactions": "1",
   "expectedOrderSignatures": "8",
   "expectedChainTransactions": "13",
   "cases": [
-    {"id": "normal", "status": "Pending", "quantity": "2", "priceTinybars": "10000000", "evidence": []},
-    {"id": "reverse", "status": "Pending", "quantity": "1", "priceTinybars": "9000000", "evidence": []},
-    {"id": "cancel", "status": "Pending", "quantity": "1", "priceTinybars": "10000000", "evidence": []},
-    {"id": "reclaim", "status": "Pending", "quantity": "1", "priceTinybars": "10000000", "evidence": []}
+    {
+      "id": "normal",
+      "status": "Pending",
+      "quantity": "2",
+      "priceTinybars": "10000000",
+      "evidence": []
+    },
+    {
+      "id": "reverse",
+      "status": "Pending",
+      "quantity": "1",
+      "priceTinybars": "9000000",
+      "evidence": []
+    },
+    {
+      "id": "cancel",
+      "status": "Pending",
+      "quantity": "1",
+      "priceTinybars": "10000000",
+      "evidence": []
+    },
+    {
+      "id": "reclaim",
+      "status": "Pending",
+      "quantity": "1",
+      "priceTinybars": "10000000",
+      "evidence": []
+    }
   ],
   "reloadAndRestartComparison": "Pending"
 }

@@ -1,5 +1,20 @@
 # HoldBook handoff
 
+## T08 manual deployment recovered — September 8, 2026 (effective)
+
+`based_on_commit: 41432152d411d7f1200405154ca1bd87d1536010` verified HEAD.
+T08 remains active. Admin deployment is verified at block 40257294, contract
+`0xa90da61f67c37473f38000e70623a77ad277304c`; cutoff 12.
+[Manual 038](evidence/038-t08-manual.md) records the original hash, fee and recovery.
+User's pending/incomplete screen was recovered through the original operation;
+no resubmission or code change. Initial failure cause is undetermined.
+Observed one transaction / zero new order signatures. All four cases remain Pending.
+Victor next clicks Query original operation to refresh local state, then New order,
+switches to Seller and places Sell2@0.10; Buyer then places Buy2@0.10. Every prompt
+remains manual. The exact remaining T08 allowed files below still apply; no next
+ticket, push, merge or publication. Historical no-deployment statements below
+are superseded by this observed result.
+
 ## T08 activated — September 8, 2026 (effective)
 
 `based_on_commit: 3088cb9e19abffdc3c6ed58e698c62a11d88f79e` verified merged main; clean starting tree.
