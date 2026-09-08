@@ -73,3 +73,11 @@ without verified signature/result. Recorded actual public fields in manual038
 MD/JSON and updated HANDOFF/index/this entry. No resend, signing, wallet access,
 code change or test rerun; JSON state assertions and diff check passed. Query
 original until accepted/expired, then choose the next action from that result.
+
+## Preview outage recovery — September 8, 2026
+
+Read-only socket/HTTP checks found no4173 listener and healthy8787 API. Codex
+restarted the existing preview command as an independent process; page and
+proxied original-request GET return200/expired. Termination cause is unproven.
+Updated manual038 MD/JSON, HANDOFF, index and this entry; no implementation edits,
+signatures, resubmission or storage clearing. Public expiry assertion/diff passed.

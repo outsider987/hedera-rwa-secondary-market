@@ -62,3 +62,13 @@ Buyer Buy2@0.10; if accepted, inspect the actual match before any further order.
 The initial incomplete submission cause is not established; direct public API
 reads currently succeed. Expected signature totals will exceed the original eight
 because of the extra Seller placement; rejected/unaccepted attempts remain separate.
+
+### Recovery update: preview restored, Buyer request expired
+
+A later Recovery unavailable screenshot was traced to no listener on local4173;
+direct API8787 returned200 and expired for the original Buyer request. Restarting
+`npm run preview` restored the page and proxied request query (both200). No source,
+wallet storage or chain state was changed. The process termination cause is not
+established. Buyer request has digest empty/resultnull and did not create an order.
+Victor can query the original request, then New order: Buyer Buy2@0.10. This
+supersedes the pending observation above, without claiming the new order exists.

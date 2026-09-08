@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-09-08T10:26:51.116731+00:00",
+  "recordedAt": "2026-09-08T10:34:47.555219+00:00",
   "status": "Pending",
   "chainId": "296",
   "deployment": {
@@ -113,12 +113,12 @@
         "deadline": "1788863421",
         "preparedAt": "1788863121"
       },
-      "status": "pending",
+      "status": "expired",
       "digest": "",
       "verified": false,
       "result": null,
-      "reason": ""
+      "reason": "Submission deadline expired"
     },
-    "note": "Two accepted signed placements observed. Extra Seller-owned Buy2@0.10 was cancelled by self-trade prevention. Buyer Buy2@0.20 is pending with no accepted signature evidence; do not count it as signed or resubmit. Intended next fresh Buyer price is0.10 only after original request resolves."
+    "note": "Buyer Buy2@0.20 expired without accepted signature/result. Preview4173 was not listening while direct API8787 worked. Restarted preview; page and proxied original-request query return200. Next Buyer Buy2@0.10 after browser recovers expired original request."
   }
 }

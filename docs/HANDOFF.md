@@ -1,5 +1,13 @@
 # HoldBook handoff
 
+## T08 preview restored; Buyer request expired — effective
+
+`based_on_commit: de7d3015c72ee0046f1a503a2c799ef696e155a1`. Preview4173 had no listener;
+API8787 was healthy. Restarted preview, page/proxied query200. Original Buyer
+b87a2ddf…536bc16 is now expired, no order/result. Victor next queries original to
+refresh local state, then Buyer Buy2@0.10. Seller Sell2@0.10 remains the intended
+maker. Same manual038 evidence/files boundary; no code, wallet or chain mutation.
+
 ## T08 Buyer request unresolved — effective
 
 `based_on_commit: 6d075b4b4fb3020cf73ca42e4794d9eebcc8cf9a`. Manual038 records Seller Sell2@0.10
