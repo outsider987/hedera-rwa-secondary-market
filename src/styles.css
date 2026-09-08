@@ -148,3 +148,28 @@ footer a { min-height: 44px; padding-block: 0.5rem; }
   .quote { gap: 0.5rem; }
   .trade-progress li { font-size: 0.8125rem; }
 }
+
+.market-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
+.market-heading h2 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+.market-heading > p { font-size: 0.875rem; color: #485d6b; }
+.market-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; margin-block: 2rem 3rem; }
+.market h3 { margin: 0 0 1rem; font-size: 1.25rem; }
+.market-book { border-left: 1px solid #d4dfe7; padding-left: 2rem; }
+.market-book table { margin-top: 1.5rem; }
+.market-book th:last-child, .market-book td:last-child { text-align: right; }
+.market-history { border-top: 1px solid #d4dfe7; padding-block: 1.5rem; }
+.market-orders { list-style: none; padding: 0; margin: 1rem 0 0; }
+.market-orders li { display: flex; justify-content: space-between; align-items: start; gap: 1rem; border-bottom: 1px solid #d4dfe7; padding: 1rem 0; margin: 0; }
+.market-orders li > div { min-width: 0; }
+.market-orders button { flex-shrink: 0; }
+.market-orders p, .market-review dd { overflow-wrap: anywhere; }
+.market-request, .market .pending-notice { margin-top: 1.5rem; }
+.market-request button, .market .pending-notice button { margin-top: 0.75rem; }
+@media (max-width: 850px) {
+ .market-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+ .market-book { border-left: 0; border-top: 1px solid #d4dfe7; padding: 1.5rem 0 0; }
+}
+@media (max-width: 700px) {
+ .market-heading, .market-orders li { flex-direction: column; gap: 0.75rem; }
+ .page-nav { gap: 1rem; }
+}

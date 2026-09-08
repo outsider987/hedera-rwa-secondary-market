@@ -8,6 +8,7 @@ import { checkSdkConfig, prepareAts, type AtsLoadState, type SdkConfigCheck } fr
 
 import { downloadEvidence, type TradeRecord } from './evidence';
 import TradePanel from './TradePanel';
+import MarketPanel from './MarketPanel';
 import { loadTradeRecords, tradeLabels } from './trade';
 import { accounts, securityId, securityAddress, creationHash, actionLabels, loadLifecycleRecords, type LifecycleRecord, type LifecycleState } from './lifecycle';
 import { verifyT03History } from './hold';
@@ -311,9 +312,9 @@ export default function App() {
   const session = useSyncExternalStore(subscribeWalletSession, getWalletSession, () => 0);
   const [saved, setSaved] = useState(() => typeof window === 'undefined' ? { roles: {}, warning: '' } : loadRoles());
   const savedRef = useRef(saved);
-  const [page,setPage] = useState('trade');
+  const [page,setPage] = useState('market');
   const [tradeRecords,setTradeRecords] = useState<TradeRecord[]>(()=>{try{return loadTradeRecords();}catch{return [];}});
-  useEffect(()=>{const change=()=>{const value=window.location.hash.slice(1);setPage(['trade','history','settings'].includes(value) ? value : 'trade');};change();window.addEventListener('hashchange',change);return()=>window.removeEventListener('hashchange',change);},[]);
+  useEffect(()=>{const change=()=>{const value=window.location.hash.slice(1);setPage(['market','trade','history','settings'].includes(value) ? value : 'market');};change();window.addEventListener('hashchange',change);return()=>window.removeEventListener('hashchange',change);},[]);
   useEffect(() => {
     const changed = (event: StorageEvent) => {
       if (event.key !== rolesStorageKey && event.key !== null) return;
@@ -368,9 +369,10 @@ export default function App() {
     <header><div><h1>HoldBook</h1></div><div className="header-wallet"><p className="network">Hedera Testnet · {activeRole ?? 'Not connected'}</p>
       <button type="button" className="secondary" disabled={busy || locked} aria-describedby="wallet-status" onClick={handleWallet}>{connection.isConnected ? 'Disconnect' : 'Connect'}</button></div></header>
     <main id="main">
-      <nav className="page-nav" aria-label="Main navigation">{['trade','history','settings'].map(item=><a key={item} href={'#'+item} aria-current={page === item ? 'page' : undefined}>{item[0].toUpperCase()+item.slice(1)}</a>)}</nav>
+      <nav className="page-nav" aria-label="Main navigation">{['market','trade','history','settings'].map(item=><a key={item} href={'#'+item} aria-current={page === item ? 'page' : undefined}>{item[0].toUpperCase()+item.slice(1)}</a>)}</nav>
       <p id="wallet-status" role="status" aria-live="polite" className="wallet-status">{busy ? 'Wallet request pending. Complete or reject it in MetaMask.' : connection.isConnected ? ready ? 'Connected to Hedera Testnet.' : 'Wrong network. Switch to Hedera Testnet (296 / 0x128) in MetaMask.' : 'Wallet not connected. Connect when ready.'}</p>
       {walletMessage && <p role="alert">{walletMessage}</p>}{saved.warning && <p className="storage-warning" role="alert">{saved.warning}</p>}
+      <div id="market" hidden={page !== 'market'}><MarketPanel visible={page === 'market'} roles={saved.roles} session={session} activeAccount={connection.address}/></div>
       <div id="trade" hidden={page !== 'trade'}><TradePanel roles={saved.roles} session={session} activeAccount={connection.address} records={tradeRecords} onRecords={setTradeRecords}/></div>
       <section id="history" hidden={page !== 'history'} aria-labelledby="history-heading" className="page-section">
         <h2 id="history-heading">Trade and asset history</h2><p>Historical verification blocks describe recorded results. Check Trade for current balances.</p>

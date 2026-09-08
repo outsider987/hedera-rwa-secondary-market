@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-08 | T07 signed unfunded market | [Durable order service, Market UI and verified automation; manual Pending](docs/ai-usage/043-t07-signed-market.md) |
 | 2026-09-08 | T06 matching core | [Deterministic unfunded matching and Go checks](docs/ai-usage/042-t06-matching-core.md) |
 | 2026-09-08 | Matching roadmap planning | [Go core, PostgreSQL service and settlement draft; planning only](docs/ai-usage/041-matching-planning.md) |
 | 2026-09-08 | T05 atomic trade and interface | [Completed acceptance and explicitly authorized CI-gated integration](docs/ai-usage/040-t05-atomic-trade.md) |

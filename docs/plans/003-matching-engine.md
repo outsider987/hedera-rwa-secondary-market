@@ -5,6 +5,10 @@ based on `cbf0c2240533dbe3e53db42913d4a6f162c7dac3`. This specification supersed
 the planning-only/core-only scope below. Deliver T06 as an independent local
 commit, then continue T07 under this same authorization. No push, merge or T08.
 
+Implementation update: T06 is independent commit `a485afb`; T07 code and automated
+checks are delivered in [evidence 034](../evidence/034-t07-implementation.md).
+[Manual acceptance 035](../evidence/035-t07-manual.md) remains Pending.
+
 ## Effective specification
 
 One NOVA/HBAR limit market on Testnet 296, original Seller and Buyer each able

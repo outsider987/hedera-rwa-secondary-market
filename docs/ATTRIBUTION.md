@@ -318,3 +318,33 @@ dated attribution and audit/peer/native-BBS/license limitations remain intact.
 ## T06 Go core — September 8, 2026
 
 Go 1.27.1 ([official release feed](https://go.dev/dl/?mode=json)), Go standard library, BSD-3-Clause. Core is newly AI-assisted project code, no copied upstream algorithm or external Go dependency. Test fixtures use synthetic public addresses, no private keys or signatures.
+
+## T07 order service — September 8, 2026
+
+New project code uses [pgx v5.11.0](https://github.com/jackc/pgx/releases/tag/v5.11.0)
+(MIT) and [go-ethereum v1.17.5](https://github.com/ethereum/go-ethereum/releases/tag/v1.17.5)
+(library code LGPL-3.0, repository also contains GPL-3.0 components). No upstream
+matching implementation or private-key fixture was copied. The public
+[EIP-712](https://eips.ethereum.org/EIPS/eip-712) Mail signature vector and typed
+structure are adapted under its CC0 dedication; the test hashes and recovers the public signer
+only, without reading or constructing its private signer. The frontend uses the
+already-pinned viem 2.56.3 hash/recovery implementation; npm graph is unchanged.
+
+Go 1.27.1 (BSD-3-Clause) builds the API; [PostgreSQL 18.6](https://www.postgresql.org/support/versioning/)
+uses the PostgreSQL License. Compose pulls official `golang:1.27.1` and
+`postgres:18.6` images. API runtime is an empty `scratch` image plus the compiled
+non-root binary and `/licenses`, containing Go and used modules' upstream root
+LICENSE/COPYING/NOTICE files. There is no redistributed OS layer in the API image.
+Docker Desktop 4.44.3 / Engine 28.3.2 provided the local execution environment.
+No project license or public redistribution authorization is inferred.
+
+The static API's complete 13-module package closure is recorded in
+[evidence 034](evidence/034-t07-validation.json), with exact versions/license file
+names. Transitive runtime modules: decred secp256k1 v4.0.1 (ISC), uint256 v1.3.2
+(BSD-3-Clause), bitset v1.20.0 (BSD-3-Clause), gnark-crypto v0.18.1 and go-eth-kzg
+v1.5.0 (Apache-2.0), pgpassfile v1.0.0 / pgservicefile
+v0.0.0-20240606120523-5a60cdf6a761 / puddle v2.2.2 (MIT), and Go x/sys v0.41.0,
+x/sync v0.19.0, x/text v0.34.0 (BSD-3-Clause). Go module graph membership beyond
+that closure does not imply runtime use; go.mod/go.sum retain exact resolution.
+The existing npm audit, peer, native-BBS, dfns-license and event-eligibility
+limitations remain unchanged. This ticket does not reclassify historical findings.

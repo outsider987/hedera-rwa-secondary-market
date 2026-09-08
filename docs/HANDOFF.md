@@ -1,5 +1,48 @@
 # HoldBook handoff
 
+## T07 implementation verified / manual Pending — September 8, 2026 (effective)
+
+`based_on_commit: a485afb2c703ba632c83f205b1d9dcaf289173e0` is the independent T06
+commit, verified in Git. Active T07 implements the same user-approved two-stage
+plan; [effective spec 003](plans/003-matching-engine.md) is the reading map and
+exact implementation scope. Code/automation delivered; overall T07 is not complete.
+[Report 034](evidence/034-t07-implementation.md), [public checks](evidence/034-t07-validation.json)
+and [usage043](ai-usage/043-t07-signed-market.md) record actual outcomes.
+
+Go test/race/vet/fuzz and PostgreSQL concurrency/duplicate/rollback/lost-response/
+restart tests passed using explicitly labelled verifier doubles. Public EIP-712
+recovery and independent frontend/backend digest passed, with no private signer.
+npm ci, 104 app +36 proto, typecheck/build and 16 Foundry checks passed. Four
+browser dev/preview ×1440/390 cases cover review, keyboard, polling/offline,
+preview Web Lock, wallet invalidation/rejection/late response and pending reload.
+One live-region defect is fixed and its UI review closed at that scope.
+No actual T07 MetaMask owner signature has been observed. T05 history is unchanged.
+
+Docker API is running at loopback8787, preview4173 and dev5173 are available.
+Database has no host port; keep project volume holdbook-market_market-data.
+The permanent domain survived actual API restart and PostgreSQL stop/start;
+manual database holdbook still has zero orders/matches. Integration fixtures are
+isolated in holdbook_test. Browser automation created only unsigned preparations.
+Local docker socket access was repaired for the existing docker group; if the
+normal WSL socket remains disconnected, the verified session endpoint is
+unix:///mnt/wsl/docker-desktop/shared-sockets/guest-services/docker.proxy.sock.
+Never remove volumes/containers to resolve readiness.
+
+**Next action stays T07:** Victor follows [DEMO](DEMO.md#t07--unfunded-matching-acceptance-pending)
+on http://127.0.0.1:4173, starting Seller Sell4@0.09, then Sell5@0.10, Buyer Buy6@0.10,
+Seller cancel remaining3, Buyer Sell1@0.10 and Seller Buy1@0.10. Each signature is
+manual. Export public evidence, verify reload/restart and retain actual captures.
+[Manual report035](evidence/035-t07-manual.md) is explicitly Pending. No transaction
+ID, payment, fund reservation or settlement exists for these intents.
+
+Exact remaining manual files: docs/evidence/035-t07-manual.md,
+docs/evidence/035-t07-manual.json, docs/evidence/035-t07-orders.png,
+docs/evidence/035-t07-matches.png; usage043, AI_USAGE, HANDOFF, main plan,
+README, PRODUCT, DESIGN, DEMO and ARCHITECTURE for the actual acceptance update.
+Concrete defects may be fixed within the existing T07 spec003 implementation/test
+files with affected checks and evidence034 updated. No T08 files are activated.
+Stop at local commits; no public push/merge, new asset, payment or ATS Hold.
+
 ## T06–T07 activated — September 8, 2026 (effective)
 
 `based_on_commit: cbf0c2240533dbe3e53db42913d4a6f162c7dac3`, verified actual HEAD.
