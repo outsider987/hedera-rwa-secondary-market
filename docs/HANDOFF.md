@@ -1,5 +1,18 @@
 # HoldBook handoff
 
+## T05 Seller Hold verified — September 8, 2026
+
+`based_on_commit: 6e641a81108976fbd198f0fd8ba2e402956bce8a`.
+Victor supplied public export (22) and the lock-complete screenshot. Independent
+read-only recovery verified Hold ID 2 from its event at block 40246787, matching
+10 NOVA, swap escrow, Buyer target, expiry, receipt/runtime and Mirror identity.
+Seller available/held is 84/10; Buyer 6/0; swap Open. Evidence 032 contains the
+whitelisted recovered record and supplied capture. No code or agent transaction
+changed; previous automated checks remain recorded, not rerun for evidence only.
+Next: Buyer readiness, pre-purchase read-only checks, then reviewed 1 HBAR
+purchase. Full acceptance remains Pending. Only the existing T05 scope and
+allowed files below apply; no subsequent ticket is activated.
+
 ## T05 deployment recovery correction — September 8, 2026
 
 `based_on_commit: 2c7146ca76e5d16e664cf7f02609eb2314db2f61`.

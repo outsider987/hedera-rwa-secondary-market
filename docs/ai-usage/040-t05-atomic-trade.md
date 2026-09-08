@@ -72,3 +72,15 @@ browser regression replays the public hash with no wallet and verifies the
 stale-state sequence. Actual checks are appended to evidence 031; historical
 implementation results above remain dated history. Next manual stage is Seller
 Hold creation; complete T05 acceptance remains Pending.
+
+## Seller Hold evidence — September 8
+
+Base `6e641a81108976fbd198f0fd8ba2e402956bce8a`. Victor supplied public export
+(22) and a lock-complete screenshot. Codex reused recoverTrade with an isolated
+in-memory journal and a 180-second deadline to independently verify the original
+hash, HeldByPartition-derived ID 2, historical 84/10 and 6/0 balances, full Hold,
+runtime, expiry and Mirror identity. Recovery completed successfully; no wallet,
+signature or chain mutation was used. Updated evidence 032 MD/JSON/capture,
+HANDOFF, main plan and this AI_USAGE entry/index only. Prior automated checks
+were not rerun for this evidence-only update. Buyer checks/purchase and complete
+acceptance remain Pending; no next ticket or extra live trade is authorized.

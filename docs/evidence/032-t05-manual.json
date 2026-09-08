@@ -114,12 +114,137 @@
   },
   "checkpoints": {
     "deployment": "Complete",
-    "lock": "Pending",
+    "lock": "Complete",
     "purchase": "Pending",
     "readOnlyRejections": "Pending",
     "paymentProof": "Pending",
     "finalBalances": "Pending"
   },
   "agentTransactions": 0,
-  "agentSignatures": 0
+  "agentSignatures": 0,
+  "lock": {
+    "schemaVersion": 1,
+    "chainId": 296,
+    "operationId": "1619f24a-0eb6-4b45-a20b-a29bd2c03c35",
+    "startedAt": "2026-09-08T03:58:27.483Z",
+    "input": {
+      "securityId": "0.0.10402368",
+      "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+      "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+      "escrow": "0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158",
+      "destination": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+      "baseBlock": "40245635",
+      "baseTimestamp": "1788837501",
+      "expirationTimestamp": "1788923901",
+      "holdId": "2"
+    },
+    "before": {
+      "block": "40246786",
+      "timestamp": "1788839961",
+      "roles": [
+        true,
+        true,
+        true
+      ],
+      "issuer": true,
+      "supply": "100",
+      "sellerBalance": "94",
+      "buyerBalance": "6",
+      "sellerHeld": "0",
+      "buyerHeld": "0",
+      "sellerKyc": {
+        "status": 1,
+        "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+        "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "validFrom": "1788788191",
+        "validTo": "1789393291"
+      },
+      "buyerKyc": {
+        "status": 1,
+        "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+        "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "validFrom": "1788800692",
+        "validTo": "1789405792"
+      },
+      "sellerHoldIds": [],
+      "buyerHoldIds": []
+    },
+    "after": {
+      "block": "40246787",
+      "timestamp": "1788839963",
+      "roles": [
+        true,
+        true,
+        true
+      ],
+      "issuer": true,
+      "supply": "100",
+      "sellerBalance": "84",
+      "buyerBalance": "6",
+      "sellerHeld": "10",
+      "buyerHeld": "0",
+      "sellerKyc": {
+        "status": 1,
+        "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+        "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "validFrom": "1788788191",
+        "validTo": "1789393291"
+      },
+      "buyerKyc": {
+        "status": 1,
+        "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+        "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+        "validFrom": "1788800692",
+        "validTo": "1789405792"
+      },
+      "sellerHoldIds": [
+        "2"
+      ],
+      "buyerHoldIds": [],
+      "hold": {
+        "id": "2",
+        "amount": "10",
+        "expirationTimestamp": "1788923901",
+        "escrow": "0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158",
+        "destination": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "data": "0x",
+        "operatorData": "0x",
+        "thirdPartyType": 0
+      }
+    },
+    "kind": "t05-transaction",
+    "action": "lock",
+    "status": "complete",
+    "signerRole": "Seller",
+    "calldata": "0x5d23449e00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000006aa0cffd000000000000000000000000f6fc50413cd10d0e82a2f3c30b5bf6878a45f158000000000000000000000000a1f2872ee7a9f74523ae0887a9dc428ff134070600000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000000",
+    "calldataDigest": "0x3c380d7d6bc41f21a85a361d9a93b0deeac92a8b522246bf4e2edc4edb360a76",
+    "walletValueWeibars": "0",
+    "transactionHash": "0xd9c4059eae45ea0e322d6d79fdfc53c55385464c69012f745a83dad982236396",
+    "transactionId": "0.0.7314364-1788839959-090515270",
+    "consensusTimestamp": "1788839964.009476104",
+    "runtimeDigest": "0x6f68ae3a9879bc5ac60f9bac08bc0a3fd5c51b309179672ff15475951170e72e",
+    "readBlock": "40246787",
+    "swapState": 0,
+    "hashScanLink": "https://hashscan.io/testnet/transaction/0xd9c4059eae45ea0e322d6d79fdfc53c55385464c69012f745a83dad982236396"
+  },
+  "lockVerification": {
+    "recordedAt": "2026-09-08T04:03:33.950Z",
+    "based_on_commit": "6e641a81108976fbd198f0fd8ba2e402956bce8a",
+    "source": "holdbook-public-evidence (22).json",
+    "capture": "032-t05-lock.png",
+    "captureSource": "User supplied application and MetaMask screenshot",
+    "method": "recoverTrade with isolated in-memory public journal and operation lease; 180-second deadline; no wallet or signer",
+    "checks": [
+      "Receipt, chain, signer, calldata and zero wallet value",
+      "HeldByPartition event and derived Hold ID",
+      "Historical before/after balances and full Hold",
+      "Reviewed expiry and KYC",
+      "Pinned swap runtime and Open state",
+      "Mirror sender, contract, hash, block, parameters, result and transaction identity"
+    ],
+    "exitCode": 0,
+    "agentTransactions": 0,
+    "agentSignatures": 0
+  }
 }
