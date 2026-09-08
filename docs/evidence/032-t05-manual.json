@@ -3,7 +3,7 @@
   "ticket": "T05",
   "recordedAt": "2026-09-08T03:49:27.633Z",
   "based_on_commit": "2c7146ca76e5d16e664cf7f02609eb2314db2f61",
-  "manualAcceptance": "Pending",
+  "manualAcceptance": "Complete",
   "deployment": {
     "schemaVersion": 1,
     "chainId": 296,
@@ -116,9 +116,9 @@
     "deployment": "Complete",
     "lock": "Complete",
     "purchase": "Complete",
-    "readOnlyRejections": "Pending",
+    "readOnlyRejections": "Complete: three historical replays match original records",
     "paymentProof": "Complete",
-    "finalBalances": "Complete at settlement block; final UI capture pending"
+    "finalBalances": "Complete: block 40247352 and Victor final screenshot"
   },
   "agentTransactions": 0,
   "agentSignatures": 0,
@@ -378,5 +378,251 @@
     "exitCode": 0,
     "agentTransactions": 0,
     "agentSignatures": 0
+  },
+  "simulations": [
+    {
+      "schemaVersion": 1,
+      "chainId": 296,
+      "operationId": "20cbfb60-5f12-41d8-8faa-783d591ee0d4",
+      "startedAt": "2026-09-08T04:07:06.886Z",
+      "input": {
+        "securityId": "0.0.10402368",
+        "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+        "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "escrow": "0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158",
+        "destination": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "baseBlock": "40245635",
+        "baseTimestamp": "1788837501",
+        "expirationTimestamp": "1788923901",
+        "holdId": "2"
+      },
+      "before": {
+        "block": "40246969",
+        "timestamp": "1788840349",
+        "roles": [
+          true,
+          true,
+          true
+        ],
+        "issuer": true,
+        "supply": "100",
+        "sellerBalance": "84",
+        "buyerBalance": "6",
+        "sellerHeld": "10",
+        "buyerHeld": "0",
+        "sellerKyc": {
+          "status": 1,
+          "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+          "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "validFrom": "1788788191",
+          "validTo": "1789393291"
+        },
+        "buyerKyc": {
+          "status": 1,
+          "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+          "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "validFrom": "1788800692",
+          "validTo": "1789405792"
+        },
+        "sellerHoldIds": [
+          "2"
+        ],
+        "buyerHoldIds": [],
+        "hold": {
+          "id": "2",
+          "amount": "10",
+          "expirationTimestamp": "1788923901",
+          "escrow": "0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158",
+          "destination": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+          "data": "0x",
+          "operatorData": "0x",
+          "thirdPartyType": 0
+        }
+      },
+      "after": {
+        "block": "40246981",
+        "timestamp": "1788840375",
+        "roles": [
+          true,
+          true,
+          true
+        ],
+        "issuer": true,
+        "supply": "100",
+        "sellerBalance": "84",
+        "buyerBalance": "6",
+        "sellerHeld": "10",
+        "buyerHeld": "0",
+        "sellerKyc": {
+          "status": 1,
+          "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+          "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "validFrom": "1788788191",
+          "validTo": "1789393291"
+        },
+        "buyerKyc": {
+          "status": 1,
+          "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+          "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "validFrom": "1788800692",
+          "validTo": "1789405792"
+        },
+        "sellerHoldIds": [
+          "2"
+        ],
+        "buyerHoldIds": [],
+        "hold": {
+          "id": "2",
+          "amount": "10",
+          "expirationTimestamp": "1788923901",
+          "escrow": "0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158",
+          "destination": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+          "data": "0x",
+          "operatorData": "0x",
+          "thirdPartyType": 0
+        }
+      },
+      "kind": "t05-simulation",
+      "action": "purchase-negative",
+      "status": "complete",
+      "cases": [
+        {
+          "check": "wrong-buyer",
+          "from": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "walletValueWeibars": "1000000000000000000",
+          "calldata": "0x8df828000000000000000000000000000000000000000000000000000000000000000002",
+          "block": "40246969",
+          "afterBlock": "40246981",
+          "revertData": "0xf908e418"
+        },
+        {
+          "check": "wrong-payment",
+          "from": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+          "walletValueWeibars": "999999990000000000",
+          "calldata": "0x8df828000000000000000000000000000000000000000000000000000000000000000002",
+          "block": "40246969",
+          "afterBlock": "40246981",
+          "revertData": "0x788a686f"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "chainId": 296,
+      "operationId": "0d2333de-5f4b-4530-a463-e5fa9c745864",
+      "startedAt": "2026-09-08T04:20:01.921Z",
+      "input": {
+        "securityId": "0.0.10402368",
+        "securityAddress": "0x261ce349df182988fa25d00868cf6cf434220c24",
+        "partition": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "holder": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "escrow": "0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158",
+        "destination": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "baseBlock": "40245635",
+        "baseTimestamp": "1788837501",
+        "expirationTimestamp": "1788923901",
+        "holdId": "2"
+      },
+      "before": {
+        "block": "40247341",
+        "timestamp": "1788841128",
+        "roles": [
+          true,
+          true,
+          true
+        ],
+        "issuer": true,
+        "supply": "100",
+        "sellerBalance": "84",
+        "buyerBalance": "16",
+        "sellerHeld": "0",
+        "buyerHeld": "0",
+        "sellerKyc": {
+          "status": 1,
+          "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+          "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "validFrom": "1788788191",
+          "validTo": "1789393291"
+        },
+        "buyerKyc": {
+          "status": 1,
+          "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+          "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "validFrom": "1788800692",
+          "validTo": "1789405792"
+        },
+        "sellerHoldIds": [],
+        "buyerHoldIds": []
+      },
+      "after": {
+        "block": "40247352",
+        "timestamp": "1788841151",
+        "roles": [
+          true,
+          true,
+          true
+        ],
+        "issuer": true,
+        "supply": "100",
+        "sellerBalance": "84",
+        "buyerBalance": "16",
+        "sellerHeld": "0",
+        "buyerHeld": "0",
+        "sellerKyc": {
+          "status": 1,
+          "vcId": "urn:uuid:e52c3f39-f358-45b1-9c82-cc582c79e450",
+          "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "validFrom": "1788788191",
+          "validTo": "1789393291"
+        },
+        "buyerKyc": {
+          "status": 1,
+          "vcId": "urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+          "issuer": "0xfd8fdb4989a916c6f2420a2116c356e34c889840",
+          "validFrom": "1788800692",
+          "validTo": "1789405792"
+        },
+        "sellerHoldIds": [],
+        "buyerHoldIds": []
+      },
+      "kind": "t05-simulation",
+      "action": "duplicate-negative",
+      "status": "complete",
+      "cases": [
+        {
+          "check": "duplicate",
+          "from": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+          "walletValueWeibars": "1000000000000000000",
+          "calldata": "0x8df828000000000000000000000000000000000000000000000000000000000000000002",
+          "block": "40247341",
+          "afterBlock": "40247352",
+          "revertData": "0x1cdde67b"
+        }
+      ]
+    }
+  ],
+  "finalAcceptance": {
+    "recordedAt": "2026-09-08T04:26:22.131Z",
+    "based_on_commit": "5c1a114b90e42ebeedc957ed31abd2bf788f728e",
+    "sources": [
+      "holdbook-public-evidence (24).json",
+      "holdbook-public-evidence (25).json"
+    ],
+    "finalCapture": "032-t05-final.png",
+    "captureSource": "User supplied final application and MetaMask screenshot; captured before report acceptance, so its static acceptance label still says Pending",
+    "finalBlock": "40247352",
+    "method": "Whitelisted public records; historical readHoldState and readSwap; assertTradeState and holdStateDigest match before/after; callTradeRevert replay at each original block matches exact from, value, calldata and revert bytes",
+    "simulationCases": 3,
+    "simulationTransactionIds": [],
+    "exitCode": 0,
+    "agentTransactions": 0,
+    "agentSignatures": 0,
+    "remainingTicketWork": [],
+    "limitations": [
+      "Cancellation, expiry, reentrancy and fault rollback were tested only in local VM",
+      "Historical final balances, not a promise of future balances",
+      "Existing dependency audit, native BBS, license and event eligibility limitations remain disclosed in ATTRIBUTION"
+    ]
   }
 }

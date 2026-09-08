@@ -1,5 +1,31 @@
 # HoldBook handoff
 
+## T05 complete — September 8, 2026 (effective boundary)
+
+`based_on_commit: 5c1a114b90e42ebeedc957ed31abd2bf788f728e` is the verified
+base of this final evidence update. Victor supplied exports (24)/(25) and final
+capture. Historical replay matched all three exact rejection cases at their
+original blocks and confirmed unchanged snapshots/runtime. Final block 40247352:
+Seller 84/0, Buyer 16/0, supply/cap 100/1000, swap Settled; Seller received
+1 HBAR principal. Three manually approved transactions, zero agent mutations.
+[Final English report](evidence/032-t05-manual.md), public JSON and captures
+record completed acceptance. Architecture, README, PRODUCT, DEMO, specs and AI
+provenance now point to this result. Older Pending sections below are history.
+
+Actual final checks: whitelisted imports, historical readHoldState/readSwap,
+assertTradeState/holdStateDigest and exact callTradeRevert replays passed;
+Markdown local links, JSON checkpoint assertions and git diff checks passed.
+No code changed in this evidence-only closure. Prior npm ci, 98 app + 36 proto,
+typecheck/build, 16 local contract tests and dev/preview results remain recorded.
+The supplied final screenshot and existing UI's static acceptance label still
+say Pending; this report is the completed human-evidence acceptance record.
+Cancellation/expiry/fault paths remain local VM coverage; existing dependency,
+native-BBS, license and event-eligibility limitations are not resolved by T05.
+
+Stop at local commits. No push, merge, new trade, new ticket or further mutation
+is authorized. **Next ticket allowed files: none; no next ticket is activated.**
+No further Victor signature or transaction is required for this ticket.
+
 ## T05 settlement verified — September 8, 2026
 
 `based_on_commit: 0a33c8a2a8177e97e1d4456af53fbf60cae32caf`.

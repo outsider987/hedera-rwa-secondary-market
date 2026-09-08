@@ -1,6 +1,10 @@
 # HoldBook · two-minute demo
 
-## T05 operator flow — manual acceptance Pending
+## T05 recorded operator flow — acceptance complete
+
+The following flow was completed September 8, 2026. Present the saved History
+and [acceptance evidence](evidence/032-t05-manual.md); do not repeat this trade.
+Final block 40247352: Seller 84, Buyer 16, both held 0; Seller received 1 HBAR.
 
 Open http://127.0.0.1:4173. Connect the original accounts in Settings, then use
 Trade. Start only with Seller 94, Buyer 6, both held 0, supply/cap 100/1000,
@@ -30,7 +34,8 @@ performs only this trade. Do not renew expired KYC or change pinned deployments.
 
 [Implementation report](evidence/031-t05-implementation.md) ·
 [Fixed specification](plans/002-atomic-trade.md).
-No T05 on-chain result or successful human acceptance is claimed yet.
+All three transactions and three read-only rejection cases are independently
+verified in [public evidence 032](evidence/032-t05-manual.json).
 
 ## Completed T04 walkthrough
 
@@ -48,7 +53,7 @@ from the cloned repository; GitHub displays its HTML source.
 | 0:35–0:55 | [Buyer credential](evidence/029-t04-buyer-vc.png), then [KYC grant](evidence/029-t04-buyer-kyc.png) | “Admin signed a synthetic Buyer credential and granted KYC. We also checked that Seller could not execute as escrow, and Admin could not execute more than the held amount.” |
 | 0:55–1:15 | [Execute 6](evidence/029-t04-execute.png) | “Admin executed 6 to Buyer. Four shares remained held.” |
 | 1:15–1:35 | [Release complete](evidence/029-t04-final.png) and balance table below | “Admin released the remaining 4 to Seller. Seller finished with 94, Buyer with 6, and no shares remained held.” |
-| 1:35–2:00 | [Transaction links and verification](evidence/029-t04-manual.md) | “Four transactions were manually approved in MetaMask. Receipts, events and historical balances were independently checked. This recorded run demonstrates the asset lifecycle; T05 payment acceptance is pending.” |
+| 1:35–2:00 | [Transaction links and verification](evidence/029-t04-manual.md) | “Four transactions were manually approved in MetaMask. Receipts, events and historical balances were independently checked. T05 subsequently completed one atomic trade; its separate report verifies delivery and payment.” |
 
 ## Follow the shares
 

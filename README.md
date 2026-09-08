@@ -4,9 +4,12 @@ A local Hedera Testnet console for one fixed atomic trade:
 **10 NOVA × 0.1 HBAR = 1 HBAR**. Admin deploys the swap, Seller locks the shares,
 and Buyer pays. Delivery and Seller payment succeed together or both revert.
 
-**T05 manual acceptance is Pending.** No T05 deployment, Hold or purchase has
-been performed by the agent. Completed T02–T04 history remains verified:
-Seller **94**, Buyer **6**, both held **0**, at block **40241114** on September 8.
+**T05 manual acceptance completed September 8, 2026.** Victor approved the three
+transactions; independent reads verified Seller **84**, Buyer **16**, both held
+**0**, and Seller's **1 HBAR** principal. Final verification block: **40247352**.
+See the [acceptance report](docs/evidence/032-t05-manual.md) and
+[public JSON](docs/evidence/032-t05-manual.json). This recorded trade is complete;
+do not repeat it. T02–T04 remain separately dated history.
 
 ## Run locally
 

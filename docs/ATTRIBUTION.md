@@ -295,7 +295,10 @@ The [Hedera Ethereum transaction documentation](https://docs.hedera.com/native/s
 supplies the distinct wallet-value weibars and EVM tinybars semantics. The
 Testnet [Mirror OpenAPI](https://testnet.mirrornode.hedera.com/api/v1/docs/openapi.yml)
 informs contract-result identity, transaction timestamp, transfers and fee
-fields. These sources inform verification; real T05 acceptance remains Pending.
+fields. These sources inform verification; [evidence 032](evidence/032-t05-manual.md)
+records subsequent completed T05 manual acceptance. Its screenshots were supplied
+by Victor and its public JSON exports were independently checked against chain
+records; no wallet profile, secret or new product asset was used.
 
 Local contract tooling: [Foundry 1.7.1](https://github.com/foundry-rs/foundry/tree/v1.7.1)
 (Apache-2.0 or MIT) and [Solidity 0.8.36](https://github.com/argotorg/solidity/blob/v0.8.36/LICENSE.txt)

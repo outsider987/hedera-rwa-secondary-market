@@ -1,6 +1,6 @@
 # HoldBook · flow and architecture
 
-[Demo script](DEMO.md) · [Acceptance report](evidence/029-t04-manual.md)
+[Demo script](DEMO.md) · [T04 acceptance](evidence/029-t04-manual.md) · [T05 acceptance](evidence/032-t05-manual.md)
 
 ## Recorded flow
 
@@ -39,19 +39,19 @@ block: **40241114**, September 8, 2026.
 
 ## Current architecture
 
-T05 code is implemented; deployment and manual acceptance remain Pending.
+T05 deployed and completed September 8, 2026. Final verification: block 40247352.
 The recorded T04 flow above remains historical and cannot be restarted in the UI.
 
 ```text
-Start: Seller 94, Buyer 6, held 0 — recheck before starting
-  Admin manually deploys NovaHbarSwap (reviewed block time + 86400 expiry)
-  Seller SDK creates Hold 10 (escrow = swap, target = Buyer)
-    Expected: Seller 84, Buyer 6, held 10
-  Read-only wrong-Buyer / wrong-payment checks
-  Buyer manually pays 1 HBAR
+Recorded start: Seller 94, Buyer 6, held 0
+  Admin deployed NovaHbarSwap — block 40245682
+  Seller SDK created Hold 2 for 10 NOVA — block 40246787
+    Observed: Seller 84, Buyer 6, held 10
+  Read-only wrong-Buyer / wrong-payment rejections — block 40246969
+  Buyer paid 1 HBAR — block 40247134
     Same transaction: ATS execute 10 + pay Seller 1 HBAR, or all effects revert
-    Expected: Seller 84, Buyer 16, held 0
-  Read-only duplicate-purchase check; verify and export all evidence
+    Observed: Seller 84, Buyer 16, held 0; Seller credited 1 HBAR
+  Read-only duplicate rejection — block 40247341; final readback 40247352
 ```
 
 ```mermaid
@@ -70,7 +70,7 @@ flowchart TB
     end
     wallet["MetaMask · Victor approves each request"]
     chain["Hedera Testnet · chain 296<br/>JSON-RPC / original ATS NOVA"]
-    swap["NovaHbarSwap · deployment Pending<br/>Buyer settle / Seller cancel or reclaim"]
+    swap["NovaHbarSwap · Settled, Hold 2<br/>0xf6fc…f158 · non-upgradeable"]
     mirror["Mirror Node · indexed records"]
     provider -->|Transaction request|wallet
     wallet -->|Submit approved transaction|chain
@@ -112,4 +112,5 @@ receipt completion. T05 verifies the constructor, runtime, full Hold and same-ha
 ATS/swap events, then checks Seller principal separately from network fees.
 T02–T04 are closed history. No new VC signature or KYC renewal is part of T05.
 Local contract tests model tinybar values without claiming Hedera RPC unit
-conversion or real MetaMask acceptance; those remain manual acceptance checks.
+conversion or real MetaMask acceptance; evidence 032 separately verifies the
+completed manual normal flow. Failure/expiry paths remain local VM coverage.

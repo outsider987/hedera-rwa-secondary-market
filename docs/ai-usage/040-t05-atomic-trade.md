@@ -96,3 +96,21 @@ fee is recorded separately. Updated only evidence 032 MD/JSON/purchase capture,
 HANDOFF, main plan and AI_USAGE entry/index. No code changed or automated suites
 reran; no agent transaction or signature occurred. Original simulation exports,
 post-settlement duplicate check and final UI capture remain outstanding.
+
+## Final acceptance — September 8
+
+Base `5c1a114b90e42ebeedc957ed31abd2bf788f728e`. Victor supplied original
+simulation exports (24)/(25) and the final UI capture. Codex whitelisted both
+records, independently read their historical states/runtime and replayed each
+original from/value/calldata at its original block. WrongAccount, WrongPayment
+and Closed matched exactly; snapshots stayed unchanged. All three cases passed
+with no transaction ID or signature. Final 84/16/held 0, 100/1000 supply/cap
+and Seller principal complete the three-transaction normal-flow acceptance.
+
+Updated evidence 032 MD/JSON/final capture, README, PRODUCT, DEMO, ARCHITECTURE,
+ATTRIBUTION, both plans, HANDOFF and AI_USAGE. Local links, JSON assertions and
+diff checks passed. No implementation code or dependency changed; earlier
+automated suites were not rerun. The static Pending UI label in the supplied
+capture is explicitly distinguished from final report acceptance. Local VM
+failure-path coverage and existing eligibility/security limitations remain.
+Stop at the local T05 boundary, with no further transaction or next ticket.

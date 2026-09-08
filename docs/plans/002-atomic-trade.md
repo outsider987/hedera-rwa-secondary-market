@@ -1,7 +1,9 @@
 # T05 — One atomic NOVA / Testnet HBAR trade
 
 Status: implementation and automated checks delivered September 8, 2026;
-manual Testnet acceptance Pending. See [evidence 031](../evidence/031-t05-implementation.md).
+manual Testnet acceptance completed September 8, 2026. See
+[evidence 031](../evidence/031-t05-implementation.md) and
+[final acceptance 032](../evidence/032-t05-manual.md).
 `based_on_commit: d85d19ca95fef467abf327a0620372c9b9f9ea88` (merged main).
 Branch: `feat/t05-atomic-trade`. Stop at local commits; no push or deployment by an agent.
 The [supplied plan](../prompts/027-t05-atomic-trade.md) authorizes this ticket and

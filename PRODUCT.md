@@ -35,8 +35,9 @@ T02 NOVA creation, T03 Seller KYC / issuance and T04 Hold lifecycle are complete
 T04 demonstrates Hold 10, Buyer KYC, execute 6 and release 4, with three expected
 read-only rejections. All T02–T04 mutation controls are closed.
 T05 adds only the non-upgradeable NovaHbarSwap and its fixed HBAR payment.
-Manual acceptance remains Pending: expected final Seller 84 / Buyer 16 / held 0
-is not a live result. No backend, order book, real KYC, public site deployment,
+Manual acceptance completed September 8: Seller 84 / Buyer 16 / held 0,
+Seller principal 1 HBAR, final verification block 40247352. See
+[T05 evidence](docs/evidence/032-t05-manual.md). No backend, order book, real KYC, public site deployment,
 branding project, illustrative assets or animation in this slice.
 
 ## Evidence on Hand
