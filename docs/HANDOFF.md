@@ -1,5 +1,29 @@
 # HoldBook handoff
 
+## T07 trading interface refinement — September 8, 2026 (effective)
+
+`based_on_commit: a15d2dfe61b8e6eeb394bed383ffe1f6ba6cc612`. User approved
+history columns, then the simplified exchange layout: book left, ticket right,
+Buy/Sell buttons, account identity, explicit success/New order flow, Open/All
+order table and direct remaining-quantity cancellation. Tailwind is permitted
+by the latest user message; this implementation reuses CSS without adding it.
+Tailwind, Framer Motion and Animate UI are explicitly permitted by the user
+for future work; no package/asset from them is introduced in this refinement.
+Scope: src/MarketPanel.tsx, src/styles.css, tests/market.test.mjs, DESIGN.md,
+HANDOFF, AI_USAGE.md, usage044 and evidence036 report/JSON/browser harness,
+public fixtures and six viewport captures. No backend or signing changes.
+[Evidence036](evidence/036-t07-layout.md) records final checks and fixture limits.
+npm ci, 104 app +36 protobuf tests, typecheck/build and six dev/preview cases
+pass. The detector reports no findings. Existing local manual orders are intact.
+
+Latest manual exports9/10 show supplementary Seller Sell5@0.10 accepted, then
+Buyer Buy2@0.10 matched: Seller order
+`2a362bc4488fb1a570a21b964bd232876207b84a1b258d0ab40f81eb2ba3e500`
+has remaining3/matched2. Next is ONLY Seller cancellation of this remainder,
+via My orders → Cancel remaining 3 → review/sign. Do not place another order.
+Then export and verify persistence. T07 manual acceptance remains Pending;
+manual035 allowed files remain as below. No push/merge/T08 or agent signature.
+
 ## T07 reload/restart verified — September 8, 2026 (effective)
 
 `based_on_commit: 0ab0909f119ca3ff4a2f2236bd48ebbe6f8f02c4`. Manual035 now

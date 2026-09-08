@@ -1,0 +1,657 @@
+{
+  "notice": "Public exported states plus explicitly synthetic unsigned Cancel preparation; no signatures or private signer.",
+  "snapshot": {
+    "kind": "t07-unfunded-market",
+    "market": "NOVA/HBAR",
+    "chainId": "296",
+    "domain": {
+      "name": "HoldBook Unfunded Orders",
+      "version": "1",
+      "chainId": "296",
+      "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca"
+    },
+    "serverTime": "1788853624",
+    "version": "11",
+    "notice": "Funds are not reserved",
+    "settlement": "Matched · Not settled",
+    "orders": [
+      {
+        "requestId": "7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2",
+        "orderId": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "4",
+        "price": "9000000",
+        "expiresAt": "1788936436",
+        "sequence": "1",
+        "acceptedAt": "1788850043",
+        "remaining": "0",
+        "matched": "4",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "c9427eedc49c84ebc9acaa31c1d23cb0871c1fc4a4dd4953e747417ed95f3ec1",
+        "orderId": "31efe344743fd21a353f6774693c5365cbc42e2f9c32056ddb5542d69b45a6cf",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "4",
+        "price": "9000000",
+        "expiresAt": "1788936907",
+        "sequence": "2",
+        "acceptedAt": "1788850514",
+        "remaining": "0",
+        "matched": "0",
+        "cancelled": "4",
+        "expired": "0",
+        "reason": "Cancelled"
+      },
+      {
+        "requestId": "d81cc01ae47342a3908205dc7d4482dae4c4f77d560d6e202ead86ebab34b74f",
+        "orderId": "11fc188f89870630e3659f6859d1e8d6ff7c27d18b22822b7e68eaa7f247a151",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "5",
+        "price": "10000000",
+        "expiresAt": "1788937898",
+        "sequence": "4",
+        "acceptedAt": "1788851511",
+        "remaining": "0",
+        "matched": "5",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "b42d552e3dd51e30ab383926d864c3251a57c995161693a6ae792873398efd47",
+        "orderId": "8dd0e940edbcabc7f75f3fb8bbe96262bd116ac65b74fc370adf2818da1d9048",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "6",
+        "price": "10000000",
+        "expiresAt": "1788938058",
+        "sequence": "5",
+        "acceptedAt": "1788851665",
+        "remaining": "0",
+        "matched": "6",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "9cdcc730a6a610f9026bf065fe29af11c0b854c860e01b465437ab18e03e49af",
+        "orderId": "9dfb44f6ddd1675a6baffb0be75d7d3ef24424b3d6246aa756de373c581c7b58",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "6",
+        "price": "10000000",
+        "expiresAt": "1788938110",
+        "sequence": "6",
+        "acceptedAt": "1788851716",
+        "remaining": "0",
+        "matched": "3",
+        "cancelled": "3",
+        "expired": "0",
+        "reason": "Cancelled"
+      },
+      {
+        "requestId": "eb69470724037da7944899709ac23763bba673710a140bea37fed8d9716de3d3",
+        "orderId": "d07ee6ea6d409da13810031b671c665d79229efc37f018938dc1acbb09db54a9",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "1",
+        "price": "10000000",
+        "expiresAt": "1788938333",
+        "sequence": "8",
+        "acceptedAt": "1788851937",
+        "remaining": "0",
+        "matched": "1",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "e7ed9da934d9b79356eec8ad66afdbcddee5b096c9166fcca5fa10d9f1ea6b9b",
+        "orderId": "16c77a12d1e858daacbbb881c27efcf8275d8aaeb4271ffdb9edc294162f404c",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "1",
+        "price": "10000000",
+        "expiresAt": "1788938446",
+        "sequence": "9",
+        "acceptedAt": "1788852052",
+        "remaining": "0",
+        "matched": "1",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "f403fd62c71276afc0a550ab607ebc081b1dc63a6a6b14a25e74d4a7d0d25c45",
+        "orderId": "2a362bc4488fb1a570a21b964bd232876207b84a1b258d0ab40f81eb2ba3e500",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "5",
+        "price": "10000000",
+        "expiresAt": "1788939890",
+        "sequence": "10",
+        "acceptedAt": "1788853495",
+        "remaining": "3",
+        "matched": "2",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "8fc6af11e6c74313a6581e40511d2a7ef17b06857069e95ba065436c08be4a5c",
+        "orderId": "b0fd2fe690e8ac4278f203b442990ea1f04585dc06c0a040afe287fd3b4ac842",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "2",
+        "price": "10000000",
+        "expiresAt": "1788940005",
+        "sequence": "11",
+        "acceptedAt": "1788853610",
+        "remaining": "0",
+        "matched": "2",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      }
+    ],
+    "matches": [
+      {
+        "id": "5-1",
+        "maker": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+        "taker": "8dd0e940edbcabc7f75f3fb8bbe96262bd116ac65b74fc370adf2818da1d9048",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "4",
+        "price": "9000000",
+        "notional": "36000000",
+        "time": "1788851665",
+        "status": "Matched · Not settled"
+      },
+      {
+        "id": "5-2",
+        "maker": "11fc188f89870630e3659f6859d1e8d6ff7c27d18b22822b7e68eaa7f247a151",
+        "taker": "8dd0e940edbcabc7f75f3fb8bbe96262bd116ac65b74fc370adf2818da1d9048",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "2",
+        "price": "10000000",
+        "notional": "20000000",
+        "time": "1788851665",
+        "status": "Matched · Not settled"
+      },
+      {
+        "id": "6-1",
+        "maker": "11fc188f89870630e3659f6859d1e8d6ff7c27d18b22822b7e68eaa7f247a151",
+        "taker": "9dfb44f6ddd1675a6baffb0be75d7d3ef24424b3d6246aa756de373c581c7b58",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "3",
+        "price": "10000000",
+        "notional": "30000000",
+        "time": "1788851716",
+        "status": "Matched · Not settled"
+      },
+      {
+        "id": "9-1",
+        "maker": "d07ee6ea6d409da13810031b671c665d79229efc37f018938dc1acbb09db54a9",
+        "taker": "16c77a12d1e858daacbbb881c27efcf8275d8aaeb4271ffdb9edc294162f404c",
+        "buyer": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "seller": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "quantity": "1",
+        "price": "10000000",
+        "notional": "10000000",
+        "time": "1788852052",
+        "status": "Matched · Not settled"
+      },
+      {
+        "id": "11-1",
+        "maker": "2a362bc4488fb1a570a21b964bd232876207b84a1b258d0ab40f81eb2ba3e500",
+        "taker": "b0fd2fe690e8ac4278f203b442990ea1f04585dc06c0a040afe287fd3b4ac842",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "2",
+        "price": "10000000",
+        "notional": "20000000",
+        "time": "1788853610",
+        "status": "Matched · Not settled"
+      }
+    ],
+    "command": {
+      "prepared": {
+        "requestId": "8fc6af11e6c74313a6581e40511d2a7ef17b06857069e95ba065436c08be4a5c",
+        "orderId": "b0fd2fe690e8ac4278f203b442990ea1f04585dc06c0a040afe287fd3b4ac842",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "2",
+        "price": "10000000",
+        "expiresAt": "1788940005",
+        "deadline": "1788853905",
+        "preparedAt": "1788853605"
+      },
+      "status": "accepted",
+      "digest": "0x08bd063aa48dc1ce356a3706d6e8d76d9bca19b9cb4a074f0f1a78c0a584d66a",
+      "verified": true,
+      "result": {
+        "sequence": "11",
+        "time": "1788853610",
+        "order": {
+          "requestId": "8fc6af11e6c74313a6581e40511d2a7ef17b06857069e95ba065436c08be4a5c",
+          "orderId": "b0fd2fe690e8ac4278f203b442990ea1f04585dc06c0a040afe287fd3b4ac842",
+          "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+          "market": "NOVA/HBAR",
+          "action": "Place",
+          "side": "Buy",
+          "quantity": "2",
+          "price": "10000000",
+          "expiresAt": "1788940005",
+          "sequence": "11",
+          "acceptedAt": "1788853610",
+          "remaining": "0",
+          "matched": "2",
+          "cancelled": "0",
+          "expired": "0",
+          "reason": ""
+        },
+        "matches": [
+          {
+            "id": "11-1",
+            "maker": "2a362bc4488fb1a570a21b964bd232876207b84a1b258d0ab40f81eb2ba3e500",
+            "taker": "b0fd2fe690e8ac4278f203b442990ea1f04585dc06c0a040afe287fd3b4ac842",
+            "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+            "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "quantity": "2",
+            "price": "10000000",
+            "notional": "20000000",
+            "time": "1788853610",
+            "status": "Matched · Not settled"
+          }
+        ]
+      },
+      "reason": ""
+    }
+  },
+  "success": {
+    "kind": "t07-unfunded-market",
+    "market": "NOVA/HBAR",
+    "chainId": "296",
+    "domain": {
+      "name": "HoldBook Unfunded Orders",
+      "version": "1",
+      "chainId": "296",
+      "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca"
+    },
+    "serverTime": "1788852060",
+    "version": "9",
+    "notice": "Funds are not reserved",
+    "settlement": "Matched · Not settled",
+    "orders": [
+      {
+        "requestId": "7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2",
+        "orderId": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "4",
+        "price": "9000000",
+        "expiresAt": "1788936436",
+        "sequence": "1",
+        "acceptedAt": "1788850043",
+        "remaining": "0",
+        "matched": "4",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "c9427eedc49c84ebc9acaa31c1d23cb0871c1fc4a4dd4953e747417ed95f3ec1",
+        "orderId": "31efe344743fd21a353f6774693c5365cbc42e2f9c32056ddb5542d69b45a6cf",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "4",
+        "price": "9000000",
+        "expiresAt": "1788936907",
+        "sequence": "2",
+        "acceptedAt": "1788850514",
+        "remaining": "0",
+        "matched": "0",
+        "cancelled": "4",
+        "expired": "0",
+        "reason": "Cancelled"
+      },
+      {
+        "requestId": "d81cc01ae47342a3908205dc7d4482dae4c4f77d560d6e202ead86ebab34b74f",
+        "orderId": "11fc188f89870630e3659f6859d1e8d6ff7c27d18b22822b7e68eaa7f247a151",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "5",
+        "price": "10000000",
+        "expiresAt": "1788937898",
+        "sequence": "4",
+        "acceptedAt": "1788851511",
+        "remaining": "0",
+        "matched": "5",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "b42d552e3dd51e30ab383926d864c3251a57c995161693a6ae792873398efd47",
+        "orderId": "8dd0e940edbcabc7f75f3fb8bbe96262bd116ac65b74fc370adf2818da1d9048",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "6",
+        "price": "10000000",
+        "expiresAt": "1788938058",
+        "sequence": "5",
+        "acceptedAt": "1788851665",
+        "remaining": "0",
+        "matched": "6",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "9cdcc730a6a610f9026bf065fe29af11c0b854c860e01b465437ab18e03e49af",
+        "orderId": "9dfb44f6ddd1675a6baffb0be75d7d3ef24424b3d6246aa756de373c581c7b58",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "6",
+        "price": "10000000",
+        "expiresAt": "1788938110",
+        "sequence": "6",
+        "acceptedAt": "1788851716",
+        "remaining": "0",
+        "matched": "3",
+        "cancelled": "3",
+        "expired": "0",
+        "reason": "Cancelled"
+      },
+      {
+        "requestId": "eb69470724037da7944899709ac23763bba673710a140bea37fed8d9716de3d3",
+        "orderId": "d07ee6ea6d409da13810031b671c665d79229efc37f018938dc1acbb09db54a9",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "1",
+        "price": "10000000",
+        "expiresAt": "1788938333",
+        "sequence": "8",
+        "acceptedAt": "1788851937",
+        "remaining": "0",
+        "matched": "1",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "e7ed9da934d9b79356eec8ad66afdbcddee5b096c9166fcca5fa10d9f1ea6b9b",
+        "orderId": "16c77a12d1e858daacbbb881c27efcf8275d8aaeb4271ffdb9edc294162f404c",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "1",
+        "price": "10000000",
+        "expiresAt": "1788938446",
+        "sequence": "9",
+        "acceptedAt": "1788852052",
+        "remaining": "0",
+        "matched": "1",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      }
+    ],
+    "matches": [
+      {
+        "id": "5-1",
+        "maker": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+        "taker": "8dd0e940edbcabc7f75f3fb8bbe96262bd116ac65b74fc370adf2818da1d9048",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "4",
+        "price": "9000000",
+        "notional": "36000000",
+        "time": "1788851665",
+        "status": "Matched · Not settled"
+      },
+      {
+        "id": "5-2",
+        "maker": "11fc188f89870630e3659f6859d1e8d6ff7c27d18b22822b7e68eaa7f247a151",
+        "taker": "8dd0e940edbcabc7f75f3fb8bbe96262bd116ac65b74fc370adf2818da1d9048",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "2",
+        "price": "10000000",
+        "notional": "20000000",
+        "time": "1788851665",
+        "status": "Matched · Not settled"
+      },
+      {
+        "id": "6-1",
+        "maker": "11fc188f89870630e3659f6859d1e8d6ff7c27d18b22822b7e68eaa7f247a151",
+        "taker": "9dfb44f6ddd1675a6baffb0be75d7d3ef24424b3d6246aa756de373c581c7b58",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "3",
+        "price": "10000000",
+        "notional": "30000000",
+        "time": "1788851716",
+        "status": "Matched · Not settled"
+      },
+      {
+        "id": "9-1",
+        "maker": "d07ee6ea6d409da13810031b671c665d79229efc37f018938dc1acbb09db54a9",
+        "taker": "16c77a12d1e858daacbbb881c27efcf8275d8aaeb4271ffdb9edc294162f404c",
+        "buyer": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "seller": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "quantity": "1",
+        "price": "10000000",
+        "notional": "10000000",
+        "time": "1788852052",
+        "status": "Matched · Not settled"
+      }
+    ],
+    "command": {
+      "prepared": {
+        "requestId": "e7ed9da934d9b79356eec8ad66afdbcddee5b096c9166fcca5fa10d9f1ea6b9b",
+        "orderId": "16c77a12d1e858daacbbb881c27efcf8275d8aaeb4271ffdb9edc294162f404c",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "1",
+        "price": "10000000",
+        "expiresAt": "1788938446",
+        "deadline": "1788852346",
+        "preparedAt": "1788852046"
+      },
+      "status": "accepted",
+      "digest": "0xbcf023c16868c69475535c6f3d41189fa7c7c0278fedf6e15a921bba0af82eff",
+      "verified": true,
+      "result": {
+        "sequence": "9",
+        "time": "1788852052",
+        "order": {
+          "requestId": "e7ed9da934d9b79356eec8ad66afdbcddee5b096c9166fcca5fa10d9f1ea6b9b",
+          "orderId": "16c77a12d1e858daacbbb881c27efcf8275d8aaeb4271ffdb9edc294162f404c",
+          "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+          "market": "NOVA/HBAR",
+          "action": "Place",
+          "side": "Buy",
+          "quantity": "1",
+          "price": "10000000",
+          "expiresAt": "1788938446",
+          "sequence": "9",
+          "acceptedAt": "1788852052",
+          "remaining": "0",
+          "matched": "1",
+          "cancelled": "0",
+          "expired": "0",
+          "reason": ""
+        },
+        "matches": [
+          {
+            "id": "9-1",
+            "maker": "d07ee6ea6d409da13810031b671c665d79229efc37f018938dc1acbb09db54a9",
+            "taker": "16c77a12d1e858daacbbb881c27efcf8275d8aaeb4271ffdb9edc294162f404c",
+            "buyer": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "seller": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+            "quantity": "1",
+            "price": "10000000",
+            "notional": "10000000",
+            "time": "1788852052",
+            "status": "Matched · Not settled"
+          }
+        ]
+      },
+      "reason": ""
+    }
+  },
+  "cancel": {
+    "record": {
+      "prepared": {
+        "requestId": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "orderId": "2a362bc4488fb1a570a21b964bd232876207b84a1b258d0ab40f81eb2ba3e500",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Cancel",
+        "side": "",
+        "quantity": "0",
+        "price": "0",
+        "expiresAt": "0",
+        "deadline": "1788853905",
+        "preparedAt": "1788853605"
+      },
+      "status": "pending",
+      "digest": "",
+      "verified": false,
+      "result": null,
+      "reason": ""
+    },
+    "typedData": {
+      "domain": {
+        "name": "HoldBook Unfunded Orders",
+        "version": "1",
+        "chainId": "296",
+        "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca"
+      },
+      "types": {
+        "EIP712Domain": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "type": "string"
+          },
+          {
+            "name": "chainId",
+            "type": "uint256"
+          },
+          {
+            "name": "salt",
+            "type": "bytes32"
+          }
+        ],
+        "OrderCommand": [
+          {
+            "name": "purpose",
+            "type": "string"
+          },
+          {
+            "name": "action",
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "name": "requestId",
+            "type": "string"
+          },
+          {
+            "name": "orderId",
+            "type": "string"
+          },
+          {
+            "name": "market",
+            "type": "string"
+          },
+          {
+            "name": "side",
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "type": "uint256"
+          },
+          {
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "name": "expiresAt",
+            "type": "uint256"
+          },
+          {
+            "name": "deadline",
+            "type": "uint256"
+          }
+        ]
+      },
+      "primaryType": "OrderCommand",
+      "message": {
+        "purpose": "Unfunded intent only. No assets reserved or transferred.",
+        "action": "Cancel",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "requestId": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "orderId": "2a362bc4488fb1a570a21b964bd232876207b84a1b258d0ab40f81eb2ba3e500",
+        "market": "NOVA/HBAR",
+        "side": "",
+        "quantity": "0",
+        "price": "0",
+        "expiresAt": "0",
+        "deadline": "1788853905"
+      }
+    }
+  }
+}

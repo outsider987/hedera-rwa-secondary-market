@@ -24,11 +24,21 @@ English, with semantic headings and explicit account, state and action labels.
 ## Layout
 
 The container is at most 68rem wide with 1.25rem side gutters. Desktop Market
-uses two equal flexible columns with a 3rem gap: native order form or review
-on the left, order book on the right behind a fine vertical rule. My orders
-and Matches follow below. At 850px or below, the book follows the form in one
-column with a horizontal separator; at 700px or below, the market heading and
-order rows stack. The market title is 1.75rem and section headings are 1.25rem.
+places the order book left and the order ticket right in two flexible columns,
+separated by a fine vertical rule and a 2rem gap. The ticket starts with the
+active role, address suffix and Testnet label. Buy/Sell are visible pressed-state
+buttons; green/red distinguish direction alongside text, with deep blue retained
+for primary actions. Prices and quantities align right.
+
+My orders and Matches share a lower 3:2 grid. At 1000px or below, histories
+stack; at 850px or below, the book and ticket stack in DOM order. My orders uses
+Open/All filters and a compact semantic table. On narrow screens only its table
+scrolls horizontally, preserving legible headers and 44px action targets.
+Native details keep full IDs, expiry and cancelled/expired quantities available.
+Accepted requests show a result instead of the form; New order explicitly starts
+a blank draft. Results are labelled as quantities when processed; live quantities
+remain in My orders. Account changes clear amount fields. Pending requests keep
+new-order controls unavailable, including after reload.
 
 The retained desktop Trade
 has a flexible main area and 20rem summary sidebar separated by a 3rem gap
