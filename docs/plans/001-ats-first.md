@@ -699,3 +699,31 @@ signature. Victor reloads preview, queries/exports the existing hash and then
 uses Admin for the un-KYC negative check. All remaining stages and final values
 are Pending; continue only the previously enumerated T04 manual/repair files.
 No T04 push/merge or next ticket.
+
+### September 8, 2026 — T04 manual acceptance complete
+
+Based on code/repair `f3dfa0ba6e07a4d282fedcee770fb936ac5728f4`,
+[evidence 029](../evidence/029-t04-manual.md) closes the fixed NOVA Hold lifecycle.
+Victor supplied eight exports (13)–(20) and the stage screenshots. Four actual
+transactions independently verify Hold 10, Buyer KYC, execute 6 and release 4;
+both historical simulations replay successfully, including the real SDK KYC
+rejection and all three exact contract reverts. No agent mutation/signature.
+
+Final block **40241114**: Seller **94/held 0**, Buyer **6/held 0**, valid Buyer
+KYC, supply/cap **100/1000**, config 1 and no active Seller/Buyer Holds. Expiry
+basis, events, full calldata, state transitions, Mirror sender mapping and IDs
+agree with exports. The full-release proof never reads deleted Hold details.
+T02 historical supply 0 and all T03 history reverify. Buyer VC public metadata
+corresponds with the KYC record; screenshot/export establish observed application
+verification, without retaining or replaying a full credential/signature.
+
+The final journal screenshot does not show current balances; independent RPC
+establishes those values. The original recovery error/repair and pending Buyer
+export (16) remain preserved. This documentation-only acceptance passes npm ci,
+87 app + 36 proto tests, typecheck/build, four dev/preview smoke/cancel cases and
+two offline report viewport checks. No application/dependency/patch changes.
+Stop at T04; no further transactions/signatures, push/merge or next ticket is
+authorized. Additional evidence uses only the existing 029/036 files and exact
+named captures listed in HANDOFF, plus AI_USAGE, HANDOFF and this plan.
+Native BBS, audit/peer/license/eligibility limits and deferred settlement scope
+remain unchanged.

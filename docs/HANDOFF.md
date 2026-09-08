@@ -1,5 +1,45 @@
 # HoldBook handoff
 
+## T04 manual acceptance complete — September 8, 2026 (effective)
+
+- `based_on_commit: f3dfa0ba6e07a4d282fedcee770fb936ac5728f4` is the verified
+  code/repair base for this acceptance. Read final HEAD from Git; branch remains
+  `feat/t04-hold-lifecycle`. No T04 push or merge was performed.
+- [Evidence 029](evidence/029-t04-manual.md), [public verification JSON](evidence/029-t04-manual.json)
+  and [standalone screenshot report](evidence/029-t04-manual.html) retain eight
+  supplied exports (13)–(20), eight original captures, the earlier repair and
+  independent verification. Victor performed four preview MetaMask transactions
+  and one Buyer VC signature; the agent only queried public services.
+- Final independent block **40241114**: Seller **94 / held 0**, Buyer **6 / held
+  0**, valid Buyer and Seller KYC, supply/cap **100/1000**, config **1**, no active
+  Seller/Buyer Hold IDs. All four receipts/events/full calldata, expiry basis,
+  historical transitions and Mirror identities/transaction IDs agree. Release
+  proves held 0 and ID removal without a deleted-Hold getter. Original Hold 1
+  expiry remained 1788886129, based on block 40227946 / 1788799729 +86400.
+- Both negative records were independently replayed against their historical
+  blocks, including genuine SDK AccountNotKycd, exact KYC revert, non-Escrow and
+  excessive-amount reverts with unchanged full state. They have no transaction
+  ID/signature. Buyer public digest, issuer, subject and Unix dates agree with
+  grant metadata; the VC ID agrees with calldata and the getter. Full VC/proof
+  was not retained or cryptographically replayed; positive application
+  verification is observed in the screenshot/export.
+- T02 supply 0 at 40209377 and all six T03 historical transactions reverify
+  independently of current Buyer KYC. Latest supplied screenshot is the
+  completion journal, not a balance table; final values above are live RPC reads.
+- Documentation-only acceptance: npm ci, **87 app + 36 proto tests**,
+  typecheck/build, four dev/preview smoke/cancel cases and two offline report
+  viewport checks pass. Application, tests, dependencies and patches are
+  unchanged. Native BBS, audit/peer/dfns license and pre-event eligibility limits
+  remain. No payment settlement or completed secondary market is claimed.
+- **Stop at T04. No further transactions, signatures, push/merge or next ticket.**
+  No next implementation is activated; no source files are allowed for a next
+  ticket. Additional T04 evidence is limited to existing 029 report/JSON/HTML
+  and its eight explicitly named captures, usage 036, AI_USAGE, HANDOFF and the
+  main plan. Any new work requires separate explicit activation.
+
+Earlier Pending/current-boundary sections below are dated history superseded
+by this completed acceptance; the recovery defect and repair remain preserved.
+
 ## T04 creation verified / recovery repair — September 8, 2026 (current)
 
 - `based_on_commit: 0c45b8994fdc151702d348ab37233b08d1ca47b6` is this repair's
