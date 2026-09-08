@@ -1,5 +1,19 @@
 # HoldBook handoff
 
+## T07 second-order correction pending — September 8, 2026 (effective)
+
+`based_on_commit: 2af1f72878bc2238aac546c8e423069a6a309998` verified in Git.
+Two distinct accepted Seller Sell4@0.09 orders, no matches; only planned step 1
+is complete. [Manual035](evidence/035-t07-manual.md) preserves both checkpoints.
+Public API/export equality, independent digest, deadlines and conservation pass.
+Next Victor manually cancels newer order
+`31efe344743fd21a353f6774693c5365cbc42e2f9c32056ddb5542d69b45a6cf`,
+preserving sequence1, then exports evidence before correct Sell5@0.10 placement.
+Do not proceed to Buyer yet. Recovery projects eight signatures and six orders;
+original planned match amounts remain unchanged. No cause inferred for repeated
+input. No application changes or raw signatures read. T07 remains Pending;
+exact allowed files below remain effective. Local only; no push/merge/T08.
+
 ## T07 first Seller order verified — September 8, 2026 (effective)
 
 `based_on_commit: e7e97db1aef5a5e1c3a06d1af6f79107f9bb20d8` verified in Git.

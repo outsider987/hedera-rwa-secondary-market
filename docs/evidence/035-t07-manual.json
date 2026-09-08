@@ -2,7 +2,7 @@
   "ticket": "T07",
   "date": "2026-09-08",
   "status": "Pending",
-  "observedHumanSignatures": 1,
+  "observedHumanSignatures": 2,
   "expectedHumanSignatures": 6,
   "expectedInitialIntentTinybars": "56000000",
   "expectedTotalIntentTinybars": "66000000",
@@ -24,12 +24,30 @@
       "cancelled": "0",
       "expired": "0",
       "reason": ""
+    },
+    {
+      "requestId": "c9427eedc49c84ebc9acaa31c1d23cb0871c1fc4a4dd4953e747417ed95f3ec1",
+      "orderId": "31efe344743fd21a353f6774693c5365cbc42e2f9c32056ddb5542d69b45a6cf",
+      "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+      "market": "NOVA/HBAR",
+      "action": "Place",
+      "side": "Sell",
+      "quantity": "4",
+      "price": "9000000",
+      "expiresAt": "1788936907",
+      "sequence": "2",
+      "acceptedAt": "1788850514",
+      "remaining": "4",
+      "matched": "0",
+      "cancelled": "0",
+      "expired": "0",
+      "reason": ""
     }
   ],
   "observedMatches": [],
   "fundsReserved": false,
   "settlement": "Not settled",
-  "reason": "First Seller order accepted and independently compared to the public API. Five signatures and final reload/restart acceptance remain pending.",
+  "reason": "Second distinct accepted command repeats Sell4@0.09 instead of planned Sell5@0.10. No matches. Cancel newer order manually, then resume planned scenario; acceptance remains pending.",
   "initialStatus": {
     "status": "Pending",
     "observedHumanSignatures": 0,
@@ -54,7 +72,7 @@
         "serverTime": "1788850087",
         "version": "1",
         "notice": "Funds are not reserved",
-        "settlement": "Matched · Not settled",
+        "settlement": "Matched \u00b7 Not settled",
         "orders": [
           {
             "requestId": "7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2",
@@ -165,6 +183,189 @@
       "verificationLimit": "Backend reports signature verified. Raw signature was not read or exported; independent verification recomputes the typed-data digest only.",
       "capture": "035-t07-orders.png",
       "captureSha256": "bfebe90823e9a04548ceae59b7a918e2bf7698587ca5923e0aeadb7d3a144e95"
+    },
+    {
+      "observation": "Second signature deviates from planned step 2",
+      "based_on_commit": "2af1f72878bc2238aac546c8e423069a6a309998",
+      "source": "holdbook-unfunded-market (1).json",
+      "sourceJsonSha256": "edc7a489638697d080925575efd9021590ecf5a33ad0090bf05dacd08a3fb287",
+      "exported": {
+        "kind": "t07-unfunded-market",
+        "market": "NOVA/HBAR",
+        "chainId": "296",
+        "domain": {
+          "name": "HoldBook Unfunded Orders",
+          "version": "1",
+          "chainId": "296",
+          "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca"
+        },
+        "serverTime": "1788850573",
+        "version": "2",
+        "notice": "Funds are not reserved",
+        "settlement": "Matched \u00b7 Not settled",
+        "orders": [
+          {
+            "requestId": "7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2",
+            "orderId": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+            "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "market": "NOVA/HBAR",
+            "action": "Place",
+            "side": "Sell",
+            "quantity": "4",
+            "price": "9000000",
+            "expiresAt": "1788936436",
+            "sequence": "1",
+            "acceptedAt": "1788850043",
+            "remaining": "4",
+            "matched": "0",
+            "cancelled": "0",
+            "expired": "0",
+            "reason": ""
+          },
+          {
+            "requestId": "c9427eedc49c84ebc9acaa31c1d23cb0871c1fc4a4dd4953e747417ed95f3ec1",
+            "orderId": "31efe344743fd21a353f6774693c5365cbc42e2f9c32056ddb5542d69b45a6cf",
+            "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "market": "NOVA/HBAR",
+            "action": "Place",
+            "side": "Sell",
+            "quantity": "4",
+            "price": "9000000",
+            "expiresAt": "1788936907",
+            "sequence": "2",
+            "acceptedAt": "1788850514",
+            "remaining": "4",
+            "matched": "0",
+            "cancelled": "0",
+            "expired": "0",
+            "reason": ""
+          }
+        ],
+        "matches": [],
+        "command": {
+          "prepared": {
+            "requestId": "c9427eedc49c84ebc9acaa31c1d23cb0871c1fc4a4dd4953e747417ed95f3ec1",
+            "orderId": "31efe344743fd21a353f6774693c5365cbc42e2f9c32056ddb5542d69b45a6cf",
+            "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "market": "NOVA/HBAR",
+            "action": "Place",
+            "side": "Sell",
+            "quantity": "4",
+            "price": "9000000",
+            "expiresAt": "1788936907",
+            "deadline": "1788850807",
+            "preparedAt": "1788850507"
+          },
+          "status": "accepted",
+          "digest": "0xa1be3eb9e3efe6f86389e171206549b186727a1618edab9f8a16bfc2ceedcc83",
+          "verified": true,
+          "result": {
+            "sequence": "2",
+            "time": "1788850514",
+            "order": {
+              "requestId": "c9427eedc49c84ebc9acaa31c1d23cb0871c1fc4a4dd4953e747417ed95f3ec1",
+              "orderId": "31efe344743fd21a353f6774693c5365cbc42e2f9c32056ddb5542d69b45a6cf",
+              "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+              "market": "NOVA/HBAR",
+              "action": "Place",
+              "side": "Sell",
+              "quantity": "4",
+              "price": "9000000",
+              "expiresAt": "1788936907",
+              "sequence": "2",
+              "acceptedAt": "1788850514",
+              "remaining": "4",
+              "matched": "0",
+              "cancelled": "0",
+              "expired": "0",
+              "reason": ""
+            },
+            "matches": []
+          },
+          "reason": ""
+        }
+      },
+      "live": {
+        "domain": {
+          "chainId": "296",
+          "name": "HoldBook Unfunded Orders",
+          "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca",
+          "version": "1"
+        },
+        "market": "NOVA/HBAR",
+        "matches": [],
+        "notice": "Funds are not reserved",
+        "orders": [
+          {
+            "requestId": "7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2",
+            "orderId": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+            "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "market": "NOVA/HBAR",
+            "action": "Place",
+            "side": "Sell",
+            "quantity": "4",
+            "price": "9000000",
+            "expiresAt": "1788936436",
+            "sequence": "1",
+            "acceptedAt": "1788850043",
+            "remaining": "4",
+            "matched": "0",
+            "cancelled": "0",
+            "expired": "0",
+            "reason": ""
+          },
+          {
+            "requestId": "c9427eedc49c84ebc9acaa31c1d23cb0871c1fc4a4dd4953e747417ed95f3ec1",
+            "orderId": "31efe344743fd21a353f6774693c5365cbc42e2f9c32056ddb5542d69b45a6cf",
+            "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+            "market": "NOVA/HBAR",
+            "action": "Place",
+            "side": "Sell",
+            "quantity": "4",
+            "price": "9000000",
+            "expiresAt": "1788936907",
+            "sequence": "2",
+            "acceptedAt": "1788850514",
+            "remaining": "4",
+            "matched": "0",
+            "cancelled": "0",
+            "expired": "0",
+            "reason": ""
+          }
+        ],
+        "serverTime": "1788850764",
+        "version": "2"
+      },
+      "checks": [
+        "Public whitelist exact",
+        "Original request and live orders equal export",
+        "First order unchanged; second request distinct",
+        "Independent EIP-712 digest matches",
+        "Backend reports verified accepted",
+        "Submission and expiry boundaries",
+        "Quantity conservation; no matches"
+      ],
+      "expected": {
+        "side": "Sell",
+        "quantity": "5",
+        "price": "10000000"
+      },
+      "nextAction": "Victor manually cancels order 31efe344743fd21a353f6774693c5365cbc42e2f9c32056ddb5542d69b45a6cf; preserve sequence 1.",
+      "verificationLimit": "Backend reports signature verified. No raw signature read or independent signer recovery. Cause of repeated input not established.",
+      "suppliedCaptures": [
+        {
+          "source": "tmp9F87.png",
+          "sha256": "419f26e6016e63db18ca54b78d23ebb85f15017b671b6e36b16f6afd9223f56e",
+          "description": "User-attached screenshot of two open Sell4@0.09 orders; source attachment, not a repository capture."
+        },
+        {
+          "source": "tmpC762.png",
+          "sha256": "31898a9badf3ef728bed9d01653d578fc2fe76116f736c3d1820759c9a403e6f",
+          "description": "User-attached screenshot of two open Sell4@0.09 orders; source attachment, not a repository capture."
+        }
+      ]
     }
-  ]
+  ],
+  "completedPlannedSteps": 1,
+  "projectedHumanSignaturesAfterCorrection": 8
 }

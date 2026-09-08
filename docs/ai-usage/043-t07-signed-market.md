@@ -45,3 +45,16 @@ observed. Raw signature was not read/exported and no agent signed or transacted.
 Changed only manual035 report/JSON/orders capture, HANDOFF, this usage/index and
 main-plan progress. No application suite rerun for unchanged code. Next Seller
 Sell5@0.10; overall acceptance Pending, existing file boundary retained.
+
+## Second manual order discrepancy — September 8, 2026
+
+Base 2af1f72878bc2238aac546c8e423069a6a309998. Victor supplied a second
+public export and two screenshots. Codex verified two distinct accepted Sell4@0.09
+commands, unchanged first order and no matches against the public API. Whitelist,
+independent EIP-712 digest, deadlines and conservation pass. Backend verification
+is reported without raw signature access. Only one planned step is complete.
+Next: manual cancellation of sequence2, then correct Sell5@0.10; no Buyer yet.
+Updated manual035 JSON/report, HANDOFF, this usage/index and main-plan status;
+original capture/checkpoint retained, new attachment hashes recorded. No code
+changes or application suites rerun. JSON assertions and git diff checks passed.
+No agent signature, order mutation, push, merge or T08.
