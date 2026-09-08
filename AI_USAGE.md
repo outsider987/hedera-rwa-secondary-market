@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-09 | Component and transaction sequence diagrams | [Architecture documentation](docs/ai-usage/052-architecture-diagrams.md) |
 | 2026-09-08 | NOVA trading and minting illustration | [Verified-state motion and corresponding information](docs/ai-usage/051-nova-motion.md) |
 | 2026-09-08 | NOVA overview, tab flow and component extraction | [Illustration, navigation and preserved trading state](docs/ai-usage/050-nova-overview.md) |
 | 2026-09-08 | T08 connected role colors | [Header role colors and connection transitions](docs/ai-usage/049-t08-role-colors.md) |

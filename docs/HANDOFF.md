@@ -1,5 +1,16 @@
 # HoldBook handoff
 
+## Architecture diagrams saved — September 9
+
+`based_on_commit: 385a753881cbdde5d6debf13ce35c02ec998f5ac`. User explicitly requested saving the
+explained component and sequence diagrams. Documentation-only scope:
+ARCHITECTURE.md, this handoff, AI_USAGE.md and ai-usage/052-architecture-diagrams.md.
+English Mermaid diagrams show browser ATS SDK, Go/PostgreSQL, manual MetaMask
+approval and atomic contract execution. Source references and recovery boundaries
+are included. Checked against current source; git diff --check passed. No runtime
+changes or new tests required. T08 stays complete locally; no next ticket, signing,
+push, merge or publication authorized.
+
 ## NOVA motion presentation extension delivered — effective
 
 `based_on_commit: 4cd15380676f3f69e34b229edb6c985c8ab1b655` is the verified
