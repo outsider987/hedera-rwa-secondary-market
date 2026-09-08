@@ -1,5 +1,7 @@
 # HoldBook 第一階段：ATS／KYC／Hold 驗證
 
+2026-09-08 最新：真人九次指令、七張訂單、四筆配對，0.96 HBAR 意向；重載與 API 重啟一致。仍待補 Seller 部分配對後撤剩餘 3，先前僅完成 Buyer 部分撤單。T07 Pending，見 [035](../evidence/035-t07-manual.md)。
+
 2026-09-08 最新：第二張是另一筆 Sell4@0.09，兩張皆未配對；已完成原定步驟 1。先由 Seller 手動撤銷較新訂單（sequence2），保留第一張，再重掛 Sell5@0.10。預計含修正共八次簽名、六張訂單；T07 Pending。見 [035](../evidence/035-t07-manual.md)。
 
 2026-09-08：T07 真人第一筆 Seller Sell4@0.09 已核對 accepted／remaining4／matched0，1/6；下一筆 Seller Sell5@0.10。見 [035](../evidence/035-t07-manual.md)。

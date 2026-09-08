@@ -1,5 +1,21 @@
 # T07 manual acceptance — Pending
 
+Latest checkpoint — September 8: nine accepted manual commands, seven orders,
+four matches, no remaining quantity, 0.96 HBAR total intent. Initial matches
+4@0.09 + 2@0.10 were followed by an extra Buyer Buy6 command matching the
+remaining Seller3; Buyer cancelled its own remaining3. Buyer Sell1 / Seller
+Buy1 reverse match then passed. Original Seller partial cancellation remains
+**Pending**; it is not credited from the Buyer cancellation.
+
+Exports 2–8 passed public-whitelist and independent EIP-712 digest checks,
+with exported original commands matching the API. User reload export preserves
+all orders/matches/domain. A real local API container restart preserves orders,
+matches, domain and version exactly. No database reset or order mutation by
+the agent. [Reload capture](035-t07-matches.png) and JSON retain the results.
+No application code changed or application suites rerun. Earlier checkpoints
+below are historical, including projected counts now superseded by actuals.
+
+
 September 8, 2026. **Two manual signatures observed; one planned step completed.**
 
 Latest checkpoint: a second distinct accepted request placed another Sell4@0.09,

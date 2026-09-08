@@ -1,5 +1,19 @@
 # HoldBook handoff
 
+## T07 reload/restart verified — September 8, 2026 (effective)
+
+`based_on_commit: 0ab0909f119ca3ff4a2f2236bd48ebbe6f8f02c4`. Manual035 now
+records nine accepted commands, seven orders, four matches, zero remaining,
+0.96 HBAR intent. Exports2–8 whitelist/digest/original-command checks pass;
+reload and real API restart preserve state. Buyer partial cancellation and
+reverse match pass. Original Seller partial cancellation remains Pending:
+extra Buyer Buy6 consumed Seller remaining3, then Buyer cancelled its own3.
+Next supplement Seller partial cancellation on the empty book with manually
+reviewed Seller Sell5@0.10, Buyer Buy2@0.10, Seller cancel remaining3; then
+repeat final persistence comparison. Never reset/erase the actual history.
+Allowed manual/repair files remain exactly as below. No code changes, raw
+signatures, agent signing, push/merge or T08. Earlier next actions superseded.
+
 ## T07 second-order correction pending — September 8, 2026 (effective)
 
 `based_on_commit: 2af1f72878bc2238aac546c8e423069a6a309998` verified in Git.

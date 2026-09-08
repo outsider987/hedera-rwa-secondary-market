@@ -58,3 +58,15 @@ Updated manual035 JSON/report, HANDOFF, this usage/index and main-plan status;
 original capture/checkpoint retained, new attachment hashes recorded. No code
 changes or application suites rerun. JSON assertions and git diff checks passed.
 No agent signature, order mutation, push, merge or T08.
+
+## Manual recovery, reverse match and persistence — September 8, 2026
+
+Base 0ab0909f119ca3ff4a2f2236bd48ebbe6f8f02c4. Codex checked Victor's exports
+2–8 against the public whitelist, independent viem digest and original API
+commands. Reload export equality and real API container restart state equality
+passed. Nine commands, seven orders, four matches, 0.96 HBAR intent, no open
+quantity. Seller partial cancellation remains pending; Buyer cancellation is
+not credited as that step. Changed manual035 JSON/report/matches capture,
+HANDOFF, usage/index and main-plan status only. No code suites rerun; JSON
+checks and diff whitespace check passed. No raw signature access or agent
+order mutation. All matches remain unsettled.
