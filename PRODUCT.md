@@ -51,7 +51,7 @@ Commands require reviewed EIP-712 signatures; public intent is saved before
 signing, and unknown outcomes query the original request without resubmission.
 Visible Market refreshes every two seconds; offline data stays labelled and
 blocks new commands. Only connection-state changes belong to its live region.
-Manual T07 acceptance is **Pending** in [evidence 035](docs/evidence/035-t07-manual.md).
+Manual T07 acceptance **passed with documented recovery** in [evidence 035](docs/evidence/035-t07-manual.md).
 
 Funds are not reserved. Matches are labelled “Matched · Not settled”. T07
 creates no ATS Hold, payment or settlement, and its matches have no chain

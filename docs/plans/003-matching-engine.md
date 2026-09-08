@@ -1,5 +1,7 @@
 # T06–T07 approved unfunded market
 
+Final acceptance: T07 passed with documented recovery on September 8, 2026; see [035](../evidence/035-t07-manual.md). The original six-command scenario required additional commands; actual history is retained. No T08 implementation activated.
+
 September 8, 2026. Implementation authorized by the user-supplied T06–T07 plan,
 based on `cbf0c2240533dbe3e53db42913d4a6f162c7dac3`. This specification supersedes
 the planning-only/core-only scope below. Deliver T06 as an independent local
@@ -7,7 +9,7 @@ commit, then continue T07 under this same authorization. No push, merge or T08.
 
 Implementation update: T06 is independent commit `a485afb`; T07 code and automated
 checks are delivered in [evidence 034](../evidence/034-t07-implementation.md).
-[Manual acceptance 035](../evidence/035-t07-manual.md) remains Pending.
+[Manual acceptance 035](../evidence/035-t07-manual.md) passed with documented recovery.
 
 ## Effective specification
 

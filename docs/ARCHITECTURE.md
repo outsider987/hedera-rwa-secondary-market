@@ -1,5 +1,7 @@
 # HoldBook · flow and architecture
 
+T07 manual acceptance passed with documented recovery: 12 accepted commands, nine orders, five unfunded matches and zero remaining; final reload/API restart preserve state. [Actual evidence](evidence/035-t07-manual.md). T08 settlement remains deferred.
+
 [Current T07 market](#t06t07-local-unfunded-market) · [Demo script](DEMO.md) · [T04 acceptance](evidence/029-t04-manual.md) · [T05 acceptance](evidence/032-t05-manual.md)
 
 ## Recorded flow

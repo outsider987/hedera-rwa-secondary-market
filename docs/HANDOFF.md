@@ -1,5 +1,24 @@
 # HoldBook handoff
 
+## T07 completed with documented recovery — September 8, 2026 (effective)
+
+`based_on_commit: 6e3a47d80b5ac80a0375f563a866ef1a210988f6`, verified HEAD.
+[Manual035](evidence/035-t07-manual.md) now passes all functional observations:
+12 accepted commands (nine placements, three cancellations), nine orders, five
+matches, zero remaining, 1.16 HBAR unfunded intent. Original six-signature
+sequence deviated; additional Seller partial-cancel test passed matched2 /
+cancelled3. Export12 after operator reload equals export11 and post-API-restart
+state. All twelve digests independently recomputed; public API verifies owners.
+No raw signatures read. Historical Pending entries below are superseded.
+
+Closeout files: manual035 MD/JSON plus final-cancel/final-reload PNG captures
+(retaining earlier captures), usage043/index, HANDOFF, main plan/spec003,
+README/PRODUCT/DESIGN/DEMO/ARCHITECTURE for actual acceptance status. Evidence-only
+checks pass; latest implementation/UI test results remain in 034/036.
+Stop at local commit, clean worktree. No further human signatures are needed
+for T07. Next ticket is T08 planning only when requested; **no T08 implementation
+files are activated**. No push/merge/settlement/payment/ATS Hold is authorized.
+
 ## T07 trading interface refinement — September 8, 2026 (effective)
 
 `based_on_commit: a15d2dfe61b8e6eeb394bed383ffe1f6ba6cc612`. User approved

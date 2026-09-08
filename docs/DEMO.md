@@ -1,6 +1,6 @@
 # HoldBook · operator and judge demo
 
-Current work: [T07 six-signature unfunded market acceptance](#t07--unfunded-matching-acceptance-pending). The T05 walkthrough below is completed history.
+Completed with documented recovery: [T07 unfunded market acceptance](#t07--unfunded-matching-acceptance-pending). The T05 walkthrough below is completed history.
 
 ## T05 recorded operator flow — acceptance complete
 
@@ -94,7 +94,15 @@ and the dated report for T04 acceptance and its rejection checks. All T04
 transaction/signature entry points are closed. This historical walkthrough
 does not perform the separately authorized T05 flow above.
 
-## T07 — unfunded matching acceptance (Pending)
+<a id="t07--unfunded-matching-acceptance-pending"></a>
+
+## T07 — unfunded matching acceptance (Passed with recovery)
+
+Actual acceptance: twelve accepted commands, nine orders, five matches,
+1.16 HBAR intent, zero remaining. Supplementary Seller partial cancellation
+and final reload/API restart passed. See [035](evidence/035-t07-manual.md) for
+actual deviations. The six-signature sequence below is the original scenario,
+not a claim that the observed run followed it without recovery.
 
 Open production preview http://127.0.0.1:4173 after `docker compose up -d --build`
 and `npm run build` / `npm run preview`. Market is the default tab. Keep the
@@ -111,7 +119,7 @@ review. Check the acknowledgement and use **Sign in MetaMask**.
 | 1 | Seller | Sell 4 NOVA at 0.09 HBAR | Open ask: 4 |
 | 2 | Seller | Sell 5 NOVA at 0.10 HBAR | Open asks: 4 at 0.09, 5 at 0.10 |
 | 3 | Buyer | Buy 6 NOVA at 0.10 HBAR | 4 at 0.09 + 2 at 0.10; intent total 0.56 HBAR |
-| 4 | Seller | My orders: Review cancel for remaining 3 | Matched 2 retained; Cancelled 3; Remaining 0 |
+| 4 | Seller | My orders: Cancel remaining 3 | Matched 2 retained; Cancelled 3; Remaining 0 |
 | 5 | Buyer | Sell 1 NOVA at 0.10 HBAR | Buyer account can act as seller |
 | 6 | Seller | Buy 1 NOVA at 0.10 HBAR | Seller account can act as buyer; third match 0.10 HBAR |
 

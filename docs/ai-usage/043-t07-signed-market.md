@@ -70,3 +70,18 @@ not credited as that step. Changed manual035 JSON/report/matches capture,
 HANDOFF, usage/index and main-plan status only. No code suites rerun; JSON
 checks and diff whitespace check passed. No raw signature access or agent
 order mutation. All matches remain unsettled.
+
+## Final manual acceptance — September 8, 2026
+
+Base 6e3a47d80b5ac80a0375f563a866ef1a210988f6. Victor supplied final Seller
+cancellation and reload captures/exports11–12. Codex compared public exports,
+all twelve accepted original commands and independent EIP-712 digests/deadlines.
+The actual API container restart after export11 and operator reload export12
+preserve nine orders/five matches/domain/version. Seller matched2/cancelled3
+now passes. Original six-signature scenario deviations remain explicit.
+Changed manual035 report/JSON and two final captures, status documentation
+(README, PRODUCT, DESIGN, DEMO, ARCHITECTURE, spec003/main plan/HANDOFF) and this
+usage/index. No implementation changes or unchanged suites rerun; final JSON
+assertions and diff checks passed. Raw signatures not accessed; backend reports
+verification, independent digest is not independent signer recovery. No agent
+signer, order mutation, chain transaction, push, merge or T08.

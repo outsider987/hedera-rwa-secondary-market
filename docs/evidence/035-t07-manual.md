@@ -1,64 +1,42 @@
-# T07 manual acceptance — Pending
+# T07 manual acceptance — Passed with documented recovery
 
-Latest checkpoint — September 8: nine accepted manual commands, seven orders,
-four matches, no remaining quantity, 0.96 HBAR total intent. Initial matches
-4@0.09 + 2@0.10 were followed by an extra Buyer Buy6 command matching the
-remaining Seller3; Buyer cancelled its own remaining3. Buyer Sell1 / Seller
-Buy1 reverse match then passed. Original Seller partial cancellation remains
-**Pending**; it is not credited from the Buyer cancellation.
+September 8, 2026. Victor completed **12 accepted, backend-verified commands**:
+nine placements and three cancellations. The final book contains **nine orders,
+five matches, no remaining quantity**, totaling **1.16 HBAR of unfunded intent**.
+All matches are **Matched · Not settled**. No funds were reserved or transferred.
 
-Exports 2–8 passed public-whitelist and independent EIP-712 digest checks,
-with exported original commands matching the API. User reload export preserves
-all orders/matches/domain. A real local API container restart preserves orders,
-matches, domain and version exactly. No database reset or order mutation by
-the agent. [Reload capture](035-t07-matches.png) and JSON retain the results.
-No application code changed or application suites rerun. Earlier checkpoints
-below are historical, including projected counts now superseded by actuals.
+| Acceptance behavior | Actual observation |
+| --- | --- |
+| Price priority / resting prices | Initial Buyer6 matched Seller4@0.09 + Seller2@0.10, total 0.56 HBAR |
+| Partial cancellation | Buyer cancelled remaining3 after matching3; supplementary Seller5 matched2 and cancelled remaining3 |
+| Reverse account roles | Buyer Sell1 / Seller Buy1 matched at 0.10 |
+| Signature rejection recovery | Operator-reported cancelled prompt stayed pending, then backend confirmed expired without an order |
+| Persistence | Final export12 equals export11 and post-restart API orders, matches, domain and version |
 
+The original six-signature sequence was **not** executed without deviations.
+An extra Seller4@0.09 was cancelled. An extra Buyer6 consumed Seller's initial
+remaining3, then Buyer cancelled its own remaining3. After the reverse match,
+Seller5 / Buyer2 / Seller cancel3 supplemented the missing Seller partial-cancel
+case. These explain the actual twelve commands and 1.16 HBAR total instead of
+the original six commands and 0.66 HBAR. No history was erased or reset.
 
-September 8, 2026. **Two manual signatures observed; one planned step completed.**
+Final verification independently recomputed all twelve accepted EIP-712 digests,
+checked submission deadlines and backend verification reports, compared exported
+commands to the original API results, and checked public-field whitelists.
+Exports9–12 and full public command results are retained in the
+[acceptance JSON](035-t07-manual.json), alongside earlier checkpoints. The final
+Seller order `2a362bc4488fb1a570a21b964bd232876207b84a1b258d0ab40f81eb2ba3e500`
+has matched2, cancelled3, remaining0. The actual API restart occurred after
+export11; the subsequent operator reload export12 still matches exactly.
 
-Latest checkpoint: a second distinct accepted request placed another Sell4@0.09,
-instead of the planned Sell5@0.10. Both orders remain open with no matches.
-The public export exactly matches the live API; independent digest, deadlines,
-whitelist and quantity conservation checks pass. The cause of repeated input
-is not established. Cancel the newer order
-`31efe344743fd21a353f6774693c5365cbc42e2f9c32056ddb5542d69b45a6cf`
-manually before placing Sell5@0.10. Preserve the first order. This recovery
-projects eight signatures and six order records (including the cancelled extra
-order), rather than the original six-signature/five-order scenario.
+[Final cancellation](035-t07-final-cancel.png) · [Final reload](035-t07-final-reload.png).
+Earlier captures and checkpoints remain retained. Wallet contract activities in
+screenshots are not T07 transactions. Raw signatures were never read or exported;
+independent digest checks do not independently recover the signer.
 
-First checkpoint (retained): Victor supplied the
-first Seller order export and [preview/MetaMask capture](035-t07-orders.png).
-Original request `7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2`
-is accepted, sequence 1: **Sell 4 NOVA at 0.09 HBAR**, remaining 4, matched 0,
-cancelled/expired 0. Maximum intent is 0.36 HBAR; the live book has one ask and
-no matches. This supersedes the implementation-stage empty-book observation.
-
-The public API's original command and current order exactly match the export.
-Independent viem EIP-712 hashing reproduces digest
-`0x4e4921b889db5111e78d9b77bd427fbe82113701e9bcaa338ffeffc253c17e1b`.
-Preparation 1788850036, acceptance 1788850043, submission deadline 1788850336,
-order expiry 1788936436: accepted before the five-minute deadline, with exactly
-24-hour order expiry. Domain salt matches the original deployment. Backend reports
-signature verified; no raw signature was read/exported or independently recovered.
-The screenshot's older wallet contract activities are not T07 transactions.
-
-Evidence-only checks: public-field whitelist, exact API/export comparison,
-independent digest, owner/side/amount, time boundaries and quantity conservation
-passed. Existing implementation test results remain in report034; unchanged
-application suites were not rerun for this evidence-only update.
-The original next step was Seller **5 NOVA at 0.10 HBAR**; the correction above
-now comes first. Final reload/restart observations remain Pending. Earlier zero-signature status is
-retained in the JSON as the initial checkpoint.
-
-Follow the six-signature [demo](../DEMO.md#t07--unfunded-matching-acceptance-pending):
-Seller sell 4@0.09, sell 5@0.10; Buyer buy 6@0.10; Seller cancel remaining 3;
-Buyer sell 1@0.10; Seller buy 1@0.10. Initial matches must total 0.56 HBAR intent,
-with the reverse match adding 0.10 HBAR. After correction, verify reload and API restart preserve
-six orders, three matches and no remaining quantity (original plan: five orders). Export public evidence and
-retain actual screenshots only after these observations exist.
-
-[Public acceptance status](035-t07-manual.json) is explicitly pending.
-No funds are reserved, no NOVA/HBAR moves and no chain transaction ID exists.
-No T08, public push or merge is authorized. Original T05 evidence is unchanged.
+This evidence-only closeout did not rerun unchanged application suites. Actual
+Go/PostgreSQL/Foundry checks remain in [034](034-t07-implementation.md); latest
+104 app +36 protobuf tests, typecheck/build and six UI cases are in
+[036](036-t07-layout.md). No chain receipt or transaction ID exists for these
+unfunded commands. T07 is complete at the local boundary; T08, push and merge
+remain outside authorization.

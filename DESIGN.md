@@ -5,7 +5,7 @@
 T06–T07 approved extension, September 8, 2026, now implemented. Victor reviews
 unfunded NOVA/HBAR limit orders; judges inspect the book and historical evidence.
 The built interface preserves the T05 navy/light/system-font identity. Manual
-T07 acceptance remains **Pending**. T05 acceptance completed September 8 in
+T07 acceptance passed with documented recovery. T05 acceptance completed September 8 in
 [evidence 032](docs/evidence/032-t05-manual.md); older Pending UI labels and
 captures remain historical, not the current acceptance record.
 
@@ -94,8 +94,8 @@ Built sources: [App](src/App.tsx), [MarketPanel](src/MarketPanel.tsx),
 records dev/preview desktop/mobile checks. Captures show a real API with an
 empty book and a controlled wallet provider; populated order/match rendering
 uses an SSR fixture. Neither establishes real signed orders or live trades.
-[Manual evidence 035](docs/evidence/035-t07-manual.md) remains Pending until
-Victor's six manual MetaMask signatures and acceptance observations are recorded.
+[Manual evidence 035](docs/evidence/035-t07-manual.md) records completed human
+acceptance with twelve accepted commands and documented recovery.
 
 Historical [evidence 031](docs/evidence/031-t05-implementation.md)
 links six page captures and passing checks: four dev/preview desktop/mobile

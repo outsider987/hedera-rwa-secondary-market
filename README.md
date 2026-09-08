@@ -3,8 +3,8 @@
 A local Hedera Testnet console with an unfunded NOVA/HBAR limit-order market.
 Review and sign orders in MetaMask, match by price/time priority, and cancel
 remaining quantities. **Funds are not reserved. Matched · Not settled.**
-T06 core and T07 implementation are verified; six-signature human acceptance
-remains [Pending](docs/evidence/035-t07-manual.md).
+T06 core and T07 implementation are verified; human acceptance
+[passed with documented recovery](docs/evidence/035-t07-manual.md): nine orders, five unfunded matches, no remaining quantity.
 
 **T05 manual acceptance completed September 8, 2026.** Victor approved the three
 transactions; independent reads verified Seller **84**, Buyer **16**, both held
@@ -81,4 +81,4 @@ up to five minutes. No raw signature is exported or stored in browser storage.
 
 [Implementation and checks](docs/evidence/034-t07-implementation.md) ·
 [Six-signature manual acceptance](docs/evidence/035-t07-manual.md) ·
-[Demo](docs/DEMO.md). T07 human acceptance is still **Pending**.
+[Demo](docs/DEMO.md). T07 human acceptance **passed with documented recovery**; see [actual results](docs/evidence/035-t07-manual.md).
