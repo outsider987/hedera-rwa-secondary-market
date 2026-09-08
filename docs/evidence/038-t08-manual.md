@@ -18,7 +18,7 @@ No transaction was resent and no code or verification rule was changed. The caus
 of the initial request failure is not established. Browser recovery confirmation
 still belongs to Victor; click Query original operation before continuing.
 
-Observed: **two chain transactions, three accepted order signatures**. All four settlement
+Observed: **four chain transactions, three accepted order signatures**. All four settlement
 cases remain pending. Expected total: eight order signatures and thirteen chain
 transactions; record rejection/recovery extras separately. Next: Seller Sell2@0.10,
 then Buyer Buy2@0.10, only using newly accepted orders after this deployment cutoff.
@@ -90,3 +90,23 @@ recovery API completed verification without resubmission or code changes. Initia
 failure cause is undetermined. Victor next queries the original operation, then
 reviews/confirms seller match terms (step2/2) before Buyer payment. Normal-case
 acceptance remains incomplete; reverse/cancel/reclaim are still pending.
+
+### Normal case settled — block40258355
+
+Seller registration verified at40258234, fee0.40415468 HBAR, hash
+`0x0f780ac0a393c2c5caa11df96dd5dbf460fa8a0edd1c70377fa891db5e547699`.
+Buyer payment verified at40258355:
+`0x9fdb7cb1d7bd665edcc3e3acc61b743e63a701cc0714107e76a72d2d6b064230`.
+The existing independent verifier records Settled and both settlement/ATS events,
+exact calldata/value/runtime/domain, balance transition and Mirror principal/fee.
+Additional direct Mirror reads confirm SUCCESS, seller0.0.10389111 credit20,000,000
+tinybars and buyer0.0.10389098 debit55,439,404, including fee35,439,404 tinybars.
+Seller available82/held0; Buyer available18/held0. Exactly2 NOVA delivered for
+0.20 HBAR; Buyer payment fee0.35439404 HBAR. [Actual user capture](038-t08-normal.png)
+shows Settled, Delivered/Paid verified. Initial pending display resolved to verified;
+no extra payment transaction is claimed. Raw public operation proofs are in JSON.
+
+Next is reverse: Buyer account sells1@0.09; Seller account buys1@0.09, then the
+selling Buyer account locks/registers and the buying Seller account pays0.09.
+Reverse/cancel/reclaim and final reload/restart comparison remain pending. Static
+showcase remains the earlier dated snapshot until the acceptance evidence update.

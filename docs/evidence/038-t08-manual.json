@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-09-08T10:43:52.100786+00:00",
+  "recordedAt": "2026-09-08T10:53:51.743089+00:00",
   "status": "Pending",
   "chainId": "296",
   "deployment": {
@@ -25,13 +25,13 @@
     "recovery": "User screenshot showed locally pending hash and incomplete request; backend originally retained prepared operation without hash. Original hash was found in public Mirror and matched against saved sender, calldata, value and chain. Original-operation hash registration and verification completed without resubmission. Initial request failure cause was not established."
   },
   "observedOrderSignatures": "3",
-  "observedChainTransactions": "2",
+  "observedChainTransactions": "4",
   "expectedOrderSignatures": "8",
   "expectedChainTransactions": "13",
   "cases": [
     {
       "id": "normal",
-      "status": "Locked; registration and payment pending",
+      "status": "Settled verified; final reload/restart acceptance pending",
       "quantity": "2",
       "priceTinybars": "10000000",
       "evidence": [
@@ -60,6 +60,65 @@
           "principalTinybars": "0",
           "transactionId": "0.0.7314364-1788864118-969626920",
           "logIndices": [
+            "2"
+          ],
+          "reverted": false
+        },
+        {
+          "action": "register",
+          "operationId": "fe47d99b637c9f97e5ca09b1e34209d3e92c4481ebcb55a8ff76bdddae0eef53",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "2",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "2",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          },
+          "hash": "0x0f780ac0a393c2c5caa11df96dd5dbf460fa8a0edd1c70377fa891db5e547699",
+          "block": "40258234",
+          "timestamp": "1788864430",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "0",
+          "feeTinybars": "40415468",
+          "principalTinybars": "0",
+          "transactionId": "0.0.7314364-1788864425-777342423",
+          "logIndices": [
+            "1"
+          ],
+          "reverted": false
+        },
+        {
+          "action": "settle",
+          "operationId": "59b41c3c74490de93078256a3ac9da2214d42b19e11513ed902802c7743fd15d",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "2",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "0",
+            "buyerAvailable": "18",
+            "buyerHeld": "0"
+          },
+          "hash": "0x9fdb7cb1d7bd665edcc3e3acc61b743e63a701cc0714107e76a72d2d6b064230",
+          "block": "40258355",
+          "timestamp": "1788864686",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "0",
+          "feeTinybars": "35439404",
+          "principalTinybars": "20000000",
+          "transactionId": "0.0.7314364-1788864680-322983104",
+          "logIndices": [
+            "3",
             "2"
           ],
           "reverted": false
@@ -94,9 +153,18 @@
           "holdId": "3"
         },
         "digest": "0xcbb67d10fdf2e1c525bbb66ee536eec2994d46485871efdce3fe97695e9e7284",
-        "status": "Locked",
+        "status": "Settled",
         "baseBlock": "40258025",
-        "updatedAt": "1788864185"
+        "updatedAt": "1788864721"
+      },
+      "capture": "038-t08-normal.png",
+      "mirrorPayment": {
+        "sellerAccount": "0.0.10389111",
+        "sellerCreditTinybars": "20000000",
+        "buyerAccount": "0.0.10389098",
+        "buyerDebitTinybars": "55439404",
+        "feeTinybars": "35439404",
+        "result": "SUCCESS"
       }
     },
     {

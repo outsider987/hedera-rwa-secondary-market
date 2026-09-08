@@ -1,5 +1,17 @@
 # HoldBook handoff
 
+## T08 normal case settled — effective
+
+`based_on_commit: 73eabc1dbb907ef8f01c2402b8be55eb76ba707d`. Match15-1 Settled verified at40258355:
+2 NOVA delivered/0.20 HBAR principal, fee0.35439404 HBAR. Seller82/0, Buyer18/0.
+Registration40258234 is also verified. Manual038 MD/JSON and actual normal capture
+contain public proofs; direct Mirror payment check agrees. Observed3 accepted
+order signatures (one extra self-trade-prevented order),4 chain transactions.
+Next: Buyer account Sell1@0.09, then Seller account Buy1@0.09; keep accounts and
+match roles distinct. Selling Buyer locks/registers, buying Seller pays. All
+prompts manual. Other three cases/final reload-restart remain pending. Same exact
+T08 evidence/snapshot/documentation allowance below; no next ticket or publication.
+
 ## T08 match15-1 locked — effective
 
 `based_on_commit: 8979d07a5b6e61ebc489c0037e5efd7222450923`. Buyer sequence15 now matches Seller13:

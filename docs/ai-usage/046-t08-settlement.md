@@ -91,3 +91,14 @@ code edit or bypass. Updated manual038 MD/JSON, HANDOFF/index/this entry with
 Buyer sequence15, Hold3, actual fee/balance transition and next seller registration.
 Public state assertions/diff passed. Normal payment and other cases remain pending;
 initial incomplete request cause remains undetermined.
+
+## Normal settlement observed — September 8, 2026
+
+Based on `73eabc1dbb907ef8f01c2402b8be55eb76ba707d`. User supplied registration/payment/Settled
+screens and public payment hash. Codex read the verified original operations and
+settlement plus direct public Mirror payment results; exact2 NOVA/0.20 HBAR and
+fee/balances agree. No write API or wallet call was needed. Added actual supplied
+normal screenshot (unchanged), manual038 MD/JSON, HANDOFF/index/this entry.
+Public proof assertions and diff checks passed; evidence-only, no code tests rerun.
+Reverse/cancel/reclaim and final persistence checks remain pending; dated static
+snapshot will be refreshed with final acceptance evidence.
