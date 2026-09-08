@@ -7,6 +7,7 @@ T05 合約、介面與自動驗證已交付：[實作證據 031](../evidence/031
 [AI 工作項目 040](../ai-usage/040-t05-atomic-trade.md)；真人三筆交易驗收仍 Pending。
 部署已恢復驗證，並修正恢復後舊畫面狀態：[進行中的真人證據 032](../evidence/032-t05-manual.md)。
 Seller Hold ID 2 已於區塊 40246787 獨立核對：Seller 84/10、Buyer 6/0；下一步為 Buyer 唯讀拒絕檢查與購買，完整成交仍 Pending。
+後續成交已於區塊 40247134 獨立核對：Seller 84/0、Buyer 16/0，Seller 收到 1 HBAR 本金；原始拒絕模擬證據與最後 UI 驗收仍 Pending，詳見證據 032。
 本文件保存定案；bootstrap 第一張 active ticket 是 T00-min。
 
 ## 1. 目標與範圍

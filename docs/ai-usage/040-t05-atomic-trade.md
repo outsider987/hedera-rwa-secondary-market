@@ -84,3 +84,15 @@ signature or chain mutation was used. Updated evidence 032 MD/JSON/capture,
 HANDOFF, main plan and this AI_USAGE entry/index only. Prior automated checks
 were not rerun for this evidence-only update. Buyer checks/purchase and complete
 acceptance remain Pending; no next ticket or extra live trade is authorized.
+
+## Settlement evidence — September 8
+
+Base `0a33c8a2a8177e97e1d4456af53fbf60cae32caf`. Victor supplied export (23)
+and a settlement screenshot. Codex independently recovered the original hash
+using the existing verifier with in-memory public storage and a 180-second
+deadline. Receipt, same-hash ATS/swap events, historical 84/16/held 0 state,
+runtime, Mirror identity and Seller's 1 HBAR principal passed. The transaction
+fee is recorded separately. Updated only evidence 032 MD/JSON/purchase capture,
+HANDOFF, main plan and AI_USAGE entry/index. No code changed or automated suites
+reran; no agent transaction or signature occurred. Original simulation exports,
+post-settlement duplicate check and final UI capture remain outstanding.

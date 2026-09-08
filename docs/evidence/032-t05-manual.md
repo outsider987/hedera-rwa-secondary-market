@@ -1,6 +1,6 @@
 # T05 manual acceptance — in progress
 
-September 8, 2026. **Deployment and Hold verified; complete trade acceptance Pending.**
+September 8, 2026. **Atomic settlement verified; final acceptance checks Pending.**
 Victor supplied the public deployment intent and screenshots showing
 `deploy · complete`. The agent has performed only public receipt/runtime reads.
 
@@ -30,6 +30,18 @@ Supply remains 100; the swap remains Open (0). Raw verified fields and check
 provenance are appended to the manual JSON. This evidence-only update changes
 no application or contract code; prior automated checks remain dated evidence.
 
-Next: Buyer checks readiness, runs the pre-purchase read-only rejections, then
-reviews the 1 HBAR purchase and manually approves in MetaMask. Purchase,
-rejections, payment proof and final 84/16/held 0 remain Pending.
+Victor then supplied export (23) and a [settlement capture](032-t05-purchase.png).
+Independent read-only recovery verified settlement hash
+`0x4713f2c140876484451fe3144e9c35339486c57abe37247bf78adb5e897cbf96`
+at block **40247134**: same-hash ATS delivery and Settled events, Buyer signer,
+exact payment units, historical state, pinned runtime and Mirror identity.
+Seller is **84/0**, Buyer **16/0** available/held; swap state is Settled (1).
+Seller's principal credit is **100,000,000 tinybars (1 HBAR)**. The separately
+reported transaction fee is **33,893,288 tinybars (0.33893288 HBAR)**; it is not
+deducted from that Seller principal credit. Supply remains 100.
+
+Next: Buyer runs the post-settlement duplicate rejection check, exports both
+pre-purchase and duplicate simulation records from History, and supplies the
+final page capture. Original simulation evidence and final acceptance remain
+Pending; no additional purchase is needed. Raw settlement fields and verification
+provenance are appended to the manual JSON. No application code changed.

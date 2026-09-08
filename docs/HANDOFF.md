@@ -1,5 +1,19 @@
 # HoldBook handoff
 
+## T05 settlement verified — September 8, 2026
+
+`based_on_commit: 0a33c8a2a8177e97e1d4456af53fbf60cae32caf`.
+Export (23) and Victor's capture show settle complete. Independent read-only
+recoverTrade verified receipt, same-hash ATS/swap events, historical balances,
+runtime and Mirror/payment evidence at block 40247134: Seller 84/0, Buyer 16/0,
+swap Settled (1), Seller principal 100000000 tinybars; transaction fee separately
+33893288 tinybars. Evidence 032 includes the sanitized record and capture.
+Next: Buyer runs duplicate rejection, exports original pre-purchase/duplicate
+simulation records from History, and supplies final UI capture. Overall
+acceptance remains Pending. No new purchase or next ticket. Existing allowed
+T05 evidence files continue to apply. Evidence-only update; prior code checks
+remain recorded and were not rerun. No agent transaction or signature.
+
 ## T05 Seller Hold verified — September 8, 2026
 
 `based_on_commit: 6e641a81108976fbd198f0fd8ba2e402956bce8a`.
