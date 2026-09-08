@@ -1,5 +1,29 @@
 # HoldBook handoff
 
+## Judge presentation documentation — September 8, 2026 (effective)
+
+- `based_on_commit: f50cc999402b6ec7e6dbe8a0888fe5bf2062d2e1` is verified merged main;
+  branch `docs/judge-demo`. T04 PR #5 merged as this commit after CI passed on
+  cbc9e18 (run 34174595841). Earlier integration/local-only sections are history.
+- Victor requested concise English operating instructions, a demo script and
+  report entry points, using existing evidence with no repeated transactions.
+  [README](../README.md) is the judge entry;
+  [DEMO](DEMO.md) supplies the two-minute script, balances and three rejections.
+  PRODUCT now reflects completed T02–T04 rather than the original T00 shell.
+- Exact scope: README, PRODUCT, DEMO, prompt 026, evidence 030 MD/JSON,
+  usage 038, AI_USAGE, HANDOFF and the main plan. Original evidence, source,
+  tests, dependencies and patches stay unchanged. Validation is recorded in
+  [evidence 030](evidence/030-judge-demo.md): 24 links, ci, 87 + 36 tests,
+  typecheck/build, four console and two gallery browser cases passed. A wallet-
+  free preview read at block 40241802 confirmed 94/6 and both held 0.
+- The walkthrough opens existing reports/screenshots without a wallet; optional
+  current reads use Check current T04 state. It performs no new transaction or
+  VC signature. Acceptance remains the dated block 40241114, not a promise that
+  current KYC or an empty browser journal will show the same status.
+- Stop at this documentation task and commit locally. No push/merge or next
+  implementation is activated. No next source files are allowed. Existing
+  native BBS, audit/peer/license and event-eligibility limitations remain.
+
 ## T04 integration authorized — September 8, 2026 (effective)
 
 - `based_on_commit: b1212e6b80b6f52f15be7e526aa6b3ddf0a3b994` is the verified

@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-08 | Judge presentation documentation | [Concise English entry, demo script and evidence links](docs/ai-usage/038-judge-demo.md) |
 | 2026-09-08 | Authorized T04 integration | [Push, exact-head CI gate and merge](docs/ai-usage/037-t04-merge.md) |
 | 2026-09-08 | T04 manual acceptance / recovery repair | [Four transactions, historical simulations and verified final 94/6/held 0](docs/ai-usage/036-t04-manual.md) |
 | 2026-09-08 | T03 merge and T04 code / automation | [CI-gated integration and guarded Hold lifecycle; manual acceptance pending](docs/ai-usage/035-t04-hold-lifecycle.md) |

@@ -737,3 +737,28 @@ push/merge prohibition only. Preserve history with a merge commit, verify the
 final PR head's CI and remote main ancestry. Only usage 037, AI_USAGE, HANDOFF
 and this plan change during integration; GitHub records the actual result.
 No next implementation or further chain operation is activated.
+
+### September 8, 2026 — judge presentation documentation
+
+Victor requested concise, readable English operating instructions, a demo script
+and acceptance-report entry points covering Hold 10 → execute 6 → release 4
+and the three expected rejections, using existing evidence without new trades.
+Base: merged main `f50cc999402b6ec7e6dbe8a0888fe5bf2062d2e1`;
+branch `docs/judge-demo`. T04 PR #5 is merged after CI success on cbc9e18.
+
+Exact allowed files, listed before editing presentation content: `README.md`,
+`PRODUCT.md`, new `docs/DEMO.md`, `docs/prompts/026-judge-demo.md`,
+`docs/evidence/030-judge-demo.md`, `docs/evidence/030-judge-demo.json`,
+`docs/ai-usage/038-judge-demo.md`, `AI_USAGE.md`, `docs/HANDOFF.md` and this plan.
+Use existing reports/screenshots/JSON; no app, dependency or chain changes.
+Acceptance: concise English entry and two-minute script, accurate historical
+balances/rejections, working local links, mandatory ci/test/typecheck/build,
+dev/preview browser checks and unchanged original evidence. Commit locally;
+no push/merge or next implementation is activated by this documentation task.
+
+Documentation outcome: README/DEMO/PRODUCT delivered; 24 local links and recorded
+balances/rejections match. ci, 87 + 36 tests, typecheck/build, four console and
+two existing-gallery browser cases pass. The optional wallet-free preview read
+also passes. Evidence 030 records the temporary harness correction. Original
+source and evidence are unchanged; no transaction/signature or new human
+acceptance. Stop at the local documentation commit.
