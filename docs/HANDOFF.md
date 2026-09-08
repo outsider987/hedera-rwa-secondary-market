@@ -1,5 +1,21 @@
 # HoldBook handoff
 
+## NOVA motion presentation extension delivered — effective
+
+`based_on_commit: 4cd15380676f3f69e34b229edb6c985c8ab1b655` is the verified
+base. User requested trading/minting animation with corresponding information;
+[plan006](plans/006-nova-motion.md) bounds this presentation authorization.
+NOVA moves seller → ATS Hold → buyer or verified return. HBAR only moves on
+verified settlement. Pending, rejection and expiry never animate success.
+Overview provides a manually stepped issuance/trading illustration; closed
+issuance remains closed. Existing certificate, Tailwind and CSS are reused.
+
+npm ci,114 app+36 protobuf tests, typecheck and both builds passed. Browser
+checks and fixture limitations: [usage051](ai-usage/051-nova-motion.md).
+T08 remains complete locally. No fresh signatures/transactions or public
+publication occurred. Stop at local review; next ticket/allowed files: none
+until separately authorized. Historical entries below remain dated evidence.
+
 ## NOVA overview presentation extension delivered — effective
 
 `based_on_commit: 578aaf5661eebc300064730b387cc5e370b31cee`, actual current Git

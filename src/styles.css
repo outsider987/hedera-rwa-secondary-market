@@ -261,3 +261,21 @@ footer a { min-height: 44px; padding-block: 0.5rem; }
 .operation-spinner { display: inline-block; width: 1em; height: 1em; margin-left: 0.5em; vertical-align: -0.125em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: operation-spin 1s linear infinite; }
 @keyframes operation-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .operation-spinner { animation: none; } }
+
+.nova-flow { margin: 1.5rem 0; padding: 1rem; border: 1px solid #d4dfe7; border-radius: .5rem; background: #fff; }
+.nova-flow-track { position: relative; padding-bottom: 2.5rem; }
+.nova-flow-carrier, .nova-flow-payment { width: 33.333333%; transition: transform 260ms cubic-bezier(.77,0,.175,1); text-align: center; }
+.nova-flow-carrier img { display: block; width: 90%; max-width: 160px; height: auto; margin: auto; border-radius: .25rem; }
+.nova-flow-payment { position: absolute; bottom: .25rem; }
+.nova-flow-payment span { display: inline-block; padding: .125rem .5rem; border: 1px solid #8eafc7; border-radius: 1rem; background: #edf5fa; color: #155777; font-size: .75rem; font-weight: 600; }
+.nova-flow-stations { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); text-align: center; font-size: .75rem; gap: .25rem; }
+.nova-flow-stations span { padding-top: .5rem; border-top: 2px solid #d4dfe7; }
+.nova-flow-stations span:first-child { color: #80500c; border-color: #bc8530; }
+.nova-flow-stations span:last-child { color: #185d87; border-color: #4189b7; }
+.nova-minting { animation: nova-issue 700ms cubic-bezier(.23,1,.32,1) both; }
+@keyframes nova-issue { from { opacity: .15; transform: scale(.92); } to { opacity: 1; transform: scale(1); } }
+[hidden] .nova-minting { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .nova-flow-carrier, .nova-flow-payment { transition: none; }
+  .nova-minting { animation: none; }
+}

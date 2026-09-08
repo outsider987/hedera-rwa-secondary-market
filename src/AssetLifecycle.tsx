@@ -1,7 +1,10 @@
+import {NovaFlowDemo} from './NovaFlow';
+
 export default function AssetLifecycle() {
   return <section aria-labelledby="flow-heading" className="hb:mt-12 hb:border-t hb:border-[#d4dfe7] hb:pt-8">
     <h2 id="flow-heading" className="hb:text-2xl!">What happens to a share?</h2>
     <p>NOVA is the share. HBAR is what the buyer pays. An order starts the conversation; settlement moves the assets.</p>
+    <NovaFlowDemo/>
     <ol className="hb:list-none hb:p-0! hb:mt-6! hb:grid hb:gap-6 hb:md:grid-cols-3">
       {[
         ['Issue shares', 'Admin creates NOVA and issues demo shares to a verified test account. This setup is already complete.'],

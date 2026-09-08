@@ -1,0 +1,90 @@
+{
+  "recordedAt": "2026-09-08T14:51:51.539Z",
+  "kind": "Isolated read-only wallet and synthetic verified API snapshots; no live transactions",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1440,
+      "manualDemo": true,
+      "verifiedPositions": [
+        "Unprepared",
+        "Locked",
+        "Ready",
+        "Settled",
+        "Cancelled",
+        "Reclaimed",
+        "Returned"
+      ],
+      "expiryRetainsHold": true,
+      "pendingAndRejectedRetainHold": true,
+      "offlineRetainsHold": true,
+      "reducedMotion": true,
+      "unitPrice": true,
+      "overflow": false,
+      "walletMutations": 0
+    },
+    {
+      "port": 5173,
+      "width": 390,
+      "manualDemo": true,
+      "verifiedPositions": [
+        "Unprepared",
+        "Locked",
+        "Ready",
+        "Settled",
+        "Cancelled",
+        "Reclaimed",
+        "Returned"
+      ],
+      "expiryRetainsHold": true,
+      "pendingAndRejectedRetainHold": true,
+      "offlineRetainsHold": true,
+      "reducedMotion": true,
+      "unitPrice": true,
+      "overflow": false,
+      "walletMutations": 0
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "manualDemo": true,
+      "verifiedPositions": [
+        "Unprepared",
+        "Locked",
+        "Ready",
+        "Settled",
+        "Cancelled",
+        "Reclaimed",
+        "Returned"
+      ],
+      "expiryRetainsHold": true,
+      "pendingAndRejectedRetainHold": true,
+      "offlineRetainsHold": true,
+      "reducedMotion": true,
+      "unitPrice": true,
+      "overflow": false,
+      "walletMutations": 0
+    },
+    {
+      "port": 4173,
+      "width": 390,
+      "manualDemo": true,
+      "verifiedPositions": [
+        "Unprepared",
+        "Locked",
+        "Ready",
+        "Settled",
+        "Cancelled",
+        "Reclaimed",
+        "Returned"
+      ],
+      "expiryRetainsHold": true,
+      "pendingAndRejectedRetainHold": true,
+      "offlineRetainsHold": true,
+      "reducedMotion": true,
+      "unitPrice": true,
+      "overflow": false,
+      "walletMutations": 0
+    }
+  ]
+}
