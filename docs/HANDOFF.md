@@ -1,5 +1,16 @@
 # HoldBook handoff
 
+## T05 integration authorized — September 8, 2026 (effective)
+
+`based_on_commit: db410a30284a3477ffca648ccb88bd928e4f2546`.
+Victor explicitly instructed “推送且合併” after completed T05 acceptance.
+This supersedes the local-only boundary below for pushing this branch, opening
+its PR and merging into main after CI passes. The worktree was clean and fetched
+origin/main remained d85d19c with no divergent commits. Integration changes only
+HANDOFF, AI work item 040 and AI_USAGE; no next ticket or chain mutation is
+authorized. CI must run npm ci, local Foundry tests, Node tests, typecheck and
+build. Confirm the merged PR and local/remote main afterward; do not bypass CI.
+
 ## T05 complete — September 8, 2026 (effective boundary)
 
 `based_on_commit: 5c1a114b90e42ebeedc957ed31abd2bf788f728e` is the verified

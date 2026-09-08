@@ -114,3 +114,14 @@ automated suites were not rerun. The static Pending UI label in the supplied
 capture is explicitly distinguished from final report acceptance. Local VM
 failure-path coverage and existing eligibility/security limitations remain.
 Stop at the local T05 boundary, with no further transaction or next ticket.
+
+## Authorized integration — September 8
+
+Base `db410a30284a3477ffca648ccb88bd928e4f2546`. Victor explicitly requested
+“推送且合併”, authorizing branch push, PR creation and merge after CI passes.
+Codex checked the clean worktree, Git history, fetched origin/main (no divergent
+commits), configured origin and existing PRs. Only HANDOFF, this entry and the
+AI_USAGE index change for integration provenance. The PR's CI runs the pinned
+install, local contract tests, Node tests, typecheck and build. Merge completion
+and its resulting hash are established by GitHub/Git, not preclaimed here.
+No application change, new ticket, chain transaction or signature is authorized.
