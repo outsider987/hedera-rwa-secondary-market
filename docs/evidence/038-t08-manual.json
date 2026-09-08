@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-09-08T10:16:12.341667+00:00",
+  "recordedAt": "2026-09-08T10:26:51.116731+00:00",
   "status": "Pending",
   "chainId": "296",
   "deployment": {
@@ -24,7 +24,7 @@
     },
     "recovery": "User screenshot showed locally pending hash and incomplete request; backend originally retained prepared operation without hash. Original hash was found in public Mirror and matched against saved sender, calldata, value and chain. Original-operation hash registration and verification completed without resubmission. Initial request failure cause was not established."
   },
-  "observedOrderSignatures": "0",
+  "observedOrderSignatures": "2",
   "observedChainTransactions": "1",
   "expectedOrderSignatures": "8",
   "expectedChainTransactions": "13",
@@ -58,5 +58,67 @@
       "evidence": []
     }
   ],
-  "reloadAndRestartComparison": "Pending"
+  "reloadAndRestartComparison": "Pending",
+  "orderProgress": {
+    "serverTime": "1788863158",
+    "acceptedOrders": [
+      {
+        "requestId": "2836c57128e35be03fb531a3fc07303dd91593c99a709e836b92f2752fad7784",
+        "orderId": "38b3ac463c12d05058c8193dfe85e6f5ab16671a53b5026f7d7db23ae96ab76e",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "2",
+        "price": "10000000",
+        "expiresAt": "1788949222",
+        "sequence": "13",
+        "acceptedAt": "1788862827",
+        "remaining": "2",
+        "matched": "0",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "2fcea7122020e2652ce722eb7dfbde96a646c3d11e969b78f82ad11681ca0c84",
+        "orderId": "7f4f9f2ade26d2727c9e07e156d88b4f85ac825e5ebe95b35c127f75e2d02781",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "2",
+        "price": "10000000",
+        "expiresAt": "1788949397",
+        "sequence": "14",
+        "acceptedAt": "1788863009",
+        "remaining": "0",
+        "matched": "0",
+        "cancelled": "2",
+        "expired": "0",
+        "reason": "Self-trade prevention"
+      }
+    ],
+    "pendingBuyerRequest": {
+      "prepared": {
+        "requestId": "b87a2ddf47cb3f7bcf7105bc2d7ceb02a64aa5afa4268c2bbb75d34cd536bc16",
+        "orderId": "7123b58b49e3f5421f59907ed7184c02cfd214b7c61f5b38917abf5e73da122a",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "2",
+        "price": "20000000",
+        "expiresAt": "1788949521",
+        "deadline": "1788863421",
+        "preparedAt": "1788863121"
+      },
+      "status": "pending",
+      "digest": "",
+      "verified": false,
+      "result": null,
+      "reason": ""
+    },
+    "note": "Two accepted signed placements observed. Extra Seller-owned Buy2@0.10 was cancelled by self-trade prevention. Buyer Buy2@0.20 is pending with no accepted signature evidence; do not count it as signed or resubmit. Intended next fresh Buyer price is0.10 only after original request resolves."
+  }
 }

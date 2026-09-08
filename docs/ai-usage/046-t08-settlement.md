@@ -63,3 +63,13 @@ undetermined. Affected: evidence038 MD/JSON, HANDOFF, AI_USAGE and this appended
 entry. Public JSON consistency and diff checks passed; no implementation tests
 rerun for this evidence-only update. Browser refresh and all four trading cases
 remain Victor actions. This supersedes the initial zero-deployment observation.
+
+## Manual order discrepancy — September 8, 2026
+
+Based on `6d075b4b4fb3020cf73ca42e4794d9eebcc8cf9a`. User screenshot showed pending Buyer Buy2@0.20.
+Read-only public API checks confirmed original Seller Sell2 open, an extra
+Seller-owned Buy2 prevented from self-trading, and Buyer request still pending
+without verified signature/result. Recorded actual public fields in manual038
+MD/JSON and updated HANDOFF/index/this entry. No resend, signing, wallet access,
+code change or test rerun; JSON state assertions and diff check passed. Query
+original until accepted/expired, then choose the next action from that result.

@@ -18,7 +18,7 @@ No transaction was resent and no code or verification rule was changed. The caus
 of the initial request failure is not established. Browser recovery confirmation
 still belongs to Victor; click Query original operation before continuing.
 
-Observed: **one chain transaction, zero new order signatures**. All four settlement
+Observed: **one chain transaction, two accepted order signatures**. All four settlement
 cases remain pending. Expected total: eight order signatures and thirteen chain
 transactions; record rejection/recovery extras separately. Next: Seller Sell2@0.10,
 then Buyer Buy2@0.10, only using newly accepted orders after this deployment cutoff.
@@ -45,3 +45,20 @@ Every signature/transaction belongs to Victor in MetaMask. No CLI/server signer,
 private key, full VC signature or arbitrary wallet object is an evidence source.
 T05/T07 historical acceptance remains unchanged. T08 is not complete until these
 observations and actual captures exist; no next ticket or publication is active.
+
+## Normal-case order progress — unresolved Buyer request
+
+Seller Sell2@0.10 was accepted as sequence13; remaining2, matched0. Another
+Buy2@0.10 was submitted by Seller, sequence14, and automatically cancelled by
+self-trade prevention (matched0/cancelled2). This is an extra accepted signature,
+not the intended Buyer order. The original Sell2 remains open.
+
+Buyer request `b87a2ddf47cb3f7bcf7105bc2d7ceb02a64aa5afa4268c2bbb75d34cd536bc16`
+was prepared for **Buy2@0.20**, not the intended unit price0.10. At server timestamp
+1788863158 it remains pending, digest empty, verifiedfalse, resultnull; no accepted
+Buyer signature or new match is asserted. Deadline1788863421 (18:30:21 Taipei).
+Query only until this original request is accepted or expired. If expired, create
+Buyer Buy2@0.10; if accepted, inspect the actual match before any further order.
+The initial incomplete submission cause is not established; direct public API
+reads currently succeed. Expected signature totals will exceed the original eight
+because of the extra Seller placement; rejected/unaccepted attempts remain separate.

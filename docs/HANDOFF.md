@@ -1,5 +1,15 @@
 # HoldBook handoff
 
+## T08 Buyer request unresolved — effective
+
+`based_on_commit: 6d075b4b4fb3020cf73ca42e4794d9eebcc8cf9a`. Manual038 records Seller Sell2@0.10
+sequence13 open2 and an extra Seller Buy2@0.10 sequence14 cancelled by self-trade
+prevention. Buyer request b87a2ddf47cb3f7bcf7105bc2d7ceb02a64aa5afa4268c2bbb75d34cd536bc16
+is pending at unit price0.20, deadline1788863421. Query original only; after server
+expiry Buyer may create Buy2@0.10. If accepted instead, inspect the actual match
+first. No T08 match/hold/payment yet. Deployment remains verified; observed two
+accepted order signatures and one chain transaction. Same T08 file boundary below.
+
 ## T08 manual deployment recovered — September 8, 2026 (effective)
 
 `based_on_commit: 41432152d411d7f1200405154ca1bd87d1536010` verified HEAD.
