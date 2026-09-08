@@ -1,5 +1,21 @@
 # HoldBook handoff
 
+## T04 integration authorized — September 8, 2026 (effective)
+
+- `based_on_commit: b1212e6b80b6f52f15be7e526aa6b3ddf0a3b994` is the verified
+  completed-acceptance base. Victor explicitly requested “好推送合併吧”. This
+  supersedes earlier T04 push/merge prohibitions for this integration only.
+- Push `feat/t04-hold-lifecycle`, open a PR to main with evidence 028/029,
+  require CI success on the final PR head, merge with a merge commit and verify
+  remote main ancestry. GitHub PR/check history records the resulting hashes
+  and outcome; do not infer completion from this authorization record.
+- Only `docs/ai-usage/037-t04-merge.md`, AI_USAGE, HANDOFF and the main plan
+  change for integration. Application and acceptance evidence remain unchanged.
+  See [integration record](ai-usage/037-t04-merge.md).
+- T04 acceptance remains complete at block 40241114. No further transaction,
+  signature or next implementation ticket is activated; no next source files
+  are allowed. Existing limitations remain in evidence 029.
+
 ## T04 manual acceptance complete — September 8, 2026 (effective)
 
 - `based_on_commit: f3dfa0ba6e07a4d282fedcee770fb936ac5728f4` is the verified

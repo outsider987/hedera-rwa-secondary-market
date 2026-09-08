@@ -727,3 +727,13 @@ authorized. Additional evidence uses only the existing 029/036 files and exact
 named captures listed in HANDOFF, plus AI_USAGE, HANDOFF and this plan.
 Native BBS, audit/peer/license/eligibility limits and deferred settlement scope
 remain unchanged.
+
+### September 8, 2026 — authorized T04 integration
+
+Victor explicitly requested “好推送合併吧”, authorizing push and CI-gated merge
+of `feat/t04-hold-lifecycle`, based on completed acceptance
+`b1212e6b80b6f52f15be7e526aa6b3ddf0a3b994`. This supersedes the previous
+push/merge prohibition only. Preserve history with a merge commit, verify the
+final PR head's CI and remote main ancestry. Only usage 037, AI_USAGE, HANDOFF
+and this plan change during integration; GitHub records the actual result.
+No next implementation or further chain operation is activated.
