@@ -364,3 +364,17 @@ and wallet doubles from actual chain evidence. No test instantiates a private
 signer. Existing package audit remains **62** findings (21 low, 25 moderate,
 16 high, no critical); native BBS, peer, missing dfns license metadata and project
 license/event eligibility limits remain unresolved. No public deployment occurred.
+
+## NOVA overview illustration — September 8, 2026
+
+`public/assets/nova-demo-equity.png` is a 1536×1024 PNG created with the built-in
+OpenAI image generation tool for this task. It uses no supplied reference image,
+stock asset or copied company logo. The certificate is explicitly fictional demo
+equity on Hedera Testnet, not ownership evidence or verified backing. No separate
+third-party asset license is asserted for this generated output; this entry does
+not change the repository's project-license or event-eligibility status.
+The exact generation prompt and user approval are preserved in
+[planning record032](prompts/032-nova-overview.md); prompt metadata is embedded
+in the project PNG. Pixel content is unchanged from the generated original.
+New presentation components reuse existing React19.2.8/Tailwind4.3.3 sources
+and licenses documented above. No shadcn/ui code or new package was introduced.

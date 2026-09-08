@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-08 | NOVA overview, tab flow and component extraction | [Illustration, navigation and preserved trading state](docs/ai-usage/050-nova-overview.md) |
 | 2026-09-08 | T08 connected role colors | [Header role colors and connection transitions](docs/ai-usage/049-t08-role-colors.md) |
 | 2026-09-08 | T08 pinned Header component using installed Tailwind | [Extraction and scrolling checks](docs/ai-usage/048-t08-header.md) |
 | 2026-09-08 | T08 visible NOVA balances and active-operation spinner | [Account-isolated public reads and busy feedback](docs/ai-usage/047-t08-balances.md) |

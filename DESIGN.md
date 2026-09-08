@@ -50,8 +50,10 @@ components:
 
 The existing navy/light/system-font console now includes the T08 settlement
 workbench and a separate evidence showcase. Its emphasis is on amounts, the
-required account and the next explicit action. Preserve this established visual
-identity; no new branding, imagery or font family is part of T08.
+required account and the next explicit action. The authorized NOVA extension
+adds an explanatory Overview and one generated fictional demo certificate within
+the established visual identity. Asset facts remain accessible HTML outside the
+illustration; it is not proof of ownership. No new font family is introduced.
 
 T08 deployment and four human cases are verified in manual038. The showcase
 contains dated T05/T08 evidence; historical balances are never presented as live.
@@ -74,17 +76,19 @@ limited to 17ch and a 1.2rem introduction. Full IDs wrap inside details.
 
 ## Layout
 
-The console is at most 68rem wide with 1.25rem side gutters. Desktop Market
+The console is at most 68rem wide with 1.25rem side gutters. Overview pairs the
+asset explanation and certificate at the Tailwind lg breakpoint, stacking below
+it; its six lifecycle steps and account roles use three columns from md. Desktop Market
 places the book left and the order or selected settlement panel right in equal
 flexible columns, separated by a fine vertical rule and 2rem gap. This is a
 consistent action area, not a sticky or fixed-position panel. My orders and
-Matches use a lower 3:2 grid. At 1000px or below the lower panels stack; at
+Matches use a 3:2 grid in Activity and remain available below Market. At 1000px or below the lower panels stack; at
 850px or below the upper panels stack. At 700px header and account rows adapt.
 
 The order table retains its 32rem minimum width inside a keyboard-focusable
 horizontal scroll region. Prices and amounts align right. Match selection moves
 focus to the action heading. Native details keep raw IDs and evidence out of
-the main reading path. Trade retains a flexible historical main area and 20rem
+the main reading path. Historical Trade within Activity retains a flexible main area and 20rem
 summary, stacking at 850px. Showcase balances use two columns and architecture
 three; both stack at 700px.
 
@@ -101,9 +105,14 @@ Keep square section boundaries and thin separators.
 
 ## Components
 
-- Native hash navigation exposes Market / Trade / History / Settings; current
-  navigation is underlined with `aria-current`. Keep the skip link and visible
-  3px focus outline with 4px offset.
+- Native hash navigation exposes Overview / Market / Activity / Settings, with
+  Overview as the default. Legacy `#trade` and `#history` resolve to Activity.
+  Current navigation is underlined with `aria-current`; the skip link preserves
+  the selected page. Keep the visible 3px focus outline with 4px offset.
+- One mounted MarketPanel owns drafts, intents and selected settlement across
+  tabs. Extracted balance, book, order and match components reuse its state.
+  Activity selections return to Market; Settings contains account/network/SDK
+  setup. Tab changes retain controllers and existing wallet guards.
 - Orders remain unfunded. Buy/Sell uses pressed-state buttons; review requires
   explicit acknowledgement before a manual signature. Open/All order filters
   expose original, matched, remaining and cancelled quantities. Cancel remaining
@@ -117,15 +126,16 @@ Keep square section boundaries and thin separators.
   review, unknown submission, verified delivery and verified return. Expired
   means reclaim is required, not that the shares returned. A fee and transaction
   link appear when the selected saved operation has verified evidence.
-- Visible Market polls every two seconds. Its connection live region announces
+- Market data polls every two seconds while Market or Activity is visible. Its connection live region announces
   state changes while the ordinary last-update text records freshness. Failed
   reads retain prior data and disable operations requiring fresh state. Recovery
   details preserve the original operation/hash; querying never resubmits it.
 - Only settlement review/progress/result switches fade, using Motion opacity
   0→1 over 160ms. Reduced-motion preference sets opacity to 1 and duration to 0.
   Tailwind uses the `hb` prefix and imports theme/utilities without Preflight.
-- Trade displays Completed fixed trade and offers only historical verification
-  at block 40247352. History preserves T05's journal and earlier lifecycle data.
+  The NOVA extension reuses it without new dependencies, shadcn or motion.
+- Activity contains the historical TradePanel with Completed fixed trade and
+  verification at block 40247352, T05's journal and earlier lifecycle data.
   Do not restore its former Setup / Lock / Buy mutation workflow.
 - The static showcase offers a historical transaction timeline, balances,
   architecture, case selection and public JSON download. Its four T08 cases
@@ -175,3 +185,11 @@ header surface and explicit role label change together with the connected accoun
 These identify bound accounts, not the buy/sell side of an individual match or
 transaction success. Disconnected and unassigned accounts retain neutral colors;
 an unknown connected account is labeled Unassigned account.
+
+## NOVA presentation review
+
+Finish disposition: ship. The [design record](docs/design/nova-overview.md) and
+[evidence 042](docs/evidence/042-nova-overview.json) document the extension and
+passing dev/preview desktop/mobile presentation checks. The eight Overview,
+Market, Activity and Settings captures use public fixtures; they establish no new
+MetaMask execution or chain acceptance. Existing verified T08 cases remain complete.

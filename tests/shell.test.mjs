@@ -18,6 +18,9 @@ test('the shell renders planned data without claiming a wallet or chain result',
       createElement(QueryClientProvider, { client: queryClient }, createElement(App))));
     for (const text of [
       'HoldBook',
+      'Meet NOVA.',
+      'A fictional company. Digital common shares.',
+      'What happens to a share?',
       'Trade summary',
       'Wallet not connected.',
       'NOVA',
@@ -45,12 +48,15 @@ test('the shell renders planned data without claiming a wallet or chain result',
     assert.doesNotMatch(html, /SDK config verified|SDK prepared\./);
     assert.doesNotMatch(html, /Deployment and config verified|On-chain Equity config verified/);
     assert.doesNotMatch(html, /<iframe/);
+    assert.match(html, /src="\/assets\/nova-demo-equity.png"/);
+    assert.match(html, /href="#activity"/);
+    assert.doesNotMatch(html, /Manual acceptance Pending/);
     assert.ok(html.includes('T02 · NOVA creation history'));
     assert.ok(html.includes('T03 · Seller KYC and issuance history'));
     assert.doesNotMatch(html, /Create NOVA in MetaMask|Approve T03 action in MetaMask/);
     assert.ok(html.includes('T04 · Hold lifecycle complete'));
-    assert.match(html, /href="#market" aria-current="page"/);
-    assert.match(html, /id="history" hidden=""/);
+    assert.match(html, /href="#overview" aria-current="page"/);
+    assert.match(html, /id="asset-history" hidden=""/);
     assert.match(html, /id="settings" hidden=""/);
     assert.ok(html.includes('Verify historical T05 state'));
     assert.ok(html.includes('10 NOVA'));

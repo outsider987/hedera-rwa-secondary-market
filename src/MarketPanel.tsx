@@ -1,13 +1,17 @@
 import {useQuery} from '@tanstack/react-query';
 import SettlementPanel from './SettlementPanel';
-import {readSettlements,settlementAction,settlementStatus} from './settlement';
+import AccountBalance from './AccountBalance';
+import OrderBook from './OrderBook';
+import OrdersTable from './OrdersTable';
+import MatchesList from './MatchesList';
+import {readSettlements} from './settlement';
 import {queryClient} from './wallet';
 import {useEffect,useRef,useState,useSyncExternalStore} from 'react';
 import {getOperationBusy,subscribeOperation,type Roles} from './guards';
 import {accounts} from './lifecycle';
-import {amount,hbar,loadIntent,marketEvidence,marketStorageKey,pending,prepareOrder,readMarketBalance,readMarket,recoverIntent,signOrder,status,type Intent,type Market,type Order,type Review,type Side} from './market';
+import {amount,hbar,loadIntent,marketEvidence,marketStorageKey,pending,prepareOrder,readMarketBalance,readMarket,recoverIntent,signOrder,type Intent,type Market,type Order,type Review,type Side} from './market';
 
-export default function MarketPanel({visible,roles,session,activeAccount}:{visible:boolean;roles:Roles;session:number;activeAccount?:string}){
+export default function MarketPanel({visible,activity=false,roles,session,activeAccount}:{visible:boolean;activity?:boolean;roles:Roles;session:number;activeAccount?:string}){
  const [selectedMatch,setSelectedMatch]=useState<string>(),[matchFilter,setMatchFilter]=useState<'Active'|'Needs your action'|'Completed'|'All'>('Active');
  const settlementsQuery=useQuery({queryKey:['t08-settlements'],queryFn:({signal})=>readSettlements(signal),enabled:visible,retry:false,refetchInterval:visible?2000:false,refetchIntervalInBackground:false},queryClient);
  const settlementData=settlementsQuery.data;
@@ -43,29 +47,23 @@ export default function MarketPanel({visible,roles,session,activeAccount}:{visib
  function exportPublic(){if(!market)return;const url=URL.createObjectURL(new Blob([JSON.stringify(marketEvidence(market,intent),null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='holdbook-unfunded-market.json';a.click();URL.revokeObjectURL(url);}
  const open=market?.orders.filter(o=>BigInt(o.remaining)>0n)??[];
  const myOrders=market?.orders.filter(o=>o.owner===owner)??[];
- const shownOrders=myOrders.filter(o=>filter==='All'||BigInt(o.remaining)>0n);
  const completed=intent?.record.status==='accepted'&&intent.record.prepared.owner===owner&&intent.record.prepared.requestId!==dismissed?intent.record:undefined;
  useEffect(()=>{if(completed)ticketHeading.current?.focus();},[completed?.prepared.requestId]);
  const result=completed?.result;
  const cancelOrder=review?.record.prepared.action==='Cancel'?market?.orders.find(o=>o.orderId===review.record.prepared.orderId):undefined;
  function freshMatch(id:string){const match=market?.matches.find(m=>m.id===id),d=settlementData?.deployment;return !!match&&!!d&&[match.maker,match.taker].every(id=>BigInt(market?.orders.find(o=>o.orderId===id)?.sequence??'0')>BigInt(d.cutoff));}
+ useEffect(()=>{if(visible&&!activity&&(selectedMatch!==undefined||review)){const frame=requestAnimationFrame(()=>{(selectedMatch!==undefined?document.getElementById('settlement-heading'):ticketHeading.current)?.focus();});return()=>cancelAnimationFrame(frame);}},[visible,activity,selectedMatch,review]);
  function newOrder(){setDismissed(intent?.record.prepared.requestId);setQuantity('');setPrice('');setProblem('');}
 
- return <section className="page-section market" aria-labelledby="market-heading">
-  <div className="market-heading"><div><h2 id="market-heading">NOVA / HBAR</h2><p>Limit orders · Hedera Testnet</p></div><p><span role="status">{online?'Live':'Offline'}</span>{last?' · Last updated '+last:' · Waiting for market'}</p></div>
-  <section className="market-balance" aria-labelledby="balance-heading">
-   <div className="market-balance-heading"><h3 id="balance-heading">{role==='Not connected'?'Your NOVA balance':role+' account · NOVA balance'}</h3>{role!=='Not connected'&&<button className="secondary" disabled={balanceQuery.isFetching||locked} onClick={()=>void balanceQuery.refetch()}>{balanceQuery.isFetching?'Refreshing balance…':'Refresh balance'}</button>}</div>
-   {role==='Not connected'?<p>Connect an account to view its available and locked NOVA.</p>:<>
-    <dl><div><dt>Available</dt><dd>{balance?balance.available+' NOVA':'—'}</dd></div><div><dt>Locked in Holds</dt><dd>{balance?balance.held+' NOVA':'—'}</dd></div><div><dt>Total · available + locked</dt><dd>{balance?balance.total+' NOVA':'—'}</dd></div></dl>
-    <p className="muted" role="status">{balanceQuery.isError?(balance?'Balance update unavailable. Last successful read is retained.':'Balance unavailable. Refresh to try again.'):(balanceQuery.isFetching?'Reading current Testnet balances…':!balance?'Balance has not been read.':'Testnet balance read.')}{balance&&<> Last read: {new Date(Number(balance.timestamp)*1000).toLocaleString()} · Block {balance.block}.</>}</p>
-   </>}
-  </section>
+ return <section id={activity?'activity':'market'} className="page-section market" aria-labelledby="market-heading">
+  <div className="market-heading"><div><h2 id="market-heading">{activity?'Activity':'NOVA / HBAR'}</h2><p>{activity?'Your orders, matches and verified outcomes':'Buy and sell demo equity · Hedera Testnet'}</p></div><p><span role="status">{online?'Live':'Offline'}</span>{last?' · Last updated '+last:' · Waiting for market'}</p></div>
+  <div hidden={activity}>
+  <p className="hb:mb-4! hb:text-sm hb:text-[#485d6b]">NOVA is the demo share; HBAR is the payment. <a href="#overview">Understand the asset and flow</a>.</p>
+  <AccountBalance role={role} balance={balance} loading={balanceQuery.isFetching} error={balanceQuery.isError} locked={locked} onRefresh={()=>void balanceQuery.refetch()}/>
   <p className="notice"><strong>Funds are not reserved.</strong> Orders do not reserve NOVA or HBAR. Each match separately shows its lock, payment and delivery status.</p>
   {(owner===accounts.Admin.address&&!settlementData?.deployment||settlementData?.pendingOperation)&&<div className="actions"><button className="secondary" onClick={()=>setSelectedMatch(settlementData?.pendingOperation?.settlementId||'setup')}>{settlementData?.pendingOperation?'Recover settlement operation':'Settlement setup'}</button></div>}
   <div className="market-layout">
-   <section className="market-book" aria-labelledby="book-heading"><h3 id="book-heading">Order book</h3><p className="muted">Funds are not reserved</p>
-    {(['Sell','Buy'] as const).map(s=>{const rows=open.filter(o=>o.side===s).sort((a,b)=>{const ap=BigInt(a.price),bp=BigInt(b.price);return ap===bp?Number(BigInt(a.sequence)-BigInt(b.sequence)):ap<bp?(s==='Sell'?-1:1):(s==='Sell'?1:-1);});return <table className={s==='Sell'?'sell-book':'buy-book'} key={s}><caption>{s==='Sell'?'Asks · Lowest first':'Bids · Highest first'}</caption><thead><tr><th scope="col">Price (HBAR)</th><th scope="col">NOVA remaining</th></tr></thead><tbody>{rows.length?rows.map(o=><tr key={o.orderId}><td>{hbar(o.price)}</td><td>{o.remaining}</td></tr>):<tr><td colSpan={2}>No open {s.toLowerCase()} orders.</td></tr>}</tbody></table>;})}
-   </section>
+   <OrderBook open={open}/>
    {selectedMatch!==undefined?<SettlementPanel key={selectedMatch} match={market?.matches.find(m=>m.id===selectedMatch)} settlement={settlementData?.settlements.find(s=>s.id===selectedMatch)} deployment={settlementData?.deployment} pendingOperation={settlementData?.pendingOperation} roles={roles} owner={owner} session={session} online={online&&settlementsQuery.isSuccess&&!settlementsQuery.isRefetchError} locked={locked} eligible={selectedMatch==='setup'||freshMatch(selectedMatch)} onUpdated={()=>{void settlementsQuery.refetch();}} onNewOrder={()=>{setSelectedMatch(undefined);newOrder();}}/>:<section className="market-ticket" aria-labelledby="order-heading">
     <div className="market-account"><strong>{role}</strong><span>{owner?owner.slice(0,6)+'…'+owner.slice(-4):'Connect a trading account'} · Testnet 296</span></div>
     <h3 id="order-heading" ref={ticketHeading} tabIndex={-1}>{review?(review.record.prepared.action==='Cancel'?'Review cancellation':'Review '+review.record.prepared.side.toLowerCase()+' order'):completed?'Request result':pending(intent)?'Request pending':'Place a limit order'}</h3>
@@ -85,7 +83,7 @@ export default function MarketPanel({visible,roles,session,activeAccount}:{visib
      <dl><div><dt>Matched</dt><dd>{result.order.matched} NOVA</dd></div><div><dt>Remaining</dt><dd>{result.order.remaining} NOVA</dd></div><div><dt>Cancelled</dt><dd>{result.order.cancelled} NOVA</dd></div></dl>
      {result.matches.length>0&&<><ul>{result.matches.map(m=><li key={m.id}>{m.quantity} NOVA @ {hbar(m.price)} HBAR</li>)}</ul><p>Matched intent: {hbar(result.matches.reduce((total,m)=>total+BigInt(m.notional),0n).toString())} HBAR</p></>}
      <p className="muted">Result when processed. Live quantities appear in My orders. Matches are not settled.</p>
-     <div className="actions"><button disabled={disabled} onClick={newOrder}>New order</button><a href="#my-orders-heading" onClick={()=>setFilter('All')}>View my orders</a></div>
+     <div className="actions"><button disabled={disabled} onClick={newOrder}>New order</button><a href="#activity" onClick={()=>setFilter('All')}>View my orders</a></div>
     </div>:!pending(intent)&&<form onSubmit={e=>{e.preventDefault();void prepare();}}>
      <div className="market-switch" role="group" aria-label="Order side">{(['Buy','Sell'] as const).map(value=><button type="button" key={value} className={'secondary '+value.toLowerCase()} aria-pressed={side===value} disabled={disabled} onClick={()=>setSide(value)}>{value}</button>)}</div>
      <label className="text-field">Quantity (NOVA)<input ref={quantityInput} inputMode="numeric" value={quantity} maxLength={4} placeholder="1–1000" disabled={disabled} onChange={e=>setQuantity(e.target.value)} aria-describedby="amount-help"/></label>
@@ -98,20 +96,11 @@ export default function MarketPanel({visible,roles,session,activeAccount}:{visib
     {intent&&<details className={pending(intent)?'pending-notice':'market-request'} open={pending(intent)||intent.record.status==='rejected'||intent.record.status==='expired'}><summary>Request {intent.record.status} · {intent.record.prepared.owner===accounts.Seller.address?'Seller':'Buyer'}</summary><p>{intent.record.prepared.action==='Cancel'?'Cancel order '+intent.record.prepared.orderId:intent.record.prepared.side+' '+intent.record.prepared.quantity+' NOVA @ '+hbar(intent.record.prepared.price)+' HBAR'}</p><p className="address">{intent.record.prepared.requestId}</p>{pending(intent)&&<p>Query only until the server confirms the result or expiry. No automatic resubmission. Submission deadline: {new Date(Number(intent.record.prepared.deadline)*1000).toLocaleTimeString()}.</p>}<button className="secondary" disabled={working} onClick={recover}>Query original request</button></details>}
    </section>}
   </div>
+  </div>
+  {activity&&<p className="notice hb:mb-6!">Select a match to continue in Market. An accepted order is intent; only verified settlement proves payment and delivery.</p>}
   <div className="market-history-layout">
-  <section className="market-history" aria-labelledby="my-orders-heading">
-   <div className="market-history-heading"><h3 id="my-orders-heading">My orders</h3><div className="market-switch" role="group" aria-label="Order filter">{(['Open','All'] as const).map(value=><button className="secondary" key={value} aria-pressed={filter===value} onClick={()=>setFilter(value)}>{value}{value==='Open'?' ('+myOrders.filter(o=>BigInt(o.remaining)>0n).length+')':''}</button>)}</div></div>
-   {shownOrders.length?<div className="market-table-scroll" role="region" aria-label="My orders table" tabIndex={0}><table className="market-order-table"><caption>Quantities in NOVA · Prices in HBAR</caption><thead><tr><th scope="col">Order / status</th><th scope="col">Matched</th><th scope="col">Remaining</th><th scope="col">Cancelled</th><th scope="col">Action</th></tr></thead><tbody>{shownOrders.slice().reverse().map(o=><tr key={o.orderId}>
-    <td><strong className={o.side.toLowerCase()+'-text'}>{o.side} {o.quantity} @ {hbar(o.price)}</strong><p>{status(o)}</p><p className="muted">{o.orderId.slice(0,8)} · <time dateTime={new Date(Number(o.acceptedAt)*1000).toISOString()}>{new Date(Number(o.acceptedAt)*1000).toLocaleTimeString()}</time></p><details><summary>Details</summary><p>Quantity in NOVA · Price in HBAR</p><p>Remaining {o.remaining} · Matched {o.matched} · Cancelled {o.cancelled} · Expired {o.expired}</p><p className="address">{o.orderId}</p><p>Expires {new Date(Number(o.expiresAt)*1000).toISOString()}</p>{o.reason&&<p>{o.reason}</p>}</details></td>
-    <td>{o.matched}</td><td>{o.remaining}</td><td>{o.cancelled}</td><td>{BigInt(o.remaining)>0n?<button className="secondary" disabled={disabled} aria-label={'Cancel remaining '+o.remaining+' NOVA from '+o.side+' order '+o.orderId} onClick={()=>prepare(o)}>Cancel remaining {o.remaining}</button>:<span>—</span>}</td>
-   </tr>)}</tbody></table></div>:<p>{!trader?'Connect a trading account to view its orders.':filter==='Open'?'No open orders. Select All to view completed and cancelled orders.':'No orders for this account.'}</p>}
-  </section>
-  <section className="market-history" aria-labelledby="matches-heading"><div className="market-history-heading"><h3 id="matches-heading">Matches</h3><label>Show<select aria-label="Match filter" value={matchFilter} onChange={e=>setMatchFilter(e.target.value as typeof matchFilter)}>{['Active','Needs your action','Completed','All'].map(v=><option key={v}>{v}</option>)}</select></label></div>
-   <p className="muted">Matched does not mean settled. Select a match for its next step.</p>
-   <ul className="market-orders">{(market?.matches??[]).filter(m=>owner===accounts.Admin.address||m.seller===owner||m.buyer===owner).filter(m=>{const s=settlementData?.settlements.find(s=>s.id===m.id),finished=s&&['Settled','Cancelled','Reclaimed','Returned'].includes(s.status);return matchFilter==='All'||matchFilter==='Completed'?matchFilter==='All'||finished:matchFilter==='Needs your action'?freshMatch(m.id)&&(s?!!settlementAction(s,owner,BigInt(Math.floor(Date.now()/1000))):owner===m.seller):freshMatch(m.id)&&!finished;}).slice().reverse().map(m=>{const s=settlementData?.settlements.find(s=>s.id===m.id);return <li key={m.id}><div><strong>{m.quantity} NOVA @ {hbar(m.price)} HBAR</strong><p>{s?settlementStatus(s,BigInt(Math.floor(Date.now()/1000))):freshMatch(m.id)?'Waiting for seller':'Historical · Matched · Not settled'}</p><p className="muted">Match {m.id} · {new Date(Number(m.time)*1000).toLocaleString()}</p><button className="secondary" onClick={()=>{setSelectedMatch(m.id);setReview(undefined);setApproved(false);}}>View match {m.id}</button><details><summary>Match {m.id} details</summary><p>Buyer: {m.buyer===accounts.Buyer.address?'Buyer account':'Seller account'} · Seller: {m.seller===accounts.Seller.address?'Seller account':'Buyer account'}</p><p className="address">Maker {m.maker}<br/>Taker {m.taker}</p></details></div></li>;})}</ul>
-   {!market?.matches.length&&<p>No matches yet. Matching does not prove payment or delivery.</p>}
-   {matchFilter==='Active'&&!settlementData?.settlements.length&&<p>No active settlements. Select All to inspect historical matches.</p>}
-  </section>
+  <OrdersTable myOrders={myOrders} filter={filter} setFilter={setFilter} trader={trader} disabled={disabled} onCancel={order=>{setSelectedMatch(undefined);window.location.hash='market';void prepare(order);}}/>
+  <MatchesList market={market} settlementData={settlementData} owner={owner} matchFilter={matchFilter} setMatchFilter={setMatchFilter} freshMatch={freshMatch} onSelect={id=>{setSelectedMatch(id);setReview(undefined);setApproved(false);window.location.hash='market';}}/>
   </div>
   <div className="actions"><button className="secondary" disabled={!market} onClick={exportPublic}>Export public market evidence</button></div>
  </section>;

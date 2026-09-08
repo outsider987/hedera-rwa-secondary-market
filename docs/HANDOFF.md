@@ -1,5 +1,28 @@
 # HoldBook handoff
 
+## NOVA overview presentation extension delivered — effective
+
+`based_on_commit: 578aaf5661eebc300064730b387cc5e370b31cee`, actual current Git
+HEAD after independent T08 closeout. The user approved fictional-company digital
+equity, an illustrative NOVA certificate, clearer tabs and component extraction
+with existing Tailwind. [Spec005](plans/005-nova-overview.md) records this bounded
+presentation authorization; no chain/asset parameter or dependency changed.
+
+Overview is the default; Market / Activity / Settings explain tasks. Activity
+contains existing order/match lists and dated T02–T05 evidence, with old
+Trade/History links preserved. One Market controller retains drafts/selection;
+wallet handlers, locks and original-operation persistence remain in place.
+Generated illustration is labeled demo equity and its prompt is preserved.
+
+Validation: npm ci,114 app+36 protobuf tests, typecheck, both builds and four
+isolated dev/preview desktop/mobile browser cases pass. Independent finish review
+returned ship at this presentation scope. [Usage050](ai-usage/050-nova-overview.md)
+contains actual checks, captures, source/provenance and fixture limitations.
+
+T08 remains complete locally as recorded below. This extension stops at local
+review; no next ticket or additional implementation files are authorized. No
+new wallet signatures/transactions, push, merge or public deployment occurred.
+
 ## T08 complete locally — effective review boundary
 
 `based_on_commit: 14975b678dd39eca8125bf50cb62385359c9298d` is the verified base

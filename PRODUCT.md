@@ -34,8 +34,17 @@ buy or sell; labels distinguish the bound account from its role in a match.
 Admin views all matches and prepares the settlement deployment. No agent signer,
 automatic account switch, push, merge or public deployment is authorized.
 
-Market is the default tab, followed by Trade / History / Settings. Trade is now
-a read-only T05 historical view at block 40247352. The standalone showcase is a
+Overview is the default tab, followed by Market / Activity / Settings. Overview
+explains fictional NOVA equity, NOVA versus HBAR, account responsibilities and
+the lifecycle through verified settlement or return. Its generated demo certificate
+is illustrative; asset facts remain HTML text. Activity shows current orders and
+matches alongside dated T02–T05 evidence, including read-only Trade at block
+40247352. Legacy Trade/History links resolve to Activity. Market retains order
+and match history access; Activity actions return there. Settings contains
+account, network and SDK setup. One mounted Market controller preserves drafts,
+intents and selected settlement across tabs with existing wallet guards.
+The extension uses installed Tailwind, with no new dependency or shadcn.
+The standalone showcase is a
 separate build suitable for later publication review, with no trading controls.
 
 ## Capabilities and Constraints
@@ -74,6 +83,12 @@ fixtures for dev/preview desktop/mobile behavior and separate API-free,
 wallet-free showcase checks. They do not establish real MetaMask execution,
 live settlement or completion of the full acceptance matrix. Effective scope
 and remaining requirements are in [T08 spec](docs/plans/004-matched-settlement.md).
+
+The [NOVA design record](docs/design/nova-overview.md) and
+[presentation evidence 042](docs/evidence/042-nova-overview.json) record the
+Overview/navigation extension. Dev/preview desktop/mobile checks and eight tab
+captures passed using public fixtures and no wallet mutations. This presentation
+review adds no new chain acceptance; the four actual T08 cases remain complete.
 
 ## Product Principles
 

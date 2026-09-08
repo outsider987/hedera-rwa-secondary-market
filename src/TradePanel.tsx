@@ -1,14 +1,12 @@
 import {useRef,useState} from 'react';
-import type {Roles} from './guards';
 import {accounts,securityId,securityAddress,partition,type LifecycleState} from './lifecycle';
 import {readHoldState} from './hold';
 import {assertTradeState,readSwap} from './trade';
-import type {TradeRecord} from './evidence';
 
 export function Balances({state}:{state:LifecycleState}) {
  return <dl className="balance-list"><div><dt>Seller available / held</dt><dd>{state.sellerBalance} / {state.sellerHeld} NOVA</dd></div><div><dt>Buyer available / held</dt><dd>{state.buyerBalance} / {state.buyerHeld} NOVA</dd></div><div><dt>Supply / cap</dt><dd>{state.supply} / 1,000 NOVA</dd></div></dl>;
 }
-export default function TradePanel(_props:{roles:Roles;session:number;activeAccount?:string;records:TradeRecord[];onRecords:(r:TradeRecord[])=>void}) {
+export default function TradePanel() {
  const [state,setState]=useState<LifecycleState>(),[working,setWorking]=useState(false),[problem,setProblem]=useState('');
  const running=useRef(false);
  async function verify(){if(running.current)return;running.current=true;setWorking(true);setProblem('');try{
