@@ -1,5 +1,25 @@
 # HoldBook handoff
 
+## Matching roadmap planning — September 8, 2026 (effective)
+
+`based_on_commit: b2e489b0881d4317880a0eb8fcc2d7a9632a4852` is actual merged
+T05 main (PR #7); prior T05 integration is complete. Victor asked to resume the
+matching goal and approved rereading/planning with “好”. Active work is planning
+only: [draft 003](plans/003-matching-engine.md), [prompt 028](prompts/028-matching-planning.md),
+[usage 041](ai-usage/041-matching-planning.md), HANDOFF, main plan and AI_USAGE.
+Those six files are the complete current scope; no application code changes.
+
+Original supplied provenance explicitly names Go CLOB/PostgreSQL after lifecycle.
+Draft proposes T06 Go matching core, T07 persistent order service, T08 matched
+settlement. It specifies matching rules, exact proposed T06 files and acceptance
+tests, and marks funding/authentication/settlement boundaries. T05's settled
+fixed swap is historical. Local links/diff checks pass; no new runtime test or
+chain mutation. Exact supported Go toolchain must be verified before code.
+Next implementation ticket is proposed T06, not activated by this planning
+approval. Its allowed files are listed in draft 003; T07/T08 require separate
+specs. Stay on local planning branch; T05 push/merge authorization does not
+authorize publishing this new work. No additional live trade or signature.
+
 ## T05 integration authorized — September 8, 2026 (effective)
 
 `based_on_commit: db410a30284a3477ffca648ccb88bd928e4f2546`.
