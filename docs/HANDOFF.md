@@ -1,5 +1,96 @@
 # HoldBook handoff
 
+## T05 activated — September 8, 2026 (effective)
+
+- `based_on_commit: d85d19ca95fef467abf327a0620372c9b9f9ea88` is verified merged
+  main (PR #6), not this handoff's commit. Branch `feat/t05-atomic-trade` was
+  created from it with a clean worktree. Latest user plan activates T05 and
+  supersedes previous ticket stops/payment/custom-contract deferrals only for
+  this fixed trade. No T05 push/merge or agent chain mutation is authorized.
+- T02–T04 completed evidence remains historical. T04 final block 40241114:
+  Seller 94, Buyer 6, both held 0, supply/cap 100/1000, config 1. Current
+  public prerequisites at block 40244247 still match. T05 implementation and
+  automated checks are delivered; manual T05 acceptance remains Pending.
+  Preserve original records; never repeat T04 to test this ticket.
+- Read [T05 spec](plans/002-atomic-trade.md), [actual prompt](prompts/027-t05-atomic-trade.md)
+  and [UI direction](../DESIGN.md) before implementation. The original plan's
+  shared safety/attribution rules continue to apply. Follow this reading map
+  before older maps below when working on T05.
+
+Exact allowed implementation files, recorded before implementation:
+`contracts/NovaHbarSwap.sol`, `contracts/test/NovaHbarSwap.t.sol`, `foundry.toml`,
+`scripts/build-swap.mjs`, `src/swap-artifact.json`, `package.json`,
+`.github/workflows/ci.yml`, `src/trade.ts`, `src/TradePanel.tsx`,
+`tests/trade.test.mjs`, `src/App.tsx`, `src/styles.css`, `src/hold.ts`,
+`src/transport.ts`, `src/evidence.ts`, `tests/hold.test.mjs`,
+`tests/transport.test.mjs`, `tests/evidence.test.mjs`, `tests/shell.test.mjs`.
+
+Exact documentation/evidence files:
+`docs/plans/002-atomic-trade.md`, `DESIGN.md`,
+`docs/prompts/027-t05-atomic-trade.md`, `docs/ai-usage/040-t05-atomic-trade.md`,
+`docs/evidence/031-t05-implementation.md`, `docs/evidence/031-t05-validation.json`,
+`docs/evidence/031-t05-live-read.mjs`, `docs/evidence/031-t05-live-read.json`,
+`docs/evidence/031-t05-browser.mjs`, `docs/evidence/031-t05-browser.json`,
+`docs/evidence/031-t05-sdk-browser.mjs`, `docs/evidence/031-t05-sdk-browser.json`,
+`docs/evidence/031-t05-5173-1440.png`, `docs/evidence/031-t05-5173-390.png`,
+`docs/evidence/031-t05-4173-1440.png`, `docs/evidence/031-t05-4173-390.png`,
+`docs/evidence/031-t05-history.png`, `docs/evidence/031-t05-settings.png`,
+`docs/plans/001-ats-first.md`, `docs/HANDOFF.md`, `PRODUCT.md`, `README.md`,
+`docs/DEMO.md`, `docs/ARCHITECTURE.md`, `docs/ATTRIBUTION.md`, `AI_USAGE.md`.
+Subsequent manual evidence within this ticket only:
+`docs/evidence/032-t05-manual.md`, `docs/evidence/032-t05-manual.json`,
+`docs/evidence/032-t05-manual.html`, `docs/evidence/032-t05-deploy.png`,
+`docs/evidence/032-t05-lock.png`, `docs/evidence/032-t05-negative.png`,
+`docs/evidence/032-t05-purchase.png`, `docs/evidence/032-t05-final.png`,
+usage 040, HANDOFF, main plan and AI_USAGE. Create captures only when observed.
+No npm dependency, lockfile, existing patch, asset, account, or other file change.
+
+Normal flow: Admin deploys, Seller SDK locks 10, Buyer pays 1 HBAR to receive
+10; all three approvals manual in MetaMask on preview 4173. Start 94/6/held 0,
+locked 84/6/held 10, settled 84/16/held 0; supply/cap 100/1000 and Buyer held 0.
+Both KYC records cover reviewed block timestamp +86400 before deploy/lock.
+Unknown operations, expired KYC or pinned incompatibility stop for diagnostics.
+Wallet value 10^18 weibars; contract receives/pays 10^8 tinybars. No float math.
+Separate public T05 journal; immediate intent/hash persistence, session/role/
+chain/calldata/runtime guards, one 180-second recovery, no automatic resend.
+
+Required checks: npm ci/test/typecheck/build; Foundry 1.7.1, Solidity 0.8.36,
+Paris local VM contract suite; specified app races/guards; dev/preview browser
+desktop/mobile/keyboard/navigation/pending/request scope. Wrong Buyer/payment
+before live settlement and duplicate purchase afterward are read-only simulations
+with exact blocks/calldata and no transaction IDs. Manual acceptance stays
+Pending until actual receipt/event/Mirror/HBAR evidence and final state verify.
+Stop at T05; no next ticket or next implementation files are activated.
+
+Implementation boundary: [evidence 031](evidence/031-t05-implementation.md),
+[validation JSON](evidence/031-t05-validation.json) and
+[AI work item 040](ai-usage/040-t05-atomic-trade.md). npm ci, 98 app + 36 proto
+tests, typecheck, build and 16 local contract tests passed. Browser checks cover
+dev/preview at 1440/390, review/checkbox/preview gates, wallet invalidation,
+native navigation/focus, pending/reload and same-origin Web Lock exclusion.
+Fourteen genuine SDK controlled-boundary cases passed. No real transaction or
+signature was made; automated public reads do not observe MetaMask pending work.
+The fresh UI review's cancellation-role correction is resolved (`ship` at that
+fix's scope); DESIGN records the delivered interface and verification boundary.
+The relay's 1,000-block limit is handled by complete paginated history scans.
+SDK Hold creation lacks its own KYC precheck; the app enforces KYC before send.
+
+Next authorized work is only T05 manual acceptance on `127.0.0.1:4173`.
+Victor selects Admin, binds the original three accounts if absent, checks
+readiness, reviews deployment and confirms the absence of unknown MetaMask
+operations. He alone approves that transaction. Recover and export its receipt,
+runtime and Mirror evidence before Seller creates the new Hold. Buyer performs
+the pre-purchase read-only checks, then approves exactly 1 HBAR plus network
+fees and performs the duplicate rejection check. Follow [DEMO](DEMO.md).
+Expected final 84/16/held 0 is not yet an observed T05 result.
+
+The exact subsequent allowed files are the 032 manual-evidence paths listed
+above, usage 040, HANDOFF, the main plan and AI_USAGE. If acceptance reveals a
+defect, repair only the applicable T05 implementation/test files already listed
+above, update evidence 031 and rerun affected checks. No SDK/deployment fallback,
+KYC renewal, repeated T04, new trade or next ticket. Existing audit/peer/native
+BBS/license/event-eligibility limitations remain unresolved and disclosed.
+
 ## Judge documentation integration authorized — September 8, 2026 (effective)
 
 - `based_on_commit: 6a65097d8f2b6a3abd585e2eab56ef51421427b6` is the verified documentation

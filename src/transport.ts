@@ -2,14 +2,15 @@ import { getAddress } from 'viem';
 import { rpc, assertNovaTransaction } from './nova';
 import { rpcUrl } from './deployment';
 import type { WalletProvider } from './credentials';
-import type { LifecycleRecord, HoldTransaction } from './evidence';
+import type { LifecycleRecord, HoldTransaction, TradeTransaction } from './evidence';
 
-// The existing owned Asset provider pair, shared only by the fixed T03/T04 asset paths.
-export async function createAssetProviders<T extends LifecycleRecord | HoldTransaction>(options: {
+// Owned provider pair for the fixed T03–T05 paths; wallet mutations are guarded below.
+export async function createAssetProviders<T extends LifecycleRecord | HoldTransaction | TradeTransaction>(options: {
   wallet: { provider: WalletProvider }; signer: string; securityAddress: string; calldata?: string; reads: string[];
   initial: T; sanitize: (record: T) => T; update: (record: T) => void;
   checkCurrent: (mutation?: boolean) => Promise<void>; signal: AbortSignal; recoverAfterHash?: boolean; readOnly?: boolean; readBlock?: string;
   verifyReceipt: (record: T, tx: Record<string, unknown>, receipt: Record<string, unknown>) => Promise<unknown>;
+  assertContractTransaction?: (tx: unknown) => void;
 }) {
   const ethers = await import('ethers');
   const controller = new AbortController(), combined = AbortSignal.any([options.signal, controller.signal]);
@@ -54,7 +55,10 @@ export async function createAssetProviders<T extends LifecycleRecord | HoldTrans
     sending = true;
     try {
       await options.checkCurrent(true); combined.throwIfAborted();
-      assertNovaTransaction(params[0], { admin: options.signer, factory: options.securityAddress, calldata: options.calldata });
+      if (record.kind === 't05-transaction' && record.action !== 'lock') {
+        if (!options.assertContractTransaction) throw new Error('Missing exact contract transaction guard.');
+        options.assertContractTransaction(params[0]);
+      } else assertNovaTransaction(params[0], { admin: options.signer, factory: options.securityAddress, calldata: options.calldata });
       publish({ ...record, status: 'awaiting-signature' }); attempted = true;
       try {
         const result = await options.wallet.provider.request({ method, params });

@@ -20,6 +20,10 @@ jobs:
       - name: Match the pinned npm version
         run: npm install --global npm@11.17.0
       - run: npm ci
+      - uses: foundry-rs/foundry-toolchain@908c540300062bd5a7e473851cdb4282204cee09
+        with:
+          version: v1.7.1
+      - run: npm run test:swap
       - run: npm test
       - run: npm run typecheck
       - run: npm run build

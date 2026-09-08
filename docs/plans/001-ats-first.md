@@ -1,6 +1,10 @@
 # HoldBook 第一階段：ATS／KYC／Hold 驗證
 
 Status: 使用者於 2026-09-05 核准實作。進度以 `../HANDOFF.md` 為準。
+2026-09-08 T05 已另行核准：[單筆原子買賣規格](002-atomic-trade.md)。
+僅該票範圍解除下文付款腿／自訂合約延後限制；先前完成紀錄保留。
+T05 合約、介面與自動驗證已交付：[實作證據 031](../evidence/031-t05-implementation.md)、
+[AI 工作項目 040](../ai-usage/040-t05-atomic-trade.md)；真人三筆交易驗收仍 Pending。
 本文件保存定案；bootstrap 第一張 active ticket 是 T00-min。
 
 ## 1. 目標與範圍

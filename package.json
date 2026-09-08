@@ -13,6 +13,8 @@
     "test": "node --experimental-test-module-mocks --test tests/*.test.mjs && npm run test:proto",
     "typecheck": "tsc --noEmit",
     "build": "vite build",
+    "build:swap": "node scripts/build-swap.mjs",
+    "test:swap": "node scripts/build-swap.mjs --check && forge test -vv",
     "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
     "postinstall": "node scripts/rebuild-proto.mjs && node scripts/patch-ats-readonly.mjs && node scripts/patch-ats-wallet.mjs",
     "test:proto": "node docs/evidence/014-t01a-decoder-rebuild.test.mjs --candidate --compare docs/evidence/007-t01a-protobuf-rebuild-restored-tests.json"

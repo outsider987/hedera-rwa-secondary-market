@@ -31,6 +31,9 @@ test('SDK KYC and chain revert classifications cannot pass transport or generic 
 test('T03 transaction entry is closed before any network or wallet operation',async()=>{
  const l=await import('../src/lifecycle.ts');await assert.rejects(l.submitLifecycle({},()=>{}),/T03.*complete|closed/i);
 });
+test('T04 entry is read-only before wallet or network access',async()=>{
+ const h=await load();await assert.rejects(h.runHoldAction({},()=>{},new AbortController().signal),/T04 is complete/);
+});
 
 async function fixtures(){
  const h=await load(),l=await import('../src/lifecycle.ts'),e=await import('../src/evidence.ts'),{asset}=await (await import('../src/nova.ts')).interfaces(),{keccak256}=await import('viem');
