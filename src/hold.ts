@@ -306,7 +306,7 @@ export async function holdSdkReads(input: HoldInput) {
       'isClearingActivated','isInternalKycActivated','isMultiPartition','isIssuable','paused','getControlListCount'].map(name=>asset.encodeFunctionData(name)),
     ...[...roleIds,'0x9830aa071a741c08855dd42130bdb0ff50f7bdf5a4b72f12181eefded0c6542b'].map(role=>asset.encodeFunctionData('hasRole',[role,accounts.Admin.address])),
     asset.encodeFunctionData('isIssuer',[accounts.Admin.address]),asset.encodeFunctionData('getControlListMembers',[0,0]),
-    asset.encodeFunctionData('balanceOf',[accounts.Seller.address]),
+    ...[accounts.Seller.address,accounts.Buyer.address].map(address=>asset.encodeFunctionData('balanceOf',[address])),
     ...[accounts.Seller.address,accounts.Buyer.address].flatMap(address=>[
       ...['getKycFor','getKycStatusFor','isInControlList'].map(name=>asset.encodeFunctionData(name,[address])),
       ...[0,1].map(status=>asset.encodeFunctionData('isExternallyGranted',[address,status])),

@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-09-08",
+  "status": "Pending",
+  "chainId": "296",
+  "deployment": null,
+  "observedOrderSignatures": "0",
+  "observedChainTransactions": "0",
+  "expectedOrderSignatures": "8",
+  "expectedChainTransactions": "13",
+  "cases": [
+    {"id": "normal", "status": "Pending", "quantity": "2", "priceTinybars": "10000000", "evidence": []},
+    {"id": "reverse", "status": "Pending", "quantity": "1", "priceTinybars": "9000000", "evidence": []},
+    {"id": "cancel", "status": "Pending", "quantity": "1", "priceTinybars": "10000000", "evidence": []},
+    {"id": "reclaim", "status": "Pending", "quantity": "1", "priceTinybars": "10000000", "evidence": []}
+  ],
+  "reloadAndRestartComparison": "Pending"
+}

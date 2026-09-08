@@ -50,3 +50,13 @@ test('T05 payable transport preserves late hashes, distinguishes rejection from 
  const legacyProvider=await createAssetProviders({...options,initial:legacy,sanitize:e.holdEvidence,signer:l.accounts.Seller.address,calldata:holdData,signal:new AbortController().signal,assertContractTransaction:()=>{throw Error('Must not replace ATS guard');}});
  await assert.rejects(legacyProvider.browser.send('eth_sendTransaction',[{from:l.accounts.Seller.address,to:l.securityAddress,data:holdData,value:tx.value}]));assert.equal(legacyProvider.wasAttempted(),false);legacyProvider.close();
 });
+test('T08 transport requires exact guard, preserves an invalidated late hash and distinguishes rejection',async()=>{
+ const {createAssetProviders}=await import('../src/transport.ts'),{accounts,securityAddress}=await import('../src/lifecycle.ts');
+ const tx={from:accounts.Buyer.address,to:'0x'+'1'.repeat(40),chainId:'0x128',data:'0x12345678',value:'0x2c68af0bb140000'},hash='0x'+'c'.repeat(64);
+ let resolve,sends=0;const controller=new AbortController(),seen=[];
+ const options={wallet:{provider:{request:async()=>{sends++;return new Promise(r=>resolve=r)}}},signer:accounts.Buyer.address,securityAddress,calldata:tx.data,reads:[],initial:{kind:'t08-transaction',action:'settle',status:'awaiting-signature'},sanitize:r=>r,update:r=>seen.push(r),checkCurrent:async()=>{},signal:controller.signal,recoverAfterHash:true,verifyReceipt:async()=>{throw Error('Use server verifier');},assertContractTransaction:x=>assert.deepEqual(x,tx)};
+ const unguarded=await createAssetProviders({...options,assertContractTransaction:undefined});await assert.rejects(unguarded.browser.send('eth_sendTransaction',[tx]));assert.equal(sends,0);unguarded.close();
+ const p=await createAssetProviders(options);await assert.rejects(p.browser.send('eth_sendTransaction',[{...tx,value:'0x1312d00'}]));
+ const sending=p.browser.send('eth_sendTransaction',[tx]);while(!resolve)await new Promise(r=>setImmediate(r));controller.abort();resolve(hash);await sending;assert.equal(sends,1);assert.equal(seen.at(-1).transactionHash,hash);assert.equal(seen.at(-1).status,'pending');await assert.rejects(p.browser.send('eth_sendTransaction',[tx]));p.close();
+ for(const code of [4001,-32603]){const q=await createAssetProviders({...options,signal:new AbortController().signal,wallet:{provider:{request:async()=>{throw {code}}}}});await assert.rejects(q.browser.send('eth_sendTransaction',[tx]));assert.equal(q.getRecord().status,code===4001?'rejected':'unknown');q.close();}
+});

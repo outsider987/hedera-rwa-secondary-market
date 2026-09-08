@@ -316,7 +316,9 @@ export async function createTradeHoldSdk(input: HoldInput) {
   const sdk=await import('@hashgraph/asset-tokenization-sdk');
   return sdk.Security.createHoldByPartition(new sdk.CreateHoldByPartitionRequest({securityId,partitionId:partition,amount:'10',escrowId:input.escrow,targetId:accounts.Buyer.address,expirationDate:input.expirationTimestamp}));
 }
+export const tradeClosed=true;
 export async function runTrade(review: TradeReview, update:(r:TradeRecord[])=>void, signal:AbortSignal, progress:(m:string)=>void = ()=>{}) {
+  if(tradeClosed)throw new Error('T05 is complete. Use historical verification; all T05 mutations and repeated simulations are closed.');
   const simulation=review.action.endsWith('negative');
   if (!simulation && !isCreationOrigin(window.location.origin,import.meta.env.PROD)) throw new Error('Use production preview http://127.0.0.1:4173 for manual transactions.');
   return withTransactionLock(navigator.locks,async()=>{

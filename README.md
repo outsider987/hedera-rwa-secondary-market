@@ -2,7 +2,13 @@
 
 **[Submission review version](docs/SUBMISSION.md)** — project summary, actual results, screenshots, architecture and verification boundaries.
 
-A local Hedera Testnet console with an unfunded NOVA/HBAR limit-order market.
+A local Hedera Testnet NOVA/HBAR order and settlement workbench.
+T08 adds manually approved per-match Holds, atomic HBAR delivery/payment, durable
+recovery and a separate static portfolio. **T08 manual acceptance is pending.**
+See [implementation and checks](docs/evidence/037-t08-implementation.md) and
+[the next manual steps](docs/DEMO.md#t08--fresh-matched-settlement).
+
+The historical T07 milestone provides an unfunded limit-order market.
 Review and sign orders in MetaMask, match by price/time priority, and cancel
 remaining quantities. **Funds are not reserved. Matched · Not settled.**
 T06 core and T07 implementation are verified; human acceptance
@@ -30,7 +36,7 @@ Open **http://127.0.0.1:4173**. Market is the default; Trade retains the histori
 fixed swap, History contains dated evidence, and Settings contains accounts and
 SDK checks. Victor alone approves signatures and transactions in MetaMask.
 Development (`npm run dev`, port 5173) reads the market; order preparation/signing
-requires preview. Follow the [six-signature demo](docs/DEMO.md#t07--unfunded-matching-acceptance-pending).
+requires preview. Follow the [fresh T08 acceptance sequence](docs/DEMO.md#t08--fresh-matched-settlement); do not repeat T07.
 
 ```sh
 npm test
@@ -41,7 +47,13 @@ npm run test:swap
 Contract tests require **Foundry 1.7.1** and **Solidity 0.8.36**, targeting Paris.
 They run only in the local VM. `npm run build:swap` regenerates the committed
 artifact; `test:swap` verifies it matches the pinned source and compiler.
-Existing npm dependencies, lockfile and SDK patches remain fixed.
+Existing pins and SDK patches remain fixed. T08 adds exact Tailwind/plugin 4.3.3,
+Motion 13.2.0 and OpenZeppelin Contracts 5.6.1; attribution is retained.
+
+For the wallet-free portfolio, run `npm run build:showcase` after the main build.
+Open **http://127.0.0.1:4173/showcase/index.html**. `dist/showcase/` is the independent
+static site output, ready for review before any GitHub Pages publication. Only T05
+is currently a verified snapshot; all four T08 cases explicitly await evidence.
 
 ## Review the work
 
@@ -51,8 +63,8 @@ Existing npm dependencies, lockfile and SDK patches remain fixed.
 - [T05 specification](docs/plans/002-atomic-trade.md) and [architecture](docs/ARCHITECTURE.md).
 - [Completed T04 report](docs/evidence/029-t04-manual.md), [public data](docs/evidence/029-t04-manual.json) and [offline screenshot gallery](docs/evidence/029-t04-manual.html).
 
-NOVA and its KYC claims are synthetic. Matching is unfunded; T08 settlement,
-multiple-device operation and public deployment remain out of scope. Desktop MetaMask ECDSA is supported; native BBS is excluded.
+NOVA and its KYC claims are synthetic. Orders remain unfunded until a separate verified Hold. Multiple-device operation
+and actual public deployment remain out of scope. Desktop MetaMask ECDSA is supported; native BBS is excluded.
 [Dependency and verification limits](docs/evidence/029-t04-manual.md),
 [third-party attribution](docs/ATTRIBUTION.md) and [AI assistance](AI_USAGE.md)
 remain disclosed. No project license has been selected. The unseen pre-event

@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
@@ -12,7 +13,7 @@ export default defineConfig({
       'winston-daily-rotate-file': new URL('./src/compat/winston.ts', import.meta.url).pathname,
     },
   },
-  plugins: [nodePolyfills({
+  plugins: [tailwindcss(),nodePolyfills({
     include: ['buffer', 'process', 'util', 'stream', 'crypto', 'os', 'vm'],
     globals: { Buffer: true, global: true, process: true },
   })],

@@ -2,10 +2,11 @@ import { getAddress } from 'viem';
 import { rpc, assertNovaTransaction } from './nova';
 import { rpcUrl } from './deployment';
 import type { WalletProvider } from './credentials';
+import type { SettlementTransportRecord } from './settlement';
 import type { LifecycleRecord, HoldTransaction, TradeTransaction } from './evidence';
 
 // Owned provider pair for the fixed T03–T05 paths; wallet mutations are guarded below.
-export async function createAssetProviders<T extends LifecycleRecord | HoldTransaction | TradeTransaction>(options: {
+export async function createAssetProviders<T extends LifecycleRecord | HoldTransaction | TradeTransaction | SettlementTransportRecord>(options: {
   wallet: { provider: WalletProvider }; signer: string; securityAddress: string; calldata?: string; reads: string[];
   initial: T; sanitize: (record: T) => T; update: (record: T) => void;
   checkCurrent: (mutation?: boolean) => Promise<void>; signal: AbortSignal; recoverAfterHash?: boolean; readOnly?: boolean; readBlock?: string;
@@ -55,7 +56,7 @@ export async function createAssetProviders<T extends LifecycleRecord | HoldTrans
     sending = true;
     try {
       await options.checkCurrent(true); combined.throwIfAborted();
-      if (record.kind === 't05-transaction' && record.action !== 'lock') {
+      if (record.kind === 't08-transaction' || record.kind === 't05-transaction' && record.action !== 'lock') {
         if (!options.assertContractTransaction) throw new Error('Missing exact contract transaction guard.');
         options.assertContractTransaction(params[0]);
       } else assertNovaTransaction(params[0], { admin: options.signer, factory: options.securityAddress, calldata: options.calldata });

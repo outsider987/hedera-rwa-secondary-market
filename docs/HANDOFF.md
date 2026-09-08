@@ -1,19 +1,34 @@
 # HoldBook handoff
 
-## T08 milestone 1 — contract/service delivered; ticket active
+## T08 activated — September 8, 2026 (effective)
 
-`based_on_commit: 3088cb9e19abffdc3c6ed58e698c62a11d88f79e` verified against Git.
-The user activated [T08 spec 004](plans/004-matched-settlement.md), superseding
-older no-T08 boundaries. New contract, reproducible artifact, public digest vector,
-Go verification/persistence and migration are implemented. 31 Foundry tests and
-real PostgreSQL test/race/vet passed; conservation fuzz ran 35,717 executions.
-The local API image builds and original T07 nine orders/five matches survive API
-and database restart. No T08 deployment or manual chain action has occurred.
+`based_on_commit: 3088cb9e19abffdc3c6ed58e698c62a11d88f79e` verified merged main; clean starting tree.
+User supplied the T08 implementation plan, superseding earlier no-T08 boundaries.
+Active ticket is T08 across three authorized milestones; local commits only.
+Contract/service milestone is independently committed as `3fe9b95ca47fef4dc74558872196695cd93670ee`.
+Read [spec 004](plans/004-matched-settlement.md) for effective requirements and
+exact allowed files before editing. T05/T07 are complete historical evidence.
+Contract/service and UI/snapshot are implemented; automated checks are recorded in
+[evidence 037](evidence/037-t08-implementation.md). **T08 manual acceptance remains
+pending**, including deployment; no new T08 chain transaction has been performed.
+Final checks: npm ci, 111 app +36 protobuf tests, typecheck, both builds,
+31 Foundry tests, real PostgreSQL test/race/vet/fuzz (35,717 executions), six
+layout/static browser cases and sixteen controlled genuine-SDK cases passed.
+Database/API restart preserves T07; historical T05 public reads still verify.
+The static snapshot contains verified historical T05 data and four explicitly
+pending T08 cases. [Manual 038](evidence/038-t08-manual.md) is the next action.
+Victor starts with Admin deployment in the local production preview, then creates
+fresh orders after the verified acceptance cutoff. Existing T07 data is preserved.
 
-Next is the already authorized UI/snapshot milestone, using exactly spec 004's
-UI/snapshot and documentation/evidence file lists. Final automated UI evidence
-and handoff accompany that commit. Manual acceptance remains pending Victor;
-he alone approves every wallet prompt. No next ticket, push, merge or publication.
+Remaining T08 acceptance files: docs/evidence/038-t08-manual.md/.json,
+docs/evidence/038-t08-{normal,reverse,cancel,reclaim}.png (actual captures only),
+src/showcase.json, docs/evidence/037-t08-showcase.png, docs/HANDOFF.md,
+AI_USAGE.md, docs/ai-usage/046-t08-settlement.md, docs/ATTRIBUTION.md,
+README.md, PRODUCT.md, DESIGN.md, docs/DEMO.md, docs/ARCHITECTURE.md,
+docs/SUBMISSION.md, docs/plans/001-ats-first.md and 004-matched-settlement.md.
+Any observed implementation defect stays within spec 004 allowed files and needs
+its affected checks rerun. No next ticket is authorized.
+Victor alone approves every MetaMask prompt. No push, merge or publication.
 
 ## Submission review document prepared — September 8, 2026 (effective)
 

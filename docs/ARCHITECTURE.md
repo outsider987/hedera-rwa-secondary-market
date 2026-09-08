@@ -153,3 +153,39 @@ This path has no signer, chain transaction, payment or ATS Hold. No funds are
 reserved and every match is **Matched · Not settled**. T08 needs separately
 approved funding, eligibility, contract and settlement-race design. The historical
 T05 contract and records are not inputs to new matches.
+
+
+## T08 — matched settlement (manual acceptance pending)
+
+```mermaid
+flowchart LR
+  UI[React workbench] -->|Review and manual approval| MM[MetaMask]
+  UI -->|Prepared intent and original hash| API[Go API]
+  API -->|Market lock and unique constraints| DB[(PostgreSQL)]
+  API -->|Read-only verification| RPC[Testnet RPC and Mirror]
+  MM -->|Seller creates exact Hold| ATS[ATS NOVA]
+  MM -->|Seller registers terms| S[Non-upgradeable settlement]
+  MM -->|Buyer pays same digest| S
+  S -->|Execute NOVA Hold| ATS
+  S -->|Atomic HBAR payment| SELLER[Match seller]
+  JSON[Whitelisted dated evidence] --> STATIC[Wallet-free static portfolio]
+```
+
+The deployment records the current acceptance-sequence cutoff under the market
+lock. Both orders must be newer. Each match has separate operations for Hold,
+registration, payment or return. Seller registration and buyer payment confirm
+the full terms digest; T07 signatures remain unfunded intent. On-chain one-use
+match/Hold mappings and OpenZeppelin's shared guard protect all mutation entries.
+An expired Hold remains locked until its return is verified.
+
+The API has no signer. It binds transaction sender/input/value, pinned runtime,
+receipt/block, exact same-transaction ATS/settlement events, historical token
+balance transitions, asset config/supply/cap and Mirror account/payment/fee data.
+A durable original operation survives lost responses, restart and repeated event
+observation. Browser leases and the shared Web Lock guard preparation/submission;
+late hashes stay available after wallet invalidation. Recovery has one bounded
+180-second query, with no transaction retry.
+
+The separate static build imports only React, styles and whitelisted snapshot
+JSON. T05's dated result is verified; four new T08 cases are explicitly pending.
+It needs neither the API nor a wallet and contains no transaction controls.

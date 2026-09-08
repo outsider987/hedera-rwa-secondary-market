@@ -134,3 +134,43 @@ exists for this flow. Human observations and captures go to [manual report 035](
 If a response is lost, retain the original request ID and use **Query original
 request**. Do not sign another order to replace an unknown one. Rejected/late
 wallet prompts remain pending until the server confirms deadline expiry.
+
+
+## T08 — fresh matched settlement
+
+Implementation is available locally; all human acceptance below is **Pending**.
+Use preview http://127.0.0.1:4173 and the original three accounts. Each wallet
+prompt is a separate Victor action. Admin deploys once; it does not sign orders
+or execute either trading account's actions. Do not repeat T05/T07 transactions.
+
+1. Select Admin, open **Settlement setup**, review the fresh contract and approve
+   deployment in MetaMask. Query the original operation until verified, then
+   download its public evidence. The activation cutoff excludes all older orders.
+2. Seller places **Sell 2 @ 0.10**; Buyer places **Buy 2 @ 0.10**. These are two
+   reviewed unfunded-order signatures. Select the new match. Seller reviews and
+   approves **Lock NOVA (1/2)**, queries its receipt, then separately reviews and
+   approves **Confirm match terms (2/2)**. Buyer selects **Review payment**, checks
+   **0.2 HBAR plus network fee**, and approves. Verify and export the result.
+3. Click **New order**. Buyer places **Sell 1 @ 0.09**; Seller places **Buy 1 @
+   0.09**. Buyer account is now selling: it locks and registers. Seller account
+   is buying: it pays **0.09 HBAR plus network fee**. Verify and export.
+4. New Seller **Sell 1 @ 0.10** / Buyer **Buy 1 @ 0.10**. Seller locks, registers,
+   then manually chooses **Cancel settlement** before payment. Verify the NOVA
+   return. **Cancel remaining** in My orders is a different unfunded-book action.
+5. Another fresh pair **1 @ 0.10**. Seller locks and registers, then waits until
+   the exact displayed UTC expiry (30 minutes from preparation). Expiry alone
+   returns nothing. Seller manually chooses **Reclaim expired NOVA**; verify and
+   export its return. An unregistered Hold instead uses **Return unregistered Hold**.
+6. Reload the page and restart only the API, preserving the database volume.
+   Compare original orders, matches, Holds, operation hashes, payment and fee
+   evidence. Preserve actual screenshots and whitelisted JSON in report 038.
+
+Expected normal total: eight order signatures and thirteen transactions,
+including deployment. These are a plan, not observed counts. Extra rejection or
+recovery actions must be recorded honestly. Unknown operations query the original
+hash; no automatic resubmission or deadline-based declaration of failure. If the
+wallet prompt was rejected, re-review is explicit. Stop on pinned configuration
+or KYC incompatibility rather than renewing or changing asset parameters.
+
+All four portfolio cases remain pending until this evidence is independently
+verified. No push, merge or publication is authorized by the local implementation.

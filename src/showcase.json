@@ -1,0 +1,27 @@
+{
+  "label": "Verified Testnet snapshot · T05",
+  "recordedAt": "2026-09-08T04:26:22.131Z",
+  "chainId": "296",
+  "asset": "NOVA",
+  "assetId": "0.0.10402368",
+  "historical": {
+    "title": "10 NOVA exchanged for 1 HBAR",
+    "block": "40247352",
+    "sellerAvailable": "84",
+    "buyerAvailable": "16",
+    "sellerHeld": "0",
+    "buyerHeld": "0",
+    "report": "https://github.com/outsider987/hedera-rwa-secondary-market/blob/main/docs/evidence/032-t05-manual.md",
+    "timeline": [
+      {"action": "Admin deployed the fixed swap", "block": "40245682", "hash": "0xd9d9f59e4b91e0f6483585e698f5325c8079ad4112a11807100708a61183faa4"},
+      {"action": "Seller locked 10 NOVA", "block": "40246787", "hash": "0xd9c4059eae45ea0e322d6d79fdfc53c55385464c69012f745a83dad982236396"},
+      {"action": "Buyer paid 1 HBAR and received 10 NOVA", "block": "40247134", "hash": "0x4713f2c140876484451fe3144e9c35339486c57abe37247bf78adb5e897cbf96"}
+    ]
+  },
+  "cases": [
+    {"id":"normal","title":"Seller sells to Buyer","quantity":"2","unitPriceHBAR":"0.10","status":"Pending manual acceptance","timeline":[]},
+    {"id":"reverse","title":"Buyer sells to Seller","quantity":"1","unitPriceHBAR":"0.09","status":"Pending manual acceptance","timeline":[]},
+    {"id":"cancel","title":"Seller cancels settlement","quantity":"1","unitPriceHBAR":"0.10","status":"Pending manual acceptance","timeline":[]},
+    {"id":"reclaim","title":"Seller reclaims expired Hold","quantity":"1","unitPriceHBAR":"0.10","status":"Pending manual acceptance","timeline":[]}
+  ]
+}

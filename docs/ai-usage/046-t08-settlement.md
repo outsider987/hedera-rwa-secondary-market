@@ -1,19 +1,52 @@
-# T08 matched settlement — milestone 1
+# T08 matched settlement — implementation, manual pending
 
-September 8, 2026. Base: `3088cb9e19abffdc3c6ed58e698c62a11d88f79e`.
-User authorized [spec 004](../plans/004-matched-settlement.md) and local commits;
-[prompt record](../prompts/031-t08-settlement.md). Codex with ponytail assistance
-implemented contracts/NovaSettlement.sol and its tests, exact artifact builder,
-Go settlement service/migration/verification tests, runtime CA support, public
-shared vector and dependency pins. Package sources/licenses are recorded in
-[attribution](../ATTRIBUTION.md). No private-key signer is instantiated.
+Date: September 8, 2026. Base: `3088cb9e19abffdc3c6ed58e698c62a11d88f79e`.
+User supplied the T08 plan and authorized implementation, verification and local
+commits; [prompt record](../prompts/031-t08-settlement.md), [effective spec](../plans/004-matched-settlement.md).
+No push, merge, public deployment or agent signing is authorized.
 
-31 Foundry tests, reproducible T05/T08 artifact checks, real PostgreSQL test/race,
-vet and conservation fuzz (35,717 executions) passed. API rebuild/restart and actual
-database outage/recovery preserve the nine historical orders and five matches;
-offline API returns503. Before/after commit faults and duplicate evidence are
-covered in dedicated holdbook_test, never by deleting operator data.
+## Assistance and decisions
 
-UI/snapshot and its final evidence are the next authorized milestone. Manual
-MetaMask deployment and four live acceptance cases remain pending. No push,
-merge, public deployment, human review or event eligibility is claimed.
+Codex assisted with the contract, Go/PostgreSQL service, TypeScript/React UI,
+artifact builder, checks and documentation. Ponytail and impeccable skills were
+used; impeccable-directed documenter and finish-review agents updated product/design
+context and reviewed focused visual fixes. No human code review is asserted.
+Victor's plan fixes the original asset/accounts, 30-minute expiry, fresh matched
+orders, per-operation MetaMask approval, package versions and pending-case labels.
+No unseen pre-event planning file was imported or claimed to be inspected.
+
+Affected files are the exact paths in spec 004: new NovaSettlement contract/tests,
+Go settlement/migration/artifact and service wiring, build/dependency/CI files,
+Market/Settlement/Trade/SDK transport and tests, static showcase and configuration,
+public vectors, evidence 037/038, product/design/demo/architecture/attribution,
+planning/handoff and this index entry. Original T05 contract/artifact/raw evidence
+and T07 recorded orders/matches are preserved. Third-party versions/licenses and
+CA certificate notice retention are in [attribution](../ATTRIBUTION.md).
+
+## Checks and corrections
+
+[Evidence 037](../evidence/037-t08-implementation.md) and its linked JSON/harnesses
+record actual checks. Automated tests use local VM doubles, genuine SDK with
+controlled HTTP/wallet boundaries and dedicated real PostgreSQL; no private-key
+signer is created. Runtime/Mirror verification remains dependent on manual T08
+acceptance. The independently read historical T05 block still verifies.
+
+Corrections during development: permit the SDK's omitted zero-value/chain fields
+only for the exact reviewed lock path after live wallet recheck; use the shared
+production guard in the SDK harness; serialize preparation with the existing lease
+and Web Lock; extend only operation recovery to a bounded 180-second read budget;
+retain runtime CA notices; fix selected showcase hover contrast. Initial harness
+readiness/guard assertions and an import overlapping npm ci were corrected and
+rerun; they are not represented as successful initial runs. Pinned SDK repairs
+were not changed or bypassed. One mechanical design scan returned no findings;
+focused finish review accepted the corrected contrast and current docs.
+
+## Boundary
+
+Contract/service commit: `3fe9b95ca47fef4dc74558872196695cd93670ee`, independently staged and typechecked.
+Interface/snapshot and final evidence are committed separately. The third
+milestone is pending Victor's actual deployment and four-case manual acceptance,
+not completed by automated evidence. [Manual 038](../evidence/038-t08-manual.md)
+contains expected counts only. Stop at a reviewable local version; retain original
+operations for unknown outcomes, never automatically retry a transaction. Update
+actual public evidence and the snapshot after Victor's approvals and verification.
