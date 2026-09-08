@@ -1,5 +1,24 @@
 # HoldBook handoff
 
+## T05 deployment recovery correction — September 8, 2026
+
+`based_on_commit: 2c7146ca76e5d16e664cf7f02609eb2314db2f61`.
+Victor supplied a public deployment intent and screenshots showing recovery
+complete, alongside a false “Swap already closed” message. Receipt block
+40245682 succeeded; a public read at 40246275 verified the expected runtime
+and Open (0) for swap `0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158`.
+Manual recovery now discards the older balance/runtime snapshot before journal
+updates. It requires fresh readiness afterward; no contract or guard changed.
+See [manual evidence 032](evidence/032-t05-manual.md). Overall acceptance remains
+Pending. Next Victor action: save the completed deployment export, switch to
+Seller, check readiness and review the new 10 NOVA Hold. Do not redeploy.
+The T05 scope and exact allowed files below continue to apply.
+Correction checks: npm ci, 98 app + 36 protobuf tests, typecheck and build pass.
+Both dev and preview replayed the original public deployment hash with no wallet:
+receipt/runtime/Mirror recovery complete, old snapshot cleared, no false closed
+warning, fresh readiness required, no forbidden requests or page errors. The
+contract is unchanged; prior 16 local VM checks remain the contract evidence.
+
 ## T05 activated — September 8, 2026 (effective)
 
 - `based_on_commit: d85d19ca95fef467abf327a0620372c9b9f9ea88` is verified merged

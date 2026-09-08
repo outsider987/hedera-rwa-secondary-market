@@ -53,3 +53,22 @@ verified recovery by Seller's new Hold and Buyer's payment, with the required
 read-only rejections. Unknown outcomes, changed state, expired KYC or pinned
 incompatibility stop progress. Manual evidence 032 remains uncreated until
 observed. Stop at local T05 commits; no push, merge or next ticket.
+
+## Deployment recovery correction — September 8
+
+Base `2c7146ca76e5d16e664cf7f02609eb2314db2f61`. Victor supplied
+`holdbook-public-evidence (21).json` and screenshots of a successful recovery
+with a conflicting closed-swap message. Codex inspected only that public
+export, source and public chain data. It confirmed successful deployment and
+Open (0), traced the false message to an old component snapshot surviving
+manual recovery, and cleared that snapshot before journal updates. The fresh
+readiness requirement and all transaction guards remain. No new transaction,
+signature, contract, dependency or SDK change occurred.
+
+Changes: TradePanel, the existing browser harness/results, evidence 031's
+report/validation additions, manual evidence 032 MD/JSON and Victor's supplied
+deployment capture, HANDOFF, main plan, this entry and AI_USAGE. The live
+browser regression replays the public hash with no wallet and verifies the
+stale-state sequence. Actual checks are appended to evidence 031; historical
+implementation results above remain dated history. Next manual stage is Seller
+Hold creation; complete T05 acceptance remains Pending.

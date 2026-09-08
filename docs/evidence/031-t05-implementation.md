@@ -55,3 +55,12 @@ completed trade is claimed. The [operator flow](../DEMO.md) is ready for that
 acceptance; expired KYC or pinned incompatibility must stop it. Existing 62
 audit findings, native BBS, peer/license and eligibility limits remain in
 [attribution](../ATTRIBUTION.md) and [prior acceptance](029-t04-manual.md).
+
+September 8 deployment recovery correction (base `2c7146c`): Victor subsequently
+deployed the swap; [manual evidence 032](032-t05-manual.md) records that progress.
+Manual recovery had paired its completed journal with an older balance/runtime
+snapshot, producing a false closed-swap warning. Recovery now clears that pair
+and requires fresh readiness. npm ci, 98 app + 36 protobuf tests, typecheck and
+build pass again. The contract and its prior local VM results are unchanged.
+The appended browser/validation records cover the live original-hash regression;
+full manual trade acceptance remains Pending.

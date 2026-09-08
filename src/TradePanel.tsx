@@ -47,6 +47,8 @@ export default function TradePanel({roles,session,activeAccount,records,onRecord
     const started=begin();if(!started)return;const {current,signal}=started;
     try {
       if(mode === 'recover') {
+        // Recovery changes the journal; an older balance/runtime pair cannot describe it.
+        setState(undefined);setSwapState(undefined);
         setMessage('Querying the original receipt and Mirror evidence…');
         const result=await recoverTrade(operationId,hash.trim(),signal,onRecords);signal.throwIfAborted();
         setMessage(`Operation ${result.status}. Check readiness before another review.`);

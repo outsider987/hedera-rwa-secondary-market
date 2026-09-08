@@ -1526,5 +1526,68 @@
       "file": "tests/transport.test.mjs",
       "sha256": "b234c8824089b37b16b0541f0aa0bceed84c80ed1e27580f62b809bc4cb10b15"
     }
-  ]
+  ],
+  "deploymentRecoveryCorrection": {
+    "recordedAt": "2026-09-08T03:49:27.635Z",
+    "based_on_commit": "2c7146ca76e5d16e664cf7f02609eb2314db2f61",
+    "reason": "Manual recovery updated the journal while retaining an older balance/runtime snapshot. Clear that pair before recovery; require fresh readiness.",
+    "commands": [
+      {
+        "command": "npm ci",
+        "exitCode": 0,
+        "logUpdatedAt": "2026-09-08T03:43:38.477Z"
+      },
+      {
+        "command": "npm test",
+        "exitCode": 0,
+        "logUpdatedAt": "2026-09-08T03:47:42.014Z"
+      },
+      {
+        "command": "npm run typecheck",
+        "exitCode": 0,
+        "logUpdatedAt": "2026-09-08T03:47:19.725Z"
+      },
+      {
+        "command": "npm run build",
+        "exitCode": 0,
+        "logUpdatedAt": "2026-09-08T03:47:29.965Z"
+      }
+    ],
+    "appTests": 98,
+    "protobufTests": 36,
+    "browserRegression": {
+      "command": "node docs/evidence/031-t05-browser.mjs <playwright-core-index.mjs> docs/evidence/031-t05-browser.json --recover-deployment <public-deployment-intent.json>",
+      "exitCode": 0,
+      "checks": [
+        {
+          "port": 5173,
+          "readThenRecover": true,
+          "oldSnapshotCleared": true,
+          "noFalseClosedError": true,
+          "freshReadRequired": true,
+          "status": "complete",
+          "swapState": 0,
+          "forbidden": [],
+          "errors": []
+        },
+        {
+          "port": 4173,
+          "readThenRecover": true,
+          "oldSnapshotCleared": true,
+          "noFalseClosedError": true,
+          "freshReadRequired": true,
+          "status": "complete",
+          "swapState": 0,
+          "forbidden": [],
+          "errors": []
+        }
+      ],
+      "evidence": "031-t05-browser.json"
+    },
+    "contract": "Unchanged; prior 16 local VM checks retained, not rerun for this component correction.",
+    "manualEvidence": "032-t05-manual.json",
+    "manualAcceptance": "Pending",
+    "agentTransactions": 0,
+    "agentSignatures": 0
+  }
 }

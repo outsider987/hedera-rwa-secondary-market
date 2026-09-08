@@ -6,6 +6,40 @@ import {registerHooks} from 'node:module';
 registerHooks({resolve(s,c,n){return n(s.startsWith('.')&&c.parentURL?.includes('/src/')&&!/\.[a-z]+$/.test(s)?new URL(s+'.ts',c.parentURL).href:s,c)}});
 const trade=await import('../../src/trade.ts'),{keccak256}=await import('viem');
 const {chromium}=await import(process.argv[2]);
+// Optional regression using a user-exported public deployment intent. Reads only.
+if(process.argv.includes('--recover-deployment')) {
+ const intent=JSON.parse(readFileSync(process.argv[process.argv.indexOf('--recover-deployment')+1]));
+ const {tradeEvidence}=await import('../../src/evidence.ts');const saved=tradeEvidence(intent);
+ assert.equal(saved.action,'deploy');assert.ok(saved.transactionHash);
+ const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true}),checks=[];
+ try {for(const port of [5173,4173]) {
+  const origin='http://127.0.0.1:'+port,context=await browser.newContext({viewport:{width:1440,height:1000},serviceWorkers:'block'}),page=await context.newPage(),forbidden=[],errors=[];
+  await context.addInitScript(({key,saved})=>localStorage.setItem(key,JSON.stringify([saved])),{key:trade.tradeStorageKey,saved});
+  await context.route('**/*',route=>{
+   const u=new URL(route.request().url());if(u.origin===origin)return route.continue();
+   if(u.origin==='https://testnet.mirrornode.hedera.com'&&u.pathname.startsWith('/api/v1/'))return route.continue();
+   if(u.href==='https://testnet.hashio.io/api'&&['eth_chainId','eth_blockNumber','eth_getBlockByNumber','eth_call','eth_getCode','eth_getLogs','eth_getTransactionByHash','eth_getTransactionReceipt'].includes(route.request().postDataJSON().method))return route.continue();
+   forbidden.push(u.origin+u.pathname);return route.abort();
+  });
+  page.on('pageerror',e=>errors.push(e.message));await page.goto(origin);await page.locator('.pending-notice').waitFor();
+  await page.getByText('Transaction details',{exact:true}).click();await page.getByRole('button',{name:'Check current balances',exact:true}).click();
+  await page.waitForFunction(()=>document.querySelector('.trade-action')?.textContent.includes('Current balances checked.'),{},{timeout:180000});
+  await page.getByRole('combobox',{name:/Saved operation/}).selectOption(saved.operationId);
+  await page.getByRole('button',{name:'Query original hash',exact:true}).click();
+  await page.waitForFunction(()=>document.querySelector('.trade-action')?.textContent.includes('Operation complete.'),{},{timeout:180000});
+  assert.doesNotMatch(await page.locator('.trade-action').innerText(),/Swap already closed/);
+  assert.equal(await page.locator('.trade-action [role="alert"]').count(),0);
+  assert.match(await page.locator('.trade-summary').innerText(),/Current balances have not been checked/);
+  assert.equal(await page.getByRole('button',{name:'Check readiness',exact:true}).isEnabled(),true);
+  const recovered=await page.evaluate(key=>JSON.parse(localStorage.getItem(key))[0],trade.tradeStorageKey);
+  assert.equal(recovered.status,'complete');assert.equal(recovered.swapState,0);assert.equal(recovered.transactionHash,saved.transactionHash);
+  assert.deepEqual(forbidden,[]);assert.deepEqual(errors,[]);
+  checks.push({port,readThenRecover:true,oldSnapshotCleared:true,noFalseClosedError:true,freshReadRequired:true,status:recovered.status,swapState:recovered.swapState,forbidden,errors});
+  const output=JSON.parse(readFileSync(process.argv[3]));output.recoveryRegression={recordedAt:new Date().toISOString(),kind:'Live public deployment recovery in isolated browser; no wallet or mutation',checks,deployment:tradeEvidence(recovered)};
+  writeFileSync(process.argv[3],JSON.stringify(output,null,2)+'\n');console.log(JSON.stringify(checks.at(-1)));await context.close();
+ }} finally {await browser.close();}
+ process.exit(0);
+}
 const recoveryOnly=process.argv.includes('--recovery-only');
 const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true}),results=recoveryOnly?JSON.parse(readFileSync(process.argv[3])).results.filter(r=>!r.fixture):[];
 const roles={Admin:'0xfd8fdb4989a916c6f2420a2116c356e34c889840',Seller:'0x740e4ef58151a169621622577a5b6d6ff5010836',Buyer:'0xa1f2872ee7a9f74523ae0887a9dc428ff1340706'};
