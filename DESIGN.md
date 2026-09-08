@@ -161,3 +161,10 @@ A one-em CSS ring follows the active settlement status text, rotating linearly
 once per second only while preparation, wallet waiting or verification is running.
 It disappears when the call finishes, including failure; reduced motion disables
 rotation and retains the status text. The user explicitly requested this feedback.
+
+## Pinned console header
+
+The console Header component retains the existing title, Testnet/account label
+and guarded wallet button. Installed prefixed Tailwind utilities pin its opaque,
+full-width wrapper at top: 0 while scrolling. The skip link layers above it;
+root scroll padding leaves room for native anchor and keyboard navigation.

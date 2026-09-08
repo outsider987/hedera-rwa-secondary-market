@@ -142,3 +142,15 @@ User additionally requested an inline spinner while contract work is running.
 Include src/SettlementPanel.tsx in this correction; animate only active preparation,
 manual wallet wait or verification, stop when the call finishes, retain status text
 and disable rotation for reduced motion. Do not spin for idle unknown outcomes.
+
+## September 8 header extraction (authorized by user)
+
+User requested the header be a component pinned at the top, and explicitly asked
+for the installed Tailwind. Scope: src/Header.tsx, src/App.tsx, src/styles.css,
+DESIGN.md, this spec, docs/HANDOFF.md, AI_USAGE.md,
+docs/ai-usage/048-t08-header.md, docs/evidence/040-t08-header.mjs/.json and
+040-t08-header-desktop.png/mobile.png. Preserve wallet handlers and operation
+locks. Use existing prefixed Tailwind sticky utilities, an opaque background,
+visible skip link and anchor clearance. Check npm ci/test/typecheck/both builds
+and dev/preview desktop/mobile scrolling and keyboard access. No next ticket or
+wallet/chain action is authorized by this presentation request.

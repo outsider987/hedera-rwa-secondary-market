@@ -10,6 +10,7 @@
   font-synthesis: none;
   font-size: 16px;
   font-variant-numeric: tabular-nums;
+  scroll-padding-top: 10rem;
 }
 
 * { box-sizing: border-box; }

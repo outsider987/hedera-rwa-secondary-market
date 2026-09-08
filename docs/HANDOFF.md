@@ -1,5 +1,19 @@
 # HoldBook handoff
 
+## T08 pinned Header delivered — effective
+
+`based_on_commit: 9411b6b4858c122c5a3080b9c10eb9db6dcb1605`, verified Git HEAD.
+User requested a separate pinned Header and use of installed Tailwind. Header
+now receives existing wallet props/callback; Tailwind pins its opaque wrapper.
+Skip link and native anchor clearance are preserved. npm ci,112 app+36 protobuf
+tests, typecheck, both builds and four dev/preview desktop/mobile browser cases
+passed. [Usage048](ai-usage/048-t08-header.md) records checks and limitations.
+
+T08 remains active; registered cancellation is verified. Expiry reclaim, final
+persistence and snapshot remain pending. Next manual case and exact remaining
+acceptance files listed below remain effective; no next ticket is activated.
+This presentation change authorizes no wallet action, push, merge or publication.
+
 ## T08 registered cancellation verified — effective
 
 `based_on_commit: d5fb5cc897f405b63e96a53554cccdf036a023ce`. Match19-1 Cancelled verified40259539;

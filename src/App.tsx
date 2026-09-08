@@ -9,6 +9,7 @@ import { checkSdkConfig, prepareAts, type AtsLoadState, type SdkConfigCheck } fr
 import { downloadEvidence, type TradeRecord } from './evidence';
 import TradePanel from './TradePanel';
 import MarketPanel from './MarketPanel';
+import Header from './Header';
 import { loadTradeRecords, tradeLabels } from './trade';
 import { accounts, securityId, securityAddress, creationHash, actionLabels, loadLifecycleRecords, type LifecycleRecord, type LifecycleState } from './lifecycle';
 import { verifyT03History } from './hold';
@@ -365,9 +366,8 @@ export default function App() {
   const activeRole=Object.entries(accounts).find(([,a])=>a.address === connection.address?.toLowerCase())?.[0];
   const deployment=tradeRecords.find(r=>r.action === 'deploy' && r.status === 'complete');
   return <>
-    <a className="skip-link" href="#main">Skip to content</a>
-    <header><div><h1>HoldBook</h1></div><div className="header-wallet"><p className="network">Hedera Testnet · {activeRole ?? 'Not connected'}</p>
-      <button type="button" className="secondary" disabled={busy || locked} aria-describedby="wallet-status" onClick={handleWallet}>{connection.isConnected ? 'Disconnect' : 'Connect'}</button></div></header>
+    <a className="skip-link hb:z-20" href="#main">Skip to content</a>
+    <Header activeRole={activeRole} connected={connection.isConnected} disabled={busy || locked} onWallet={handleWallet}/>
     <main id="main">
       <nav className="page-nav" aria-label="Main navigation">{['market','trade','history','settings'].map(item=><a key={item} href={'#'+item} aria-current={page === item ? 'page' : undefined}>{item[0].toUpperCase()+item.slice(1)}</a>)}</nav>
       <p id="wallet-status" role="status" aria-live="polite" className="wallet-status">{busy ? 'Wallet request pending. Complete or reject it in MetaMask.' : connection.isConnected ? ready ? 'Connected to Hedera Testnet.' : 'Wrong network. Switch to Hedera Testnet (296 / 0x128) in MetaMask.' : 'Wallet not connected. Connect when ready.'}</p>
