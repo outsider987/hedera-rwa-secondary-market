@@ -10,6 +10,7 @@ These are recorded results from September 8, 2026, block **40241114**.
 ## Review the demo
 
 - **[Two-minute demo script](docs/DEMO.md)** — what to show and say.
+- **[Flow and architecture](docs/ARCHITECTURE.md)** — the recorded sequence and system diagram.
 - **[Acceptance report](docs/evidence/029-t04-manual.md)** — four transactions,
   three expected rejections and verified final balances.
 - **[Screenshot gallery](docs/evidence/029-t04-manual.html)** — open this file

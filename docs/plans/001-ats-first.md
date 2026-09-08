@@ -771,3 +771,11 @@ retaining a merge commit and verifying remote ancestry. Only usage 039,
 AI_USAGE, HANDOFF and this plan change for integration. This supersedes the
 previous local-only boundary; no next implementation or chain operation is
 activated. GitHub PR/check history records the actual integration outcome.
+
+During integration Victor additionally requested “且你幫我畫出文字流程跟架構圖給我看下
+存下來我晚點看”. Include a saved `docs/ARCHITECTURE.md` with the recorded text
+flow and a Mermaid diagram of the actual app, and add its README entry in this
+same PR. These two files extend the exact integration scope; usage 039, AI_USAGE,
+HANDOFF and this plan retain authorization/validation. No code or dependency
+changes. Cross-check source relationships, flow values and local links; require
+CI success after this final documentation addition before merging.

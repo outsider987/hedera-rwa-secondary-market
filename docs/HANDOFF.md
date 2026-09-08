@@ -10,6 +10,10 @@
 - Integration edits only `docs/ai-usage/039-judge-demo-merge.md`, AI_USAGE,
   HANDOFF and the main plan. [Evidence 030](evidence/030-judge-demo.md) remains
   the documentation validation record; application and evidence are unchanged.
+- Victor additionally requested a saved text flow and architecture diagram.
+  Include `docs/ARCHITECTURE.md` and its README entry in the same PR; these two
+  files extend the integration scope above. Cross-check against actual source
+  and evidence; final-head CI must include this addition.
 - Stop after integration. No new transaction, signature, recording or next
   implementation is activated; no next source files are allowed.
 
