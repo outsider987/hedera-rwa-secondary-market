@@ -1,5 +1,16 @@
 # HoldBook handoff
 
+## T08 match15-1 locked — effective
+
+`based_on_commit: 8979d07a5b6e61ebc489c0037e5efd7222450923`. Buyer sequence15 now matches Seller13:
+2 NOVA@0.10, total0.20 HBAR. Original lock recovery verified Hold3 at block40258090;
+Seller82 available/2 held, Buyer16/0. Expiry1788865785 (19:09:45 Taipei).
+Victor next clicks Query original operation, then Seller step2/2 confirms match
+terms; do not lock again. Buyer payment remains pending. Observed3 accepted order
+signatures (including extra self-trade-prevented Seller buy),2 chain transactions.
+Manual038 contains exact public evidence. Same T08 files/boundary; no code change,
+resubmission, push or next ticket. Earlier pending order observations are historical.
+
 ## T08 preview restored; Buyer request expired — effective
 
 `based_on_commit: de7d3015c72ee0046f1a503a2c799ef696e155a1`. Preview4173 had no listener;

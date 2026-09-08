@@ -18,7 +18,7 @@ No transaction was resent and no code or verification rule was changed. The caus
 of the initial request failure is not established. Browser recovery confirmation
 still belongs to Victor; click Query original operation before continuing.
 
-Observed: **one chain transaction, two accepted order signatures**. All four settlement
+Observed: **two chain transactions, three accepted order signatures**. All four settlement
 cases remain pending. Expected total: eight order signatures and thirteen chain
 transactions; record rejection/recovery extras separately. Next: Seller Sell2@0.10,
 then Buyer Buy2@0.10, only using newly accepted orders after this deployment cutoff.
@@ -72,3 +72,21 @@ wallet storage or chain state was changed. The process termination cause is not
 established. Buyer request has digest empty/resultnull and did not create an order.
 Victor can query the original request, then New order: Buyer Buy2@0.10. This
 supersedes the pending observation above, without claiming the new order exists.
+
+### Normal match15-1: Hold3 verified; registration pending
+
+Fresh Buyer Buy2@0.10 sequence15 matched Seller sequence13 for2 NOVA/0.20 HBAR.
+Seller manually created Hold3 in transaction
+`0x06458ff4b0600112ec0ba03977751e2651199d6d4a3e95eef53ed9b5b48e480b`,
+block40258090, fee0.42090162 HBAR. Public proof verified exact saved calldata,
+ATS HeldByPartition event/full Hold, runtime/domain, historical token balance
+transition and Mirror execution/fee. Seller available84→82, held0→2; Buyer16/0
+unchanged. Expiry1788865785 = 19:09:45 Taipei; exact quantity2, intended Buyer
+and new settlement escrow agree. HBAR principal remains0.
+
+User showed locally pending hash/incomplete request; backend still had prepared
+without hash. Registering/querying the exact original hash through the preview
+recovery API completed verification without resubmission or code changes. Initial
+failure cause is undetermined. Victor next queries the original operation, then
+reviews/confirms seller match terms (step2/2) before Buyer payment. Normal-case
+acceptance remains incomplete; reverse/cancel/reclaim are still pending.

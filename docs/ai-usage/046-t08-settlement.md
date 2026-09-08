@@ -81,3 +81,13 @@ restarted the existing preview command as an independent process; page and
 proxied original-request GET return200/expired. Termination cause is unproven.
 Updated manual038 MD/JSON, HANDOFF, index and this entry; no implementation edits,
 signatures, resubmission or storage clearing. Public expiry assertion/diff passed.
+
+## Manual Hold3 recovery — September 8, 2026
+
+Based on `8979d07a5b6e61ebc489c0037e5efd7222450923`. User showed matched15-1 then a pending lock hash.
+Public API/Mirror reads identified the original lock; recovery API verified
+calldata/event/full Hold/runtime/domain/balances/Mirror fee. No signing, resubmit,
+code edit or bypass. Updated manual038 MD/JSON, HANDOFF/index/this entry with
+Buyer sequence15, Hold3, actual fee/balance transition and next seller registration.
+Public state assertions/diff passed. Normal payment and other cases remain pending;
+initial incomplete request cause remains undetermined.
