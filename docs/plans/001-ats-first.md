@@ -737,3 +737,45 @@ push/merge prohibition only. Preserve history with a merge commit, verify the
 final PR head's CI and remote main ancestry. Only usage 037, AI_USAGE, HANDOFF
 and this plan change during integration; GitHub records the actual result.
 No next implementation or further chain operation is activated.
+
+### September 8, 2026 — judge presentation documentation
+
+Victor requested concise, readable English operating instructions, a demo script
+and acceptance-report entry points covering Hold 10 → execute 6 → release 4
+and the three expected rejections, using existing evidence without new trades.
+Base: merged main `f50cc999402b6ec7e6dbe8a0888fe5bf2062d2e1`;
+branch `docs/judge-demo`. T04 PR #5 is merged after CI success on cbc9e18.
+
+Exact allowed files, listed before editing presentation content: `README.md`,
+`PRODUCT.md`, new `docs/DEMO.md`, `docs/prompts/026-judge-demo.md`,
+`docs/evidence/030-judge-demo.md`, `docs/evidence/030-judge-demo.json`,
+`docs/ai-usage/038-judge-demo.md`, `AI_USAGE.md`, `docs/HANDOFF.md` and this plan.
+Use existing reports/screenshots/JSON; no app, dependency or chain changes.
+Acceptance: concise English entry and two-minute script, accurate historical
+balances/rejections, working local links, mandatory ci/test/typecheck/build,
+dev/preview browser checks and unchanged original evidence. Commit locally;
+no push/merge or next implementation is activated by this documentation task.
+
+Documentation outcome: README/DEMO/PRODUCT delivered; 24 local links and recorded
+balances/rejections match. ci, 87 + 36 tests, typecheck/build, four console and
+two existing-gallery browser cases pass. The optional wallet-free preview read
+also passes. Evidence 030 records the temporary harness correction. Original
+source and evidence are unchanged; no transaction/signature or new human
+acceptance. Stop at the local documentation commit.
+
+### September 8, 2026 — judge documentation integration authorized
+
+Victor requested “合併推送吧”. Based on `6a65097d8f2b6a3abd585e2eab56ef51421427b6`,
+push `docs/judge-demo` and merge it into main after final-head CI success,
+retaining a merge commit and verifying remote ancestry. Only usage 039,
+AI_USAGE, HANDOFF and this plan change for integration. This supersedes the
+previous local-only boundary; no next implementation or chain operation is
+activated. GitHub PR/check history records the actual integration outcome.
+
+During integration Victor additionally requested “且你幫我畫出文字流程跟架構圖給我看下
+存下來我晚點看”. Include a saved `docs/ARCHITECTURE.md` with the recorded text
+flow and a Mermaid diagram of the actual app, and add its README entry in this
+same PR. These two files extend the exact integration scope; usage 039, AI_USAGE,
+HANDOFF and this plan retain authorization/validation. No code or dependency
+changes. Cross-check source relationships, flow values and local links; require
+CI success after this final documentation addition before merging.

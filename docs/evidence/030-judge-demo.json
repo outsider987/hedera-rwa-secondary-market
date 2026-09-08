@@ -1,0 +1,247 @@
+{
+  "recordedAt": "2026-09-08T01:04:31.343044+00:00",
+  "based_on_commit": "f50cc999402b6ec7e6dbe8a0888fe5bf2062d2e1",
+  "kind": "judge-documentation-verification",
+  "checks": {
+    "ci": {
+      "command": "npm ci",
+      "exitCode": 0,
+      "logSha256": "95b905bd346d4cc130691f707c32548d1daa2367b17728f8a6943d5679189930"
+    },
+    "test": {
+      "command": "npm test",
+      "exitCode": 0,
+      "logSha256": "433aa3ee23b46b9f8ecf5d9bd940cd010c472206b756f1642c71b8b6205ab6e2",
+      "applicationTests": 87,
+      "protobufTests": 36,
+      "failures": 0
+    },
+    "typecheck": {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "logSha256": "1b863f991554e91c0a2dd579dabd0fa5934ae997ab047dbc2731d4b4d4b087c0"
+    },
+    "build": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "logSha256": "a0e5f7879c575959e801ec6250cab094b3dd02e3adc2088c0f41542e813d9ac4"
+    }
+  },
+  "documents": {
+    "recordedAt": "2026-09-08T01:01:12.526Z",
+    "localLinks": 24,
+    "links": [
+      {
+        "file": "README.md",
+        "href": "docs/DEMO.md"
+      },
+      {
+        "file": "README.md",
+        "href": "docs/evidence/029-t04-manual.md"
+      },
+      {
+        "file": "README.md",
+        "href": "docs/evidence/029-t04-manual.html"
+      },
+      {
+        "file": "README.md",
+        "href": "docs/evidence/029-t04-manual.json"
+      },
+      {
+        "file": "README.md",
+        "href": "docs/evidence/028-t04-implementation.md"
+      },
+      {
+        "file": "README.md",
+        "href": "docs/evidence/029-t04-manual.md"
+      },
+      {
+        "file": "README.md",
+        "href": "docs/ATTRIBUTION.md"
+      },
+      {
+        "file": "README.md",
+        "href": "AI_USAGE.md"
+      },
+      {
+        "file": "README.md",
+        "href": "docs/prompts/001-planning-record.md"
+      },
+      {
+        "file": "README.md",
+        "href": "AGENTS.md"
+      },
+      {
+        "file": "README.md",
+        "href": "docs/HANDOFF.md"
+      },
+      {
+        "file": "PRODUCT.md",
+        "href": "docs/DEMO.md"
+      },
+      {
+        "file": "PRODUCT.md",
+        "href": "docs/evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "href": "evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "href": "evidence/029-t04-manual.html"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "href": "evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "href": "evidence/029-t04-kyc-negative.png"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "href": "evidence/029-t04-buyer-vc.png"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "href": "evidence/029-t04-buyer-kyc.png"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "href": "evidence/029-t04-execute.png"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "href": "evidence/029-t04-final.png"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "href": "evidence/029-t04-manual.md"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "href": "evidence/029-t04-manual.json"
+      },
+      {
+        "file": "docs/DEMO.md",
+        "href": "../README.md#run-the-console-locally"
+      }
+    ],
+    "recordedStateAndRejectionsMatch": true,
+    "originalEvidenceSourceTestsDependenciesUnchanged": true,
+    "sourceSha256": "696b4647c87a5598b8379883586ac964cce8407a8b812fa2748fa4d0012ea4cd",
+    "wordCounts": {
+      "README.md": 315,
+      "PRODUCT.md": 259,
+      "docs/DEMO.md": 500
+    }
+  },
+  "browser": {
+    "recordedAt": "2026-09-08T01:02:34.368Z",
+    "results": [
+      {
+        "port": 5173,
+        "width": 1440,
+        "passed": true,
+        "noWallet": true,
+        "initialExternalRequests": 0,
+        "visibleFocus": true,
+        "noOverflow": true,
+        "readMethods": [],
+        "externalRequests": 0,
+        "forbidden": [],
+        "errors": []
+      },
+      {
+        "port": 5173,
+        "width": 390,
+        "passed": true,
+        "noWallet": true,
+        "initialExternalRequests": 0,
+        "visibleFocus": true,
+        "noOverflow": true,
+        "readMethods": [],
+        "externalRequests": 0,
+        "forbidden": [],
+        "errors": []
+      },
+      {
+        "port": 4173,
+        "width": 1440,
+        "passed": true,
+        "noWallet": true,
+        "initialExternalRequests": 0,
+        "visibleFocus": true,
+        "noOverflow": true,
+        "liveRead": {
+          "Current block / seconds": "40241802 / 1788829327",
+          "Seller available / held": "94 / 0",
+          "Buyer available / held": "6 / 0",
+          "Supply / cap / config": "100 / 1000 / 1",
+          "Buyer KYC": "Valid \u00b7 urn:uuid:06752241-9c77-4405-b2f6-dc0a0dbc4961",
+          "Active Seller Hold IDs": "None",
+          "Hold remaining": "No active Hold"
+        },
+        "readMethods": [
+          "eth_chainId",
+          "eth_blockNumber",
+          "eth_getBlockByNumber",
+          "eth_call"
+        ],
+        "externalRequests": 45,
+        "forbidden": [],
+        "errors": []
+      },
+      {
+        "port": 4173,
+        "width": 390,
+        "passed": true,
+        "noWallet": true,
+        "initialExternalRequests": 0,
+        "visibleFocus": true,
+        "noOverflow": true,
+        "readMethods": [],
+        "externalRequests": 0,
+        "forbidden": [],
+        "errors": []
+      },
+      {
+        "kind": "existing-offline-gallery",
+        "width": 1440,
+        "passed": true,
+        "imagesLoaded": 8,
+        "noOverflow": true,
+        "visibleFocus": true,
+        "external": [],
+        "errors": []
+      },
+      {
+        "kind": "existing-offline-gallery",
+        "width": 390,
+        "passed": true,
+        "imagesLoaded": 8,
+        "noOverflow": true,
+        "visibleFocus": true,
+        "external": [],
+        "errors": []
+      }
+    ]
+  },
+  "harnessCorrection": {
+    "outcome": "Initial browser attempt stopped; corrected rerun passed.",
+    "reason": "The temporary browser read allowlist omitted eth_blockNumber used by readLifecycleState. Only the harness changed.",
+    "initialSource": "import assert from 'node:assert/strict';\nimport {createRequire} from 'node:module';\nimport {writeFileSync} from 'node:fs';\nconst {chromium}=createRequire('/home/outsider/github/h5/web/package.json')('playwright');\nconst browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true});\nconst results=[];\ntry {\n for(const port of [5173,4173]) for(const width of [1440,390]) {\n  const origin=`http://127.0.0.1:${port}`,context=await browser.newContext({viewport:{width,height:1000},serviceWorkers:'block'}),page=await context.newPage();\n  const errors=[],forbidden=[],methods=new Set();let external=0;\n  page.on('pageerror',e=>errors.push(e.name));\n  await context.route('**/*',route=>{\n   const req=route.request(),url=new URL(req.url());if(url.origin===origin)return route.continue();external++;\n   if(url.origin==='https://testnet.mirrornode.hedera.com'&&url.pathname.startsWith('/api/v1/')&&req.method()==='GET')return route.continue();\n   if(url.href==='https://testnet.hashio.io/api'&&req.method()==='POST'){\n    const body=req.postDataJSON(),calls=Array.isArray(body)?body:[body];\n    if(calls.every(x=>['eth_chainId','eth_getBlockByNumber','eth_getCode','eth_call'].includes(x.method))){calls.forEach(x=>methods.add(x.method));return route.continue();}\n   }\n   forbidden.push({origin:url.origin,method:req.method()});return route.abort();\n  });\n  await page.goto(origin,{waitUntil:'networkidle'});\n  assert.equal(await page.getByTestId('active-account').innerText(),'Wallet not connected.');assert.equal(external,0);\n  const check=page.getByRole('button',{name:'Check current T04 state',exact:true});await check.focus();\n  assert.equal(await check.evaluate(el=>el===document.activeElement&&getComputedStyle(el).outlineStyle!=='none'),true);\n  assert.equal(await page.getByRole('button',{name:'Approve T04 transaction in MetaMask'}).isDisabled(),true);\n  let liveRead;\n  if(port===4173&&width===1440){\n   await page.keyboard.press('Enter');\n   await page.getByText('Current chain state read. Saved journal statuses must be reverified by Review next T04 action.',{exact:true}).waitFor({timeout:180000});\n   const section=page.locator('section[aria-labelledby=\"hold-heading\"]');liveRead={};\n   for(const label of ['Current block / seconds','Seller available / held','Buyer available / held','Supply / cap / config','Buyer KYC','Active Seller Hold IDs','Hold remaining'])\n    liveRead[label]=await section.locator('dl > div').filter({has:page.getByText(label,{exact:true})}).locator('dd').innerText();\n   assert.equal(liveRead['Seller available / held'],'94 / 0');assert.equal(liveRead['Buyer available / held'],'6 / 0');\n   assert.equal(liveRead['Supply / cap / config'],'100 / 1000 / 1');assert.equal(liveRead['Active Seller Hold IDs'],'None');\n   assert.equal(await page.getByTestId('active-account').innerText(),'Wallet not connected.');\n  }\n  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);assert.deepEqual(errors,[]);assert.deepEqual(forbidden,[]);\n  results.push({port,width,passed:true,noWallet:true,initialExternalRequests:0,visibleFocus:true,noOverflow:true,liveRead,readMethods:[...methods],externalRequests:external,forbidden,errors});\n  console.log(JSON.stringify(results.at(-1)));await context.close();\n }\n for(const width of [1440,390]) {\n  const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage(),external=[],errors=[];\n  await context.route('https://**/*',route=>{external.push(new URL(route.request().url()).origin);return route.abort()});page.on('pageerror',e=>errors.push(e.name));\n  await page.goto('file:///home/outsider/github/ETHGlobal_Victor/docs/evidence/029-t04-manual.html');\n  await page.evaluate(async()=>{for(const img of document.images)img.loading='eager';await Promise.all([...document.images].map(img=>img.decode()))});\n  assert.equal(await page.locator('img').count(),8);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);\n  await page.locator('a').first().focus();assert.notEqual(await page.locator('a').first().evaluate(el=>getComputedStyle(el).outlineStyle),'none');assert.deepEqual(external,[]);assert.deepEqual(errors,[]);\n  results.push({kind:'existing-offline-gallery',width,passed:true,imagesLoaded:8,noOverflow:true,visibleFocus:true,external,errors});await context.close();\n }\n}finally{await browser.close()}\nwriteFileSync('/tmp/holdbook-judge-browser.json',JSON.stringify({recordedAt:new Date().toISOString(),results},null,2)+'\\n');\n",
+    "initialLog": "{\"port\":5173,\"width\":1440,\"passed\":true,\"noWallet\":true,\"initialExternalRequests\":0,\"visibleFocus\":true,\"noOverflow\":true,\"readMethods\":[],\"externalRequests\":0,\"forbidden\":[],\"errors\":[]}\n{\"port\":5173,\"width\":390,\"passed\":true,\"noWallet\":true,\"initialExternalRequests\":0,\"visibleFocus\":true,\"noOverflow\":true,\"readMethods\":[],\"externalRequests\":0,\"forbidden\":[],\"errors\":[]}\n"
+  },
+  "harnesses": {
+    "browser": "import assert from 'node:assert/strict';\nimport {createRequire} from 'node:module';\nimport {writeFileSync} from 'node:fs';\nconst {chromium}=createRequire('/home/outsider/github/h5/web/package.json')('playwright');\nconst browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true});\nconst results=[];\ntry {\n for(const port of [5173,4173]) for(const width of [1440,390]) {\n  const origin=`http://127.0.0.1:${port}`,context=await browser.newContext({viewport:{width,height:1000},serviceWorkers:'block'}),page=await context.newPage();\n  const errors=[],forbidden=[],methods=new Set();let external=0;\n  page.on('pageerror',e=>errors.push(e.name));\n  await context.route('**/*',route=>{\n   const req=route.request(),url=new URL(req.url());if(url.origin===origin)return route.continue();external++;\n   if(url.origin==='https://testnet.mirrornode.hedera.com'&&url.pathname.startsWith('/api/v1/')&&req.method()==='GET')return route.continue();\n   if(url.href==='https://testnet.hashio.io/api'&&req.method()==='POST'){\n    const body=req.postDataJSON(),calls=Array.isArray(body)?body:[body];\n    if(calls.every(x=>['eth_chainId','eth_blockNumber','eth_getBlockByNumber','eth_getCode','eth_call'].includes(x.method))){calls.forEach(x=>methods.add(x.method));return route.continue();}\n   }\n   forbidden.push({origin:url.origin,method:req.method()});return route.abort();\n  });\n  await page.goto(origin,{waitUntil:'networkidle'});\n  assert.equal(await page.getByTestId('active-account').innerText(),'Wallet not connected.');assert.equal(external,0);\n  const check=page.getByRole('button',{name:'Check current T04 state',exact:true});await check.focus();\n  assert.equal(await check.evaluate(el=>el===document.activeElement&&getComputedStyle(el).outlineStyle!=='none'),true);\n  assert.equal(await page.getByRole('button',{name:'Approve T04 transaction in MetaMask'}).isDisabled(),true);\n  let liveRead;\n  if(port===4173&&width===1440){\n   await page.keyboard.press('Enter');\n   await page.getByText('Current chain state read. Saved journal statuses must be reverified by Review next T04 action.',{exact:true}).waitFor({timeout:180000});\n   const section=page.locator('section[aria-labelledby=\"hold-heading\"]');liveRead={};\n   for(const label of ['Current block / seconds','Seller available / held','Buyer available / held','Supply / cap / config','Buyer KYC','Active Seller Hold IDs','Hold remaining'])\n    liveRead[label]=await section.locator('dl > div').filter({has:page.getByText(label,{exact:true})}).locator('dd').innerText();\n   assert.equal(liveRead['Seller available / held'],'94 / 0');assert.equal(liveRead['Buyer available / held'],'6 / 0');\n   assert.equal(liveRead['Supply / cap / config'],'100 / 1000 / 1');assert.equal(liveRead['Active Seller Hold IDs'],'None');\n   assert.equal(await page.getByTestId('active-account').innerText(),'Wallet not connected.');\n  }\n  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);assert.deepEqual(errors,[]);assert.deepEqual(forbidden,[]);\n  results.push({port,width,passed:true,noWallet:true,initialExternalRequests:0,visibleFocus:true,noOverflow:true,liveRead,readMethods:[...methods],externalRequests:external,forbidden,errors});\n  console.log(JSON.stringify(results.at(-1)));await context.close();\n }\n for(const width of [1440,390]) {\n  const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage(),external=[],errors=[];\n  await context.route('https://**/*',route=>{external.push(new URL(route.request().url()).origin);return route.abort()});page.on('pageerror',e=>errors.push(e.name));\n  await page.goto('file:///home/outsider/github/ETHGlobal_Victor/docs/evidence/029-t04-manual.html');\n  await page.evaluate(async()=>{for(const img of document.images)img.loading='eager';await Promise.all([...document.images].map(img=>img.decode()))});\n  assert.equal(await page.locator('img').count(),8);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);\n  await page.locator('a').first().focus();assert.notEqual(await page.locator('a').first().evaluate(el=>getComputedStyle(el).outlineStyle),'none');assert.deepEqual(external,[]);assert.deepEqual(errors,[]);\n  results.push({kind:'existing-offline-gallery',width,passed:true,imagesLoaded:8,noOverflow:true,visibleFocus:true,external,errors});await context.close();\n }\n}finally{await browser.close()}\nwriteFileSync('/tmp/holdbook-judge-browser.json',JSON.stringify({recordedAt:new Date().toISOString(),results},null,2)+'\\n');\n",
+    "linksAndEvidence": "import assert from 'node:assert/strict';\nimport fs from 'node:fs';\nimport path from 'node:path';\nimport {execFileSync} from 'node:child_process';\nimport {createHash} from 'node:crypto';\nconst files=['README.md','PRODUCT.md','docs/DEMO.md'],links=[];\nfor(const file of files){\n const text=fs.readFileSync(file,'utf8');\n for(const m of text.matchAll(/\\[[^\\]]*\\]\\(([^)]+)\\)/g)){\n  const href=m[1];if(/^[a-z]+:/i.test(href))continue;\n  const [rel,fragment]=href.split('#'),target=path.resolve(path.dirname(file),rel||path.basename(file));\n  assert.ok(fs.existsSync(target),`${file}: ${href}`);\n  if(fragment&&target.endsWith('.md')){\n   const headings=[...fs.readFileSync(target,'utf8').matchAll(/^#+ (.+)$/gm)].map(m=>m[1].toLowerCase().replace(/[^\\w\\s-]/g,'').replace(/ /g,'-'));\n   assert.ok(headings.includes(fragment),href);\n  }\n  links.push({file,href});\n }\n}\nconst a=JSON.parse(fs.readFileSync('docs/evidence/029-t04-manual.json')).acceptance;\nassert.equal(a.final.block,'40241114');\nassert.deepEqual([a.final.sellerBalance,a.final.buyerBalance,a.final.sellerHeld,a.final.buyerHeld,a.final.supply],['94','6','0','0','100']);\nassert.equal(a.final.buyerKyc.status,1);assert.deepEqual(a.final.sellerHoldIds,[]);assert.deepEqual(a.final.buyerHoldIds,[]);\nconst states=[['90','0','10'],['90','0','10'],['90','6','4'],['94','6','0']];\nassert.equal(a.transactions.length,4);a.transactions.forEach((t,i)=>{assert.equal(t.status,'complete');assert.deepEqual([t.after.sellerBalance,t.after.buyerBalance,t.after.sellerHeld],states[i]);assert.equal(t.after.supply,'100');assert.equal(t.after.buyerHeld,'0')});\nassert.deepEqual(a.simulations.results.flatMap(r=>r.cases.map(c=>c.revert)),['InvalidKycStatus','IsNotEscrow','InsufficientHoldBalance']);\nassert.ok(a.simulations.results.every(r=>r.passed&&r.fullHistoricalStateMatches&&r.noTransactionOrSignature));\nassert.ok(a.simulations.results[0].genuineSdkHistoricalRejection);\nconst original=execFileSync('git',['diff','--name-only','f50cc999402b6ec7e6dbe8a0888fe5bf2062d2e1','--','src','tests','package.json','package-lock.json','scripts','docs/evidence/029-*','docs/evidence/028-*'],{encoding:'utf8'});\nassert.equal(original,'');\nconst result={recordedAt:new Date().toISOString(),localLinks:links.length,links,recordedStateAndRejectionsMatch:true,originalEvidenceSourceTestsDependenciesUnchanged:true,sourceSha256:createHash('sha256').update(fs.readFileSync('docs/evidence/029-t04-manual.json')).digest('hex'),wordCounts:Object.fromEntries(files.map(f=>[f,fs.readFileSync(f,'utf8').trim().split(/\\s+/).length]))};\nfs.writeFileSync('/tmp/holdbook-judge-links.json',JSON.stringify(result,null,2)+'\\n');console.log(JSON.stringify(result));\n"
+  },
+  "limits": [
+    "No new transaction or signature.",
+    "Existing manual acceptance reused; no new human acceptance or presentation recording.",
+    "Markdown links/content checked; browser checks cover the existing console and gallery, not GitHub Markdown rendering.",
+    "Browser automation used already installed Playwright outside this repository; no dependency change."
+  ]
+}
