@@ -16,7 +16,7 @@ try{
  cpSync(join(root,'src'),join(scratch,'src'),{recursive:true});for(const f of ['vite.config.ts','package.json'])copyFileSync(join(root,f),join(scratch,f));symlinkSync(join(root,'node_modules'),join(scratch,'node_modules'),'dir');
  writeFileSync(join(scratch,'index.html'),'<html lang="en"><title>T04 synthetic SDK boundary</title><script type="module" src="/probe.js"></script></html>');
  writeFileSync(join(scratch,'probe.js'),`
- import * as h from './src/hold';import * as l from './src/lifecycle';import {createAssetProviders} from './src/transport';import {holdEvidence} from './src/evidence';import {keccak256} from 'viem';
+ import * as h from './src/lib/hold';import * as l from './src/lib/lifecycle';import {createAssetProviders} from './src/lib/transport';import {holdEvidence} from './src/lib/evidence';import {keccak256} from 'viem';
  window.invalidBuyer=async()=>{
   const sdk=await import('@hashgraph/asset-tokenization-sdk');
   try{await sdk.Kyc.grantKyc(new sdk.GrantKycRequest({securityId:l.securityId,targetId:l.accounts.Buyer.address,vcBase64:btoa(JSON.stringify({id:'unsigned-boundary',issuer:'did:ethr:'+l.accounts.Admin.address,credentialSubject:{id:'did:ethr:'+l.accounts.Buyer.address,passed:true},validFrom:new Date(Date.now()-300000).toISOString(),validUntil:new Date(Date.now()+7*86400000).toISOString()}))}));return false}catch{return true}

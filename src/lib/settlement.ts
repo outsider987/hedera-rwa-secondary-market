@@ -24,7 +24,7 @@ export function settlementAction(s:Settlement,owner:string,now:bigint):Settlemen
  if(s.status==='Ready')return 'settle';
 }
 
-import artifact from './settlement-artifact.json' with {type:'json'};
+import artifact from '../data/settlement-artifact.json' with {type:'json'};
 import {api,readMarket,loadIntent,pending as marketPending,type Match,type Market} from './market';
 import {acquireOperation,assertOperation,releaseOperation,withTransactionLock,type Roles} from './guards';
 import {reviewWallet,checkWalletReview,type WalletReview} from './wallet';

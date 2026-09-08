@@ -1,4 +1,4 @@
-import { securityId } from './lifecycle';
+import { securityId } from '../lib/lifecycle';
 
 export default function NovaAssetSummary() {
   return <div className="hb:grid hb:items-center hb:gap-8 hb:lg:grid-cols-2">

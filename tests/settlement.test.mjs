@@ -3,7 +3,7 @@ import {test} from 'node:test';
 import {registerHooks} from 'node:module';
 import {readFileSync} from 'node:fs';
 registerHooks({resolve(s,c,n){return n(s.startsWith('.')&&c.parentURL?.includes('/src/')&&!/\.[a-z]+$/.test(s)?new URL(s+'.ts',c.parentURL).href:s,c)}});
-const m=await import('../src/settlement.ts'),v=JSON.parse(readFileSync(new URL('./fixtures/settlement-vector.json',import.meta.url)));
+const m=await import('../src/lib/settlement.ts'),v=JSON.parse(readFileSync(new URL('./fixtures/settlement-vector.json',import.meta.url)));
 test('public settlement vector binds parties, amounts, both orders, Hold, expiry and deployment',()=>{
  assert.equal(m.settlementDigest(v),v.digest);
  for(const [k,value] of [['amount','3'],['priceTinybars','9000000'],['holdId','18'],['sellerOrder','0x'+'44'.repeat(32)],['matchId','0x'+'55'.repeat(32)]])assert.notEqual(m.settlementDigest({...v,terms:{...v.terms,[k]:value}}),v.digest);

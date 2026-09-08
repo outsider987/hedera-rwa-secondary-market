@@ -150,8 +150,8 @@ Keep square section boundaries and thin separators.
 - Don't label T08 cases verified before actual manual evidence is recorded.
 - Keep motion to the approved state transitions and active-operation spinner; no Animate UI.
 
-Sources: [Market](src/MarketPanel.tsx), [settlement](src/SettlementPanel.tsx),
-[Trade](src/TradePanel.tsx), [showcase](src/showcase.tsx),
+Sources: [Market](src/components/MarketPanel.tsx), [settlement](src/components/SettlementPanel.tsx),
+[Trade](src/components/TradePanel.tsx), [showcase](src/showcase.tsx),
 [styles](src/styles.css), [T08 browser evidence](docs/evidence/037-t08-browser.json).
 Browser fixtures establish only their recorded scenarios; real MetaMask and
 full T08 acceptance remain separate requirements in [spec 004](docs/plans/004-matched-settlement.md).

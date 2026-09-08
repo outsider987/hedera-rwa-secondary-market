@@ -1,5 +1,5 @@
 import { keccak256, type Hex } from 'viem';
-import artifact from './swap-artifact.json' with { type: 'json' };
+import artifact from '../data/swap-artifact.json' with { type: 'json' };
 import { acquireOperation, assertOperation, releaseOperation, withTransactionLock, validateMirrorAccount, type Roles } from './guards';
 import { reviewWallet, checkWalletReview, type WalletReview } from './wallet';
 import { prepareAts, checkSdkConfig } from './ats';

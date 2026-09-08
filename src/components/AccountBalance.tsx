@@ -1,4 +1,4 @@
-import type { readMarketBalance } from './market';
+import type { readMarketBalance } from '../lib/market';
 
 export default function AccountBalance({ role, balance, loading, error, locked, onRefresh }: {
   role: string; balance?: Awaited<ReturnType<typeof readMarketBalance>>;

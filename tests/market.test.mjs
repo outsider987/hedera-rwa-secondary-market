@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {test} from 'node:test';
 import {registerHooks} from 'node:module';
 registerHooks({resolve(s,c,n){return n(s.startsWith('.')&&c.parentURL?.includes('/src/')&&!/\.[a-z]+$/.test(s)?new URL(s+'.ts',c.parentURL).href:s,c)}});
-const m=await import('../src/market.ts'),{hashTypedData}=await import('viem');
+const m=await import('../src/lib/market.ts'),{hashTypedData}=await import('viem');
 const domain={name:'HoldBook Unfunded Orders',version:'1',chainId:'296',salt:'0x'+'0123456789abcdef'.repeat(4)};
 const command={requestId:'request',orderId:'request',owner:'0x740e4ef58151a169621622577a5b6d6ff5010836',market:'NOVA/HBAR',action:'Place',side:'Sell',quantity:'4',price:'9000000',expiresAt:'86401',deadline:'301',preparedAt:'1'};
 function intent(){return {domain,record:{prepared:{...command,requestId:'1'.repeat(64),orderId:'2'.repeat(64)},status:'pending',digest:'',verified:false,result:null,reason:''}};}
@@ -43,11 +43,11 @@ test('populated Market renders partial cancellation and reverse matches honestly
  const c=intent().record.prepared,o={...c,sequence:'1',acceptedAt:'1',remaining:'0',matched:'2',cancelled:'2',expired:'0',reason:'Cancelled'};
  const seller=c.owner,buyer='0xa1f2872ee7a9f74523ae0887a9dc428ff1340706';
  globalThis.__marketFixture={market:'NOVA/HBAR',domain,serverTime:'1',version:'1',orders:[o],matches:[{id:'3-1',maker:o.orderId,taker:'3'.repeat(64),buyer:seller,seller:buyer,quantity:'1',price:'10000000',notional:'10000000',time:'1',status:'Matched · Not settled'}]};
- const server=await createServer({server:{middlewareMode:true,hmr:false},appType:'custom',plugins:[{name:'populated-market-fixture',enforce:'pre',transform(source,id){if(id.endsWith('/src/MarketPanel.tsx'))return source.replace('useState<Market>()','useState<Market>(globalThis.__marketFixture)').replace("useState<'Open'|'All'>('Open')","useState<'Open'|'All'>('All')").replace("useState<'Active'|'Needs your action'|'Completed'|'All'>('Active')","useState<'Active'|'Needs your action'|'Completed'|'All'>('All')")}}]});
- try{const {default:Panel}=await server.ssrLoadModule('/src/MarketPanel.tsx');const html=renderToStaticMarkup(createElement(Panel,{visible:true,roles:{},session:0,activeAccount:seller}));assert.match(html,/Remaining 0 · Matched 2 · Cancelled 2 · Expired 0/);assert.match(html,/Matched · Not settled/);assert.match(html,/Buyer: Seller account · Seller: Buyer account/);assert.doesNotMatch(html,/Cancel remaining [0-9]/);}finally{delete globalThis.__marketFixture;await server.close();}
+ const server=await createServer({server:{middlewareMode:true,hmr:false},appType:'custom',plugins:[{name:'populated-market-fixture',enforce:'pre',transform(source,id){if(id.endsWith('/src/components/MarketPanel.tsx'))return source.replace('useState<Market>()','useState<Market>(globalThis.__marketFixture)').replace("useState<'Open'|'All'>('Open')","useState<'Open'|'All'>('All')").replace("useState<'Active'|'Needs your action'|'Completed'|'All'>('Active')","useState<'Active'|'Needs your action'|'Completed'|'All'>('All')")}}]});
+ try{const {default:Panel}=await server.ssrLoadModule('/src/components/MarketPanel.tsx');const html=renderToStaticMarkup(createElement(Panel,{visible:true,roles:{},session:0,activeAccount:seller}));assert.match(html,/Remaining 0 · Matched 2 · Cancelled 2 · Expired 0/);assert.match(html,/Matched · Not settled/);assert.match(html,/Buyer: Seller account · Seller: Buyer account/);assert.doesNotMatch(html,/Cancel remaining [0-9]/);}finally{delete globalThis.__marketFixture;await server.close();}
 });
 test('NOVA balance uses one public block, includes held units, and rejects wrong chain or incomplete reads',async t=>{
- const {interfaces}=await import('../src/nova.ts'),{asset}=await interfaces(),calls=[];
+ const {interfaces}=await import('../src/lib/nova.ts'),{asset}=await interfaces(),calls=[];
  let chain='0x128',broken=false;
  t.mock.method(globalThis,'fetch',async(_url,init)=>{
   const {method,params}=JSON.parse(init.body);calls.push({method,params});let result;

@@ -1,4 +1,4 @@
-import { hbar, type Order } from './market';
+import { hbar, type Order } from '../lib/market';
 
 export default function OrderBook({ open }: { open: Order[] }) {
   return <section className="market-book" aria-labelledby="book-heading"><h3 id="book-heading">Order book</h3><p className="muted">Funds are not reserved</p>

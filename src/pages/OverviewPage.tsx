@@ -1,5 +1,5 @@
-import NovaAssetSummary from './NovaAssetSummary';
-import AssetLifecycle from './AssetLifecycle';
+import NovaAssetSummary from '../components/NovaAssetSummary';
+import AssetLifecycle from '../components/AssetLifecycle';
 
 export default function OverviewPage({ visible }: { visible: boolean }) {
   return <section id="overview" hidden={!visible} aria-labelledby="overview-heading" className="page-section hb:pb-10">

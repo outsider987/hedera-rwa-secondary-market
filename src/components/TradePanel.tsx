@@ -1,7 +1,7 @@
 import {useRef,useState} from 'react';
-import {accounts,securityId,securityAddress,partition,type LifecycleState} from './lifecycle';
-import {readHoldState} from './hold';
-import {assertTradeState,readSwap} from './trade';
+import {accounts,securityId,securityAddress,partition,type LifecycleState} from '../lib/lifecycle';
+import {readHoldState} from '../lib/hold';
+import {assertTradeState,readSwap} from '../lib/trade';
 
 export function Balances({state}:{state:LifecycleState}) {
  return <dl className="balance-list"><div><dt>Seller available / held</dt><dd>{state.sellerBalance} / {state.sellerHeld} NOVA</dd></div><div><dt>Buyer available / held</dt><dd>{state.buyerBalance} / {state.buyerHeld} NOVA</dd></div><div><dt>Supply / cap</dt><dd>{state.supply} / 1,000 NOVA</dd></div></dl>;

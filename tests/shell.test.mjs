@@ -13,7 +13,7 @@ test('the shell renders planned data without claiming a wallet or chain result',
   });
   try {
     const { default: App } = await server.ssrLoadModule('/src/App.tsx');
-    const { walletConfig, queryClient } = await server.ssrLoadModule('/src/wallet.ts');
+    const { walletConfig, queryClient } = await server.ssrLoadModule('/src/lib/wallet.ts');
     const html = renderToStaticMarkup(createElement(WagmiProvider, { config: walletConfig, reconnectOnMount: false },
       createElement(QueryClientProvider, { client: queryClient }, createElement(App))));
     for (const text of [
@@ -70,7 +70,7 @@ test('the shell renders planned data without claiming a wallet or chain result',
 
 test('completed T05 exposes historical reads and no mutation reviews for either trading account',async()=>{
  const server=await createServer({server:{middlewareMode:true,hmr:false},appType:'custom'});
- try{const {default:Panel}=await server.ssrLoadModule('/src/TradePanel.tsx');const {accounts}=await server.ssrLoadModule('/src/lifecycle.ts');
+ try{const {default:Panel}=await server.ssrLoadModule('/src/components/TradePanel.tsx');const {accounts}=await server.ssrLoadModule('/src/lib/lifecycle.ts');
  for(const active of ['Seller','Buyer']){const html=renderToStaticMarkup(createElement(Panel,{roles:{},session:0,activeAccount:accounts[active].address,records:[],onRecords(){}}));assert.match(html,/Verify historical T05 state/);assert.match(html,/40247352/);assert.doesNotMatch(html,/Approve in MetaMask|Review purchase|Check readiness|Review cancellation/);}
  }finally{await server.close();}
 });
@@ -78,7 +78,7 @@ test('completed T05 exposes historical reads and no mutation reviews for either 
 test('Header distinguishes roles and clears role color when disconnected', async () => {
   const server = await createServer({ server: { middlewareMode: true, hmr: false }, appType: 'custom' });
   try {
-    const { default: Header } = await server.ssrLoadModule('/src/Header.tsx');
+    const { default: Header } = await server.ssrLoadModule('/src/components/Header.tsx');
     for (const [activeRole, connected, label, color] of [
       ['Admin', true, 'Admin', 'purple'], ['Seller', true, 'Seller', 'amber'],
       ['Buyer', true, 'Buyer', 'blue'], [undefined, true, 'Unassigned account', undefined],

@@ -75,7 +75,7 @@ const record = {
 };
 try {
   mkdirSync(join(scratch, 'src/compat'), { recursive: true });
-  for (const path of ['package.json', 'package-lock.json', 'vite.config.ts', 'src/styles.css', 'src/deployment.ts', 'src/compat/dotenv.ts', 'src/compat/winston.ts']) copyFileSync(join(root, path), join(scratch, path));
+  for (const path of ['package.json', 'package-lock.json', 'vite.config.ts', 'src/styles.css', 'src/lib/deployment.ts', 'src/compat/dotenv.ts', 'src/compat/winston.ts']) copyFileSync(join(root, path), join(scratch, path));
   symlinkSync(join(root, 'node_modules'), join(scratch, 'node_modules'), 'dir');
   writeFileSync(join(scratch, 'index.html'), '<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ATS config diagnostic</title></head><body><main><h1>ATS config diagnostic</h1><p>Isolated public read; no wallet.</p><p id="status" role="status" aria-live="polite">Idle</p><button>Check SDK prerequisite</button></main><script type="module" src="/src/probe.ts"></script></body></html>');
   writeFileSync(join(scratch, 'src/probe.ts'), probeSource);

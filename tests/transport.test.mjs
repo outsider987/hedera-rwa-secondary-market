@@ -3,7 +3,7 @@ import {test} from 'node:test';
 import {registerHooks} from 'node:module';
 registerHooks({resolve(s,c,n){return n(s.startsWith('.')&&c.parentURL?.includes('/src/')&&!/\.[a-z]+$/.test(s)?new URL(s+'.ts',c.parentURL).href:s,c)}});
 test('T04 shared transport preserves late hash, excludes duplicates, blocks all simulation mutations and delegates one recovery',async()=>{
- const h=await import('../src/hold.ts'),l=await import('../src/lifecycle.ts'),e=await import('../src/evidence.ts'),{createAssetProviders}=await import('../src/transport.ts'),{keccak256}=await import('viem');
+ const h=await import('../src/lib/hold.ts'),l=await import('../src/lib/lifecycle.ts'),e=await import('../src/lib/evidence.ts'),{createAssetProviders}=await import('../src/lib/transport.ts'),{keccak256}=await import('viem');
  const input=h.createHoldInput({block:'40224162',timestamp:'1788790000'}),calldata=await h.holdCalldata('create-hold',input),hash='0x'+'1'.repeat(64);
  const initial={schemaVersion:1,kind:'t04-transaction',chainId:296,operationId:'transport-fixture',startedAt:new Date().toISOString(),action:'create-hold',status:'awaiting-signature',input,signerRole:'Seller',calldataDigest:keccak256(calldata)};
  const controller=new AbortController();let sends=0,finish;const updates=[];
@@ -20,7 +20,7 @@ test('T04 shared transport preserves late hash, excludes duplicates, blocks all 
 });
 
 test('T05 payable transport preserves late hashes, distinguishes rejection from unknown, serializes tabs and keeps ATS zero-value guards',async()=>{
- const t=await import('../src/trade.ts'),l=await import('../src/lifecycle.ts'),e=await import('../src/evidence.ts'),g=await import('../src/guards.ts'),{createAssetProviders}=await import('../src/transport.ts'),{keccak256}=await import('viem');
+ const t=await import('../src/lib/trade.ts'),l=await import('../src/lib/lifecycle.ts'),e=await import('../src/lib/evidence.ts'),g=await import('../src/lib/guards.ts'),{createAssetProviders}=await import('../src/lib/transport.ts'),{keccak256}=await import('viem');
  const input={...t.createTradeInput({block:'40243275',timestamp:'1788832446'}),escrow:'0x'+'9'.repeat(40),holdId:'17'},calldata=await t.tradeCalldata('settle',input),hash='0x'+'7'.repeat(64);
  const initial={schemaVersion:1,chainId:296,kind:'t05-transaction',operationId:'t05-pay',startedAt:new Date().toISOString(),action:'settle',status:'awaiting-signature',signerRole:'Buyer',input,calldata,calldataDigest:keccak256(calldata),walletValueWeibars:String(t.walletPrice)};
  const tx={from:l.accounts.Buyer.address,to:input.escrow,data:calldata,value:'0xde0b6b3a7640000',chainId:'0x128'};
@@ -45,13 +45,13 @@ test('T05 payable transport preserves late hashes, distinguishes rejection from 
  let finishLock;const lock={request:async(name,options,fn)=>{assert.equal(name,'holdbook-nova-create');return fn(finishLock?null:{name});}};
  const first=g.withTransactionLock(lock,()=>new Promise(r=>finishLock=r));while(!finishLock)await new Promise(r=>setImmediate(r));
  await assert.rejects(g.withTransactionLock(lock,async()=>{}));finishLock();await first;
- const h=await import('../src/hold.ts'),holdInput=h.createHoldInput({block:'40243275',timestamp:'1788832446'}),holdData=await h.holdCalldata('create-hold',holdInput);
+ const h=await import('../src/lib/hold.ts'),holdInput=h.createHoldInput({block:'40243275',timestamp:'1788832446'}),holdData=await h.holdCalldata('create-hold',holdInput);
  const legacy={schemaVersion:1,chainId:296,kind:'t04-transaction',operationId:'legacy',startedAt:initial.startedAt,action:'create-hold',status:'awaiting-signature',signerRole:'Seller',input:holdInput,calldataDigest:keccak256(holdData)};
  const legacyProvider=await createAssetProviders({...options,initial:legacy,sanitize:e.holdEvidence,signer:l.accounts.Seller.address,calldata:holdData,signal:new AbortController().signal,assertContractTransaction:()=>{throw Error('Must not replace ATS guard');}});
  await assert.rejects(legacyProvider.browser.send('eth_sendTransaction',[{from:l.accounts.Seller.address,to:l.securityAddress,data:holdData,value:tx.value}]));assert.equal(legacyProvider.wasAttempted(),false);legacyProvider.close();
 });
 test('T08 transport requires exact guard, preserves an invalidated late hash and distinguishes rejection',async()=>{
- const {createAssetProviders}=await import('../src/transport.ts'),{accounts,securityAddress}=await import('../src/lifecycle.ts');
+ const {createAssetProviders}=await import('../src/lib/transport.ts'),{accounts,securityAddress}=await import('../src/lib/lifecycle.ts');
  const tx={from:accounts.Buyer.address,to:'0x'+'1'.repeat(40),chainId:'0x128',data:'0x12345678',value:'0x2c68af0bb140000'},hash='0x'+'c'.repeat(64);
  let resolve,sends=0;const controller=new AbortController(),seen=[];
  const options={wallet:{provider:{request:async()=>{sends++;return new Promise(r=>resolve=r)}}},signer:accounts.Buyer.address,securityAddress,calldata:tx.data,reads:[],initial:{kind:'t08-transaction',action:'settle',status:'awaiting-signature'},sanitize:r=>r,update:r=>seen.push(r),checkCurrent:async()=>{},signal:controller.signal,recoverAfterHash:true,verifyReceipt:async()=>{throw Error('Use server verifier');},assertContractTransaction:x=>assert.deepEqual(x,tx)};

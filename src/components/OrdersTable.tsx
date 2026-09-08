@@ -1,4 +1,4 @@
-import { hbar, status, type Order } from './market';
+import { hbar, status, type Order } from '../lib/market';
 
 export default function OrdersTable({ myOrders, filter, setFilter, trader, disabled, onCancel }: {
   myOrders: Order[]; filter: 'Open' | 'All'; setFilter: (filter: 'Open' | 'All') => void;

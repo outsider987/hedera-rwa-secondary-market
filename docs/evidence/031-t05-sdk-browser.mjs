@@ -14,7 +14,7 @@ try {
  cpSync(join(root,'src'),join(scratch,'src'),{recursive:true});for(const f of ['vite.config.ts','package.json'])copyFileSync(join(root,f),join(scratch,f));symlinkSync(join(root,'node_modules'),join(scratch,'node_modules'),'dir');
  writeFileSync(join(scratch,'index.html'),'<html lang="en"><title>T05 controlled SDK boundary</title><script type="module" src="/probe.js"></script></html>');
  writeFileSync(join(scratch,'probe.js'),`
- import * as t from './src/trade';import * as h from './src/hold';import * as l from './src/lifecycle';import {createAssetProviders} from './src/transport';import {tradeEvidence} from './src/evidence';import {keccak256} from 'viem';
+ import * as t from './src/lib/trade';import * as h from './src/lib/hold';import * as l from './src/lib/lifecycle';import {createAssetProviders} from './src/lib/transport';import {tradeEvidence} from './src/lib/evidence';import {keccak256} from 'viem';
  window.probe=async mode=>{
   const sdk=await import('@hashgraph/asset-tokenization-sdk'),calls=[],updates=[];let connected=false,timedOut=false,errorCode='',timer;
   const input={...t.createTradeInput({block:'40243275',timestamp:String(Math.floor(Date.now()/1000))}),escrow:'${SW}'};

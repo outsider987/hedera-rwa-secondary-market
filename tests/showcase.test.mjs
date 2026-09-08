@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {test} from 'node:test';
 import {readFileSync} from 'node:fs';
 test('showcase retains exact observed T05 evidence and binds all four verified T08 timelines to recorded proofs',()=>{
- const v=JSON.parse(readFileSync(new URL('../src/showcase.json',import.meta.url))),actual=JSON.parse(readFileSync(new URL('../docs/evidence/032-t05-manual.json',import.meta.url)));
+ const v=JSON.parse(readFileSync(new URL('../src/data/showcase.json',import.meta.url))),actual=JSON.parse(readFileSync(new URL('../docs/evidence/032-t05-manual.json',import.meta.url)));
  assert.equal(v.historical.recordedAt,actual.finalAcceptance.recordedAt);assert.equal(v.historical.block,actual.finalAcceptance.finalBlock);
  assert.deepEqual(v.historical.timeline.map(t=>t.hash),['deployment','lock','settlement'].map(k=>actual[k].transactionHash));
  const manual=JSON.parse(readFileSync(new URL('../docs/evidence/038-t08-manual.json',import.meta.url)));

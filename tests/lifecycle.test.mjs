@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {test} from 'node:test';
 import {registerHooks} from 'node:module';
 registerHooks({resolve(s,c,n){return n(s.startsWith('./')&&c.parentURL?.startsWith(new URL('../src/',import.meta.url).href)&&!/\.[a-z]+$/.test(s)?new URL(s+'.ts',c.parentURL).href:s,c)}});
-const load=()=>import('../src/lifecycle.ts');
+const load=()=>import('../src/lib/lifecycle.ts');
 test('T03 orders missing roles and issuer; never reissues changed supply or balances',async()=>{
  const l=await load();const s={roles:[false,false,false],issuer:false,sellerKyc:{status:0,vcId:''},buyerKyc:{status:0,vcId:''},supply:'0',sellerBalance:'0',buyerBalance:'0',sellerHeld:'0',buyerHeld:'0'};
  assert.equal(l.nextAction(s,[]),'issuer-role');
@@ -22,7 +22,7 @@ test('exact fixed calldata, zero value, fixed accounts and asset; no alternative
  await assert.rejects(l.actionCalldata('other'));await assert.rejects(l.actionCalldata('seller-kyc'));
 });
 test('public T03 evidence drops arbitrary objects, signatures and credentials',async()=>{
- const l=await load();const e=await import('../src/evidence.ts');
+ const l=await load();const e=await import('../src/lib/evidence.ts');
  const r={schemaVersion:1,kind:'t03',chainId:296,operationId:'test-operation',startedAt:new Date().toISOString(),action:'issue',status:'awaiting-signature',calldataDigest:'0x'+'1'.repeat(64),securityAddress:l.securityAddress,admin:l.accounts.Admin.address,credential:{proof:'SECRET'},wallet:{secret:'SECRET'},error:'SECRET'};
  const clean=e.lifecycleEvidence(r);assert.doesNotMatch(JSON.stringify(clean),/SECRET|credential|wallet|error/);
  let raw=null;const storage={getItem:()=>raw,setItem:(k,v)=>raw=v};
@@ -33,7 +33,7 @@ test('public T03 evidence drops arbitrary objects, signatures and credentials',a
 
 const hash='0x'+'1'.repeat(64), blockHash='0x'+'2'.repeat(64);
 async function receiptFixture(action,kyc) {
- const l=await load(),{interfaces}=await import('../src/nova.ts'),{keccak256}=await import('viem'),{asset}=await interfaces();
+ const l=await load(),{interfaces}=await import('../src/lib/nova.ts'),{keccak256}=await import('viem'),{asset}=await interfaces();
  const calldata=await l.actionCalldata(action,kyc), index=['issuer-role','ssi-role','kyc-role'].indexOf(action);
  const eventName=index>=0?'RoleGranted':action==='register-issuer'?'AddedToIssuerList':action==='issue'?'IssuedByPartition':'KycGranted';
  const args=index>=0?[l.accounts.Admin.address,l.accounts.Admin.address,l.roleIds[index]]:action==='register-issuer'?[l.accounts.Admin.address,l.accounts.Admin.address]:action==='issue'?[l.partition,l.accounts.Admin.address,l.accounts.Seller.address,100,'0x']:[l.accounts.Seller.address,l.accounts.Admin.address];
@@ -80,7 +80,7 @@ test('T03 provider rejection, stale preflight and bounded lookup keep retry deci
 test('original account mapping is mandatory; UTF-8 KYC calldata preserves ID and Unix seconds',async()=>{
  const l=await load();const roles=Object.fromEntries(Object.entries(l.accounts).map(([k,v])=>[k,v.address]));l.assertFixedAccounts(roles);
  for(const role of Object.keys(roles)) assert.throws(()=>l.assertFixedAccounts({...roles,[role]:'0x'+'a'.repeat(40)}));
- const {asset}=await (await import('../src/nova.ts')).interfaces();
+ const {asset}=await (await import('../src/lib/nova.ts')).interfaces();
  const input={vcId:'urn:uuid:public-fixture',issuer:l.accounts.Admin.address,validFrom:'1788760000',validTo:'1789365100'};
  const decoded=asset.decodeFunctionData('grantKyc',await l.actionCalldata('seller-kyc',input));
  assert.equal(decoded[0].toLowerCase(),l.accounts.Seller.address);assert.equal(decoded[1],input.vcId);assert.equal(decoded[2],BigInt(input.validFrom));assert.equal(decoded[3],BigInt(input.validTo));
@@ -94,7 +94,7 @@ test('role IDs match the pinned SDK, not hashes inferred from enum labels',async
 
 test('recovery verifies historical transition and Mirror mapping; delay, reload, failed receipt and missing history stay safe',{timeout:20000},async(t)=>{
  const {l,asset,record,tx,receipt}=await receiptFixture('issuer-role');
- const n=await import('../src/nova.ts'),g=await import('../src/guards.ts');
+ const n=await import('../src/lib/nova.ts'),g=await import('../src/lib/guards.ts');
  let raw=JSON.stringify([{...record,status:'unknown'}]),mode='delay',currentReceipt=receipt;
  const storage={getItem:()=>raw,setItem:(key,value)=>raw=value};
  Object.defineProperty(globalThis,'window',{configurable:true,value:{localStorage:storage}});t.after(()=>delete globalThis.window);
@@ -140,7 +140,7 @@ test('recovery verifies historical transition and Mirror mapping; delay, reload,
  raw='invalid';await assert.rejects(l.recoverLifecycle(hash,'issuer-role',new AbortController().signal,()=>{}));assert.equal(g.getOperationBusy(),false);
 });
 test('KYC transition compares values independent of JSON field order; final 100 can never issue again',async()=>{
- const l=await load(),e=await import('../src/evidence.ts');
+ const l=await load(),e=await import('../src/lib/evidence.ts');
  const empty={status:0,vcId:'',issuer:'0x'+'0'.repeat(40),validFrom:'0',validTo:'0'};
  const before=e.lifecycleStateEvidence({block:'10',timestamp:'1788760000',roles:[true,true,true],issuer:true,supply:'0',sellerBalance:'0',buyerBalance:'0',sellerHeld:'0',buyerHeld:'0',sellerKyc:empty,buyerKyc:empty});
  const kyc={vcId:'urn:uuid:public-fixture',issuer:l.accounts.Admin.address,validFrom:'1788760000',validTo:'1789365100'};

@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import snapshot from './showcase.json';
+import snapshot from './data/showcase.json';
 import './styles.css';
 function hbar(value: string){const n=BigInt(value);return `${n/100000000n}.${(n%100000000n).toString().padStart(8,'0')}`.replace(/\.?0+$/,'');}
 function Showcase(){

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {registerHooks} from 'node:module';
 registerHooks({resolve(s,c,n){return n(s.startsWith('.')&&c.parentURL?.includes('/src/')&&!/\.[a-z]+$/.test(s)?new URL(s+'.ts',c.parentURL).href:s,c)}});
-const {settlementDigest}=await import('../../src/settlement.ts');
+const {settlementDigest}=await import('../../src/lib/settlement.ts');
 const {chromium}=await import(process.argv[2]);
 const {snapshot}=JSON.parse(readFileSync(new URL('./036-t07-layout-fixtures.json',import.meta.url)));
 const vector=JSON.parse(readFileSync(new URL('../../tests/fixtures/settlement-vector.json',import.meta.url)));

@@ -18,7 +18,7 @@ try {
  symlinkSync(join(root,'node_modules'),join(scratch,'node_modules'),'dir');
  writeFileSync(join(scratch,'index.html'),'<html lang="en"><title>T03 synthetic rejection boundary</title><script type="module" src="/probe.js"></script></html>');
  writeFileSync(join(scratch,'probe.js'),`
- import * as l from './src/lifecycle';
+ import * as l from './src/lib/lifecycle';
  window.holdLock=()=>{window.lock=l.withLifecycleLock(navigator.locks,()=>new Promise(r=>window.releaseLock=r))};
  window.tryLock=()=>l.withLifecycleLock(navigator.locks,async()=>true).catch(()=>false);
  window.probe=async(action,mode)=>{

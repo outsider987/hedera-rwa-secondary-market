@@ -4,12 +4,12 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {registerHooks} from 'node:module';
 registerHooks({resolve(s,c,n){return n(s.startsWith('.')&&c.parentURL?.includes('/src/')&&!/\.[a-z]+$/.test(s)?new URL(s+'.ts',c.parentURL).href:s,c)}});
-const trade=await import('../../src/trade.ts'),{keccak256}=await import('viem');
+const trade=await import('../../src/lib/trade.ts'),{keccak256}=await import('viem');
 const {chromium}=await import(process.argv[2]);
 // Optional regression using a user-exported public deployment intent. Reads only.
 if(process.argv.includes('--recover-deployment')) {
  const intent=JSON.parse(readFileSync(process.argv[process.argv.indexOf('--recover-deployment')+1]));
- const {tradeEvidence}=await import('../../src/evidence.ts');const saved=tradeEvidence(intent);
+ const {tradeEvidence}=await import('../../src/lib/evidence.ts');const saved=tradeEvidence(intent);
  assert.equal(saved.action,'deploy');assert.ok(saved.transactionHash);
  const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true}),checks=[];
  try {for(const port of [5173,4173]) {

@@ -1,10 +1,10 @@
 import NovaFlow from './NovaFlow';
 import {useEffect,useRef,useState} from 'react';
 import {motion,useReducedMotion} from 'motion/react';
-import {accounts} from './lifecycle';
-import type {Roles} from './guards';
-import {hbar,type Match} from './market';
-import {loadSettlement,saveSettlement,prepareSettlement,submitSettlement,recoverSettlement,settlementAction,settlementLabels,settlementStatus,settlementStorageKey,type Settlement,type SettlementDeployment,type SettlementOperation,type SettlementReview,type SavedSettlement} from './settlement';
+import {accounts} from '../lib/lifecycle';
+import type {Roles} from '../lib/guards';
+import {hbar,type Match} from '../lib/market';
+import {loadSettlement,saveSettlement,prepareSettlement,submitSettlement,recoverSettlement,settlementAction,settlementLabels,settlementStatus,settlementStorageKey,type Settlement,type SettlementDeployment,type SettlementOperation,type SettlementReview,type SavedSettlement} from '../lib/settlement';
 export const accountLabel=(a:string)=>a===accounts.Seller.address?'Seller account':a===accounts.Buyer.address?'Buyer account':a===accounts.Admin.address?'Admin account':'Not connected';
 export default function SettlementPanel({match,settlement,deployment,pendingOperation,roles,owner,session,online,locked,eligible,onNewOrder,onUpdated}:{match?:Match;settlement?:Settlement;deployment?:SettlementDeployment;pendingOperation?:SettlementOperation;roles:Roles;owner:string;session:number;online:boolean;locked:boolean;eligible:boolean;onNewOrder:()=>void;onUpdated:()=>void}){
  const [saved,setSaved]=useState<SavedSettlement>(),[review,setReview]=useState<SettlementReview>(),[approved,setApproved]=useState(false),[phase,setPhase]=useState<'preparing'|'wallet'|'verifying'>(),[problem,setProblem]=useState(''),[hash,setHash]=useState('');

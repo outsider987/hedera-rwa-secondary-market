@@ -1,5 +1,21 @@
 # HoldBook handoff
 
+## Source folders organized — September 9
+
+`based_on_commit: 791efe615531fa72669c92c3f2422602113ffedf`. User authorized
+organizing src. [Plan007](plans/007-source-folders.md) bounds the change.
+Pages, components, named logic modules and static JSON now live in pages/,
+components/, lib/ and data/. App/entrypoints/styles/compat remain in place.
+All37 source files retain their content apart from relative paths; JSON is
+byte-identical. Executable consumers and current architecture/design links follow
+the moves; dated evidence is preserved.
+
+npm ci,114 app+36 protobuf tests, typecheck, both builds, both artifact checks and
+four dev/preview desktop/mobile browser cases passed. [Usage053](ai-usage/053-source-folders.md)
+records checks and limitations. No behavior/dependency/chain changes, signing,
+push, merge or publication. T08 remains complete locally. Stop at local review;
+next ticket and its allowed files: none until separately authorized.
+
 ## Architecture diagrams saved — September 9
 
 `based_on_commit: 385a753881cbdde5d6debf13ce35c02ec998f5ac`. User explicitly requested saving the

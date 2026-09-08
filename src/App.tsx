@@ -1,16 +1,16 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { useConnect, useConnection, useDisconnect } from 'wagmi';
-import { acquireOperation, getOperationBusy, releaseOperation, subscribeOperation, loadRoles, rolesStorageKey, saveRoles, storageWarning, type Roles } from './guards';
-import { invalidateWalletSession, getWalletSession, subscribeWalletSession, testnetChainId, walletConfig } from './wallet';
-import type { TradeRecord } from './evidence';
-import MarketPanel from './MarketPanel';
-import Header from './Header';
-import OverviewPage from './OverviewPage';
-import ActivityPage from './ActivityPage';
-import SettingsPage from './SettingsPage';
-import { resolvePage, type Page } from './navigation';
-import { loadTradeRecords } from './trade';
-import { accounts } from './lifecycle';
+import { acquireOperation, getOperationBusy, releaseOperation, subscribeOperation, loadRoles, rolesStorageKey, saveRoles, storageWarning, type Roles } from './lib/guards';
+import { invalidateWalletSession, getWalletSession, subscribeWalletSession, testnetChainId, walletConfig } from './lib/wallet';
+import type { TradeRecord } from './lib/evidence';
+import MarketPanel from './components/MarketPanel';
+import Header from './components/Header';
+import OverviewPage from './pages/OverviewPage';
+import ActivityPage from './pages/ActivityPage';
+import SettingsPage from './pages/SettingsPage';
+import { resolvePage, type Page } from './lib/navigation';
+import { loadTradeRecords } from './lib/trade';
+import { accounts } from './lib/lifecycle';
 
 export default function App() {
   const connection = useConnection();

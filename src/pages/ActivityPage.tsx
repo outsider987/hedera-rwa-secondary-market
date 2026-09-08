@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { getOperationBusy, subscribeOperation } from './guards';
-import { downloadEvidence, type TradeRecord } from './evidence';
-import TradePanel from './TradePanel';
-import { tradeLabels } from './trade';
-import { accounts, securityId, securityAddress, creationHash, actionLabels, loadLifecycleRecords, type LifecycleRecord, type LifecycleState } from './lifecycle';
-import { verifyT03History } from './hold';
-import { loadNovaRecord, novaStorageKey, recoverNova, saveNovaRecord, type NovaRecord } from './nova';
+import { getOperationBusy, subscribeOperation } from '../lib/guards';
+import { downloadEvidence, type TradeRecord } from '../lib/evidence';
+import TradePanel from '../components/TradePanel';
+import { tradeLabels } from '../lib/trade';
+import { accounts, securityId, securityAddress, creationHash, actionLabels, loadLifecycleRecords, type LifecycleRecord, type LifecycleState } from '../lib/lifecycle';
+import { verifyT03History } from '../lib/hold';
+import { loadNovaRecord, novaStorageKey, recoverNova, saveNovaRecord, type NovaRecord } from '../lib/nova';
 
 const novaMessages: Record<NovaRecord['status'], string> = {
   'awaiting-signature': 'Awaiting signature. Check MetaMask before doing anything else.',

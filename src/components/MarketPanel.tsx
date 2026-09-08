@@ -4,12 +4,12 @@ import AccountBalance from './AccountBalance';
 import OrderBook from './OrderBook';
 import OrdersTable from './OrdersTable';
 import MatchesList from './MatchesList';
-import {readSettlements} from './settlement';
-import {queryClient} from './wallet';
+import {readSettlements} from '../lib/settlement';
+import {queryClient} from '../lib/wallet';
 import {useEffect,useRef,useState,useSyncExternalStore} from 'react';
-import {getOperationBusy,subscribeOperation,type Roles} from './guards';
-import {accounts} from './lifecycle';
-import {amount,hbar,loadIntent,marketEvidence,marketStorageKey,pending,prepareOrder,readMarketBalance,readMarket,recoverIntent,signOrder,type Intent,type Market,type Order,type Review,type Side} from './market';
+import {getOperationBusy,subscribeOperation,type Roles} from '../lib/guards';
+import {accounts} from '../lib/lifecycle';
+import {amount,hbar,loadIntent,marketEvidence,marketStorageKey,pending,prepareOrder,readMarketBalance,readMarket,recoverIntent,signOrder,type Intent,type Market,type Order,type Review,type Side} from '../lib/market';
 
 export default function MarketPanel({visible,activity=false,roles,session,activeAccount}:{visible:boolean;activity?:boolean;roles:Roles;session:number;activeAccount?:string}){
  const [selectedMatch,setSelectedMatch]=useState<string>(),[matchFilter,setMatchFilter]=useState<'Active'|'Needs your action'|'Completed'|'All'>('Active');

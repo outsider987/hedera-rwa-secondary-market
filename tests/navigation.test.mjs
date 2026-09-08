@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { resolvePage } from '../src/navigation.ts';
+import { resolvePage } from '../src/lib/navigation.ts';
 
 test('navigation preserves activity legacy links and skip links do not change page', () => {
   for (const hash of ['', '#overview', '#unknown']) assert.equal(resolvePage(hash), 'overview');

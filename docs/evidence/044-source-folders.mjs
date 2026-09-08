@@ -26,17 +26,17 @@ try{for(const port of [5173,4173])for(const width of [1440,390]){
  const nav=page.getByRole('navigation',{name:'Main navigation'});
  await page.getByRole('heading',{name:'Meet NOVA.',exact:true}).waitFor();
  assert.deepEqual(await nav.getByRole('link').allTextContents(),['Overview','Market','Activity','Settings']);
- const image=page.locator('#overview img');await image.waitFor();await page.waitForFunction(()=>document.querySelector('#overview img')?.naturalWidth>0);
+ const image=page.locator('#overview img').first();await image.waitFor();await page.waitForFunction(()=>document.querySelector('#overview img')?.naturalWidth>0);
  assert.equal(await image.getAttribute('alt'),'Illustrative NOVA certificate labeled Demo Equity and Hedera Testnet');
  assert.equal(reads,0);
- if(port===4173)await capture(page,`docs/evidence/042-nova-overview-${width===1440?'desktop':'mobile'}.png`);
+ if(port===4173)await capture(page,`docs/evidence/044-source-overview-${width===1440?'desktop':'mobile'}.png`);
  await nav.getByRole('link',{name:'Market',exact:true}).click();
  await page.getByRole('heading',{name:'NOVA / HBAR',exact:true}).waitFor();
  await page.getByRole('button',{name:'Connect',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#wallet-status')?.textContent.includes('Connected to Hedera Testnet.'));
  await page.getByRole('button',{name:'View match 13-1',exact:true}).waitFor();
  if(port===4173){await page.getByLabel('Quantity (NOVA)',{exact:true}).fill('2');await page.getByLabel('Limit price (HBAR)',{exact:true}).fill('0.1');}
  await page.locator('.market-balance').getByText('Balance unavailable. Refresh to try again.',{exact:true}).waitFor();
- if(port===4173)await capture(page,`docs/evidence/042-nova-market-${width===1440?'desktop':'mobile'}.png`);
+ if(port===4173)await capture(page,`docs/evidence/044-source-market-${width===1440?'desktop':'mobile'}.png`);
  await nav.getByRole('link',{name:'Activity',exact:true}).click();
  await page.getByRole('heading',{name:'Activity',exact:true}).waitFor();
  assert.equal(await page.getByRole('heading',{name:'Order book',exact:true}).isVisible(),false);
@@ -46,7 +46,7 @@ try{for(const port of [5173,4173])for(const width of [1440,390]){
  await nav.getByRole('link',{name:'Market',exact:true}).click();
  if(port===4173)assert.equal(await page.getByLabel('Quantity (NOVA)',{exact:true}).inputValue(),'2');
  await page.goBack();await page.getByRole('heading',{name:'Activity',exact:true}).waitFor();
- if(port===4173)await capture(page,`docs/evidence/042-nova-activity-${width===1440?'desktop':'mobile'}.png`);
+ if(port===4173)await capture(page,`docs/evidence/044-source-activity-${width===1440?'desktop':'mobile'}.png`);
  await page.getByRole('button',{name:'View match 13-1',exact:true}).click();
  await page.waitForURL('**/#market');await page.getByRole('heading',{name:'Match 13-1',exact:true}).waitFor();
  await page.waitForFunction(()=>document.activeElement?.id==='settlement-heading');
@@ -64,7 +64,7 @@ try{for(const port of [5173,4173])for(const width of [1440,390]){
  await page.locator('.skip-link').focus();await page.keyboard.press('Enter');
  assert.equal(await page.getByRole('heading',{name:'Settings',exact:true}).isVisible(),true);
  assert.equal(await nav.getByRole('link',{name:'Settings',exact:true}).getAttribute('aria-current'),'page');
- if(port===4173)await capture(page,`docs/evidence/042-nova-settings-${width===1440?'desktop':'mobile'}.png`);
+ if(port===4173)await capture(page,`docs/evidence/044-source-settings-${width===1440?'desktop':'mobile'}.png`);
  const stopped=reads;await page.waitForTimeout(2400);assert.equal(reads,stopped);
  for(const hash of ['history','trade']){await page.evaluate(hash=>{location.hash=hash},hash);await page.getByRole('heading',{name:'Activity',exact:true}).waitFor();assert.equal(await nav.getByRole('link',{name:'Activity',exact:true}).getAttribute('aria-current'),'page');}
  for(const tab of ['Overview','Market','Activity','Settings']){await nav.getByRole('link',{name:tab,exact:true}).click();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true, JSON.stringify({port,width,tab,overflow:await page.evaluate(()=>[...document.querySelectorAll('main *')].filter(e=>e.getBoundingClientRect().right>innerWidth).slice(0,12).map(e=>({tag:e.tagName,class:e.className,width:e.getBoundingClientRect().width,right:e.getBoundingClientRect().right})))}));}
@@ -72,4 +72,4 @@ try{for(const port of [5173,4173])for(const width of [1440,390]){
  assert.deepEqual(errors,[]);assert.deepEqual(writes,[]);
  results.push({port,width,tabs:true,image:true,legacyLinks:true,backNavigation:true,skipLinkPreservesPage:true,sticky:true,draftPreserved:port===4173?true:"Not exercised: dev controls disabled",accountChangeClearsDraft:port===4173?true:"Not exercised: dev controls disabled",activityMatchReturnsToMarket:true,selectedMatchPreserved:true,inactivePollingStopped:true,overflow:false,walletMutations:0});await context.close();
 }}finally{await browser.close();}
-writeFileSync('docs/evidence/042-nova-overview.json',JSON.stringify({recordedAt:new Date().toISOString(),kind:'Explicit public fixtures and isolated read-only wallet; no live transactions',results},null,2)+'\n');
+writeFileSync('docs/evidence/044-source-folders.json',JSON.stringify({recordedAt:new Date().toISOString(),kind:'Explicit public fixtures and isolated read-only wallet; no live transactions',results},null,2)+'\n');

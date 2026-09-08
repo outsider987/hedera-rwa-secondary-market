@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { useQueries, useQuery } from '@tanstack/react-query';
-import { acquireOperation, getOperationBusy, releaseOperation, subscribeOperation, bindingProblem, roleNames, type MirrorAccount, type Roles } from './guards';
-import { getWalletSession, lookupAccount, queryClient, subscribeWalletSession } from './wallet';
-import { checkDeployment, deployments, equityConfigId } from './deployment';
-import { checkSdkConfig, prepareAts, type AtsLoadState, type SdkConfigCheck } from './ats';
-import { securityAddress } from './lifecycle';
+import { acquireOperation, getOperationBusy, releaseOperation, subscribeOperation, bindingProblem, roleNames, type MirrorAccount, type Roles } from '../lib/guards';
+import { getWalletSession, lookupAccount, queryClient, subscribeWalletSession } from '../lib/wallet';
+import { checkDeployment, deployments, equityConfigId } from '../lib/deployment';
+import { checkSdkConfig, prepareAts, type AtsLoadState, type SdkConfigCheck } from '../lib/ats';
+import { securityAddress } from '../lib/lifecycle';
 
 function Deployment() {
   const operation = useRef(false);

@@ -21,7 +21,7 @@ const result = {
   abi:artifact.abi, bytecode:artifact.bytecode.object, runtime:artifact.deployedBytecode.object,
   expiryReferences:refs[0],
 };
-const path='src/swap-artifact.json', text=JSON.stringify(result,null,2)+'\n';
+const path='src/data/swap-artifact.json', text=JSON.stringify(result,null,2)+'\n';
 if(process.argv.includes('--check')) assert.equal(readFileSync(path,'utf8'),text,'Regenerate the stale swap artifact.');
 else writeFileSync(path,text);
 console.log(process.argv.includes('--check') ? 'Swap artifact matches pinned source/build.' : 'Swap artifact generated.');

@@ -1,6 +1,6 @@
-import { accounts } from './lifecycle';
-import { hbar, type Market } from './market';
-import { settlementAction, settlementStatus, type readSettlements } from './settlement';
+import { accounts } from '../lib/lifecycle';
+import { hbar, type Market } from '../lib/market';
+import { settlementAction, settlementStatus, type readSettlements } from '../lib/settlement';
 
 export default function MatchesList({ market, settlementData, owner, matchFilter, setMatchFilter, freshMatch, onSelect }: {
   market?: Market; settlementData?: Awaited<ReturnType<typeof readSettlements>>; owner: string;

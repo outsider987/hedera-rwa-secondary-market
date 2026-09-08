@@ -93,16 +93,16 @@ values use weibars (1 HBAR = 10^8 tinybars = 10^18 weibars).
 
 | Responsibility | Source |
 | --- | --- |
-| Review screens and wallet connection | [App.tsx](../src/App.tsx), [wallet.ts](../src/wallet.ts) |
-| Quote, reviews, next action and recovery UI | [TradePanel.tsx](../src/TradePanel.tsx) |
-| T05 guards, receipt/runtime/Mirror checks and simulations | [trade.ts](../src/trade.ts) |
+| Review screens and wallet connection | [App.tsx](../src/App.tsx), [wallet.ts](../src/lib/wallet.ts) |
+| Quote, reviews, next action and recovery UI | [TradePanel.tsx](../src/components/TradePanel.tsx) |
+| T05 guards, receipt/runtime/Mirror checks and simulations | [trade.ts](../src/lib/trade.ts) |
 | Atomic delivery/payment, cancellation and expiry | [NovaHbarSwap.sol](../contracts/NovaHbarSwap.sol) |
-| Fixed Hold sequence, simulations and recovery | [hold.ts](../src/hold.ts) |
-| Session checks and operation locks | [guards.ts](../src/guards.ts) |
-| VC preparation, manual signing and verification | [credentials.ts](../src/credentials.ts) |
-| SDK setup and guarded transport | [ats.ts](../src/ats.ts), [transport.ts](../src/transport.ts) |
-| Shared state, RPC/Mirror and historical verification | [lifecycle.ts](../src/lifecycle.ts), [nova.ts](../src/nova.ts) |
-| Public evidence field whitelist | [evidence.ts](../src/evidence.ts) |
+| Fixed Hold sequence, simulations and recovery | [hold.ts](../src/lib/hold.ts) |
+| Session checks and operation locks | [guards.ts](../src/lib/guards.ts) |
+| VC preparation, manual signing and verification | [credentials.ts](../src/lib/credentials.ts) |
+| SDK setup and guarded transport | [ats.ts](../src/lib/ats.ts), [transport.ts](../src/lib/transport.ts) |
+| Shared state, RPC/Mirror and historical verification | [lifecycle.ts](../src/lib/lifecycle.ts), [nova.ts](../src/lib/nova.ts) |
+| Public evidence field whitelist | [evidence.ts](../src/lib/evidence.ts) |
 
 Before submission, recheck signer, chain, asset, state and exact calldata;
 persist public intent. Save the returned hash immediately, then attempt one
@@ -329,7 +329,24 @@ release NOVA automatically. Unknown transactions are recovered using the origina
 operation/hash, never automatically resubmitted. The static showcase reads a dated
 whitelisted JSON snapshot and does not participate in this transaction flow.
 
-Implementation references: [order flow](../src/market.ts),
-[settlement and SDK calls](../src/settlement.ts), [SDK checks](../src/ats.ts),
+Implementation references: [order flow](../src/lib/market.ts),
+[settlement and SDK calls](../src/lib/settlement.ts), [SDK checks](../src/lib/ats.ts),
 [settlement contract](../contracts/NovaSettlement.sol),
 [Go verification](../engine/settlement_rpc.go).
+
+## Frontend source layout
+
+- `src/pages/`: Overview, Activity and Settings tab content.
+- `src/components/`: Header, NOVA visuals and market/settlement panels and tables.
+- `src/lib/`: named application modules for wallet, guards, ATS, credentials,
+  NOVA lifecycle, market, settlement and evidence. These contain domain behavior,
+  not a generic collection of utilities.
+- `src/data/`: contract artifacts and the public showcase snapshot.
+- `src/compat/`: existing browser compatibility shims.
+- `src/App.tsx`, `main.tsx`, `showcase.tsx`, `styles.css`: application composition,
+  entrypoints and shared styles.
+
+Imports use direct relative paths. Add a folder when a real responsibility needs
+one; do not add empty utils/hooks/services folders or barrel exports in advance.
+Dated evidence may name the original flat source paths; the filenames are
+unchanged under the folders above.
