@@ -165,3 +165,10 @@ docs/ai-usage/049-t08-role-colors.md, docs/evidence/041-t08-role-colors.mjs/.jso
 and 041-t08-role-colors-desktop.png/mobile.png. Check connection/account transitions,
 readable contrast, sticky behavior and responsive layout in isolated dev/preview
 browsers; npm ci/test/typecheck/both builds. No mutation or next-ticket changes.
+
+## Final evidence completion
+
+Final acceptance also allows docs/evidence/038-t08-reload-top.png,
+docs/evidence/038-t08-reload-bottom.png, docs/evidence/038-t08-showcase.mjs,
+docs/evidence/038-t08-showcase.json and docs/evidence/038-t08-showcase.png
+for the supplied reload captures and standalone browser verification.

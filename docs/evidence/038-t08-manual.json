@@ -1,6 +1,6 @@
 {
   "recordedAt": "2026-09-08T14:01:53.333033+00:00",
-  "status": "All four chain cases verified; final browser reload and static snapshot pending",
+  "status": "Four manual cases, browser reload and API restart verified",
   "chainId": "296",
   "deployment": {
     "operationId": "fec278d6f29475810653aecf08ae58138fad4a55ea1d6bebdfdd76c6b6892a30",
@@ -31,7 +31,7 @@
   "cases": [
     {
       "id": "normal",
-      "status": "Settled verified; final reload/restart acceptance pending",
+      "status": "Settled verified",
       "quantity": "2",
       "priceTinybars": "10000000",
       "evidence": [
@@ -169,7 +169,7 @@
     },
     {
       "id": "reverse",
-      "status": "Settled verified; final reload/restart acceptance pending",
+      "status": "Settled verified",
       "quantity": "1",
       "priceTinybars": "9000000",
       "evidence": [
@@ -307,7 +307,7 @@
     },
     {
       "id": "cancel",
-      "status": "Cancelled verified; final reload/restart acceptance pending",
+      "status": "Cancelled verified",
       "quantity": "1",
       "priceTinybars": "10000000",
       "evidence": [
@@ -443,7 +443,7 @@
     },
     {
       "id": "reclaim",
-      "status": "Reclaimed verified; final browser reload acceptance pending",
+      "status": "Reclaimed verified",
       "quantity": "1",
       "priceTinybars": "10000000",
       "evidence": [
@@ -587,7 +587,11 @@
     "orders": "18",
     "matches": "9",
     "pendingOperation": null,
-    "browserReload": "Pending Victor confirmation"
+    "browserReload": "Passed: Victor supplied Matches All captures showing21-1 Reclaimed,19-1 Cancelled,17-1 Settled and15-1 Settled; historical11-1/9-1 remain readable",
+    "captures": [
+      "038-t08-reload-top.png",
+      "038-t08-reload-bottom.png"
+    ]
   },
   "orderProgress": {
     "serverTime": "1788863158",

@@ -138,7 +138,8 @@ wallet prompts remain pending until the server confirms deadline expiry.
 
 ## T08 — fresh matched settlement
 
-Implementation is available locally; all human acceptance below is **Pending**.
+The following sequence is completed acceptance history; do not replay it to view
+the result. Manual038 records all four cases and reload/restart agreement.
 Use preview http://127.0.0.1:4173 and the original three accounts. Each wallet
 prompt is a separate Victor action. Admin deploys once; it does not sign orders
 or execute either trading account's actions. Do not repeat T05/T07 transactions.
@@ -165,12 +166,11 @@ or execute either trading account's actions. Do not repeat T05/T07 transactions.
    Compare original orders, matches, Holds, operation hashes, payment and fee
    evidence. Preserve actual screenshots and whitelisted JSON in report 038.
 
-Expected normal total: eight order signatures and thirteen transactions,
-including deployment. These are a plan, not observed counts. Extra rejection or
+Observed total: nine accepted order signatures and thirteen transactions,
+including deployment and one extra self-trade-prevented order. Extra rejection or
 recovery actions must be recorded honestly. Unknown operations query the original
 hash; no automatic resubmission or deadline-based declaration of failure. If the
 wallet prompt was rejected, re-review is explicit. Stop on pinned configuration
 or KYC incompatibility rather than renewing or changing asset parameters.
 
-All four portfolio cases remain pending until this evidence is independently
-verified. No push, merge or publication is authorized by the local implementation.
+All four portfolio cases are independently verified in manual038. No push, merge or publication is authorized by the local implementation.

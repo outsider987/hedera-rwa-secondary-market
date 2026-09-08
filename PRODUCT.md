@@ -22,8 +22,8 @@ static showcase needs neither a wallet nor the local API.
 
 Demonstrate NOVA/HBAR order intent, price-time matching and per-match atomic
 settlement on Hedera Testnet 296. NOVA and KYC are synthetic. An order reserves
-no funds; a match proves neither payment nor delivery. T08 implementation is
-under verification; its deployment and four manual acceptance cases are pending.
+no funds; a match proves neither payment nor delivery. T08 deployment and all four manual acceptance cases are verified; browser reload
+and API restart retained the results.
 
 ## Operating Context
 
@@ -59,10 +59,10 @@ itself unlock shares. Cancellation and expired Hold recovery require separate
 manual transactions and verified return. Pending or unknown outcomes retain the
 original operation rather than automatically resubmitting.
 
-The static showcase currently verifies only the original T05 trade. Normal
-2 @ 0.10, reverse 1 @ 0.09, cancellation 1 @ 0.10 and expiry reclaim 1 @ 0.10
-are explicitly **Pending manual acceptance**, with no T08 transaction timelines.
-No T08 deployment, owner signatures or chain transactions have been recorded.
+The static showcase includes the original T05 trade and verified normal2 @0.10,
+reverse1 @0.09, cancellation1 @0.10 and expiry reclaim1 @0.10 cases. Recorded
+proofs bind every timeline entry;9 accepted order signatures and13 transactions
+include deployment and one extra self-trade-prevented order. See manual038.
 
 ## Evidence on Hand
 

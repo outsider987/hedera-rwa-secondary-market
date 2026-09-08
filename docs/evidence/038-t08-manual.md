@@ -45,7 +45,8 @@ proofs: **18 orders and9 matches** remained identical. This includes existing
 historical market records. Final verified account balances are Seller83/held0 and
 Buyer17/held0. Original T05/T07 evidence was not altered.
 
-**Remaining:** Victor's browser reload confirmation, final four-case static
-snapshot and its validation/documentation. These chain results do not claim that
-the entire T08 delivery is complete. No agent signer, private key, full VC
+Victor's two reload captures confirm all four final results and readable T07
+history: [upper list](038-t08-reload-top.png), [lower list](038-t08-reload-bottom.png).
+The standalone snapshot now presents these four results; browser/build checks
+are recorded in [showcase validation](038-t08-showcase.json). No agent signer, private key, full VC
 signature, push, merge or publication was used.

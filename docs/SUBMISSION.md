@@ -1,10 +1,10 @@
 # HoldBook — submission review version
 
 September 8 T08 update: a local matched-settlement workbench and independent static
-portfolio are implemented; **T08 human acceptance is pending**. See
+portfolio are implemented; **all four T08 human cases and persistence checks passed**. See
 [implementation report](evidence/037-t08-implementation.md) and
-[manual acceptance status](evidence/038-t08-manual.md). The results below remain
-dated T05/T07 evidence, not proof of the new four T08 cases.
+[manual acceptance status](evidence/038-t08-manual.md). Manual038 contains the actual four T08 proofs; the earlier results below remain
+dated T05/T07 evidence.
 
 Prepared September 8, 2026 against verified implementation/evidence commit
 `ccd6905c539198cc2f0b5c922a8d716137733cd8`. This is a local review document,

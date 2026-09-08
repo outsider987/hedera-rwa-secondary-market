@@ -1,5 +1,9 @@
 # T08 implementation evidence — September 8, 2026
 
+Historical implementation-stage report. Its pending-manual statements below were
+superseded by [completed manual acceptance038](038-t08-manual.md) and the final
+[standalone showcase checks](038-t08-showcase.json). Original checks remain dated.
+
 Base: `3088cb9e19abffdc3c6ed58e698c62a11d88f79e`. Scope: [spec 004](../plans/004-matched-settlement.md).
 **Implementation delivered; manual acceptance pending. No T08 deployment, order
 signature or chain transaction has been performed by this work.**

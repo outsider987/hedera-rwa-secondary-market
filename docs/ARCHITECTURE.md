@@ -155,7 +155,7 @@ approved funding, eligibility, contract and settlement-race design. The historic
 T05 contract and records are not inputs to new matches.
 
 
-## T08 — matched settlement (manual acceptance pending)
+## T08 — matched settlement (four manual cases verified)
 
 ```mermaid
 flowchart LR
@@ -187,5 +187,5 @@ late hashes stay available after wallet invalidation. Recovery has one bounded
 180-second query, with no transaction retry.
 
 The separate static build imports only React, styles and whitelisted snapshot
-JSON. T05's dated result is verified; four new T08 cases are explicitly pending.
+JSON. T05 and all four T08 cases have verified dated transaction timelines.
 It needs neither the API nor a wallet and contains no transaction controls.

@@ -1,4 +1,7 @@
-# T08 matched settlement — implementation, manual pending
+# T08 matched settlement — completed local review version
+
+Final effective status: four manual cases, reload/restart and standalone showcase
+checks passed. Earlier pending statements below describe their dated stages.
 
 Date: September 8, 2026. Base: `3088cb9e19abffdc3c6ed58e698c62a11d88f79e`.
 User supplied the T08 plan and authorized implementation, verification and local
@@ -135,3 +138,27 @@ serverTime), settlements and deployment; identical18 orders/9 matches and proofs
 All four chain cases passed;9 accepted signatures/13 transactions. Browser reload
 confirmation and static showcase update still pending. Evidence-only change; no
 source test rerun was needed. JSON assertions and git diff --check passed.
+
+### Final snapshot and reload acceptance — September 8
+
+Base14975b678dd39eca8125bf50cb62385359c9298d. Victor asked to finish the evidence,
+showcase and documentation. His two supplied reload captures confirm all four
+results and readable historical T07 records. Codex preserved these captures and
+updated manual038, whitelisted src/showcase.json, the existing showcase renderer
+and its proof-binding test. Every rendered T08 step maps to an actual verified
+operation; deployment and original T05 evidence remain linked. No new dependency.
+Existing Header/role colors are preserved. Ponytail and Impeccable guidance were
+reused for this bounded existing-surface refinement; no new sub-agent was used.
+
+Affected source: src/showcase.tsx/json, tests/showcase.test.mjs. Supporting files:
+manual038 JSON/MD and two reload captures, showcase038 browser harness/results/
+capture, spec004 evidence allowance, README/PRODUCT/DESIGN, ARCHITECTURE/DEMO/
+SUBMISSION, historical037 supersession note, HANDOFF and AI_USAGE.
+
+Actual checks: npm ci passed;113 application and36 protobuf tests passed;
+typecheck and both builds passed. Four dev/preview1440/390px browser cases
+verified all four timelines, transaction links, no injected wallet/no API requests,
+JSON download, focus and no horizontal overflow. Production capture inspected.
+Original contract/service unchanged; previous Foundry/Go/race/vet/fuzz results
+remain in037, not claimed as rerun. Existing dependency audit and SDK chunk
+limitations remain. No signing, chain write, push, merge or publication.

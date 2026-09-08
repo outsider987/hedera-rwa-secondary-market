@@ -1,0 +1,58 @@
+{
+  "recordedAt": "2026-09-08T14:16:58.171Z",
+  "cases": [
+    {
+      "base": "http://127.0.0.1:5173",
+      "width": 1440,
+      "status": "Passed",
+      "cases": "4",
+      "wallet": "Absent",
+      "apiRequests": "0",
+      "download": "Passed",
+      "keyboardFocus": "Passed",
+      "overflow": false
+    },
+    {
+      "base": "http://127.0.0.1:5173",
+      "width": 390,
+      "status": "Passed",
+      "cases": "4",
+      "wallet": "Absent",
+      "apiRequests": "0",
+      "download": "Passed",
+      "keyboardFocus": "Passed",
+      "overflow": false
+    },
+    {
+      "base": "http://127.0.0.1:4173",
+      "width": 1440,
+      "status": "Passed",
+      "cases": "4",
+      "wallet": "Absent",
+      "apiRequests": "0",
+      "download": "Passed",
+      "keyboardFocus": "Passed",
+      "overflow": false
+    },
+    {
+      "base": "http://127.0.0.1:4173",
+      "width": 390,
+      "status": "Passed",
+      "cases": "4",
+      "wallet": "Absent",
+      "apiRequests": "0",
+      "download": "Passed",
+      "keyboardFocus": "Passed",
+      "overflow": false
+    }
+  ],
+  "checks": {
+    "npm ci": "Passed",
+    "npm test": "113 application +36 protobuf passed",
+    "npm run typecheck": "Passed",
+    "npm run build": "Passed; existing SDK chunk warning",
+    "npm run build:showcase": "Passed",
+    "visualReview": "Production full-page capture inspected; incumbent style preserved",
+    "backendContracts": "Unchanged; previous Go/race/vet/fuzz and Foundry evidence037 retained"
+  }
+}

@@ -4,7 +4,7 @@
 
 A local Hedera Testnet NOVA/HBAR order and settlement workbench.
 T08 adds manually approved per-match Holds, atomic HBAR delivery/payment, durable
-recovery and a separate static portfolio. **T08 manual acceptance is pending.**
+recovery and a separate static portfolio. **T08 four-case manual acceptance and reload/restart checks passed.**
 See [implementation and checks](docs/evidence/037-t08-implementation.md) and
 [the next manual steps](docs/DEMO.md#t08--fresh-matched-settlement).
 
@@ -52,8 +52,8 @@ Motion 13.2.0 and OpenZeppelin Contracts 5.6.1; attribution is retained.
 
 For the wallet-free portfolio, run `npm run build:showcase` after the main build.
 Open **http://127.0.0.1:4173/showcase/index.html**. `dist/showcase/` is the independent
-static site output, ready for review before any GitHub Pages publication. Only T05
-is currently a verified snapshot; all four T08 cases explicitly await evidence.
+static site output, ready for review before any GitHub Pages publication. The dated snapshot includes T05 and all four verified T08 cases, with per-operation
+balance changes, fees and transaction links. No API or wallet is required.
 
 ## Review the work
 

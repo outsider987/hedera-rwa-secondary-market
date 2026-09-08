@@ -53,9 +53,8 @@ workbench and a separate evidence showcase. Its emphasis is on amounts, the
 required account and the next explicit action. Preserve this established visual
 identity; no new branding, imagery or font family is part of T08.
 
-This describes implemented UI, not completed chain acceptance. T08 deployment,
-signatures, transactions and all four human acceptance cases remain pending.
-The showcase's verified snapshot applies only to historical T05 evidence.
+T08 deployment and four human cases are verified in manual038. The showcase
+contains dated T05/T08 evidence; historical balances are never presented as live.
 
 ## Colors
 
@@ -130,8 +129,7 @@ Keep square section boundaries and thin separators.
   Do not restore its former Setup / Lock / Buy mutation workflow.
 - The static showcase offers a historical transaction timeline, balances,
   architecture, case selection and public JSON download. Its four T08 cases
-  currently display expected amounts and Pending manual acceptance, with no
-  invented transaction timeline. No API or wallet is required to view it.
+  display verified outcomes, actual balance transitions, fees and transaction links. No API or wallet is required to view it.
 
 ## Do's and Don'ts
 

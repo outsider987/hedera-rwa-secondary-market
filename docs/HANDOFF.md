@@ -1,5 +1,28 @@
 # HoldBook handoff
 
+## T08 complete locally — effective review boundary
+
+`based_on_commit: 14975b678dd39eca8125bf50cb62385359c9298d` is the verified base
+of this final work, not the resulting commit. Four manual cases15-1/17-1/19-1/21-1
+are verified; Victor supplied reload captures for all four and readable T07
+history. API restart preserved18 orders/9 matches, settlement and deployment
+proofs. Actual counts9 accepted signatures/13 transactions include one extra
+self-trade-prevented order. Seller83/held0, Buyer17/held0 at final evidence block.
+
+Standalone showcase now contains four exact evidence-backed timelines, balance
+changes, fees, deployment/transaction links and public JSON download, alongside
+unchanged T05 historical evidence. Open http://127.0.0.1:4173/showcase/index.html;
+`dist/showcase/` is the portable build. npm ci,113 app+36 protobuf tests,typecheck,
+both builds and4 dev/preview desktop/mobile browser checks passed.
+Read [manual038](evidence/038-t08-manual.md),
+[final browser checks](evidence/038-t08-showcase.json) and
+[AI record046](ai-usage/046-t08-settlement.md). Earlier pending statements below
+are dated history superseded by this section. Existing dependency audit/chunk
+limitations remain; no backend or contract code changed in this final slice.
+
+Stop here for Victor review. No next ticket or additional implementation files
+are authorized; no push, merge, public deployment or further signing performed.
+
 ## T08 connected role colors delivered — effective
 
 `based_on_commit: a4cb2ec2422ca5676f8552573bb5d77495577334`, verified Git HEAD.
