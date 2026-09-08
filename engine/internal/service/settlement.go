@@ -1,6 +1,8 @@
-package engine
+package service
 
 import (
+	"holdbook/engine/internal/matching"
+
 	"context"
 	"encoding/json"
 	"errors"
@@ -80,10 +82,10 @@ type SettlementEvidence struct {
 func word(n int64) []byte { return common.LeftPadBytes(big.NewInt(n).Bytes(), 32) }
 func TermsDigest(s Settlement) (string, error) {
 	t := s.Terms
-	if !address.MatchString(s.Contract) || !hashRE.MatchString(s.Salt) || !hashRE.MatchString(t.MatchID) || !hashRE.MatchString(t.SellerOrder) || !hashRE.MatchString(t.BuyerOrder) || !Eligible(t.Seller) || !Eligible(t.Buyer) || t.Seller == t.Buyer || t.SellerOrder == t.BuyerOrder || t.PreparedAt < 1 || t.Expiry-t.PreparedAt != 1800 || t.HoldID < 1 {
+	if !matching.ValidAddress(s.Contract) || !hashRE.MatchString(s.Salt) || !hashRE.MatchString(t.MatchID) || !hashRE.MatchString(t.SellerOrder) || !hashRE.MatchString(t.BuyerOrder) || !Eligible(t.Seller) || !Eligible(t.Buyer) || t.Seller == t.Buyer || t.SellerOrder == t.BuyerOrder || t.PreparedAt < 1 || t.Expiry-t.PreparedAt != 1800 || t.HoldID < 1 {
 		return "", errors.New("invalid settlement terms")
 	}
-	if _, e := Notional(t.Amount, t.Price); e != nil {
+	if _, e := matching.Notional(t.Amount, t.Price); e != nil {
 		return "", e
 	}
 	b := append([]byte{}, crypto.Keccak256([]byte("HoldBook Settlement v1"))...)
@@ -94,7 +96,7 @@ func TermsDigest(s Settlement) (string, error) {
 }
 func (s *Store) SettlementDeployment(ctx context.Context) (*SettlementDeployment, error) {
 	var d SettlementDeployment
-	e := s.Pool.QueryRow(ctx, "SELECT d.address,d.cutoff,m.salt,d.evidence FROM settlement_deployment d JOIN markets m ON m.id=d.market WHERE d.market=$1", Market).Scan(&d.Address, &d.Cutoff, &d.Salt, &d.Evidence)
+	e := s.Pool.QueryRow(ctx, "SELECT d.address,d.cutoff,m.salt,d.evidence FROM settlement_deployment d JOIN markets m ON m.id=d.market WHERE d.market=$1", matching.Market).Scan(&d.Address, &d.Cutoff, &d.Salt, &d.Evidence)
 	if errors.Is(e, pgx.ErrNoRows) {
 		return nil, nil
 	}
@@ -159,7 +161,7 @@ func (s *Store) PrepareSettlement(ctx context.Context, id, action string, chainB
 	}
 	o := SettlementOperation{ID: ID(), SettlementID: id, Action: action, CreatedAt: s.now(), Status: "prepared", Value: "0"}
 	var d SettlementDeployment
-	e = tx.QueryRow(ctx, "SELECT address,cutoff,evidence FROM settlement_deployment WHERE market=$1", Market).Scan(&d.Address, &d.Cutoff, &d.Evidence)
+	e = tx.QueryRow(ctx, "SELECT address,cutoff,evidence FROM settlement_deployment WHERE market=$1", matching.Market).Scan(&d.Address, &d.Cutoff, &d.Evidence)
 	if action == "deploy" {
 		if !errors.Is(e, pgx.ErrNoRows) || id != "" {
 			return o, errors.New("deployment already exists or unavailable")
@@ -174,11 +176,11 @@ func (s *Store) PrepareSettlement(ctx context.Context, id, action string, chainB
 		var v Settlement
 		e = tx.QueryRow(ctx, "SELECT data FROM settlements WHERE id=$1", id).Scan(&v)
 		if errors.Is(e, pgx.ErrNoRows) && action == "lock" {
-			var m Match
+			var m matching.Match
 			if e = tx.QueryRow(ctx, "SELECT data FROM matches WHERE id=$1", id).Scan(&m); e != nil {
 				return o, e
 			}
-			var maker, taker *Order
+			var maker, taker *matching.Order
 			for i := range b.Orders {
 				if b.Orders[i].OrderID == m.Maker {
 					maker = &b.Orders[i]
@@ -197,7 +199,7 @@ func (s *Store) PrepareSettlement(ctx context.Context, id, action string, chainB
 			if sell.Owner != m.Seller || buy.Owner != m.Buyer || sell.Side != "Sell" || buy.Side != "Buy" {
 				return o, errors.New("match parties differ")
 			}
-			if n, err := Notional(m.Quantity, m.Price); err != nil || n != m.Notional {
+			if n, err := matching.Notional(m.Quantity, m.Price); err != nil || n != m.Notional {
 				return o, errors.New("invalid notional")
 			}
 			v = Settlement{ID: id, Contract: d.Address, Salt: salt, BaseBlock: chainBlock, Status: "Unprepared", UpdatedAt: chainTime, Terms: SettlementTerms{MatchID: crypto.Keccak256Hash([]byte(id)).Hex(), SellerOrder: "0x" + sell.OrderID, BuyerOrder: "0x" + buy.OrderID, Seller: m.Seller, Buyer: m.Buyer, Amount: m.Quantity, Price: m.Price, PreparedAt: chainTime, Expiry: chainTime + 1800}}
@@ -297,10 +299,10 @@ func (s *Store) ApplySettlementEvidence(ctx context.Context, id string, proof Se
 	}
 	if !proof.Reverted {
 		if o.Action == "deploy" {
-			if !address.MatchString(proof.Contract) {
+			if !matching.ValidAddress(proof.Contract) {
 				return o, errors.New("invalid deployment")
 			}
-			_, e = tx.Exec(ctx, "INSERT INTO settlement_deployment(market,address,cutoff,evidence) VALUES($1,$2,$3,$4)", Market, proof.Contract, b.Sequence, proof)
+			_, e = tx.Exec(ctx, "INSERT INTO settlement_deployment(market,address,cutoff,evidence) VALUES($1,$2,$3,$4)", matching.Market, proof.Contract, b.Sequence, proof)
 		} else {
 			var v Settlement
 			if e = tx.QueryRow(ctx, "SELECT data FROM settlements WHERE id=$1", o.SettlementID).Scan(&v); e != nil {

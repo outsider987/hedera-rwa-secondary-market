@@ -1,6 +1,8 @@
-package engine
+package service
 
 import (
+	"holdbook/engine/internal/matching"
+
 	"context"
 	"net/http"
 	"regexp"
@@ -19,7 +21,7 @@ func (s *Store) RecoverSettlement(ctx context.Context, o SettlementOperation) (S
 		v, e = s.Settlement(ctx, o.SettlementID)
 		salt = v.Salt
 	} else {
-		e = s.Pool.QueryRow(ctx, "SELECT salt FROM markets WHERE id=$1", Market).Scan(&salt)
+		e = s.Pool.QueryRow(ctx, "SELECT salt FROM markets WHERE id=$1", matching.Market).Scan(&salt)
 	}
 	if e != nil {
 		return o, e

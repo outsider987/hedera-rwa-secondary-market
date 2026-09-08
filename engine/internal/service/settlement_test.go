@@ -1,4 +1,4 @@
-package engine
+package service
 
 import (
 	"context"
@@ -13,7 +13,7 @@ import (
 )
 
 func TestSettlementPublicVector(t *testing.T) {
-	raw, e := os.ReadFile("../tests/fixtures/settlement-vector.json")
+	raw, e := os.ReadFile("../../../tests/fixtures/settlement-vector.json")
 	if e != nil {
 		t.Fatal(e)
 	}

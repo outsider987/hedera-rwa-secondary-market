@@ -1,6 +1,8 @@
-package engine
+package service
 
 import (
+	"holdbook/engine/internal/matching"
+
 	"context"
 	"crypto/rand"
 	_ "embed"
@@ -29,20 +31,20 @@ type Store struct {
 	fault func(string) error
 }
 type CommandRecord struct {
-	Prepared Prepared `json:"prepared"`
-	Status   string   `json:"status"`
-	Digest   string   `json:"digest"`
-	Verified bool     `json:"verified"`
-	Result   *Result  `json:"result"`
-	Reason   string   `json:"reason"`
+	Prepared Prepared         `json:"prepared"`
+	Status   string           `json:"status"`
+	Digest   string           `json:"digest"`
+	Verified bool             `json:"verified"`
+	Result   *matching.Result `json:"result"`
+	Reason   string           `json:"reason"`
 }
 type Snapshot struct {
-	Market     string  `json:"market"`
-	Salt       string  `json:"salt"`
-	ServerTime int64   `json:"serverTime,string"`
-	Version    int64   `json:"version,string"`
-	Orders     []Order `json:"orders"`
-	Matches    []Match `json:"matches"`
+	Market     string           `json:"market"`
+	Salt       string           `json:"salt"`
+	ServerTime int64            `json:"serverTime,string"`
+	Version    int64            `json:"version,string"`
+	Orders     []matching.Order `json:"orders"`
+	Matches    []matching.Match `json:"matches"`
 }
 
 func ID() string {
@@ -79,26 +81,26 @@ func (s *Store) Init(ctx context.Context) error {
 	if _, e = tx.Exec(ctx, settlementMigration); e != nil {
 		return e
 	}
-	if _, e = tx.Exec(ctx, "INSERT INTO markets(id,salt) VALUES($1,$2) ON CONFLICT DO NOTHING", Market, "0x"+ID()); e != nil {
+	if _, e = tx.Exec(ctx, "INSERT INTO markets(id,salt) VALUES($1,$2) ON CONFLICT DO NOTHING", matching.Market, "0x"+ID()); e != nil {
 		return e
 	}
 	return tx.Commit(ctx)
 }
-func (s *Store) lock(ctx context.Context, tx pgx.Tx) (*Book, string, int64, error) {
-	b := &Book{}
+func (s *Store) lock(ctx context.Context, tx pgx.Tx) (*matching.Book, string, int64, error) {
+	b := &matching.Book{}
 	var salt string
 	var version int64
-	e := tx.QueryRow(ctx, "SELECT salt,sequence,effective_time,version FROM markets WHERE id=$1 FOR UPDATE", Market).Scan(&salt, &b.Sequence, &b.Time, &version)
+	e := tx.QueryRow(ctx, "SELECT salt,sequence,effective_time,version FROM markets WHERE id=$1 FOR UPDATE", matching.Market).Scan(&salt, &b.Sequence, &b.Time, &version)
 	if e != nil {
 		return nil, "", 0, e
 	}
-	rows, e := tx.Query(ctx, "SELECT data FROM orders WHERE market=$1 ORDER BY sequence", Market)
+	rows, e := tx.Query(ctx, "SELECT data FROM orders WHERE market=$1 ORDER BY sequence", matching.Market)
 	if e != nil {
 		return nil, "", 0, e
 	}
 	defer rows.Close()
 	for rows.Next() {
-		var o Order
+		var o matching.Order
 		if e = rows.Scan(&o); e != nil {
 			return nil, "", 0, e
 		}
@@ -106,22 +108,22 @@ func (s *Store) lock(ctx context.Context, tx pgx.Tx) (*Book, string, int64, erro
 	}
 	return b, salt, version, rows.Err()
 }
-func (s *Store) save(ctx context.Context, tx pgx.Tx, b *Book, matches []Match) error {
+func (s *Store) save(ctx context.Context, tx pgx.Tx, b *matching.Book, matches []matching.Match) error {
 	for _, o := range b.Orders {
-		if _, e := tx.Exec(ctx, "INSERT INTO orders(id,market,sequence,data) VALUES($1,$2,$3,$4) ON CONFLICT(id) DO UPDATE SET data=EXCLUDED.data", o.OrderID, Market, o.Sequence, o); e != nil {
+		if _, e := tx.Exec(ctx, "INSERT INTO orders(id,market,sequence,data) VALUES($1,$2,$3,$4) ON CONFLICT(id) DO UPDATE SET data=EXCLUDED.data", o.OrderID, matching.Market, o.Sequence, o); e != nil {
 			return e
 		}
 	}
 	for _, m := range matches {
-		if _, e := tx.Exec(ctx, "INSERT INTO matches(id,market,data) VALUES($1,$2,$3)", m.ID, Market, m); e != nil {
+		if _, e := tx.Exec(ctx, "INSERT INTO matches(id,market,data) VALUES($1,$2,$3)", m.ID, matching.Market, m); e != nil {
 			return e
 		}
 	}
-	_, e := tx.Exec(ctx, "UPDATE markets SET sequence=$2,effective_time=$3,version=version+1 WHERE id=$1", Market, b.Sequence, b.Time)
+	_, e := tx.Exec(ctx, "UPDATE markets SET sequence=$2,effective_time=$3,version=version+1 WHERE id=$1", matching.Market, b.Sequence, b.Time)
 	return e
 }
-func (s *Store) Prepare(ctx context.Context, c Command) (CommandRecord, error) {
-	if !Eligible(c.Owner) || c.Market != Market {
+func (s *Store) Prepare(ctx context.Context, c matching.Command) (CommandRecord, error) {
+	if !Eligible(c.Owner) || c.Market != matching.Market {
 		return CommandRecord{}, errors.New("only the original Seller and Buyer may trade NOVA/HBAR")
 	}
 	tx, e := s.Pool.Begin(ctx)
@@ -145,7 +147,7 @@ func (s *Store) Prepare(ctx context.Context, c Command) (CommandRecord, error) {
 		return CommandRecord{}, e
 	}
 	r := CommandRecord{Prepared: p, Status: "pending"}
-	_, e = tx.Exec(ctx, "INSERT INTO commands(id,market,prepared,status) VALUES($1,$2,$3,'pending')", c.RequestID, Market, p)
+	_, e = tx.Exec(ctx, "INSERT INTO commands(id,market,prepared,status) VALUES($1,$2,$3,'pending')", c.RequestID, matching.Market, p)
 	if e != nil {
 		return r, e
 	}
@@ -243,7 +245,7 @@ func (s *Store) Expire(ctx context.Context) error {
 			return e
 		}
 	}
-	_, e = tx.Exec(ctx, "UPDATE commands SET status='expired',reason='Submission deadline expired' WHERE market=$1 AND status='pending' AND (prepared->>'deadline')::bigint <= $2", Market, now)
+	_, e = tx.Exec(ctx, "UPDATE commands SET status='expired',reason='Submission deadline expired' WHERE market=$1 AND status='pending' AND (prepared->>'deadline')::bigint <= $2", matching.Market, now)
 	if e != nil {
 		return e
 	}
@@ -265,18 +267,18 @@ func (s *Store) Snapshot(ctx context.Context) (Snapshot, error) {
 		return Snapshot{}, e
 	}
 	defer tx.Rollback(ctx)
-	r := Snapshot{Market: Market, Orders: []Order{}, Matches: []Match{}}
+	r := Snapshot{Market: matching.Market, Orders: []matching.Order{}, Matches: []matching.Match{}}
 	var effective int64
-	if e = tx.QueryRow(ctx, "SELECT salt,version,effective_time FROM markets WHERE id=$1", Market).Scan(&r.Salt, &r.Version, &effective); e != nil {
+	if e = tx.QueryRow(ctx, "SELECT salt,version,effective_time FROM markets WHERE id=$1", matching.Market).Scan(&r.Salt, &r.Version, &effective); e != nil {
 		return r, e
 	}
 	r.ServerTime = max(s.now(), effective)
-	rows, e := tx.Query(ctx, "SELECT data FROM orders WHERE market=$1 ORDER BY sequence", Market)
+	rows, e := tx.Query(ctx, "SELECT data FROM orders WHERE market=$1 ORDER BY sequence", matching.Market)
 	if e != nil {
 		return r, e
 	}
 	for rows.Next() {
-		var o Order
+		var o matching.Order
 		if e = rows.Scan(&o); e != nil {
 			rows.Close()
 			return r, e
@@ -288,12 +290,12 @@ func (s *Store) Snapshot(ctx context.Context) (Snapshot, error) {
 	if e != nil {
 		return r, e
 	}
-	rows, e = tx.Query(ctx, "SELECT data FROM matches WHERE market=$1 ORDER BY (data->>'time')::bigint,split_part(id,'-',1)::bigint,split_part(id,'-',2)::bigint", Market)
+	rows, e = tx.Query(ctx, "SELECT data FROM matches WHERE market=$1 ORDER BY (data->>'time')::bigint,split_part(id,'-',1)::bigint,split_part(id,'-',2)::bigint", matching.Market)
 	if e != nil {
 		return r, e
 	}
 	for rows.Next() {
-		var m Match
+		var m matching.Match
 		if e = rows.Scan(&m); e != nil {
 			rows.Close()
 			return r, e

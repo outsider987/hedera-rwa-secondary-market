@@ -1,6 +1,8 @@
-package engine
+package service
 
 import (
+	"holdbook/engine/internal/matching"
+
 	"encoding/hex"
 	"errors"
 	"math/big"
@@ -18,7 +20,7 @@ const Purpose = "Unfunded intent only. No assets reserved or transferred."
 const Origin = "http://127.0.0.1:4173"
 
 type Prepared struct {
-	Command
+	matching.Command
 	Deadline   int64 `json:"deadline,string"`
 	PreparedAt int64 `json:"preparedAt,string"`
 }
@@ -63,7 +65,7 @@ func Recover(hash []byte, signature string) (string, error) {
 	return strings.ToLower(crypto.PubkeyToAddress(*key).Hex()), nil
 }
 func Verify(p Prepared, salt, signature string, now int64) (string, error) {
-	if !Eligible(p.Owner) || p.Market != Market || p.Deadline != p.PreparedAt+300 || now >= p.Deadline || now < p.PreparedAt {
+	if !Eligible(p.Owner) || p.Market != matching.Market || p.Deadline != p.PreparedAt+300 || now >= p.Deadline || now < p.PreparedAt {
 		return "", errors.New("invalid owner, market or deadline")
 	}
 	h, e := Digest(TypedData(p, salt))

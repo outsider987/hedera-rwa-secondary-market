@@ -46,5 +46,5 @@ jobs:
       HOLDBOOK_TEST_DATABASE_URL: postgres://holdbook@db:5432/holdbook_test?sslmode=disable
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - run: go test ./... && go test -race ./... && go vet ./... && go test -fuzz=FuzzConservation -fuzztime=3s
+      - run: go test ./... && go test -race ./... && go vet ./... && go test ./internal/matching -fuzz=FuzzConservation -fuzztime=3s
         working-directory: engine

@@ -332,7 +332,7 @@ whitelisted JSON snapshot and does not participate in this transaction flow.
 Implementation references: [order flow](../src/lib/market.ts),
 [settlement and SDK calls](../src/lib/settlement.ts), [SDK checks](../src/lib/ats.ts),
 [settlement contract](../contracts/NovaSettlement.sol),
-[Go verification](../engine/settlement_rpc.go).
+[Go verification](../engine/internal/service/settlement_rpc.go).
 
 ## Frontend source layout
 
@@ -350,3 +350,20 @@ Imports use direct relative paths. Add a folder when a real responsibility needs
 one; do not add empty utils/hooks/services folders or barrel exports in advance.
 Dated evidence may name the original flat source paths; the filenames are
 unchanged under the folders above.
+
+## Engine source layout
+
+- `engine/cmd/api/`: process startup, graceful shutdown and HTTP server wiring.
+- `engine/internal/matching/`: deterministic in-memory order matching, amounts,
+  orders and matches; no database, HTTP or chain dependency.
+- `engine/internal/service/`: authenticated API, PostgreSQL persistence and
+  read-only settlement verification. These files share the same Store and stay
+  in one package instead of introducing wrappers solely to create more folders.
+- `engine/internal/service/migrations/`: embedded SQL migrations.
+- `engine/internal/service/data/`: embedded settlement contract artifact.
+
+Tests remain beside their implementation. From engine, use `go test ./...`,
+`go test -race ./...`, `go vet ./...` and
+`go test ./internal/matching -fuzz=FuzzConservation -fuzztime=3s`.
+PostgreSQL tests require a dedicated holdbook_test database. The existing
+`go build ./cmd/api` and Compose entrypoint remain unchanged.

@@ -1,6 +1,8 @@
-package engine
+package service
 
 import (
+	"holdbook/engine/internal/matching"
+
 	"context"
 	"encoding/json"
 	"errors"
@@ -29,7 +31,7 @@ func TestHTTPPostgres(t *testing.T) {
 	if e != nil {
 		t.Fatal(e)
 	}
-	input := prepareInput{Market: Market, Salt: snap.Salt, Owner: Seller, Action: "Place", Side: "Sell", Quantity: "4", Price: "9000000"}
+	input := prepareInput{Market: matching.Market, Salt: snap.Salt, Owner: Seller, Action: "Place", Side: "Sell", Quantity: "4", Price: "9000000"}
 	raw, _ := json.Marshal(input)
 	req := httptest.NewRequest("POST", "http://127.0.0.1:8787/api/commands/prepare", strings.NewReader(string(raw)))
 	req.Header.Set("Origin", Origin)

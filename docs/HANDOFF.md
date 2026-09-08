@@ -1,5 +1,21 @@
 # HoldBook handoff
 
+## Engine packages organized — September 9
+
+`based_on_commit: b6f60027a2fd8f002e741a8725f5be82428a11bf`. User requested
+organizing engine like src; [plan008](plans/008-engine-folders.md) bounds scope.
+cmd/api remains startup; internal/matching contains the pure book;
+internal/service contains API/auth/PostgreSQL/settlement with embedded
+migrations and data. Existing coupled service files stay together. CI fuzz and
+artifact build paths updated; no matching, SQL, HTTP or dependency changes.
+
+Go1.27.1 test/race/vet/fuzz and API builds passed with dedicated PostgreSQL18.6;
+no test skips. npm ci,114 app+36 protobuf tests, typecheck, both web builds and
+artifact checks passed. [Usage054](ai-usage/054-engine-folders.md) records evidence
+and browser checks. The disposable database was removed; the running API and its
+database were untouched. No wallet/chain actions, push, merge or publication.
+T08 stays complete locally. Stop at review; next ticket and allowed files: none.
+
 ## Source folders organized — September 9
 
 `based_on_commit: 791efe615531fa72669c92c3f2422602113ffedf`. User authorized

@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-09 | Engine package organization | [Matching core, service and embedded data](docs/ai-usage/054-engine-folders.md) |
 | 2026-09-09 | Source folder organization | [Pages, components, logic and static data](docs/ai-usage/053-source-folders.md) |
 | 2026-09-09 | Component and transaction sequence diagrams | [Architecture documentation](docs/ai-usage/052-architecture-diagrams.md) |
 | 2026-09-08 | NOVA trading and minting illustration | [Verified-state motion and corresponding information](docs/ai-usage/051-nova-motion.md) |

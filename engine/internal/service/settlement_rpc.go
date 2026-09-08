@@ -1,4 +1,4 @@
-package engine
+package service
 
 import (
 	"bytes"
@@ -18,7 +18,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 )
 
-//go:embed settlement-artifact.json
+//go:embed data/settlement-artifact.json
 var settlementBuild []byte
 var settlementArtifact struct {
 	ABI      json.RawMessage `json:"abi"`

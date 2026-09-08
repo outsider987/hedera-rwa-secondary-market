@@ -1,6 +1,8 @@
-package engine
+package service
 
 import (
+	"holdbook/engine/internal/matching"
+
 	"context"
 	"encoding/json"
 	"errors"
@@ -77,7 +79,7 @@ func Handler(s *Store) http.Handler {
 	})
 	mux.HandleFunc("GET /api/orders", func(w http.ResponseWriter, r *http.Request) {
 		owner := r.URL.Query().Get("owner")
-		if !address.MatchString(owner) {
+		if !matching.ValidAddress(owner) {
 			fail(w, 400, "Invalid owner")
 			return
 		}
@@ -86,7 +88,7 @@ func Handler(s *Store) http.Handler {
 			fail(w, 503, PublicError(e))
 			return
 		}
-		orders := []Order{}
+		orders := []matching.Order{}
 		for _, o := range v.Orders {
 			if o.Owner == owner {
 				orders = append(orders, o)
@@ -126,19 +128,19 @@ func Handler(s *Store) http.Handler {
 			fail(w, 503, PublicError(e))
 			return
 		}
-		if in.Market != Market || in.Salt != v.Salt {
+		if in.Market != matching.Market || in.Salt != v.Salt {
 			fail(w, 400, "Market or domain differs; reload the market")
 			return
 		}
-		c := Command{Owner: in.Owner, Market: in.Market, Action: in.Action, Side: in.Side, OrderID: in.OrderID}
+		c := matching.Command{Owner: in.Owner, Market: in.Market, Action: in.Action, Side: in.Side, OrderID: in.OrderID}
 		if c.Action == "Place" {
 			if in.OrderID != "" {
 				fail(w, 400, "Server assigns order ID")
 				return
 			}
-			c.Quantity, e = Positive(in.Quantity)
+			c.Quantity, e = matching.Positive(in.Quantity)
 			if e == nil {
-				c.Price, e = Positive(in.Price)
+				c.Price, e = matching.Positive(in.Price)
 			}
 		} else if in.Quantity != "0" || in.Price != "0" || in.Side != "" || !requestID.MatchString(in.OrderID) {
 			e = errors.New("invalid cancel")

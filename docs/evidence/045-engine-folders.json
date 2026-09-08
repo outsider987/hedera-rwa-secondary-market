@@ -1,0 +1,179 @@
+{
+  "recordedAt": "2026-09-08T16:46:47.029984+00:00",
+  "basedOnCommit": "b6f60027a2fd8f002e741a8725f5be82428a11bf",
+  "goVersion": "go1.27.1 linux/amd64",
+  "database": "Disposable postgres:18.6 container, holdbook_test, removed after checks; live API/database untouched",
+  "sourceComparison": {
+    "productionModules": 7,
+    "changes": "Only package/import qualification and shared address predicate",
+    "embeddedSqlAndJson": "byte-identical"
+  },
+  "goTest": [
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Action": "skip",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestReplay",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestPriority/Buy",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestPriority/Sell",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestPriority",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestSelfTradeAndExpiry",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestBoundsAndNoncrossing",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "FuzzConservation/seed#0",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "FuzzConservation/seed#1",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "FuzzConservation",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Action": "pass",
+      "Elapsed": 0.013
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestPublicSignatureVector",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestOrderBinding",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestHTTPGuards",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestHTTPPostgres",
+      "Action": "pass",
+      "Elapsed": 1.22
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementTransactionBinding",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementExactEventRejectsDuplicateRemovedAndWrongArguments",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementHistoricalBalanceTransitions",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementPublicVector",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementPostgresRecovery",
+      "Action": "pass",
+      "Elapsed": 0.89
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementHTTPBoundariesAndOffline",
+      "Action": "pass",
+      "Elapsed": 0.06
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestPostgresDurability",
+      "Action": "pass",
+      "Elapsed": 1.04
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestPostgresConcurrentCancelAndPlace",
+      "Action": "pass",
+      "Elapsed": 0.46
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestPostgresConcurrentBuys",
+      "Action": "pass",
+      "Elapsed": 0.18
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Action": "pass",
+      "Elapsed": 3.862
+    }
+  ],
+  "race": "?   \tholdbook/engine/cmd/api\t[no test files]\nok  \tholdbook/engine/internal/matching\t1.043s\nok  \tholdbook/engine/internal/service\t1.918s\n",
+  "vet": {
+    "exitCode": 0,
+    "output": ""
+  },
+  "fuzz": "fuzz: elapsed: 0s, gathering baseline coverage: 0/2 completed\nfuzz: elapsed: 0s, gathering baseline coverage: 2/2 completed, now fuzzing with 20 workers\nfuzz: elapsed: 3s, execs: 56734 (18906/sec), new interesting: 80 (total: 82)\nfuzz: elapsed: 4s, execs: 56734 (0/sec), new interesting: 80 (total: 82)\nPASS\nok  \tholdbook/engine/internal/matching\t4.094s\n",
+  "build": {
+    "standard": 0,
+    "CGO_ENABLED=0": 0
+  },
+  "artifactCheck": "Settlement artifact verified.",
+  "webChecks": {
+    "npmCi": 0,
+    "applicationTests": 114,
+    "protobufTests": 36,
+    "typecheck": 0,
+    "applicationBuild": 0,
+    "showcaseBuild": 0
+  }
+}

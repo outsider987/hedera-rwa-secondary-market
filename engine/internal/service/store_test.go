@@ -1,6 +1,8 @@
-package engine
+package service
 
 import (
+	"holdbook/engine/internal/matching"
+
 	"context"
 	"errors"
 	"os"
@@ -47,7 +49,7 @@ func hexString(b []byte) string {
 	}
 	return string(v)
 }
-func prepared(t *testing.T, s *Store, c Command) CommandRecord {
+func prepared(t *testing.T, s *Store, c matching.Command) CommandRecord {
 	t.Helper()
 	r, e := s.Prepare(context.Background(), c)
 	if e != nil {
@@ -121,7 +123,7 @@ func TestPostgresDurability(t *testing.T) {
 	if _, e = s.Submit(ctx, buy.Prepared.RequestID, "conflicting-signature"); e == nil {
 		t.Fatal("conflict accepted")
 	}
-	cancel := prepared(t, s, Command{OrderID: b.Prepared.OrderID, Owner: Seller, Market: Market, Action: "Cancel"})
+	cancel := prepared(t, s, matching.Command{OrderID: b.Prepared.OrderID, Owner: Seller, Market: matching.Market, Action: "Cancel"})
 	r := submit(t, s, cancel)
 	if r.Result.Order.Cancelled != 3 || r.Result.Order.Matched != 2 {
 		t.Fatal(r)
@@ -155,7 +157,7 @@ func TestPostgresConcurrentCancelAndPlace(t *testing.T) {
 	ctx := context.Background()
 	sell := prepared(t, s, place("", Seller, "Sell", 10, 10))
 	submit(t, s, sell)
-	cancel := prepared(t, s, Command{OrderID: sell.Prepared.OrderID, Owner: Seller, Market: Market, Action: "Cancel"})
+	cancel := prepared(t, s, matching.Command{OrderID: sell.Prepared.OrderID, Owner: Seller, Market: matching.Market, Action: "Cancel"})
 	buy := prepared(t, s, place("", Buyer, "Buy", 10, 10))
 	ch := make(chan error, 2)
 	for _, r := range []CommandRecord{cancel, buy} {
@@ -170,7 +172,7 @@ func TestPostgresConcurrentCancelAndPlace(t *testing.T) {
 	if e != nil {
 		t.Fatal(e)
 	}
-	conserved(t, &Book{Orders: v.Orders})
+	conserved(t, &matching.Book{Orders: v.Orders})
 	if len(v.Matches) > 1 {
 		t.Fatal("duplicate match")
 	}
@@ -211,12 +213,25 @@ func TestPostgresConcurrentBuys(t *testing.T) {
 	if e != nil {
 		t.Fatal(e)
 	}
-	conserved(t, &Book{Orders: v.Orders})
+	conserved(t, &matching.Book{Orders: v.Orders})
 	var total int64
 	for _, m := range v.Matches {
 		total += m.Quantity
 	}
 	if total != 10 || len(v.Matches) != 2 {
 		t.Fatal("concurrent orders overmatched", v)
+	}
+}
+
+func place(id, owner, side string, q, p int64) matching.Command {
+	return matching.Command{RequestID: id, OrderID: id, Owner: owner, Market: matching.Market, Action: "Place", Side: side, Quantity: q, Price: p, ExpiresAt: 100}
+}
+
+func conserved(t *testing.T, b *matching.Book) {
+	t.Helper()
+	for _, o := range b.Orders {
+		if o.Quantity != o.Remaining+o.Matched+o.Cancelled+o.Expired || min(o.Remaining, o.Matched, o.Cancelled, o.Expired) < 0 {
+			t.Fatalf("conservation: %+v", o)
+		}
 	}
 }

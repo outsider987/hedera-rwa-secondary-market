@@ -1,5 +1,5 @@
-// Package engine matches unfunded intents. It never reserves or transfers assets.
-package engine
+// Package matching matches unfunded intents. It never reserves or transfers assets.
+package matching
 
 import (
 	"errors"
@@ -194,3 +194,6 @@ func (b *Book) Apply(c Command, now int64) (Result, error) {
 	b.Receipts[c.RequestID] = Receipt{c, result}
 	return result, nil
 }
+
+// ValidAddress checks the canonical lowercase address format used by the book.
+func ValidAddress(value string) bool { return address.MatchString(value) }
