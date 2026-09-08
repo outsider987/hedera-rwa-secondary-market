@@ -1,5 +1,18 @@
 # HoldBook handoff
 
+## T08 expired reclaim and API persistence verified — effective
+
+`based_on_commit: a1d5066` (actual prior HEAD; earlier Header work preserved).
+Match21-1 Reclaimed verified at40263598; Hold5 expired1788869415, returned1 NOVA
+at1788875948. Seller83/held0, Buyer17/held0; principal0, fee0.22235090 HBAR.
+All four manual chain cases now verified;9 accepted order signatures (one extra
+self-trade-prevented order),13 transactions including deployment. Manual038 stores
+public proofs and actual reclaim capture. API restart preserved all18 orders,9
+matches, settlements and deployment/evidence exactly, excluding serverTime.
+Remaining T08: Victor browser reload confirmation, final static showcase with actual
+four cases and tests/build/browser checks, final documentation. Same allowed files
+in spec004; no next ticket, signing, push, merge or publication authorized.
+
 ## T08 pinned Header delivered — effective
 
 `based_on_commit: 9411b6b4858c122c5a3080b9c10eb9db6dcb1605`, verified Git HEAD.

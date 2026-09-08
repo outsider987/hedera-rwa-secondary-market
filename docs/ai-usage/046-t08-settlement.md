@@ -122,3 +122,16 @@ proofs and direct Mirror agree on return1 NOVA, principal0 and actual network fe
 Updated manual038 MD/JSON/cancel capture, HANDOFF/index/this entry. Assertions and
 diff passed; no code change/test rerun, wallet access, signature or resubmission.
 Expiry/reclaim and final persistence remain pending.
+
+### Expired reclaim and API persistence correction — September 8
+
+Victor supplied the actual Match21-1 Reclaimed/Returned verified capture. Codex
+read the three original public operation proofs and direct Mirror SUCCESS/value0
+at40263598. Hold5 expiry1788869415 precedes reclaim1788875948; Seller82/1→83/0,
+Buyer17/0 unchanged, fee0.22235090 HBAR. Updated manual038 JSON/capture/summary,
+HANDOFF and AI_USAGE only; preserved Header commit a1d5066. No chain mutation.
+With no pending operation, restarted API and compared complete market (except
+serverTime), settlements and deployment; identical18 orders/9 matches and proofs.
+All four chain cases passed;9 accepted signatures/13 transactions. Browser reload
+confirmation and static showcase update still pending. Evidence-only change; no
+source test rerun was needed. JSON assertions and git diff --check passed.
