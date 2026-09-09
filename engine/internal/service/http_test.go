@@ -12,7 +12,7 @@ import (
 )
 
 func TestHTTPGuards(t *testing.T) {
-	h := Handler(&Store{})
+	h := Handler(&Store{}, Origin, "")
 	for _, v := range []struct{ host, origin, body string }{{"evil.example", Origin, "{}"}, {"127.0.0.1:8787", "https://evil.example", "{}"}, {"127.0.0.1:8787", "", "{}"}, {"127.0.0.1:8787", "http://127.0.0.1:5173", "{}"}, {"127.0.0.1:8787", Origin, `{"requestId":"x","signature":"x","unknown":true}`}, {"127.0.0.1:8787", Origin, strings.Repeat("x", 9000)}} {
 		r := httptest.NewRequest("POST", "http://"+v.host+"/api/commands", strings.NewReader(v.body))
 		r.Header.Set("Origin", v.origin)
@@ -26,7 +26,7 @@ func TestHTTPGuards(t *testing.T) {
 }
 func TestHTTPPostgres(t *testing.T) {
 	s := testStore(t)
-	h := Handler(s)
+	h := Handler(s, Origin, "")
 	snap, e := s.Snapshot(context.Background())
 	if e != nil {
 		t.Fatal(e)
@@ -91,6 +91,65 @@ func TestHTTPPostgres(t *testing.T) {
 		h.ServeHTTP(w, httptest.NewRequest("GET", "http://127.0.0.1:8787"+path, nil))
 		if w.Code != 200 {
 			t.Fatal(path, w.Code)
+		}
+	}
+}
+
+func TestDeployedHostAndOrigin(t *testing.T) {
+	handler := Handler(&Store{}, "https://holdbook.example", "holdbook-123.run.app")
+	for _, item := range []struct {
+		host, origin, method string
+		status               int
+	}{
+		{"holdbook-123.run.app", "https://holdbook.example", "GET", 404},
+		{"holdbook-123.run.app", "", "GET", 404},
+		{"holdbook-123.run.app", "https://holdbook.example", "POST", 404},
+		{"evil.example", "https://holdbook.example", "GET", 403},
+		{"holdbook-123.run.app", "https://evil.example", "GET", 403},
+		{"holdbook-123.run.app", "http://127.0.0.1:4173", "POST", 403},
+		{"holdbook-123.run.app", "", "POST", 403},
+	} {
+		request := httptest.NewRequest(item.method, "https://"+item.host+"/missing", nil)
+		request.Header.Set("Origin", item.origin)
+		request.Header.Set("X-Forwarded-Host", "holdbook-123.run.app")
+		response := httptest.NewRecorder()
+		handler.ServeHTTP(response, request)
+		if response.Code != item.status {
+			t.Fatalf("%s %s: %d", item.host, item.origin, response.Code)
+		}
+	}
+}
+
+func TestPagesPreflight(t *testing.T) {
+	handler := Handler(&Store{}, "https://outsider987.github.io", "holdbook-123.run.app")
+	for _, item := range []struct {
+		origin, method, headers string
+		status                  int
+	}{
+		{"https://outsider987.github.io", "POST", "content-type", 204},
+		{"https://outsider987.github.io", "GET", "", 204},
+		{"https://evil.example", "POST", "content-type", 403},
+		{"", "POST", "content-type", 403},
+		{"https://outsider987.github.io", "DELETE", "", 403},
+		{"https://outsider987.github.io", "POST", "authorization", 403},
+	} {
+		r := httptest.NewRequest("OPTIONS", "https://holdbook-123.run.app/api/commands", nil)
+		r.Header.Set("Origin", item.origin)
+		r.Header.Set("Access-Control-Request-Method", item.method)
+		r.Header.Set("Access-Control-Request-Headers", item.headers)
+		w := httptest.NewRecorder()
+		handler.ServeHTTP(w, r)
+		if w.Code != item.status {
+			t.Fatalf("preflight %s %s: %d", item.origin, item.method, w.Code)
+		}
+		if w.Header().Get("Access-Control-Allow-Credentials") != "" {
+			t.Fatal("cookies must not be enabled")
+		}
+		if item.status == 204 && w.Header().Get("Access-Control-Allow-Origin") != item.origin {
+			t.Fatal("missing exact origin")
+		}
+		if item.origin != "https://outsider987.github.io" && w.Header().Get("Access-Control-Allow-Origin") != "" {
+			t.Fatal("untrusted origin allowed")
 		}
 	}
 }

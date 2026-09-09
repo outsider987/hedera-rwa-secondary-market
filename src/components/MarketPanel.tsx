@@ -1,3 +1,4 @@
+import {isTradingOrigin,productionURL} from '../lib/runtime';
 import {useQuery} from '@tanstack/react-query';
 import SettlementPanel from './SettlementPanel';
 import AccountBalance from './AccountBalance';
@@ -31,7 +32,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
 
  useEffect(()=>{setQuantity('');setPrice('');setDismissed(undefined);},[owner]);
  useEffect(()=>{if(review)ticketHeading.current?.focus();},[review]);
- const preview=typeof window!=='undefined'&&window.location.origin==='http://127.0.0.1:4173'&&import.meta.env.PROD;
+ const preview=typeof window!=='undefined'&&isTradingOrigin(window.location.origin,import.meta.env.PROD);
  useEffect(()=>{epoch.current++;controller.current?.abort();setReview(undefined);setApproved(false);},[session,visible]);
  useEffect(()=>{const load=()=>{try{setIntent(loadIntent());setStorageProblem('');}catch{setStorageProblem('Saved intent is invalid. Keep the original request and restore its public record before signing.');}};load();const changed=(e:StorageEvent)=>{if(e.key===marketStorageKey||e.key===null)load();};window.addEventListener('storage',changed);return()=>{window.removeEventListener('storage',changed);controller.current?.abort();};},[]);
  useEffect(()=>{
@@ -68,7 +69,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
     <div className="market-account"><strong>{role}</strong><span>{owner?owner.slice(0,6)+'…'+owner.slice(-4):'Connect a trading account'} · Testnet 296</span></div>
     <h3 id="order-heading" ref={ticketHeading} tabIndex={-1}>{review?(review.record.prepared.action==='Cancel'?'Review cancellation':'Review '+review.record.prepared.side.toLowerCase()+' order'):completed?'Request result':pending(intent)?'Request pending':'Place a limit order'}</h3>
     {!trader&&<p>{role==='Admin'?'Admin is view-only.':'Connect Seller or Buyer to trade.'} Both trading accounts can buy and sell.</p>}
-    {!preview&&<p>Use <a href="http://127.0.0.1:4173">production preview</a> to prepare and sign orders.</p>}
+    {!preview&&<p>Use <a href={productionURL}>approved production site</a> to prepare and sign orders.</p>}
     {!online&&<p>Market unavailable. Last received data is retained; new submissions are disabled.</p>}
     {review?<div className="market-review">
      <dl><div><dt>Account</dt><dd>{review.wallet.expectedRole}</dd></div><div><dt>Action</dt><dd>{review.record.prepared.action==='Cancel'?'Cancel remaining quantity':review.record.prepared.side+' '+review.record.prepared.quantity+' NOVA'}</dd></div>

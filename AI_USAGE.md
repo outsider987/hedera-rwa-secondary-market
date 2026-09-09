@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-09 | GitHub Pages / Cloud Run / Neon preparation | [Configuration, checks and pending cloud targets](docs/ai-usage/056-cloud-deployment.md) |
 | 2026-09-09 | Authorized branch push | [Publish current T08 and refactor commits](docs/ai-usage/055-authorized-push.md) |
 | 2026-09-09 | Engine package organization | [Matching core, service and embedded data](docs/ai-usage/054-engine-folders.md) |
 | 2026-09-09 | Source folder organization | [Pages, components, logic and static data](docs/ai-usage/053-source-folders.md) |

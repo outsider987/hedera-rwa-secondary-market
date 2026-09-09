@@ -378,3 +378,17 @@ The exact generation prompt and user approval are preserved in
 in the project PNG. Pixel content is unchanged from the generated original.
 New presentation components reuse existing React19.2.8/Tailwind4.3.3 sources
 and licenses documented above. No shadcn/ui code or new package was introduced.
+
+## GitHub Pages / Cloud Run deployment configuration — September 9, 2026
+
+The Pages workflow adapts the official [Vite Pages guide](https://vite.dev/guide/static-deploy.html#github-pages)
+and [GitHub custom-workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+It reuses the project's pinned checkout/setup-node actions and adds
+[upload-pages-artifact](https://github.com/actions/upload-pages-artifact) at
+fc324d3547104276b827a68afc52ff2a11cc49c9 and
+[deploy-pages](https://github.com/actions/deploy-pages) at
+cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 (both MIT).
+Cloud Run configuration follows the official [container contract](https://cloud.google.com/run/docs/container-contract)
+and [Secret Manager integration](https://cloud.google.com/run/docs/configuring/services/secrets).
+Connection guidance uses [Neon documentation](https://neon.com/docs/connect/connection-pooling).
+No new runtime library, image or copied third-party implementation was added.

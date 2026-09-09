@@ -150,7 +150,7 @@ func TestSettlementPostgresRecovery(t *testing.T) {
 }
 func TestSettlementHTTPBoundariesAndOffline(t *testing.T) {
 	s := testStore(t)
-	handler := Handler(s)
+	handler := Handler(s, Origin, "")
 	for _, x := range []struct {
 		path, origin, body string
 		want               int

@@ -1,3 +1,4 @@
+import {isTradingOrigin,productionURL} from '../lib/runtime';
 import NovaFlow from './NovaFlow';
 import {useEffect,useRef,useState} from 'react';
 import {motion,useReducedMotion} from 'motion/react';
@@ -9,7 +10,7 @@ export const accountLabel=(a:string)=>a===accounts.Seller.address?'Seller accoun
 export default function SettlementPanel({match,settlement,deployment,pendingOperation,roles,owner,session,online,locked,eligible,onNewOrder,onUpdated}:{match?:Match;settlement?:Settlement;deployment?:SettlementDeployment;pendingOperation?:SettlementOperation;roles:Roles;owner:string;session:number;online:boolean;locked:boolean;eligible:boolean;onNewOrder:()=>void;onUpdated:()=>void}){
  const [saved,setSaved]=useState<SavedSettlement>(),[review,setReview]=useState<SettlementReview>(),[approved,setApproved]=useState(false),[phase,setPhase]=useState<'preparing'|'wallet'|'verifying'>(),[problem,setProblem]=useState(''),[hash,setHash]=useState('');
  const heading=useRef<HTMLHeadingElement>(null),controller=useRef<AbortController|undefined>(undefined),reduced=useReducedMotion(),epoch=useRef(0);
- const preview=typeof window!=='undefined'&&window.location.origin==='http://127.0.0.1:4173'&&import.meta.env.PROD;
+ const preview=typeof window!=='undefined'&&isTradingOrigin(window.location.origin,import.meta.env.PROD);
  useEffect(()=>{const load=()=>{try{const v=loadSettlement();setSaved(v);setHash(v?.operation.hash??'');}catch{setProblem('Stored operation is invalid. Preserve its public intent and recover the original hash.');}};load();const listener=(e:StorageEvent)=>{if(e.key===settlementStorageKey||e.key===null){load();setReview(undefined);setApproved(false);}};window.addEventListener('storage',listener);return()=>{controller.current?.abort();window.removeEventListener('storage',listener);};},[]);
  useEffect(()=>{epoch.current++;controller.current?.abort();setReview(undefined);setApproved(false);heading.current?.focus();},[session,owner,match?.id]);
  const update=(s:SavedSettlement)=>{setSaved(s);setHash(s.operation.hash);onUpdated();};
@@ -41,7 +42,7 @@ export default function SettlementPanel({match,settlement,deployment,pendingOper
    {working&&<p role="status" className="operation-progress">{progress}<span className="operation-spinner" aria-hidden="true"/></p>}
    {problem&&<p role="alert">{problem}</p>}
    {!online&&<p>Settlement service unavailable. Last received data is retained; actions requiring fresh data are disabled.</p>}
-   {!preview&&<p>Use <a href="http://127.0.0.1:4173">production preview</a> for manual transactions.</p>}
+   {!preview&&<p>Use <a href={productionURL}>approved production site</a> for manual transactions.</p>}
   </motion.div>
   {pendingOther&&<div className="pending-notice"><p>An existing {pendingOperation!.action} operation requires recovery.</p><button className="secondary" disabled={working} onClick={()=>{const v={operation:pendingOperation!,attempted:true,rejected:false};saveSettlement(v);update(v);}}>Load original operation for query</button></div>}
   {saved&&<details open={unknown} className="transaction-details"><summary>Original operation · {saved.operation.status}</summary><p className="address">{saved.operation.id}</p><p>Querying never resubmits. An unknown transaction remains pending after the review expires.</p><label className="text-field">Original transaction hash<input value={hash} maxLength={66} onChange={e=>setHash(e.target.value)} disabled={working||!!saved.operation.hash}/></label><button className="secondary" disabled={working||locked} onClick={recover}>Query original operation</button></details>}

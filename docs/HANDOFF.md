@@ -1,5 +1,21 @@
 # HoldBook handoff
 
+## Hackathon deployment preparation — active, September 9
+
+`based_on_commit: 87a72d1c821d22eae22d71d4730c71ef6b1d3e55`. User explicitly
+requested GitHub Pages frontend, Cloud Run backend and Neon PostgreSQL, replacing
+the earlier Cloudflare proposal. [Plan009](plans/009-cloud-deployment.md) is active.
+Code/configuration and local checks are delivered; [usage056](ai-usage/056-cloud-deployment.md)
+records actual validation. GitHub Pages workflow mode and the feature branch's
+environment permission are enabled. Nothing is live on Pages or Cloud Run yet.
+
+Remaining: user-approved Google Cloud project and Neon target/access, safe data
+migration retaining market salt/deployment, Cloud Run deployment, repository
+HOLDBOOK_API_ORIGIN, Pages publishing and exact live checks. Current gcloud work
+project cypherlab-dev must not be assumed approved. Secret values stay in cloud
+secret storage, never chat/Git/public Vite variables. Current work continues within
+plan009 and deployment docs/evidence; no unrelated next ticket, merge or chain action.
+
 ## Branch push authorized — September 9
 
 User requested「全部推送吧」. All current feat/t08-settlement commits are

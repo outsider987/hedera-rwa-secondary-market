@@ -8,7 +8,7 @@ export default function NovaFlow({status,quantity,total,minting=false}: {status:
   return <div className="nova-flow" data-position={position}>
     <div className="nova-flow-track" aria-hidden="true">
       <div className="nova-flow-carrier" style={{transform:`translateX(${position*100}%)`}}>
-        <img className={minting?'nova-minting':''} src="/assets/nova-demo-equity.png" alt="" width="1536" height="1024"/>
+        <img className={minting?'nova-minting':''} src={import.meta.env.BASE_URL+'assets/nova-demo-equity.png'} alt="" width="1536" height="1024"/>
       </div>
       <div className="nova-flow-payment" style={{transform:`translateX(${delivered?0:200}%)`}}><span>HBAR</span></div>
     </div>

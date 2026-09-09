@@ -1,3 +1,4 @@
+import {isTradingOrigin,apiURL} from './runtime';
 import {hashTypedData, recoverTypedDataAddress, type Hex} from 'viem';
 import {acquireOperation,releaseOperation,withTransactionLock,type Roles} from './guards';
 import {reviewWallet,checkWalletReview,type WalletReview} from './wallet';
@@ -49,7 +50,7 @@ export function publicRecord(r:Record):Record {
 function publicOrder(o:Order):Order {for(const k of ['quantity','price','expiresAt','sequence','acceptedAt','remaining','matched','cancelled','expired'] as const)integer(o[k]);if(!['Buy','Sell'].includes(o.side)||!/^([0-9a-f]{64})$/.test(o.orderId)||![accounts.Seller.address,accounts.Buyer.address].includes(o.owner)||o.market!==marketName||o.action!=='Place'||BigInt(o.quantity)!==BigInt(o.remaining)+BigInt(o.matched)+BigInt(o.cancelled)+BigInt(o.expired))throw new Error('Invalid order data.');return {requestId:o.requestId,orderId:o.orderId,owner:o.owner,market:o.market,action:o.action,side:o.side,quantity:o.quantity,price:o.price,expiresAt:o.expiresAt,sequence:o.sequence,acceptedAt:o.acceptedAt,remaining:o.remaining,matched:o.matched,cancelled:o.cancelled,expired:o.expired,reason:typeof o.reason==='string'?o.reason.slice(0,100):''};}
 function publicMatch(m:Match):Match {for(const k of ['quantity','price','notional','time'] as const)integer(m[k]);if(!/^[1-9][0-9]*-[1-9][0-9]*$/.test(m.id)||!/[0-9a-f]{64}/.test(m.maker)||!/[0-9a-f]{64}/.test(m.taker)||m.status!=='Matched · Not settled'||BigInt(m.quantity)*BigInt(m.price)!==BigInt(m.notional)||m.buyer===m.seller||![accounts.Seller.address,accounts.Buyer.address].includes(m.buyer)||![accounts.Seller.address,accounts.Buyer.address].includes(m.seller))throw new Error('Invalid match.');return {id:m.id,maker:m.maker,taker:m.taker,buyer:m.buyer,seller:m.seller,quantity:m.quantity,price:m.price,notional:m.notional,time:m.time,status:m.status};}
 export async function api<T>(path:string,signal:AbortSignal,body?:unknown,timeout=10000):Promise<T>{
- const r=await fetch('/api/'+path,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined,signal:AbortSignal.any([signal,AbortSignal.timeout(timeout)]),cache:'no-store',credentials:'omit',redirect:'error'});
+ const r=await fetch(apiURL(path),{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined,signal:AbortSignal.any([signal,AbortSignal.timeout(timeout)]),cache:'no-store',credentials:'omit',redirect:'error'});
  if(!r.ok)throw new Error('Market request incomplete. Query the original request; do not resubmit.');return r.json();
 }
 export async function readMarketBalance(owner:string,signal:AbortSignal){
@@ -84,7 +85,7 @@ export async function prepareOrder(roles:Roles,owner:string,side:Side,quantity:s
  }finally{releaseOperation(lease);}
 }
 export async function signOrder(review:Review,signal:AbortSignal,onIntent:(v:Intent)=>void){
- if(window.location.origin!=='http://127.0.0.1:4173'||!import.meta.env.PROD)throw new Error('Use production preview for signing.');
+ if(!isTradingOrigin(window.location.origin,import.meta.env.PROD))throw new Error('Use production preview for signing.');
  const lease=acquireOperation();try{return await withTransactionLock(navigator.locks,async()=>{
   if(pending(loadIntent()))throw new Error('Another request needs recovery.');
   commandCheck(review.record.prepared);domainCheck(review.domain);await checkWalletReview(review.wallet);signal.throwIfAborted();

@@ -1,0 +1,26 @@
+{
+  "recordedAt": "2026-09-09T08:56:34.005Z",
+  "kind": "Local built Pages assets at simulated production origin; synthetic API and wallet, no deployment",
+  "results": [
+    {
+      "width": 1440,
+      "basePathImage": true,
+      "crossOriginMarket": true,
+      "approvedOriginControls": true,
+      "apiResponseReadable": true,
+      "tabs": true,
+      "overflow": false,
+      "realWalletMutations": 0
+    },
+    {
+      "width": 390,
+      "basePathImage": true,
+      "crossOriginMarket": true,
+      "approvedOriginControls": true,
+      "apiResponseReadable": true,
+      "tabs": true,
+      "overflow": false,
+      "realWalletMutations": 0
+    }
+  ]
+}

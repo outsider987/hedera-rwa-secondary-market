@@ -1,0 +1,47 @@
+name: GitHub Pages
+on:
+  push:
+    branches: [main, feat/t08-settlement]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    if: vars.HOLDBOOK_API_ORIGIN != ''
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm install --global npm@11.17.0
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - name: Build the approved Pages site
+        env:
+          VITE_PUBLIC_ORIGIN: https://outsider987.github.io
+          VITE_API_ORIGIN: ${{ vars.HOLDBOOK_API_ORIGIN }}
+        run: |
+          node -e 'const u=new URL(process.env.VITE_API_ORIGIN); if(u.protocol!=="https:" || u.origin!==process.env.VITE_API_ORIGIN)process.exit(1)'
+          npm run build -- --base=/hedera-rwa-secondary-market/
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128

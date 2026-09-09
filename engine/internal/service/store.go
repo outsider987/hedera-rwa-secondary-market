@@ -55,7 +55,15 @@ func ID() string {
 	return hex.EncodeToString(b)
 }
 func Open(ctx context.Context, url string) (*Store, error) {
-	pool, e := pgxpool.New(ctx, url)
+	cfg, e := pgxpool.ParseConfig(url)
+	if e != nil {
+		return nil, e
+	}
+	// Bound each autoscaled instance's database footprint.
+	cfg.MaxConns = 4
+	cfg.MinConns = 0
+	cfg.MaxConnIdleTime = time.Minute
+	pool, e := pgxpool.NewWithConfig(ctx, cfg)
 	if e != nil {
 		return nil, e
 	}

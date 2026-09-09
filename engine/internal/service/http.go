@@ -59,7 +59,7 @@ func typedJSON(p Prepared, salt string) map[string]any {
 	t := TypedData(p, salt)
 	return map[string]any{"types": t.Types, "primaryType": t.PrimaryType, "domain": domain(salt), "message": t.Message}
 }
-func Handler(s *Store) http.Handler {
+func Handler(s *Store, allowedOrigin, apiHost string) http.Handler {
 	mux := http.NewServeMux()
 	settlementRoutes(mux, s)
 	mux.HandleFunc("GET /api/health", func(w http.ResponseWriter, r *http.Request) {
@@ -173,18 +173,42 @@ func Handler(s *Store) http.Handler {
 		writeJSON(w, 200, v)
 	})
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// No CORS. Loopback Host + exact browser Origin also resist DNS rebinding.
-		if r.Host != "127.0.0.1:8787" && r.Host != "127.0.0.1:4173" && r.Host != "127.0.0.1:5173" {
-			fail(w, 403, "Loopback host required")
+		// Exact configured Host and Origin; proxy headers are not trusted.
+		local := apiHost == ""
+		if (!local && r.Host != apiHost) || (local && r.Host != "127.0.0.1:8787" && r.Host != "127.0.0.1:4173" && r.Host != "127.0.0.1:5173") {
+			fail(w, 403, "API host rejected")
 			return
 		}
 		origin := r.Header.Get("Origin")
-		if origin != "" && origin != Origin && origin != "http://127.0.0.1:5173" {
+		if origin != "" && origin != allowedOrigin && !(local && origin == "http://127.0.0.1:5173") {
 			fail(w, 403, "Origin rejected")
 			return
 		}
-		if r.Method == "POST" && origin != Origin {
-			fail(w, 403, "Use production preview for reviewed commands")
+		if !local {
+			w.Header().Add("Vary", "Origin")
+			if origin == allowedOrigin {
+				w.Header().Set("Access-Control-Allow-Origin", allowedOrigin)
+			}
+			if r.Method == "OPTIONS" {
+				method := r.Header.Get("Access-Control-Request-Method")
+				valid := origin == allowedOrigin && strings.HasPrefix(r.URL.Path, "/api/") && (method == "GET" || method == "POST")
+				for _, header := range strings.Split(r.Header.Get("Access-Control-Request-Headers"), ",") {
+					if value := strings.TrimSpace(header); value != "" && !strings.EqualFold(value, "Content-Type") {
+						valid = false
+					}
+				}
+				if !valid {
+					fail(w, 403, "Preflight rejected")
+					return
+				}
+				w.Header().Set("Access-Control-Allow-Methods", "GET, POST")
+				w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+				w.WriteHeader(http.StatusNoContent)
+				return
+			}
+		}
+		if r.Method == "POST" && origin != allowedOrigin {
+			fail(w, 403, "Use the approved production origin for reviewed commands")
 			return
 		}
 		if strings.HasPrefix(r.URL.Path, "/api/") {

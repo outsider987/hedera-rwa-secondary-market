@@ -1,3 +1,4 @@
+import {isTradingOrigin} from './runtime';
 import {encodeAbiParameters,keccak256,stringToHex,type Hex} from 'viem';
 import {accounts,securityAddress} from './lifecycle';
 export type SettlementTerms={matchId:Hex;sellerOrder:Hex;buyerOrder:Hex;seller:string;buyer:string;amount:string;priceTinybars:string;preparedAt:string;expiry:string;holdId:string};
@@ -29,7 +30,7 @@ import {api,readMarket,loadIntent,pending as marketPending,type Match,type Marke
 import {acquireOperation,assertOperation,releaseOperation,withTransactionLock,type Roles} from './guards';
 import {reviewWallet,checkWalletReview,type WalletReview} from './wallet';
 import {assertFixedAccounts,readLifecycleState,partition,securityId} from './lifecycle';
-import {interfaces,rpc,isCreationOrigin,assertNovaTransaction} from './nova';
+import {interfaces,rpc,assertNovaTransaction} from './nova';
 import {prepareAts,checkSdkConfig} from './ats';
 import {holdSdkReads,sdkHoldId} from './hold';
 import {createAssetProviders} from './transport';
@@ -139,7 +140,7 @@ export async function recoverSettlement(signal:AbortSignal,onSave:(s:SavedSettle
  const next={...s,operation};saveSettlement(next);onSave(next);return next;
 }
 export async function submitSettlement(r:SettlementReview,signal:AbortSignal,onSave:(s:SavedSettlement)=>void){
- if(!isCreationOrigin(window.location.origin,import.meta.env.PROD))throw new Error('Use production preview for manual transactions.');
+ if(!isTradingOrigin(window.location.origin,import.meta.env.PROD))throw new Error('Use production preview for manual transactions.');
  return withTransactionLock(navigator.locks,async()=>{
   const lease=acquireOperation();let providers:Awaited<ReturnType<typeof createAssetProviders<SettlementTransportRecord>>>|undefined,connected=false;
   let saved=loadSettlement();if(!saved||saved.operation.id!==r.operation.id||saved.attempted&&!saved.rejected){releaseOperation(lease);throw new Error('Query the original intent; do not resend.');}
