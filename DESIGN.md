@@ -193,3 +193,19 @@ Finish disposition: ship. The [design record](docs/design/nova-overview.md) and
 passing dev/preview desktop/mobile presentation checks. The eight Overview,
 Market, Activity and Settings captures use public fixtures; they establish no new
 MetaMask execution or chain acceptance. Existing verified T08 cases remain complete.
+
+## NOVA recorded story — September 10, 2026
+
+Overview now uses a full-width story stage with Create NOVA / Trade NOVA chapters.
+The original hero illustration is reused inside this stage. Four issuance steps
+separate setup, synthetic credential, KYC grant and issuance. Trade uses the
+committed normal/reverse/cancel/reclaim cases with step-specific proofs and
+historical balances. Expiry has no transaction and retains registered balances.
+
+Desktop uses a 3:2 diagram/explanation split, stacking at850px. Stage positions
+are fixed thirds; NOVA and HBAR move together only at recorded settlement.
+CSS transform transitions use700ms cubic-bezier(.77,0,.175,1) for explanation;
+credential/lock opacity uses250ms cubic-bezier(.23,1,.32,1). Native buttons
+retarget the motion, with no autoplay. Keyboard and reduced-motion preferences
+use instant position changes. Existing navy, blue/amber stations and system type
+remain; labels use12/14px, body16px and explanation headings24px.

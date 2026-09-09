@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-10 | NOVA interactive issuance and recorded trade story | [Animation, evidence and browser checks](docs/ai-usage/058-nova-story.md) |
 | 2026-09-09 | CLI cloud provisioning and live deployment | [Cloud resources, migration and live checks](docs/ai-usage/057-live-deployment.md) |
 | 2026-09-09 | GitHub Pages / Cloud Run / Neon preparation | [Configuration, checks and pending cloud targets](docs/ai-usage/056-cloud-deployment.md) |
 | 2026-09-09 | Authorized branch push | [Publish current T08 and refactor commits](docs/ai-usage/055-authorized-push.md) |

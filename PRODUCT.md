@@ -103,3 +103,14 @@ locked in Holds and their combined total, read from one public Testnet block.
 Account changes isolate cached values; failures retain the last successful read
 with its block/time. Manual refresh is available. Active contract work shows an
 inline spinner and status text; idle pending outcomes do not imply active progress.
+
+## NOVA recorded story — September 10, 2026
+
+Overview provides two manually stepped, wallet-free explanatory chapters.
+Create NOVA shows dated T02/T03 setup, synthetic VC signing, KYC grant and100-share
+issuance. Trade NOVA reads the existing four T08 cases and binds steps to saved
+transaction hashes, blocks and balances. Cancel and reclaim are separate cases;
+expiry alone does not return NOVA. Every stage is labeled as an animated
+explanation of a recorded Testnet run; no current eligibility/balance claim or
+new transaction results from these controls. This replaces the earlier generic
+six-button illustration and duplicate lifecycle list.

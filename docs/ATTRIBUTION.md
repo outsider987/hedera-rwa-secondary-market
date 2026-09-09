@@ -399,3 +399,13 @@ Ephemeral neonctl4.14.5 is used outside the application dependency graph for
 browser authentication and project/database management. Official source:
 https://github.com/neondatabase/neonctl (Apache-2.0). gcloud, gh, PostgreSQL
 pg_dump/psql and Docker are operator tools; no CLI code is copied into the app.
+
+## NOVA recorded story — September 10, 2026
+
+Reuses the unchanged generated NOVA certificate (provenance above), React19.2.8
+and browser CSS/SVG. No new package, external artwork or copied sample code.
+Official [Motion layout documentation](https://motion.dev/docs/react-layout-animations),
+[shared-layout example](https://examples.motion.dev/react/shared-layout-animation)
+and [SVG documentation](https://motion.dev/docs/react-svg-animation) informed
+feasibility research. The implementation uses native CSS transitions instead.
+[Prompt033](prompts/033-nova-story.md) preserves user decisions and AI design input.

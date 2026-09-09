@@ -1,5 +1,31 @@
 # HoldBook handoff
 
+## NOVA recorded story delivered — September 10, 2026
+
+`based_on_commit: f5573a699da1c687d9b4388a8c54639c96a308c5` is the verified
+base. User approved two interactive animated chapters with「好go」after design
+and web-research discussion. [Plan010](plans/010-nova-story.md) is this bounded
+presentation ticket; [usage058](ai-usage/058-nova-story.md) records provenance.
+
+Overview now explains setup, synthetic VC, KYC grant and issuance, then replays
+recorded normal/reverse/cancel/reclaim cases. NOVA and HBAR move according to
+selected historical steps, with exact saved proofs and balances. Expiry remains
+held until recorded reclaim. Native CSS/SVG reuses the existing certificate;
+no wallet action, runtime dependency, backend or contract change.
+
+npm ci,116 application +36 protobuf tests, typecheck, app/showcase builds and
+four dev/preview1440/390 browser cases pass. Evidence048 covers every chapter/
+case, proof alignment, expiry, keyboard, reduced motion, rapid retargeting and
+no overflow/page errors/mutation requests. Desktop/mobile captures inspected.
+These are local presentation checks against saved records, not fresh chain or
+MetaMask verification. Existing dependency/build warnings remain documented.
+
+Victor can inspect http://127.0.0.1:4173/#overview and advance either chapter.
+This extension stops at a local commit; it has not been pushed or deployed.
+Cloud deployment below remains the prior version. Next ticket and exact allowed
+implementation files: none until separately authorized. No unresolved blocker
+for this presentation scope; human visual acceptance remains Victor's action.
+
 ## Hackathon cloud deployment — September 9
 
 `based_on_commit: 871518f9d6b83fa3ff5b52bc09787aabd9d1dbce`. User completed
