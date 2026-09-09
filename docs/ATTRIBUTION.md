@@ -392,3 +392,10 @@ Cloud Run configuration follows the official [container contract](https://cloud.
 and [Secret Manager integration](https://cloud.google.com/run/docs/configuring/services/secrets).
 Connection guidance uses [Neon documentation](https://neon.com/docs/connect/connection-pooling).
 No new runtime library, image or copied third-party implementation was added.
+
+## Deployment CLI tooling — September 9, 2026
+
+Ephemeral neonctl4.14.5 is used outside the application dependency graph for
+browser authentication and project/database management. Official source:
+https://github.com/neondatabase/neonctl (Apache-2.0). gcloud, gh, PostgreSQL
+pg_dump/psql and Docker are operator tools; no CLI code is copied into the app.

@@ -93,3 +93,19 @@ Sources: [Cloud Run contract](https://cloud.google.com/run/docs/container-contra
 [Neon connection pooling](https://neon.com/docs/connect/connection-pooling),
 [Vite Pages deployment](https://vite.dev/guide/static-deploy.html#github-pages),
 [Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+
+## Provisioned resources — September 9, 2026
+
+- Google Cloud project: `holdbook-hackathon-2026`; region: `asia-southeast1`.
+- Cloud Run service: `holdbook-api`; canonical API origin:
+  `https://holdbook-api-6t7fccf54a-as.a.run.app`. Use this exact hostname; the
+  alternate numeric Cloud Run URL is outside the application's host allowlist.
+- Runtime identity: `holdbook-api@holdbook-hackathon-2026.iam.gserviceaccount.com`.
+- Database secret name: `holdbook-database-url` (runtime injection only).
+- Neon project: `round-darkness-20660180`, AWS Singapore, PostgreSQL18;
+  database: `holdbook`, role: `holdbook_owner`, compute:0.25CU.
+- Local `holdbook-market-api-1` is stopped after migration. Keep it stopped:
+  its original database is preserved as the cutover source, not a second writer.
+
+[Live deployment record](../docs/ai-usage/057-live-deployment.md) tracks public
+acceptance and remaining manual wallet checks.

@@ -1,20 +1,29 @@
 # HoldBook handoff
 
-## Hackathon deployment preparation — active, September 9
+## Hackathon cloud deployment — September 9
 
-`based_on_commit: 87a72d1c821d22eae22d71d4730c71ef6b1d3e55`. User explicitly
-requested GitHub Pages frontend, Cloud Run backend and Neon PostgreSQL, replacing
-the earlier Cloudflare proposal. [Plan009](plans/009-cloud-deployment.md) is active.
-Code/configuration and local checks are delivered; [usage056](ai-usage/056-cloud-deployment.md)
-records actual validation. GitHub Pages workflow mode and the feature branch's
-environment permission are enabled. Nothing is live on Pages or Cloud Run yet.
+`based_on_commit: 871518f9d6b83fa3ff5b52bc09787aabd9d1dbce`. User completed
+Google/Neon browser login and explicitly authorized provisioning with “go”.
+[Plan009](plans/009-cloud-deployment.md) and [usage057](ai-usage/057-live-deployment.md)
+record this continuation. Dedicated GCP holdbook-hackathon-2026, Cloud Run
+asia-southeast1 and Neon round-darkness-20660180 (PostgreSQL18 Singapore) exist.
+Cloud Run revision holdbook-api-00002-lx4 is ready at
+https://holdbook-api-6t7fccf54a-as.a.run.app. Health, exact CORS boundary checks
+and public market readback passed. Credentials are injected from Secret Manager.
 
-Remaining: user-approved Google Cloud project and Neon target/access, safe data
-migration retaining market salt/deployment, Cloud Run deployment, repository
-HOLDBOOK_API_ORIGIN, Pages publishing and exact live checks. Current gcloud work
-project cypherlab-dev must not be assumed approved. Secret values stay in cloud
-secret storage, never chat/Git/public Vite variables. Current work continues within
-plan009 and deployment docs/evidence; no unrelated next ticket, merge or chain action.
+Local API is stopped; original PostgreSQL remains intact. Before cloud startup,
+all eight table counts/content digests matched, including24 orders/10 matches
+and the original salt/deployment. No pending settlement operation at cutover.
+Never restart local trading against the old copy as a parallel writer.
+
+Pages is live at https://outsider987.github.io/hedera-rwa-secondary-market/.
+Workflow34334461814 passed npm ci/test/typecheck/build and deployed source871518f.
+Real public browser checks at1440/390 passed image/tabs/no overflow/no page errors
+and cross-origin API readback. [Evidence047](evidence/047-live-deployment.json).
+The final documentation-only push retains the verified source artifact with
+[skip ci]. Deployment delivered; next ticket/implementation files: none.
+No wallet signing, chain mutation or merge. Public wallet/manual cold-resume
+behavior is not established by automated public reads. No unrelated next ticket is activated.
 
 ## Branch push authorized — September 9
 

@@ -29,3 +29,12 @@ Checks: Go tests/race/vet with disposable PostgreSQL, frontend npm ci/test/typec
 and builds, CORS boundary tests, isolated local browser regression.
 No real wallet signing or automatic chain transaction. Do not claim cloud deployed
 without remote verification. Record target/access blockers if user input is absent.
+
+## CLI provisioning authorized — September 9
+
+User requested a different Google Cloud project, CLI access for Neon, completed
+browser authentication, and said “go” to creation and deployment. Dedicated
+project holdbook-hackathon-2026 uses the authenticated personal account's existing
+active billing account. Neon project round-darkness-20660180 is dedicated to
+HoldBook in organization Outsider987, AWS Singapore; Cloud Run is asia-southeast1.
+Scope also includes deployment provenance057 and public evidence047.
