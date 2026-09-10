@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-10 | Complete 3D recorded demo and read-only Market visualization | [Presentation, provenance and verification](docs/ai-usage/060-demo-experience.md) |
 | 2026-09-10 | Deploy completed NOVA story | [Pages publication and live checks](docs/ai-usage/059-story-deployment.md) |
 | 2026-09-10 | NOVA interactive issuance and recorded trade story | [Animation, evidence and browser checks](docs/ai-usage/058-nova-story.md) |
 | 2026-09-09 | CLI cloud provisioning and live deployment | [Cloud resources, migration and live checks](docs/ai-usage/057-live-deployment.md) |

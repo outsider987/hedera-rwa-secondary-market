@@ -1,5 +1,42 @@
 # HoldBook · operator and judge demo
 
+## Three-minute recorded presentation — September 10, 2026
+
+Open `http://127.0.0.1:4173/?demo=1#overview` after `npm run build` and
+`npm run preview`. The new presentation is local; the published site retains
+its earlier version until separately authorized deployment. No wallet is needed.
+
+Manual advance is the default: Previous / Next, Replay scene, Restart demo.
+Space or Right advances, Left goes back, Escape exits when focus is outside
+interactive controls. Buttons, links and forms keep their normal keys. Start
+“Play 3-minute sequence” explicitly for timed playback; Pause / Resume retains
+elapsed time. Manual jumps stop the sequence. Backgrounding, leaving Overview
+or exiting pauses it without catch-up. Market keeps its ordinary workbench;
+returning preserves the scene, while reload begins at the opening.
+
+| Time | Screen | English narration |
+| --- | --- | --- |
+| 00:00–00:15 | Overview | “HoldBook demonstrates tokenized equity trading with verifiable settlement on Hedera. NOVA is fictional equity; all credentials are synthetic and all records are on Testnet.” |
+| 00:15–00:35 | Tokenization | “NOVA is fictional equity created with Hedera Asset Tokenization Studio. Creating the asset starts with zero supply. In the recorded issuance, one hundred whole shares reached the seller.” |
+| 00:35–01:00 | Compliance | “A synthetic credential names Admin as issuer and Seller as subject. Verification alone does not open the gate. The separate on-chain KYC grant established eligibility at that historical point.” |
+| 01:00–01:40 | Matching | “Orders match by price and time. Four shares match at point zero nine, then two at point one. Three shares remain on the ask. Matching itself moves no NOVA or HBAR.” |
+| 01:40–02:15 | Atomic swap | “This is a separate recorded fixed swap, not settlement of those T07 matches. The seller locks ten NOVA. The buyer pays one HBAR. Delivery and payment complete atomically, in the same transaction.” |
+| 02:15–02:35 | Proof | “The recorded transaction and historical balances provide inspectable evidence. Settlement occurred in block forty million, two hundred forty-seven thousand, one hundred thirty-four.” |
+| 02:35–02:55 | Inspect evidence | “The later verification block is forty million, two hundred forty-seven thousand, three hundred fifty-two. Seller has eighty-four, Buyer sixteen, neither has held shares, and Seller received one HBAR principal. Network fees are separate.” |
+| 02:55–03:00 | Ending | “HoldBook. Agreement, settlement, proof.” |
+
+Hold on each cue for manual narration. The illustration is explanatory; it never
+creates another asset, credential, match, Hold or payment. T02/T03 issuance,
+T07 matching and T05 swap are separate records with different starting balances.
+Proof links the original transaction, acceptance report and public snapshot.
+“View T08 recorded cases” restores the detailed story below; select Trade NOVA
+and the normal, reverse, cancelled or reclaimed case. Expiry alone does not
+release held shares. Historical eligibility is not current KYC validity.
+
+Victor's remaining presentation action is a narration trial and visual acceptance
+on the actual recording device. Automated viewport checks are not physical mobile
+performance measurements. [Implementation and browser evidence](evidence/050-demo-experience.md).
+
 Completed with documented recovery: [T07 unfunded market acceptance](#t07--unfunded-matching-acceptance-pending). The T05 walkthrough below is completed history.
 
 ## T05 recorded operator flow — acceptance complete

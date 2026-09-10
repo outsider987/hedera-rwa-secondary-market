@@ -114,3 +114,15 @@ expiry alone does not return NOVA. Every stage is labeled as an animated
 explanation of a recorded Testnet run; no current eligibility/balance claim or
 new transaction results from these controls. This replaces the earlier generic
 six-button illustration and duplicate lifecycle list.
+
+## Recorded 3D presentation — September 10, 2026
+
+Overview now leads with the Tokenize → Verify → Match → Settle → Prove story.
+Four lazy Three.js/R3F scenes explain separate T02/T03, T07 and T05 records;
+HTML proof remains usable without WebGL. Demo Mode offers manual cues and an
+explicit three-minute sequence. The actual Market adds read-only top-five depth
+and server-match feedback from the existing polling data, with real settlement
+labels. No trading controller, wallet, contract, API or asset parameter changes.
+The established detailed story, four T08 cases and legacy navigation remain.
+This presentation is local and awaits Victor's narration/visual trial; no new
+publication is authorized. See plan011 and evidence050 for its exact boundary.

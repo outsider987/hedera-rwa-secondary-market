@@ -5,14 +5,15 @@ import AccountBalance from './AccountBalance';
 import OrderBook from './OrderBook';
 import OrdersTable from './OrdersTable';
 import MatchesList from './MatchesList';
-import {readSettlements} from '../lib/settlement';
+import MarketVisualization from '../presentation/MarketVisualization';
+import {readSettlements,settlementStatus} from '../lib/settlement';
 import {queryClient} from '../lib/wallet';
 import {useEffect,useRef,useState,useSyncExternalStore} from 'react';
 import {getOperationBusy,subscribeOperation,type Roles} from '../lib/guards';
 import {accounts} from '../lib/lifecycle';
 import {amount,hbar,loadIntent,marketEvidence,marketStorageKey,pending,prepareOrder,readMarketBalance,readMarket,recoverIntent,signOrder,type Intent,type Market,type Order,type Review,type Side} from '../lib/market';
 
-export default function MarketPanel({visible,activity=false,roles,session,activeAccount}:{visible:boolean;activity?:boolean;roles:Roles;session:number;activeAccount?:string}){
+export default function MarketPanel({visible,activity=false,roles,session,activeAccount,onNotice}:{visible:boolean;activity?:boolean;roles:Roles;session:number;activeAccount?:string;onNotice?:(notice:string)=>void}){
  const [selectedMatch,setSelectedMatch]=useState<string>(),[matchFilter,setMatchFilter]=useState<'Active'|'Needs your action'|'Completed'|'All'>('Active');
  const settlementsQuery=useQuery({queryKey:['t08-settlements'],queryFn:({signal})=>readSettlements(signal),enabled:visible,retry:false,refetchInterval:visible?2000:false,refetchIntervalInBackground:false},queryClient);
  const settlementData=settlementsQuery.data;
@@ -40,6 +41,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
   async function refresh(){if(document.hidden){timer=setTimeout(refresh,2000);return;}try{const m=await readMarket(abort.signal);abort.signal.throwIfAborted();setMarket(m);setOnline(true);setLast(new Date().toLocaleTimeString());if(pending(loadIntent())){const v=await recoverIntent(abort.signal);abort.signal.throwIfAborted();setIntent(v);}}catch{if(!abort.signal.aborted)setOnline(false);}finally{if(!abort.signal.aborted)timer=setTimeout(refresh,2000);}}
   void refresh();return()=>{abort.abort();clearTimeout(timer);};
  },[visible]);
+ useEffect(()=>{onNotice?.(pending(intent)?'Order signature or submission is unresolved. Open Market to query the original request.':settlementData?.pendingOperation?'Settlement operation is pending. Open Market to recover the original operation.':problem||storageProblem);},[intent,settlementData?.pendingOperation,problem,storageProblem,onNotice]);
  const disabled=!!settlementData?.pendingOperation||locked||working||!online||!preview||!trader||!!storageProblem||pending(intent);
  let total='',inputProblem='';try{total=hbar(amount(quantity,price).notional);}catch(e){inputProblem=e instanceof Error?e.message:'Invalid amount.';}
  async function prepare(cancel?:Order){if(disabled)return;const current=new AbortController();controller.current=current;const revision=epoch.current;setWorking(true);setProblem('');setReview(undefined);setApproved(false);try{const v=await prepareOrder(roles,owner,side,quantity,price,current.signal,cancel);if(revision===epoch.current&&!current.signal.aborted)setReview(v);}catch(e){if(!current.signal.aborted)setProblem(e instanceof Error?e.message:'Review incomplete.');}finally{setWorking(false);}}
@@ -63,6 +65,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
   <AccountBalance role={role} balance={balance} loading={balanceQuery.isFetching} error={balanceQuery.isError} locked={locked} onRefresh={()=>void balanceQuery.refetch()}/>
   <p className="notice"><strong>Funds are not reserved.</strong> Orders do not reserve NOVA or HBAR. Each match separately shows its lock, payment and delivery status.</p>
   {(owner===accounts.Admin.address&&!settlementData?.deployment||settlementData?.pendingOperation)&&<div className="actions"><button className="secondary" onClick={()=>setSelectedMatch(settlementData?.pendingOperation?.settlementId||'setup')}>{settlementData?.pendingOperation?'Recover settlement operation':'Settlement setup'}</button></div>}
+  <MarketVisualization orders={market?.orders??[]} matches={market?.matches??[]} statuses={Object.fromEntries((settlementData?.settlements??[]).map(s=>[s.id,settlementStatus(s,BigInt(Math.floor(Date.now()/1000)))]))} online={online} updated={last} visible={visible&&!activity}/>
   <div className="market-layout">
    <OrderBook open={open}/>
    {selectedMatch!==undefined?<SettlementPanel key={selectedMatch} match={market?.matches.find(m=>m.id===selectedMatch)} settlement={settlementData?.settlements.find(s=>s.id===selectedMatch)} deployment={settlementData?.deployment} pendingOperation={settlementData?.pendingOperation} roles={roles} owner={owner} session={session} online={online&&settlementsQuery.isSuccess&&!settlementsQuery.isRefetchError} locked={locked} eligible={selectedMatch==='setup'||freshMatch(selectedMatch)} onUpdated={()=>{void settlementsQuery.refetch();}} onNewOrder={()=>{setSelectedMatch(undefined);newOrder();}}/>:<section className="market-ticket" aria-labelledby="order-heading">

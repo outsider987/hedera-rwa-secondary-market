@@ -1,5 +1,37 @@
 # HoldBook handoff
 
+## Complete recorded 3D demo — September 10, 2026 · local only
+
+`based_on_commit: 765c53c3f7c32eedbb84cb159bc256092b6c85db` is the verified
+starting commit, not this handoff's containing commit. The supplied user plan
+explicitly authorized all phases of [plan011](plans/011-demo-experience.md),
+including Three.js/R3F and explanatory motion. This supersedes earlier narrow
+presentation restrictions only within this ticket. Read [evidence050](evidence/050-demo-experience.md)
+for acceptance and [usage060](ai-usage/060-demo-experience.md) for provenance;
+[DEMO](DEMO.md) has the English narration and controls. Historical records below
+remain dated records, not authorization to deploy this new version.
+
+Delivered: new Overview composition, Tokenization/Compliance/Matching/Atomic
+scenes and historical HTML Proof; manual and three-minute Demo Mode; read-only
+Market depth, match updates and resolved settlement labels. Existing NOVA story,
+T08 cases and trading state remain. Public data keeps T02/T03, T07 and T05 separate.
+No backend, contract, matching core or wallet implementation change; no signer,
+new chain operation, push or deployment. The published site retains the prior build.
+
+All required install/test/typecheck/app/showcase commands pass;121 application
+and36 protobuf checks. Dev/preview at1920×1080,1440×900,390×844 exercise every
+cue and save start/transition/end captures. Evidence records real timed playback,
+keyboard, reduced motion, fallback/context loss, background pause, recovery and
+Market state preservation. Existing audit/build warnings are retained. Frame
+observations use headless Chrome/SwiftShader and emulated viewports; see the
+recorded limits before claiming physical-device performance.
+
+Victor: open `http://127.0.0.1:4173/?demo=1#overview` for a narration trial and
+human visual acceptance on the recording device. No wallet is required for the
+recorded presentation. The implementation is complete locally; human recording
+acceptance remains. This ticket ends at its local commit. Next ticket: none;
+exact allowed files for another implementation ticket: none until authorized.
+
 ## NOVA story deployed — September 10, 2026
 
 `based_on_commit: 3f7a2bef98afae81a6a9f57a956bd96593db2b38`. User requested

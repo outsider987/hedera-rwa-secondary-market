@@ -409,3 +409,48 @@ Official [Motion layout documentation](https://motion.dev/docs/react-layout-anim
 and [SVG documentation](https://motion.dev/docs/react-svg-animation) informed
 feasibility research. The implementation uses native CSS transitions instead.
 [Prompt033](prompts/033-nova-story.md) preserves user decisions and AI design input.
+
+## Complete 3D presentation — September 10, 2026
+
+User-authorized exact additions: [Three.js0.185.0](https://github.com/mrdoob/three.js/tree/r185),
+[React Three Fiber9.7.0](https://github.com/pmndrs/react-three-fiber), and
+[@types/three0.185.4](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/three),
+all MIT. Installed R3F peer metadata accepts React>=19<19.3; existing React19.2.8
+is retained. [Official introduction](https://r3f.docs.pmnd.rs/getting-started/introduction)
+and [demand-rendering guidance](https://r3f.docs.pmnd.rs/advanced/scaling-performance)
+were consulted as references; the browsing tool could not fetch their oversized
+responses, so implementation was checked against installed package types/source.
+No documentation example or third-party scene/model was copied. The existing
+NOVA certificate and its earlier generation provenance are reused unchanged.
+
+New locked closure (all existing resolved versions remain unchanged):
+
+| Package | Version | License / upstream |
+| --- | --- | --- |
+| its-fine | 2.0.0 | MIT · [pmndrs](https://github.com/pmndrs/its-fine) |
+| react-use-measure | 2.1.7 | MIT · [pmndrs](https://github.com/pmndrs/react-use-measure) |
+| suspend-react | 0.1.3 | MIT · [pmndrs](https://github.com/pmndrs/suspend-react) |
+| @types/webxr | 0.5.24 | MIT · [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webxr) |
+| @types/react-reconciler | 0.28.9 | MIT · [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-reconciler) |
+| @types/stats.js | 0.17.4 | MIT · [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/stats.js) |
+| @dimforge/rapier3d-compat | 0.12.0 | Apache-2.0 · [Rapier](https://github.com/dimforge/rapier.js) |
+| @tweenjs/tween.js | 23.1.3 | MIT · [Tween.js](https://github.com/tweenjs/tween.js) |
+| fflate | 0.8.3 | MIT · [fflate](https://github.com/101arrowz/fflate) |
+| meshoptimizer | 1.1.1 | MIT · [meshoptimizer](https://github.com/zeux/meshoptimizer) |
+
+The @types/stats.js, Rapier, Tween.js, fflate and meshoptimizer rows, plus
+@types/three, enter through the development type closure;
+no physics, tween, compression or mesh-optimization runtime is imported by the
+presentation. Upstream package/license notices remain in their installed packages;
+The presentation also emits an original-license text asset linked from the app
+footer, because the minified chunks do not preserve those comments.
+[Retained runtime notices](../src/presentation/THIRD_PARTY_NOTICES.txt) include
+Three, R3F and its new/reused React support libraries. R3F omits a license file
+from its npm artifact; its text is retained from the official
+[v9.7.0 tag](https://github.com/pmndrs/react-three-fiber/blob/v9.7.0/LICENSE). Rendering uses original
+primitive scene code, finite transitions and instancing, with no new fonts/assets.
+A package-lock comparison found13 added locations and zero changed existing
+versions. Installation reported the existing62 audit findings (21low/25moderate/
+16high); no audit repair, native-script approval or support waiver was performed.
+Browser tests use a fresh unsigned wallet double and public historical fixtures;
+no wallet profile, private key or full VC signature is read. See evidence050.

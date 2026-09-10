@@ -1,5 +1,16 @@
 # HoldBook — submission review version
 
+September 10 local presentation update: Overview offers four3D explanatory
+scenes and HTML Proof, manual Demo Mode and an optional three-minute sequence.
+The real Market visualizes existing depth and server matches with per-match
+settlement states. The T07 example is historical unfunded intent; the separate
+T05 fixed swap proves10 NOVA/1 HBAR at block40247134, with later verification
+at40247352. T08 still supplies four separate recorded outcomes. Follow the
+[English narration](DEMO.md#three-minute-recorded-presentation--september-10-2026)
+and [local validation](evidence/050-demo-experience.md). No new transaction,
+public deployment, event submission or human visual acceptance is claimed.
+The older sections below retain their dated context.
+
 September 8 T08 update: a local matched-settlement workbench and independent static
 portfolio are implemented; **all four T08 human cases and persistence checks passed**. See
 [implementation report](evidence/037-t08-implementation.md) and
@@ -20,7 +31,7 @@ A Go service verifies commands and commits orders, matches and results to
 PostgreSQL before reporting success.
 
 The prototype makes the distinction between agreement and settlement visible:
-**Funds are not reserved. Every Market match is “Matched · Not settled”.**
+**Funds are not reserved by matching. Each match separately reports its settlement state.**
 A separately completed fixed trade demonstrates on-chain delivery and payment;
 it does not settle the new order book.
 

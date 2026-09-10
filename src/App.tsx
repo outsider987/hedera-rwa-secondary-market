@@ -8,8 +8,11 @@ import Header from './components/Header';
 import OverviewPage from './pages/OverviewPage';
 import ActivityPage from './pages/ActivityPage';
 import SettingsPage from './pages/SettingsPage';
+import presentationNotices from './presentation/THIRD_PARTY_NOTICES.txt?url';
+import {demoMode,demoURL} from './presentation/demoState';
 import { resolvePage, type Page } from './lib/navigation';
 import { loadTradeRecords } from './lib/trade';
+import {loadSettlement} from './lib/settlement';
 import { accounts } from './lib/lifecycle';
 
 export default function App() {
@@ -19,8 +22,14 @@ export default function App() {
   const session = useSyncExternalStore(subscribeWalletSession, getWalletSession, () => 0);
   const [saved, setSaved] = useState(() => typeof window === 'undefined' ? { roles: {}, warning: '' } : loadRoles());
   const savedRef = useRef(saved);
+  const [marketNotice,setMarketNotice]=useState('');
+  const [savedSettlementNotice,setSavedSettlementNotice]=useState('');
+  const [demo,setDemo]=useState(()=>typeof window!=='undefined'&&demoMode(window.location.search));
+  function changeDemo(enabled:boolean){history.replaceState(null,'',demoURL(window.location.href,enabled));setDemo(enabled);}
+  useEffect(()=>{const change=()=>setDemo(demoMode(window.location.search));window.addEventListener('popstate',change);return()=>window.removeEventListener('popstate',change);},[]);
   const [page,setPage] = useState<Page>('overview');
   const [tradeRecords] = useState<TradeRecord[]>(()=>{try{return loadTradeRecords();}catch{return [];}});
+  useEffect(()=>{if(page!=='overview')return;try{const saved=loadSettlement();setSavedSettlementNotice(saved?.attempted&&!saved.rejected&&!['verified','reverted'].includes(saved.operation.status)?'Saved settlement is unresolved. Query the original operation in Market.':'');}catch{setSavedSettlementNotice('Saved settlement could not be read. Preserve its original record and open Market for recovery.');}},[page,demo]);
   useEffect(() => {
     const change = () => { const next = resolvePage(window.location.hash); if (next) setPage(next); };
     change(); window.addEventListener('hashchange', change);
@@ -78,15 +87,19 @@ export default function App() {
   return <>
     <a className="skip-link hb:z-20" href="#main">Skip to content</a>
     <Header activeRole={activeRole} connected={connection.isConnected} disabled={busy || locked} onWallet={handleWallet}/>
-    <main id="main">
+    <main id="main" className={demo&&page==='overview'?'presentation-main':undefined}>
+      {demo&&page!=='overview'&&<button className="secondary" onClick={()=>changeDemo(false)}>Exit Demo</button>}
       <nav className="page-nav hb:flex-wrap hb:gap-2! hb:sm:gap-8!" aria-label="Main navigation">{['overview','market','activity','settings'].map(item=><a key={item} href={'#'+item} aria-current={page === item ? 'page' : undefined}>{item[0].toUpperCase()+item.slice(1)}</a>)}</nav>
-      <p id="wallet-status" role="status" aria-live="polite" className="wallet-status">{busy ? 'Wallet request pending. Complete or reject it in MetaMask.' : connection.isConnected ? ready ? 'Connected to Hedera Testnet.' : 'Wrong network. Switch to Hedera Testnet (296 / 0x128) in MetaMask.' : 'Wallet not connected. Connect when ready.'}</p>
+      <p id="wallet-status" role="status" aria-live="polite" className="wallet-status">{busy ? 'Wallet request pending. Complete or reject it in MetaMask.' : connection.isConnected ? ready ? 'Connected to Hedera Testnet.' : 'Wrong network. Switch to Hedera Testnet (296 / 0x128) in MetaMask.' : demo&&page==='overview'?'':'Wallet not connected. Connect when ready.'}</p>
       {walletMessage && <p role="alert">{walletMessage}</p>}{saved.warning && <p className="storage-warning" role="alert">{saved.warning}</p>}
-      <OverviewPage visible={page === 'overview'}/>
-      <div hidden={page !== 'market' && page !== 'activity'}><MarketPanel visible={page === 'market' || page === 'activity'} activity={page === 'activity'} roles={saved.roles} session={session} activeAccount={connection.address}/></div>
+      {page==='overview'&&savedSettlementNotice&&<p role="alert">{savedSettlementNotice} <a href="#market">Open Market</a></p>}
+      {page==='overview'&&tradeRecords.some(r=>r.kind==='t05-transaction'&&!['complete','rejected'].includes(r.status))&&<p role="alert">A saved T05 operation needs review. <a href="#activity">Open Activity</a> to inspect its original record.</p>}
+      {page==='overview'&&marketNotice&&<p role="alert">{marketNotice} <a href="#market">Open Market</a></p>}
+      <OverviewPage visible={page === 'overview'} demo={demo} onMode={changeDemo}/>
+      <div hidden={page !== 'market' && page !== 'activity'}><MarketPanel visible={page === 'market' || page === 'activity'} activity={page === 'activity'} roles={saved.roles} session={session} activeAccount={connection.address} onNotice={setMarketNotice}/></div>
       <ActivityPage visible={page === 'activity'} session={session} tradeRecords={tradeRecords}/>
       <SettingsPage visible={page === 'settings'} address={connection.address} chainId={connection.chainId} swapAddress={deployment?.input.escrow} session={session} ready={ready} roles={saved.roles} changeRoles={changeRoles}/>
     </main>
-    <footer><p>Testnet demonstration only. Synthetic KYC; no real securities or identity checks.</p><a href="https://github.com/outsider987/hedera-rwa-secondary-market/blob/main/docs/HANDOFF.md">Project handoff</a></footer>
+    <footer><p>Testnet demonstration only. Synthetic KYC; no real securities or identity checks.</p><a href="https://github.com/outsider987/hedera-rwa-secondary-market/blob/main/docs/HANDOFF.md">Project handoff</a> · <a href={presentationNotices}>Presentation third-party notices</a></footer>
   </>;
 }

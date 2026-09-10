@@ -1,8 +1,11 @@
+import DemoExperience from '../presentation/DemoExperience';
 import NovaAssetSummary from '../components/NovaAssetSummary';
 import AssetLifecycle from '../components/AssetLifecycle';
 
-export default function OverviewPage({ visible }: { visible: boolean }) {
+export default function OverviewPage({ visible,demo,onMode }: { visible: boolean;demo:boolean;onMode:(enabled:boolean)=>void }) {
   return <section id="overview" hidden={!visible} aria-labelledby="overview-heading" className="page-section hb:pb-10">
+    <DemoExperience visible={visible} demo={demo} onMode={onMode} onCases={()=>{onMode(false);requestAnimationFrame(()=>document.getElementById('recorded-details')?.scrollIntoView());}}/>
+    <div id="recorded-details" hidden={demo}>
     <NovaAssetSummary/>
     <AssetLifecycle/>
     <section aria-labelledby="roles-heading" className="hb:mt-10">
@@ -18,5 +21,6 @@ export default function OverviewPage({ visible }: { visible: boolean }) {
       <h2 id="tabs-heading" className="hb:text-2xl!">Find your next step</h2>
       <dl><div><dt><a href="#overview">Overview</a></dt><dd>Understand NOVA, the people and the flow.</dd></div><div><dt><a href="#market">Market</a></dt><dd>Place orders, select a match and settle it.</dd></div><div><dt><a href="#activity">Activity</a></dt><dd>Inspect your orders, matches and dated asset evidence.</dd></div><div><dt><a href="#settings">Settings</a></dt><dd>Check your account, network and setup.</dd></div></dl>
     </section>
+    </div>
   </section>;
 }

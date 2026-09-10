@@ -1,0 +1,146 @@
+{
+  "sourceBase": "https://github.com/outsider987/hedera-rwa-secondary-market/blob/765c53c3f7c32eedbb84cb159bc256092b6c85db/docs/evidence/",
+  "tokenization": {
+    "date": "September 7, 2026",
+    "source": "024-vc-nova-manual.json",
+    "creationBlock": "40209377",
+    "initialSupply": "0",
+    "maximumSupply": "1000",
+    "issuanceSource": "027-t03-manual.json",
+    "issuanceBlock": "40223460",
+    "issued": "100",
+    "kycBlock": "40222969",
+    "issuer": "Admin",
+    "subject": "Seller",
+    "issuanceHash": "0x6b9b42184a7d9490a34692c44b1b9e8f03a26d90e87bb451f64f06db26c05a5a",
+    "kycHash": "0xb74802329031a287415455c470d02b0ea777d0f8ec4fc751a406345a1db67b10",
+    "creationHash": "0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e"
+  },
+  "matching": {
+    "date": "September 8, 2026",
+    "source": "035-t07-manual.json",
+    "pointer": "checkpoints[2].exports[2]",
+    "orders": [
+      {
+        "requestId": "7751288d45ad4142ebcae4a6485de6ac45627e0cc9ab60e6868879fa0df621a2",
+        "orderId": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "4",
+        "price": "9000000",
+        "expiresAt": "1788936436",
+        "sequence": "1",
+        "acceptedAt": "1788850043",
+        "remaining": "0",
+        "matched": "4",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "d81cc01ae47342a3908205dc7d4482dae4c4f77d560d6e202ead86ebab34b74f",
+        "orderId": "11fc188f89870630e3659f6859d1e8d6ff7c27d18b22822b7e68eaa7f247a151",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "5",
+        "price": "10000000",
+        "expiresAt": "1788937898",
+        "sequence": "4",
+        "acceptedAt": "1788851511",
+        "remaining": "3",
+        "matched": "2",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "b42d552e3dd51e30ab383926d864c3251a57c995161693a6ae792873398efd47",
+        "orderId": "8dd0e940edbcabc7f75f3fb8bbe96262bd116ac65b74fc370adf2818da1d9048",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "6",
+        "price": "10000000",
+        "expiresAt": "1788938058",
+        "sequence": "5",
+        "acceptedAt": "1788851665",
+        "remaining": "0",
+        "matched": "6",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      }
+    ],
+    "matches": [
+      {
+        "id": "5-1",
+        "maker": "f67befedc82a372bcf6ac35d63aefd6ffe5204b4fe97dfb4d78b10361a4ef083",
+        "taker": "8dd0e940edbcabc7f75f3fb8bbe96262bd116ac65b74fc370adf2818da1d9048",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "4",
+        "price": "9000000",
+        "notional": "36000000",
+        "time": "1788851665",
+        "status": "Matched · Not settled"
+      },
+      {
+        "id": "5-2",
+        "maker": "11fc188f89870630e3659f6859d1e8d6ff7c27d18b22822b7e68eaa7f247a151",
+        "taker": "8dd0e940edbcabc7f75f3fb8bbe96262bd116ac65b74fc370adf2818da1d9048",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "2",
+        "price": "10000000",
+        "notional": "20000000",
+        "time": "1788851665",
+        "status": "Matched · Not settled"
+      }
+    ]
+  },
+  "swap": {
+    "date": "September 8, 2026",
+    "source": "032-t05-manual.json",
+    "recordedAt": "2026-09-08T04:26:22.131Z",
+    "lock": {
+      "block": "40246787",
+      "hash": "0xd9c4059eae45ea0e322d6d79fdfc53c55385464c69012f745a83dad982236396",
+      "before": {
+        "sellerAvailable": "94",
+        "sellerHeld": "0",
+        "buyerAvailable": "6",
+        "buyerHeld": "0"
+      },
+      "after": {
+        "sellerAvailable": "84",
+        "sellerHeld": "10",
+        "buyerAvailable": "6",
+        "buyerHeld": "0"
+      }
+    },
+    "settlement": {
+      "block": "40247134",
+      "hash": "0x4713f2c140876484451fe3144e9c35339486c57abe37247bf78adb5e897cbf96",
+      "before": {
+        "sellerAvailable": "84",
+        "sellerHeld": "10",
+        "buyerAvailable": "6",
+        "buyerHeld": "0"
+      },
+      "after": {
+        "sellerAvailable": "84",
+        "sellerHeld": "0",
+        "buyerAvailable": "16",
+        "buyerHeld": "0"
+      }
+    },
+    "verificationBlock": "40247352",
+    "principalTinybars": "100000000",
+    "feeTinybars": "33893288"
+  }
+}
