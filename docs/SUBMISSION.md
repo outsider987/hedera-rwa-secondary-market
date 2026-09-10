@@ -142,3 +142,12 @@ Before an external submission, Victor still needs to confirm the target event's
 requirements, resolve the license/eligibility items, and supply any required
 team metadata, demo-video URL and published repository URL. This package neither
 asserts those items are complete nor authorizes a push or platform submission.
+
+## Market characters and navigation — September 10, 2026 · current local version
+
+Header now shows the recognized connected account’s pixel character. Market
+illustrates buy/sell sides around existing live matching feedback; totals are
+all-market open orders, not account balances. Navigation remains aligned when
+switching Overview, Demo and operational pages. Existing recorded narratives,
+manual wallet approvals and historical proof remain unchanged. See [evidence052](evidence/052-market-characters-summary.md).
+This local extension has not been pushed or deployed.

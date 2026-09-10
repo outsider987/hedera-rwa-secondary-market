@@ -1,3 +1,4 @@
+import Sprite from '../../components/PixelSprite';
 import {memo,useEffect,useState,type CSSProperties} from 'react';
 import type {Stage} from '../demoState';
 import snapshot from '../../data/presentation.json';
@@ -7,8 +8,7 @@ export function usePresentationEnvironment(){
  useEffect(()=>{const media=matchMedia('(prefers-reduced-motion: reduce)'),change=()=>setReduced(media.matches),visibility=()=>setForeground(!document.hidden);media.addEventListener('change',change);document.addEventListener('visibilitychange',visibility);return()=>{media.removeEventListener('change',change);document.removeEventListener('visibilitychange',visibility);};},[]);
  return {reduced,foreground};
 }
-const spriteRegions:Record<string,string>={seller:'90 130 215 425',buyer:'465 130 230 425',admin:'850 140 230 415',vault:'1160 180 285 345',certificate:'70 630 265 280',nova:'440 630 270 285',hbar:'820 630 265 285',gate:'1160 640 330 280'};
-function Sprite({kind}:{kind:string}){return <svg className={'pixel-sprite sprite-'+kind} viewBox={spriteRegions[kind]} aria-hidden="true"><image href={import.meta.env.BASE_URL+'assets/holdbook-pixel-sprites.png'} width="1536" height="1024"/></svg>;}
+
 function Person({role,position,balance,held}:{role:string;position:'left'|'right';balance?:string;held?:string}){return <div className={'pixel-person '+position}><Sprite kind={role.toLowerCase()}/><strong>{role}</strong>{balance!==undefined&&<small>{balance} NOVA · held {held}</small>}</div>;}
 function Item({kind,label,position,lane}:{kind:string;label:string;position:number;lane:'shares'|'payment'}){return <div className={'pixel-item '+lane} style={{transform:`translateX(${position*100}%)`} as CSSProperties}><div><Sprite kind={kind}/><strong>{label}</strong></div></div>;}
 function SceneView({stage,step,reduced}:{stage:Stage;step:number;reduced:boolean}){

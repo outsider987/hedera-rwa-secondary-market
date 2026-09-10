@@ -1,0 +1,2 @@
+const regions:Record<string,string>={seller:'90 130 215 425',buyer:'465 130 230 425',admin:'850 140 230 415',vault:'1160 180 285 345',certificate:'70 630 265 280',nova:'440 630 270 285',hbar:'820 630 265 285',gate:'1160 640 330 280'};
+export default function PixelSprite({kind}:{kind:string}){return <svg className={'pixel-sprite sprite-'+kind} data-sprite={kind} viewBox={regions[kind]} aria-hidden="true"><image href={import.meta.env.BASE_URL+'assets/holdbook-pixel-sprites.png'} width="1536" height="1024"/></svg>;}

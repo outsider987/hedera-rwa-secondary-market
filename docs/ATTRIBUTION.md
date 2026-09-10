@@ -475,3 +475,11 @@ corrections accompany [hall](../public/assets/holdbook-pixel-hall.prompt.json) a
 attempt returned an opaque checkerboard and was rejected; the selected atlas
 has a navy background. SVG viewports clip sprite regions at display time;
 the generated PNG pixels are unchanged. No external font/image service is used.
+
+## Market/Header reuse — September 10, 2026
+
+The Market trading floor and Header role portraits reuse the original generated
+hall and atlas documented in usage061, with unchanged PNGs and prompt sidecars.
+PixelSprite shares the existing SVG viewport crop renderer; no new art, game
+assets, font, dependency or license claim was introduced. See
+[usage062](ai-usage/062-market-characters.md) for AI implementation provenance.

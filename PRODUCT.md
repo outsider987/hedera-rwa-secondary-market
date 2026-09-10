@@ -135,3 +135,12 @@ uses original pixel scenery/roles/props, native readable text and finite CSS
 motion. It retains all five stages, historical evidence and timed/manual Demo
 Mode. Three/R3F have been removed; Market uses flat data-driven depth bars.
 This is an explanatory recording surface, not gameplay or a trading shortcut.
+
+## Market characters and navigation — September 10, 2026 · current local version
+
+Header now shows the recognized connected account’s pixel character. Market
+illustrates buy/sell sides around existing live matching feedback; totals are
+all-market open orders, not account balances. Navigation remains aligned when
+switching Overview, Demo and operational pages. Existing recorded narratives,
+manual wallet approvals and historical proof remain unchanged. See [evidence052](docs/evidence/052-market-characters-summary.md).
+This local extension has not been pushed or deployed.

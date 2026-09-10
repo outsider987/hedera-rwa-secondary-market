@@ -10,7 +10,7 @@
 @media(max-width:700px){.demo-experience{padding:16px;margin-bottom:24px}.demo-topline{font-size:.7rem;padding-bottom:16px;align-items:flex-start}.demo-topline button{font-size:.7rem;padding:4px 8px;flex-shrink:0}.demo-stage{grid-template-columns:1fr;padding:24px 0;min-height:0;gap:16px}.demo-narration{padding:0}.demo-narration h2{font-size:2.4rem;max-width:16ch;margin-bottom:16px}.demo-copy{font-size:.95rem}.demo-mode .demo-stage{min-height:0}.demo-stages button{padding:12px 4px;font-size:.7rem;text-align:center}.demo-stages button span{font-size:.65rem}.demo-controls{gap:6px}.demo-controls button{font-size:.75rem;padding:6px 9px}.demo-time{margin-left:0;width:100%}.demo-case-label{margin-top:16px!important}.demo-proof{grid-column:1;grid-row:2;padding:0;background:transparent}.is-proof .demo-visual{grid-column:1;grid-row:2;position:absolute;inset:0;pointer-events:none}.proof-blocks{gap:16px}.proof-blocks dd{font-size:1.4rem}.market-visual-body{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.demo-experience *,.market-visualization *{scroll-behavior:auto}}
 /* The recording surface uses the available desktop width; the trading console keeps its established measure. */
-main.presentation-main{width:min(100% - 2.5rem,96rem)}
+.demo-mode{width:min(calc(100vw - 2.5rem),96rem);margin-left:calc((100% - min(calc(100vw - 2.5rem),96rem))/2)}
 .demo-mode .demo-narration h2{font-size:clamp(2.4rem,3.5vw,4.2rem);max-width:16ch}
 @media(min-width:701px) and (max-width:1599px){.demo-mode .demo-stage{min-height:390px}}
 
@@ -40,3 +40,11 @@ main.presentation-main{width:min(100% - 2.5rem,96rem)}
 @keyframes pixel-acknowledge{0%{opacity:.3;transform:scale(.95)}55%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
 .pixel-stage.reduce-motion .pixel-network{animation:none}
 @media(prefers-reduced-motion:reduce){.pixel-network{animation:none}}
+/* Operational pixel floor: server snapshots only; actors never exchange assets. */
+.market-pixel-floor{position:relative;isolation:isolate;display:grid;grid-template-columns:1fr 1.4fr 1fr;align-items:center;gap:20px;margin-top:16px;padding:24px;min-height:170px;overflow:hidden;background:#0b1423;color:#f4f2ec;border:1px solid #3e4a60;font-variant-numeric:tabular-nums}
+.market-pixel-floor:before{content:'';position:absolute;inset:0;z-index:-1;background:url('/assets/holdbook-pixel-hall.png') center 64%/cover;image-rendering:pixelated;opacity:.25}
+.market-pixel-side{display:flex;align-items:center;gap:12px}.market-pixel-side>div{display:flex;flex-direction:column;gap:4px}.market-pixel-side strong{color:#79d3e6;font-size:.95rem}.market-pixel-side span{color:#becadc;font-size:.75rem}.market-pixel-side b{font-size:1.2rem;font-weight:550;white-space:nowrap}.market-pixel-side.seller{justify-content:flex-end}.market-pixel-side.seller strong{color:#ddbd80}
+.market-pixel-message{text-align:center;padding:12px 8px;background:#111d30;border:1px solid #3e4a60}.market-pixel-message>strong{font-weight:600;font-size:.9rem;color:#ddbd80}.market-pixel-message p{font-size:.85rem;color:#f4f2ec;margin:8px 0}.market-pixel-message>span{font-size:.7rem;color:#becadc}
+@media(max-width:700px){.market-pixel-floor{grid-template-columns:1fr 1fr;gap:16px 8px;padding:16px}.market-pixel-side{gap:8px}.market-pixel-side .pixel-sprite{width:42px;height:70px}.market-pixel-side b{font-size:1rem}.market-pixel-message{grid-column:1/-1;grid-row:2}.market-pixel-side.seller{grid-column:2;grid-row:1}.market-pixel-side strong{font-size:.85rem}.market-pixel-side span{font-size:.7rem}}
+.market-pixel-message{transition:border-color 200ms ease,background-color 200ms ease}.market-pixel-message.has-match{border-color:#ddbd80;background:#172237}
+@media(prefers-reduced-motion:reduce){.market-pixel-message{transition:none}}

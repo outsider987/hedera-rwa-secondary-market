@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-10 | Market/Header pixel characters and stable navigation | [062](docs/ai-usage/062-market-characters.md) |
 | 2026-09-10 | Pixel motion infographic and generated art | [2D revision, provenance and verification](docs/ai-usage/061-pixel-demo.md) |
 | 2026-09-10 | Complete 3D recorded demo and read-only Market visualization | [Presentation, provenance and verification](docs/ai-usage/060-demo-experience.md) |
 | 2026-09-10 | Deploy completed NOVA story | [Pages publication and live checks](docs/ai-usage/059-story-deployment.md) |

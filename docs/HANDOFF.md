@@ -1,5 +1,25 @@
 # HoldBook handoff
 
+## Market characters and stable tabs — September 10, 2026 · local only
+
+`based_on_commit: 5a43e2e7e872b10c2b27b0b893b5c9ac8bc94ce2` is the verified
+starting HEAD. Victor requested Market/Header pixel characters and reported
+Overview tab layout shifts. Read [plan013](plans/013-market-characters.md),
+[evidence052](evidence/052-market-characters-summary.md) and
+[usage062](ai-usage/062-market-characters.md) for current scope and checks.
+
+Header follows the recognized connected account; Market illustrates buy/sell
+sides with exact all-market open-order totals and existing server snapshots.
+Navigation keeps its position across all routes and Demo mode; only the Demo
+stage widens. Existing trading state/guards and historical claims remain.
+No new artwork, dependencies, wallet/core changes, push, deployment or chain action.
+
+Required install,123 application +36 protobuf tests, typecheck and both builds
+pass. Browser evidence uses isolated dev/preview desktop/mobile fixtures, not
+a real wallet or physical phone. Victor: review http://127.0.0.1:4173/#market
+and switch to Overview, including Demo mode; verify the real wallet portraits.
+Next ticket and exact allowed files: none until authorized.
+
 ## Pixel motion infographic — September 10, 2026 · local only
 
 `based_on_commit: 2a54f77cdd94a87e4bd3b40456afb7df79cc0107` is the verified

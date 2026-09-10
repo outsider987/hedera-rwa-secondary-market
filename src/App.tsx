@@ -27,6 +27,7 @@ export default function App() {
   function changeDemo(enabled:boolean){history.replaceState(null,'',demoURL(window.location.href,enabled));setDemo(enabled);}
   useEffect(()=>{const change=()=>setDemo(demoMode(window.location.search));window.addEventListener('popstate',change);return()=>window.removeEventListener('popstate',change);},[]);
   const [page,setPage] = useState<Page>('overview');
+  useEffect(()=>{window.scrollTo(0,0);},[page]);
   const [tradeRecords] = useState<TradeRecord[]>(()=>{try{return loadTradeRecords();}catch{return [];}});
   useEffect(()=>{if(page!=='overview')return;try{const saved=loadSettlement();setSavedSettlementNotice(saved?.attempted&&!saved.rejected&&!['verified','reverted'].includes(saved.operation.status)?'Saved settlement is unresolved. Query the original operation in Market.':'');}catch{setSavedSettlementNotice('Saved settlement could not be read. Preserve its original record and open Market for recovery.');}},[page,demo]);
   useEffect(() => {
@@ -87,9 +88,9 @@ export default function App() {
     <a className="skip-link hb:z-20" href="#main">Skip to content</a>
     <Header activeRole={activeRole} connected={connection.isConnected} disabled={busy || locked} onWallet={handleWallet}/>
     <main id="main" className={demo&&page==='overview'?'presentation-main':undefined}>
-      {demo&&page!=='overview'&&<button className="secondary" onClick={()=>changeDemo(false)}>Exit Demo</button>}
-      <nav className="page-nav hb:flex-wrap hb:gap-2! hb:sm:gap-8!" aria-label="Main navigation">{['overview','market','activity','settings'].map(item=><a key={item} href={'#'+item} aria-current={page === item ? 'page' : undefined}>{item[0].toUpperCase()+item.slice(1)}</a>)}</nav>
+      <nav className="page-nav hb:flex-wrap hb:gap-2! hb:sm:gap-8!" aria-label="Main navigation">{['overview','market','activity','settings'].map(item=><a key={item} href={'#'+item} onClick={e=>{if(page===item){e.preventDefault();window.scrollTo(0,0);}}} aria-current={page === item ? 'page' : undefined}>{item[0].toUpperCase()+item.slice(1)}</a>)}</nav>
       <p id="wallet-status" role="status" aria-live="polite" className="wallet-status">{busy ? 'Wallet request pending. Complete or reject it in MetaMask.' : connection.isConnected ? ready ? 'Connected to Hedera Testnet.' : 'Wrong network. Switch to Hedera Testnet (296 / 0x128) in MetaMask.' : demo&&page==='overview'?'':'Wallet not connected. Connect when ready.'}</p>
+      {demo&&page!=='overview'&&<button className="secondary" onClick={()=>changeDemo(false)}>Exit Demo</button>}
       {walletMessage && <p role="alert">{walletMessage}</p>}{saved.warning && <p className="storage-warning" role="alert">{saved.warning}</p>}
       {page==='overview'&&savedSettlementNotice&&<p role="alert">{savedSettlementNotice} <a href="#market">Open Market</a></p>}
       {page==='overview'&&tradeRecords.some(r=>r.kind==='t05-transaction'&&!['complete','rejected'].includes(r.status))&&<p role="alert">A saved T05 operation needs review. <a href="#activity">Open Activity</a> to inspect its original record.</p>}

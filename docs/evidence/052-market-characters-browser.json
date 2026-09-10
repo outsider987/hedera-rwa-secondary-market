@@ -1,0 +1,435 @@
+{
+  "recordedAt": "2026-09-10T15:21:19.835Z",
+  "browser": "143.0.7499.169",
+  "device": "Linux headless Chrome; emulated viewports; unsigned public-wallet fixture",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1440,
+      "captures": [
+        "docs/evidence/052-market-characters-5173-1440-market.png",
+        "docs/evidence/052-market-characters-5173-1440-overview.png",
+        "docs/evidence/052-market-characters-5173-1440-overview-demo.png"
+      ],
+      "navBoxes": [
+        {
+          "demo": false,
+          "route": "Overview",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Market",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Activity",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Settings",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Overview",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Overview",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Market",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Activity",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Settings",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Overview",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        }
+      ],
+      "roleAccountEvents": true,
+      "unassignedAndDisconnected": true,
+      "draftPreserved": false,
+      "selectedMatchPreserved": true,
+      "unknownRecordPreserved": true,
+      "batchMatches": true,
+      "duplicateSuppressed": true,
+      "stale": true,
+      "reconnectSnapshot": true,
+      "settlementLabels": true,
+      "emptyState": true,
+      "keyboard": true,
+      "reducedMotion": true,
+      "imageFailureReadable": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 5173,
+      "width": 390,
+      "captures": [
+        "docs/evidence/052-market-characters-5173-390-market.png",
+        "docs/evidence/052-market-characters-5173-390-overview.png",
+        "docs/evidence/052-market-characters-5173-390-overview-demo.png"
+      ],
+      "navBoxes": [
+        {
+          "demo": false,
+          "route": "Overview",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Market",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Activity",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Settings",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Overview",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Overview",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Market",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Activity",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Settings",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Overview",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        }
+      ],
+      "roleAccountEvents": true,
+      "unassignedAndDisconnected": true,
+      "draftPreserved": false,
+      "selectedMatchPreserved": true,
+      "unknownRecordPreserved": true,
+      "batchMatches": true,
+      "duplicateSuppressed": true,
+      "stale": true,
+      "reconnectSnapshot": true,
+      "settlementLabels": true,
+      "emptyState": true,
+      "keyboard": true,
+      "reducedMotion": true,
+      "imageFailureReadable": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "captures": [
+        "docs/evidence/052-market-characters-4173-1440-market.png",
+        "docs/evidence/052-market-characters-4173-1440-overview.png",
+        "docs/evidence/052-market-characters-4173-1440-overview-demo.png"
+      ],
+      "navBoxes": [
+        {
+          "demo": false,
+          "route": "Overview",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Market",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Activity",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Settings",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Overview",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Overview",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Market",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Activity",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Settings",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Overview",
+          "x": 176,
+          "y": 96,
+          "width": 1088,
+          "height": 53
+        }
+      ],
+      "roleAccountEvents": true,
+      "unassignedAndDisconnected": true,
+      "draftPreserved": true,
+      "selectedMatchPreserved": true,
+      "unknownRecordPreserved": true,
+      "batchMatches": true,
+      "duplicateSuppressed": true,
+      "stale": true,
+      "reconnectSnapshot": true,
+      "settlementLabels": true,
+      "emptyState": true,
+      "keyboard": true,
+      "reducedMotion": true,
+      "imageFailureReadable": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 4173,
+      "width": 390,
+      "captures": [
+        "docs/evidence/052-market-characters-4173-390-market.png",
+        "docs/evidence/052-market-characters-4173-390-overview.png",
+        "docs/evidence/052-market-characters-4173-390-overview-demo.png"
+      ],
+      "navBoxes": [
+        {
+          "demo": false,
+          "route": "Overview",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Market",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Activity",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Settings",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": false,
+          "route": "Overview",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Overview",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Market",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Activity",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Settings",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        },
+        {
+          "demo": true,
+          "route": "Overview",
+          "x": 20,
+          "y": 189.578125,
+          "width": 350,
+          "height": 53
+        }
+      ],
+      "roleAccountEvents": true,
+      "unassignedAndDisconnected": true,
+      "draftPreserved": true,
+      "selectedMatchPreserved": true,
+      "unknownRecordPreserved": true,
+      "batchMatches": true,
+      "duplicateSuppressed": true,
+      "stale": true,
+      "reconnectSnapshot": true,
+      "settlementLabels": true,
+      "emptyState": true,
+      "keyboard": true,
+      "reducedMotion": true,
+      "imageFailureReadable": true,
+      "errors": [],
+      "writes": []
+    }
+  ]
+}

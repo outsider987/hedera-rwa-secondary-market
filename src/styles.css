@@ -345,3 +345,10 @@ footer a { min-height: 44px; padding-block: 0.5rem; }
 .story-credential { position: absolute; bottom: 0; width: 33.333333%; text-align: center; transition: transform 700ms cubic-bezier(.77,0,.175,1), opacity 250ms cubic-bezier(.23,1,.32,1); }
 .story-credential span { display: inline-block; font-size: .75rem; padding: .35rem; background: #e8f0f6; color: #155781; border: 1px solid #8eafc7; border-radius: 4px; }
 @media (prefers-reduced-motion: reduce) { .story-stage *, .story-certificate .story-certificate-copy { transition: none; } }
+
+/* Role portraits reuse the recorded-demo atlas; wallet identity stays textual. */
+.header-identity { display:flex; align-items:center; gap:.625rem; min-width:0; }
+.header-identity .network { margin:0; }
+.header-role-avatar { display:flex; align-items:center; justify-content:center; flex-shrink:0; width:44px; height:52px; background:#0b1423; border:1px solid #3e4a60; border-radius:4px; isolation:isolate; }
+.header-role-avatar .pixel-sprite { width:32px; height:46px; }
+@media(max-width:700px) { .header-identity .network { max-width:165px; } }

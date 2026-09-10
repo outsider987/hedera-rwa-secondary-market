@@ -87,6 +87,9 @@ language; the detailed NOVA story and four T08 cases remain below the stage.
 Two generated raster assets supply the trading hall and character/prop atlas.
 They illustrate the story; all amounts, roles, eligibility states and proof
 remain native HTML. No pixel font or gameplay controls are introduced.
+The [Market/Header extension](docs/plans/013-market-characters.md) reuses those
+assets for connected-account portraits and a static market floor. Header denotes
+account identity; Market characters illustrate buy/sell sides across all accounts.
 
 ## Colors
 
@@ -104,6 +107,8 @@ rings. Fine demo-line rules divide the stage and proof rows. Pixel-ground sits
 behind the hall, while opaque pixel-surface labels keep text legible over art.
 Pixel-success accompanies recorded eligibility and settlement labels. Market
 depth uses pale depth-buy and depth-sell bars behind labeled quantities.
+The market floor uses demo-cyan for Buy side and demo-gold for Sell side,
+with demo-ink totals and pixel-surface backing behind the matching notice.
 These scene colors retain
 HTML asset, side and state labels; they do not replace the workbench's Buy/Sell
 or connected-account semantics.
@@ -144,7 +149,9 @@ the main reading path. Historical Trade within Activity retains a flexible main 
 summary, stacking at 850px. Showcase balances use two columns and architecture
 three; both stack at 700px.
 
-Demo Mode expands the main recording surface to min(100% - 2.5rem, 96rem).
+Demo Mode expands only `.demo-mode` to min(100vw - 2.5rem, 96rem), centered
+outside the console measure. `main` and navigation keep their normal width and
+position across all four routes and Demo mode; Exit Demo remains below navigation.
 The navy stage divides desktop space into 40:60 narration/visualization columns,
 with a 24px gap and 32px side padding. Five equal-width stage buttons form a ruled strip below;
 transport controls wrap underneath. At 700px and below, padding becomes 16px,
@@ -155,8 +162,12 @@ The five stages remain one compact row. Proof occupies the right scene column
 on desktop over the dimmed exchange; on mobile it follows the narration in
 normal document flow and the background scene is hidden.
 
-Market adds an initially expanded, collapsible depth section above the existing
-book/ticket. Two equal columns show bids and asks as native HTML rows with flat
+Market adds an initially expanded, collapsible section above the existing
+book/ticket. Its static floor uses three desktop columns (1:1.4:1), with Buy
+side left, a central matching notice and Sell side right; padding is 24px and
+minimum height 170px. At 700px and below, both sides remain paired above the
+full-width notice, with 16px padding and 42×70px sprites.
+Below the floor, two equal columns show bids and asks as native HTML rows with flat
 quantity bars, in a body with a 180px minimum height. The columns remain paired
 on mobile with a 12px gap instead of 24px. Full order tables and the original
 action layout stay available beneath it.
@@ -169,7 +180,8 @@ The presentation gets illustrative depth from the generated pixel hall, displaye
 at half opacity, and clipped sprites. Opaque label strips separate information
 from scenery. The atlas has an opaque navy background, not transparency; SVG
 viewports crop its individual props and characters, with pixelated rendering
-and lighten blending. Proof uses a nearly opaque navy HTML panel over the
+and lighten blending. The market floor reuses the hall at quarter opacity;
+header portraits sit on opaque pixel-ground. Proof uses a nearly opaque navy HTML panel over the
 dimmed completed swap. No runtime lighting, Canvas or WebGL is used.
 
 ## Shapes
@@ -184,6 +196,13 @@ Keep square section boundaries and thin separators.
   Overview as the default. Legacy `#trade` and `#history` resolve to Activity.
   Current navigation is underlined with `aria-current`; the skip link preserves
   the selected page. Keep the visible 3px focus outline with 4px offset.
+  Route changes return to the top; clicking the current tab also returns to the
+  top without shifting navigation through native fragment scrolling.
+- Header shows a shared PixelSprite only for a recognized connected Admin,
+  Seller or Buyer, beside the existing text and guarded wallet button. The
+  decorative SVG is hidden from assistive technology; role text remains readable
+  without the image. A 32×46px portrait sits in a 44×52px navy frame with 4px
+  corners. Disconnected and unassigned accounts have no named-role portrait.
 - One mounted MarketPanel owns drafts, intents and selected settlement across
   tabs. Extracted balance, book, order and match components reuse its state.
   Activity selections return to Market; Settings contains account/network/SDK
@@ -245,11 +264,16 @@ Keep square section boundaries and thin separators.
   WebGL fallback applies to the current presentation.
 - Read-only Market depth uses existing polling snapshots: exact HTML top-five
   levels per side, explicit empty/stale copy and resolved match outcomes.
-  Fresh server matches receive batched count/quantity feedback. Changed depth
+  The static floor's “All open bids” and “All open asks” totals sum exact remaining
+  quantities across all accounts and price levels, including reversed-role orders;
+  they are neither balances nor the illustrated accounts' orders. Fresh server
+  matches receive batched count/quantity feedback in the central status region.
+  Its border and background highlight changes take 200ms ease. Changed depth
   ratios use a finite 200ms bar transform with cubic-bezier(.23,1,.32,1),
-  disabled under reduced motion. Initial, history and reconnect snapshots do not replay
+  with both transitions disabled under reduced motion. Initial, history and reconnect snapshots do not replay
   old matches. Bars are explanatory; existing order tables remain the
-  detailed record and matching never depicts an asset transfer.
+  detailed record and matching never depicts an asset transfer. Characters stay
+  at rest; no NOVA/HBAR movement or continual animation appears on this floor.
 
 ## Do's and Don'ts
 
@@ -263,16 +287,22 @@ Keep square section boundaries and thin separators.
   finite presentation behavior above. No Animate UI.
 - Don't combine T02/T03 issuance, T07 matches and the T05 swap into one fictional
   transaction, or make generated imagery necessary to inspect their evidence.
-- Do keep the pixel imagery in the recorded explanation and flat labeled depth
-  bars in Market. Don't add scores, rewards, fabricated trades or automatic
+- Do reuse the existing pixel atlas for recorded scenes, recognized Header roles
+  and labeled Market sides; keep authoritative values in HTML and depth bars flat.
+  Don't add scores, rewards, fabricated trades or automatic
   wallet actions to the trading-guild metaphor.
 
 Sources: [Market](src/components/MarketPanel.tsx), [settlement](src/components/SettlementPanel.tsx),
 [Trade](src/components/TradePanel.tsx), [showcase](src/showcase.tsx),
 [styles](src/styles.css), [pixel scenes](src/presentation/components/SceneView.tsx),
 [presentation styles](src/presentation/presentation.css),
+[Header](src/components/Header.tsx), [shared sprites](src/components/PixelSprite.tsx),
 [Market depth](src/presentation/MarketVisualization.tsx),
 [T08 browser evidence](docs/evidence/037-t08-browser.json).
+The current Market/Header refresh follows source and the supplied preview
+1440/390px Market and Demo captures. [Evidence052](docs/evidence/052-market-characters-summary.md)
+records fixture browser acceptance; actual-wallet and human visual acceptance
+remain separate. No new artwork, dependency or wallet behavior accompanies it.
 Browser fixtures establish only their recorded scenarios; real MetaMask and
 full T08 acceptance remain separate requirements in [spec 004](docs/plans/004-matched-settlement.md).
 
