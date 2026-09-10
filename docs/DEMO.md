@@ -1,10 +1,14 @@
 # HoldBook · operator and judge demo
 
-## Three-minute recorded presentation — September 10, 2026
+## Three-minute pixel motion infographic — September 10, 2026
 
 Open `http://127.0.0.1:4173/?demo=1#overview` after `npm run build` and
 `npm run preview`. The new presentation is local; the published site retains
 its earlier version until separately authorized deployment. No wallet is needed.
+
+The current local scenes use generated pixel-game scenery and props with clear
+HTML labels and finite 2D movement. The narration and recorded facts below are
+unchanged. This is a motion infographic, not interactive game mechanics.
 
 Manual advance is the default: Previous / Next, Replay scene, Restart demo.
 Space or Right advances, Left goes back, Escape exits when focus is outside

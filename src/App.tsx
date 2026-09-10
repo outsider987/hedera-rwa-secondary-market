@@ -8,7 +8,6 @@ import Header from './components/Header';
 import OverviewPage from './pages/OverviewPage';
 import ActivityPage from './pages/ActivityPage';
 import SettingsPage from './pages/SettingsPage';
-import presentationNotices from './presentation/THIRD_PARTY_NOTICES.txt?url';
 import {demoMode,demoURL} from './presentation/demoState';
 import { resolvePage, type Page } from './lib/navigation';
 import { loadTradeRecords } from './lib/trade';
@@ -100,6 +99,6 @@ export default function App() {
       <ActivityPage visible={page === 'activity'} session={session} tradeRecords={tradeRecords}/>
       <SettingsPage visible={page === 'settings'} address={connection.address} chainId={connection.chainId} swapAddress={deployment?.input.escrow} session={session} ready={ready} roles={saved.roles} changeRoles={changeRoles}/>
     </main>
-    <footer><p>Testnet demonstration only. Synthetic KYC; no real securities or identity checks.</p><a href="https://github.com/outsider987/hedera-rwa-secondary-market/blob/main/docs/HANDOFF.md">Project handoff</a> · <a href={presentationNotices}>Presentation third-party notices</a></footer>
+    <footer><p>Testnet demonstration only. Synthetic KYC; no real securities or identity checks.</p><a href="https://github.com/outsider987/hedera-rwa-secondary-market/blob/main/docs/HANDOFF.md">Project handoff</a></footer>
   </>;
 }

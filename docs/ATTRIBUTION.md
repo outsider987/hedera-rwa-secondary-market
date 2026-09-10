@@ -454,3 +454,24 @@ versions. Installation reported the existing62 audit findings (21low/25moderate/
 16high); no audit repair, native-script approval or support waiver was performed.
 Browser tests use a fresh unsigned wallet double and public historical fixtures;
 no wallet profile, private key or full VC signature is read. See evidence050.
+
+
+## Pixel motion infographic — September 10, 2026 · current local source
+
+The pixel revision removes Three0.185.0, R3F9.7.0 and @types/three0.185.4 from
+package/lock and removes their renderer. The 3D dependency/distribution notes
+above describe the prior local revision; its retained notice source remains
+historical, and the current app no longer emits that runtime-notice link.
+No existing resolved package version changed. No new dependency was added.
+
+Two original raster assets were generated with the built-in image_gen tool in
+this session, at Victor's explicit request. No game artwork, characters or fonts
+were copied. No model identity or exclusive ownership/license is inferred.
+[Hall](../public/assets/holdbook-pixel-hall.png) and
+[sprite atlas](../public/assets/holdbook-pixel-sprites.png) are decorative fictional
+art, not proof of ownership or a chain result. Exact prompts and production
+corrections accompany [hall](../public/assets/holdbook-pixel-hall.prompt.json) and
+[sprites](../public/assets/holdbook-pixel-sprites.prompt.json). The transparency
+attempt returned an opaque checkerboard and was rejected; the selected atlas
+has a navy background. SVG viewports clip sprite regions at display time;
+the generated PNG pixels are unchanged. No external font/image service is used.

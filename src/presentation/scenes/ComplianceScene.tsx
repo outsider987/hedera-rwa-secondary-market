@@ -1,3 +1,0 @@
-import {AssetTokens,Move,Station,type SceneProps} from '../components/AssetTokens';
-import ComplianceGate from '../components/ComplianceGate';
-export default function ComplianceScene({step,reduced}:SceneProps){return <><Station x={-2.3}/><Station x={2.3} color="#72d9ad"/><ComplianceGate open={step===3} reduced={reduced}/><Move x={step===3?2.3:-2.3} reduced={reduced}><AssetTokens count={5}/></Move>{step>=1&&<Move y={1.5} z={.3} reduced={reduced}><mesh rotation={[0,-.2,.04]}><boxGeometry args={[1.5,.8,.06]}/><meshStandardMaterial color={step>=2?'#b5eadc':'#c1b2eb'} metalness={.3} roughness={.4}/></mesh></Move>}</>;}

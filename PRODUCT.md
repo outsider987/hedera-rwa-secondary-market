@@ -126,3 +126,12 @@ labels. No trading controller, wallet, contract, API or asset parameter changes.
 The established detailed story, four T08 cases and legacy navigation remain.
 This presentation is local and awaits Victor's narration/visual trial; no new
 publication is authorized. See plan011 and evidence050 for its exact boundary.
+
+## Pixel motion infographic — September 10, 2026 · current local version
+
+Victor rejected the 3D appearance and requested a 2D pixel-game look, generated
+missing art, and film-like motion infographics. The current local presentation
+uses original pixel scenery/roles/props, native readable text and finite CSS
+motion. It retains all five stages, historical evidence and timed/manual Demo
+Mode. Three/R3F have been removed; Market uses flat data-driven depth bars.
+This is an explanatory recording surface, not gameplay or a trading shortcut.

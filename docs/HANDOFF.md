@@ -1,5 +1,36 @@
 # HoldBook handoff
 
+## Pixel motion infographic — September 10, 2026 · local only
+
+`based_on_commit: 2a54f77cdd94a87e4bd3b40456afb7df79cc0107` is the verified
+starting HEAD. Victor rejected the 3D appearance, requested2D pixel-game style
+and generated missing art, then clarified film-like dynamic infographics.
+[Plan012](plans/012-pixel-demo.md) supersedes plan011's rendering requirements;
+its narrative, factual/safety boundaries and Demo controls remain. Read
+[evidence051](evidence/051-pixel-demo.md), [usage061](ai-usage/061-pixel-demo.md),
+and [DEMO](DEMO.md) for checks, provenance and the English recording script.
+The prior3D section below is dated history, not the current local visual design.
+
+Current local presentation: generated pixel hall and labeled role/prop sprites;
+four native2D narratives, historical Proof, manual/180s Demo and flat Market
+depth bars. Assets have saved prompts; failed pseudo-transparency was rejected.
+Three/R3F/type dependencies and13 exclusive lock entries are removed; no surviving
+package version changed. No Canvas/WebGL or continuous game loop. No backend,
+wallet, matching-core, contract, signature, chain operation, push or deployment.
+Existing NOVA story, fourT08 cases, drafts, selection and recovery notices remain.
+
+npm ci,121 application +36 protobuf tests, typecheck and both builds pass.
+Dev/preview1920×1080,1440×900,390×844 exercise all cues, finite synchronized
+motion, reduced motion, keyboard, image failure and Market state retention.
+Evidence051 records the timed playback, captures, actual browser observations
+and independent AI review scope. Existing audit/install/build warnings remain.
+
+Victor: inspect `http://127.0.0.1:4173/?demo=1#overview`, rehearse narration and
+give human visual acceptance on the recording device. No wallet is needed for
+the recorded presentation. Current changes stop at a local commit; the published
+site remains the prior version. Next ticket: none; exact allowed files for a
+subsequent implementation ticket: none until authorized.
+
 ## Complete recorded 3D demo — September 10, 2026 · local only
 
 `based_on_commit: 765c53c3f7c32eedbb84cb159bc256092b6c85db` is the verified

@@ -19,13 +19,10 @@ export default function DemoExperience({visible,demo,onMode,onCases}:{visible:bo
   <div className={'demo-stage'+(cue.stage==='prove'?' is-proof':'')}>
    <div className="demo-narration" aria-live="polite" aria-atomic="true"><h2>{cue.title}</h2><p className="demo-copy">{cue.copy}</p><p className="demo-case-label">{label}</p>
     {cue.stage==='overview'?<div className="demo-links"><button onClick={()=>{onMode(true);dispatch({type:'restart'});}}>Start Demo</button><a href="#market">Open Market</a></div>:<a href={snapshot.sourceBase+report+'.md'}>View original acceptance</a>}
-    {cue.stage==='tokenize'&&<p className="demo-fact">{cue.step===3?'100 NOVA issued · Seller':'Illustrative certificate · NOVA'}<br/>Whole shares · Maximum supply: 1,000{cue.step===2?' · Supply: 0':''}</p>}
-    {cue.stage==='verify'&&<p className="demo-fact">Seller → VC verification → ATS KYC gate<br/>{cue.step>=1?'Issuer: Admin · Subject: Seller':'Eligibility not established'}<br/>{cue.step===2?'Credential verified · Gate closed':cue.step===3?'KYC grant recorded · Historical eligibility · No asset transfer':''}</p>}
-    {cue.stage==='match'&&<div className="demo-order-facts"><p>Ask: {cue.step>=2?'0':'4'} NOVA @ 0.09 HBAR<br/>Ask: {cue.step>=3?'3':'5'} NOVA @ 0.10 HBAR</p>{cue.step>=1&&<p>Bid remaining: {cue.step>=3?'0':cue.step>=2?'2':'6'} NOVA @ 0.10 HBAR</p>}{cue.step>=2&&<p>Match 5-1: 4 NOVA @ 0.09{cue.step>=3&&<><br/>Match 5-2: 2 NOVA @ 0.10</>}</p>}<strong>Matching does not transfer assets.</strong></div>}
-    {swap&&cue.stage!=='prove'&&<div className="demo-fact"><p>Seller · ATS Hold / Swap contract · Buyer</p><p>10 NOVA · 1 HBAR principal</p><p>{cue.step===0?'Seller 94 / held 0 · Buyer 6 / held 0':cue.step<3?'Seller 84 / held 10 · Buyer 6 / held 0':'Seller 84 / held 0 · Buyer 16 / held 0'}</p>{cue.step>=2&&<p>One settlement transaction · <a href={'https://hashscan.io/testnet/transaction/'+snapshot.swap.settlement.hash}>40247134</a></p>}</div>}
+
    </div>
    <div className="demo-visual">{visible&&foreground&&<SceneView key={state.revision} stage={cue.stage} step={cue.step} reduced={reduced}/>}
-    <div className="demo-stations" aria-hidden="true"><span>{cue.stage==='tokenize'?'Illustrative certificate':'Seller'}</span><span>{cue.stage==='tokenize'?'ATS asset':cue.stage==='verify'?'Eligibility gate':cue.stage==='match'?'Order intent':'ATS Hold'}</span><span>{cue.stage==='tokenize'?'Seller · Issuance':cue.stage==='verify'?'Seller eligible':'Buyer'}</span></div>
+
    </div>
    {cue.stage==='prove'&&<DemoProof/>}
   </div>

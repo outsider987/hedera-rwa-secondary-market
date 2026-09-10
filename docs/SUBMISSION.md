@@ -1,6 +1,6 @@
 # HoldBook — submission review version
 
-September 10 local presentation update: Overview offers four3D explanatory
+September 10 local presentation update: Overview offers four2D pixel-style explanatory
 scenes and HTML Proof, manual Demo Mode and an optional three-minute sequence.
 The real Market visualizes existing depth and server matches with per-match
 settlement states. The T07 example is historical unfunded intent; the separate

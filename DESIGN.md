@@ -1,6 +1,6 @@
 ---
 name: HoldBook
-description: A restrained trading console with a navy recorded-demo stage and inspectable Testnet evidence.
+description: A restrained trading console with a navy pixel motion infographic and inspectable Testnet evidence.
 colors:
   ink: "#172b3a"
   action: "#155781"
@@ -19,8 +19,12 @@ colors:
   demo-gold: "#ddbd80"
   demo-line: "#3e4a60"
   demo-hbar: "#fff"
-  demo-purple: "#9078cd"
   demo-cyan: "#79d3e6"
+  pixel-ground: "#0b1423"
+  pixel-surface: "#111d30"
+  pixel-success: "#91d4b9"
+  depth-buy: "#d8eee5"
+  depth-sell: "#f2e6d0"
 typography:
   body:
     fontFamily: "system-ui, sans-serif"
@@ -71,13 +75,18 @@ illustration; it is not proof of ownership. No new font family is introduced.
 T08 deployment and four human cases are verified in manual038. The showcase
 contains dated T05/T08 evidence; historical balances are never presented as live.
 
-The September 10 [recorded-demo extension](docs/plans/011-demo-experience.md)
-leads Overview with “Tokenized equity. Verifiable settlement.” A navy stage
-makes matched intent and atomic exchange visually distinct, then exposes dated
-HTML proof. Its 3D material belongs to the explanatory presentation; the flat
-trading workbench retains its established visual language. The detailed NOVA
-story and four recorded T08 cases remain below the new stage. The existing
-certificate is reused without creating a new raster or ownership claim.
+The September 10 [pixel presentation](docs/plans/012-pixel-demo.md) leads
+Overview with “Tokenized equity. Verifiable settlement.” Its restrained 16-bit
+trading guild is a motion infographic for narrated recording: labeled roles,
+inventory shares, an eligibility checkpoint and an order board explain the
+separate recorded steps. NOVA and HBAR move together at atomic exchange, then
+dated HTML proof takes priority. This replaces the earlier 3D presentation at
+the user's request. The flat trading workbench retains its established visual
+language; the detailed NOVA story and four T08 cases remain below the stage.
+
+Two generated raster assets supply the trading hall and character/prop atlas.
+They illustrate the story; all amounts, roles, eligibility states and proof
+remain native HTML. No pixel font or gameplay controls are introduced.
 
 ## Colors
 
@@ -90,9 +99,12 @@ in dark rust, alongside explanatory copy.
 Within the presentation, demo-navy supports warm demo-ink text and cool
 demo-muted annotations. Champagne demo-gold identifies NOVA, links, the opening
 action and selected stage; white demo-hbar identifies the payment asset.
-Demo-purple anchors system stations; demo-cyan identifies bid geometry and
-the visible focus ring. Fine demo-line rules divide the stage and proof rows.
-Network geometry adds related purple/cyan tones. These scene colors retain
+Demo-cyan identifies bids, the finite Hedera acknowledgement and visible focus
+rings. Fine demo-line rules divide the stage and proof rows. Pixel-ground sits
+behind the hall, while opaque pixel-surface labels keep text legible over art.
+Pixel-success accompanies recorded eligibility and settlement labels. Market
+depth uses pale depth-buy and depth-sell bars behind labeled quantities.
+These scene colors retain
 HTML asset, side and state labels; they do not replace the workbench's Buy/Sell
 or connected-account semantics.
 
@@ -110,7 +122,9 @@ that to 16ch and uses clamp(2.4rem, 3.5vw, 4.2rem). At 700px and below,
 ordinary presentation headings use 2.4rem. Explanatory copy uses 1.05rem/1.65
 (0.95rem on mobile), while dates and source labels are quieter. Proof block
 numbers use 1.7rem champagne text, reduced to 1.4rem on mobile. All quantities,
-prices, states and proof links remain HTML rather than text baked into Canvas.
+prices, states and proof links remain HTML rather than text baked into raster
+art. Pixel role and quantity labels have opaque backing; completed order rows
+retain full text opacity, using dashed borders to indicate the completed state.
 
 ## Layout
 
@@ -131,27 +145,32 @@ summary, stacking at 850px. Showcase balances use two columns and architecture
 three; both stack at 700px.
 
 Demo Mode expands the main recording surface to min(100% - 2.5rem, 96rem).
-The navy stage divides desktop space into 42% narration and 58% visualization,
-with 32px side padding. Five equal-width stage buttons form a ruled strip below;
+The navy stage divides desktop space into 40:60 narration/visualization columns,
+with a 24px gap and 32px side padding. Five equal-width stage buttons form a ruled strip below;
 transport controls wrap underneath. At 700px and below, padding becomes 16px,
-narration stacks above the 230px scene, and the timer occupies its own line.
+narration stacks above the scene, and the timer occupies its own line. Pixel
+scenes have a 420px minimum height on desktop and mobile, with roles above two
+asset lanes and the explanatory message below.
 The five stages remain one compact row. Proof occupies the right scene column
-on desktop; on mobile it follows the narration in normal document flow.
+on desktop over the dimmed exchange; on mobile it follows the narration in
+normal document flow and the background scene is hidden.
 
 Market adds an initially expanded, collapsible depth section above the existing
-book/ticket. Two columns pair HTML price levels with a navy scene in a roughly
-220px body; the scene is 200px high. At 700px and below these stack and the
-scene becomes 140px high. Full order tables and the original action layout stay
-available beneath it.
+book/ticket. Two equal columns show bids and asks as native HTML rows with flat
+quantity bars, in a body with a 180px minimum height. The columns remain paired
+on mobile with a 12px gap instead of 24px. Full order tables and the original
+action layout stay available beneath it.
 
 ## Elevation & Depth
 
 Workbench surfaces have no shadows. Borders, spacing and the notice tone
 establish groups and hierarchy. Avoid decorative overlays or elevated card stacks.
-The presentation alone uses lit metallic tokens, shallow stations and gate/network
-geometry to explain the mechanism. Proof uses a nearly opaque navy HTML panel
-over the dimmed completed swap, keeping evidence legible. No bloom, cast shadows
-or idle particle effects are introduced.
+The presentation gets illustrative depth from the generated pixel hall, displayed
+at half opacity, and clipped sprites. Opaque label strips separate information
+from scenery. The atlas has an opaque navy background, not transparency; SVG
+viewports crop its individual props and characters, with pixelated rendering
+and lighten blending. Proof uses a nearly opaque navy HTML panel over the
+dimmed completed swap. No runtime lighting, Canvas or WebGL is used.
 
 ## Shapes
 
@@ -190,7 +209,7 @@ Keep square section boundaries and thin separators.
   0→1 over 160ms. Reduced-motion preference sets opacity to 1 and duration to 0.
   Tailwind uses the `hb` prefix and imports theme/utilities without Preflight.
   The original NOVA overview extension reused it without new dependencies,
-  shadcn or motion; the later recorded-demo extension adds the approved R3F scenes.
+  shadcn or motion; the current pixel presentation uses native CSS transitions.
 - Activity contains the historical TradePanel with Completed fixed trade and
   verification at block 40247352, T05's journal and earlier lifecycle data.
   Do not restore its former Setup / Lock / Buy mutation workflow.
@@ -211,17 +230,25 @@ Keep square section boundaries and thin separators.
   it without catch-up. Return retains the cue; reload starts at the opening.
   Space/Right, Left and Escape operate the demo while interactive controls
   retain native keys. Narration uses a polite live region.
-- Lazy R3F scenes render on demand with DPR capped at 1.5 and next-scene preload.
-  Explanatory moves are finite (normally 1.4–1.6 seconds) with a finite network
-  pulse; reduced motion uses endpoints. Hidden/background scenes unmount.
-  Lazy-load or WebGL failure uses a static SVG/DOM fallback while HTML facts,
-  controls and proof remain available. No idle camera drift or infinite loop
-  belongs to this presentation.
+- Pixel scenes use finite native CSS transitions: asset routes move over 900ms
+  and scene reveals over 700ms, both with cubic-bezier(.77,0,.175,1); reveal
+  opacity and inventory color change over 250ms with ease. The NOVA and HBAR
+  routes share the same settlement cue and duration. Recorded eligibility moves
+  an explanatory NOVA prop without claiming an asset transfer; matching only
+  updates remaining quantities and reveals receipts. The final settlement cue
+  adds a 900ms Hedera acknowledgement using cubic-bezier(.23,1,.32,1), ending
+  visibly at rest. There is no continuous game loop.
+- Reduced motion removes the pixel transitions and acknowledgement animation,
+  showing endpoints. Hidden/background scenes unmount. Missing raster art leaves
+  all role labels, amounts, state explanations, controls and proof readable.
+  Three/R3F and their rendering boundary have been removed; no DPR policy or
+  WebGL fallback applies to the current presentation.
 - Read-only Market depth uses existing polling snapshots: exact HTML top-five
   levels per side, explicit empty/stale copy and resolved match outcomes.
-  Fresh server matches receive batched count/quantity feedback and a finite
-  200ms scene response. Initial, history and reconnect snapshots do not replay
-  old matches. Geometry is explanatory; existing order tables remain the
+  Fresh server matches receive batched count/quantity feedback. Changed depth
+  ratios use a finite 200ms bar transform with cubic-bezier(.23,1,.32,1),
+  disabled under reduced motion. Initial, history and reconnect snapshots do not replay
+  old matches. Bars are explanatory; existing order tables remain the
   detailed record and matching never depicts an asset transfer.
 
 ## Do's and Don'ts
@@ -235,11 +262,17 @@ Keep square section boundaries and thin separators.
   spinner; the separately authorized recorded demo and Market depth use the
   finite presentation behavior above. No Animate UI.
 - Don't combine T02/T03 issuance, T07 matches and the T05 swap into one fictional
-  transaction, or make Canvas necessary to inspect their evidence.
+  transaction, or make generated imagery necessary to inspect their evidence.
+- Do keep the pixel imagery in the recorded explanation and flat labeled depth
+  bars in Market. Don't add scores, rewards, fabricated trades or automatic
+  wallet actions to the trading-guild metaphor.
 
 Sources: [Market](src/components/MarketPanel.tsx), [settlement](src/components/SettlementPanel.tsx),
 [Trade](src/components/TradePanel.tsx), [showcase](src/showcase.tsx),
-[styles](src/styles.css), [T08 browser evidence](docs/evidence/037-t08-browser.json).
+[styles](src/styles.css), [pixel scenes](src/presentation/components/SceneView.tsx),
+[presentation styles](src/presentation/presentation.css),
+[Market depth](src/presentation/MarketVisualization.tsx),
+[T08 browser evidence](docs/evidence/037-t08-browser.json).
 Browser fixtures establish only their recorded scenarios; real MetaMask and
 full T08 acceptance remain separate requirements in [spec 004](docs/plans/004-matched-settlement.md).
 
@@ -305,6 +338,16 @@ and supplied desktop/mobile captures; runtime acceptance and performance results
 belong to [evidence050](docs/evidence/050-demo-experience.md). It does not establish
 physical-device performance or Victor's narration/visual acceptance.
 
+## Superseded 3D presentation — September 10, 2026
+
+The first recorded-demo implementation used lit Three.js/R3F tokens, stations
+and network geometry. Its finite moves normally took 1.4–1.6 seconds, with
+endpoint rendering for reduced motion. Scenes were lazy loaded with next-scene
+preload; hidden/background scenes unmounted. Market paired HTML depth with a
+separate navy 3D scene. These choices and the rendering notes below describe
+the implementation recorded in [evidence050](docs/evidence/050-demo-experience.md),
+superseded by plan012; they are not current design instructions.
+
 The Canvas boundary also probes native WebGL2 before mount because the pinned
 R3F renderer initializes asynchronously. The temporary probe context is released;
 unsupported browsers use the same static scene and HTML evidence without
@@ -313,3 +356,8 @@ mounting a visible Canvas. Context-loss events switch to that fallback as well.
 Final presentation DPR is 0.75: the first software-rendered desktop measurements
 showed long-tail frames at DPR1. All critical text remains native HTML. Physical
 recording-device validation is required before increasing rendering resolution.
+
+The current pixel documentation was checked against the implemented components
+and styles. Actual runtime checks belong to
+[evidence051](docs/evidence/051-pixel-demo.md); this refresh does not establish
+physical-device performance or Victor's narration/visual acceptance.
