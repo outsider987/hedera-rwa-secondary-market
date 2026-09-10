@@ -1,5 +1,26 @@
 # HoldBook handoff
 
+## NOVA story deployed — September 10, 2026
+
+`based_on_commit: 3f7a2bef98afae81a6a9f57a956bd96593db2b38`. User requested
+「我們先deploy 上去吧」, authorizing publication of the completed local story.
+Pushed the existing feat/t08-settlement branch; Pages run34479681250 passed
+and deployed that exact source. Existing Cloud Run/Neon and chain state were
+not changed by this deployment. No merge or wallet action occurred.
+
+npm ci,116 application +36 protobuf tests, typecheck and build pass. Four local
+dev/preview1440/390 story checks and two live Pages1440/390 checks pass. Live
+API health is ready; observed25 orders/11 matches and original settlement
+contract. Counts increased since the September9 report; no data reset occurred.
+[Usage059](ai-usage/059-story-deployment.md) records checks and harness corrections;
+[evidence049](evidence/049-story-deployment.json) records public browser reads.
+
+Live site: https://outsider987.github.io/hedera-rwa-secondary-market/.
+No fresh MetaMask, signing or chain lifecycle verification is claimed. Existing
+support/audit warnings remain. Deployment complete; next ticket and exact allowed
+implementation files: none. Final documentation commit uses [skip ci] to retain
+the verified source artifact. Historical local-only story boundary below is superseded.
+
 ## NOVA recorded story delivered — September 10, 2026
 
 `based_on_commit: f5573a699da1c687d9b4388a8c54639c96a308c5` is the verified
