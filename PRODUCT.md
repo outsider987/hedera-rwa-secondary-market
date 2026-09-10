@@ -144,3 +144,12 @@ all-market open orders, not account balances. Navigation remains aligned when
 switching Overview, Demo and operational pages. Existing recorded narratives,
 manual wallet approvals and historical proof remain unchanged. See [evidence052](docs/evidence/052-market-characters-summary.md).
 This local extension has not been pushed or deployed.
+
+## Market task-first layout — September 10, 2026 · current local version
+
+Market now leads with order entry, paired quantity/price fields and section
+shortcuts. The book and compact pixel context sit alongside on desktop, below
+the form on mobile. Balance details and depth are optional; Matches precedes
+personal orders. Unresolved-operation notices and manual wallet guards remain.
+See [evidence053](docs/evidence/053-market-layout-summary.md) for measured scrolling improvements
+and browser limits. The recorded Demo is unchanged; no new deployment occurred.

@@ -25,6 +25,6 @@ test('Market pixel totals retain BigInt precision across all accounts and prices
   const {default:MarketVisualization}=await server.ssrLoadModule('/src/presentation/MarketVisualization.tsx');
   const orders=[{side:'Buy',price:'1',remaining:'9007199254740993',sequence:'1'},{side:'Buy',price:'2',remaining:'7',sequence:'2'},{side:'Sell',price:'3',remaining:'4',sequence:'3'},{side:'Sell',price:'4',remaining:'0',sequence:'4'}];
   const html=renderToStaticMarkup(createElement(MarketVisualization,{orders,matches:[],statuses:{},online:false,updated:'',visible:true}));
-  assert.ok(html.includes('9007199254741000 NOVA'));assert.ok(html.includes('4 NOVA'));assert.ok(html.includes('All open bids'));assert.ok(html.includes('All open asks'));assert.ok(html.includes('Awaiting first snapshot'));assert.match(html,/Matching does not transfer assets/);
+  assert.match(html,/aria-expanded="false"/);assert.doesNotMatch(html,/class="market-visual-body"/);assert.ok(html.includes('9007199254741000 NOVA'));assert.ok(html.includes('4 NOVA'));assert.ok(html.includes('All open bids'));assert.ok(html.includes('All open asks'));assert.ok(html.includes('Awaiting first snapshot'));assert.match(html,/Matching does not transfer assets/);
  }finally{await server.close();}
 });

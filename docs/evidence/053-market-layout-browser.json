@@ -1,0 +1,325 @@
+{
+  "recordedAt": "2026-09-10T15:41:46.034Z",
+  "browser": "143.0.7499.169",
+  "device": "Linux headless Chrome; emulated viewports; unsigned public-wallet fixture",
+  "results": [
+    {
+      "port": 5173,
+      "width": 390,
+      "boxes": {
+        "#order-heading": {
+          "x": 20,
+          "y": 575.03125,
+          "width": 350,
+          "height": 28.796875
+        },
+        "#book-heading": {
+          "x": 20,
+          "y": 1239.53125,
+          "width": 350,
+          "height": 28.796875
+        },
+        "#matches-heading": {
+          "x": 20,
+          "y": 1644.15625,
+          "width": 94.53125,
+          "height": 32
+        },
+        "quantity": {
+          "x": 20,
+          "y": 752.609375,
+          "width": 169,
+          "height": 44
+        },
+        "review": {
+          "x": 20,
+          "y": 876.59375,
+          "width": 186.296875,
+          "height": 44
+        }
+      },
+      "captures": [
+        "docs/evidence/053-market-layout-5173-390-market.png",
+        "docs/evidence/053-market-layout-5173-390-settlement.png"
+      ],
+      "jumpFocus": true,
+      "balanceDisclosure": true,
+      "depthDisclosure": true,
+      "draftPreserved": false,
+      "selectedMatchPreserved": true,
+      "unresolvedRecordPreserved": true,
+      "snapshotStates": true,
+      "longBookOrderPosition": true,
+      "emptyState": true,
+      "reducedMotion": true,
+      "imageFailure": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 5173,
+      "width": 1440,
+      "boxes": {
+        "#order-heading": {
+          "x": 176,
+          "y": 449.15625,
+          "width": 528,
+          "height": 28.796875
+        },
+        "#book-heading": {
+          "x": 769,
+          "y": 627.5,
+          "width": 495,
+          "height": 28.796875
+        },
+        "#matches-heading": {
+          "x": 176,
+          "y": 1032.125,
+          "width": 94.53125,
+          "height": 32
+        },
+        "quantity": {
+          "x": 176,
+          "y": 601.140625,
+          "width": 258,
+          "height": 44
+        },
+        "review": {
+          "x": 176,
+          "y": 725.125,
+          "width": 186.296875,
+          "height": 44
+        }
+      },
+      "captures": [
+        "docs/evidence/053-market-layout-5173-1440-market.png",
+        "docs/evidence/053-market-layout-5173-1440-settlement.png"
+      ],
+      "jumpFocus": true,
+      "balanceDisclosure": true,
+      "depthDisclosure": true,
+      "draftPreserved": false,
+      "selectedMatchPreserved": true,
+      "unresolvedRecordPreserved": true,
+      "snapshotStates": true,
+      "longBookOrderPosition": true,
+      "emptyState": true,
+      "reducedMotion": true,
+      "imageFailure": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 4173,
+      "width": 390,
+      "boxes": {
+        "#order-heading": {
+          "x": 20,
+          "y": 575.03125,
+          "width": 350,
+          "height": 28.796875
+        },
+        "#book-heading": {
+          "x": 20,
+          "y": 1188.34375,
+          "width": 350,
+          "height": 28.796875
+        },
+        "#matches-heading": {
+          "x": 20,
+          "y": 1592.96875,
+          "width": 94.53125,
+          "height": 32
+        },
+        "quantity": {
+          "x": 20,
+          "y": 701.421875,
+          "width": 169,
+          "height": 44
+        },
+        "review": {
+          "x": 20,
+          "y": 825.40625,
+          "width": 186.296875,
+          "height": 44
+        }
+      },
+      "captures": [
+        "docs/evidence/053-market-layout-4173-390-market.png",
+        "docs/evidence/053-market-layout-4173-390-settlement.png"
+      ],
+      "jumpFocus": true,
+      "balanceDisclosure": true,
+      "depthDisclosure": true,
+      "draftPreserved": true,
+      "selectedMatchPreserved": true,
+      "unresolvedRecordPreserved": true,
+      "snapshotStates": true,
+      "longBookOrderPosition": true,
+      "emptyState": true,
+      "reducedMotion": true,
+      "imageFailure": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "boxes": {
+        "#order-heading": {
+          "x": 176,
+          "y": 449.15625,
+          "width": 528,
+          "height": 28.796875
+        },
+        "#book-heading": {
+          "x": 769,
+          "y": 627.5,
+          "width": 495,
+          "height": 28.796875
+        },
+        "#matches-heading": {
+          "x": 176,
+          "y": 1032.125,
+          "width": 94.53125,
+          "height": 32
+        },
+        "quantity": {
+          "x": 176,
+          "y": 575.546875,
+          "width": 258,
+          "height": 44
+        },
+        "review": {
+          "x": 176,
+          "y": 699.53125,
+          "width": 186.296875,
+          "height": 44
+        }
+      },
+      "captures": [
+        "docs/evidence/053-market-layout-4173-1440-market.png",
+        "docs/evidence/053-market-layout-4173-1440-settlement.png"
+      ],
+      "jumpFocus": true,
+      "balanceDisclosure": true,
+      "depthDisclosure": true,
+      "draftPreserved": true,
+      "selectedMatchPreserved": true,
+      "unresolvedRecordPreserved": true,
+      "snapshotStates": true,
+      "longBookOrderPosition": true,
+      "emptyState": true,
+      "reducedMotion": true,
+      "imageFailure": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 4173,
+      "width": 850,
+      "boxes": {
+        "#order-heading": {
+          "x": 20,
+          "y": 449.15625,
+          "width": 810,
+          "height": 28.796875
+        },
+        "#book-heading": {
+          "x": 20,
+          "y": 1062.46875,
+          "width": 810,
+          "height": 28.796875
+        },
+        "#matches-heading": {
+          "x": 20,
+          "y": 1467.09375,
+          "width": 94.53125,
+          "height": 32
+        },
+        "quantity": {
+          "x": 20,
+          "y": 575.546875,
+          "width": 399,
+          "height": 44
+        },
+        "review": {
+          "x": 20,
+          "y": 699.53125,
+          "width": 186.296875,
+          "height": 44
+        }
+      },
+      "captures": [
+        "docs/evidence/053-market-layout-4173-850-market.png",
+        "docs/evidence/053-market-layout-4173-850-settlement.png"
+      ],
+      "jumpFocus": true,
+      "balanceDisclosure": true,
+      "depthDisclosure": true,
+      "draftPreserved": true,
+      "selectedMatchPreserved": true,
+      "unresolvedRecordPreserved": true,
+      "snapshotStates": true,
+      "longBookOrderPosition": true,
+      "emptyState": true,
+      "reducedMotion": true,
+      "imageFailure": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 4173,
+      "width": 320,
+      "boxes": {
+        "#order-heading": {
+          "x": 20,
+          "y": 685.03125,
+          "width": 280,
+          "height": 28.796875
+        },
+        "#book-heading": {
+          "x": 20,
+          "y": 1346.328125,
+          "width": 280,
+          "height": 28.796875
+        },
+        "#matches-heading": {
+          "x": 20,
+          "y": 1747.453125,
+          "width": 94.53125,
+          "height": 32
+        },
+        "quantity": {
+          "x": 20,
+          "y": 837.015625,
+          "width": 134,
+          "height": 44
+        },
+        "review": {
+          "x": 20,
+          "y": 983.390625,
+          "width": 186.296875,
+          "height": 44
+        }
+      },
+      "captures": [
+        "docs/evidence/053-market-layout-4173-320-market.png",
+        "docs/evidence/053-market-layout-4173-320-settlement.png"
+      ],
+      "jumpFocus": true,
+      "balanceDisclosure": true,
+      "depthDisclosure": true,
+      "draftPreserved": true,
+      "selectedMatchPreserved": true,
+      "unresolvedRecordPreserved": true,
+      "snapshotStates": true,
+      "longBookOrderPosition": true,
+      "emptyState": true,
+      "reducedMotion": true,
+      "imageFailure": true,
+      "errors": [],
+      "writes": []
+    }
+  ]
+}

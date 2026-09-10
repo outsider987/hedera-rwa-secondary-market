@@ -48,3 +48,14 @@
 @media(max-width:700px){.market-pixel-floor{grid-template-columns:1fr 1fr;gap:16px 8px;padding:16px}.market-pixel-side{gap:8px}.market-pixel-side .pixel-sprite{width:42px;height:70px}.market-pixel-side b{font-size:1rem}.market-pixel-message{grid-column:1/-1;grid-row:2}.market-pixel-side.seller{grid-column:2;grid-row:1}.market-pixel-side strong{font-size:.85rem}.market-pixel-side span{font-size:.7rem}}
 .market-pixel-message{transition:border-color 200ms ease,background-color 200ms ease}.market-pixel-message.has-match{border-color:#ddbd80;background:#172237}
 @media(prefers-reduced-motion:reduce){.market-pixel-message{transition:none}}
+/* Compact market context lives beside order entry, not above the workspace. */
+.market-book-column .market-visualization{margin:0;border:0;padding:0}
+.market-book-column .market-pixel-floor{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 12px;margin:0 0 8px;padding:12px;min-height:0}
+.market-book-column .market-pixel-side{gap:8px;min-width:0}.market-book-column .market-pixel-side>div{min-width:0}
+.market-book-column .market-pixel-side .pixel-sprite{width:36px;height:52px}
+.market-book-column .market-pixel-side strong{font-size:.8rem}.market-book-column .market-pixel-side span{font-size:.65rem}.market-book-column .market-pixel-side b{font-size:.9rem;white-space:normal;overflow-wrap:anywhere}
+.market-book-column .market-pixel-side.seller{grid-column:2;grid-row:1}
+.market-book-column .market-pixel-message{grid-column:1/-1;grid-row:2;padding:4px 8px}
+.market-book-column .market-pixel-message>strong{display:none}.market-book-column .market-pixel-message p{margin:0;font-size:.75rem}.market-book-column .market-pixel-message>span{font-size:.65rem}
+.market-book-column .market-visualization>button{font-size:.8rem;width:100%;text-align:left}
+.market-book-column .market-visual-body{min-height:0}

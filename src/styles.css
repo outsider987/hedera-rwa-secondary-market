@@ -352,3 +352,31 @@ footer a { min-height: 44px; padding-block: 0.5rem; }
 .header-role-avatar { display:flex; align-items:center; justify-content:center; flex-shrink:0; width:44px; height:52px; background:#0b1423; border:1px solid #3e4a60; border-radius:4px; isolation:isolate; }
 .header-role-avatar .pixel-sprite { width:32px; height:46px; }
 @media(max-width:700px) { .header-identity .network { max-width:165px; } }
+
+/* Market: decisions before supporting evidence; DOM order also serves mobile. */
+#market { padding-top:1rem; }
+#market .market-heading { margin-bottom:.75rem; }
+.market-shortcuts { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-bottom:.75rem; }
+.market-shortcuts button { font-size:.875rem; }
+.market-funds { max-width:none; font-size:.875rem; padding:.5rem .75rem; background:#e8f0f6; }
+.market-entry,.market-book-column { min-width:0; }
+#market .market-layout { gap:2rem; margin-block:1rem 1.5rem; align-items:start; }
+#market .market-ticket { border:0; padding:0; }
+#market .market-ticket h3 { margin:0 0 .75rem; font-size:1.125rem; }
+#market .market-account { margin-bottom:.75rem; padding-bottom:.5rem; }
+#market .market-ticket .text-field { margin-block:.75rem; gap:.25rem; }
+#market .market-ticket .actions { margin-top:.75rem; }
+.market-balance-details { margin-top:1rem; border-top:1px solid #d4dfe7; font-size:.875rem; }
+.market-balance-details summary { overflow-wrap:anywhere; }
+.market-balance-details .market-balance { border:0; margin:0; padding:.5rem 0; }
+.market-balance-details .market-balance dl { gap:.75rem 1.5rem; }
+#market .market-book-column { border-left:1px solid #d4dfe7; padding-left:2rem; }
+#market .market-book h3 { margin:1rem 0 .25rem; font-size:1.125rem; }
+#market .market-history-layout { grid-template-columns:minmax(0,2fr) minmax(0,3fr); }
+@media(max-width:1000px){#market .market-history-layout { grid-template-columns:minmax(0,1fr); }}
+@media(max-width:850px){#market .market-book-column { border-left:0; border-top:1px solid #d4dfe7; padding:1rem 0 0; }#market .market-layout { gap:1rem; }}
+@media(max-width:700px){#market .market-heading { gap:.25rem; }#market .market-heading h2 { font-size:1.5rem; }#market .market-heading p { font-size:.8rem; }.market-shortcuts { gap:.375rem; }.market-shortcuts button { padding-inline:.625rem; }.market-funds { font-size:.8rem; }}
+
+@media(max-width:700px){#market h3[tabindex="-1"]{scroll-margin-top:3rem}}
+
+.market-order-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:end; gap:.75rem; }

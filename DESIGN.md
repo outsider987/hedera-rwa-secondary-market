@@ -117,7 +117,8 @@ or connected-account semantics.
 
 Use the system font stack, tabular numerals and concise English. Body copy is
 16px/1.6, generally limited to 72ch. The app header is 1.5rem; Market title is
-1.75rem and panel headings 1.25rem. Settlement quantities use 2rem/1.3 at weight
+1.75rem (1.5rem at 700px and below), with panel headings 1.25rem and the
+Market order/book headings 1.125rem. Settlement quantities use 2rem/1.3 at weight
 650, with the HBAR total below at 1rem. The showcase has a responsive headline
 limited to 17ch and a 1.2rem introduction. Full IDs wrap inside details.
 
@@ -136,11 +137,15 @@ retain full text opacity, using dashed borders to indicate the completed state.
 The trading console is at most 68rem wide with 1.25rem side gutters. The retained
 recorded story uses the diagram/explanation layout described in its dated entry
 below; account roles use three columns from md. Desktop Market
-places the book left and the order or selected settlement panel right in equal
-flexible columns, separated by a fine vertical rule and 2rem gap. This is a
-consistent action area, not a sticky or fixed-position panel. My orders and
-Matches use a 3:2 grid in Activity and remain available below Market. At 1000px or below the lower panels stack; at
-850px or below the upper panels stack. At 700px header and account rows adapt.
+places order entry or the selected settlement first in the DOM and in the left
+column, with compact pixel context and the book in the right column. Equal
+flexible columns have a fine vertical rule and 2rem gap. The action area remains
+in normal flow, with no constrained vertical scroll panes. Quantity and limit
+price stay paired in equal columns with a .75rem gap. Matches precedes My orders
+on both Market and Activity; Market uses a 2:3 history grid and Activity retains
+3:2. At 1000px or below history stacks; at 850px or below the workspace stacks
+in DOM order, placing entry and balance disclosure before the pixel floor and
+book. At 700px header and account rows adapt.
 
 The order table retains its 32rem minimum width inside a keyboard-focusable
 horizontal scroll region. Prices and amounts align right. Match selection moves
@@ -162,15 +167,14 @@ The five stages remain one compact row. Proof occupies the right scene column
 on desktop over the dimmed exchange; on mobile it follows the narration in
 normal document flow and the background scene is hidden.
 
-Market adds an initially expanded, collapsible section above the existing
-book/ticket. Its static floor uses three desktop columns (1:1.4:1), with Buy
-side left, a central matching notice and Sell side right; padding is 24px and
-minimum height 170px. At 700px and below, both sides remain paired above the
-full-width notice, with 16px padding and 42×70px sprites.
-Below the floor, two equal columns show bids and asks as native HTML rows with flat
-quantity bars, in a body with a 180px minimum height. The columns remain paired
-on mobile with a 12px gap instead of 24px. Full order tables and the original
-action layout stay available beneath it.
+Market's compact static floor sits above the book within its column. Buy and
+Sell remain paired above a full-width matching notice at every breakpoint;
+12px padding and 36×52px sprites keep this supporting context compact. The
+pixel actors, exact open-order totals and live status remain visible when depth
+is collapsed. The top-five price-level control starts collapsed. Expanding it
+reveals paired native HTML bid/ask rows with flat quantity bars and optional
+match outcomes; depth has no minimum height. The paired depth columns use a
+24px gap, reduced to 12px at 700px and below. Full order tables remain beneath.
 
 ## Elevation & Depth
 
@@ -207,6 +211,16 @@ Keep square section boundaries and thin separators.
   tabs. Extracted balance, book, order and match components reuse its state.
   Activity selections return to Market; Settings contains account/network/SDK
   setup. Tab changes retain controllers and existing wallet guards.
+- Market section shortcuts focus and scroll to the order or selected settlement
+  heading, Order book and Matches without changing the URL. A compact funds
+  notice precedes the workspace. Unavailable, signing, pending and recovery
+  notices remain visible outside optional balance/depth content.
+- The native balance disclosure follows the order or settlement panel and starts
+  closed. Its summary shows available and held NOVA when read, including refresh
+  or update-error status; otherwise it identifies loading, unavailable or unread
+  state. Expanding it exposes the existing account label, available/locked/total
+  values, refresh control and source block/time. Failed reads retain explicitly
+  stale values; absent values are not zero. Disconnected copy asks for an account.
 - Orders remain unfunded. Buy/Sell uses pressed-state buttons; review requires
   explicit acknowledgement before a manual signature. Open/All order filters
   expose original, matched, remaining and cancelled quantities. Cancel remaining
@@ -303,6 +317,11 @@ The current Market/Header refresh follows source and the supplied preview
 1440/390px Market and Demo captures. [Evidence052](docs/evidence/052-market-characters-summary.md)
 records fixture browser acceptance; actual-wallet and human visual acceptance
 remain separate. No new artwork, dependency or wallet behavior accompanies it.
+The [Market layout direction](docs/plans/014-market-layout.md) supersedes that
+extension's book-first arrangement. This documentation refresh inspected current
+source and the 1440/390px dev Market and selected-settlement captures; the final
+browser matrix belongs to [evidence053](docs/evidence/053-market-layout-summary.md).
+It establishes no real MetaMask execution or physical-phone acceptance.
 Browser fixtures establish only their recorded scenarios; real MetaMask and
 full T08 acceptance remain separate requirements in [spec 004](docs/plans/004-matched-settlement.md).
 

@@ -1,5 +1,25 @@
 # HoldBook handoff
 
+## Market task-first layout — September 10, 2026 · local only
+
+`based_on_commit: 9db7a0a1c1dba9303bc33bc6690091826676476f` is the verified
+starting HEAD. Victor reported Market scrolling/hierarchy problems. Read
+[plan014](plans/014-market-layout.md), [evidence053](evidence/053-market-layout-summary.md)
+and [usage063](ai-usage/063-market-layout.md) for current scope/checks.
+
+Order entry now leads desktop/mobile; book and compact pixel summary sit beside
+it on desktop. Depth and balance details are optional, amount inputs paired,
+Matches before personal orders, and quick focus buttons reach key sections.
+Existing role identity, guards, notices, state, snapshot data and historical
+settlements remain. No new assets/dependencies, backend/wallet/core changes.
+
+Install,123 application +36 protobuf tests, typecheck and both builds pass.
+Browser evidence records desktop/mobile/intermediate/narrow reflow using isolated
+public fixtures; dev signing remains disabled. Actual MetaMask and physical
+devices remain Victor checks. Review http://127.0.0.1:4173/#market.
+Local commit only; no push, deployment or chain action. Next ticket and exact
+allowed files: none until authorized.
+
 ## Market characters and stable tabs — September 10, 2026 · local only
 
 `based_on_commit: 5a43e2e7e872b10c2b27b0b893b5c9ac8bc94ce2` is the verified

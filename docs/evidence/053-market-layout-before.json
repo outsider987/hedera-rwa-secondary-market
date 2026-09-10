@@ -1,0 +1,65 @@
+{
+  "recordedAt": "2026-09-10T15:36:06.069Z",
+  "browser": "143.0.7499.169",
+  "device": "Linux headless Chrome; emulated viewports; unsigned public-wallet fixture",
+  "results": [
+    {
+      "width": 1440,
+      "boxes": {
+        "#order-heading": {
+          "x": 769,
+          "y": 1189.53125,
+          "width": 495,
+          "height": 32
+        },
+        "#book-heading": {
+          "x": 176,
+          "y": 1134.9375,
+          "width": 528,
+          "height": 32
+        },
+        "#matches-heading": {
+          "x": 866.59375,
+          "y": 1653.203125,
+          "width": 94.53125,
+          "height": 32
+        },
+        "review": {
+          "x": 769,
+          "y": 1552.703125,
+          "width": 186.296875,
+          "height": 44
+        }
+      }
+    },
+    {
+      "width": 390,
+      "boxes": {
+        "#order-heading": {
+          "x": 20,
+          "y": 1992.40625,
+          "width": 350,
+          "height": 32
+        },
+        "#book-heading": {
+          "x": 20,
+          "y": 1509.484375,
+          "width": 350,
+          "height": 32
+        },
+        "#matches-heading": {
+          "x": 20,
+          "y": 2943.984375,
+          "width": 94.53125,
+          "height": 32
+        },
+        "review": {
+          "x": 20,
+          "y": 2355.578125,
+          "width": 186.296875,
+          "height": 44
+        }
+      }
+    }
+  ]
+}
