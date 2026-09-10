@@ -2,7 +2,6 @@ import {isTradingOrigin,productionURL} from '../lib/runtime';
 import {useQuery} from '@tanstack/react-query';
 import SettlementPanel from './SettlementPanel';
 import AccountBalance from './AccountBalance';
-import OrderBook from './OrderBook';
 import OrdersTable from './OrdersTable';
 import MatchesList from './MatchesList';
 import MarketVisualization from '../presentation/MarketVisualization';
@@ -32,7 +31,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
  const balance=balanceQuery.data;
 
  useEffect(()=>{setQuantity('');setPrice('');setDismissed(undefined);},[owner]);
- useEffect(()=>{if(review)ticketHeading.current?.focus();},[review]);
+ useEffect(()=>{if(review)ticketHeading.current?.focus({preventScroll:true});},[review]);
  const preview=typeof window!=='undefined'&&isTradingOrigin(window.location.origin,import.meta.env.PROD);
  useEffect(()=>{epoch.current++;controller.current?.abort();setReview(undefined);setApproved(false);},[session,visible]);
  useEffect(()=>{const load=()=>{try{setIntent(loadIntent());setStorageProblem('');}catch{setStorageProblem('Saved intent is invalid. Keep the original request and restore its public record before signing.');}};load();const changed=(e:StorageEvent)=>{if(e.key===marketStorageKey||e.key===null)load();};window.addEventListener('storage',changed);return()=>{window.removeEventListener('storage',changed);controller.current?.abort();};},[]);
@@ -48,17 +47,17 @@ export default function MarketPanel({visible,activity=false,roles,session,active
  async function sign(){if(!review||!approved||disabled)return;const current=new AbortController();controller.current=current;setWorking(true);setApproved(false);setProblem('');try{await signOrder(review,current.signal,setIntent);}catch{setProblem('Signature or submission incomplete. If an intent was saved, query that request; it will not be resent.');}finally{setWorking(false);setReview(undefined);}}
  async function recover(){if(working)return;const current=new AbortController();controller.current=current;setWorking(true);setProblem('');try{setIntent(await recoverIntent(current.signal));}catch{setProblem('Recovery unavailable. Keep the original request; no new submission is allowed.');}finally{setWorking(false);}}
  function exportPublic(){if(!market)return;const url=URL.createObjectURL(new Blob([JSON.stringify(marketEvidence(market,intent),null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='holdbook-unfunded-market.json';a.click();URL.revokeObjectURL(url);}
- const open=market?.orders.filter(o=>BigInt(o.remaining)>0n)??[];
  const myOrders=market?.orders.filter(o=>o.owner===owner)??[];
  const completed=intent?.record.status==='accepted'&&intent.record.prepared.owner===owner&&intent.record.prepared.requestId!==dismissed?intent.record:undefined;
- useEffect(()=>{if(completed)ticketHeading.current?.focus();},[completed?.prepared.requestId]);
+ useEffect(()=>{if(completed)ticketHeading.current?.focus({preventScroll:true});},[completed?.prepared.requestId]);
  const result=completed?.result;
  const cancelOrder=review?.record.prepared.action==='Cancel'?market?.orders.find(o=>o.orderId===review.record.prepared.orderId):undefined;
  function freshMatch(id:string){const match=market?.matches.find(m=>m.id===id),d=settlementData?.deployment;return !!match&&!!d&&[match.maker,match.taker].every(id=>BigInt(market?.orders.find(o=>o.orderId===id)?.sequence??'0')>BigInt(d.cutoff));}
- useEffect(()=>{if(visible&&!activity&&(selectedMatch!==undefined||review)){const frame=requestAnimationFrame(()=>{(selectedMatch!==undefined?document.getElementById('settlement-heading'):ticketHeading.current)?.focus();});return()=>cancelAnimationFrame(frame);}},[visible,activity,selectedMatch,review]);
+ useEffect(()=>{if(visible&&!activity&&selectedMatch!==undefined){const frame=requestAnimationFrame(()=>{(document.getElementById('market-exchange-heading')??document.getElementById('settlement-heading'))?.focus();});return()=>cancelAnimationFrame(frame);}},[visible,activity,selectedMatch]);
  function focusSection(id:string){const target=document.getElementById(id);target?.focus({preventScroll:true});target?.scrollIntoView({block:'start'});}
  function newOrder(){setDismissed(intent?.record.prepared.requestId);setQuantity('');setPrice('');setProblem('');}
 
+ const visualization=<MarketVisualization settlementKnown={!!settlementData} selectedMatch={market?.matches.find(m=>m.id===selectedMatch)} orders={market?.orders??[]} matches={market?.matches??[]} statuses={Object.fromEntries((settlementData?.settlements??[]).map(s=>[s.id,settlementStatus(s,BigInt(Math.floor(Date.now()/1000)))]))} online={online&&(selectedMatch===undefined||settlementsQuery.isSuccess&&!settlementsQuery.isRefetchError)} updated={last} visible={visible&&!activity}/>;
  return <section id={activity?'activity':'market'} className="page-section market" aria-labelledby="market-heading">
   <div className="market-heading"><div><h2 id="market-heading">{activity?'Activity':'NOVA / HBAR'}</h2><p>{activity?'Your orders, matches and verified outcomes':'Buy and sell demo equity · Hedera Testnet'}</p></div><p><span role="status">{online?'Live':'Offline'}</span>{last?' · Last updated '+last:' · Waiting for market'}</p></div>
   <div hidden={activity}>
@@ -102,8 +101,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
   <AccountBalance role={role} balance={balance} loading={balanceQuery.isFetching} error={balanceQuery.isError} locked={locked} onRefresh={()=>void balanceQuery.refetch()}/>
    </details>
    </div><div className="market-book-column">
-  <MarketVisualization orders={market?.orders??[]} matches={market?.matches??[]} statuses={Object.fromEntries((settlementData?.settlements??[]).map(s=>[s.id,settlementStatus(s,BigInt(Math.floor(Date.now()/1000)))]))} online={online} updated={last} visible={visible&&!activity}/>
-   <OrderBook open={open}/>
+  {visualization}
    </div>
   </div>
   </div>

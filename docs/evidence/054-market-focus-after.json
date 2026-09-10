@@ -1,0 +1,43 @@
+{
+  "recordedAt": "2026-09-10T16:39:59.028Z",
+  "browser": "143.0.7499.169",
+  "device": "Linux headless Chrome; emulated viewports; unsigned public-wallet fixture",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1440,
+      "before": 1000,
+      "after": 1159,
+      "explicitNavigation": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 5173,
+      "width": 390,
+      "before": 1000,
+      "after": 1181,
+      "explicitNavigation": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "before": 1000,
+      "after": 1159,
+      "explicitNavigation": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 4173,
+      "width": 390,
+      "before": 1000,
+      "after": 1182,
+      "explicitNavigation": true,
+      "errors": [],
+      "writes": []
+    }
+  ]
+}

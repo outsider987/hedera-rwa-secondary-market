@@ -1,5 +1,7 @@
 # AI usage / attribution
 
+- [065 · Market exchange and stable focus](docs/ai-usage/065-market-status.md)
+
 This is the navigation index. Read the relevant work item, not the whole archive.
 Current progress and effective constraints: [HANDOFF](docs/HANDOFF.md).
 Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).

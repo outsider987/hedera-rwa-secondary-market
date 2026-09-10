@@ -410,3 +410,21 @@ The current pixel documentation was checked against the implemented components
 and styles. Actual runtime checks belong to
 [evidence051](docs/evidence/051-pixel-demo.md); this refresh does not establish
 physical-device performance or Victor's narration/visual acceptance.
+
+## Selected Market exchange — September 11, 2026
+
+Selected matches use one navy pixel exchange beside the settlement controls on desktop,
+reusing Overview's Seller/Buyer, vault, NOVA and HBAR sprites. The left station
+is the selling account and the right station the buying account; account names
+remain explicit for reverse trades. Two lanes show verified NOVA and HBAR
+locations. Ready holds NOVA centrally and HBAR with the buyer; only Settled
+moves both to their recipients. Returned/cancelled/reclaimed shares are with
+the seller and payment remains with the buyer. Missing initial settlement data
+has no asset-position claim. Offline retains a labeled last known snapshot.
+Whole-book totals are secondary; the top-five price levels are always visible and replace the duplicate full Order book. With no match selected,
+the original compact book-participant view remains beside the order ticket.
+
+Automatic review/result focus uses preventScroll. Explicit match selection and
+section shortcuts still navigate. Settlement review/result updates preserve the
+terms DOM instead of remounting it. Asset transitions are 200ms, disabled for
+reduced motion; no demo timeline or signing callback drives the illustration.

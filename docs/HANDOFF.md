@@ -1,5 +1,25 @@
 # HoldBook handoff
 
+## Market exchange and stable focus — September 11, 2026 · authorized push
+
+`based_on_commit: 05f324d223bfe691bfb0f55de282be770639e485` is the verified base.
+Victor requested stable post-sign scrolling and one Market exchange illustration
+based on Overview. See [plan015](plans/015-market-status.md),
+[evidence054](evidence/054-market-status-summary.md) and
+[usage065](ai-usage/065-market-status.md).
+
+Selected matches now show one pixel exchange beside their controls on desktop, with verified
+asset/payment positions, account-role labels, unknown/stale states and separate
+book totals. Automatic state focus prevents scrolling; settlement terms retain
+DOM identity. Explicit navigation remains. No wallet/core/backend/chain changes.
+
+npm ci,124 application +36 protobuf tests,typecheck and both builds passed;
+focused tests/builds rerun after unknown-state correction. Dev/preview desktop
+and mobile public-fixture checks passed. Real MetaMask return behavior and
+visual acceptance remain Victor checks; no new signature or transaction.
+Top-five price levels replace the duplicate full book and stay visible. Victor authorized pushing the completed changes; check evidence054 for publication status. Next ticket and
+exact allowed files: none until authorized.
+
 ## Authorized push — September 10, 2026
 
 `based_on_commit: 0e9dc179daa8ddf049f7491f4da5a9621fb7cfec`. Victor said
