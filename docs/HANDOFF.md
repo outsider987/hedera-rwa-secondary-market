@@ -1,5 +1,15 @@
 # HoldBook handoff
 
+## Authorized push — September 10, 2026
+
+`based_on_commit: 0e9dc179daa8ddf049f7491f4da5a9621fb7cfec`. Victor said
+“推送吧”, authorizing a normal push of the completed branch to
+`origin/feat/t08-settlement`. This supersedes the prior local-only boundary
+for these completed commits. Existing Pages automation is triggered by this
+branch; push success alone does not establish deployment success. See
+[usage064](ai-usage/064-authorized-push.md). No new application or chain change.
+Next implementation ticket and exact allowed files: none until authorized.
+
 ## Market task-first layout — September 10, 2026 · local only
 
 `based_on_commit: 9db7a0a1c1dba9303bc33bc6690091826676476f` is the verified

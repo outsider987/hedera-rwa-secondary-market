@@ -8,6 +8,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-10 | Authorized push of completed presentation/Market work | [064](docs/ai-usage/064-authorized-push.md) |
 | 2026-09-10 | Market task-first layout | [063](docs/ai-usage/063-market-layout.md) |
 | 2026-09-10 | Market/Header pixel characters and stable navigation | [062](docs/ai-usage/062-market-characters.md) |
 | 2026-09-10 | Pixel motion infographic and generated art | [2D revision, provenance and verification](docs/ai-usage/061-pixel-demo.md) |
