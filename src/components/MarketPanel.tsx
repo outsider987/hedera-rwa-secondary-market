@@ -4,8 +4,9 @@ import SettlementPanel from './SettlementPanel';
 import AccountBalance from './AccountBalance';
 import OrdersTable from './OrdersTable';
 import MatchesList from './MatchesList';
+import MarketNextActions from './MarketNextActions';
 import MarketVisualization from '../presentation/MarketVisualization';
-import {readSettlements,settlementStatus} from '../lib/settlement';
+import {readSettlements,settlementStatus,loadSettlement,settlementStorageKey} from '../lib/settlement';
 import {queryClient} from '../lib/wallet';
 import {useEffect,useRef,useState,useSyncExternalStore} from 'react';
 import {getOperationBusy,subscribeOperation,type Roles} from '../lib/guards';
@@ -18,6 +19,8 @@ export default function MarketPanel({visible,activity=false,roles,session,active
  const settlementData=settlementsQuery.data;
  const locked=useSyncExternalStore(subscribeOperation,getOperationBusy,()=>false);
  const [market,setMarket]=useState<Market>(),[online,setOnline]=useState(false),[last,setLast]=useState('');
+ const [recoveryMatch,setRecoveryMatch]=useState<string>();
+ function syncSettlementRecovery(){try{const saved=loadSettlement();setRecoveryMatch(saved?.attempted&&!saved.rejected&&!['verified','reverted'].includes(saved.operation.status)?saved.operation.settlementId||'setup':undefined);}catch{setRecoveryMatch('setup');}}
  const [intent,setIntent]=useState<Intent>(),[storageProblem,setStorageProblem]=useState(''),[problem,setProblem]=useState('');
  const [side,setSide]=useState<Side>('Sell'),[quantity,setQuantity]=useState(''),[price,setPrice]=useState('');
  const [review,setReview]=useState<Review>(),[approved,setApproved]=useState(false),[working,setWorking]=useState(false);
@@ -34,7 +37,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
  useEffect(()=>{if(review)ticketHeading.current?.focus({preventScroll:true});},[review]);
  const preview=typeof window!=='undefined'&&isTradingOrigin(window.location.origin,import.meta.env.PROD);
  useEffect(()=>{epoch.current++;controller.current?.abort();setReview(undefined);setApproved(false);},[session,visible]);
- useEffect(()=>{const load=()=>{try{setIntent(loadIntent());setStorageProblem('');}catch{setStorageProblem('Saved intent is invalid. Keep the original request and restore its public record before signing.');}};load();const changed=(e:StorageEvent)=>{if(e.key===marketStorageKey||e.key===null)load();};window.addEventListener('storage',changed);return()=>{window.removeEventListener('storage',changed);controller.current?.abort();};},[]);
+ useEffect(()=>{const load=()=>{syncSettlementRecovery();try{setIntent(loadIntent());setStorageProblem('');}catch{setStorageProblem('Saved intent is invalid. Keep the original request and restore its public record before signing.');}};load();const changed=(e:StorageEvent)=>{if(e.key===marketStorageKey||e.key===settlementStorageKey||e.key===null)load();};window.addEventListener('storage',changed);return()=>{window.removeEventListener('storage',changed);controller.current?.abort();};},[]);
  useEffect(()=>{
   if(!visible)return;const abort=new AbortController();let timer:ReturnType<typeof setTimeout>;
   async function refresh(){if(document.hidden){timer=setTimeout(refresh,2000);return;}try{const m=await readMarket(abort.signal);abort.signal.throwIfAborted();setMarket(m);setOnline(true);setLast(new Date().toLocaleTimeString());if(pending(loadIntent())){const v=await recoverIntent(abort.signal);abort.signal.throwIfAborted();setIntent(v);}}catch{if(!abort.signal.aborted)setOnline(false);}finally{if(!abort.signal.aborted)timer=setTimeout(refresh,2000);}}
@@ -53,21 +56,24 @@ export default function MarketPanel({visible,activity=false,roles,session,active
  const result=completed?.result;
  const cancelOrder=review?.record.prepared.action==='Cancel'?market?.orders.find(o=>o.orderId===review.record.prepared.orderId):undefined;
  function freshMatch(id:string){const match=market?.matches.find(m=>m.id===id),d=settlementData?.deployment;return !!match&&!!d&&[match.maker,match.taker].every(id=>BigInt(market?.orders.find(o=>o.orderId===id)?.sequence??'0')>BigInt(d.cutoff));}
- useEffect(()=>{if(visible&&!activity&&selectedMatch!==undefined){const frame=requestAnimationFrame(()=>{(document.getElementById('market-exchange-heading')??document.getElementById('settlement-heading'))?.focus();});return()=>cancelAnimationFrame(frame);}},[visible,activity,selectedMatch]);
+ useEffect(()=>{if(visible&&!activity&&selectedMatch!==undefined){const frame=requestAnimationFrame(()=>{document.getElementById('settlement-heading')?.focus();});return()=>cancelAnimationFrame(frame);}},[visible,activity,selectedMatch]);
  function focusSection(id:string){const target=document.getElementById(id);target?.focus({preventScroll:true});target?.scrollIntoView({block:'start'});}
- function selectMatch(id:string){setSelectedMatch(id);setReview(undefined);setApproved(false);window.location.hash='market';}
+ function selectMatch(id:string){if(id===selectedMatch)focusSection('settlement-heading');setSelectedMatch(id);setReview(undefined);setApproved(false);window.location.hash='market';}
  function newOrder(){setDismissed(intent?.record.prepared.requestId);setQuantity('');setPrice('');setProblem('');}
 
+ const taskBlocker=pending(intent)?'An order signature or submission is unresolved. Check the original request before continuing.':recoveryMatch||settlementData?.pendingOperation?'A settlement operation needs verification. Check the original operation before continuing.':storageProblem;
+ function openRecovery(){if(pending(intent)||storageProblem){setSelectedMatch(undefined);requestAnimationFrame(()=>focusSection('order-heading'));}else selectMatch(recoveryMatch||settlementData?.pendingOperation?.settlementId||'setup');}
  const visualization=<MarketVisualization settlementKnown={!!settlementData} selectedMatch={market?.matches.find(m=>m.id===selectedMatch)} orders={market?.orders??[]} matches={market?.matches??[]} statuses={Object.fromEntries((settlementData?.settlements??[]).map(s=>[s.id,settlementStatus(s,BigInt(Math.floor(Date.now()/1000)))]))} online={online&&(selectedMatch===undefined||settlementsQuery.isSuccess&&!settlementsQuery.isRefetchError)} updated={last} visible={visible&&!activity}/>;
  return <section id={activity?'activity':'market'} className="page-section market" aria-labelledby="market-heading">
   <div className="market-heading"><div><h2 id="market-heading">{activity?'Activity':'NOVA / HBAR'}</h2><p>{activity?'Your orders, matches and verified outcomes':'Buy and sell demo equity · Hedera Testnet'}</p></div><p><span role="status">{online?'Live':'Offline'}</span>{last?' · Last updated '+last:' · Waiting for market'}</p></div>
   <div hidden={activity}>
+  <MarketNextActions market={market} settlementData={settlementData} owner={owner} online={online&&settlementsQuery.isSuccess&&!settlementsQuery.isRefetchError} busy={working||locked} blocker={taskBlocker} onRecover={openRecovery} freshMatch={freshMatch} onSelect={selectMatch} onAll={filter=>{setMatchFilter(filter);requestAnimationFrame(()=>focusSection('matches-heading'));}}/>
   <nav className="market-shortcuts" aria-label="Market sections"><button className="secondary" onClick={()=>focusSection(selectedMatch!==undefined?'settlement-heading':'order-heading')}>{selectedMatch!==undefined?'Settlement':'Place order'}</button><button className="secondary" onClick={()=>focusSection('book-heading')}>Order book</button><button className="secondary" onClick={()=>focusSection('matches-heading')}>Matches</button></nav>
   <p className="market-funds"><strong>Funds are not reserved.</strong> Matching transfers no assets.</p>
-  {(owner===accounts.Admin.address&&!settlementData?.deployment||settlementData?.pendingOperation)&&<div className="actions"><button className="secondary" onClick={()=>setSelectedMatch(settlementData?.pendingOperation?.settlementId||'setup')}>{settlementData?.pendingOperation?'Recover settlement operation':'Settlement setup'}</button></div>}
+  {(owner===accounts.Admin.address&&!!settlementData&&!settlementData.deployment&&!taskBlocker)&&<div className="actions"><button className="secondary" onClick={()=>selectMatch('setup')}>Settlement setup</button></div>}
   <div className="market-layout">
    <div className="market-entry">
-   {selectedMatch!==undefined?<SettlementPanel key={selectedMatch} settlementKnown={!!settlementData} match={market?.matches.find(m=>m.id===selectedMatch)} settlement={settlementData?.settlements.find(s=>s.id===selectedMatch)} deployment={settlementData?.deployment} pendingOperation={settlementData?.pendingOperation} roles={roles} owner={owner} session={session} online={online&&settlementsQuery.isSuccess&&!settlementsQuery.isRefetchError} locked={locked} eligible={selectedMatch==='setup'||freshMatch(selectedMatch)} onUpdated={()=>{void settlementsQuery.refetch();}} onNewOrder={()=>{setSelectedMatch(undefined);newOrder();}}/>:<section className="market-ticket" aria-labelledby="order-heading">
+   {selectedMatch!==undefined?<SettlementPanel key={selectedMatch} settlementKnown={!!settlementData} match={market?.matches.find(m=>m.id===selectedMatch)} settlement={settlementData?.settlements.find(s=>s.id===selectedMatch)} deployment={settlementData?.deployment} pendingOperation={settlementData?.pendingOperation} roles={roles} owner={owner} session={session} online={online&&settlementsQuery.isSuccess&&!settlementsQuery.isRefetchError} locked={locked} eligible={selectedMatch==='setup'||freshMatch(selectedMatch)} onUpdated={()=>{syncSettlementRecovery();void settlementsQuery.refetch();}} onNewOrder={()=>{setSelectedMatch(undefined);newOrder();}}/>:<section className="market-ticket" aria-labelledby="order-heading">
     <div className="market-account"><strong>{role}</strong><span>{owner?owner.slice(0,6)+'…'+owner.slice(-4):'Connect a trading account'} · Testnet 296</span></div>
     <h3 id="order-heading" ref={ticketHeading} tabIndex={-1}>{review?(review.record.prepared.action==='Cancel'?'Review cancellation':'Review '+review.record.prepared.side.toLowerCase()+' order'):completed?'Request result':pending(intent)?'Request pending':'Place a limit order'}</h3>
     {!trader&&<p>{role==='Admin'?'Admin is view-only.':'Connect Seller or Buyer to trade.'} Both trading accounts can buy and sell.</p>}

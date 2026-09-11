@@ -1,0 +1,37 @@
+{
+  "recordedAt": "2026-09-11T08:02:38.083Z",
+  "browser": "143.0.7499.169",
+  "scope": "Isolated desktop public UI fixtures with adjusted sequence/status/time. External requests and local writes blocked. No real wallet/signature/transaction.",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1440,
+      "taskKeyboardNavigation": true,
+      "actionHeadingFocus": true,
+      "accountSwitch": true,
+      "stepProgress": true,
+      "staleSuppressed": true,
+      "expiryReclaim": true,
+      "returnedNotSuccess": true,
+      "reloadRecovery": true,
+      "noOverflow": true,
+      "pageErrors": [],
+      "localWrites": []
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "taskKeyboardNavigation": true,
+      "actionHeadingFocus": true,
+      "accountSwitch": true,
+      "stepProgress": true,
+      "staleSuppressed": true,
+      "expiryReclaim": true,
+      "returnedNotSuccess": true,
+      "reloadRecovery": true,
+      "noOverflow": true,
+      "pageErrors": [],
+      "localWrites": []
+    }
+  ]
+}

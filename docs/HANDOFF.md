@@ -1,5 +1,28 @@
 # HoldBook handoff
 
+## Market next actions — September 11, 2026 · local only
+
+`based_on_commit: fb63d31055d23559cb13ea9c3f912fcf8fea5cc2` is the verified base.
+Victor authorized task-first desktop Market and selected-match next-step UX.
+See [plan017](plans/017-market-next-actions.md),
+[evidence056](evidence/056-market-tasks-summary.md),
+[usage067](ai-usage/067-market-next-actions.md).
+
+Your next step prioritizes unresolved operations and fresh eligible matches for
+the connected account; exact amounts lead to existing review controls. Selected
+matches focus the action heading, show a normal-lifecycle step list and name the
+actual required actor. Expiry/returns/unknown/historical cases stay distinct.
+Existing manual signing/recovery guards and pixel identity remain. No core,
+wallet/backend/contract/dependency changes. Mobile refinement remains deferred.
+
+npm ci,128 application +36 protobuf tests,typecheck and both builds passed.
+Isolated desktop dev/preview checks cover tasks, keyboard/focus, account changes,
+expiry, stale data and local unknown-operation recovery after reload. Existing
+dependency warnings remain. No real wallet/transaction; Victor still confirms
+visual and MetaMask behavior. Preview: http://127.0.0.1:4173/#market.
+Local commit only, no push/deployment. Next ticket and exact allowed files:
+none until authorized.
+
 ## Desktop Market clarity — September 11, 2026 · local only
 
 `based_on_commit: 4ccf606a0122392d2be423bf47502b78b52f345e` is the verified base.

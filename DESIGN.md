@@ -438,3 +438,15 @@ a native Show all matches button; accepted orders link to individual matches
 using the same selection flow. Existing visual identity, amount typography,
 layout and signing guards remain. Desktop evidence and mobile deferral are
 recorded in [evidence055](docs/evidence/055-market-clarity-summary.md).
+
+## Market next actions — September 11, 2026
+
+Market leads with a flat notice-surface Your next step section for the connected
+account. Unknown operations take priority; current eligible tasks show exact
+amounts and explicit Open match navigation, capped at three with a full-list
+shortcut. Waiting, unavailable and Admin guidance avoid actionable claims.
+Selection now focuses the action heading beside the pixel exchange. A native
+five-step list distinguishes done/current/upcoming using text and restrained
+blue/green rules; expiry/returned/historical/unknown paths do not imply normal
+completion. Actual match role drives next-actor copy. Existing controls, amounts,
+manual review and recovery remain. Desktop checks: [evidence056](docs/evidence/056-market-tasks-summary.md).

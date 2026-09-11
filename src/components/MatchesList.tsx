@@ -1,6 +1,7 @@
+import {matchAction} from '../presentation/marketTasks';
 import { accounts } from '../lib/lifecycle';
 import { hbar, type Market } from '../lib/market';
-import { settlementAction, settlementStatus, type readSettlements } from '../lib/settlement';
+import { settlementStatus, type readSettlements } from '../lib/settlement';
 
 export default function MatchesList({ online, settlementOnline, market, settlementData, owner, matchFilter, setMatchFilter, freshMatch, onSelect }: {
   online: boolean; settlementOnline: boolean; market?: Market; settlementData?: Awaited<ReturnType<typeof readSettlements>>; owner: string;
@@ -8,7 +9,7 @@ export default function MatchesList({ online, settlementOnline, market, settleme
   setMatchFilter: (filter: 'Active' | 'Needs your action' | 'Completed' | 'All') => void;
   freshMatch: (id: string) => boolean; onSelect: (id: string) => void;
 }) {
-  const shownMatches = (market?.matches??[]).filter(m=>owner===accounts.Admin.address||m.seller===owner||m.buyer===owner).filter(m=>{const s=settlementData?.settlements.find(s=>s.id===m.id),finished=s&&['Settled','Cancelled','Reclaimed','Returned'].includes(s.status);return matchFilter==='All'||matchFilter==='Completed'?matchFilter==='All'||finished:matchFilter==='Needs your action'?freshMatch(m.id)&&(s?!!settlementAction(s,owner,BigInt(Math.floor(Date.now()/1000))):owner===m.seller):freshMatch(m.id)&&!finished;}).slice().reverse();
+  const shownMatches = (market?.matches??[]).filter(m=>owner===accounts.Admin.address||m.seller===owner||m.buyer===owner).filter(m=>{const s=settlementData?.settlements.find(s=>s.id===m.id),finished=s&&['Settled','Cancelled','Reclaimed','Returned'].includes(s.status);return matchFilter==='All'||matchFilter==='Completed'?matchFilter==='All'||finished:matchFilter==='Needs your action'?!!matchAction(m,s,owner,!!settlementData&&freshMatch(m.id),BigInt(Math.floor(Date.now()/1000))):freshMatch(m.id)&&!finished;}).slice().reverse();
   return <section className="market-history" aria-labelledby="matches-heading"><div className="market-history-heading"><h3 id="matches-heading" tabIndex={-1}>Matches</h3><label>Show<select aria-label="Match filter" value={matchFilter} onChange={e=>setMatchFilter(e.target.value as typeof matchFilter)}>{['Active','Needs your action','Completed','All'].map(v=><option key={v}>{v}</option>)}</select></label></div>
    <p className="muted">Matched does not mean settled. Select a match for its next step.</p>
    <ul className="market-orders">{shownMatches.map(m=>{const s=settlementData?.settlements.find(s=>s.id===m.id);return <li key={m.id}><div><strong>{m.quantity} NOVA @ {hbar(m.price)} HBAR</strong><p>{!settlementData?'Settlement status unavailable':s?settlementStatus(s,BigInt(Math.floor(Date.now()/1000))):freshMatch(m.id)?'Waiting for seller':'Historical · Matched · Not settled'}</p><p className="muted">Match {m.id} · {new Date(Number(m.time)*1000).toLocaleString()}</p><button className="secondary" onClick={()=>onSelect(m.id)}>View match {m.id}</button><details><summary>Match {m.id} details</summary><p>Buyer: {m.buyer===accounts.Buyer.address?'Buyer account':'Seller account'} · Seller: {m.seller===accounts.Seller.address?'Seller account':'Buyer account'}</p><p className="address">Maker {m.maker}<br/>Taker {m.taker}</p></details></div></li>;})}</ul>
