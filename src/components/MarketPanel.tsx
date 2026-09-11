@@ -55,6 +55,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
  function freshMatch(id:string){const match=market?.matches.find(m=>m.id===id),d=settlementData?.deployment;return !!match&&!!d&&[match.maker,match.taker].every(id=>BigInt(market?.orders.find(o=>o.orderId===id)?.sequence??'0')>BigInt(d.cutoff));}
  useEffect(()=>{if(visible&&!activity&&selectedMatch!==undefined){const frame=requestAnimationFrame(()=>{(document.getElementById('market-exchange-heading')??document.getElementById('settlement-heading'))?.focus();});return()=>cancelAnimationFrame(frame);}},[visible,activity,selectedMatch]);
  function focusSection(id:string){const target=document.getElementById(id);target?.focus({preventScroll:true});target?.scrollIntoView({block:'start'});}
+ function selectMatch(id:string){setSelectedMatch(id);setReview(undefined);setApproved(false);window.location.hash='market';}
  function newOrder(){setDismissed(intent?.record.prepared.requestId);setQuantity('');setPrice('');setProblem('');}
 
  const visualization=<MarketVisualization settlementKnown={!!settlementData} selectedMatch={market?.matches.find(m=>m.id===selectedMatch)} orders={market?.orders??[]} matches={market?.matches??[]} statuses={Object.fromEntries((settlementData?.settlements??[]).map(s=>[s.id,settlementStatus(s,BigInt(Math.floor(Date.now()/1000)))]))} online={online&&(selectedMatch===undefined||settlementsQuery.isSuccess&&!settlementsQuery.isRefetchError)} updated={last} visible={visible&&!activity}/>;
@@ -66,7 +67,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
   {(owner===accounts.Admin.address&&!settlementData?.deployment||settlementData?.pendingOperation)&&<div className="actions"><button className="secondary" onClick={()=>setSelectedMatch(settlementData?.pendingOperation?.settlementId||'setup')}>{settlementData?.pendingOperation?'Recover settlement operation':'Settlement setup'}</button></div>}
   <div className="market-layout">
    <div className="market-entry">
-   {selectedMatch!==undefined?<SettlementPanel key={selectedMatch} match={market?.matches.find(m=>m.id===selectedMatch)} settlement={settlementData?.settlements.find(s=>s.id===selectedMatch)} deployment={settlementData?.deployment} pendingOperation={settlementData?.pendingOperation} roles={roles} owner={owner} session={session} online={online&&settlementsQuery.isSuccess&&!settlementsQuery.isRefetchError} locked={locked} eligible={selectedMatch==='setup'||freshMatch(selectedMatch)} onUpdated={()=>{void settlementsQuery.refetch();}} onNewOrder={()=>{setSelectedMatch(undefined);newOrder();}}/>:<section className="market-ticket" aria-labelledby="order-heading">
+   {selectedMatch!==undefined?<SettlementPanel key={selectedMatch} settlementKnown={!!settlementData} match={market?.matches.find(m=>m.id===selectedMatch)} settlement={settlementData?.settlements.find(s=>s.id===selectedMatch)} deployment={settlementData?.deployment} pendingOperation={settlementData?.pendingOperation} roles={roles} owner={owner} session={session} online={online&&settlementsQuery.isSuccess&&!settlementsQuery.isRefetchError} locked={locked} eligible={selectedMatch==='setup'||freshMatch(selectedMatch)} onUpdated={()=>{void settlementsQuery.refetch();}} onNewOrder={()=>{setSelectedMatch(undefined);newOrder();}}/>:<section className="market-ticket" aria-labelledby="order-heading">
     <div className="market-account"><strong>{role}</strong><span>{owner?owner.slice(0,6)+'…'+owner.slice(-4):'Connect a trading account'} · Testnet 296</span></div>
     <h3 id="order-heading" ref={ticketHeading} tabIndex={-1}>{review?(review.record.prepared.action==='Cancel'?'Review cancellation':'Review '+review.record.prepared.side.toLowerCase()+' order'):completed?'Request result':pending(intent)?'Request pending':'Place a limit order'}</h3>
     {!trader&&<p>{role==='Admin'?'Admin is view-only.':'Connect Seller or Buyer to trade.'} Both trading accounts can buy and sell.</p>}
@@ -83,7 +84,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
      <p role="status"><strong>{completed.prepared.action==='Cancel'?'Cancellation accepted':completed.prepared.side+' order accepted'}</strong></p>
      <p>{result.order.side} {result.order.quantity} NOVA @ {hbar(result.order.price)} HBAR</p>
      <dl><div><dt>Matched</dt><dd>{result.order.matched} NOVA</dd></div><div><dt>Remaining</dt><dd>{result.order.remaining} NOVA</dd></div><div><dt>Cancelled</dt><dd>{result.order.cancelled} NOVA</dd></div></dl>
-     {result.matches.length>0&&<><ul>{result.matches.map(m=><li key={m.id}>{m.quantity} NOVA @ {hbar(m.price)} HBAR</li>)}</ul><p>Matched intent: {hbar(result.matches.reduce((total,m)=>total+BigInt(m.notional),0n).toString())} HBAR</p></>}
+     {result.matches.length>0&&<><ul>{result.matches.map(m=><li key={m.id}>{m.quantity} NOVA @ {hbar(m.price)} HBAR <button className="secondary" onClick={()=>selectMatch(m.id)}>View match {m.id}</button></li>)}</ul><p>Matched intent: {hbar(result.matches.reduce((total,m)=>total+BigInt(m.notional),0n).toString())} HBAR</p></>}
      <p className="muted">Result when processed. Live quantities appear in My orders. Matches are not settled.</p>
      <div className="actions"><button disabled={disabled} onClick={newOrder}>New order</button><a href="#activity" onClick={()=>setFilter('All')}>View my orders</a></div>
     </div>:!pending(intent)&&<form onSubmit={e=>{e.preventDefault();void prepare();}}>
@@ -107,7 +108,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
   </div>
   {activity&&<p className="notice hb:mb-6!">Select a match to continue in Market. An accepted order is intent; only verified settlement proves payment and delivery.</p>}
   <div className="market-history-layout">
-  <MatchesList market={market} settlementData={settlementData} owner={owner} matchFilter={matchFilter} setMatchFilter={setMatchFilter} freshMatch={freshMatch} onSelect={id=>{setSelectedMatch(id);setReview(undefined);setApproved(false);window.location.hash='market';}}/>
+  <MatchesList online={online} settlementOnline={settlementsQuery.isSuccess&&!settlementsQuery.isRefetchError} market={market} settlementData={settlementData} owner={owner} matchFilter={matchFilter} setMatchFilter={setMatchFilter} freshMatch={freshMatch} onSelect={selectMatch}/>
   <OrdersTable myOrders={myOrders} filter={filter} setFilter={setFilter} trader={trader} disabled={disabled} onCancel={order=>{setSelectedMatch(undefined);window.location.hash='market';void prepare(order);}}/>
   </div>
   <div className="actions"><button className="secondary" disabled={!market} onClick={exportPublic}>Export public market evidence</button></div>

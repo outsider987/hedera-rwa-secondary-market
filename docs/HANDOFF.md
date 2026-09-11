@@ -1,5 +1,28 @@
 # HoldBook handoff
 
+## Desktop Market clarity — September 11, 2026 · local only
+
+`based_on_commit: 4ccf606a0122392d2be423bf47502b78b52f345e` is the verified base.
+Victor accepted using free skills on the four reviewed desktop issues and
+explicitly deferred mobile. See [plan016](plans/016-market-clarity.md),
+[evidence055](evidence/055-market-clarity-summary.md) and
+[usage066](ai-usage/066-market-clarity.md).
+
+Missing settlement snapshots now remain unknown in the action panel; verified
+terminal results take priority over historical restrictions. Filtered Matches
+has honest empty/unavailable/stale copy and Show all; accepted orders link
+directly to their matches. Existing signing/recovery guards, pixel identity and
+layout remain. Shared Matches messaging also appears on Activity.
+
+npm ci,126 application +36 protobuf tests,typecheck and both builds passed.
+Isolated desktop dev/preview browser checks passed for the four changes,
+stale snapshots, keyboard actions and overflow. Existing dependency warnings
+remain. No real wallet/signature/chain mutation; human visual and MetaMask
+acceptance remain Victor checks. Preview: http://127.0.0.1:4173/#market.
+Appllama skills installed user-wide; no authenticated paid-library research.
+Local commit only, no push/deployment. Next ticket and exact allowed files:
+none until authorized.
+
 ## Market exchange and stable focus — September 11, 2026 · authorized push
 
 `based_on_commit: 05f324d223bfe691bfb0f55de282be770639e485` is the verified base.

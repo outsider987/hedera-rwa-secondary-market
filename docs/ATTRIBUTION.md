@@ -37,6 +37,7 @@ license or event eligibility is asserted by public GitHub availability.
 | Playwright 1.63.0 | External diagnostic tool, not a project dependency | Apache-2.0; [Playwright](https://github.com/microsoft/playwright) |
 | Terminal3 verify_vc 0.0.20 / vc_core 0.0.19 | Exact direct dependencies for genuine payload preparation and manual ECDSA verification; human positive acceptance Pending | MIT in published manifests; [verify_vc](https://www.npmjs.com/package/@terminal3/verify_vc/v/0.0.20), [vc_core](https://www.npmjs.com/package/@terminal3/vc_core/v/0.0.19) |
 | Ponytail / Impeccable skills | AI workflow guidance; not bundled application code/assets | [Dated usage records](../AI_USAGE.md) |
+| Appllama usage 1.1.0 / app design skill 1.3.0 | Installed user-wide; consistent labels/state-cycle guidance only. No MCP library assets or native code copied | MIT; [source at dd5caaec](https://github.com/Appllama/appllama-skills/tree/dd5caaec3d5d50ad7fc0324da238119c6b7c3707), [license](https://github.com/Appllama/appllama-skills/blob/dd5caaec3d5d50ad7fc0324da238119c6b7c3707/LICENSE); [usage066](ai-usage/066-market-clarity.md) |
 
 Browser configuration and adapter conventions reference the
 [pinned ATS v8 configuration](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/apps/ats/web/vite.config.ts)

@@ -428,3 +428,13 @@ Automatic review/result focus uses preventScroll. Explicit match selection and
 section shortcuts still navigate. Settlement review/result updates preserve the
 terms DOM instead of remounting it. Asset transitions are 200ms, disabled for
 reduced motion; no demo timeline or signing callback drives the illustration.
+
+## Desktop Market clarity — September 11, 2026
+
+Unavailable settlement snapshots leave NOVA, HBAR and required account
+unconfirmed. Cached outcomes keep their stale-data notice; terminal results
+lead historical restrictions. Matches gives filter-specific empty messages and
+a native Show all matches button; accepted orders link to individual matches
+using the same selection flow. Existing visual identity, amount typography,
+layout and signing guards remain. Desktop evidence and mobile deferral are
+recorded in [evidence055](docs/evidence/055-market-clarity-summary.md).

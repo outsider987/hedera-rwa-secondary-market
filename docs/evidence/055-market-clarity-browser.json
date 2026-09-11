@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-09-11T07:09:44.410Z",
+  "browser": "143.0.7499.169",
+  "scope": "Desktop emulation, isolated unsigned public fixtures; external traffic and local writes blocked. No wallet/chain acceptance.",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1440,
+      "unknownConsistent": true,
+      "terminalBeforeHistorical": true,
+      "filteredEmpty": true,
+      "staleSnapshotRetained": true,
+      "directMatchKeyboard": true,
+      "noOverflow": true,
+      "pageErrors": [],
+      "localWrites": []
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "unknownConsistent": true,
+      "terminalBeforeHistorical": true,
+      "filteredEmpty": true,
+      "staleSnapshotRetained": true,
+      "directMatchKeyboard": true,
+      "noOverflow": true,
+      "pageErrors": [],
+      "localWrites": []
+    }
+  ]
+}
