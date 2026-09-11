@@ -1,5 +1,15 @@
 # HoldBook handoff
 
+## Authorized desktop UX push — September 11, 2026
+
+`based_on_commit: 8b12834a41352dbbd54dae2d5095d2f87f5cc438` is the verified base.
+Victor said “推送吧”, authorizing a normal push of the completed desktop
+clarity and next-actions changes to origin/feat/t08-settlement. This supersedes
+the local-only publication boundary for fb63d31 and 8b12834 below. Existing
+Pages automation may run; push success alone does not verify deployment.
+See [usage068](ai-usage/068-authorized-ux-push.md). No application change,
+new signature or chain transaction. Next ticket and allowed files: none.
+
 ## Market next actions — September 11, 2026 · local only
 
 `based_on_commit: fb63d31055d23559cb13ea9c3f912fcf8fea5cc2` is the verified base.

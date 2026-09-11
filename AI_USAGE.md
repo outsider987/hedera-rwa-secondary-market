@@ -1,5 +1,6 @@
 # AI usage / attribution
 
+- [068 · Authorized desktop UX push](docs/ai-usage/068-authorized-ux-push.md)
 - [067 · Market next actions](docs/ai-usage/067-market-next-actions.md)
 - [066 · Desktop Market clarity](docs/ai-usage/066-market-clarity.md)
 - [065 · Market exchange and stable focus](docs/ai-usage/065-market-status.md)
