@@ -105,42 +105,42 @@
   },
   "swap": {
     "date": "September 8, 2026",
-    "source": "032-t05-manual.json",
-    "recordedAt": "2026-09-08T04:26:22.131Z",
+    "source": "038-t08-manual.json",
+    "recordedAt": "2026-09-08T14:01:53.333033+00:00",
     "lock": {
-      "block": "40246787",
-      "hash": "0xd9c4059eae45ea0e322d6d79fdfc53c55385464c69012f745a83dad982236396",
+      "block": "40258090",
+      "hash": "0x06458ff4b0600112ec0ba03977751e2651199d6d4a3e95eef53ed9b5b48e480b",
       "before": {
-        "sellerAvailable": "94",
-        "sellerHeld": "0",
-        "buyerAvailable": "6",
-        "buyerHeld": "0"
-      },
-      "after": {
-        "sellerAvailable": "84",
-        "sellerHeld": "10",
-        "buyerAvailable": "6",
-        "buyerHeld": "0"
-      }
-    },
-    "settlement": {
-      "block": "40247134",
-      "hash": "0x4713f2c140876484451fe3144e9c35339486c57abe37247bf78adb5e897cbf96",
-      "before": {
-        "sellerAvailable": "84",
-        "sellerHeld": "10",
-        "buyerAvailable": "6",
-        "buyerHeld": "0"
-      },
-      "after": {
         "sellerAvailable": "84",
         "sellerHeld": "0",
         "buyerAvailable": "16",
         "buyerHeld": "0"
+      },
+      "after": {
+        "sellerAvailable": "82",
+        "sellerHeld": "2",
+        "buyerAvailable": "16",
+        "buyerHeld": "0"
       }
     },
-    "verificationBlock": "40247352",
-    "principalTinybars": "100000000",
-    "feeTinybars": "33893288"
+    "settlement": {
+      "block": "40258355",
+      "hash": "0x9fdb7cb1d7bd665edcc3e3acc61b743e63a701cc0714107e76a72d2d6b064230",
+      "before": {
+        "sellerAvailable": "82",
+        "sellerHeld": "2",
+        "buyerAvailable": "16",
+        "buyerHeld": "0"
+      },
+      "after": {
+        "sellerAvailable": "82",
+        "sellerHeld": "0",
+        "buyerAvailable": "18",
+        "buyerHeld": "0"
+      }
+    },
+    "verificationBlock": "40258355",
+    "principalTinybars": "20000000",
+    "feeTinybars": "35439404"
   }
 }

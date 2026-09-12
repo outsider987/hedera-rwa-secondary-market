@@ -4,9 +4,10 @@ type HeaderProps = {
   connected: boolean;
   disabled: boolean;
   onWallet: () => void;
+  isDemo?: boolean;
 };
 
-export default function Header({ activeRole, connected, disabled, onWallet }: HeaderProps) {
+export default function Header({ activeRole, connected, disabled, onWallet, isDemo }: HeaderProps) {
   const role = connected ? activeRole : undefined;
   const colors: Record<string, string> = {
     Admin: 'hb:bg-purple-50 hb:text-purple-900',
@@ -21,7 +22,7 @@ export default function Header({ activeRole, connected, disabled, onWallet }: He
         <div className="header-identity">
         {role&&['Admin','Seller','Buyer'].includes(role)&&<span className="header-role-avatar"><PixelSprite kind={role.toLowerCase()}/></span>}
         <p className="network">Hedera Testnet · <span className={`hb:inline-block hb:rounded hb:px-2 hb:py-1 hb:font-semibold ${roleColors}`}>
-          {connected ? role ?? 'Unassigned account' : 'Not connected'}
+          {connected ? role ?? 'Unassigned account' : isDemo ? 'Recorded Demo · Wallet not required' : 'Not connected'}
         </span></p></div>
         <button type="button" className="secondary" disabled={disabled} aria-describedby="wallet-status" onClick={onWallet}>
           {connected ? 'Disconnect' : 'Connect'}

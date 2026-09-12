@@ -1,5 +1,6 @@
 # AI usage / attribution
 
+- [069 · Presentation narrative refinement and authorized push](docs/ai-usage/069-presentation-narrative.md)
 - [068 · Authorized desktop UX push](docs/ai-usage/068-authorized-ux-push.md)
 - [067 · Market next actions](docs/ai-usage/067-market-next-actions.md)
 - [066 · Desktop Market clarity](docs/ai-usage/066-market-clarity.md)
@@ -13,6 +14,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-12 | Presentation narrative refinement and authorized push | [069](docs/ai-usage/069-presentation-narrative.md) |
 | 2026-09-10 | Authorized push of completed presentation/Market work | [064](docs/ai-usage/064-authorized-push.md) |
 | 2026-09-10 | Market task-first layout | [063](docs/ai-usage/063-market-layout.md) |
 | 2026-09-10 | Market/Header pixel characters and stable navigation | [062](docs/ai-usage/062-market-characters.md) |

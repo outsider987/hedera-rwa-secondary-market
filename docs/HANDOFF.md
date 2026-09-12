@@ -1,5 +1,18 @@
 # HoldBook handoff
 
+## Presentation narrative refinement and authorized push — September 12, 2026
+
+`based_on_commit: 21572a8fe74f07e54c000f0ea58a69e3a6cbe702` is the verified base.
+Victor directed compressing the initial slides, removing Slide 3 ("From certificate to digital share")
+to prevent misinterpreting the illustrative artwork as tokenized ownership, restructuring Verify so 100 NOVA
+issuance follows the on-chain KYC grant, and unifying Match and Settle using the verified T08 normal case
+(Match 15-1: 2 NOVA @ 0.10 HBAR = 0.20 HBAR, Block 40258355) instead of the disconnected T05 swap.
+Header now shows "Recorded Demo · Wallet not required" when disconnected on Overview to reduce distraction.
+Victor explicitly said “推送吧”, authorizing a normal push of these completed changes to
+`origin/feat/t08-settlement`. See [usage069](ai-usage/069-presentation-narrative.md).
+128 application tests, 36 protobuf decoder tests, typecheck, and both builds passed.
+No new signature, chain mutation, or private key. Next ticket and allowed files: none until authorized.
+
 ## Authorized desktop UX push — September 11, 2026
 
 `based_on_commit: 8b12834a41352dbbd54dae2d5095d2f87f5cc438` is the verified base.

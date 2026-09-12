@@ -86,7 +86,7 @@ export default function App() {
   const deployment=tradeRecords.find(r=>r.action === 'deploy' && r.status === 'complete');
   return <>
     <a className="skip-link hb:z-20" href="#main">Skip to content</a>
-    <Header activeRole={activeRole} connected={connection.isConnected} disabled={busy || locked} onWallet={handleWallet}/>
+    <Header activeRole={activeRole} connected={connection.isConnected} disabled={busy || locked} onWallet={handleWallet} isDemo={demo || page === 'overview'}/>
     <main id="main" className={demo&&page==='overview'?'presentation-main':undefined}>
       <nav className="page-nav hb:flex-wrap hb:gap-2! hb:sm:gap-8!" aria-label="Main navigation">{['overview','market','activity','settings'].map(item=><a key={item} href={'#'+item} onClick={e=>{if(page===item){e.preventDefault();window.scrollTo(0,0);}}} aria-current={page === item ? 'page' : undefined}>{item[0].toUpperCase()+item.slice(1)}</a>)}</nav>
       <p id="wallet-status" role="status" aria-live="polite" className="wallet-status">{busy ? 'Wallet request pending. Complete or reject it in MetaMask.' : connection.isConnected ? ready ? 'Connected to Hedera Testnet.' : 'Wrong network. Switch to Hedera Testnet (296 / 0x128) in MetaMask.' : demo&&page==='overview'?'':'Wallet not connected. Connect when ready.'}</p>

@@ -12,8 +12,8 @@ export default function DemoExperience({visible,demo,onMode,onCases}:{visible:bo
  useEffect(()=>{if(!state.playing||!visible||!foreground||!demo)return;let last=performance.now();const timer=setInterval(()=>{const now=performance.now();dispatch({type:'tick',seconds:(now-last)/1000});last=now;},100);return()=>clearInterval(timer);},[state.playing,visible,foreground,demo]);
  useEffect(()=>{if(!demo||!visible)return;const listener=(e:KeyboardEvent)=>{const target=e.target instanceof Element?e.target:null;const action=demoKey(e,!!target?.closest('input,textarea,select,button,a,[contenteditable="true"],[role="button"],[role="slider"]'));if(!action)return;e.preventDefault();if(action==='exit')onMode(false);else dispatch({type:action});};window.addEventListener('keydown',listener);return()=>window.removeEventListener('keydown',listener);},[demo,visible,onMode]);
  const swap=cue.stage==='settle'||cue.stage==='prove';
- const label=cue.stage==='overview'?'NOVA · Nova Private Equity Common Shares':swap?'T05 · Recorded fixed swap · '+snapshot.swap.date:cue.stage==='match'?'Recorded T07 matching example · '+snapshot.matching.date:'T02 / T03 · Recorded asset setup · '+snapshot.tokenization.date;
- const report=swap?'032-t05-manual':cue.stage==='match'?'035-t07-manual':cue.stage==='tokenize'&&cue.step<3?'024-vc-nova-manual':'027-t03-manual';
+ const label=cue.stage==='overview'?'NOVA · Nova Private Equity Common Shares':swap?'Recorded settlement · '+snapshot.swap.date:cue.stage==='match'?'Recorded matching example · '+snapshot.matching.date:'Recorded asset setup · '+snapshot.tokenization.date;
+ const report=swap?'038-t08-manual':cue.stage==='match'?'035-t07-manual':cue.stage==='tokenize'||cue.step<3?'024-vc-nova-manual':'027-t03-manual';
  return <section className={'demo-experience'+(demo?' demo-mode':'')} aria-label="HoldBook recorded demo" data-stage={cue.stage} data-cue={state.index}>
   <div className="demo-topline"><span>Fictional equity · Synthetic KYC · Hedera Testnet</span>{demo&&<button onClick={()=>onMode(false)}>Exit Demo</button>}</div>
   <div className={'demo-stage'+(cue.stage==='prove'?' is-proof':'')}>

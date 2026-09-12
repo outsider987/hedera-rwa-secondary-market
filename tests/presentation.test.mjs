@@ -5,10 +5,11 @@ import {cues,demoReducer,initialDemo,demoMode,demoURL,demoKey} from '../src/pres
 import {depth,updateMatches,emptySnapshot} from '../src/presentation/marketView.ts';
 const json=p=>JSON.parse(readFileSync(p));
 test('demo cues, replay, timed pause/resume and manual interruption preserve exact position',()=>{
- let s=demoReducer(initialDemo,{type:'play'});s=demoReducer(s,{type:'tick',seconds:49.5});assert.equal(cues[s.index].title,'Credential verified');
+ let s=demoReducer(initialDemo,{type:'play'});s=demoReducer(s,{type:'tick',seconds:44.5});assert.equal(cues[s.index].title,"Verified doesn't mean eligible yet.");
  s=demoReducer(s,{type:'pause'});assert.deepEqual(demoReducer(s,{type:'tick',seconds:100}),s);
- s=demoReducer(s,{type:'resume'});s=demoReducer(s,{type:'tick',seconds:5.5});assert.equal(cues[s.index].title,'KYC grant recorded');
- s=demoReducer(s,{type:'next'});assert.equal(s.playing,false);assert.equal(s.elapsed,60);
+ s=demoReducer(s,{type:'resume'});s=demoReducer(s,{type:'tick',seconds:6});assert.equal(cues[s.index].title,'Seller eligible for NOVA');
+ s=demoReducer(s,{type:'next'});assert.equal(s.playing,false);assert.equal(s.elapsed,55);assert.equal(cues[s.index].title,'100 NOVA issued');
+ s=demoReducer(s,{type:'next'});assert.equal(s.playing,false);assert.equal(s.elapsed,60);assert.equal(cues[s.index].title,'Seller places two asks.');
  s=demoReducer(s,{type:'next'});s=demoReducer(s,{type:'replay'});assert.equal(s.elapsed,60);
  s=demoReducer(s,{type:'previous'});assert.equal(s.elapsed,55);
  s=demoReducer(s,{type:'play'});s=demoReducer(s,{type:'tick',seconds:180});assert.equal(s.index,cues.length-1);assert.equal(s.playing,false);
@@ -35,13 +36,16 @@ test('server match snapshots suppress initial, duplicate, reconnect and hidden r
  s=updateMatches(s,[a,b,c,{id:'3-1'}],true,true);assert.deepEqual(s.fresh,[]);
  s=updateMatches(s,[],true,false);s=updateMatches(s,[a,b,c,{id:'4-1'}],true,true);assert.deepEqual(s.fresh,[]);
 });
-test('presentation snapshot matches T02/T03/T07/T05 original public evidence, without T08 balances',()=>{
+test('presentation snapshot matches T02/T03/T07/T08 original public evidence',()=>{
  const creation=json('docs/evidence/024-vc-nova-manual.json').verifiedNova;
- const p=json('src/data/presentation.json'),t=json('docs/evidence/032-t05-manual.json'),m=json('docs/evidence/035-t07-manual.json').checkpoints[2].exports[2],issue=json('docs/evidence/027-t03-manual.json').operations;
+ const p=json('src/data/presentation.json'),t=json('docs/evidence/038-t08-manual.json').cases[0],m=json('docs/evidence/035-t07-manual.json').checkpoints[2].exports[2],issue=json('docs/evidence/027-t03-manual.json').operations;
  assert.equal(p.tokenization.creationHash,creation.transactionHash);assert.equal(p.tokenization.initialSupply,creation.comparisons.find(c=>c.field==='Total supply').actual);assert.equal(p.tokenization.issuanceHash,issue.find(o=>o.action==='issue').transactionHash);assert.equal(p.tokenization.kycHash,issue.find(o=>o.action==='seller-kyc').transactionHash);
  assert.deepEqual(p.matching.matches,m.matches);assert.deepEqual(p.matching.orders,m.orders.filter(o=>['1','4','5'].includes(o.sequence)));
  assert.deepEqual(p.matching.matches.map(m=>[m.quantity,m.price]),[['4','9000000'],['2','10000000']]);assert.equal(p.matching.orders.find(o=>o.sequence==='4').remaining,'3');
  assert.equal(p.tokenization.issuanceBlock,issue.find(o=>o.action==='issue').after.block);assert.equal(p.tokenization.issued,issue.find(o=>o.action==='issue').after.supply);assert.equal(p.tokenization.kycBlock,issue.find(o=>o.action==='seller-kyc').after.block);
- for(const [name,key] of [['lock','lock'],['settlement','settlement']]){assert.equal(p.swap[name].hash,t[key].transactionHash);assert.equal(p.swap[name].block,t[key].after.block);for(const when of ['before','after'])assert.deepEqual(p.swap[name][when],{sellerAvailable:t[key][when].sellerBalance,sellerHeld:t[key][when].sellerHeld,buyerAvailable:t[key][when].buyerBalance,buyerHeld:t[key][when].buyerHeld});}
- assert.equal(p.swap.verificationBlock,t.finalAcceptance.finalBlock);assert.notEqual(p.swap.verificationBlock,p.swap.settlement.block);assert.equal(p.swap.principalTinybars,t.settlement.payment.principalTinybars);assert.equal(p.swap.feeTinybars,t.settlement.payment.feeTinybars);
+ assert.equal(p.swap.lock.hash,t.evidence[0].hash);assert.equal(p.swap.lock.block,t.evidence[0].block);
+ assert.deepEqual(p.swap.lock.before,t.evidence[0].before);assert.deepEqual(p.swap.lock.after,t.evidence[0].after);
+ assert.equal(p.swap.settlement.hash,t.evidence[2].hash);assert.equal(p.swap.settlement.block,t.evidence[2].block);
+ assert.deepEqual(p.swap.settlement.before,t.evidence[2].before);assert.deepEqual(p.swap.settlement.after,t.evidence[2].after);
+ assert.equal(p.swap.principalTinybars,t.evidence[2].principalTinybars);assert.equal(p.swap.feeTinybars,t.evidence[2].feeTinybars);
 });
