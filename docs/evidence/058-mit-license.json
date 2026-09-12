@@ -1,0 +1,176 @@
+{
+  "observedAt": "2026-09-12T07:42:50.865Z",
+  "based_on_commit": "1497e62a70d503b34d30d00866678c0cf2f245c2",
+  "decision": "MIT",
+  "originalSoliditySpdxOnly": [
+    "contracts/NovaSettlement.sol",
+    "contracts/NovaHbarSwap.sol",
+    "contracts/test/NovaSettlement.t.sol",
+    "contracts/test/NovaHbarSwap.t.sol"
+  ],
+  "rootPackageAndLockLicense": "MIT",
+  "dependencyResolutionUnchanged": true,
+  "artifacts": [
+    {
+      "file": "src/data/settlement-artifact.json",
+      "source": "contracts/NovaSettlement.sol",
+      "previousSourceSha256": "db859ee4d0dbb5c99223d0c0e8ae50fbc6ee55cb18b2df3b3e4cac8d9b420cb5",
+      "sourceSha256": "b09f4c29f4f6dc8708382690d42ccb47eeb357bb9793982ffbce6b2b28ad849a",
+      "onlyChangedField": "sourceSha256",
+      "abiAndBytecodeAndOtherFieldsIdentical": true,
+      "creationBytecodeSha256": "8318d0c5fe1615f6a4d83bdeb1516f012e20a8218cc52208902c73042df57c36",
+      "runtimeBytecodeSha256": "5058ef85a4b0dd2098125fb4cb769d4a5669c2c160e2e7640997fd7e335c2ae6"
+    },
+    {
+      "file": "engine/internal/service/data/settlement-artifact.json",
+      "source": "contracts/NovaSettlement.sol",
+      "previousSourceSha256": "db859ee4d0dbb5c99223d0c0e8ae50fbc6ee55cb18b2df3b3e4cac8d9b420cb5",
+      "sourceSha256": "b09f4c29f4f6dc8708382690d42ccb47eeb357bb9793982ffbce6b2b28ad849a",
+      "onlyChangedField": "sourceSha256",
+      "abiAndBytecodeAndOtherFieldsIdentical": true,
+      "creationBytecodeSha256": "8318d0c5fe1615f6a4d83bdeb1516f012e20a8218cc52208902c73042df57c36",
+      "runtimeBytecodeSha256": "5058ef85a4b0dd2098125fb4cb769d4a5669c2c160e2e7640997fd7e335c2ae6"
+    },
+    {
+      "file": "src/data/swap-artifact.json",
+      "source": "contracts/NovaHbarSwap.sol",
+      "previousSourceSha256": "614ce5bd5216eb71378d391cc28ebdd23e5c14d3d371183fff97def9f1c720f5",
+      "sourceSha256": "b27d51d3bb431f0d70dd60426b495ed06d4bd4d80d091bdde581230aa0a839d3",
+      "onlyChangedField": "sourceSha256",
+      "abiAndBytecodeAndOtherFieldsIdentical": true,
+      "creationBytecodeSha256": "330515950a091647fd447ebd95045c8607d79178ee0e8937e7425b41554d1a0b",
+      "runtimeBytecodeSha256": "dd506268f1ad8bb53f5a5de69602cc375859c1c185e9f17978d75371c7ad0bcf"
+    }
+  ],
+  "thirdPartyNoticesAndEarlierVerificationEvidenceUnchanged": true,
+  "licenseSha256": "daa01dced024ed28a1341f6c6d365148fdbcb6c91d6789d5e123154096628cde",
+  "chainActions": 0,
+  "validation": {
+    "npmCi": "passed; existing warnings retained",
+    "applicationTests": {
+      "passed": 132,
+      "failed": 0
+    },
+    "protobufTests": {
+      "passed": 36,
+      "failed": 0
+    },
+    "typecheck": "passed",
+    "build": "passed",
+    "buildShowcase": "passed",
+    "swapArtifactCheck": "passed",
+    "settlementArtifactCheck": "passed",
+    "foundry": {
+      "passed": 31,
+      "failed": 0,
+      "skipped": 0
+    },
+    "localDocumentLinks": {
+      "checked": 61,
+      "missing": 0
+    },
+    "gitDiffCheck": "passed",
+    "dependencyAudit": {
+      "total": 62,
+      "low": 21,
+      "moderate": 25,
+      "high": 16,
+      "newFixOrUpgrade": false
+    }
+  },
+  "readOnlyContractChecks": [
+    {
+      "name": "NovaSettlement",
+      "address": "0xa90da61f67c37473f38000e70623a77ad277304c",
+      "chainId": 296,
+      "sourceHashesVerified": true,
+      "runtimeMatchWithDeclaredImmutables": true,
+      "submitted": false,
+      "lookupAfter": {
+        "status": 200,
+        "body": {
+          "matchId": "49768877",
+          "creationMatch": "match",
+          "runtimeMatch": "match",
+          "verifiedAt": "2026-09-12T07:11:01Z",
+          "match": "match",
+          "chainId": "296",
+          "address": "0xA90dA61f67C37473f38000E70623a77Ad277304c"
+        }
+      }
+    },
+    {
+      "name": "NovaHbarSwap",
+      "address": "0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158",
+      "chainId": 296,
+      "sourceHashesVerified": true,
+      "runtimeMatchWithDeclaredImmutables": true,
+      "submitted": false,
+      "lookupAfter": {
+        "status": 200,
+        "body": {
+          "matchId": "49768888",
+          "creationMatch": "match",
+          "runtimeMatch": "match",
+          "verifiedAt": "2026-09-12T07:11:02Z",
+          "match": "match",
+          "chainId": "296",
+          "address": "0xf6FC50413cD10D0E82A2F3c30b5BF6878A45f158"
+        }
+      }
+    }
+  ],
+  "localBrowser": {
+    "recordedAt": "2026-09-12T07:45:43.432Z",
+    "kind": "Isolated dev/preview; public API GET snapshots replayed locally, no signing",
+    "results": [
+      {
+        "base": "http://127.0.0.1:5174/",
+        "width": 1440,
+        "tabs": true,
+        "noOverflow": true,
+        "imagesDecoded": true,
+        "pageErrors": [],
+        "prohibitedWrites": [],
+        "walletConnected": false
+      },
+      {
+        "base": "http://127.0.0.1:5174/",
+        "width": 390,
+        "tabs": true,
+        "noOverflow": true,
+        "imagesDecoded": true,
+        "pageErrors": [],
+        "prohibitedWrites": [],
+        "walletConnected": false
+      },
+      {
+        "base": "http://127.0.0.1:4173/",
+        "width": 1440,
+        "tabs": true,
+        "noOverflow": true,
+        "imagesDecoded": true,
+        "pageErrors": [],
+        "prohibitedWrites": [],
+        "walletConnected": false
+      },
+      {
+        "base": "http://127.0.0.1:4173/",
+        "width": 390,
+        "tabs": true,
+        "noOverflow": true,
+        "imagesDecoded": true,
+        "pageErrors": [],
+        "prohibitedWrites": [],
+        "walletConnected": false
+      },
+      {
+        "base": "http://127.0.0.1:4173/showcase/",
+        "status": 200,
+        "fourCases": true,
+        "noWallet": true
+      }
+    ]
+  },
+  "publicationRecord": "Normal main publication under existing user authorization; actual CI/Pages and license-detection outcomes are reported by GitHub Actions and the user-facing completion checklist, not predicted here."
+}

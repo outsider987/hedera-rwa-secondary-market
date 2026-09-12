@@ -1,5 +1,7 @@
 # AI usage / attribution
 
+- [074 · Victor-selected MIT licensing and preserved source-verification history](docs/ai-usage/074-mit-license.md)
+
 - [073 · Submission readiness, source verification and authorized main integration](docs/ai-usage/073-submission-readiness.md)
 
 - [072 · Restore Header participant accounts and NOVA balances](docs/ai-usage/072-restore-header-accounts.md)

@@ -1,5 +1,25 @@
 # HoldBook handoff
 
+## MIT licensing — September 12, 2026
+
+Verified base `1497e62a70d503b34d30d00866678c0cf2f245c2`, clean main.
+Victor explicitly selected `MIT` after commercial/closed-source reuse was
+explained. [Plan019](plans/019-mit-license.md) activates only licensing metadata,
+original contract SPDX headers, corresponding generated source hashes and
+current documents. No dependency, application behavior or chain-state change.
+Older undecided-license entries below are historical and superseded by this
+decision; third-party licenses and old source-verifier metadata remain intact.
+MIT is applied to original software and associated documents. npm ci, 132 app +
+36 protobuf + 31 contract tests, typecheck, both builds/artifact checks and five
+dev/preview cases passed. Three generated artifacts differ only in sourceSha256;
+deployed-runtime readback and existing verification remain successful, with no
+new upload. See [usage074](ai-usage/074-mit-license.md),
+[evidence058](evidence/058-mit-license.md) and [scope](LICENSING.md).
+Normal publication follows existing submission authorization; actual run/license
+results are in GitHub Actions and the user-facing completion checklist. No wallet,
+contract deployment, backend/API restart or ETHGlobal final submission. Next
+implementation ticket and allowed files: none until separately requested.
+
 ## Submission readiness completed — September 12, 2026
 
 `based_on_commit: 7f5eb8ecd97aebd8a5a90edd27c7d660cd38b82f` is verified.

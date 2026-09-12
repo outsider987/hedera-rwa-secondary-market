@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity 0.8.36;
 
 import {NovaHbarSwap, IHoldTypes, ThirdPartyType} from "../NovaHbarSwap.sol";

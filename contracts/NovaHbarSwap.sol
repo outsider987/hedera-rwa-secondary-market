@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity 0.8.36;
 
 // Published ATS 8.0.0 interfaces; upstream Apache-2.0 notices remain in the package.

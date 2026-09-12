@@ -1,5 +1,10 @@
 # Deployed source verification
 
+Subsequent license update, September 12, 2026: Victor selected MIT for the
+project-original software. The current contract SPDX headers follow that choice;
+the original verifier metadata below is retained as a historical snapshot.
+See [LICENSING](LICENSING.md) and [artifact equivalence checks](evidence/058-mit-license.md).
+
 September 12, 2026. This page distinguishes public source matching from the
 application's own runtime/receipt checks. It is not a security audit or legal
 license grant, and does not deploy or transact with a contract.

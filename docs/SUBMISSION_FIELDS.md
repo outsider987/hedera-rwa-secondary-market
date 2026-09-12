@@ -59,4 +59,8 @@ ATS provides useful building blocks for equity eligibility and Holds. Browser in
 
 Victor directed the project, chose scope and design decisions, reviewed observed results and manually approved all accepted wallet actions. AI tools assisted planning, implementation, debugging, tests, documentation and the disclosed presentation artwork. Exact work items and source attribution are indexed in [AI_USAGE](../AI_USAGE.md).
 
-The demo uses Victor's recordings and speech. AI-assisted transcription and editing helped create English subtitles, select clips and mark accelerated silent waits; FFmpeg produced the final edit. There is no AI voiceover. Details are in [VIDEO](VIDEO.md). The final license, event-track eligibility, team details, upload preview and submission confirmation require human review.
+The demo uses Victor's recordings and speech. AI-assisted transcription and editing helped create English subtitles, select clips and mark accelerated silent waits; FFmpeg produced the final edit. There is no AI voiceover. Details are in [VIDEO](VIDEO.md). Event-track eligibility, team details, upload preview and submission confirmation require human review.
+
+## License
+
+MIT for project-original software and associated documentation, selected by Victor on September 12, 2026. Third-party licenses and notices remain applicable. See [LICENSE](../LICENSE) and [scope](LICENSING.md); this does not grant additional rights in the demo footage, voice or likeness.

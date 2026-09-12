@@ -75,4 +75,4 @@ Fictional NOVA, synthetic KYC and Testnet only: no real identity checks, securit
 
 [AI usage](AI_USAGE.md), [attribution](docs/ATTRIBUTION.md), [actual planning inputs](docs/prompts/001-planning-record.md), and [video provenance](docs/VIDEO.md) distinguish AI assistance from human direction and manual approvals. Victor's September 12 clarification about earlier GPT topic discussion is recorded in [readiness evidence](docs/evidence/057-submission-readiness.md).
 
-No project-wide reuse license has been selected. Public source availability is not itself a license or eligibility determination. Maintainers: [AGENTS](AGENTS.md), [HANDOFF](docs/HANDOFF.md).
+Project-original software and associated documentation use the [MIT License](LICENSE), selected by Victor on September 12, 2026. Third-party terms and notices remain unchanged; see [licensing scope and historical contract metadata](docs/LICENSING.md). Licensing is not event eligibility or a security audit. Maintainers: [AGENTS](AGENTS.md), [HANDOFF](docs/HANDOFF.md).

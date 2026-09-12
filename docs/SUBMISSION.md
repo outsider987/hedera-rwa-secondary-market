@@ -40,6 +40,6 @@ Public deployment: GitHub Pages, Go on Cloud Run, PostgreSQL on Neon. This is a 
 - The English video is prepared, but platform upload/preview is unconfirmed. Labelled silent waits are sped up; speech is normal. Organizer acceptance of this editing choice is not asserted.
 - [AI usage](../AI_USAGE.md), [attribution](ATTRIBUTION.md), actual specs/prompts and [video disclosure](VIDEO.md) are retained. All accepted wallet actions were manually approved by Victor.
 - Fictional NOVA, synthetic credentials and Testnet 296 only; no real KYC, legal compliance, mainnet or production-safety claim. Existing dependency, peer and native-BBS limitations remain.
-- No project-wide license has been selected.
+- Project-original software and associated documentation are [MIT-licensed](../LICENSE); third-party terms and historical verification metadata are explained in [LICENSING](LICENSING.md).
 - Victor clarified on September 12 that there was no pre-event draft: he discussed topics with GPT and generated the draft later. This is his dated clarification, not an independent audit of the complete earlier chat or an organizer ruling. Prior records remain traceable.
 - The authenticated ETHGlobal form, team/prize choices, video upload and final receipt have not been observed. This ticket does not submit the project to ETHGlobal.

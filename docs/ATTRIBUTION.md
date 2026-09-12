@@ -1,5 +1,12 @@
 # Third-party sources / attribution
 
+September 12 MIT decision: Victor explicitly selected the [MIT License](../LICENSE)
+for project-original software and associated documentation. [Usage074](ai-usage/074-mit-license.md)
+and [LICENSING](LICENSING.md) record scope, SPDX-only contract updates and retention
+of earlier verifier metadata. ATS/other third-party licenses, required notices,
+known upstream license gaps and original dated entries below are unchanged.
+This supersedes earlier license-undecided descriptions, not upstream terms.
+
 September 12 submission update: [work item073](ai-usage/073-submission-readiness.md)
 records corrected judge documentation and source-verification tooling. It uses
 the existing ethers dependency for source Keccak hashes and the official
