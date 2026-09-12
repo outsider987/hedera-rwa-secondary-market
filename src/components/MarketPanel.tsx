@@ -23,6 +23,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
  function syncSettlementRecovery(){try{const saved=loadSettlement();setRecoveryMatch(saved?.attempted&&!saved.rejected&&!['verified','reverted'].includes(saved.operation.status)?saved.operation.settlementId||'setup':undefined);}catch{setRecoveryMatch('setup');}}
  const [intent,setIntent]=useState<Intent>(),[storageProblem,setStorageProblem]=useState(''),[problem,setProblem]=useState('');
  const [side,setSide]=useState<Side>('Sell'),[quantity,setQuantity]=useState(''),[price,setPrice]=useState('');
+ const [balanceOpen,setBalanceOpen]=useState(true);
  const [review,setReview]=useState<Review>(),[approved,setApproved]=useState(false),[working,setWorking]=useState(false);
  const [filter,setFilter]=useState<'Open'|'All'>('Open'),[dismissed,setDismissed]=useState<string>();
  const ticketHeading=useRef<HTMLHeadingElement>(null),quantityInput=useRef<HTMLInputElement>(null);
@@ -104,7 +105,7 @@ export default function MarketPanel({visible,activity=false,roles,session,active
     {(problem||storageProblem)&&<p role="alert">{problem||storageProblem}</p>}
     {intent&&<details className={pending(intent)?'pending-notice':'market-request'} open={pending(intent)||intent.record.status==='rejected'||intent.record.status==='expired'}><summary>Request {intent.record.status} · {intent.record.prepared.owner===accounts.Seller.address?'Seller':'Buyer'}</summary><p>{intent.record.prepared.action==='Cancel'?'Cancel order '+intent.record.prepared.orderId:intent.record.prepared.side+' '+intent.record.prepared.quantity+' NOVA @ '+hbar(intent.record.prepared.price)+' HBAR'}</p><p className="address">{intent.record.prepared.requestId}</p>{pending(intent)&&<p>Query only until the server confirms the result or expiry. No automatic resubmission. Submission deadline: {new Date(Number(intent.record.prepared.deadline)*1000).toLocaleTimeString()}.</p>}<button className="secondary" disabled={working} onClick={recover}>Query original request</button></details>}
    </section>}
-   <details className="market-balance-details"><summary>{role==='Not connected'?'Your NOVA balance':balance?`Available ${balance.available} · Held ${balance.held} NOVA${balanceQuery.isError?' · Update unavailable':balanceQuery.isFetching?' · Refreshing…':''}`:'NOVA balance · '+(balanceQuery.isFetching?'Loading…':balanceQuery.isError?'Unavailable':'Not read')}</summary>
+   <details className="market-balance-details" open={balanceOpen} onToggle={e=>setBalanceOpen(e.currentTarget.open)}><summary>{role==='Not connected'?'Your NOVA balance':balance?`Available ${balance.available} · Held ${balance.held} NOVA${balanceQuery.isError?' · Update unavailable':balanceQuery.isFetching?' · Refreshing…':''}`:'NOVA balance · '+(balanceQuery.isFetching?'Loading…':balanceQuery.isError?'Unavailable':'Not read')}</summary>
   <AccountBalance role={role} balance={balance} loading={balanceQuery.isFetching} error={balanceQuery.isError} locked={locked} onRefresh={()=>void balanceQuery.refetch()}/>
    </details>
    </div><div className="market-book-column">

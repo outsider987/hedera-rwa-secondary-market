@@ -1,5 +1,6 @@
 # AI usage / attribution
 
+- [072 · Restore Header participant accounts and NOVA balances](docs/ai-usage/072-restore-header-accounts.md)
 - [071 · Revert Header participant accounts and NOVA balances](docs/ai-usage/071-revert-header-accounts.md)
 - [070 · Header participant accounts and NOVA balances](docs/ai-usage/070-header-accounts-nova.md)
 - [069 · Presentation narrative refinement and authorized push](docs/ai-usage/069-presentation-narrative.md)
@@ -16,6 +17,7 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-12 | Restore Header participant accounts and NOVA balances | [072](docs/ai-usage/072-restore-header-accounts.md) |
 | 2026-09-12 | Revert Header participant accounts and NOVA balances | [071](docs/ai-usage/071-revert-header-accounts.md) |
 | 2026-09-12 | Header participant accounts and NOVA balances | [070](docs/ai-usage/070-header-accounts-nova.md) |
 | 2026-09-12 | Presentation narrative refinement and authorized push | [069](docs/ai-usage/069-presentation-narrative.md) |

@@ -1,13 +1,28 @@
 # HoldBook handoff
 
-## Revert Header participant accounts and NOVA balances — September 12, 2026
+## Restore Header participant accounts and NOVA balances — September 12, 2026
 
-`based_on_commit: 18dd807b42820877cd3b322c5ba35e26b91a4886` is the verified base.
-Victor requested reverting the previous Header accounts and balances push (`18dd807`).
-The working tree was reverted back to `2c73a31bfdfaa207865c69997e3cb484c243bc61`.
-Historical AI usage record in `docs/ai-usage/070-header-accounts-nova.md` is preserved, and the reversion
-is documented in `docs/ai-usage/071-revert-header-accounts.md`.
-128 application tests, 36 protobuf decoder tests, typecheck, and both builds passed.
+`based_on_commit: 2f3190faa1b794dee17fae16e6ffadc00fff0250` is the verified base.
+Victor requested re-applying the Header accounts and NOVA balance display feature.
+See [usage072](ai-usage/072-restore-header-accounts.md).
+- Restored Header pills displaying all 3 accounts: Admin · 0 NOVA, Seller · 79 NOVA, Buyer · 21 NOVA.
+- Active account highlighted when connected; real-time Testnet RPC polling with graceful fallback.
+- Market balance details panel on `/#market` remains open by default with toggle support.
+129 application tests, 36 protobuf decoder tests, typecheck, and production build passed.
+No new signature, chain mutation, or private key. Next ticket and allowed files: none until authorized.
+
+## Header participant accounts and NOVA balances — September 12, 2026
+
+`based_on_commit: 2c73a31bfdfaa207865c69997e3cb484c243bc61` is the verified base.
+Victor directed displaying the 3 system participant accounts (Admin, Seller, Buyer) and their NOVA balances
+prominently on the Header, highlighting the currently connected account, and ensuring NOVA balances are
+immediately visible on the Market page.
+See [usage070](ai-usage/070-header-accounts-nova.md).
+- Header now displays all 3 accounts: Admin · 0 NOVA, Seller · 79 NOVA, Buyer · 21 NOVA.
+- When connected, the active account pill is highlighted with an active border ring, status indicator, and `aria-current="true"`.
+- Real-time balances are queried from Hedera Testnet RPC with fallback to documented offline balances.
+- Market balance details panel on `/#market` is now open by default with manual collapse/toggle support.
+129 application tests, 36 protobuf decoder tests, typecheck, and production build passed.
 No new signature, chain mutation, or private key. Next ticket and allowed files: none until authorized.
 
 ## Presentation narrative refinement and authorized push — September 12, 2026
