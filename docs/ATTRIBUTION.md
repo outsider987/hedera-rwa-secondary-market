@@ -1,5 +1,18 @@
 # Third-party sources / attribution
 
+September 12 submission update: [work item073](ai-usage/073-submission-readiness.md)
+records corrected judge documentation and source-verification tooling. It uses
+the existing ethers dependency for source Keccak hashes and the official
+[Sourcify API](https://docs.sourcify.dev/docs/api/), its official
+[similarity verification](https://docs.sourcify.dev/docs/similarity-verification/), and
+[Hedera verification documentation](https://docs.hedera.com/api-reference/verify-contracts/verify-contract-using-solidity-metadatajson).
+Only declared existing Solidity sources and compiler metadata are submitted;
+original project/ATS/OpenZeppelin notices are preserved, with no new dependency
+or license choice. [VIDEO](VIDEO.md) discloses local Whisper-assisted transcription
+and FFmpeg editing of Victor's footage, with original human speech and no AI voice.
+Victor's dated clarification about the earlier GPT discussion/draft wording is
+in [evidence057](evidence/057-submission-readiness.md); older entries remain history.
+
 Current uses include wagmi wallet state, viem/SDK deployment and config reads,
 manual Terminal3 Seller VC verification, and guarded NOVA creation/readback.
 The earlier stopped trial is historical; the bounded original-schema repair is

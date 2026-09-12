@@ -1,10 +1,10 @@
 # HoldBook · flow and architecture
 
-T07 manual acceptance passed with documented recovery: 12 accepted commands, nine orders, five unfunded matches and zero remaining; final reload/API restart preserve state. [Actual evidence](evidence/035-t07-manual.md). T08 settlement remains deferred.
+Current system, September 12, 2026: signed price-time matching and per-match ATS Hold / atomic HBAR settlement are implemented. All four T08 manual cases and reload/restart checks passed. GitHub Pages serves the frontend, Cloud Run the Go API, and Neon PostgreSQL. See [T08 evidence](evidence/038-t08-manual.md) and [deployment](ai-usage/057-live-deployment.md); this is not a production-security claim.
 
-[Current T07 market](#t06t07-local-unfunded-market) · [Demo script](DEMO.md) · [T04 acceptance](evidence/029-t04-manual.md) · [T05 acceptance](evidence/032-t05-manual.md)
+[Current component/sequence diagrams](#component-and-interaction-diagrams) · [Demo guide](DEMO.md) · [Source verification](SOURCE_VERIFICATION.md)
 
-## Recorded flow
+## Historical T04 recorded flow
 
 NOVA **0.0.10402368**, Hedera Testnet **296**. Seller owns the shares;
 Admin is escrow and synthetic KYC issuer. This is the completed run, not a
@@ -84,9 +84,9 @@ flowchart TB
     flow -->|Account mapping and transaction identity|mirror
 ```
 
-The application runs in the browser; RPC and Mirror are external services.
-There is no application server, database or order book. The payment leg lives
-only in the fixed swap contract. Solidity values use tinybars; wallet transaction
+In this historical T05 slice the application ran in the browser, with external
+RPC/Mirror and no application server, database or order book. The current
+Go/PostgreSQL/T08 system is described below. Solidity values use tinybars; wallet transaction
 values use weibars (1 HBAR = 10^8 tinybars = 10^18 weibars).
 
 ## Where it lives
@@ -149,10 +149,11 @@ Unknown results are queried by original ID, without a retry POST. Polling runs
 only on the visible Market tab; stale data stays labelled offline and disables
 new submissions. The database is authoritative; browser storage is a recovery aid.
 
-This path has no signer, chain transaction, payment or ATS Hold. No funds are
-reserved and every match is **Matched · Not settled**. T08 needs separately
-approved funding, eligibility, contract and settlement-race design. The historical
-T05 contract and records are not inputs to new matches.
+Matching itself has no chain transaction, payment or ATS Hold and reserves no
+funds. Eligible matches now proceed to the implemented T08 flow below. Historical
+T05 records are not inputs to new matches. The loopback/ticker setup above is the
+original local T07 configuration; Cloud Run expires stale orders during store
+requests instead of relying on a continuously running background ticker.
 
 
 ## T08 — matched settlement (four manual cases verified)

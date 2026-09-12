@@ -1,5 +1,7 @@
 # AI usage / attribution
 
+- [073 · Submission readiness, source verification and authorized main integration](docs/ai-usage/073-submission-readiness.md)
+
 - [072 · Restore Header participant accounts and NOVA balances](docs/ai-usage/072-restore-header-accounts.md)
 - [071 · Revert Header participant accounts and NOVA balances](docs/ai-usage/071-revert-header-accounts.md)
 - [070 · Header participant accounts and NOVA balances](docs/ai-usage/070-header-accounts-nova.md)
