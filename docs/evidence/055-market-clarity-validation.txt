@@ -1,0 +1,472 @@
+npm ci (exit 0)
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated npmlog@5.0.1: This package is no longer supported.
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated glob@8.1.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated are-we-there-yet@2.0.0: This package is no longer supported.
+npm warn deprecated gauge@3.0.2: This package is no longer supported.
+npm warn deprecated multibase@4.0.6: This module has been superseded by the multiformats module
+npm warn deprecated multicodec@3.2.1: This module has been superseded by the multiformats module
+npm warn deprecated @motionone/vue@10.16.4: Motion One for Vue is deprecated. Use Oku Motion instead https://oku-ui.com/motion
+npm warn deprecated crypto-js@4.2.0: Active development of CryptoJS has been discontinued. This library is no longer maintained.
+npm warn deprecated @walletconnect/modal@2.7.0: Please follow the migration guide on https://docs.reown.com/appkit/upgrade/wcm
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@9.0.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@9.0.1: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@9.0.1: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated @safe-global/safe-gateway-typescript-sdk@3.23.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated @walletconnect/sign-client@2.19.2: Reliability and performance improvements. See: https://github.com/WalletConnect/walletconnect-monorepo/releases
+
+> holdbook@0.0.0 postinstall
+> node scripts/rebuild-proto.mjs && node scripts/patch-ats-readonly.mjs && node scripts/patch-ats-wallet.mjs
+
+{"compiler":"protobufjs-cli 1.3.3","runtime":"7.6.6","importMappingCount":428,"packages":[{"name":"@hashgraph/proto","namespace":"hashgraph_2_18_5","inputs":125,"loaded":135},{"name":"@hiero-ledger/proto","namespace":"hiero_2_25_0","inputs":174,"loaded":175}],"outputs":[{"path":"node_modules/@hashgraph/proto/src/proto.js","sha256":"cc0f3a72063f5193e37cd34282f8977aa67b01b996eb0c93f7df0bd619699591","bytes":3018373},{"path":"node_modules/@hashgraph/proto/lib/proto.js","sha256":"e78ae8d2888f3f2b3355a0a690c2fd7c4189e576c5fd27291dc013405e4ec90f","bytes":3018252},{"path":"node_modules/@hiero-ledger/proto/src/proto.js","sha256":"e0ca4ab92d3d21037507003b94b055328ae42cc213c075d6dc8fdb026cb8b3b8","bytes":4128621},{"path":"node_modules/@hiero-ledger/proto/lib/proto.js","sha256":"1e87d6c1ef5ca6443171b67d080af121e936d2558801c764d508af6021de4b7a","bytes":4128474}]}
+{"version":"8.0.0","checked":12,"changed":12}
+{"version":"8.0.0","checked":16,"changed":16}
+
+added 1305 packages, and audited 1306 packages in 2m
+
+204 packages are looking for funding
+  run `npm fund` for details
+
+62 vulnerabilities (21 low, 25 moderate, 16 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+npm warn allow-scripts 4 packages have install scripts not yet covered by allowScripts:
+npm warn allow-scripts   @reown/appkit@1.8.19 (postinstall: node scripts/appkit-version-check.js)
+npm warn allow-scripts   keccak@3.0.4 (install: node-gyp-build || exit 0)
+npm warn allow-scripts   protobufjs@7.6.6 (postinstall: node scripts/postinstall)
+npm warn allow-scripts   secp256k1@4.0.5 (install: node-gyp-build || exit 0)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+
+
+npm test (exit 0)
+
+> holdbook@0.0.0 test
+> node --experimental-test-module-mocks --test tests/*.test.mjs && npm run test:proto
+
+(node:20809) ExperimentalWarning: Module mocking is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ browser adapters never inspect or emit SDK payloads or run formatters (4.810189ms)
+✔ public SDK types accept a genuine network request with a caller-owned read provider (671.988861ms)
+✔ SDK patch rejects version/content drift before writing and survives reapplication (62.16526ms)
+▶ the loader caches one safe result and never calls the configuration API
+  ✔ api-present (629.153976ms)
+  ✔ api-missing (26.866215ms)
+  ✔ probe-error (20.604626ms)
+✔ the loader caches one safe result and never calls the configuration API (680.16821ms)
+✔ SDK config requires manual preparation, verified preflight and an owned restricted provider (915.315785ms)
+✔ managed wallet patch is pinned, all-or-nothing, idempotent and does not overlap the read-only patch (56.015422ms)
+✔ genuine Terminal3 payload, UTF-8 digest signing, rejection and invalid credentials (2294.569065ms)
+✔ six scoped repair edges are pinned, including absent optional packages (29.947638ms)
+✔ contract records must match the fixed ID and contain a live, nonzero EVM address (4.243488ms)
+✔ real viem performs only the fixed chain, Mirror and bytecode reads; results are whitelisted (117.519989ms)
+▶ wrong or malformed chain and RPC errors stop before contract queries without leaking error objects
+  ✔ {"chain":"0x1"} (4.010267ms)
+  ✔ {"chain":"garbage"} (2.560105ms)
+  ✔ {"rpcError":true} (5.375356ms)
+✔ wrong or malformed chain and RPC errors stop before contract queries without leaking error objects (13.737826ms)
+✔ duplicate deployment addresses prevent both bytecode reads (5.361895ms)
+▶ invalid Mirror, HTTP failures, empty and malformed code cannot pass; independent successes survive
+  ✔ {"records":[{"contract_id":"0.0.9213391","evm_address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","deleted":false},{"contract_id":"0.0.9213391","evm_address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","deleted":false}]} (6.132803ms)
+  ✔ {"http":404} (3.702832ms)
+  ✔ {"http":429} (3.50353ms)
+  ✔ {"codeRpcError":true} (4.999923ms)
+  ✔ {"code":"0x"} (3.987546ms)
+  ✔ {"code":"0x0"} (1.808996ms)
+  ✔ {"code":"0xzz"} (1.979317ms)
+  ✔ {"code":"6000"} (1.625219ms)
+  ✔ {"code":42} (3.086146ms)
+  ✔ {"code":"0x6000\r\n"} (6.749083ms)
+✔ invalid Mirror, HTTP failures, empty and malformed code cannot pass; independent successes survive (42.066914ms)
+✔ one 10-second deadline aborts requests, never retries and produces safe timeout status (38.271325ms)
+▶ cancellation rejects, including a transport response arriving after cancellation
+  ✔ false (4.714165ms)
+  ✔ true (2.940928ms)
+✔ cancellation rejects, including a transport response arriving after cancellation (9.16914ms)
+▶ config accepts safe positive versions and rejects zero, unsafe values, bad ABI and reverts
+  ✔ 1 (4.045931ms)
+  ✔ 9007199254740991 (5.908385ms)
+  ✔ 0 (4.345408ms)
+  ✔ 9007199254740992 (4.889719ms)
+  ✔ 0x (5.622494ms)
+  ✔ 0x01 (5.728ms)
+  ✔ revert (7.254544ms)
+✔ config accepts safe positive versions and rejects zero, unsafe values, bad ABI and reverts (39.799134ms)
+▶ config requires verified Resolver; Factory failure does not suppress an independent config result
+  ✔ chain (1.46118ms)
+  ✔ resolver (1.791583ms)
+  ✔ code (3.178674ms)
+  ✔ duplicate (2.805564ms)
+  ✔ factory (5.803475ms)
+✔ config requires verified Resolver; Factory failure does not suppress an independent config result (16.55236ms)
+▶ config shares the original deadline and cannot publish after cancellation, even with a late reply
+  ✔ timeout (16.399953ms)
+  ✔ cancel (25.10408ms)
+  ✔ late (28.120935ms)
+✔ config shares the original deadline and cannot publish after cancellation, even with a late reply (75.167763ms)
+✔ config never follows an OffchainLookup response to an external gateway (7.344707ms)
+✔ VC public evidence excludes all credential, proof, signature and arbitrary error data (145.303134ms)
+✔ one shared operation lease excludes siblings and stale release cannot unlock another (140.027031ms)
+WebSocket server error: Port 24678 is already in use
+3:08:02 PM [vite] (client) [optimizer] scanning dependencies...
+✔ header portraits follow recognized connected roles and preserve native wallet controls (2089.266323ms)
+WebSocket server error: Port 24678 is already in use
+3:08:03 PM [vite] (client) [optimizer] scanning dependencies...
+3:08:06 PM [vite] (client) [optimizer] bundling dependencies...
+✔ Market pixel totals retain BigInt precision across all accounts and prices, with honest initial offline copy (9997.224179ms)
+WebSocket server error: Port 24678 is already in use
+3:08:13 PM [vite] (client) [optimizer] scanning dependencies...
+3:08:15 PM [vite] (client) [optimizer] bundling dependencies...
+✔ selected Market exchange uses verified states, exact amounts and reversed account roles (3840.379854ms)
+✔ Hold IDs and expiry preserve canonical safe SDK seconds (5934.27947ms)
+✔ SDK KYC and chain revert classifications cannot pass transport or generic errors (882.621327ms)
+✔ T03 transaction entry is closed before any network or wallet operation (13.245464ms)
+✔ T04 entry is read-only before wallet or network access (19.553762ms)
+✔ four exact receipt/events and historical transitions reject changed inputs and complete release without a deleted getter (4194.550907ms)
+✔ only the fixed six-stage lifecycle progresses; unknown work, skipped simulations and expired KYC/Hold stop (280.239036ms)
+✔ public T04 transaction/simulation evidence excludes credentials, proofs, wallet/error objects and simulation tx IDs (399.391562ms)
+✔ eth_call uses exact from/calldata/zero value at the recorded block; transport and wrong reverts never pass (897.434719ms)
+✔ four T04 recoveries verify full historical state and Mirror identity; delay/unknown/reload never authorizes replay (8697.042403ms)
+✔ invalid T04 journal cannot leak the operation lease; imported public intent remains pending until recovery (149.311414ms)
+✔ Buyer preparation binds exact public KYC seconds/digest and genuine verifier rejects unsigned, expired, tampered and wrong-subject inputs (428.316275ms)
+✔ T03 orders missing roles and issuer; never reissues changed supply or balances (3090.852096ms)
+✔ exact fixed calldata, zero value, fixed accounts and asset; no alternative actions (3935.754592ms)
+✔ public T03 evidence drops arbitrary objects, signatures and credentials (35.495705ms)
+✔ all six receipt actions require exact event, calldata, block and sender (5134.095911ms)
+✔ T03 provider rejects alternate methods and duplicates, and retains late hashes after cancellation (259.084304ms)
+✔ T03 provider rejection, stale preflight and bounded lookup keep retry decisions explicit (388.049543ms)
+✔ original account mapping is mandatory; UTF-8 KYC calldata preserves ID and Unix seconds (520.623451ms)
+✔ role IDs match the pinned SDK, not hashes inferred from enum labels (2.354061ms)
+✔ recovery verifies historical transition and Mirror mapping; delay, reload, failed receipt and missing history stay safe (5502.066008ms)
+✔ KYC transition compares values independent of JSON field order; final 100 can never issue again (50.97977ms)
+3:08:02 PM [vite] (client) [optimizer] scanning dependencies...
+3:08:04 PM [vite] (client) [optimizer] bundling dependencies...
+✔ settlement copy distinguishes unavailable snapshots, terminal outcomes and historical restrictions (11124.533775ms)
+3:08:14 PM [vite] (client) [optimizer] bundling dependencies...
+✔ match emptiness follows filtered results and distinguishes unavailable and stale data (4189.782408ms)
+✔ exact HBAR parsing rejects exponent, excess precision, invalid quantity and int64 overflow (5.727246ms)
+✔ independent viem and Go EIP-712 project digests agree (38.532383ms)
+✔ public intent storage retains pending requests and strips signatures and wallet objects (1.872848ms)
+✔ partial cancellation remains explicit and public exports whitelist every level (0.847904ms)
+✔ reload and unavailable recovery query the original ID without resubmission (50.734412ms)
+WebSocket server error: Port 24678 is already in use
+3:08:05 PM [vite] (client) [optimizer] scanning dependencies...
+3:08:07 PM [vite] (client) [optimizer] bundling dependencies...
+✔ populated Market renders partial cancellation and reverse matches honestly (8726.105729ms)
+✔ NOVA balance uses one public block, includes held units, and rejects wrong chain or incomplete reads (2522.382536ms)
+✔ navigation preserves activity legacy links and skip links do not change page (2.234533ms)
+✔ NOVA request and calldata are fixed; every mutation field and unexpected method is guarded (5612.832233ms)
+✔ durable intent and immediate hash persist; reload and unknown never enable duplicate creation (7.231685ms)
+✔ same-origin lock is mandatory and never waits to submit a duplicate (2.612959ms)
+✔ receipt validation requires successful exact Factory event and canonical transaction/block binding (1568.083898ms)
+✔ managed provider serializes concurrent requests; late hash is retained and unsafe methods never reach wallet (335.055337ms)
+✔ recovery uses real ABI decoding and explicit RPC/Mirror fixtures; delay, mismatch and reload do not create (6145.220542ms)
+✔ rejection, stale review, post-send timeout and late responses retain safe public state (331.395176ms)
+✔ demo cues, replay, timed pause/resume and manual interruption preserve exact position (3.834625ms)
+✔ URL mode preserves path, query and hash; keyboard excludes interactive/repeated/modified events (0.949579ms)
+✔ depth aggregates exact integers, sorts price priority, limits five levels and never mutates orders (1.805531ms)
+✔ server match snapshots suppress initial, duplicate, reconnect and hidden replays; batch new IDs (0.868741ms)
+✔ presentation snapshot matches T02/T03/T07/T05 original public evidence, without T08 balances (8.278693ms)
+✔ trading requires a production build at the exact configured HTTPS origin (3.445291ms)
+✔ API URLs retain the local proxy or use an explicit HTTPS origin (1.916416ms)
+✔ public settlement vector binds parties, amounts, both orders, Hold, expiry and deployment (19.668154ms)
+✔ expiry never asserts funds returned and account identity is separate from trading role (0.570291ms)
+✔ public operation and evidence storage strip arbitrary fields and preserve unknowns beyond expiry (2.451888ms)
+✔ T08 wallet transaction rejects extra fields and wrong RPC units before a prompt (1.603203ms)
+✔ SDK lock may omit zero value and chain only after the separate wallet review guard (0.813662ms)
+WebSocket server error: Port 24678 is already in use
+3:08:03 PM [vite] (client) [optimizer] scanning dependencies...
+3:08:06 PM [vite] (client) [optimizer] bundling dependencies...
+✔ the shell renders planned data without claiming a wallet or chain result (11111.383067ms)
+WebSocket server error: Port 24678 is already in use
+3:08:14 PM [vite] (client) [optimizer] scanning dependencies...
+3:08:15 PM [vite] (client) [optimizer] bundling dependencies...
+✔ completed T05 exposes historical reads and no mutation reviews for either trading account (4002.659819ms)
+✔ Header distinguishes roles and clears role color when disconnected (1138.346733ms)
+✔ showcase retains exact observed T05 evidence and binds all four verified T08 timelines to recorded proofs (12.481044ms)
+(node:20915) ExperimentalWarning: Module mocking is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20915) DeprecationWarning: mock.module(): options.namedExports is deprecated. Use options.exports instead.
+✔ T05 fixed constructor, SDK Hold calldata, bytecode and integer HBAR units (353.322527ms)
+✔ all five exact receipts, full events and historical transitions bind the same hash and Hold (1661.712494ms)
+✔ stage guards stop unknown work, altered state, insufficient KYC, missing evidence and expired purchases (155.578796ms)
+✔ public journal strips non-whitelisted objects, detects storage failure and restores as unknown (64.591244ms)
+✔ HBAR principal is exact and separate from safe integer fee fields (1.660934ms)
+✔ history covers all blocks in relay-sized pages and detects an unrecorded operation (79.094911ms)
+✔ simulations use recorded block, exact wei units and explicit from; transport errors cannot pass (56.047928ms)
+✔ original-hash recovery retains pending and Mirror delay, verifies runtime, same receipt and payment (142.540263ms)
+✔ T04 shared transport preserves late hash, excludes duplicates, blocks all simulation mutations and delegates one recovery (5875.948457ms)
+✔ T05 payable transport preserves late hashes, distinguishes rejection from unknown, serializes tabs and keeps ATS zero-value guards (326.856124ms)
+✔ T08 transport requires exact guard, preserves an invalidated late hash and distinguishes rejection (46.565165ms)
+✔ Mirror accepts only a matching EVM address, canonical Hedera ID and explicitly live account (9.405566ms)
+✔ role binding rejects replacement, duplicate address/ID and unverified saved accounts (2.0658ms)
+✔ storage failures stay in memory; persisted payload contains only role addresses (2.481113ms)
+✔ wallet review binds explicit Seller or Admin signer in both wagmi and provider (2790.770147ms)
+ℹ tests 126
+ℹ suites 0
+ℹ pass 126
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22092.88011
+
+> holdbook@0.0.0 test:proto
+> node docs/evidence/014-t01a-decoder-rebuild.test.mjs --candidate --compare docs/evidence/007-t01a-protobuf-rebuild-restored-tests.json
+
+✔ only approved runtime versions are installed (7.401963ms)
+✔ @hashgraph/proto: compatibility (142.067353ms)
+✔ @hashgraph/proto: public-api (169.383521ms)
+✔ @hashgraph/proto: truncated-varint (137.634096ms)
+✔ @hashgraph/proto: truncated-bytes (129.497981ms)
+✔ @hashgraph/proto: truncated-message (140.993319ms)
+✔ @hashgraph/proto: groups-4 (151.741648ms)
+✔ @hashgraph/proto: groups-128 (156.165529ms)
+✔ @hashgraph/proto: groups-8192 (181.822753ms)
+✔ @hashgraph/proto: keys-4 (128.29428ms)
+✔ @hashgraph/proto: keys-128 (126.125384ms)
+✔ @hashgraph/proto: keys-8192 (339.388479ms)
+✔ @hashgraph/proto: thresholds-4 (113.302486ms)
+✔ @hashgraph/proto: thresholds-128 (120.251718ms)
+✔ @hashgraph/proto: thresholds-8192 (461.152967ms)
+✔ @hashgraph/proto: nested-length-overrun (111.528592ms)
+✔ @hashgraph/proto: top-length-overrun (124.521975ms)
+✔ @hashgraph/proto: option-eof (129.287883ms)
+✔ @hiero-ledger/proto: compatibility (133.083343ms)
+✔ @hiero-ledger/proto: public-api (164.547314ms)
+✔ @hiero-ledger/proto: truncated-varint (153.316852ms)
+✔ @hiero-ledger/proto: truncated-bytes (143.542576ms)
+✔ @hiero-ledger/proto: truncated-message (134.693521ms)
+✔ @hiero-ledger/proto: groups-4 (136.831537ms)
+✔ @hiero-ledger/proto: groups-128 (135.805551ms)
+✔ @hiero-ledger/proto: groups-8192 (130.678355ms)
+✔ @hiero-ledger/proto: keys-4 (137.799332ms)
+✔ @hiero-ledger/proto: keys-128 (138.625883ms)
+✔ @hiero-ledger/proto: keys-8192 (367.47315ms)
+✔ @hiero-ledger/proto: thresholds-4 (128.302973ms)
+✔ @hiero-ledger/proto: thresholds-128 (135.098784ms)
+✔ @hiero-ledger/proto: thresholds-8192 (507.499627ms)
+✔ @hiero-ledger/proto: nested-length-overrun (137.799252ms)
+✔ @hiero-ledger/proto: top-length-overrun (131.343676ms)
+✔ @hiero-ledger/proto: option-eof (154.443017ms)
+✔ both public proto entries retain their own decoded classes in either load order (305.517133ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6165.497937
+
+
+npm run typecheck (exit 0)
+
+> holdbook@0.0.0 typecheck
+> tsc --noEmit
+
+
+
+npm run build (exit 0)
+
+> holdbook@0.0.0 build
+> vite build
+
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 10878 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                          1.20 kB │ gzip:   0.49 kB
+dist/assets/index-ST1vCqXC.css                          44.23 kB │ gzip:   9.33 kB
+dist/assets/wui-icon-CnqB7m0x.js                         0.03 kB │ gzip:   0.05 kB
+dist/assets/wui-image-DSc9899t.js                        0.03 kB │ gzip:   0.05 kB
+dist/assets/wui-shimmer-D5lzBlV2.js                      0.03 kB │ gzip:   0.05 kB
+dist/assets/wui-icon-box-DM62s41m.js                     0.03 kB │ gzip:   0.05 kB
+dist/assets/wui-input-text-Dwa9mFqP.js                   0.03 kB │ gzip:   0.05 kB
+dist/assets/wui-loading-spinner-BwVb8-Sp.js              0.04 kB │ gzip:   0.06 kB
+dist/assets/NavigationUtil-CLCRNDHF.js                   0.06 kB │ gzip:   0.08 kB
+dist/assets/if-defined-CuYKaY4o.js                       0.06 kB │ gzip:   0.08 kB
+dist/assets/dist-D6L6gF64.js                             0.10 kB │ gzip:   0.11 kB
+dist/assets/MathUtil-B2UslVSw.js                         0.22 kB │ gzip:   0.18 kB
+dist/assets/ConstantsUtil-Cp8ebnfI.js                    0.49 kB │ gzip:   0.36 kB
+dist/assets/AlertController-hD4WZMKO.js                  0.64 kB │ gzip:   0.40 kB
+dist/assets/transactions-DPDaZXdu.js                     0.96 kB │ gzip:   0.57 kB
+dist/assets/preload-helper-Czpn1I53.js                   1.19 kB │ gzip:   0.67 kB
+dist/assets/wui-email-input-AL4hfpJx.js                  1.34 kB │ gzip:   0.69 kB
+dist/assets/rolldown-runtime-BcKkbAw3.js                 1.34 kB │ gzip:   0.72 kB
+dist/assets/wui-separator-BkxkSWns.js                    1.49 kB │ gzip:   0.74 kB
+dist/assets/wui-shimmer-DEiJ1R8g.js                      1.52 kB │ gzip:   0.74 kB
+dist/assets/PhCaretLeft-CI460R-A.js                      1.85 kB │ gzip:   0.90 kB
+dist/assets/dist-Cuadm9-o.js                             1.86 kB │ gzip:   0.84 kB
+dist/assets/ref-D-bUnIrx.js                              1.87 kB │ gzip:   0.89 kB
+dist/assets/PhCaretDown-BDNabFuL.js                      1.91 kB │ gzip:   0.93 kB
+dist/assets/PhCaretRight-D7ZS3Ls8.js                     1.93 kB │ gzip:   0.92 kB
+dist/assets/PhCaretUp-C-iIfyvO.js                        1.99 kB │ gzip:   0.91 kB
+dist/assets/PhArrowUpRight-BNghD2zq.js                   2.03 kB │ gzip:   0.99 kB
+dist/assets/ConstantsUtil-IgQrDvg6.js                    2.06 kB │ gzip:   0.77 kB
+dist/assets/PhArrowDown-87b1BizM.js                      2.07 kB │ gzip:   0.99 kB
+dist/assets/PhPlus-C4UoW-2n.js                           2.08 kB │ gzip:   0.94 kB
+dist/assets/PhCheck-DxQXn57r.js                          2.08 kB │ gzip:   0.96 kB
+dist/assets/PhArrowRight-AdrIL4DW.js                     2.08 kB │ gzip:   0.99 kB
+dist/assets/PhArrowLeft-Da0MfnbK.js                      2.09 kB │ gzip:   0.98 kB
+dist/assets/PhArrowUp-4sgyKPGx.js                        2.14 kB │ gzip:   0.98 kB
+dist/assets/utils-Br0svb7K.js                            2.16 kB │ gzip:   0.98 kB
+dist/assets/PhBrowser-2-9m-AkM.js                        2.18 kB │ gzip:   0.95 kB
+dist/assets/PhMagnifyingGlass-C9u8jSCJ.js                2.18 kB │ gzip:   1.05 kB
+dist/assets/PhDotsThree-D-k1BiYg.js                      2.22 kB │ gzip:   0.92 kB
+dist/assets/hex-encoding-B19xAT_7.js                     2.24 kB │ gzip:   1.05 kB
+dist/assets/PhCopy-CWNYcABI.js                           2.33 kB │ gzip:   0.99 kB
+dist/assets/PhFunnelSimple-CfQs5DAW.js                   2.33 kB │ gzip:   0.98 kB
+dist/assets/PhClock-x3MS3Mwi.js                          2.34 kB │ gzip:   1.01 kB
+dist/assets/PhWarningCircle-BXHw1fCt.js                  2.40 kB │ gzip:   1.03 kB
+dist/assets/wui-avatar-C5Kn650E.js                       2.46 kB │ gzip:   1.02 kB
+dist/assets/PhX-DX0SFIqC.js                              2.47 kB │ gzip:   1.04 kB
+dist/assets/PhDeviceMobile-CsyA5Goi.js                   2.54 kB │ gzip:   1.05 kB
+dist/assets/PhArrowClockwise-DVgyFuez.js                 2.56 kB │ gzip:   1.17 kB
+dist/assets/PhUser-0sWNXQeZ.js                           2.65 kB │ gzip:   1.25 kB
+dist/assets/PhEnvelope-D8kzeNox.js                       2.66 kB │ gzip:   1.16 kB
+dist/assets/PhCircleHalf-MJZeRBGF.js                     2.69 kB │ gzip:   1.20 kB
+dist/assets/PhSignOut-CxELV-i0.js                        2.73 kB │ gzip:   1.14 kB
+dist/assets/PhInfo-Bwi51-2X.js                           2.74 kB │ gzip:   1.19 kB
+dist/assets/PhPower-CFyWDmgD.js                          2.75 kB │ gzip:   1.26 kB
+dist/assets/wui-icon-link-DJfVhxTo.js                    2.75 kB │ gzip:   0.98 kB
+dist/assets/PhDesktop-CxrzCSv5.js                        2.75 kB │ gzip:   1.09 kB
+dist/assets/PhArrowsLeftRight-MuKBLUoF.js                2.77 kB │ gzip:   1.16 kB
+dist/assets/PhArrowCircleDown-D97G-BOA.js                2.78 kB │ gzip:   1.16 kB
+dist/assets/PhWallet-DzNiREN9.js                         2.80 kB │ gzip:   1.15 kB
+dist/assets/PhQuestionMark-CV0k9C0Y.js                   2.81 kB │ gzip:   1.28 kB
+dist/assets/PhArrowSquareOut-Bk2CMG3I.js                 2.89 kB │ gzip:   1.23 kB
+dist/assets/PhArrowsDownUp-DM09Jo_3.js                   2.90 kB │ gzip:   1.15 kB
+dist/assets/PhCreditCard-Fy4pzwtt.js                     2.90 kB │ gzip:   1.13 kB
+dist/assets/PhBank-fHbgCqqZ.js                           2.91 kB │ gzip:   1.23 kB
+dist/assets/PhVault-6JTskUcC.js                          2.93 kB │ gzip:   1.18 kB
+dist/assets/wui-icon-box-DqQ8Qk2h.js                     2.94 kB │ gzip:   0.97 kB
+dist/assets/PhCompass-hYn3HhGN.js                        2.95 kB │ gzip:   1.25 kB
+dist/assets/wui-link-DbnMCW76.js                         2.96 kB │ gzip:   1.00 kB
+dist/assets/PhPaperPlaneRight-zxQVvPLX.js                3.06 kB │ gzip:   1.40 kB
+dist/assets/wui-image-DQFIUVgR.js                        3.08 kB │ gzip:   1.19 kB
+dist/assets/PhTrash-C9PD0SAt.js                          3.09 kB │ gzip:   1.17 kB
+dist/assets/PhCurrencyDollar-BgiaenCi.js                 3.22 kB │ gzip:   1.32 kB
+dist/assets/HelpersUtil-DXUyVi_j.js                      3.26 kB │ gzip:   1.33 kB
+dist/assets/PhQuestion-wOWJBd3G.js                       3.28 kB │ gzip:   1.43 kB
+dist/assets/wui-list-token-BieTCgEw.js                   3.30 kB │ gzip:   1.24 kB
+dist/assets/PhImage-Cf0J2ZfJ.js                          3.40 kB │ gzip:   1.43 kB
+dist/assets/wui-list-item-Cb3aQwLD.js                    3.72 kB │ gzip:   1.30 kB
+dist/assets/PhArrowsClockwise-BXRn1GEl.js                3.84 kB │ gzip:   1.57 kB
+dist/assets/PhWarning-CoKs3gz6.js                        3.88 kB │ gzip:   1.47 kB
+dist/assets/wui-input-amount-D0IKS2mc.js                 4.04 kB │ gzip:   1.51 kB
+dist/assets/wui-list-social-X8ysFBGh.js                  4.13 kB │ gzip:   1.76 kB
+dist/assets/PhIdentificationCard-CfkZm-5K.js             4.19 kB │ gzip:   1.63 kB
+dist/assets/utils-62W0Csdc.js                            4.29 kB │ gzip:   1.76 kB
+dist/assets/PhSpinner-CGDmbzUd.js                        4.42 kB │ gzip:   1.63 kB
+dist/assets/wui-token-button-Cvakr3Lv.js                 4.68 kB │ gzip:   1.43 kB
+dist/assets/wui-loading-spinner-Dvb-aG8-.js              4.79 kB │ gzip:   1.97 kB
+dist/assets/PhLightbulb-C4FZV7Es.js                      4.88 kB │ gzip:   1.84 kB
+dist/assets/PhQrCode-CP3tFauY.js                         4.89 kB │ gzip:   1.46 kB
+dist/assets/w3m-onramp-providers-footer-DOY-LmFh.js      4.93 kB │ gzip:   1.77 kB
+dist/assets/wui-qr-code-CuEs9Fnl.js                      5.21 kB │ gzip:   2.13 kB
+dist/assets/PhPuzzlePiece-BjoNVfST.js                    5.34 kB │ gzip:   1.94 kB
+dist/assets/w3m-tooltip-fCVgM5Av.js                      5.55 kB │ gzip:   1.92 kB
+dist/assets/wui-button-Sl_OQ_HW.js                       5.63 kB │ gzip:   1.52 kB
+dist/assets/PhGlobe-DvmSc9_A.js                          5.69 kB │ gzip:   1.91 kB
+dist/assets/features--8NFaJ8Z.js                         5.75 kB │ gzip:   2.27 kB
+dist/assets/wui-input-text-B2Gtaka7.js                   6.26 kB │ gzip:   1.93 kB
+dist/assets/receive-DiGiviDO.js                          6.61 kB │ gzip:   2.37 kB
+dist/assets/wui-loading-thumbnail-ChmXYl3z.js            7.82 kB │ gzip:   2.37 kB
+dist/assets/ExchangeController-D5iAIMF0.js               7.97 kB │ gzip:   3.06 kB
+dist/assets/hmac-BSeZHieH.js                             9.70 kB │ gzip:   4.61 kB
+dist/assets/w3m-email-otp-widget-BwXl3Qt9.js             9.73 kB │ gzip:   3.16 kB
+dist/assets/wui-wallet-switch-kmCnLUyK.js               10.16 kB │ gzip:   3.03 kB
+dist/assets/CaipNetworkUtil-Beg9sSn9.js                 10.31 kB │ gzip:   4.74 kB
+dist/assets/email-CJy_MVQ1.js                           10.50 kB │ gzip:   2.79 kB
+dist/assets/dist-DPKNlvg4.js                            11.74 kB │ gzip:   4.33 kB
+dist/assets/PhSealCheck-vIKzREuN.js                     12.07 kB │ gzip:   4.06 kB
+dist/assets/src-Ckws4D3v.js                             12.65 kB │ gzip:   5.19 kB
+dist/assets/index.browser-BDf4v9YX.js                   13.33 kB │ gzip:   4.60 kB
+dist/assets/SwapController-Dh7Ohvs9.js                  13.85 kB │ gzip:   3.96 kB
+dist/assets/browser-ponyfill-D7h5ucDO.js                14.32 kB │ gzip:   4.67 kB
+dist/assets/pay-with-exchange-BacwD6dC.js               15.80 kB │ gzip:   4.11 kB
+dist/assets/property-DuZ9DLP4.js                        16.17 kB │ gzip:   6.08 kB
+dist/assets/index.es-Bx83BAeO.js                        16.19 kB │ gzip:   5.79 kB
+dist/assets/socials-BRJcPpNU.js                         17.96 kB │ gzip:   4.70 kB
+dist/assets/data-capture-BRvs9fUe.js                    18.36 kB │ gzip:   5.69 kB
+dist/assets/wui-list-wallet-DYexwR93.js                 23.66 kB │ gzip:   6.62 kB
+dist/assets/browser-BLmJMKa5.js                         24.00 kB │ gzip:   9.07 kB
+dist/assets/secp256k1-I33RQ7_Z.js                       25.13 kB │ gzip:   9.85 kB
+dist/assets/embedded-wallet-DOFQOGqR.js                 25.61 kB │ gzip:   6.80 kB
+dist/assets/onramp-C692QyPu.js                          26.13 kB │ gzip:   6.54 kB
+dist/assets/OptionsController-DgdkkawG.js               26.51 kB │ gzip:   7.82 kB
+dist/assets/dist-ZKTSEBXW.js                            26.89 kB │ gzip:   8.28 kB
+dist/assets/secp256k1-CZeT5Ut3.js                       27.96 kB │ gzip:  10.82 kB
+dist/assets/secp256k1-D_3IvMuz.js                       30.34 kB │ gzip:  12.04 kB
+dist/assets/send-DXw4_9Ft.js                            33.21 kB │ gzip:   7.50 kB
+dist/assets/W3mFrameHelpers-06hsKr9T.js                 34.54 kB │ gzip:  13.38 kB
+dist/assets/w3m-activity-list-D3UR13iq.js               34.76 kB │ gzip:  10.41 kB
+dist/assets/exports-GL0dN1cC.js                         37.26 kB │ gzip:  11.13 kB
+dist/assets/wui-visual-BMjhQwDp.js                      45.98 kB │ gzip:  14.09 kB
+dist/assets/swaps-P8hvEdUd.js                           54.74 kB │ gzip:   9.85 kB
+dist/assets/wui-text-BaeeCfo1.js                        60.39 kB │ gzip:  20.00 kB
+dist/assets/w3m-modal-BdsqaFt5.js                       77.71 kB │ gzip:  19.61 kB
+dist/assets/HelpersUtil-T4QkRvnz.js                     83.54 kB │ gzip:  23.35 kB
+dist/assets/ErrorUtil-CecG85IV.js                       96.38 kB │ gzip:  24.21 kB
+dist/assets/ccip-DlO_9iB5.js                           108.28 kB │ gzip:  30.83 kB
+dist/assets/ModalController-BOYGLUXg.js                109.44 kB │ gzip:  30.29 kB
+dist/assets/ModalController-DQhnFodk.js                109.48 kB │ gzip:  30.32 kB
+dist/assets/dist-DLli_1s6.js                           110.37 kB │ gzip:  33.84 kB
+dist/assets/_esm-Dwt2YpRL.js                           125.06 kB │ gzip:  37.63 kB
+dist/assets/exports-CePVLY0j.js                        186.74 kB │ gzip:  46.19 kB
+dist/assets/exports-Ca3ylBao.js                        220.33 kB │ gzip:  42.49 kB
+dist/assets/lib.esm-ChneCZPO.js                        380.66 kB │ gzip: 139.26 kB
+dist/assets/exports-GzEQTpLo.js                        510.15 kB │ gzip: 152.34 kB
+dist/assets/index-pVK-zP-R.js                          632.29 kB │ gzip: 184.15 kB
+dist/assets/dist-uEEupg4C.js                         1,450.46 kB │ gzip: 571.00 kB
+dist/assets/browser-BUwey8wG.js                      2,369.39 kB │ gzip: 486.53 kB
+dist/assets/src-BJ1oGdwx.js                          3,361.93 kB │ gzip: 758.49 kB
+dist/assets/typechain-types-CDXKhyr1.js              5,500.09 kB │ gzip: 917.72 kB
+
+[33m[EVAL] [0mUse of direct `eval` function is strongly discouraged as it poses security risks and may cause issues with minification.
+     [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/vm-browserify/index.js:110:12 [38;5;246m][0m
+     [38;5;246m│[0m
+ [38;5;246m110 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249m [0m[38;5;249mr[0m[38;5;249me[0m[38;5;249mt[0m[38;5;249mu[0m[38;5;249mr[0m[38;5;249mn[0m[38;5;249m [0meval[38;5;249m([0m[38;5;249mt[0m[38;5;249mh[0m[38;5;249mi[0m[38;5;249ms[0m[38;5;249m.[0m[38;5;249mc[0m[38;5;249mo[0m[38;5;249md[0m[38;5;249me[0m[38;5;249m)[0m[38;5;249m;[0m[38;5;249m [0m[38;5;249m/[0m[38;5;249m/[0m[38;5;249m [0m[38;5;249mm[0m[38;5;249ma[0m[38;5;249my[0m[38;5;249mb[0m[38;5;249me[0m[38;5;249m.[0m[38;5;249m.[0m[38;5;249m.[0m
+ [38;5;240m    │[0m            ──┬─  
+ [38;5;240m    │[0m              ╰─── Use of direct `eval` here.
+ [38;5;240m    │[0m 
+ [38;5;240m    │[0m [38;5;115mHelp[0m: Consider using indirect eval. For more information, check the documentation: https://rolldown.rs/guide/troubleshooting#avoiding-direct-eval
+[38;5;246m─────╯[0m
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 8.69s
+
+
+npm run build:showcase (exit 0)
+
+> holdbook@0.0.0 build:showcase
+> vite build --config vite.showcase.config.ts
+
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 16 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/showcase/showcase.html                   0.53 kB │ gzip:  0.36 kB
+dist/showcase/assets/showcase-Be75ymbV.css   26.31 kB │ gzip:  5.98 kB
+dist/showcase/assets/showcase-C2IoXBrC.js   203.04 kB │ gzip: 64.03 kB
+
+✓ built in 382ms

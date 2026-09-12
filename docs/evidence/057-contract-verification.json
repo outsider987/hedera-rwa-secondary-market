@@ -1,0 +1,176 @@
+{
+  "recordedAt": "2026-09-12T07:15:05.304Z",
+  "authorization": "Victor approved public source verification for the existing contracts; no chain mutation.",
+  "contracts": [
+    {
+      "recordedAt": "2026-09-12T07:10:55.836Z",
+      "chainId": 296,
+      "name": "NovaSettlement",
+      "address": "0xa90da61f67c37473f38000e70623a77ad277304c",
+      "creationTransactionHash": "0xf0448adc0a4d1f76777cec55f0151c8a86e7bcb6b8b58de7a94f9179dbc6d0d0",
+      "compiler": "0.8.36+commit.8a079791",
+      "sourceFiles": [
+        "contracts/NovaSettlement.sol",
+        "node_modules/@hashgraph/asset-tokenization-contracts/contracts/domain/asset/types/ThirdPartyType.sol",
+        "node_modules/@hashgraph/asset-tokenization-contracts/contracts/facets/hold/IHoldTypes.sol",
+        "node_modules/@hashgraph/asset-tokenization-contracts/contracts/facets/holdByPartition/IHoldByPartition.sol",
+        "node_modules/@openzeppelin/contracts/utils/ReentrancyGuard.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol"
+      ],
+      "payloadSha256": "edeb6ba154730743239cfa736b41cd3420e8f5c1982dcda5e5f2c20816978d8f",
+      "runtimeMatchWithDeclaredImmutables": true,
+      "sourceHashesVerified": true,
+      "submitted": true,
+      "lookupBefore": {
+        "status": 404,
+        "body": {
+          "match": null,
+          "creationMatch": null,
+          "runtimeMatch": null,
+          "chainId": "296",
+          "address": "0xA90dA61f67C37473f38000E70623a77Ad277304c"
+        }
+      },
+      "submission": {
+        "status": 202,
+        "body": {
+          "verificationId": "25d96f06-b498-49d2-87c8-59bbc67de3d1"
+        }
+      },
+      "jobId": "25d96f06-b498-49d2-87c8-59bbc67de3d1",
+      "job": {
+        "status": 200,
+        "body": {
+          "isJobCompleted": true,
+          "verificationId": "25d96f06-b498-49d2-87c8-59bbc67de3d1",
+          "jobStartTime": "2026-09-12T07:10:58Z",
+          "jobFinishTime": "2026-09-12T07:11:01Z",
+          "compilationTime": "639",
+          "contract": {
+            "match": "match",
+            "creationMatch": "match",
+            "runtimeMatch": "match",
+            "chainId": "296",
+            "address": "0xA90dA61f67C37473f38000E70623a77Ad277304c",
+            "verifiedAt": "2026-09-12T07:11:01Z",
+            "matchId": "49768877"
+          }
+        }
+      },
+      "lookupAfter": {
+        "status": 200,
+        "body": {
+          "matchId": "49768877",
+          "creationMatch": "match",
+          "runtimeMatch": "match",
+          "verifiedAt": "2026-09-12T07:11:01Z",
+          "match": "match",
+          "chainId": "296",
+          "address": "0xA90dA61f67C37473f38000E70623a77Ad277304c"
+        }
+      }
+    },
+    {
+      "recordedAt": "2026-09-12T07:10:55.853Z",
+      "chainId": 296,
+      "name": "NovaHbarSwap",
+      "address": "0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158",
+      "creationTransactionHash": "0xd9d9f59e4b91e0f6483585e698f5325c8079ad4112a11807100708a61183faa4",
+      "compiler": "0.8.36+commit.8a079791",
+      "sourceFiles": [
+        "contracts/NovaHbarSwap.sol",
+        "node_modules/@hashgraph/asset-tokenization-contracts/contracts/domain/asset/types/ThirdPartyType.sol",
+        "node_modules/@hashgraph/asset-tokenization-contracts/contracts/facets/hold/IHoldTypes.sol",
+        "node_modules/@hashgraph/asset-tokenization-contracts/contracts/facets/holdByPartition/IHoldByPartition.sol"
+      ],
+      "payloadSha256": "00c9e02147f51036794cad91087964a8d73fd8c3942d09e807085a24dee39ad7",
+      "runtimeMatchWithDeclaredImmutables": true,
+      "sourceHashesVerified": true,
+      "submitted": true,
+      "lookupBefore": {
+        "status": 404,
+        "body": {
+          "match": null,
+          "creationMatch": null,
+          "runtimeMatch": null,
+          "chainId": "296",
+          "address": "0xf6FC50413cD10D0E82A2F3c30b5BF6878A45f158"
+        }
+      },
+      "submission": {
+        "status": 202,
+        "body": {
+          "verificationId": "ecc5c0fb-f7a5-45e6-a77a-706575ea9ac5"
+        }
+      },
+      "jobId": "ecc5c0fb-f7a5-45e6-a77a-706575ea9ac5",
+      "job": {
+        "status": 200,
+        "body": {
+          "isJobCompleted": true,
+          "verificationId": "ecc5c0fb-f7a5-45e6-a77a-706575ea9ac5",
+          "jobStartTime": "2026-09-12T07:10:57Z",
+          "jobFinishTime": "2026-09-12T07:11:02Z",
+          "compilationTime": "1138",
+          "contract": {
+            "match": "match",
+            "creationMatch": "match",
+            "runtimeMatch": "match",
+            "chainId": "296",
+            "address": "0xf6FC50413cD10D0E82A2F3c30b5BF6878A45f158",
+            "verifiedAt": "2026-09-12T07:11:02Z",
+            "matchId": "49768888"
+          }
+        }
+      },
+      "lookupAfter": {
+        "status": 200,
+        "body": {
+          "matchId": "49768888",
+          "creationMatch": "match",
+          "runtimeMatch": "match",
+          "verifiedAt": "2026-09-12T07:11:02Z",
+          "match": "match",
+          "chainId": "296",
+          "address": "0xf6FC50413cD10D0E82A2F3c30b5BF6878A45f158"
+        }
+      }
+    },
+    {
+      "name": "ATS-created NOVA",
+      "chainId": 296,
+      "address": "0x261ce349df182988fa25d00868cf6cf434220c24",
+      "method": "Official Sourcify similarity verification against existing compilation inputs; no reconstructed compiler settings or new deployment.",
+      "creationTransactionHash": "0xe1af1387ee185773e012a0e77b5c90ccffc5906ff46a1ac1dbb575b58c1ca05e",
+      "job": {
+        "isJobCompleted": true,
+        "verificationId": "7443691e-d6d5-4bf0-865e-7e118e570304",
+        "jobStartTime": "2026-09-12T07:13:28Z",
+        "jobFinishTime": "2026-09-12T07:13:33Z",
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "296",
+          "address": "0x261CE349dF182988FA25d00868cf6cF434220C24",
+          "verifiedAt": "2026-09-12T07:13:33Z",
+          "matchId": "49769799"
+        }
+      },
+      "compilation": {
+        "language": "Solidity",
+        "compiler": "solc",
+        "compilerVersion": "0.8.28+commit.7893614a",
+        "compilerSettings": {
+          "optimizer": {
+            "runs": 100,
+            "enabled": true
+          },
+          "evmVersion": "cancun"
+        },
+        "name": "ResolverProxy",
+        "fullyQualifiedName": "contracts/infrastructure/proxy/ResolverProxy.sol:ResolverProxy"
+      }
+    }
+  ]
+}

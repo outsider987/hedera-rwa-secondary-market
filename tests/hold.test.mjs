@@ -2,16 +2,16 @@ import assert from 'node:assert/strict';
 import {test} from 'node:test';
 import {registerHooks} from 'node:module';
 registerHooks({resolve(s,c,n){return n(s.startsWith('.')&&c.parentURL?.startsWith(new URL('../src/',import.meta.url).href)&&!/\.[a-z]+$/.test(s)?new URL(s+'.ts',c.parentURL).href:s,c)}});
-const load=()=>import('../src/hold.ts');
+const load=()=>import('../src/lib/hold.ts');
 test('Hold IDs and expiry preserve canonical safe SDK seconds',async()=>{
  const h=await load();assert.equal(h.sdkHoldId('7'),7);
  for(const id of ['0','01','-1','1.1','9007199254740992','1\n'])assert.throws(()=>h.sdkHoldId(id));
  const input=h.createHoldInput({block:'40224162',timestamp:'1788790000'});
  assert.equal(input.expirationTimestamp,'1788876400');assert.equal(input.baseBlock,'40224162');
- const {asset}=await (await import('../src/nova.ts')).interfaces();
+ const {asset}=await (await import('../src/lib/nova.ts')).interfaces();
  const data=await h.holdCalldata('create-hold',input),decoded=asset.decodeFunctionData('createHoldByPartition',data);
  assert.equal(decoded[1].amount,10n);assert.equal(decoded[1].expirationTimestamp,1788876400n);assert.equal(decoded[1].data,'0x');
- const l=await import('../src/lifecycle.ts');
+ const l=await import('../src/lib/lifecycle.ts');
  const tx={from:l.accounts.Seller.address,to:l.securityAddress,data,chainId:'0x128',value:'0x0'};
  h.assertHoldTransaction(tx,'create-hold',data);
  for(const change of [{from:l.accounts.Admin.address},{value:'0x1'},{chainId:'0x1'},{data:data+'00'},{to:l.accounts.Buyer.address}])assert.throws(()=>h.assertHoldTransaction({...tx,...change},'create-hold',data));
@@ -22,21 +22,21 @@ test('Hold IDs and expiry preserve canonical safe SDK seconds',async()=>{
 });
 test('SDK KYC and chain revert classifications cannot pass transport or generic errors',async()=>{
  const h=await load();assert.equal(h.isSdkBuyerKycRejection(new Error('network failure')),false);
- const {asset}=await (await import('../src/nova.ts')).interfaces();
+ const {asset}=await (await import('../src/lib/nova.ts')).interfaces();
  assert.equal(await h.expectedRevert(asset.encodeErrorResult('KycIsNotGranted',[]),'kyc-negative'),'KycIsNotGranted');
  assert.equal(await h.expectedRevert(asset.encodeErrorResult('IsNotEscrow',[]),'non-escrow'),'IsNotEscrow');
  assert.equal(await h.expectedRevert(asset.encodeErrorResult('InsufficientHoldBalance',[10,11]),'over-amount'),'InsufficientHoldBalance');
  for(const raw of ['0x','network failure',asset.encodeErrorResult('IsNotEscrow',[])])await assert.rejects(h.expectedRevert(raw,'kyc-negative'));
 });
 test('T03 transaction entry is closed before any network or wallet operation',async()=>{
- const l=await import('../src/lifecycle.ts');await assert.rejects(l.submitLifecycle({},()=>{}),/T03.*complete|closed/i);
+ const l=await import('../src/lib/lifecycle.ts');await assert.rejects(l.submitLifecycle({},()=>{}),/T03.*complete|closed/i);
 });
 test('T04 entry is read-only before wallet or network access',async()=>{
  const h=await load();await assert.rejects(h.runHoldAction({},()=>{},new AbortController().signal),/T04 is complete/);
 });
 
 async function fixtures(){
- const h=await load(),l=await import('../src/lifecycle.ts'),e=await import('../src/evidence.ts'),{asset}=await (await import('../src/nova.ts')).interfaces(),{keccak256}=await import('viem');
+ const h=await load(),l=await import('../src/lib/lifecycle.ts'),e=await import('../src/lib/evidence.ts'),{asset}=await (await import('../src/lib/nova.ts')).interfaces(),{keccak256}=await import('viem');
  const input={...h.createHoldInput({block:'40224162',timestamp:'1788790000'}),holdId:'7'};
  const kyc={vcId:'urn:uuid:public-fixture',issuer:l.accounts.Admin.address,validFrom:'1788790000',validTo:'1789395100',digest:'0x'+'a'.repeat(64)};
  const empty={status:0,vcId:'',issuer:h.zero,validFrom:'0',validTo:'0'};
@@ -105,7 +105,7 @@ test('eth_call uses exact from/calldata/zero value at the recorded block; transp
 });
 
 test('four T04 recoveries verify full historical state and Mirror identity; delay/unknown/reload never authorizes replay',async(t)=>{
- const f=await fixtures(),n=await import('../src/nova.ts');let active=f.records[0],mode='complete',raw;
+ const f=await fixtures(),n=await import('../src/lib/nova.ts');let active=f.records[0],mode='complete',raw;
  const store={getItem:()=>raw??null,setItem:(k,v)=>raw=v};Object.defineProperty(globalThis,'window',{configurable:true,value:{localStorage:store}});t.after(()=>delete globalThis.window);
  const nav=Object.getOwnPropertyDescriptor(globalThis,'navigator');Object.defineProperty(globalThis,'navigator',{configurable:true,value:{locks:{request:async(n,o,fn)=>fn({name:n})}}});t.after(()=>Object.defineProperty(globalThis,'navigator',nav));
  let deletedGetterCalls=0;
@@ -145,7 +145,7 @@ test('four T04 recoveries verify full historical state and Mirror identity; dela
 });
 
 test('invalid T04 journal cannot leak the operation lease; imported public intent remains pending until recovery',async(t)=>{
- const f=await fixtures(),g=await import('../src/guards.ts');let raw='invalid';
+ const f=await fixtures(),g=await import('../src/lib/guards.ts');let raw='invalid';
  Object.defineProperty(globalThis,'window',{configurable:true,value:{localStorage:{getItem:()=>raw,setItem:(k,v)=>raw=v}}});t.after(()=>delete globalThis.window);
  const nav=Object.getOwnPropertyDescriptor(globalThis,'navigator');Object.defineProperty(globalThis,'navigator',{configurable:true,value:{locks:{request:async(n,o,fn)=>fn({name:n})}}});t.after(()=>Object.defineProperty(globalThis,'navigator',nav));
  await assert.rejects(f.h.runHoldAction({action:'kyc-negative'},()=>{},new AbortController().signal));assert.equal(g.getOperationBusy(),false);
@@ -154,7 +154,7 @@ test('invalid T04 journal cannot leak the operation lease; imported public inten
 });
 
 test('Buyer preparation binds exact public KYC seconds/digest and genuine verifier rejects unsigned, expired, tampered and wrong-subject inputs',async()=>{
- const f=await fixtures(),c=await import('../src/credentials.ts'),{getAddress}=await import('viem'),now=Date.now();
+ const f=await fixtures(),c=await import('../src/lib/credentials.ts'),{getAddress}=await import('viem'),now=Date.now();
  const prepared=await c.prepareCredential(f.l.accounts.Admin.address,f.l.accounts.Buyer.address,now);
  assert.equal(prepared.payload.credentialSubject.id,'did:ethr:'+getAddress(f.l.accounts.Buyer.address));
  const kyc={vcId:prepared.payload.id,issuer:f.l.accounts.Admin.address,validFrom:String(Math.floor((now-300000)/1000)),validTo:String(Math.floor((now+7*86400000)/1000)),digest:prepared.digest};

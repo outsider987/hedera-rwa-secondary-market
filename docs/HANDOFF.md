@@ -1,5 +1,605 @@
 # HoldBook handoff
 
+## Submission readiness prepared — September 12, 2026
+
+`based_on_commit: 7f5eb8ecd97aebd8a5a90edd27c7d660cd38b82f` is verified.
+Victor requested resolving the submission-audit gaps and explicitly approved
+push/merge to main plus public source verification for existing contracts.
+[Plan018](plans/018-submission-readiness.md) specifies the exact active files
+and checks. No wallet, new chain transaction, contract/API redeployment or
+ETHGlobal final submission is authorized. Local implementation and validation
+are complete: 132 application + 36 protobuf + 31 contract tests, both builds,
+typecheck, artifact checks, and five read-only browser cases passed. Three
+existing contracts now have successful public Sourcify verification; see
+[source verification](SOURCE_VERIFICATION.md) and [usage073](ai-usage/073-submission-readiness.md).
+Authorized PR integration and published-page checks are the remaining operations
+of this ticket, not new implementation scope. Next implementation ticket: none.
+
+Victor also clarified that no pre-event draft existed: there was GPT topic
+discussion and a draft generated later. The dated correction is preserved in
+[evidence057](evidence/057-submission-readiness.md); do not keep requesting a
+nonexistent file from the old wording or claim independent event eligibility.
+Project-wide license remains undecided. Historical records below are retained.
+
+## Restore Header participant accounts and NOVA balances — September 12, 2026
+
+`based_on_commit: 2f3190faa1b794dee17fae16e6ffadc00fff0250` is the verified base.
+Victor requested re-applying the Header accounts and NOVA balance display feature.
+See [usage072](ai-usage/072-restore-header-accounts.md).
+- Restored Header pills displaying all 3 accounts: Admin · 0 NOVA, Seller · 79 NOVA, Buyer · 21 NOVA.
+- Active account highlighted when connected; real-time Testnet RPC polling with graceful fallback.
+- Market balance details panel on `/#market` remains open by default with toggle support.
+129 application tests, 36 protobuf decoder tests, typecheck, and production build passed.
+No new signature, chain mutation, or private key. Next ticket and allowed files: none until authorized.
+
+## Header participant accounts and NOVA balances — September 12, 2026
+
+`based_on_commit: 2c73a31bfdfaa207865c69997e3cb484c243bc61` is the verified base.
+Victor directed displaying the 3 system participant accounts (Admin, Seller, Buyer) and their NOVA balances
+prominently on the Header, highlighting the currently connected account, and ensuring NOVA balances are
+immediately visible on the Market page.
+See [usage070](ai-usage/070-header-accounts-nova.md).
+- Header now displays all 3 accounts: Admin · 0 NOVA, Seller · 79 NOVA, Buyer · 21 NOVA.
+- When connected, the active account pill is highlighted with an active border ring, status indicator, and `aria-current="true"`.
+- Real-time balances are queried from Hedera Testnet RPC with fallback to documented offline balances.
+- Market balance details panel on `/#market` is now open by default with manual collapse/toggle support.
+129 application tests, 36 protobuf decoder tests, typecheck, and production build passed.
+No new signature, chain mutation, or private key. Next ticket and allowed files: none until authorized.
+
+## Presentation narrative refinement and authorized push — September 12, 2026
+
+`based_on_commit: 21572a8fe74f07e54c000f0ea58a69e3a6cbe702` is the verified base.
+Victor directed compressing the initial slides, removing Slide 3 ("From certificate to digital share")
+to prevent misinterpreting the illustrative artwork as tokenized ownership, restructuring Verify so 100 NOVA
+issuance follows the on-chain KYC grant, and unifying Match and Settle using the verified T08 normal case
+(Match 15-1: 2 NOVA @ 0.10 HBAR = 0.20 HBAR, Block 40258355) instead of the disconnected T05 swap.
+Header now shows "Recorded Demo · Wallet not required" when disconnected on Overview to reduce distraction.
+Victor explicitly said “推送吧”, authorizing a normal push of these completed changes to
+`origin/feat/t08-settlement`. See [usage069](ai-usage/069-presentation-narrative.md).
+128 application tests, 36 protobuf decoder tests, typecheck, and both builds passed.
+No new signature, chain mutation, or private key. Next ticket and allowed files: none until authorized.
+
+## Authorized desktop UX push — September 11, 2026
+
+`based_on_commit: 8b12834a41352dbbd54dae2d5095d2f87f5cc438` is the verified base.
+Victor said “推送吧”, authorizing a normal push of the completed desktop
+clarity and next-actions changes to origin/feat/t08-settlement. This supersedes
+the local-only publication boundary for fb63d31 and 8b12834 below. Existing
+Pages automation may run; push success alone does not verify deployment.
+See [usage068](ai-usage/068-authorized-ux-push.md). No application change,
+new signature or chain transaction. Next ticket and allowed files: none.
+
+## Market next actions — September 11, 2026 · local only
+
+`based_on_commit: fb63d31055d23559cb13ea9c3f912fcf8fea5cc2` is the verified base.
+Victor authorized task-first desktop Market and selected-match next-step UX.
+See [plan017](plans/017-market-next-actions.md),
+[evidence056](evidence/056-market-tasks-summary.md),
+[usage067](ai-usage/067-market-next-actions.md).
+
+Your next step prioritizes unresolved operations and fresh eligible matches for
+the connected account; exact amounts lead to existing review controls. Selected
+matches focus the action heading, show a normal-lifecycle step list and name the
+actual required actor. Expiry/returns/unknown/historical cases stay distinct.
+Existing manual signing/recovery guards and pixel identity remain. No core,
+wallet/backend/contract/dependency changes. Mobile refinement remains deferred.
+
+npm ci,128 application +36 protobuf tests,typecheck and both builds passed.
+Isolated desktop dev/preview checks cover tasks, keyboard/focus, account changes,
+expiry, stale data and local unknown-operation recovery after reload. Existing
+dependency warnings remain. No real wallet/transaction; Victor still confirms
+visual and MetaMask behavior. Preview: http://127.0.0.1:4173/#market.
+Local commit only, no push/deployment. Next ticket and exact allowed files:
+none until authorized.
+
+## Desktop Market clarity — September 11, 2026 · local only
+
+`based_on_commit: 4ccf606a0122392d2be423bf47502b78b52f345e` is the verified base.
+Victor accepted using free skills on the four reviewed desktop issues and
+explicitly deferred mobile. See [plan016](plans/016-market-clarity.md),
+[evidence055](evidence/055-market-clarity-summary.md) and
+[usage066](ai-usage/066-market-clarity.md).
+
+Missing settlement snapshots now remain unknown in the action panel; verified
+terminal results take priority over historical restrictions. Filtered Matches
+has honest empty/unavailable/stale copy and Show all; accepted orders link
+directly to their matches. Existing signing/recovery guards, pixel identity and
+layout remain. Shared Matches messaging also appears on Activity.
+
+npm ci,126 application +36 protobuf tests,typecheck and both builds passed.
+Isolated desktop dev/preview browser checks passed for the four changes,
+stale snapshots, keyboard actions and overflow. Existing dependency warnings
+remain. No real wallet/signature/chain mutation; human visual and MetaMask
+acceptance remain Victor checks. Preview: http://127.0.0.1:4173/#market.
+Appllama skills installed user-wide; no authenticated paid-library research.
+Local commit only, no push/deployment. Next ticket and exact allowed files:
+none until authorized.
+
+## Market exchange and stable focus — September 11, 2026 · authorized push
+
+`based_on_commit: 05f324d223bfe691bfb0f55de282be770639e485` is the verified base.
+Victor requested stable post-sign scrolling and one Market exchange illustration
+based on Overview. See [plan015](plans/015-market-status.md),
+[evidence054](evidence/054-market-status-summary.md) and
+[usage065](ai-usage/065-market-status.md).
+
+Selected matches now show one pixel exchange beside their controls on desktop, with verified
+asset/payment positions, account-role labels, unknown/stale states and separate
+book totals. Automatic state focus prevents scrolling; settlement terms retain
+DOM identity. Explicit navigation remains. No wallet/core/backend/chain changes.
+
+npm ci,124 application +36 protobuf tests,typecheck and both builds passed;
+focused tests/builds rerun after unknown-state correction. Dev/preview desktop
+and mobile public-fixture checks passed. Real MetaMask return behavior and
+visual acceptance remain Victor checks; no new signature or transaction.
+Top-five price levels replace the duplicate full book and stay visible. Victor authorized pushing the completed changes; check evidence054 for publication status. Next ticket and
+exact allowed files: none until authorized.
+
+## Authorized push — September 10, 2026
+
+`based_on_commit: 0e9dc179daa8ddf049f7491f4da5a9621fb7cfec`. Victor said
+“推送吧”, authorizing a normal push of the completed branch to
+`origin/feat/t08-settlement`. This supersedes the prior local-only boundary
+for these completed commits. Existing Pages automation is triggered by this
+branch; push success alone does not establish deployment success. See
+[usage064](ai-usage/064-authorized-push.md). No new application or chain change.
+Next implementation ticket and exact allowed files: none until authorized.
+
+## Market task-first layout — September 10, 2026 · local only
+
+`based_on_commit: 9db7a0a1c1dba9303bc33bc6690091826676476f` is the verified
+starting HEAD. Victor reported Market scrolling/hierarchy problems. Read
+[plan014](plans/014-market-layout.md), [evidence053](evidence/053-market-layout-summary.md)
+and [usage063](ai-usage/063-market-layout.md) for current scope/checks.
+
+Order entry now leads desktop/mobile; book and compact pixel summary sit beside
+it on desktop. Depth and balance details are optional, amount inputs paired,
+Matches before personal orders, and quick focus buttons reach key sections.
+Existing role identity, guards, notices, state, snapshot data and historical
+settlements remain. No new assets/dependencies, backend/wallet/core changes.
+
+Install,123 application +36 protobuf tests, typecheck and both builds pass.
+Browser evidence records desktop/mobile/intermediate/narrow reflow using isolated
+public fixtures; dev signing remains disabled. Actual MetaMask and physical
+devices remain Victor checks. Review http://127.0.0.1:4173/#market.
+Local commit only; no push, deployment or chain action. Next ticket and exact
+allowed files: none until authorized.
+
+## Market characters and stable tabs — September 10, 2026 · local only
+
+`based_on_commit: 5a43e2e7e872b10c2b27b0b893b5c9ac8bc94ce2` is the verified
+starting HEAD. Victor requested Market/Header pixel characters and reported
+Overview tab layout shifts. Read [plan013](plans/013-market-characters.md),
+[evidence052](evidence/052-market-characters-summary.md) and
+[usage062](ai-usage/062-market-characters.md) for current scope and checks.
+
+Header follows the recognized connected account; Market illustrates buy/sell
+sides with exact all-market open-order totals and existing server snapshots.
+Navigation keeps its position across all routes and Demo mode; only the Demo
+stage widens. Existing trading state/guards and historical claims remain.
+No new artwork, dependencies, wallet/core changes, push, deployment or chain action.
+
+Required install,123 application +36 protobuf tests, typecheck and both builds
+pass. Browser evidence uses isolated dev/preview desktop/mobile fixtures, not
+a real wallet or physical phone. Victor: review http://127.0.0.1:4173/#market
+and switch to Overview, including Demo mode; verify the real wallet portraits.
+Next ticket and exact allowed files: none until authorized.
+
+## Pixel motion infographic — September 10, 2026 · local only
+
+`based_on_commit: 2a54f77cdd94a87e4bd3b40456afb7df79cc0107` is the verified
+starting HEAD. Victor rejected the 3D appearance, requested2D pixel-game style
+and generated missing art, then clarified film-like dynamic infographics.
+[Plan012](plans/012-pixel-demo.md) supersedes plan011's rendering requirements;
+its narrative, factual/safety boundaries and Demo controls remain. Read
+[evidence051](evidence/051-pixel-demo.md), [usage061](ai-usage/061-pixel-demo.md),
+and [DEMO](DEMO.md) for checks, provenance and the English recording script.
+The prior3D section below is dated history, not the current local visual design.
+
+Current local presentation: generated pixel hall and labeled role/prop sprites;
+four native2D narratives, historical Proof, manual/180s Demo and flat Market
+depth bars. Assets have saved prompts; failed pseudo-transparency was rejected.
+Three/R3F/type dependencies and13 exclusive lock entries are removed; no surviving
+package version changed. No Canvas/WebGL or continuous game loop. No backend,
+wallet, matching-core, contract, signature, chain operation, push or deployment.
+Existing NOVA story, fourT08 cases, drafts, selection and recovery notices remain.
+
+npm ci,121 application +36 protobuf tests, typecheck and both builds pass.
+Dev/preview1920×1080,1440×900,390×844 exercise all cues, finite synchronized
+motion, reduced motion, keyboard, image failure and Market state retention.
+Evidence051 records the timed playback, captures, actual browser observations
+and independent AI review scope. Existing audit/install/build warnings remain.
+
+Victor: inspect `http://127.0.0.1:4173/?demo=1#overview`, rehearse narration and
+give human visual acceptance on the recording device. No wallet is needed for
+the recorded presentation. Current changes stop at a local commit; the published
+site remains the prior version. Next ticket: none; exact allowed files for a
+subsequent implementation ticket: none until authorized.
+
+## Complete recorded 3D demo — September 10, 2026 · local only
+
+`based_on_commit: 765c53c3f7c32eedbb84cb159bc256092b6c85db` is the verified
+starting commit, not this handoff's containing commit. The supplied user plan
+explicitly authorized all phases of [plan011](plans/011-demo-experience.md),
+including Three.js/R3F and explanatory motion. This supersedes earlier narrow
+presentation restrictions only within this ticket. Read [evidence050](evidence/050-demo-experience.md)
+for acceptance and [usage060](ai-usage/060-demo-experience.md) for provenance;
+[DEMO](DEMO.md) has the English narration and controls. Historical records below
+remain dated records, not authorization to deploy this new version.
+
+Delivered: new Overview composition, Tokenization/Compliance/Matching/Atomic
+scenes and historical HTML Proof; manual and three-minute Demo Mode; read-only
+Market depth, match updates and resolved settlement labels. Existing NOVA story,
+T08 cases and trading state remain. Public data keeps T02/T03, T07 and T05 separate.
+No backend, contract, matching core or wallet implementation change; no signer,
+new chain operation, push or deployment. The published site retains the prior build.
+
+All required install/test/typecheck/app/showcase commands pass;121 application
+and36 protobuf checks. Dev/preview at1920×1080,1440×900,390×844 exercise every
+cue and save start/transition/end captures. Evidence records real timed playback,
+keyboard, reduced motion, fallback/context loss, background pause, recovery and
+Market state preservation. Existing audit/build warnings are retained. Frame
+observations use headless Chrome/SwiftShader and emulated viewports; see the
+recorded limits before claiming physical-device performance.
+
+Victor: open `http://127.0.0.1:4173/?demo=1#overview` for a narration trial and
+human visual acceptance on the recording device. No wallet is required for the
+recorded presentation. The implementation is complete locally; human recording
+acceptance remains. This ticket ends at its local commit. Next ticket: none;
+exact allowed files for another implementation ticket: none until authorized.
+
+## NOVA story deployed — September 10, 2026
+
+`based_on_commit: 3f7a2bef98afae81a6a9f57a956bd96593db2b38`. User requested
+「我們先deploy 上去吧」, authorizing publication of the completed local story.
+Pushed the existing feat/t08-settlement branch; Pages run34479681250 passed
+and deployed that exact source. Existing Cloud Run/Neon and chain state were
+not changed by this deployment. No merge or wallet action occurred.
+
+npm ci,116 application +36 protobuf tests, typecheck and build pass. Four local
+dev/preview1440/390 story checks and two live Pages1440/390 checks pass. Live
+API health is ready; observed25 orders/11 matches and original settlement
+contract. Counts increased since the September9 report; no data reset occurred.
+[Usage059](ai-usage/059-story-deployment.md) records checks and harness corrections;
+[evidence049](evidence/049-story-deployment.json) records public browser reads.
+
+Live site: https://outsider987.github.io/hedera-rwa-secondary-market/.
+No fresh MetaMask, signing or chain lifecycle verification is claimed. Existing
+support/audit warnings remain. Deployment complete; next ticket and exact allowed
+implementation files: none. Final documentation commit uses [skip ci] to retain
+the verified source artifact. Historical local-only story boundary below is superseded.
+
+## NOVA recorded story delivered — September 10, 2026
+
+`based_on_commit: f5573a699da1c687d9b4388a8c54639c96a308c5` is the verified
+base. User approved two interactive animated chapters with「好go」after design
+and web-research discussion. [Plan010](plans/010-nova-story.md) is this bounded
+presentation ticket; [usage058](ai-usage/058-nova-story.md) records provenance.
+
+Overview now explains setup, synthetic VC, KYC grant and issuance, then replays
+recorded normal/reverse/cancel/reclaim cases. NOVA and HBAR move according to
+selected historical steps, with exact saved proofs and balances. Expiry remains
+held until recorded reclaim. Native CSS/SVG reuses the existing certificate;
+no wallet action, runtime dependency, backend or contract change.
+
+npm ci,116 application +36 protobuf tests, typecheck, app/showcase builds and
+four dev/preview1440/390 browser cases pass. Evidence048 covers every chapter/
+case, proof alignment, expiry, keyboard, reduced motion, rapid retargeting and
+no overflow/page errors/mutation requests. Desktop/mobile captures inspected.
+These are local presentation checks against saved records, not fresh chain or
+MetaMask verification. Existing dependency/build warnings remain documented.
+
+Victor can inspect http://127.0.0.1:4173/#overview and advance either chapter.
+This extension stops at a local commit; it has not been pushed or deployed.
+Cloud deployment below remains the prior version. Next ticket and exact allowed
+implementation files: none until separately authorized. No unresolved blocker
+for this presentation scope; human visual acceptance remains Victor's action.
+
+## Hackathon cloud deployment — September 9
+
+`based_on_commit: 871518f9d6b83fa3ff5b52bc09787aabd9d1dbce`. User completed
+Google/Neon browser login and explicitly authorized provisioning with “go”.
+[Plan009](plans/009-cloud-deployment.md) and [usage057](ai-usage/057-live-deployment.md)
+record this continuation. Dedicated GCP holdbook-hackathon-2026, Cloud Run
+asia-southeast1 and Neon round-darkness-20660180 (PostgreSQL18 Singapore) exist.
+Cloud Run revision holdbook-api-00002-lx4 is ready at
+https://holdbook-api-6t7fccf54a-as.a.run.app. Health, exact CORS boundary checks
+and public market readback passed. Credentials are injected from Secret Manager.
+
+Local API is stopped; original PostgreSQL remains intact. Before cloud startup,
+all eight table counts/content digests matched, including24 orders/10 matches
+and the original salt/deployment. No pending settlement operation at cutover.
+Never restart local trading against the old copy as a parallel writer.
+
+Pages is live at https://outsider987.github.io/hedera-rwa-secondary-market/.
+Workflow34334461814 passed npm ci/test/typecheck/build and deployed source871518f.
+Real public browser checks at1440/390 passed image/tabs/no overflow/no page errors
+and cross-origin API readback. [Evidence047](evidence/047-live-deployment.json).
+The final documentation-only push retains the verified source artifact with
+[skip ci]. Deployment delivered; next ticket/implementation files: none.
+No wallet signing, chain mutation or merge. Public wallet/manual cold-resume
+behavior is not established by automated public reads. No unrelated next ticket is activated.
+
+## Branch push authorized — September 9
+
+User requested「全部推送吧」. All current feat/t08-settlement commits are
+approved for push to origin under the same branch name. This supersedes earlier
+local-only push restrictions; merge and deployment remain outside this request.
+Clean status and remote state were checked. [Usage055](ai-usage/055-authorized-push.md)
+records the authorization; final push acceptance is checked in the session.
+
+## Engine packages organized — September 9
+
+`based_on_commit: b6f60027a2fd8f002e741a8725f5be82428a11bf`. User requested
+organizing engine like src; [plan008](plans/008-engine-folders.md) bounds scope.
+cmd/api remains startup; internal/matching contains the pure book;
+internal/service contains API/auth/PostgreSQL/settlement with embedded
+migrations and data. Existing coupled service files stay together. CI fuzz and
+artifact build paths updated; no matching, SQL, HTTP or dependency changes.
+
+Go1.27.1 test/race/vet/fuzz and API builds passed with dedicated PostgreSQL18.6;
+no test skips. npm ci,114 app+36 protobuf tests, typecheck, both web builds and
+artifact checks passed. [Usage054](ai-usage/054-engine-folders.md) records evidence
+and browser checks. The disposable database was removed; the running API and its
+database were untouched. No wallet/chain actions, push, merge or publication.
+T08 stays complete locally. Stop at review; next ticket and allowed files: none.
+
+## Source folders organized — September 9
+
+`based_on_commit: 791efe615531fa72669c92c3f2422602113ffedf`. User authorized
+organizing src. [Plan007](plans/007-source-folders.md) bounds the change.
+Pages, components, named logic modules and static JSON now live in pages/,
+components/, lib/ and data/. App/entrypoints/styles/compat remain in place.
+All37 source files retain their content apart from relative paths; JSON is
+byte-identical. Executable consumers and current architecture/design links follow
+the moves; dated evidence is preserved.
+
+npm ci,114 app+36 protobuf tests, typecheck, both builds, both artifact checks and
+four dev/preview desktop/mobile browser cases passed. [Usage053](ai-usage/053-source-folders.md)
+records checks and limitations. No behavior/dependency/chain changes, signing,
+push, merge or publication. T08 remains complete locally. Stop at local review;
+next ticket and its allowed files: none until separately authorized.
+
+## Architecture diagrams saved — September 9
+
+`based_on_commit: 385a753881cbdde5d6debf13ce35c02ec998f5ac`. User explicitly requested saving the
+explained component and sequence diagrams. Documentation-only scope:
+ARCHITECTURE.md, this handoff, AI_USAGE.md and ai-usage/052-architecture-diagrams.md.
+English Mermaid diagrams show browser ATS SDK, Go/PostgreSQL, manual MetaMask
+approval and atomic contract execution. Source references and recovery boundaries
+are included. Checked against current source; git diff --check passed. No runtime
+changes or new tests required. T08 stays complete locally; no next ticket, signing,
+push, merge or publication authorized.
+
+## NOVA motion presentation extension delivered — effective
+
+`based_on_commit: 4cd15380676f3f69e34b229edb6c985c8ab1b655` is the verified
+base. User requested trading/minting animation with corresponding information;
+[plan006](plans/006-nova-motion.md) bounds this presentation authorization.
+NOVA moves seller → ATS Hold → buyer or verified return. HBAR only moves on
+verified settlement. Pending, rejection and expiry never animate success.
+Overview provides a manually stepped issuance/trading illustration; closed
+issuance remains closed. Existing certificate, Tailwind and CSS are reused.
+
+npm ci,114 app+36 protobuf tests, typecheck and both builds passed. Browser
+checks and fixture limitations: [usage051](ai-usage/051-nova-motion.md).
+T08 remains complete locally. No fresh signatures/transactions or public
+publication occurred. Stop at local review; next ticket/allowed files: none
+until separately authorized. Historical entries below remain dated evidence.
+
+## NOVA overview presentation extension delivered — effective
+
+`based_on_commit: 578aaf5661eebc300064730b387cc5e370b31cee`, actual current Git
+HEAD after independent T08 closeout. The user approved fictional-company digital
+equity, an illustrative NOVA certificate, clearer tabs and component extraction
+with existing Tailwind. [Spec005](plans/005-nova-overview.md) records this bounded
+presentation authorization; no chain/asset parameter or dependency changed.
+
+Overview is the default; Market / Activity / Settings explain tasks. Activity
+contains existing order/match lists and dated T02–T05 evidence, with old
+Trade/History links preserved. One Market controller retains drafts/selection;
+wallet handlers, locks and original-operation persistence remain in place.
+Generated illustration is labeled demo equity and its prompt is preserved.
+
+Validation: npm ci,114 app+36 protobuf tests, typecheck, both builds and four
+isolated dev/preview desktop/mobile browser cases pass. Independent finish review
+returned ship at this presentation scope. [Usage050](ai-usage/050-nova-overview.md)
+contains actual checks, captures, source/provenance and fixture limitations.
+
+T08 remains complete locally as recorded below. This extension stops at local
+review; no next ticket or additional implementation files are authorized. No
+new wallet signatures/transactions, push, merge or public deployment occurred.
+
+## T08 complete locally — effective review boundary
+
+`based_on_commit: 14975b678dd39eca8125bf50cb62385359c9298d` is the verified base
+of this final work, not the resulting commit. Four manual cases15-1/17-1/19-1/21-1
+are verified; Victor supplied reload captures for all four and readable T07
+history. API restart preserved18 orders/9 matches, settlement and deployment
+proofs. Actual counts9 accepted signatures/13 transactions include one extra
+self-trade-prevented order. Seller83/held0, Buyer17/held0 at final evidence block.
+
+Standalone showcase now contains four exact evidence-backed timelines, balance
+changes, fees, deployment/transaction links and public JSON download, alongside
+unchanged T05 historical evidence. Open http://127.0.0.1:4173/showcase/index.html;
+`dist/showcase/` is the portable build. npm ci,113 app+36 protobuf tests,typecheck,
+both builds and4 dev/preview desktop/mobile browser checks passed.
+Read [manual038](evidence/038-t08-manual.md),
+[final browser checks](evidence/038-t08-showcase.json) and
+[AI record046](ai-usage/046-t08-settlement.md). Earlier pending statements below
+are dated history superseded by this section. Existing dependency audit/chunk
+limitations remain; no backend or contract code changed in this final slice.
+
+Stop here for Victor review. No next ticket or additional implementation files
+are authorized; no push, merge, public deployment or further signing performed.
+
+## T08 connected role colors delivered — effective
+
+`based_on_commit: a4cb2ec2422ca5676f8552573bb5d77495577334`, verified Git HEAD.
+User requested distinct connected-role colors using installed Tailwind. Header
+now shows Admin purple, Seller amber, Buyer blue with explicit text; disconnected
+and unassigned accounts are neutral. Existing account lookup and wallet guards
+are preserved. npm ci retry,113 app+36 protobuf tests, typecheck, both builds and
+four isolated dev/preview desktop/mobile browser cases pass. See
+[Usage049](ai-usage/049-t08-role-colors.md) for evidence and installation retry.
+
+T08 remains active; all four chain cases and API persistence are verified.
+Victor browser reload confirmation, final static showcase and documentation/checks
+remain pending under the exact spec004 acceptance files below. No next ticket,
+wallet action, push, merge or publication is activated by this presentation work.
+
+## T08 expired reclaim and API persistence verified — effective
+
+`based_on_commit: a1d5066` (actual prior HEAD; earlier Header work preserved).
+Match21-1 Reclaimed verified at40263598; Hold5 expired1788869415, returned1 NOVA
+at1788875948. Seller83/held0, Buyer17/held0; principal0, fee0.22235090 HBAR.
+All four manual chain cases now verified;9 accepted order signatures (one extra
+self-trade-prevented order),13 transactions including deployment. Manual038 stores
+public proofs and actual reclaim capture. API restart preserved all18 orders,9
+matches, settlements and deployment/evidence exactly, excluding serverTime.
+Remaining T08: Victor browser reload confirmation, final static showcase with actual
+four cases and tests/build/browser checks, final documentation. Same allowed files
+in spec004; no next ticket, signing, push, merge or publication authorized.
+
+## T08 pinned Header delivered — effective
+
+`based_on_commit: 9411b6b4858c122c5a3080b9c10eb9db6dcb1605`, verified Git HEAD.
+User requested a separate pinned Header and use of installed Tailwind. Header
+now receives existing wallet props/callback; Tailwind pins its opaque wrapper.
+Skip link and native anchor clearance are preserved. npm ci,112 app+36 protobuf
+tests, typecheck, both builds and four dev/preview desktop/mobile browser cases
+passed. [Usage048](ai-usage/048-t08-header.md) records checks and limitations.
+
+T08 remains active; registered cancellation is verified. Expiry reclaim, final
+persistence and snapshot remain pending. Next manual case and exact remaining
+acceptance files listed below remain effective; no next ticket is activated.
+This presentation change authorizes no wallet action, push, merge or publication.
+
+## T08 registered cancellation verified — effective
+
+`based_on_commit: d5fb5cc897f405b63e96a53554cccdf036a023ce`. Match19-1 Cancelled verified40259539;
+1 NOVA returned, principal0, fee0.22002750 HBAR. Seller83/0, Buyer17/0. Original
+lock/register/cancel proofs and actual capture are in manual038; direct Mirror
+execution agrees. Observed7 accepted order signatures,10 chain transactions.
+Next separate expiry case: Seller Sell1@0.10, Buyer Buy1@0.10; Seller lock/register,
+then wait for that Hold's preparation+1800 expiry. No Buyer payment or early
+Seller cancellation. At expiry confirm funds remain held, then manual reclaim.
+Final persistence/static snapshot remain pending. Exact T08 allowed files below
+remain effective; no next ticket, agent signing, push or publication.
+
+## T08 balance visibility and busy feedback delivered — effective
+
+`based_on_commit: 2e46607204b5db27c8c06e4ada7d9f75eb97924a`. User requested visible NOVA ownership
+and a spinner during contract work. Market now shows current account available /
+locked / combined total with public block/time, refresh and stale states. Queries
+are isolated by account/session; active settlement work has a CSS spinner with
+reduced-motion support. Mutation paths are unchanged. [Usage047](ai-usage/047-t08-balances.md)
+and [evidence039](evidence/039-t08-balances.json) record112 app+36 protobuf tests,
+npm ci/typecheck/both builds and4 dev/preview browser cases passing. Direct read
+40259101 confirms Seller83/0, Buyer17/0. Refresh the production preview to load UI.
+
+T08 remains active: cancellation and expired reclaim plus final persistence and
+snapshot update are pending. Next manual action stays Seller Sell1@0.10, then
+Buyer Buy1@0.10, Seller lock/register/cancel; Buyer must not pay that case. Exact
+remaining acceptance files and manual approval restrictions below still apply;
+no next ticket, push, merge or publication.
+
+## T08 reverse case settled — effective
+
+`based_on_commit: 8637f24ab0f8015d2ffe3d7e93e2a85bc0cf14b9`. Match17-1 verified Settled40258794,
+1 NOVA/0.09 HBAR; Seller account83/0, Buyer account17/0. Three reverse operations
+and direct Mirror payment/fee agree; manual038 includes actual capture and proofs.
+Observed5 accepted order signatures,7 chain transactions. Next fresh cancellation
+case: Seller Sell1@0.10, Buyer Buy1@0.10, Seller locks/registers then cancels;
+Buyer does not pay. Cancel/reclaim/final persistence remain pending. Same allowed
+T08 files and manual approval boundary; no next ticket, push or publication.
+
+## T08 normal case settled — effective
+
+`based_on_commit: 73eabc1dbb907ef8f01c2402b8be55eb76ba707d`. Match15-1 Settled verified at40258355:
+2 NOVA delivered/0.20 HBAR principal, fee0.35439404 HBAR. Seller82/0, Buyer18/0.
+Registration40258234 is also verified. Manual038 MD/JSON and actual normal capture
+contain public proofs; direct Mirror payment check agrees. Observed3 accepted
+order signatures (one extra self-trade-prevented order),4 chain transactions.
+Next: Buyer account Sell1@0.09, then Seller account Buy1@0.09; keep accounts and
+match roles distinct. Selling Buyer locks/registers, buying Seller pays. All
+prompts manual. Other three cases/final reload-restart remain pending. Same exact
+T08 evidence/snapshot/documentation allowance below; no next ticket or publication.
+
+## T08 match15-1 locked — effective
+
+`based_on_commit: 8979d07a5b6e61ebc489c0037e5efd7222450923`. Buyer sequence15 now matches Seller13:
+2 NOVA@0.10, total0.20 HBAR. Original lock recovery verified Hold3 at block40258090;
+Seller82 available/2 held, Buyer16/0. Expiry1788865785 (19:09:45 Taipei).
+Victor next clicks Query original operation, then Seller step2/2 confirms match
+terms; do not lock again. Buyer payment remains pending. Observed3 accepted order
+signatures (including extra self-trade-prevented Seller buy),2 chain transactions.
+Manual038 contains exact public evidence. Same T08 files/boundary; no code change,
+resubmission, push or next ticket. Earlier pending order observations are historical.
+
+## T08 preview restored; Buyer request expired — effective
+
+`based_on_commit: de7d3015c72ee0046f1a503a2c799ef696e155a1`. Preview4173 had no listener;
+API8787 was healthy. Restarted preview, page/proxied query200. Original Buyer
+b87a2ddf…536bc16 is now expired, no order/result. Victor next queries original to
+refresh local state, then Buyer Buy2@0.10. Seller Sell2@0.10 remains the intended
+maker. Same manual038 evidence/files boundary; no code, wallet or chain mutation.
+
+## T08 Buyer request unresolved — effective
+
+`based_on_commit: 6d075b4b4fb3020cf73ca42e4794d9eebcc8cf9a`. Manual038 records Seller Sell2@0.10
+sequence13 open2 and an extra Seller Buy2@0.10 sequence14 cancelled by self-trade
+prevention. Buyer request b87a2ddf47cb3f7bcf7105bc2d7ceb02a64aa5afa4268c2bbb75d34cd536bc16
+is pending at unit price0.20, deadline1788863421. Query original only; after server
+expiry Buyer may create Buy2@0.10. If accepted instead, inspect the actual match
+first. No T08 match/hold/payment yet. Deployment remains verified; observed two
+accepted order signatures and one chain transaction. Same T08 file boundary below.
+
+## T08 manual deployment recovered — September 8, 2026 (effective)
+
+`based_on_commit: 41432152d411d7f1200405154ca1bd87d1536010` verified HEAD.
+T08 remains active. Admin deployment is verified at block 40257294, contract
+`0xa90da61f67c37473f38000e70623a77ad277304c`; cutoff 12.
+[Manual 038](evidence/038-t08-manual.md) records the original hash, fee and recovery.
+User's pending/incomplete screen was recovered through the original operation;
+no resubmission or code change. Initial failure cause is undetermined.
+Observed one transaction / zero new order signatures. All four cases remain Pending.
+Victor next clicks Query original operation to refresh local state, then New order,
+switches to Seller and places Sell2@0.10; Buyer then places Buy2@0.10. Every prompt
+remains manual. The exact remaining T08 allowed files below still apply; no next
+ticket, push, merge or publication. Historical no-deployment statements below
+are superseded by this observed result.
+
+## T08 activated — September 8, 2026 (effective)
+
+`based_on_commit: 3088cb9e19abffdc3c6ed58e698c62a11d88f79e` verified merged main; clean starting tree.
+User supplied the T08 implementation plan, superseding earlier no-T08 boundaries.
+Active ticket is T08 across three authorized milestones; local commits only.
+Contract/service milestone is independently committed as `3fe9b95ca47fef4dc74558872196695cd93670ee`.
+Read [spec 004](plans/004-matched-settlement.md) for effective requirements and
+exact allowed files before editing. T05/T07 are complete historical evidence.
+Contract/service and UI/snapshot are implemented; automated checks are recorded in
+[evidence 037](evidence/037-t08-implementation.md). **T08 manual acceptance remains
+pending**, including deployment; no new T08 chain transaction has been performed.
+Final checks: npm ci, 111 app +36 protobuf tests, typecheck, both builds,
+31 Foundry tests, real PostgreSQL test/race/vet/fuzz (35,717 executions), six
+layout/static browser cases and sixteen controlled genuine-SDK cases passed.
+Database/API restart preserves T07; historical T05 public reads still verify.
+The static snapshot contains verified historical T05 data and four explicitly
+pending T08 cases. [Manual 038](evidence/038-t08-manual.md) is the next action.
+Victor starts with Admin deployment in the local production preview, then creates
+fresh orders after the verified acceptance cutoff. Existing T07 data is preserved.
+
+Remaining T08 acceptance files: docs/evidence/038-t08-manual.md/.json,
+docs/evidence/038-t08-{normal,reverse,cancel,reclaim}.png (actual captures only),
+src/showcase.json, docs/evidence/037-t08-showcase.png, docs/HANDOFF.md,
+AI_USAGE.md, docs/ai-usage/046-t08-settlement.md, docs/ATTRIBUTION.md,
+README.md, PRODUCT.md, DESIGN.md, docs/DEMO.md, docs/ARCHITECTURE.md,
+docs/SUBMISSION.md, docs/plans/001-ats-first.md and 004-matched-settlement.md.
+Any observed implementation defect stays within spec 004 allowed files and needs
+its affected checks rerun. No next ticket is authorized.
+Victor alone approves every MetaMask prompt. No push, merge or publication.
+
 ## Submission review document prepared — September 8, 2026 (effective)
 
 `based_on_commit: ccd6905c539198cc2f0b5c922a8d716137733cd8`. User requested a

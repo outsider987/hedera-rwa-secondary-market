@@ -2,11 +2,11 @@ import assert from 'node:assert/strict';
 import {test,mock} from 'node:test';
 import {registerHooks} from 'node:module';
 registerHooks({resolve(s,c,n){return n(s.startsWith('.')&&c.parentURL?.includes('/src/')&&!/\.[a-z]+$/.test(s)?new URL(s+'.ts',c.parentURL).href:s,c)}});
-const hold=await import('../src/hold.ts');
+const hold=await import('../src/lib/hold.ts');
 let stateReader=()=>{throw Error('Unexpected state read');};
-mock.module('../src/hold.ts',{namedExports:{...hold,readHoldState:(...args)=>stateReader(...args)}});
-const t=await import('../src/trade.ts'),e=await import('../src/evidence.ts'),l=await import('../src/lifecycle.ts'),g=await import('../src/guards.ts');
-const {keccak256}=await import('viem'),iface=await t.swapInterface(),{asset}=await (await import('../src/nova.ts')).interfaces(),hi=await hold.holdInterface();
+mock.module('../src/lib/hold.ts',{namedExports:{...hold,readHoldState:(...args)=>stateReader(...args)}});
+const t=await import('../src/lib/trade.ts'),e=await import('../src/lib/evidence.ts'),l=await import('../src/lib/lifecycle.ts'),g=await import('../src/lib/guards.ts');
+const {keccak256}=await import('viem'),iface=await t.swapInterface(),{asset}=await (await import('../src/lib/nova.ts')).interfaces(),hi=await hold.holdInterface();
 const swap='0x'+'9'.repeat(40),hash='0x'+'1'.repeat(64),blockHash='0x'+'2'.repeat(64);
 function state() {
  const k={status:1,vcId:'urn:uuid:test-public-metadata',issuer:l.accounts.Admin.address,validFrom:'1788830000',validTo:'1789435100'};

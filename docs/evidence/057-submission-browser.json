@@ -1,0 +1,51 @@
+{
+  "local": {
+    "recordedAt": "2026-09-12T07:13:54.586Z",
+    "kind": "Isolated dev/preview; public API GET snapshots replayed locally, no signing",
+    "results": [
+      {
+        "base": "http://127.0.0.1:5174/",
+        "width": 1440,
+        "tabs": true,
+        "noOverflow": true,
+        "pageErrors": [],
+        "prohibitedWrites": [],
+        "walletConnected": false
+      },
+      {
+        "base": "http://127.0.0.1:5174/",
+        "width": 390,
+        "tabs": true,
+        "noOverflow": true,
+        "pageErrors": [],
+        "prohibitedWrites": [],
+        "walletConnected": false
+      },
+      {
+        "base": "http://127.0.0.1:4173/",
+        "width": 1440,
+        "tabs": true,
+        "noOverflow": true,
+        "pageErrors": [],
+        "prohibitedWrites": [],
+        "walletConnected": false
+      },
+      {
+        "base": "http://127.0.0.1:4173/",
+        "width": 390,
+        "tabs": true,
+        "noOverflow": true,
+        "pageErrors": [],
+        "prohibitedWrites": [],
+        "walletConnected": false
+      },
+      {
+        "base": "http://127.0.0.1:4173/showcase/",
+        "status": 200,
+        "fourCases": true,
+        "noWallet": true
+      }
+    ]
+  },
+  "live": null
+}

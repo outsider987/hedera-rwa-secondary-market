@@ -1,0 +1,167 @@
+{
+  "recordedAt": "2026-09-08T10:03:38.807766+00:00",
+  "basedOnCommit": "3088cb9e19abffdc3c6ed58e698c62a11d88f79e",
+  "manualAcceptance": "Pending; no T08 deployment or signatures",
+  "checks": {
+    "npmCi": "passed; original SDK/protobuf repairs reproduced",
+    "applicationTests": {
+      "passed": 111,
+      "failed": 0
+    },
+    "protobufTests": {
+      "passed": 36,
+      "failed": 0
+    },
+    "typecheck": "passed",
+    "applicationBuild": "passed; existing large SDK chunk warning",
+    "showcaseBuild": "passed; independent index.html",
+    "artifactCheck": "passed; T05 artifact unchanged; T08 reproducible",
+    "foundry": {
+      "passed": 31,
+      "failed": 0,
+      "newSettlementTests": 15
+    },
+    "go": {
+      "postgres": "18.6 dedicated holdbook_test",
+      "toolchain": "1.27.1",
+      "test": "passed",
+      "race": "passed",
+      "vet": "passed",
+      "fuzzExecutions": 35717,
+      "output": "ok  \tholdbook/engine\t0.616s\n?   \tholdbook/engine/cmd/api\t[no test files]\nok  \tholdbook/engine\t1.752s\n?   \tholdbook/engine/cmd/api\t[no test files]\nfuzz: elapsed: 0s, gathering baseline coverage: 0/2 completed\nfuzz: elapsed: 0s, gathering baseline coverage: 2/2 completed, now fuzzing with 20 workers\nfuzz: elapsed: 3s, execs: 35717 (11905/sec), new interesting: 73 (total: 75)\nfuzz: elapsed: 4s, execs: 35717 (0/sec), new interesting: 73 (total: 75)\nPASS\nok  \tholdbook/engine\t4.722s\n"
+    },
+    "browser": {
+      "cases": 6,
+      "result": "037-t08-browser.json",
+      "kind": "isolated explicit fixtures; dev/preview/standalone"
+    },
+    "sdkBrowser": {
+      "cases": 16,
+      "result": "037-t08-sdk-browser.json",
+      "kind": "genuine SDK8 controlled reads and wallet; no real signing"
+    },
+    "apiImageBuild": "passed; CA certificates and upstream copyright retained",
+    "databaseRestart": {
+      "offlineHTTP": 503,
+      "recoveredHTTP": 200,
+      "publicMarketUnchanged": true,
+      "orders": 9,
+      "matches": 5
+    },
+    "historicalT05": {
+      "recordedAt": "2026-09-08T10:00:22.677Z",
+      "historicalBlock": "40247352",
+      "sellerBalance": "84",
+      "buyerBalance": "16",
+      "sellerHeld": "0",
+      "buyerHeld": "0",
+      "runtimeAndSettled": true
+    },
+    "apiRebuildRestart": "original public market equal excluding serverTime",
+    "designDetector": {
+      "findings": 0,
+      "runs": 1
+    },
+    "focusedFinishReview": "ship after hover contrast and product/design context fixes",
+    "independentCoreTypecheck": "passed from git checkout-index export"
+  },
+  "audit": {
+    "low": 21,
+    "moderate": 25,
+    "high": 16,
+    "critical": 0,
+    "total": 62
+  },
+  "evidenceFiles": {
+    "docs/evidence/037-t08-browser.json": {
+      "sha256": "566bbd7fccc9632bf1e71120a13c73fc912147666806d4b84d9fccda08262a7c"
+    },
+    "docs/evidence/037-t08-sdk-browser.json": {
+      "sha256": "61b40b94f5daea0387d68f9f8b8e43ba98fb22e960853fd3c2fc6e7936a7ff19"
+    },
+    "src/settlement-artifact.json": {
+      "sha256": "65945cb3c00ba46e403f4dc5b29de3adcbb03e845cf073a9590d4c9d3e64fc51"
+    },
+    "engine/settlement-artifact.json": {
+      "sha256": "65945cb3c00ba46e403f4dc5b29de3adcbb03e845cf073a9590d4c9d3e64fc51"
+    },
+    "tests/fixtures/settlement-vector.json": {
+      "sha256": "8789741eb94e25c23367e433e39488cc72048a08c3b2a5e06023c296df01e2bc"
+    }
+  },
+  "limitations": [
+    "Manual MetaMask and live T08 deployment/atomic payment/cancel/reclaim acceptance pending.",
+    "Controlled browser/VM checks do not prove Hedera runtime compatibility or the full live proof pipeline.",
+    "No push, merge or publication."
+  ],
+  "contractServiceCommit": "3fe9b95ca47fef4dc74558872196695cd93670ee",
+  "affectedFiles": [
+    ".github/workflows/ci.yml",
+    "AI_USAGE.md",
+    "DESIGN.md",
+    "PRODUCT.md",
+    "README.md",
+    "contracts/NovaSettlement.sol",
+    "contracts/test/NovaSettlement.t.sol",
+    "docs/ARCHITECTURE.md",
+    "docs/ATTRIBUTION.md",
+    "docs/DEMO.md",
+    "docs/HANDOFF.md",
+    "docs/SUBMISSION.md",
+    "docs/ai-usage/046-t08-settlement.md",
+    "docs/evidence/037-t08-browser.json",
+    "docs/evidence/037-t08-browser.mjs",
+    "docs/evidence/037-t08-dev-desktop.png",
+    "docs/evidence/037-t08-dev-mobile.png",
+    "docs/evidence/037-t08-implementation.md",
+    "docs/evidence/037-t08-preview-desktop.png",
+    "docs/evidence/037-t08-preview-mobile.png",
+    "docs/evidence/037-t08-sdk-browser.json",
+    "docs/evidence/037-t08-sdk-browser.mjs",
+    "docs/evidence/037-t08-showcase.png",
+    "docs/evidence/037-t08-validation.json",
+    "docs/evidence/038-t08-manual.json",
+    "docs/evidence/038-t08-manual.md",
+    "docs/plans/001-ats-first.md",
+    "docs/plans/003-matching-engine.md",
+    "docs/plans/004-matched-settlement.md",
+    "docs/prompts/031-t08-settlement.md",
+    "engine/Dockerfile",
+    "engine/cmd/api/main.go",
+    "engine/http.go",
+    "engine/migrations/002-settlement.sql",
+    "engine/settlement-artifact.json",
+    "engine/settlement.go",
+    "engine/settlement_http.go",
+    "engine/settlement_rpc.go",
+    "engine/settlement_rpc_test.go",
+    "engine/settlement_test.go",
+    "engine/store.go",
+    "engine/store_test.go",
+    "foundry.toml",
+    "package-lock.json",
+    "package.json",
+    "scripts/build-settlement.mjs",
+    "showcase.html",
+    "src/MarketPanel.tsx",
+    "src/SettlementPanel.tsx",
+    "src/TradePanel.tsx",
+    "src/hold.ts",
+    "src/market.ts",
+    "src/settlement-artifact.json",
+    "src/settlement.ts",
+    "src/showcase.json",
+    "src/showcase.tsx",
+    "src/styles.css",
+    "src/trade.ts",
+    "src/transport.ts",
+    "tests/fixtures/settlement-vector.json",
+    "tests/market.test.mjs",
+    "tests/settlement.test.mjs",
+    "tests/shell.test.mjs",
+    "tests/showcase.test.mjs",
+    "tests/transport.test.mjs",
+    "vite.config.ts",
+    "vite.showcase.config.ts"
+  ]
+}

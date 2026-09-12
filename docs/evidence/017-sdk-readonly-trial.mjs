@@ -142,13 +142,13 @@ const record = { schemaVersion: 1, date: new Date().toISOString(),
   lockSha256: hash(readFileSync(join(root, 'package-lock.json'))), node: process.version,
   playwright: require('playwright/package.json').version, kind: 'isolated-local-sdk-readonly-patch',
   patch: patches.map(({ path, originalSha256, patchedSha256 }) => ({ path, originalSha256, patchedSha256 })),
-  sourceHashes: Object.fromEntries(['scripts/patch-ats-readonly.mjs', 'tests/ats.test.mjs', 'docs/evidence/017-sdk-readonly-trial.mjs', 'src/deployment.ts'].map(path => [path, hash(readFileSync(join(root, path)))])),
+  sourceHashes: Object.fromEntries(['scripts/patch-ats-readonly.mjs', 'tests/ats.test.mjs', 'docs/evidence/017-sdk-readonly-trial.mjs', 'src/lib/deployment.ts'].map(path => [path, hash(readFileSync(join(root, path)))])),
   candidateSource: probeSource, results: [], bundle: { packages: [], assets: [], generatedSources: [] },
   note: 'Actual patched public SDK and owned ethers provider. Controlled HTTP responses except live cases. body-timeout uses a synthetic Response stream; late uses a transport ignoring abort. No wallet, VC or mutation; app integration not included.' };
 let dev, production, browser;
 try {
   mkdirSync(join(scratch, 'src/compat'), { recursive: true });
-  for (const path of ['package.json', 'package-lock.json', 'vite.config.ts', 'src/styles.css', 'src/deployment.ts', 'src/compat/dotenv.ts', 'src/compat/winston.ts']) copyFileSync(join(root, path), join(scratch, path));
+  for (const path of ['package.json', 'package-lock.json', 'vite.config.ts', 'src/styles.css', 'src/lib/deployment.ts', 'src/compat/dotenv.ts', 'src/compat/winston.ts']) copyFileSync(join(root, path), join(scratch, path));
   symlinkSync(join(root, 'node_modules'), join(scratch, 'node_modules'), 'dir');
   writeFileSync(join(scratch, 'src/probe.js'), probeSource);
   writeFileSync(join(scratch, 'index.html'), '<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ATS read-only trial</title></head><body><main><h1>ATS read-only trial</h1><p>Isolated config read. No wallet.</p><p id="status" role="status" aria-live="polite">idle</p><div class="actions"><button id="prepare">Prepare SDK</button><button id="check" disabled>Check SDK config</button><button id="cancel" disabled>Cancel</button></div></main><script type="module" src="/src/probe.js"></script></body></html>');

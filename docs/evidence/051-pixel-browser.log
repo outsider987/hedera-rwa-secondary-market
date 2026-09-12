@@ -1,0 +1,27 @@
+matrix 5173 1920
+matrix 5173 1440
+matrix 5173 390
+matrix 4173 1920
+matrix 4173 1440
+matrix 4173 390
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for getByRole('button', { name: 'Start Demo', exact: true })
+    - locator resolved to <button>Start Demo</button>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+
+    at /home/outsider/github/ETHGlobal_Victor/docs/evidence/051-pixel-browser.mjs:49:180 {
+  log: [
+    "  - waiting for getByRole('button', { name: 'Start Demo', exact: true })",
+    '    - locator resolved to <button>Start Demo</button>',
+    '  - attempting click action',
+    '    - waiting for element to be visible, enabled and stable'
+  ]
+}
+
+Node.js v24.19.0

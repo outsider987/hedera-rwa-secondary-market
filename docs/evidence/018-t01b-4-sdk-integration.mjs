@@ -36,7 +36,7 @@ const record = { schemaVersion: 1, date: new Date().toISOString(),
   lockSha256: hash(readFileSync(join(root, 'package-lock.json'))), node: process.version,
   playwright: require('playwright/package.json').version, kind: 'main-app-sdk-config-integration',
   patch: patches.map(({ path, originalSha256, patchedSha256 }) => ({ path, originalSha256, patchedSha256 })),
-  sourceHashes: Object.fromEntries(['scripts/patch-ats-readonly.mjs', 'tests/ats.test.mjs', 'tests/shell.test.mjs', 'docs/evidence/018-t01b-4-sdk-integration.mjs', 'src/ats.ts', 'src/App.tsx', 'src/deployment.ts', 'src/wallet.ts'].map(path => [path, hash(readFileSync(join(root, path)))])),
+  sourceHashes: Object.fromEntries(['scripts/patch-ats-readonly.mjs', 'tests/ats.test.mjs', 'tests/shell.test.mjs', 'docs/evidence/018-t01b-4-sdk-integration.mjs', 'src/lib/ats.ts', 'src/App.tsx', 'src/lib/deployment.ts', 'src/lib/wallet.ts'].map(path => [path, hash(readFileSync(join(root, path)))])),
   results: [], bundle: { packages: [], assets: [], generatedSources: [] },
   note: 'Actual app, patched public SDK and owned ethers provider. Controlled HTTP responses except live cases. body-timeout uses a synthetic Response stream; late ignores abort. Wallet events use a synthetic EIP-1193 provider. No signature or transaction; no real MetaMask acceptance.' };
 let dev, production, browser;

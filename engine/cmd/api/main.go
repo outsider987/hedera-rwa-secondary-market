@@ -9,21 +9,31 @@ import (
 	"syscall"
 	"time"
 
-	engine "holdbook/engine"
+	"holdbook/engine/internal/service"
 )
 
 func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
-	// Dedicated local Compose network; no wallet or application secrets.
-	store, e := engine.Open(ctx, "postgres://holdbook@db:5432/holdbook?sslmode=disable")
+	cfg, e := readConfig(os.Getenv)
+	if e != nil {
+		log.Print(e.Error())
+		os.Exit(1)
+	}
+	// Never log connection strings or database errors containing credentials.
+	startup, cancelStartup := context.WithTimeout(ctx, 30*time.Second)
+	store, e := service.Open(startup, cfg.databaseURL)
+	cancelStartup()
 	if e != nil {
 		log.Print("Database initialization failed")
 		os.Exit(1)
 	}
 	defer store.Pool.Close()
-	go store.Tick(ctx)
-	server := &http.Server{Addr: ":8787", Handler: engine.Handler(store), ReadHeaderTimeout: 3 * time.Second, ReadTimeout: 12 * time.Second, WriteTimeout: 15 * time.Second, IdleTimeout: 30 * time.Second, MaxHeaderBytes: 8192}
+	// Cloud Run can suspend background CPU; requests already expire stale orders.
+	if cfg.host == "" {
+		go store.Tick(ctx)
+	}
+	server := &http.Server{Addr: ":" + cfg.port, Handler: service.Handler(store, cfg.origin, cfg.host), ReadHeaderTimeout: 3 * time.Second, ReadTimeout: 12 * time.Second, WriteTimeout: 190 * time.Second, IdleTimeout: 30 * time.Second, MaxHeaderBytes: 8192}
 	go func() {
 		<-ctx.Done()
 		shutdown, cancel := context.WithTimeout(context.Background(), 5*time.Second)

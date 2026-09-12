@@ -1,0 +1,784 @@
+{
+  "recordedAt": "2026-09-08T14:01:53.333033+00:00",
+  "status": "Four manual cases, browser reload and API restart verified",
+  "chainId": "296",
+  "deployment": {
+    "operationId": "fec278d6f29475810653aecf08ae58138fad4a55ea1d6bebdfdd76c6b6892a30",
+    "status": "verified",
+    "address": "0xa90da61f67c37473f38000e70623a77ad277304c",
+    "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca",
+    "cutoff": "12",
+    "evidence": {
+      "hash": "0xf0448adc0a4d1f76777cec55f0151c8a86e7bcb6b8b58de7a94f9179dbc6d0d0",
+      "block": "40257294",
+      "timestamp": "1788862421",
+      "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+      "holdId": "0",
+      "feeTinybars": "160459090",
+      "principalTinybars": "0",
+      "transactionId": "0.0.7314364-1788862415-305439174",
+      "logIndices": [
+        "0"
+      ],
+      "reverted": false
+    },
+    "recovery": "User screenshot showed locally pending hash and incomplete request; backend originally retained prepared operation without hash. Original hash was found in public Mirror and matched against saved sender, calldata, value and chain. Original-operation hash registration and verification completed without resubmission. Initial request failure cause was not established."
+  },
+  "observedOrderSignatures": "9",
+  "observedChainTransactions": "13",
+  "expectedOrderSignatures": "8",
+  "expectedChainTransactions": "13",
+  "cases": [
+    {
+      "id": "normal",
+      "status": "Settled verified",
+      "quantity": "2",
+      "priceTinybars": "10000000",
+      "evidence": [
+        {
+          "action": "lock",
+          "operationId": "43e9b8198bbb371842ed0f432fd2a1409b2d307650470f5b0e5d9c6d2d9f33c7",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "84",
+            "sellerHeld": "0",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "2",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          },
+          "hash": "0x06458ff4b0600112ec0ba03977751e2651199d6d4a3e95eef53ed9b5b48e480b",
+          "block": "40258090",
+          "timestamp": "1788864122",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "3",
+          "feeTinybars": "42090162",
+          "principalTinybars": "0",
+          "transactionId": "0.0.7314364-1788864118-969626920",
+          "logIndices": [
+            "2"
+          ],
+          "reverted": false
+        },
+        {
+          "action": "register",
+          "operationId": "fe47d99b637c9f97e5ca09b1e34209d3e92c4481ebcb55a8ff76bdddae0eef53",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "2",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "2",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          },
+          "hash": "0x0f780ac0a393c2c5caa11df96dd5dbf460fa8a0edd1c70377fa891db5e547699",
+          "block": "40258234",
+          "timestamp": "1788864430",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "0",
+          "feeTinybars": "40415468",
+          "principalTinybars": "0",
+          "transactionId": "0.0.7314364-1788864425-777342423",
+          "logIndices": [
+            "1"
+          ],
+          "reverted": false
+        },
+        {
+          "action": "settle",
+          "operationId": "59b41c3c74490de93078256a3ac9da2214d42b19e11513ed902802c7743fd15d",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "2",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "0",
+            "buyerAvailable": "18",
+            "buyerHeld": "0"
+          },
+          "hash": "0x9fdb7cb1d7bd665edcc3e3acc61b743e63a701cc0714107e76a72d2d6b064230",
+          "block": "40258355",
+          "timestamp": "1788864686",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "0",
+          "feeTinybars": "35439404",
+          "principalTinybars": "20000000",
+          "transactionId": "0.0.7314364-1788864680-322983104",
+          "logIndices": [
+            "3",
+            "2"
+          ],
+          "reverted": false
+        }
+      ],
+      "match": {
+        "id": "15-1",
+        "maker": "38b3ac463c12d05058c8193dfe85e6f5ab16671a53b5026f7d7db23ae96ab76e",
+        "taker": "be33f76a872fb776a111c0541c595ff6aff3f9fda102ce1e4175056191eccb92",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "2",
+        "price": "10000000",
+        "notional": "20000000",
+        "time": "1788863942",
+        "status": "Matched \u00b7 Not settled"
+      },
+      "settlement": {
+        "id": "15-1",
+        "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+        "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca",
+        "terms": {
+          "matchId": "0x747425d2d0ed3639641130cc087c49ce7dc6e985ed20b9f984435964a4dded00",
+          "sellerOrder": "0x38b3ac463c12d05058c8193dfe85e6f5ab16671a53b5026f7d7db23ae96ab76e",
+          "buyerOrder": "0xbe33f76a872fb776a111c0541c595ff6aff3f9fda102ce1e4175056191eccb92",
+          "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+          "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+          "amount": "2",
+          "priceTinybars": "10000000",
+          "preparedAt": "1788863985",
+          "expiry": "1788865785",
+          "holdId": "3"
+        },
+        "digest": "0xcbb67d10fdf2e1c525bbb66ee536eec2994d46485871efdce3fe97695e9e7284",
+        "status": "Settled",
+        "baseBlock": "40258025",
+        "updatedAt": "1788864721"
+      },
+      "capture": "038-t08-normal.png",
+      "mirrorPayment": {
+        "sellerAccount": "0.0.10389111",
+        "sellerCreditTinybars": "20000000",
+        "buyerAccount": "0.0.10389098",
+        "buyerDebitTinybars": "55439404",
+        "feeTinybars": "35439404",
+        "result": "SUCCESS"
+      }
+    },
+    {
+      "id": "reverse",
+      "status": "Settled verified",
+      "quantity": "1",
+      "priceTinybars": "9000000",
+      "evidence": [
+        {
+          "action": "lock",
+          "operationId": "25b167c9862fd45651bac171a21269a4d1b6c8b487b9d882fdee1bfefaa21a4b",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "18",
+            "sellerHeld": "0",
+            "buyerAvailable": "82",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "17",
+            "sellerHeld": "1",
+            "buyerAvailable": "82",
+            "buyerHeld": "0"
+          },
+          "hash": "0x6a1a0703486d88e9061bf902ed6600ae4c9315b12cdc9fe2fcb2496fe6922212",
+          "block": "40258591",
+          "timestamp": "1788865191",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "1",
+          "feeTinybars": "43902762",
+          "principalTinybars": "0",
+          "transactionId": "0.0.7314364-1788865187-411319779",
+          "logIndices": [
+            "4"
+          ],
+          "reverted": false
+        },
+        {
+          "action": "register",
+          "operationId": "69d867b6e674b93fe7491531c1a16bdc855d76c970ce7c558443f4f05502bf45",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "17",
+            "sellerHeld": "1",
+            "buyerAvailable": "82",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "17",
+            "sellerHeld": "1",
+            "buyerAvailable": "82",
+            "buyerHeld": "0"
+          },
+          "hash": "0x91a477c9e834411a50ee8547449f49ebb5d566fd7231bfaa57801ba698f52915",
+          "block": "40258718",
+          "timestamp": "1788865464",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "0",
+          "feeTinybars": "40057500",
+          "principalTinybars": "0",
+          "transactionId": "0.0.7314364-1788865461-985831770",
+          "logIndices": [
+            "2"
+          ],
+          "reverted": false
+        },
+        {
+          "action": "settle",
+          "operationId": "1437623d5f9edd0166b93333e8e3b1bd47ee54e9c3189591d7c4f867152f1b1b",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "17",
+            "sellerHeld": "1",
+            "buyerAvailable": "82",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "17",
+            "sellerHeld": "0",
+            "buyerAvailable": "83",
+            "buyerHeld": "0"
+          },
+          "hash": "0x6b36f5c233252b4cf20bc38050daf71f8453e814030a0511c65c5e25d9789277",
+          "block": "40258794",
+          "timestamp": "1788865628",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "0",
+          "feeTinybars": "35105070",
+          "principalTinybars": "9000000",
+          "transactionId": "0.0.7314364-1788865624-032067612",
+          "logIndices": [
+            "3",
+            "2"
+          ],
+          "reverted": false
+        }
+      ],
+      "settlement": {
+        "id": "17-1",
+        "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+        "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca",
+        "terms": {
+          "matchId": "0xc6e1818333f6bcc95b98d8878a28f2b91eaad95de43dedbbd55271615bd8a6b8",
+          "sellerOrder": "0x0f39ef99cd44caa952fe67f97dc78da3640564b295d66687917f8d96723a0d6a",
+          "buyerOrder": "0x5ccb18e7bd3b39f8d683f79f3bfdb9d7d3b39298588fbfd8aa1282a144b50122",
+          "seller": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+          "buyer": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+          "amount": "1",
+          "priceTinybars": "9000000",
+          "preparedAt": "1788865086",
+          "expiry": "1788866886",
+          "holdId": "1"
+        },
+        "digest": "0xffa4a2f37914d5b2671632e86e84b250305012dca650b424a5bb3f5d1d8c8c1c",
+        "status": "Settled",
+        "baseBlock": "40258542",
+        "updatedAt": "1788865645"
+      },
+      "match": {
+        "id": "17-1",
+        "maker": "0f39ef99cd44caa952fe67f97dc78da3640564b295d66687917f8d96723a0d6a",
+        "taker": "5ccb18e7bd3b39f8d683f79f3bfdb9d7d3b39298588fbfd8aa1282a144b50122",
+        "buyer": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "seller": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "quantity": "1",
+        "price": "9000000",
+        "notional": "9000000",
+        "time": "1788865065",
+        "status": "Matched \u00b7 Not settled"
+      },
+      "mirrorPayment": {
+        "sellerAccount": "0.0.10389098",
+        "sellerCreditTinybars": "9000000",
+        "buyerAccount": "0.0.10389111",
+        "buyerDebitTinybars": "44105070",
+        "feeTinybars": "35105070",
+        "result": "SUCCESS"
+      },
+      "capture": "038-t08-reverse.png"
+    },
+    {
+      "id": "cancel",
+      "status": "Cancelled verified",
+      "quantity": "1",
+      "priceTinybars": "10000000",
+      "evidence": [
+        {
+          "action": "lock",
+          "operationId": "433b5cf1dc1b0cd7e6f07d47c1324f9cc3c65ee42c0c61dbb6935aac5073a709",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "83",
+            "sellerHeld": "0",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "hash": "0x5504267d62a61fd61af5639f25d01394704788142c49acf586955ef530d73643",
+          "block": "40259382",
+          "timestamp": "1788866902",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "4",
+          "feeTinybars": "41693085",
+          "principalTinybars": "0",
+          "transactionId": "0.0.7314364-1788866900-464991574",
+          "logIndices": [
+            "2"
+          ],
+          "reverted": false
+        },
+        {
+          "action": "register",
+          "operationId": "76052fd1c9dcab53f269039d8cd079156931fffd3b632a822f64ed79dafa4b6f",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "hash": "0xa2343fa52d5308a318089ce8d25e871fd23d86cd855fd8e5bd000cf3cf5d3cc0",
+          "block": "40259472",
+          "timestamp": "1788867098",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "0",
+          "feeTinybars": "40035450",
+          "principalTinybars": "0",
+          "transactionId": "0.0.7314364-1788867095-076791443",
+          "logIndices": [
+            "4"
+          ],
+          "reverted": false
+        },
+        {
+          "action": "cancel",
+          "operationId": "6e2b728059876785e6cc78a408c1905f30062f3f102ebdcc715e6b0d0dea1681",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "83",
+            "sellerHeld": "0",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "hash": "0x4d048c904b49f8fd5aa0b0064446180465ea430d16e02e7bd708d99cf1f40b0c",
+          "block": "40259539",
+          "timestamp": "1788867243",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "0",
+          "feeTinybars": "22002750",
+          "principalTinybars": "0",
+          "transactionId": "0.0.7314364-1788867239-338355041",
+          "logIndices": [
+            "3",
+            "2"
+          ],
+          "reverted": false
+        }
+      ],
+      "settlement": {
+        "id": "19-1",
+        "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+        "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca",
+        "terms": {
+          "matchId": "0x34fc041836e93703296e2530666269f6098d0a3d255bdf6245bc0eb808f989c9",
+          "sellerOrder": "0xcd28d6e56bf704ec5974bb7c78f4813ace1e7e2c45ed4dc9be63af9c741eaf64",
+          "buyerOrder": "0xd29740396d63d1d0c61fbd1bdd10c22671374da8356dd29d293c34da196293b3",
+          "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+          "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+          "amount": "1",
+          "priceTinybars": "10000000",
+          "preparedAt": "1788866677",
+          "expiry": "1788868477",
+          "holdId": "4"
+        },
+        "digest": "0x4d8cf2834da2245f46572b6fc1b33c63631dcb19407aedad248885ecd6905122",
+        "status": "Cancelled",
+        "baseBlock": "40259279",
+        "updatedAt": "1788867429"
+      },
+      "match": {
+        "id": "19-1",
+        "maker": "cd28d6e56bf704ec5974bb7c78f4813ace1e7e2c45ed4dc9be63af9c741eaf64",
+        "taker": "d29740396d63d1d0c61fbd1bdd10c22671374da8356dd29d293c34da196293b3",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "1",
+        "price": "10000000",
+        "notional": "10000000",
+        "time": "1788866612",
+        "status": "Matched \u00b7 Not settled"
+      },
+      "mirrorExecution": {
+        "hash": "0x4d048c904b49f8fd5aa0b0064446180465ea430d16e02e7bd708d99cf1f40b0c",
+        "result": "SUCCESS",
+        "amountTinybars": "0",
+        "block": "40259539"
+      },
+      "capture": "038-t08-cancel.png"
+    },
+    {
+      "id": "reclaim",
+      "status": "Reclaimed verified",
+      "quantity": "1",
+      "priceTinybars": "10000000",
+      "evidence": [
+        {
+          "action": "lock",
+          "operationId": "b6da2ddda5696b01c2e6e8b5db948f6034e9537aa4007dc9fac1d0565087f53f",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "83",
+            "sellerHeld": "0",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "hash": "0xf989877bdf8f0bae7665823c4d51d425a0e63a7605353ec25991ad019a64e952",
+          "block": "40259749",
+          "timestamp": "1788867700",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "5",
+          "feeTinybars": "41693085",
+          "principalTinybars": "0",
+          "transactionId": "0.0.7314364-1788867697-937114853",
+          "logIndices": [
+            "2"
+          ],
+          "reverted": false
+        },
+        {
+          "action": "reclaim",
+          "operationId": "aa3b4641e452a14e7b5f76778baed1c80a85cdc289fd88642c1a1dd220377942",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "83",
+            "sellerHeld": "0",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "hash": "0x96a5d7e4705a5372692ab2a11343429ba4dea8b88f14896ac1bfded2336e07de",
+          "block": "40263598",
+          "timestamp": "1788875948",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "0",
+          "feeTinybars": "22235090",
+          "principalTinybars": "0",
+          "transactionId": "0.0.7314364-1788875942-570550366",
+          "logIndices": [
+            "3",
+            "2"
+          ],
+          "reverted": false
+        },
+        {
+          "action": "register",
+          "operationId": "46aec44070d54ec1ab7ff4de8dea4b7017f1b380a8dd7be8e0a1889531ae618d",
+          "status": "verified",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "hash": "0x4ca02f5cd454d77d2bda8efaa69234f3d8f59c0d06a2397dd00f6cbbb3467ebf",
+          "block": "40259839",
+          "timestamp": "1788867894",
+          "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+          "holdId": "0",
+          "feeTinybars": "40035450",
+          "principalTinybars": "0",
+          "transactionId": "0.0.7314364-1788867888-954112406",
+          "logIndices": [
+            "0"
+          ],
+          "reverted": false
+        }
+      ],
+      "settlement": {
+        "id": "21-1",
+        "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+        "salt": "0x4a869e24a358d03388791d2aa98575505c70690a9a2f6cfe5a51e374c6b66fca",
+        "terms": {
+          "matchId": "0x3938bb666ad62784f23c17433e9e19c684e20c28fee917dfbb2c824ab6223c36",
+          "sellerOrder": "0x04f3940a47d96075995a18fbef4ccf70dd4168c6f26c354df1c9ca122a85c857",
+          "buyerOrder": "0xafacc24ce02e2950997aad18a695a67e04b9c79311265db6782c562993131acb",
+          "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+          "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+          "amount": "1",
+          "priceTinybars": "10000000",
+          "preparedAt": "1788867615",
+          "expiry": "1788869415",
+          "holdId": "5"
+        },
+        "digest": "0x341cff31db210d2da7f300eaec5e4445f9a5d658ce60652774ecb95c8afaa197",
+        "status": "Reclaimed",
+        "baseBlock": "40259710",
+        "updatedAt": "1788875968"
+      },
+      "match": {
+        "id": "21-1",
+        "maker": "04f3940a47d96075995a18fbef4ccf70dd4168c6f26c354df1c9ca122a85c857",
+        "taker": "afacc24ce02e2950997aad18a695a67e04b9c79311265db6782c562993131acb",
+        "buyer": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "seller": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "quantity": "1",
+        "price": "10000000",
+        "notional": "10000000",
+        "time": "1788867606",
+        "status": "Matched \u00b7 Not settled"
+      },
+      "mirrorExecution": {
+        "hash": "0x96a5d7e4705a5372692ab2a11343429ba4dea8b88f14896ac1bfded2336e07de",
+        "result": "SUCCESS",
+        "amount": 0,
+        "block_number": 40263598,
+        "timestamp": "1788875949.198188104",
+        "from": "0x00000000000000000000000000000000009e8677",
+        "to": "0xa90da61f67c37473f38000e70623a77ad277304c"
+      },
+      "capture": "038-t08-reclaim.png"
+    }
+  ],
+  "reloadAndRestartComparison": {
+    "apiRestart": "Passed: complete market snapshot excluding serverTime, all settlements, deployment and embedded evidence identical before/after docker compose restart api",
+    "recordedAt": "2026-09-08T14:01:53.333033+00:00",
+    "orders": "18",
+    "matches": "9",
+    "pendingOperation": null,
+    "browserReload": "Passed: Victor supplied Matches All captures showing21-1 Reclaimed,19-1 Cancelled,17-1 Settled and15-1 Settled; historical11-1/9-1 remain readable",
+    "captures": [
+      "038-t08-reload-top.png",
+      "038-t08-reload-bottom.png"
+    ]
+  },
+  "orderProgress": {
+    "serverTime": "1788863158",
+    "acceptedOrders": [
+      {
+        "requestId": "2836c57128e35be03fb531a3fc07303dd91593c99a709e836b92f2752fad7784",
+        "orderId": "38b3ac463c12d05058c8193dfe85e6f5ab16671a53b5026f7d7db23ae96ab76e",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "2",
+        "price": "10000000",
+        "expiresAt": "1788949222",
+        "sequence": "13",
+        "acceptedAt": "1788862827",
+        "remaining": "0",
+        "matched": "2",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "2fcea7122020e2652ce722eb7dfbde96a646c3d11e969b78f82ad11681ca0c84",
+        "orderId": "7f4f9f2ade26d2727c9e07e156d88b4f85ac825e5ebe95b35c127f75e2d02781",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "2",
+        "price": "10000000",
+        "expiresAt": "1788949397",
+        "sequence": "14",
+        "acceptedAt": "1788863009",
+        "remaining": "0",
+        "matched": "0",
+        "cancelled": "2",
+        "expired": "0",
+        "reason": "Self-trade prevention"
+      },
+      {
+        "requestId": "2b9876d6c7de9a774ae5785fd21bb8b352b320b0cbeb954d3c30054f7350979a",
+        "orderId": "be33f76a872fb776a111c0541c595ff6aff3f9fda102ce1e4175056191eccb92",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "2",
+        "price": "10000000",
+        "expiresAt": "1788950336",
+        "sequence": "15",
+        "acceptedAt": "1788863942",
+        "remaining": "0",
+        "matched": "2",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "8f1c42c2a703af7b885f2a3581ab894bc0c474e89af57ff173fdc96321873305",
+        "orderId": "0f39ef99cd44caa952fe67f97dc78da3640564b295d66687917f8d96723a0d6a",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "1",
+        "price": "9000000",
+        "expiresAt": "1788951383",
+        "sequence": "16",
+        "acceptedAt": "1788864987",
+        "remaining": "0",
+        "matched": "1",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "13f84f8e35d5250c3797b9e1d7575faccbd850aa1d0145b0af2e60ec0935d956",
+        "orderId": "5ccb18e7bd3b39f8d683f79f3bfdb9d7d3b39298588fbfd8aa1282a144b50122",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "1",
+        "price": "9000000",
+        "expiresAt": "1788951431",
+        "sequence": "17",
+        "acceptedAt": "1788865065",
+        "remaining": "0",
+        "matched": "1",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "c72cb5558fce0cf44270d0d4255f322ce7ff894734a52a343c4050375c2ad159",
+        "orderId": "cd28d6e56bf704ec5974bb7c78f4813ace1e7e2c45ed4dc9be63af9c741eaf64",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "1",
+        "price": "10000000",
+        "expiresAt": "1788952972",
+        "sequence": "18",
+        "acceptedAt": "1788866576",
+        "remaining": "0",
+        "matched": "1",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "38033084ca389b6bf956b57f890cbe75d15ac5b475c67897e6c4a9eef6a17383",
+        "orderId": "d29740396d63d1d0c61fbd1bdd10c22671374da8356dd29d293c34da196293b3",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "1",
+        "price": "10000000",
+        "expiresAt": "1788953007",
+        "sequence": "19",
+        "acceptedAt": "1788866612",
+        "remaining": "0",
+        "matched": "1",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "52195bca883cb9d9cf711ffff6558baa83b3024f125a6e6afabb4aa01e8c6b6f",
+        "orderId": "04f3940a47d96075995a18fbef4ccf70dd4168c6f26c354df1c9ca122a85c857",
+        "owner": "0x740e4ef58151a169621622577a5b6d6ff5010836",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Sell",
+        "quantity": "1",
+        "price": "10000000",
+        "expiresAt": "1788953988",
+        "sequence": "20",
+        "acceptedAt": "1788867591",
+        "remaining": "0",
+        "matched": "1",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      },
+      {
+        "requestId": "1d2640affe8b81e289a48de3e6c29322a0a0c0c23a950f41a56273c18065ae60",
+        "orderId": "afacc24ce02e2950997aad18a695a67e04b9c79311265db6782c562993131acb",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "1",
+        "price": "10000000",
+        "expiresAt": "1788954002",
+        "sequence": "21",
+        "acceptedAt": "1788867606",
+        "remaining": "0",
+        "matched": "1",
+        "cancelled": "0",
+        "expired": "0",
+        "reason": ""
+      }
+    ],
+    "pendingBuyerRequest": {
+      "prepared": {
+        "requestId": "b87a2ddf47cb3f7bcf7105bc2d7ceb02a64aa5afa4268c2bbb75d34cd536bc16",
+        "orderId": "7123b58b49e3f5421f59907ed7184c02cfd214b7c61f5b38917abf5e73da122a",
+        "owner": "0xa1f2872ee7a9f74523ae0887a9dc428ff1340706",
+        "market": "NOVA/HBAR",
+        "action": "Place",
+        "side": "Buy",
+        "quantity": "2",
+        "price": "20000000",
+        "expiresAt": "1788949521",
+        "deadline": "1788863421",
+        "preparedAt": "1788863121"
+      },
+      "status": "expired",
+      "digest": "",
+      "verified": false,
+      "result": null,
+      "reason": "Submission deadline expired"
+    },
+    "note": "Fresh Buyer Buy2@0.10 accepted sequence15 and matched Seller sequence13 as15-1. Prior Buyer0.20 request expired; extra Seller-owned buy was prevented from self-trading."
+  }
+}

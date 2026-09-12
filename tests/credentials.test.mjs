@@ -8,7 +8,7 @@ test('genuine Terminal3 payload, UTF-8 digest signing, rejection and invalid cre
   let held=false;const descriptor=Object.getOwnPropertyDescriptor(globalThis,'navigator');
   Object.defineProperty(globalThis,'navigator',{configurable:true,value:{locks:{request:async(name,options,fn)=>{if(held)return fn(null);held=true;try{return await fn({name})}finally{held=false}}}}});
   t.after(()=>Object.defineProperty(globalThis,'navigator',descriptor));
-  const { prepareSellerCredential, credentialProblem, verifySellerCredential, signSellerCredential } = await import('../src/credentials.ts');
+  const { prepareSellerCredential, credentialProblem, verifySellerCredential, signSellerCredential } = await import('../src/lib/credentials.ts');
   const { getAddress, solidityPackedKeccak256, toUtf8Bytes, hexlify } = await import('ethers');
   const now=Date.now(); const prepared=await prepareSellerCredential(A,B,now);
   assert.equal(prepared.payload.issuer,'did:ethr:'+getAddress(A));

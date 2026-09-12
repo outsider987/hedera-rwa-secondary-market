@@ -1,0 +1,98 @@
+{
+  "recordedAt": "2026-09-08T14:10:57.082Z",
+  "kind": "Isolated provider double; no real wallet or chain mutation",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1440,
+      "colors": [
+        {
+          "background": "oklch(0.977 0.014 308.299)",
+          "contrast": 10.233362176207624
+        },
+        {
+          "background": "oklch(0.987 0.022 95.277)",
+          "contrast": 8.73487364267831
+        },
+        {
+          "background": "oklch(0.97 0.014 254.604)",
+          "contrast": 9.528052851468976
+        }
+      ],
+      "accountSwitch": true,
+      "neutralUnknownAndDisconnected": true,
+      "sticky": true,
+      "overflow": false,
+      "walletMutations": 0
+    },
+    {
+      "port": 5173,
+      "width": 390,
+      "colors": [
+        {
+          "background": "oklch(0.977 0.014 308.299)",
+          "contrast": 10.233362176207624
+        },
+        {
+          "background": "oklch(0.987 0.022 95.277)",
+          "contrast": 8.73487364267831
+        },
+        {
+          "background": "oklch(0.97 0.014 254.604)",
+          "contrast": 9.528052851468976
+        }
+      ],
+      "accountSwitch": true,
+      "neutralUnknownAndDisconnected": true,
+      "sticky": true,
+      "overflow": false,
+      "walletMutations": 0
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "colors": [
+        {
+          "background": "oklch(0.977 0.014 308.299)",
+          "contrast": 10.233362176207624
+        },
+        {
+          "background": "oklch(0.987 0.022 95.277)",
+          "contrast": 8.73487364267831
+        },
+        {
+          "background": "oklch(0.97 0.014 254.604)",
+          "contrast": 9.528052851468976
+        }
+      ],
+      "accountSwitch": true,
+      "neutralUnknownAndDisconnected": true,
+      "sticky": true,
+      "overflow": false,
+      "walletMutations": 0
+    },
+    {
+      "port": 4173,
+      "width": 390,
+      "colors": [
+        {
+          "background": "oklch(0.977 0.014 308.299)",
+          "contrast": 10.233362176207624
+        },
+        {
+          "background": "oklch(0.987 0.022 95.277)",
+          "contrast": 8.73487364267831
+        },
+        {
+          "background": "oklch(0.97 0.014 254.604)",
+          "contrast": 9.528052851468976
+        }
+      ],
+      "accountSwitch": true,
+      "neutralUnknownAndDisconnected": true,
+      "sticky": true,
+      "overflow": false,
+      "walletMutations": 0
+    }
+  ]
+}

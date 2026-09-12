@@ -1,0 +1,27 @@
+{
+  "recordedAt": "2026-09-09T09:24:06.444Z",
+  "api": "https://holdbook-api-6t7fccf54a-as.a.run.app",
+  "results": [
+    {
+      "name": "approved",
+      "status": 204,
+      "allowOrigin": "https://outsider987.github.io"
+    },
+    {
+      "name": "wrong-origin",
+      "status": 403,
+      "allowOrigin": null
+    },
+    {
+      "name": "wrong-method",
+      "status": 403,
+      "allowOrigin": "https://outsider987.github.io"
+    },
+    {
+      "name": "malformed-request-rejected-before-mutation",
+      "status": 400
+    }
+  ],
+  "orders": 24,
+  "matches": 10
+}

@@ -1,0 +1,32 @@
+{
+  "recordedAt": "2026-09-10T13:01:08.087Z",
+  "site": "https://outsider987.github.io/hedera-rwa-secondary-market/",
+  "api": "https://holdbook-api-6t7fccf54a-as.a.run.app",
+  "kind": "Live public Pages and Cloud Run reads; no wallet connected or signing",
+  "results": [
+    {
+      "width": 1440,
+      "health": "ready",
+      "orders": 25,
+      "matches": 11,
+      "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+      "novaStory": true,
+      "image": true,
+      "tabs": true,
+      "overflow": false,
+      "pageErrors": []
+    },
+    {
+      "width": 390,
+      "health": "ready",
+      "orders": 25,
+      "matches": 11,
+      "contract": "0xa90da61f67c37473f38000e70623a77ad277304c",
+      "novaStory": true,
+      "image": true,
+      "tabs": true,
+      "overflow": false,
+      "pageErrors": []
+    }
+  ]
+}

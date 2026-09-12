@@ -1,0 +1,51 @@
+{
+  "recordedAt": "2026-09-09T09:22:30.347903+00:00",
+  "source": "local holdbook-market-db-1",
+  "destination": "Neon round-darkness-20660180 / holdbook",
+  "sourceApiStopped": true,
+  "pendingSettlementOperationsBeforeCutover": 0,
+  "method": "pg_dump --no-owner --no-acl piped to psql --single-transaction with ON_ERROR_STOP; no dump file",
+  "verification": "All rows canonicalized with row_to_json, sorted and aggregated per table; source and target counts and MD5 summaries identical before Cloud Run start",
+  "tables": [
+    {
+      "table": "markets",
+      "rows": 1,
+      "matchingContentDigest": "da4d64c6e9e486317b5de9f4cb07af32"
+    },
+    {
+      "table": "commands",
+      "rows": 45,
+      "matchingContentDigest": "c3c47cce74aaca225ef475935bc3c7a2"
+    },
+    {
+      "table": "orders",
+      "rows": 24,
+      "matchingContentDigest": "20fece2f2bc75755e536539d21412ed2"
+    },
+    {
+      "table": "matches",
+      "rows": 10,
+      "matchingContentDigest": "7062b07dc6c4ca1fe8415efcf0b59bc5"
+    },
+    {
+      "table": "settlement_deployment",
+      "rows": 1,
+      "matchingContentDigest": "4f2be974d57a55f5d348e425ce9e7908"
+    },
+    {
+      "table": "settlements",
+      "rows": 5,
+      "matchingContentDigest": "b33f65c90ea4bb8b7c9c048248f9a7fc"
+    },
+    {
+      "table": "settlement_operations",
+      "rows": 16,
+      "matchingContentDigest": "ad9f17da1fead42918e28d688f8f63e2"
+    },
+    {
+      "table": "settlement_events",
+      "rows": 21,
+      "matchingContentDigest": "6c64d99c7831c047886638e26c7066b2"
+    }
+  ]
+}

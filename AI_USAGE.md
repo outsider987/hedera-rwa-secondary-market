@@ -1,5 +1,16 @@
 # AI usage / attribution
 
+- [073 · Submission readiness, source verification and authorized main integration](docs/ai-usage/073-submission-readiness.md)
+
+- [072 · Restore Header participant accounts and NOVA balances](docs/ai-usage/072-restore-header-accounts.md)
+- [071 · Revert Header participant accounts and NOVA balances](docs/ai-usage/071-revert-header-accounts.md)
+- [070 · Header participant accounts and NOVA balances](docs/ai-usage/070-header-accounts-nova.md)
+- [069 · Presentation narrative refinement and authorized push](docs/ai-usage/069-presentation-narrative.md)
+- [068 · Authorized desktop UX push](docs/ai-usage/068-authorized-ux-push.md)
+- [067 · Market next actions](docs/ai-usage/067-market-next-actions.md)
+- [066 · Desktop Market clarity](docs/ai-usage/066-market-clarity.md)
+- [065 · Market exchange and stable focus](docs/ai-usage/065-market-status.md)
+
 This is the navigation index. Read the relevant work item, not the whole archive.
 Current progress and effective constraints: [HANDOFF](docs/HANDOFF.md).
 Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
@@ -8,6 +19,29 @@ Current third-party sources: [ATTRIBUTION](docs/ATTRIBUTION.md).
 
 | Date | Work item | Record |
 | --- | --- | --- |
+| 2026-09-12 | Restore Header participant accounts and NOVA balances | [072](docs/ai-usage/072-restore-header-accounts.md) |
+| 2026-09-12 | Revert Header participant accounts and NOVA balances | [071](docs/ai-usage/071-revert-header-accounts.md) |
+| 2026-09-12 | Header participant accounts and NOVA balances | [070](docs/ai-usage/070-header-accounts-nova.md) |
+| 2026-09-12 | Presentation narrative refinement and authorized push | [069](docs/ai-usage/069-presentation-narrative.md) |
+| 2026-09-10 | Authorized push of completed presentation/Market work | [064](docs/ai-usage/064-authorized-push.md) |
+| 2026-09-10 | Market task-first layout | [063](docs/ai-usage/063-market-layout.md) |
+| 2026-09-10 | Market/Header pixel characters and stable navigation | [062](docs/ai-usage/062-market-characters.md) |
+| 2026-09-10 | Pixel motion infographic and generated art | [2D revision, provenance and verification](docs/ai-usage/061-pixel-demo.md) |
+| 2026-09-10 | Complete 3D recorded demo and read-only Market visualization | [Presentation, provenance and verification](docs/ai-usage/060-demo-experience.md) |
+| 2026-09-10 | Deploy completed NOVA story | [Pages publication and live checks](docs/ai-usage/059-story-deployment.md) |
+| 2026-09-10 | NOVA interactive issuance and recorded trade story | [Animation, evidence and browser checks](docs/ai-usage/058-nova-story.md) |
+| 2026-09-09 | CLI cloud provisioning and live deployment | [Cloud resources, migration and live checks](docs/ai-usage/057-live-deployment.md) |
+| 2026-09-09 | GitHub Pages / Cloud Run / Neon preparation | [Configuration, checks and pending cloud targets](docs/ai-usage/056-cloud-deployment.md) |
+| 2026-09-09 | Authorized branch push | [Publish current T08 and refactor commits](docs/ai-usage/055-authorized-push.md) |
+| 2026-09-09 | Engine package organization | [Matching core, service and embedded data](docs/ai-usage/054-engine-folders.md) |
+| 2026-09-09 | Source folder organization | [Pages, components, logic and static data](docs/ai-usage/053-source-folders.md) |
+| 2026-09-09 | Component and transaction sequence diagrams | [Architecture documentation](docs/ai-usage/052-architecture-diagrams.md) |
+| 2026-09-08 | NOVA trading and minting illustration | [Verified-state motion and corresponding information](docs/ai-usage/051-nova-motion.md) |
+| 2026-09-08 | NOVA overview, tab flow and component extraction | [Illustration, navigation and preserved trading state](docs/ai-usage/050-nova-overview.md) |
+| 2026-09-08 | T08 connected role colors | [Header role colors and connection transitions](docs/ai-usage/049-t08-role-colors.md) |
+| 2026-09-08 | T08 pinned Header component using installed Tailwind | [Extraction and scrolling checks](docs/ai-usage/048-t08-header.md) |
+| 2026-09-08 | T08 visible NOVA balances and active-operation spinner | [Account-isolated public reads and busy feedback](docs/ai-usage/047-t08-balances.md) |
+| 2026-09-08 | T08 four cases, persistence and standalone snapshot verified | [Contract, service, workbench and snapshot](docs/ai-usage/046-t08-settlement.md) |
 | 2026-09-08 | Submission review document | [English review package and evidence index](docs/ai-usage/045-submission-review.md) |
 | 2026-09-08 | T07 trading interface refinement | [Exchange layout, explicit results and remaining cancellation](docs/ai-usage/044-t07-layout.md) |
 | 2026-09-08 | T07 signed unfunded market | [Durable order service and Market UI; manual acceptance passed with documented recovery; final persistence verified](docs/ai-usage/043-t07-signed-market.md) |

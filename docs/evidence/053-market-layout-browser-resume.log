@@ -1,0 +1,21 @@
+matrix 4173 1440
+matrix 4173 850
+matrix 4173 320
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert.ok(boxes['#order-heading'].y<600)
+
+    at file:///home/outsider/github/ETHGlobal_Victor/docs/evidence/053-market-layout-browser.mjs:20:9 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

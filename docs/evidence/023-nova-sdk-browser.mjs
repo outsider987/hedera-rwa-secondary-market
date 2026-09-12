@@ -15,7 +15,7 @@ try {
  symlinkSync(join(root,'node_modules'),join(scratch,'node_modules'),'dir');
  writeFileSync(join(scratch,'index.html'),'<html lang="en"><title>Synthetic rejected SDK probe</title><script type="module" src="/probe.js"></script></html>');
  writeFileSync(join(scratch,'probe.js'),`
- import * as n from './src/nova';
+ import * as n from './src/lib/nova';
  window.holdLock=()=>{window.lockAttempt=n.withNovaLock(navigator.locks,()=>new Promise(resolve=>window.releaseLock=resolve));};
  window.tryLock=()=>n.withNovaLock(navigator.locks,async()=>true).catch(()=>false);
  window.probe=async(mode)=>{

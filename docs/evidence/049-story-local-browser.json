@@ -1,0 +1,62 @@
+{
+  "recordedAt": "2026-09-10T12:59:53.787Z",
+  "kind": "Local UI checks against committed historical snapshot; no new chain or MetaMask verification",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1440,
+      "issuanceSteps": 4,
+      "cases": 4,
+      "evidenceAligned": true,
+      "expiryRetainsHold": true,
+      "reducedMotion": true,
+      "keyboard": true,
+      "rapidRetarget": true,
+      "overflow": false,
+      "pageErrors": [],
+      "mutationRequests": []
+    },
+    {
+      "port": 5173,
+      "width": 390,
+      "issuanceSteps": 4,
+      "cases": 4,
+      "evidenceAligned": true,
+      "expiryRetainsHold": true,
+      "reducedMotion": true,
+      "keyboard": true,
+      "rapidRetarget": true,
+      "overflow": false,
+      "pageErrors": [],
+      "mutationRequests": []
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "issuanceSteps": 4,
+      "cases": 4,
+      "evidenceAligned": true,
+      "expiryRetainsHold": true,
+      "reducedMotion": true,
+      "keyboard": true,
+      "rapidRetarget": true,
+      "overflow": false,
+      "pageErrors": [],
+      "mutationRequests": []
+    },
+    {
+      "port": 4173,
+      "width": 390,
+      "issuanceSteps": 4,
+      "cases": 4,
+      "evidenceAligned": true,
+      "expiryRetainsHold": true,
+      "reducedMotion": true,
+      "keyboard": true,
+      "rapidRetarget": true,
+      "overflow": false,
+      "pageErrors": [],
+      "mutationRequests": []
+    }
+  ]
+}

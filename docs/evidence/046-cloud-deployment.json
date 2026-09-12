@@ -1,0 +1,241 @@
+{
+  "recordedAt": "2026-09-09T08:57:54.547429+00:00",
+  "base": "87a72d1c821d22eae22d71d4730c71ef6b1d3e55",
+  "go": [
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestReplay",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestPriority/Buy",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestPriority/Sell",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestPriority",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestSelfTradeAndExpiry",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "TestBoundsAndNoncrossing",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "FuzzConservation/seed#0",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "FuzzConservation/seed#1",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Test": "FuzzConservation",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/matching",
+      "Action": "pass",
+      "Elapsed": 0.001
+    },
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Test": "TestCloudConfiguration/#00",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Test": "TestCloudConfiguration/PORT0",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Test": "TestCloudConfiguration/PUBLIC_ORIGINhttp://holdbook.example",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Test": "TestCloudConfiguration/PUBLIC_ORIGINhttps://holdbook.example/",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Test": "TestCloudConfiguration/PUBLIC_ORIGIN",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Test": "TestCloudConfiguration/API_HOST",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Test": "TestCloudConfiguration/API_HOSThttps://holdbook.run.app",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Test": "TestCloudConfiguration/DATABASE_URL",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Test": "TestCloudConfiguration/DATABASE_URLpostgres://test@example.invalid/holdbook?sslmode=disable",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Test": "TestCloudConfiguration",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/cmd/api",
+      "Action": "pass",
+      "Elapsed": 0.014
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestPublicSignatureVector",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestOrderBinding",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestHTTPGuards",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestHTTPPostgres",
+      "Action": "pass",
+      "Elapsed": 0.18
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestDeployedHostAndOrigin",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestPagesPreflight",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementTransactionBinding",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementExactEventRejectsDuplicateRemovedAndWrongArguments",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementHistoricalBalanceTransitions",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementPublicVector",
+      "Action": "pass",
+      "Elapsed": 0
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementPostgresRecovery",
+      "Action": "pass",
+      "Elapsed": 0.26
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestSettlementHTTPBoundariesAndOffline",
+      "Action": "pass",
+      "Elapsed": 0.03
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestPostgresDurability",
+      "Action": "pass",
+      "Elapsed": 0.27
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestPostgresConcurrentCancelAndPlace",
+      "Action": "pass",
+      "Elapsed": 0.17
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Test": "TestPostgresConcurrentBuys",
+      "Action": "pass",
+      "Elapsed": 0.12
+    },
+    {
+      "Package": "holdbook/engine/internal/service",
+      "Action": "pass",
+      "Elapsed": 1.054
+    }
+  ],
+  "race": "ok  \tholdbook/engine/cmd/api\t1.104s\nok  \tholdbook/engine/internal/matching\t(cached)\nok  \tholdbook/engine/internal/service\t2.255s\n",
+  "vet": 0,
+  "staticApiBuild": 0,
+  "npmCi": 0,
+  "applicationTests": 116,
+  "protobufTests": 36,
+  "typecheck": 0,
+  "builds": [
+    "app",
+    "showcase",
+    "Pages subpath"
+  ],
+  "shellSyntax": 0,
+  "githubPages": "workflow mode enabled; main and feat/t08-settlement allowed; no artifact deployed",
+  "cloudRun": "not deployed, approved project pending",
+  "neon": "not connected, target pending"
+}

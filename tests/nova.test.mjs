@@ -5,7 +5,7 @@ registerHooks({resolve(s,c,n){return n(s.startsWith('./') && c.parentURL?.starts
 const A='0x'+'a'.repeat(40), B='0x'+'b'.repeat(40), F='0xd1f118a40f3b02883d35909ef2517e7edd78379d';
 const hash='0x'+'1'.repeat(64);
 test('NOVA request and calldata are fixed; every mutation field and unexpected method is guarded',async()=>{
- const n=await import('../src/nova.ts');const request=n.novaParameters(A,1);
+ const n=await import('../src/lib/nova.ts');const request=n.novaParameters(A,1);
  assert.equal(request.numberOfShares,'1000');assert.equal(request.decimals,0);assert.equal(request.internalKycActivated,true);
  assert.equal(request.dividendRight,2);assert.equal(request.regulationType,1);assert.equal(request.regulationSubType,0);
  for(const v of [0,-1,1.5,NaN,Infinity,'1']) assert.throws(()=>n.novaParameters(A,v));
@@ -16,7 +16,7 @@ test('NOVA request and calldata are fixed; every mutation field and unexpected m
  assert.throws(()=>n.assertNovaTransaction(null,expected));
 });
 test('durable intent and immediate hash persist; reload and unknown never enable duplicate creation',async()=>{
- const n=await import('../src/nova.ts');let raw=null;
+ const n=await import('../src/lib/nova.ts');let raw=null;
  const storage={getItem:()=>raw,setItem:(key,value)=>raw=value,removeItem:()=>{raw=null}};
  assert.equal(n.loadNovaRecord(storage),undefined);assert.equal(n.canCreateNova(undefined),true);
  const r={schemaVersion:1,kind:'nova-create',chainId:296,operationId:'public-operation',startedAt:new Date().toISOString(),admin:A,configVersion:1,calldataDigest:hash,status:'awaiting-signature'};
@@ -33,7 +33,7 @@ test('durable intent and immediate hash persist; reload and unknown never enable
  assert.equal(n.isCreationOrigin('http://127.0.0.1:4173',true),true);
 });
 test('same-origin lock is mandatory and never waits to submit a duplicate',async()=>{
- const n=await import('../src/nova.ts');let held=false,calls=0,release;
+ const n=await import('../src/lib/nova.ts');let held=false,calls=0,release;
  const locks={request:async(name,options,fn)=>{assert.equal(options.ifAvailable,true);if(held)return fn(null);held=true;try{return await fn({name})}finally{held=false}}};
  const one=n.withNovaLock(locks,async()=>{calls++;await new Promise(r=>release=r)});
  while(!release)await new Promise(r=>setImmediate(r));
@@ -42,7 +42,7 @@ test('same-origin lock is mandatory and never waits to submit a duplicate',async
 });
 
 async function fixtureReceipt() {
- const n=await import('../src/nova.ts');const {Interface}=await import('ethers');const {Factory__factory}=await import('@hashgraph/asset-tokenization-contracts');
+ const n=await import('../src/lib/nova.ts');const {Interface}=await import('ethers');const {Factory__factory}=await import('@hashgraph/asset-tokenization-contracts');
  const abi=new Interface(Factory__factory.abi),data=await n.novaCalldata(A,1),decoded=abi.decodeFunctionData('deployEquity',data);
  const event=abi.encodeEventLog(abi.getEvent('EquityDeployed'),[A,B,decoded[0],decoded[1]]);
  const tx={hash,from:A,to:F,input:data,value:'0x0',chainId:'0x128',blockHash:'0x'+'2'.repeat(64),blockNumber:'0x10'};
@@ -58,7 +58,7 @@ test('receipt validation requires successful exact Factory event and canonical t
  await assert.rejects(n.verifyNovaReceipt(hash,A,{...tx,input:await n.novaCalldata(B,1)},receipt,1));
 });
 test('managed provider serializes concurrent requests; late hash is retained and unsafe methods never reach wallet',async()=>{
- const n=await import('../src/nova.ts'),data=await n.novaCalldata(A,1);let calls=0,resolveSend,stale=false;
+ const n=await import('../src/lib/nova.ts'),data=await n.novaCalldata(A,1);let calls=0,resolveSend,stale=false;
  const wallet={roles:{Admin:A,Seller:B,Buyer:'0x'+'c'.repeat(40)},provider:{request:async()=>{calls++;return new Promise(r=>resolveSend=r)}}};
  const review={wallet,calldata:data,configVersion:1}, updates=[];
  const record={schemaVersion:1,kind:'nova-create',chainId:296,operationId:'provider-test',startedAt:new Date().toISOString(),admin:A,configVersion:1,calldataDigest:hash,status:'awaiting-signature'};
@@ -129,7 +129,7 @@ test('recovery uses real ABI decoding and explicit RPC/Mirror fixtures; delay, m
  assert.ok(calls.every(url=>url.startsWith('https://testnet.')));
 });
 test('rejection, stale review, post-send timeout and late responses retain safe public state',async(t)=>{
- const n=await import('../src/nova.ts'),data=await n.novaCalldata(A,1);let mode='reject',calls=0,stale=false;
+ const n=await import('../src/lib/nova.ts'),data=await n.novaCalldata(A,1);let mode='reject',calls=0,stale=false;
  const wallet={roles:{Admin:A},provider:{request:async()=>{calls++;if(mode==='reject')throw {code:4001};return hash}}};
  const record={schemaVersion:1,kind:'nova-create',chainId:296,operationId:'provider-state',startedAt:new Date().toISOString(),admin:A,configVersion:1,calldataDigest:hash,status:'awaiting-signature'};
  const make=()=>n.createNovaProviders({wallet,calldata:data,configVersion:1},record,()=>{},async()=>{if(stale)throw new Error('Stale session')},new AbortController().signal);

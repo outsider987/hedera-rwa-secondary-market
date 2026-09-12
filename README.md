@@ -1,86 +1,78 @@
 # HoldBook
 
-**[Submission review version](docs/SUBMISSION.md)** — project summary, actual results, screenshots, architecture and verification boundaries.
+A compliance-gated secondary-market prototype for ATS-issued fictional equity on Hedera Testnet. Signed NOVA/HBAR orders meet in a price-time order book; separate ATS Holds and atomic delivery-versus-payment turn agreement into verifiable settlement.
 
-A local Hedera Testnet console with an unfunded NOVA/HBAR limit-order market.
-Review and sign orders in MetaMask, match by price/time priority, and cancel
-remaining quantities. **Funds are not reserved. Matched · Not settled.**
-T06 core and T07 implementation are verified; human acceptance
-[passed with documented recovery](docs/evidence/035-t07-manual.md): nine orders, five unfunded matches, no remaining quantity.
+**[Live demo](https://outsider987.github.io/hedera-rwa-secondary-market/)** · **[Submission overview](docs/SUBMISSION.md)** · [Demo guide](docs/DEMO.md) · [Architecture](docs/ARCHITECTURE.md)
 
-**T05 manual acceptance completed September 8, 2026.** Victor approved the three
-transactions; independent reads verified Seller **84**, Buyer **16**, both held
-**0**, and Seller's **1 HBAR** principal. Final verification block: **40247352**.
-See the [acceptance report](docs/evidence/032-t05-manual.md) and
-[public JSON](docs/evidence/032-t05-manual.json). This recorded trade is complete;
-do not repeat it. T02–T04 remain separately dated history.
+Current overview: September 12, 2026. Earlier milestone summaries are superseded here; original acceptance reports and incremental Git history remain unchanged. This is submission preparation, not an ETHGlobal submission receipt.
+
+## Review without a wallet
+
+Overview is the default: explore recorded asset, eligibility, matching and settlement scenes, manually or with the optional three-minute Demo mode. Market shows public orders and settlement states; Activity contains public outcomes and historical evidence; Settings contains configuration.
+
+The [standalone evidence portfolio](https://outsider987.github.io/hedera-rwa-secondary-market/showcase/) uses a dated snapshot without an API or transaction controls. Publication status is tracked in [readiness evidence](docs/evidence/057-submission-readiness.md).
+
+The live API can cold-start. Unavailable or pending data is not proof of success. Reviewers need no wallet, private keys or repeated trades. New trading is restricted to the original demo accounts; this is not public onboarding or a production exchange.
+
+## What works
+
+| Stage | Implemented behavior | Actual evidence |
+| --- | --- | --- |
+| Asset setup | ATS NOVA creation, cap 1,000, zero initial supply | [T02](docs/evidence/024-vc-nova-manual.md) |
+| Eligibility / issuance | Synthetic VC verification, on-chain KYC, issuance of 100 NOVA | [T03](docs/evidence/027-t03-manual.md) |
+| Compliance / Holds | Non-KYC execution rejected; permitted execution and release verified | [T04](docs/evidence/029-t04-manual.md) |
+| Signed matching | EIP-712 owner checks, price-time priority, partial fills, cancellation and durable recovery | [T07](docs/evidence/035-t07-manual.md) |
+| Matched settlement | Seller locks NOVA and confirms terms; buyer pays for atomic delivery | [T08](docs/evidence/038-t08-manual.md) |
+| Alternate paths | Reverse trade, registered cancellation, expired-Hold reclaim and reload/restart persistence | [Four T08 cases](docs/evidence/038-t08-manual.json) |
+
+Matching alone reserves no funds. Each eligible match has its own settlement state. Expiry alone does not return a Hold. Unknown operations recover using original IDs/hashes, never automatic transaction resubmission.
+
+The recorded T08 normal case delivered **2 NOVA for 0.20 HBAR** at block **40258355**. The earlier T05 fixed swap delivered 10 NOVA for 1 HBAR; it is not used to settle the order book. Dated balances and KYC are historical evidence, not current guarantees.
+
+## Architecture
+
+React / TypeScript and ATS SDK run in the browser, with manual MetaMask approvals. Go authenticates orders, matches and persists results in PostgreSQL, and independently verifies public settlement evidence; it has no transaction signer. The custom contract executes the ATS Hold and pays HBAR atomically.
+
+Deployment: GitHub Pages → Cloud Run API → Neon PostgreSQL, with Hedera Testnet RPC and Mirror. See [diagrams](docs/ARCHITECTURE.md#component-and-interaction-diagrams), [deployment operations](deploy/README.md), and [contract verification](docs/SOURCE_VERIFICATION.md).
 
 ## Run locally
 
-Node **24.19.0**, npm **11.17.0**:
+Use pinned **Node 24.19.0 / npm 11.17.0**:
 
 ```sh
-docker compose up -d --build
 npm ci
+npm run dev
+```
+
+Open `http://127.0.0.1:5173`. Recorded Overview needs no wallet or local API; Market reports unavailable data if the local API is absent. For production preview and the independent portfolio:
+
+```sh
 npm run build
+npm run build:showcase
 npm run preview
 ```
 
-Open **http://127.0.0.1:4173**. Market is the default; Trade retains the historical
-fixed swap, History contains dated evidence, and Settings contains accounts and
-SDK checks. Victor alone approves signatures and transactions in MetaMask.
-Development (`npm run dev`, port 5173) reads the market; order preparation/signing
-requires preview. Follow the [six-signature demo](docs/DEMO.md#t07--unfunded-matching-acceptance-pending).
+Open `http://127.0.0.1:4173/` or `/showcase/`. Vite does not load `.env` files. Public deployment origins are configured by the Pages workflow, not credentials.
+
+For isolated backend setup see [deployment guidance](deploy/README.md). **Do not restart the original migrated local API as a second trading writer or reset its database.** A fresh database lacks the accepted market domain, deployment and operator wallet; use committed evidence for review.
+
+## Verify
 
 ```sh
 npm test
 npm run typecheck
+npm run build
+npm run build:showcase
 npm run test:swap
+node scripts/build-settlement.mjs --check
 ```
 
-Contract tests require **Foundry 1.7.1** and **Solidity 0.8.36**, targeting Paris.
-They run only in the local VM. `npm run build:swap` regenerates the committed
-artifact; `test:swap` verifies it matches the pinned source and compiler.
-Existing npm dependencies, lockfile and SDK patches remain fixed.
+Contract checks use **Foundry 1.7.1 / Solidity 0.8.36**, Paris EVM, locally without transactions. [Go test commands](docs/ARCHITECTURE.md#engine-source-layout) require a dedicated test database. Actual current checks are in [evidence 057](docs/evidence/057-submission-readiness.md).
 
-## Review the work
+## Boundaries and provenance
 
-- [T07 implementation checks](docs/evidence/034-t07-implementation.md) and [public validation](docs/evidence/034-t07-validation.json).
-- [Operator and judge demo](docs/DEMO.md) — original T07 scenario, actual recovery results and the historical T05 walkthrough.
-- [T05 implementation checks](docs/evidence/031-t05-implementation.md) — actual checks and remaining acceptance.
-- [T05 specification](docs/plans/002-atomic-trade.md) and [architecture](docs/ARCHITECTURE.md).
-- [Completed T04 report](docs/evidence/029-t04-manual.md), [public data](docs/evidence/029-t04-manual.json) and [offline screenshot gallery](docs/evidence/029-t04-manual.html).
+Fictional NOVA, synthetic KYC and Testnet only: no real identity checks, securities, legal compliance or production-security claim. Desktop MetaMask ECDSA is supported; native BBS and existing dependency/peer/license limitations remain disclosed.
 
-NOVA and its KYC claims are synthetic. Matching is unfunded; T08 settlement,
-multiple-device operation and public deployment remain out of scope. Desktop MetaMask ECDSA is supported; native BBS is excluded.
-[Dependency and verification limits](docs/evidence/029-t04-manual.md),
-[third-party attribution](docs/ATTRIBUTION.md) and [AI assistance](AI_USAGE.md)
-remain disclosed. No project license has been selected. The unseen pre-event
-draft and eligibility questions remain [unresolved for Victor](docs/prompts/001-planning-record.md).
-Maintainers: read [AGENTS](AGENTS.md) and [HANDOFF](docs/HANDOFF.md).
+[AI usage](AI_USAGE.md), [attribution](docs/ATTRIBUTION.md), [actual planning inputs](docs/prompts/001-planning-record.md), and [video provenance](docs/VIDEO.md) distinguish AI assistance from human direction and manual approvals. Victor's September 12 clarification about earlier GPT topic discussion is recorded in [readiness evidence](docs/evidence/057-submission-readiness.md).
 
-T06 remains an independent [verified core milestone](docs/evidence/033-t06-matching-core.md).
-
-## Local unfunded Market (T07)
-
-Market is now the default page. Seller and Buyer can place signed NOVA/HBAR
-limit intents and cancel their remaining quantities. **Funds are not reserved**;
-**Matched · Not settled** records do not transfer NOVA or HBAR. Admin is view-only.
-T05's completed fixed swap stays historical and is never reused for these matches.
-
-The Go API binds host loopback 8787; PostgreSQL has
-no host port. `holdbook-market_market-data` retains the permanent signing domain,
-commands, orders and matches. Keep that volume; do not use `down -v` or reset it.
-The isolated internal database network uses trust authentication with a dedicated
-local user; it must never be attached to an untrusted container or public network.
-The API's separate edge network allows only its published loopback port.
-
-The dev page (5173) reads Market but cannot prepare/sign commands. Review each
-order, check the acknowledgement, then approve MetaMask manually. Rejection,
-late response or reload never resends; **Query original request** recovers status.
-A rejected wallet prompt remains pending until the server confirms expiry,
-up to five minutes. No raw signature is exported or stored in browser storage.
-
-[Implementation and checks](docs/evidence/034-t07-implementation.md) ·
-[Completed manual acceptance with recovery](docs/evidence/035-t07-manual.md) ·
-[Demo](docs/DEMO.md). T07 human acceptance **passed with documented recovery**; see [actual results](docs/evidence/035-t07-manual.md).
+No project-wide reuse license has been selected. Public source availability is not itself a license or eligibility determination. Maintainers: [AGENTS](AGENTS.md), [HANDOFF](docs/HANDOFF.md).

@@ -1,127 +1,45 @@
-# HoldBook — submission review version
+# HoldBook — submission overview
 
-Prepared September 8, 2026 against verified implementation/evidence commit
-`ccd6905c539198cc2f0b5c922a8d716137733cd8`. This is a local review document,
-not a record of publication or acceptance by an event platform.
+September 12, 2026. Current judge-facing summary, superseding older milestone descriptions while retaining their original evidence and Git history. This is a prepared package, not a submission receipt.
 
-## Project summary
+**[Live application](https://outsider987.github.io/hedera-rwa-secondary-market/)** · [Repository](https://github.com/outsider987/hedera-rwa-secondary-market) · [Submission fields](SUBMISSION_FIELDS.md) · [Video](VIDEO.md)
 
-HoldBook is a Hedera Testnet prototype for reviewing signed orders and tracing
-tokenized-asset trade evidence. Its current Market lets two bound trading
-accounts place NOVA/HBAR limit orders, match by price/time priority, and cancel
-unmatched quantities. Each command requires manual MetaMask EIP-712 approval.
-A Go service verifies commands and commits orders, matches and results to
-PostgreSQL before reporting success.
+## What it does
 
-The prototype makes the distinction between agreement and settlement visible:
-**Funds are not reserved. Every Market match is “Matched · Not settled”.**
-A separately completed fixed trade demonstrates on-chain delivery and payment;
-it does not settle the new order book.
+HoldBook explores what happens after tokenization: how eligible holders agree on a secondary trade and verify that delivery and payment actually completed. NOVA is fictional equity created with Hedera Asset Tokenization Studio. Synthetic credentials and on-chain KYC grants demonstrate eligibility, not real identity verification.
 
-## What has been delivered
+Parties place reviewed NOVA/HBAR limit orders with MetaMask EIP-712 signatures. A Go price-time matching service persists commands, orders and matches in PostgreSQL before acknowledging success. Matching does not reserve funds.
 
-| Milestone | Delivered behavior | Evidence |
+For an eligible new match, the seller separately locks NOVA through ATS and registers the exact terms. The buyer then approves payment. The custom contract delivers held NOVA and transfers HBAR atomically, or reverts. The API independently checks the original receipt, events, historical balances and payment evidence without possessing a signer.
+
+## Actual results
+
+| Capability | Recorded result | Proof |
 | --- | --- | --- |
-| T05: fixed on-chain trade | Recorded 10 NOVA delivery and 1 Testnet HBAR payment, with manual wallet approvals and independently checked receipts/readbacks | [Report](evidence/032-t05-manual.md), [public JSON](evidence/032-t05-manual.json) |
-| T06: matching core | Price priority, server FIFO, resting-order prices, partial/multiple fills, expiry, cancellation and self-trade prevention | [Core verification](evidence/033-t06-matching-core.md) |
-| T07: signed order service | EIP-712 verification, request idempotency, atomic persistence and original-request recovery | [Implementation checks](evidence/034-t07-implementation.md), [validation JSON](evidence/034-t07-validation.json) |
-| T07: Market interface | Book/ticket layout, visible account and side, Open/All orders, direct remainder cancellation, explicit results and responsive histories | [UI report and captures](evidence/036-t07-layout.md) |
-| T07: human acceptance | Both account directions, price-priority fills, partial cancellations and state recovery | [Final report](evidence/035-t07-manual.md), [public acceptance JSON](evidence/035-t07-manual.json) |
+| ATS setup | NOVA 0.0.10402368, cap 1,000, initial supply 0 | [T02](evidence/024-vc-nova-manual.md) |
+| KYC / issuance | Seller eligibility granted before issuance of 100 NOVA | [T03](evidence/027-t03-manual.md) |
+| Compliance | Non-KYC rejection; later permitted execution and return | [T04](evidence/029-t04-manual.md) |
+| Order book | Price/time matching, partial cancellation, reverse roles, persistence | [T07](evidence/035-t07-manual.md) |
+| Normal settlement | 2 NOVA delivered / 0.20 HBAR principal, block 40258355 | [T08](evidence/038-t08-manual.md) |
+| Reverse settlement | Buyer account sells 1 NOVA; Seller account pays 0.09 HBAR | [T08 JSON](evidence/038-t08-manual.json) |
+| Cancel / expiry | Separate registered cancellation and expired-Hold reclaim, no payment | [T08 JSON](evidence/038-t08-manual.json) |
 
-## Actual demonstration results
+All four T08 cases were manually approved and independently checked. The actual acceptance used nine accepted order signatures and thirteen chain transactions, including deployment and a documented extra self-trade-prevented order. Reload and API restart preserved state. These are dated observations, not newly repeated trades or present balance guarantees.
 
-The manual run ended with **12 accepted commands, nine orders, five matches,
-zero remaining quantity and 1.16 HBAR of unfunded intent**. Initial matching
-produced 4 NOVA at 0.09 plus 2 at 0.10, totaling 0.56 HBAR intent. A reverse
-Buyer-sell/Seller-buy match passed. The final supplementary Seller order retained
-matched2 while cancelling its remaining3. Final browser reload and API restart
-preserved orders, matches, domain and state version.
+The September 12 video shows a later **1 NOVA / 0.1 HBAR** trade. It is distinct from the 2-NOVA T08 normal evidence case and the historical fixed T05 **10 NOVA / 1 HBAR** demonstration.
 
-The original six-signature scenario required recovery and supplementary commands.
-Extra orders and their cancellations remain in the evidence; the actual run is
-not presented as a clean six-signature execution. None of these Market matches
-has a settlement transaction ID or proves asset delivery, payment or funding.
+## Judge entry points
 
-![Final Seller partial cancellation](evidence/035-t07-final-cancel.png)
+Watch the English video, then inspect live Overview, Market and Activity without a wallet. Open the four-case report, [architecture](ARCHITECTURE.md), [source verification](SOURCE_VERIFICATION.md), and [README setup/checks](../README.md). Only the original demo accounts can create new trades; do not replay completed acceptance or restart the migrated local API.
 
-![Final order and match history after reload](evidence/035-t07-final-reload.png)
+Public deployment: GitHub Pages, Go on Cloud Run, PostgreSQL on Neon. This is a working Testnet prototype, not a production exchange. The natural partner target is **Hedera — Tokenization of Anything**: ATS Equity, synthetic VC, on-chain KYC and Holds, extended with a secondary order book and atomic settlement. [Integration and feedback copy](SUBMISSION_FIELDS.md#hedera-integration).
 
-## Review in five minutes
+## Honest boundaries
 
-1. Read the result summary above and the final T07 acceptance report.
-2. Inspect the two captures: remaining quantity is zero; matched and cancelled
-   quantities are distinct; all matches are explicitly unsettled.
-3. Inspect the public JSON for command IDs, signature digests, accepted results,
-   preserved checkpoints and final reload comparisons. It excludes raw signatures.
-4. Follow the T05 report separately for the historical chain receipts and payment
-   evidence. Do not repeat its completed fixed trade.
-5. Read the architecture and test boundaries before assessing settlement claims.
-
-## Architecture and implementation
-
-```mermaid
-flowchart LR
-    Person[Human review] --> UI[React Market]
-    UI --> Wallet[MetaMask EIP-712 approval]
-    Wallet --> UI
-    UI --> API[Go API: rebuild and verify command]
-    API --> Core[Price-time matching]
-    Core --> DB[(PostgreSQL transaction)]
-    DB -->|Commit before success| API
-    API -->|Public result / original-request lookup| UI
-```
-
-The database owns the permanent signing salt, accepted sequence, orders, matches
-and durable command outcomes. A market-row lock serializes changes. Wallet
-session checks, operation locks and original-ID recovery prevent automatic
-resubmission after account changes, rejections, timeouts or reloads.
-See [full architecture](ARCHITECTURE.md) for the separate historical T05 path.
-
-Pinned stack: React 19.2.8, Vite 8.2.2, TypeScript 7.0.2, Node 24.19.0,
-npm 11.17.0, Go 1.27.1, PostgreSQL 18.6, pgx 5.11.0 and go-ethereum 1.17.5.
-ATS SDK 8.0.0 and its disclosed local patches remain part of the asset workflow.
-Exact dependencies and licenses are in [ATTRIBUTION](ATTRIBUTION.md).
-
-## Local review and verification
-
-With Docker running and the pinned Node/npm installed, use the repository root:
-
-```sh
-docker compose up -d --build
-npm ci
-npm run build
-npm run preview
-```
-
-Open **http://127.0.0.1:4173**. API: loopback8787; PostgreSQL has no host port.
-Keep the project data volume. A fresh checkout does not include the operator's
-local database or wallet; use the committed public evidence to review the
-completed run. Reading does not require a signature. New signed orders require
-Victor's bound accounts and manual approval; no private keys are supplied.
-
-Verification commands and version requirements are in [README](../README.md).
-Recorded checks include Go test/race/vet/fuzz, real PostgreSQL fault/concurrency
-checks with explicit verifier doubles, 16 local Foundry tests, 104 application
-and 36 protobuf tests, typecheck/build, and browser dev/preview checks.
-UI fixture tests are distinguished from the actual human acceptance evidence.
-The submission-document update itself only checks evidence links and consistency;
-it does not claim a new full test run.
-
-## Boundaries and disclosure
-
-- Hedera Testnet 296 only. NOVA and KYC claims are synthetic; no real identity or
-  regulatory-compliance claim is made.
-- The Market does not reserve balances, assess funded purchasing power, create
-  ATS Holds or settle matches. T08 funding/eligibility/settlement is deferred.
-- This is a local prototype, not a public production exchange. Existing
-  dependency/support limitations remain disclosed in the linked evidence.
-- AI assistance and human approvals are indexed in [AI_USAGE](../AI_USAGE.md).
-  No agent created a private signer or approved a wallet transaction.
-- No project-wide license has been selected. The user-mentioned pre-event draft
-  was not supplied or inspected; Victor must resolve event eligibility questions.
-  See the [original planning disclosure](prompts/001-planning-record.md).
-
-Before an external submission, Victor still needs to confirm the target event's
-requirements, resolve the license/eligibility items, and supply any required
-team metadata, demo-video URL and published repository URL. This package neither
-asserts those items are complete nor authorizes a push or platform submission.
+- Current code, deployment, verification and CI outcomes are in [readiness evidence](evidence/057-submission-readiness.md).
+- The English video is prepared, but platform upload/preview is unconfirmed. Labelled silent waits are sped up; speech is normal. Organizer acceptance of this editing choice is not asserted.
+- [AI usage](../AI_USAGE.md), [attribution](ATTRIBUTION.md), actual specs/prompts and [video disclosure](VIDEO.md) are retained. All accepted wallet actions were manually approved by Victor.
+- Fictional NOVA, synthetic credentials and Testnet 296 only; no real KYC, legal compliance, mainnet or production-safety claim. Existing dependency, peer and native-BBS limitations remain.
+- No project-wide license has been selected.
+- Victor clarified on September 12 that there was no pre-event draft: he discussed topics with GPT and generated the draft later. This is his dated clarification, not an independent audit of the complete earlier chat or an organizer ruling. Prior records remain traceable.
+- The authenticated ETHGlobal form, team/prize choices, video upload and final receipt have not been observed. This ticket does not submit the project to ETHGlobal.

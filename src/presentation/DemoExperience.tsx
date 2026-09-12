@@ -1,0 +1,34 @@
+import {useEffect,useReducer} from 'react';
+import {cues,demoKey,demoReducer,initialDemo,type Stage} from './demoState';
+import SceneView,{usePresentationEnvironment} from './components/SceneView';
+import DemoProof from './DemoProof';
+import snapshot from '../data/presentation.json';
+import './presentation.css';
+const stages:[Stage,string][]=[['tokenize','Tokenize'],['verify','Verify'],['match','Match'],['settle','Settle'],['prove','Prove']];
+export default function DemoExperience({visible,demo,onMode,onCases}:{visible:boolean;demo:boolean;onMode:(enabled:boolean)=>void;onCases:()=>void}){
+ const [state,dispatch]=useReducer(demoReducer,initialDemo);
+ const {reduced,foreground}=usePresentationEnvironment(),cue=cues[state.index];
+ useEffect(()=>{if(!visible||!foreground||!demo)dispatch({type:'pause'});},[visible,foreground,demo]);
+ useEffect(()=>{if(!state.playing||!visible||!foreground||!demo)return;let last=performance.now();const timer=setInterval(()=>{const now=performance.now();dispatch({type:'tick',seconds:(now-last)/1000});last=now;},100);return()=>clearInterval(timer);},[state.playing,visible,foreground,demo]);
+ useEffect(()=>{if(!demo||!visible)return;const listener=(e:KeyboardEvent)=>{const target=e.target instanceof Element?e.target:null;const action=demoKey(e,!!target?.closest('input,textarea,select,button,a,[contenteditable="true"],[role="button"],[role="slider"]'));if(!action)return;e.preventDefault();if(action==='exit')onMode(false);else dispatch({type:action});};window.addEventListener('keydown',listener);return()=>window.removeEventListener('keydown',listener);},[demo,visible,onMode]);
+ const swap=cue.stage==='settle'||cue.stage==='prove';
+ const label=cue.stage==='overview'?'NOVA · Nova Private Equity Common Shares':swap?'Recorded settlement · '+snapshot.swap.date:cue.stage==='match'?'Recorded matching example · '+snapshot.matching.date:'Recorded asset setup · '+snapshot.tokenization.date;
+ const report=swap?'038-t08-manual':cue.stage==='match'?'035-t07-manual':cue.stage==='tokenize'||cue.step<3?'024-vc-nova-manual':'027-t03-manual';
+ return <section className={'demo-experience'+(demo?' demo-mode':'')} aria-label="HoldBook recorded demo" data-stage={cue.stage} data-cue={state.index}>
+  <div className="demo-topline"><span>Fictional equity · Synthetic KYC · Hedera Testnet</span>{demo&&<button onClick={()=>onMode(false)}>Exit Demo</button>}</div>
+  <div className={'demo-stage'+(cue.stage==='prove'?' is-proof':'')}>
+   <div className="demo-narration" aria-live="polite" aria-atomic="true"><h2>{cue.title}</h2><p className="demo-copy">{cue.copy}</p><p className="demo-case-label">{label}</p>
+    {cue.stage==='overview'?<div className="demo-links"><button onClick={()=>{onMode(true);dispatch({type:'restart'});}}>Start Demo</button><a href="#market">Open Market</a></div>:<a href={snapshot.sourceBase+report+'.md'}>View original acceptance</a>}
+
+   </div>
+   <div className="demo-visual">{visible&&foreground&&<SceneView key={state.revision} stage={cue.stage} step={cue.step} reduced={reduced}/>}
+
+   </div>
+   {cue.stage==='prove'&&<DemoProof/>}
+  </div>
+  <nav className="demo-stages" aria-label="Demo stages">{stages.map(([stage,title],i)=><button key={stage} aria-pressed={cue.stage===stage} onClick={()=>dispatch({type:'jump',index:cues.findIndex(c=>c.stage===stage)})}><span>0{i+1}</span>{title}</button>)}</nav>
+  <div className="demo-controls"><button disabled={state.index===0} onClick={()=>dispatch({type:'previous'})}>Previous</button><button disabled={state.index===cues.length-1} onClick={()=>dispatch({type:'next'})}>Next</button><button onClick={()=>dispatch({type:'replay'})}>Replay scene</button>{demo&&<><button onClick={()=>dispatch({type:'restart'})}>Restart demo</button><button onClick={()=>dispatch({type:state.playing?'pause':state.elapsed>0&&state.elapsed<180?'resume':'play'})}>{state.playing?'Pause':state.elapsed>0&&state.elapsed<180?'Resume':'Play 3-minute sequence'}</button>{!state.playing&&state.elapsed>0&&state.elapsed<180&&<button onClick={()=>dispatch({type:'play'})}>Play 3-minute sequence</button>}<span className="demo-time">{Math.floor(state.elapsed/60)}:{String(Math.floor(state.elapsed%60)).padStart(2,'0')} / 3:00 · {state.playing?'Playing':'Manual / paused'}</span></>}</div>
+  {demo&&<p className="demo-key-help">Space / → Next cue · ← Previous cue · Esc Exit · Controls retain their normal keyboard behavior</p>}
+  {cue.stage==='prove'&&<div className="demo-ending"><strong>HoldBook · Agreement → Settlement → Proof</strong><div className="demo-links"><a href="#market">Explore Market</a><button onClick={onCases}>View T08 recorded cases</button><button onClick={()=>dispatch({type:'restart'})}>Replay Demo</button></div></div>}
+ </section>;
+}

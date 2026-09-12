@@ -1,0 +1,32 @@
+[
+  {
+    "realPlaybackSeconds": 181.278,
+    "finalCue": 21
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "browser": "143.0.7499.169",
+    "device": "Linux headless Chrome, --disable-gpu; emulated viewport",
+    "frames": {
+      "samples": 120,
+      "medianMs": 16.699999999999818,
+      "p95Ms": 16.700000000000273,
+      "maxMs": 16.800000000000182
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "browser": "143.0.7499.169",
+    "device": "Linux headless Chrome, --disable-gpu; emulated viewport",
+    "frames": {
+      "samples": 120,
+      "medianMs": 16.699999999999818,
+      "p95Ms": 16.700000000000728,
+      "maxMs": 16.800000000000182
+    },
+    "errors": []
+  }
+]

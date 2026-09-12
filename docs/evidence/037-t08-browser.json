@@ -1,0 +1,70 @@
+[
+  {
+    "port": 5173,
+    "width": 1440,
+    "kind": "Explicit public fixtures; no signatures or chain mutations",
+    "focus": true,
+    "roles": true,
+    "offlineRetainsAndDisables": true,
+    "expiryNotReturned": true,
+    "reducedMotion": true,
+    "overflow": false,
+    "t05Historical": true,
+    "errors": []
+  },
+  {
+    "port": 5173,
+    "width": 390,
+    "kind": "Explicit public fixtures; no signatures or chain mutations",
+    "focus": true,
+    "roles": true,
+    "offlineRetainsAndDisables": true,
+    "expiryNotReturned": true,
+    "reducedMotion": true,
+    "overflow": false,
+    "t05Historical": true,
+    "errors": []
+  },
+  {
+    "port": 4173,
+    "width": 1440,
+    "kind": "Explicit public fixtures; no signatures or chain mutations",
+    "focus": true,
+    "roles": true,
+    "offlineRetainsAndDisables": true,
+    "expiryNotReturned": true,
+    "reducedMotion": true,
+    "overflow": false,
+    "t05Historical": true,
+    "errors": []
+  },
+  {
+    "port": 4173,
+    "width": 390,
+    "kind": "Explicit public fixtures; no signatures or chain mutations",
+    "focus": true,
+    "roles": true,
+    "offlineRetainsAndDisables": true,
+    "expiryNotReturned": true,
+    "reducedMotion": true,
+    "overflow": false,
+    "t05Historical": true,
+    "errors": []
+  },
+  {
+    "surface": "showcase",
+    "width": 1440,
+    "noAPI": true,
+    "noWallet": true,
+    "t08PendingHonest": true,
+    "overflow": false
+  },
+  {
+    "surface": "showcase",
+    "width": 390,
+    "noAPI": true,
+    "noWallet": true,
+    "t08PendingHonest": true,
+    "overflow": false
+  }
+]

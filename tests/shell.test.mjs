@@ -13,16 +13,19 @@ test('the shell renders planned data without claiming a wallet or chain result',
   });
   try {
     const { default: App } = await server.ssrLoadModule('/src/App.tsx');
-    const { walletConfig, queryClient } = await server.ssrLoadModule('/src/wallet.ts');
+    const { walletConfig, queryClient } = await server.ssrLoadModule('/src/lib/wallet.ts');
     const html = renderToStaticMarkup(createElement(WagmiProvider, { config: walletConfig, reconnectOnMount: false },
       createElement(QueryClientProvider, { client: queryClient }, createElement(App))));
     for (const text of [
       'HoldBook',
+      'Meet NOVA.',
+      'A fictional company. Digital common shares.',
+      'What happens to a share?',
       'Trade summary',
       'Wallet not connected.',
       'NOVA',
       'USNOVA000016',
-      'One trade on Hedera Testnet.',
+      'Completed fixed trade',
       'Set up three accounts',
       'Not assigned',
       'Assignments are local labels',
@@ -45,14 +48,17 @@ test('the shell renders planned data without claiming a wallet or chain result',
     assert.doesNotMatch(html, /SDK config verified|SDK prepared\./);
     assert.doesNotMatch(html, /Deployment and config verified|On-chain Equity config verified/);
     assert.doesNotMatch(html, /<iframe/);
+    assert.match(html, /src="\/assets\/nova-demo-equity.png"/);
+    assert.match(html, /href="#activity"/);
+    assert.doesNotMatch(html, /Manual acceptance Pending/);
     assert.ok(html.includes('T02 · NOVA creation history'));
     assert.ok(html.includes('T03 · Seller KYC and issuance history'));
     assert.doesNotMatch(html, /Create NOVA in MetaMask|Approve T03 action in MetaMask/);
     assert.ok(html.includes('T04 · Hold lifecycle complete'));
-    assert.match(html, /href="#market" aria-current="page"/);
-    assert.match(html, /id="history" hidden=""/);
+    assert.match(html, /href="#overview" aria-current="page"/);
+    assert.match(html, /id="asset-history" hidden=""/);
     assert.match(html, /id="settings" hidden=""/);
-    assert.ok(html.includes('Check readiness'));
+    assert.ok(html.includes('Verify historical T05 state'));
     assert.ok(html.includes('10 NOVA'));
     assert.ok(html.includes('1 HBAR'));
     assert.ok(html.includes('Query NOVA transaction'));
@@ -62,23 +68,28 @@ test('the shell renders planned data without claiming a wallet or chain result',
   }
 });
 
-test('a Seller cancellation review uses the reviewed role for both label and selection',async()=>{
-  // Inject a review into the real component's initial state for server rendering;
-  // no wallet, contract, RPC or successful transaction is simulated here.
-  const server=await createServer({server:{middlewareMode:true,hmr:false},appType:'custom',plugins:[{name:'cancellation-review-fixture',enforce:'pre',transform(source,id){
-    if(id.endsWith('/src/TradePanel.tsx'))return source.replace('useState<TradeReview>()','useState<TradeReview>(globalThis.__cancellationReview)');
-  }}]});
+test('completed T05 exposes historical reads and no mutation reviews for either trading account',async()=>{
+ const server=await createServer({server:{middlewareMode:true,hmr:false},appType:'custom'});
+ try{const {default:Panel}=await server.ssrLoadModule('/src/components/TradePanel.tsx');const {accounts}=await server.ssrLoadModule('/src/lib/lifecycle.ts');
+ for(const active of ['Seller','Buyer']){const html=renderToStaticMarkup(createElement(Panel,{roles:{},session:0,activeAccount:accounts[active].address,records:[],onRecords(){}}));assert.match(html,/Verify historical T05 state/);assert.match(html,/40247352/);assert.doesNotMatch(html,/Approve in MetaMask|Review purchase|Check readiness|Review cancellation/);}
+ }finally{await server.close();}
+});
+
+test('Header distinguishes roles and clears role color when disconnected', async () => {
+  const server = await createServer({ server: { middlewareMode: true, hmr: false }, appType: 'custom' });
   try {
-    const t=await server.ssrLoadModule('/src/trade.ts'),{accounts}=await server.ssrLoadModule('/src/lifecycle.ts');
-    const input={...t.createTradeInput({block:'40243275',timestamp:'1788832446'}),escrow:'0x'+'9'.repeat(40),holdId:'17'};
-    globalThis.__cancellationReview={action:'cancel',input,wallet:{expectedRole:'Seller'},calldata:await t.tradeCalldata('cancel',input)};
-    const {default:TradePanel}=await server.ssrLoadModule('/src/TradePanel.tsx');
-    const roles=Object.fromEntries(Object.entries(accounts).map(([name,a])=>[name,a.address]));
-    const records=['deploy','lock'].map(action=>({kind:'t05-transaction',action,status:'complete',operationId:action,input}));
-    for(const active of ['Seller','Buyer']) {
-      const html=renderToStaticMarkup(createElement(TradePanel,{roles,session:0,activeAccount:accounts[active].address,records,onRecords(){}}));
-      assert.match(html,/Cancel trade and return 10 NOVA/);
-      assert.ok(html.includes('Required account: <strong>Seller</strong> · '+(active==='Seller'?'selected':'select in MetaMask')));
+    const { default: Header } = await server.ssrLoadModule('/src/components/Header.tsx');
+    for (const [activeRole, connected, label, color] of [
+      ['Admin', true, 'Admin', 'purple'], ['Seller', true, 'Seller', 'amber'],
+      ['Buyer', true, 'Buyer', 'blue'], [undefined, true, 'Unassigned account', undefined],
+      ['Seller', false, 'Not connected', undefined],
+    ]) {
+      const html = renderToStaticMarkup(createElement(Header, { activeRole, connected, disabled: true, onWallet() {} }));
+      assert.ok(html.includes(label));
+      assert.ok(html.includes(connected ? 'Disconnect' : 'Connect'));
+      assert.match(html, /disabled=""/);
+      if (color) assert.ok(html.includes(`hb:bg-${color}-50 hb:text-${color}-900`));
+      else assert.doesNotMatch(html, /hb:bg-(purple|amber|blue)-50/);
     }
-  } finally {delete globalThis.__cancellationReview;await server.close();}
+  } finally { await server.close(); }
 });

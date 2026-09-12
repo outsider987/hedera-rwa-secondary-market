@@ -1,0 +1,343 @@
+{
+  "label": "Verified Testnet snapshot",
+  "recordedAt": "2026-09-08T14:01:53.333033+00:00",
+  "chainId": "296",
+  "asset": "NOVA",
+  "assetId": "0.0.10402368",
+  "historical": {
+    "title": "10 NOVA exchanged for 1 HBAR",
+    "block": "40247352",
+    "sellerAvailable": "84",
+    "buyerAvailable": "16",
+    "sellerHeld": "0",
+    "buyerHeld": "0",
+    "report": "https://github.com/outsider987/hedera-rwa-secondary-market/blob/main/docs/evidence/032-t05-manual.md",
+    "timeline": [
+      {
+        "action": "Admin deployed the fixed swap",
+        "block": "40245682",
+        "hash": "0xd9d9f59e4b91e0f6483585e698f5325c8079ad4112a11807100708a61183faa4"
+      },
+      {
+        "action": "Seller locked 10 NOVA",
+        "block": "40246787",
+        "hash": "0xd9c4059eae45ea0e322d6d79fdfc53c55385464c69012f745a83dad982236396"
+      },
+      {
+        "action": "Buyer paid 1 HBAR and received 10 NOVA",
+        "block": "40247134",
+        "hash": "0x4713f2c140876484451fe3144e9c35339486c57abe37247bf78adb5e897cbf96"
+      }
+    ],
+    "recordedAt": "2026-09-08T04:26:22.131Z"
+  },
+  "cases": [
+    {
+      "id": "normal",
+      "title": "Seller sells to Buyer",
+      "quantity": "2",
+      "unitPriceHBAR": "0.10",
+      "status": "Settled verified",
+      "timeline": [
+        {
+          "action": "lock",
+          "hash": "0x06458ff4b0600112ec0ba03977751e2651199d6d4a3e95eef53ed9b5b48e480b",
+          "block": "40258090",
+          "timestamp": "1788864122",
+          "feeTinybars": "42090162",
+          "principalTinybars": "0",
+          "before": {
+            "sellerAvailable": "84",
+            "sellerHeld": "0",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "2",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          }
+        },
+        {
+          "action": "register",
+          "hash": "0x0f780ac0a393c2c5caa11df96dd5dbf460fa8a0edd1c70377fa891db5e547699",
+          "block": "40258234",
+          "timestamp": "1788864430",
+          "feeTinybars": "40415468",
+          "principalTinybars": "0",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "2",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "2",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          }
+        },
+        {
+          "action": "settle",
+          "hash": "0x9fdb7cb1d7bd665edcc3e3acc61b743e63a701cc0714107e76a72d2d6b064230",
+          "block": "40258355",
+          "timestamp": "1788864686",
+          "feeTinybars": "35439404",
+          "principalTinybars": "20000000",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "2",
+            "buyerAvailable": "16",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "0",
+            "buyerAvailable": "18",
+            "buyerHeld": "0"
+          }
+        }
+      ],
+      "matchId": "15-1",
+      "sellerAccount": "Seller",
+      "buyerAccount": "Buyer",
+      "holdId": "3",
+      "expiry": "1788865785"
+    },
+    {
+      "id": "reverse",
+      "title": "Buyer sells to Seller",
+      "quantity": "1",
+      "unitPriceHBAR": "0.09",
+      "status": "Settled verified",
+      "timeline": [
+        {
+          "action": "lock",
+          "hash": "0x6a1a0703486d88e9061bf902ed6600ae4c9315b12cdc9fe2fcb2496fe6922212",
+          "block": "40258591",
+          "timestamp": "1788865191",
+          "feeTinybars": "43902762",
+          "principalTinybars": "0",
+          "before": {
+            "sellerAvailable": "18",
+            "sellerHeld": "0",
+            "buyerAvailable": "82",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "17",
+            "sellerHeld": "1",
+            "buyerAvailable": "82",
+            "buyerHeld": "0"
+          }
+        },
+        {
+          "action": "register",
+          "hash": "0x91a477c9e834411a50ee8547449f49ebb5d566fd7231bfaa57801ba698f52915",
+          "block": "40258718",
+          "timestamp": "1788865464",
+          "feeTinybars": "40057500",
+          "principalTinybars": "0",
+          "before": {
+            "sellerAvailable": "17",
+            "sellerHeld": "1",
+            "buyerAvailable": "82",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "17",
+            "sellerHeld": "1",
+            "buyerAvailable": "82",
+            "buyerHeld": "0"
+          }
+        },
+        {
+          "action": "settle",
+          "hash": "0x6b36f5c233252b4cf20bc38050daf71f8453e814030a0511c65c5e25d9789277",
+          "block": "40258794",
+          "timestamp": "1788865628",
+          "feeTinybars": "35105070",
+          "principalTinybars": "9000000",
+          "before": {
+            "sellerAvailable": "17",
+            "sellerHeld": "1",
+            "buyerAvailable": "82",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "17",
+            "sellerHeld": "0",
+            "buyerAvailable": "83",
+            "buyerHeld": "0"
+          }
+        }
+      ],
+      "matchId": "17-1",
+      "sellerAccount": "Buyer",
+      "buyerAccount": "Seller",
+      "holdId": "1",
+      "expiry": "1788866886"
+    },
+    {
+      "id": "cancel",
+      "title": "Seller cancels settlement",
+      "quantity": "1",
+      "unitPriceHBAR": "0.10",
+      "status": "Cancelled verified",
+      "timeline": [
+        {
+          "action": "lock",
+          "hash": "0x5504267d62a61fd61af5639f25d01394704788142c49acf586955ef530d73643",
+          "block": "40259382",
+          "timestamp": "1788866902",
+          "feeTinybars": "41693085",
+          "principalTinybars": "0",
+          "before": {
+            "sellerAvailable": "83",
+            "sellerHeld": "0",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          }
+        },
+        {
+          "action": "register",
+          "hash": "0xa2343fa52d5308a318089ce8d25e871fd23d86cd855fd8e5bd000cf3cf5d3cc0",
+          "block": "40259472",
+          "timestamp": "1788867098",
+          "feeTinybars": "40035450",
+          "principalTinybars": "0",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          }
+        },
+        {
+          "action": "cancel",
+          "hash": "0x4d048c904b49f8fd5aa0b0064446180465ea430d16e02e7bd708d99cf1f40b0c",
+          "block": "40259539",
+          "timestamp": "1788867243",
+          "feeTinybars": "22002750",
+          "principalTinybars": "0",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "83",
+            "sellerHeld": "0",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          }
+        }
+      ],
+      "matchId": "19-1",
+      "sellerAccount": "Seller",
+      "buyerAccount": "Buyer",
+      "holdId": "4",
+      "expiry": "1788868477"
+    },
+    {
+      "id": "reclaim",
+      "title": "Seller reclaims expired Hold",
+      "quantity": "1",
+      "unitPriceHBAR": "0.10",
+      "status": "Reclaimed verified",
+      "timeline": [
+        {
+          "action": "lock",
+          "hash": "0xf989877bdf8f0bae7665823c4d51d425a0e63a7605353ec25991ad019a64e952",
+          "block": "40259749",
+          "timestamp": "1788867700",
+          "feeTinybars": "41693085",
+          "principalTinybars": "0",
+          "before": {
+            "sellerAvailable": "83",
+            "sellerHeld": "0",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          }
+        },
+        {
+          "action": "register",
+          "hash": "0x4ca02f5cd454d77d2bda8efaa69234f3d8f59c0d06a2397dd00f6cbbb3467ebf",
+          "block": "40259839",
+          "timestamp": "1788867894",
+          "feeTinybars": "40035450",
+          "principalTinybars": "0",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          }
+        },
+        {
+          "action": "reclaim",
+          "hash": "0x96a5d7e4705a5372692ab2a11343429ba4dea8b88f14896ac1bfded2336e07de",
+          "block": "40263598",
+          "timestamp": "1788875948",
+          "feeTinybars": "22235090",
+          "principalTinybars": "0",
+          "before": {
+            "sellerAvailable": "82",
+            "sellerHeld": "1",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          },
+          "after": {
+            "sellerAvailable": "83",
+            "sellerHeld": "0",
+            "buyerAvailable": "17",
+            "buyerHeld": "0"
+          }
+        }
+      ],
+      "matchId": "21-1",
+      "sellerAccount": "Seller",
+      "buyerAccount": "Buyer",
+      "holdId": "5",
+      "expiry": "1788869415"
+    }
+  ],
+  "acceptance": {
+    "orderSignatures": "9",
+    "chainTransactions": "13",
+    "note": "Includes one extra self-trade-prevented order; all approvals were manual. Browser reload and API restart preserved the results."
+  },
+  "deployment": {
+    "address": "0xa90da61f67c37473f38000e70623a77ad277304c",
+    "hash": "0xf0448adc0a4d1f76777cec55f0151c8a86e7bcb6b8b58de7a94f9179dbc6d0d0",
+    "block": "40257294",
+    "feeTinybars": "160459090"
+  }
+}

@@ -5,7 +5,7 @@ out = ".artifacts/swap/out"
 cache_path = ".cache/swap"
 libs = ["node_modules"]
 auto_detect_remappings = false
-remappings = ["@hashgraph/asset-tokenization-contracts/=node_modules/@hashgraph/asset-tokenization-contracts/"]
+remappings = ["@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/", "@hashgraph/asset-tokenization-contracts/=node_modules/@hashgraph/asset-tokenization-contracts/"]
 solc = "0.8.36"
 evm_version = "paris"
 optimizer = true

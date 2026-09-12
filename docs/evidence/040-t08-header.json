@@ -1,0 +1,50 @@
+{
+  "recordedAt": "2026-09-08T11:48:44.348Z",
+  "kind": "Isolated browser; API blocked; no wallet",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1440,
+      "stickyAfterScroll": true,
+      "opaque": true,
+      "skipLinkVisible": true,
+      "anchorClearance": true,
+      "navigation": true,
+      "overflow": false,
+      "walletRequests": 0
+    },
+    {
+      "port": 5173,
+      "width": 390,
+      "stickyAfterScroll": true,
+      "opaque": true,
+      "skipLinkVisible": true,
+      "anchorClearance": true,
+      "navigation": true,
+      "overflow": false,
+      "walletRequests": 0
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "stickyAfterScroll": true,
+      "opaque": true,
+      "skipLinkVisible": true,
+      "anchorClearance": true,
+      "navigation": true,
+      "overflow": false,
+      "walletRequests": 0
+    },
+    {
+      "port": 4173,
+      "width": 390,
+      "stickyAfterScroll": true,
+      "opaque": true,
+      "skipLinkVisible": true,
+      "anchorClearance": true,
+      "navigation": true,
+      "overflow": false,
+      "walletRequests": 0
+    }
+  ]
+}

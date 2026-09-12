@@ -1,0 +1,303 @@
+{
+  "recordedAt": "2026-09-10T15:00:02.597Z",
+  "browser": "143.0.7499.169",
+  "device": "Linux headless Chrome, viewport emulation",
+  "results": [
+    {
+      "port": 5173,
+      "width": 1920,
+      "height": 1080,
+      "captures": [
+        "docs/evidence/051-pixel-5173-1920-cue0.png",
+        "docs/evidence/051-pixel-5173-1920-cue4.png",
+        "docs/evidence/051-pixel-5173-1920-cue8.png",
+        "docs/evidence/051-pixel-5173-1920-cue13.png",
+        "docs/evidence/051-pixel-5173-1920-cue15.png",
+        "docs/evidence/051-pixel-5173-1920-cue17.png",
+        "docs/evidence/051-pixel-5173-1920-cue18.png",
+        "docs/evidence/051-pixel-5173-1920-cue19.png"
+      ],
+      "allCues": true,
+      "noCanvas": true,
+      "finiteMotion": true,
+      "afterIdleMotion": true,
+      "atomicDurations": true,
+      "reducedMotion": true,
+      "keyboard": true,
+      "routeRetention": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 5173,
+      "width": 1440,
+      "height": 900,
+      "captures": [
+        "docs/evidence/051-pixel-5173-1440-cue0.png",
+        "docs/evidence/051-pixel-5173-1440-cue4.png",
+        "docs/evidence/051-pixel-5173-1440-cue8.png",
+        "docs/evidence/051-pixel-5173-1440-cue13.png",
+        "docs/evidence/051-pixel-5173-1440-cue15.png",
+        "docs/evidence/051-pixel-5173-1440-cue17.png",
+        "docs/evidence/051-pixel-5173-1440-cue18.png",
+        "docs/evidence/051-pixel-5173-1440-cue19.png"
+      ],
+      "allCues": true,
+      "noCanvas": true,
+      "finiteMotion": true,
+      "afterIdleMotion": true,
+      "atomicDurations": true,
+      "reducedMotion": true,
+      "keyboard": true,
+      "routeRetention": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 5173,
+      "width": 390,
+      "height": 844,
+      "captures": [
+        "docs/evidence/051-pixel-5173-390-cue0.png",
+        "docs/evidence/051-pixel-5173-390-cue4.png",
+        "docs/evidence/051-pixel-5173-390-cue8.png",
+        "docs/evidence/051-pixel-5173-390-cue13.png",
+        "docs/evidence/051-pixel-5173-390-cue15.png",
+        "docs/evidence/051-pixel-5173-390-cue17.png",
+        "docs/evidence/051-pixel-5173-390-cue18.png",
+        "docs/evidence/051-pixel-5173-390-cue19.png"
+      ],
+      "allCues": true,
+      "noCanvas": true,
+      "finiteMotion": true,
+      "afterIdleMotion": true,
+      "atomicDurations": true,
+      "reducedMotion": true,
+      "keyboard": true,
+      "routeRetention": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 4173,
+      "width": 1920,
+      "height": 1080,
+      "captures": [
+        "docs/evidence/051-pixel-4173-1920-cue0.png",
+        "docs/evidence/051-pixel-4173-1920-cue4.png",
+        "docs/evidence/051-pixel-4173-1920-cue8.png",
+        "docs/evidence/051-pixel-4173-1920-cue13.png",
+        "docs/evidence/051-pixel-4173-1920-cue15.png",
+        "docs/evidence/051-pixel-4173-1920-cue17.png",
+        "docs/evidence/051-pixel-4173-1920-cue18.png",
+        "docs/evidence/051-pixel-4173-1920-cue19.png"
+      ],
+      "allCues": true,
+      "noCanvas": true,
+      "finiteMotion": true,
+      "afterIdleMotion": true,
+      "atomicDurations": true,
+      "reducedMotion": true,
+      "keyboard": true,
+      "routeRetention": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 4173,
+      "width": 1440,
+      "height": 900,
+      "captures": [
+        "docs/evidence/051-pixel-4173-1440-cue0.png",
+        "docs/evidence/051-pixel-4173-1440-cue4.png",
+        "docs/evidence/051-pixel-4173-1440-cue8.png",
+        "docs/evidence/051-pixel-4173-1440-cue13.png",
+        "docs/evidence/051-pixel-4173-1440-cue15.png",
+        "docs/evidence/051-pixel-4173-1440-cue17.png",
+        "docs/evidence/051-pixel-4173-1440-cue18.png",
+        "docs/evidence/051-pixel-4173-1440-cue19.png"
+      ],
+      "allCues": true,
+      "noCanvas": true,
+      "finiteMotion": true,
+      "afterIdleMotion": true,
+      "atomicDurations": true,
+      "reducedMotion": true,
+      "keyboard": true,
+      "routeRetention": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "port": 4173,
+      "width": 390,
+      "height": 844,
+      "captures": [
+        "docs/evidence/051-pixel-4173-390-cue0.png",
+        "docs/evidence/051-pixel-4173-390-cue4.png",
+        "docs/evidence/051-pixel-4173-390-cue8.png",
+        "docs/evidence/051-pixel-4173-390-cue13.png",
+        "docs/evidence/051-pixel-4173-390-cue15.png",
+        "docs/evidence/051-pixel-4173-390-cue17.png",
+        "docs/evidence/051-pixel-4173-390-cue18.png",
+        "docs/evidence/051-pixel-4173-390-cue19.png"
+      ],
+      "allCues": true,
+      "noCanvas": true,
+      "finiteMotion": true,
+      "afterIdleMotion": true,
+      "atomicDurations": true,
+      "reducedMotion": true,
+      "keyboard": true,
+      "routeRetention": true,
+      "errors": [],
+      "writes": []
+    },
+    {
+      "width": 1440,
+      "marketSnapshots": true,
+      "batchMatches": true,
+      "stale": true,
+      "reconnectSuppressesReplay": true,
+      "settlementLabels": true,
+      "draftPreserved": true,
+      "selectedMatchPreserved": true,
+      "unknownRecordPreserved": true,
+      "coldDemoRecoveryNotice": true,
+      "blockedReadonlyRPC": [
+        "eth_chainId",
+        "eth_chainId",
+        "eth_chainId"
+      ]
+    },
+    {
+      "width": 390,
+      "marketSnapshots": true,
+      "batchMatches": true,
+      "stale": true,
+      "reconnectSuppressesReplay": true,
+      "settlementLabels": true,
+      "draftPreserved": true,
+      "selectedMatchPreserved": true,
+      "unknownRecordPreserved": true,
+      "coldDemoRecoveryNotice": true,
+      "blockedReadonlyRPC": [
+        "eth_chainId",
+        "eth_chainId",
+        "eth_chainId"
+      ]
+    },
+    {
+      "imageFailureReadable": true,
+      "clockControlled180s": true,
+      "pauseResume": true,
+      "backgroundPause": true
+    }
+  ],
+  "based_on_commit": "2a54f77cdd94a87e4bd3b40456afb7df79cc0107",
+  "checks": {
+    "npm ci --prefer-offline --no-audit": 0,
+    "npm test": {
+      "exitCode": 0,
+      "application": 121,
+      "protobuf": 36
+    },
+    "npm run typecheck": 0,
+    "npm run build": 0,
+    "npm run build:showcase": 0,
+    "finalMatrix": "six viewport cases pass",
+    "remainingBoundariesRerun": 0,
+    "realPlayback": [
+      {
+        "realPlaybackSeconds": 181.278,
+        "finalCue": 21
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "browser": "143.0.7499.169",
+        "device": "Linux headless Chrome, --disable-gpu; emulated viewport",
+        "frames": {
+          "samples": 120,
+          "medianMs": 16.699999999999818,
+          "p95Ms": 16.700000000000273,
+          "maxMs": 16.800000000000182
+        },
+        "errors": []
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "browser": "143.0.7499.169",
+        "device": "Linux headless Chrome, --disable-gpu; emulated viewport",
+        "frames": {
+          "samples": 120,
+          "medianMs": 16.699999999999818,
+          "p95Ms": 16.700000000000728,
+          "maxMs": 16.800000000000182
+        },
+        "errors": []
+      }
+    ]
+  },
+  "dependencies": {
+    "removed": [
+      "node_modules/@dimforge/rapier3d-compat",
+      "node_modules/@react-three/fiber",
+      "node_modules/@tweenjs/tween.js",
+      "node_modules/@types/react-reconciler",
+      "node_modules/@types/stats.js",
+      "node_modules/@types/three",
+      "node_modules/@types/webxr",
+      "node_modules/fflate",
+      "node_modules/its-fine",
+      "node_modules/meshoptimizer",
+      "node_modules/react-use-measure",
+      "node_modules/suspend-react",
+      "node_modules/three"
+    ],
+    "existingVersionChanges": []
+  },
+  "assets": [
+    {
+      "path": "public/assets/holdbook-pixel-hall.png",
+      "bytes": 1795397,
+      "sha256": "640512e70cc59bf3836861e5037eceb1529c68e9e57d777b87addff3e853788e",
+      "tool": "built-in image_gen",
+      "promptSidecar": "public/assets/holdbook-pixel-hall.prompt.json"
+    },
+    {
+      "path": "public/assets/holdbook-pixel-sprites.png",
+      "bytes": 1283612,
+      "sha256": "ac640ce2af859a93e31ab2fc6d6bcf449cf881fe36592dcfda231e02057aad3b",
+      "tool": "built-in image_gen",
+      "promptSidecar": "public/assets/holdbook-pixel-sprites.prompt.json"
+    }
+  ],
+  "sourceSHA256": {
+    "src/App.tsx": "1392f48772fd43748b7941e8e7f98c19d9dc73d444810c46e8288b107b5def1d",
+    "package.json": "0b17dc3f7b4a049eb9215c3edd5b04fe7d4f94115606289f36fdb0360522ac97",
+    "package-lock.json": "45ce3574d814a560203025408e8771b02b072683ee5562299e0f63f47475d074",
+    "src/presentation/MarketVisualization.tsx": "65618d4d561ec53dbed0162f870a93483acda411ccd6ca30e61971ffdcd8fa0a",
+    "src/presentation/DemoProof.tsx": "bdf19ccb3d337bd8a3266d771f01647f6aa30151f97d5fbc7cc1c2bb5105da70",
+    "src/presentation/DemoExperience.tsx": "52955a7fa428e2275820f1d0fffcc9dc8f42cf187ccd304ae1abb8b8d8703d6f",
+    "src/presentation/components/SceneView.tsx": "ad088666509bc972e85587a6ff7c83a460314140b11479060ec6f0a5a1145c53",
+    "src/presentation/demoState.ts": "72662c7669fff41709d3ec025f69ca2332db165b8c34f2bab97470f2a065b5ff",
+    "src/presentation/marketView.ts": "8fd526c797d45b8f2f1c43dc0fd47d06749386a29b7b832139a4569c44bef9ec",
+    "src/presentation/presentation.css": "c62d863379540ac3c5290595961974795d73aa9210bcde0507a73675c032f497",
+    "src/data/presentation.json": "d5b3fbdbe737c023336c16b215e9953bc98bc31367cf859f789470757d89d3f1"
+  },
+  "review": {
+    "initial": "fix: completed-row contrast and missing completion acknowledgement",
+    "final": "ship: both scored fixes resolved in source and1920/1440/390 captures",
+    "scope": "independent AI source/capture review, not independent runtime/device/human acceptance",
+    "documenter": "DESIGN.md updated after final source fixes"
+  },
+  "limitations": [
+    "Headless Chrome143 on Linux; emulated viewport and rAF samples do not establish physical-device performance.",
+    "No new MetaMask, signature or chain acceptance. Browser Market/account data are isolated public fixtures.",
+    "A dev recapture lost cue state while file-watch updates were occurring; replaced with stable captures. One subsequent browser context closed during mobile Market checks; remaining boundaries passed in a separate rerun. No cause beyond the observed closure is claimed.",
+    "Victor narration trial and human visual acceptance remain pending."
+  ],
+  "formatting": "Saved logs retain text, with terminal color/trailing whitespace removed."
+}

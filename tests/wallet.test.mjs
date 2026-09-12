@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { bindingProblem, loadRoles, rolesStorageKey, saveRoles, validateMirrorAccount } from '../src/guards.ts';
+import { bindingProblem, loadRoles, rolesStorageKey, saveRoles, validateMirrorAccount } from '../src/lib/guards.ts';
 
 // Synthetic public addresses only. No signer, real account or chain request.
 const a = `0x${'a'.repeat(40)}`;
@@ -57,7 +57,7 @@ test('storage failures stay in memory; persisted payload contains only role addr
 
 test('wallet review binds explicit Seller or Admin signer in both wagmi and provider',async(t)=>{
  const {registerHooks}=await import('node:module');const hook=registerHooks({resolve(s,c,n){return n(s.startsWith('./')&&c.parentURL?.includes('/src/')&&!s.endsWith('.ts')?new URL(s+'.ts',c.parentURL).href:s,c)}});t.after(()=>hook.deregister());
- const w=await import('../src/wallet.ts');const roles={Admin:a,Seller:b,Buyer:'0x'+'c'.repeat(40)};let selected=b,chain='0x128';
+ const w=await import('../src/lib/wallet.ts');const roles={Admin:a,Seller:b,Buyer:'0x'+'c'.repeat(40)};let selected=b,chain='0x128';
  const provider={isMetaMask:true,request:async({method})=>method==='eth_accounts'?[selected]:method==='eth_chainId'?chain:Promise.reject(Error('Unexpected wallet method'))};
  const original=w.walletConfig.state;t.after(()=>w.walletConfig.setState(original));
  const select=(address,id=296)=>w.walletConfig.setState({...w.walletConfig.state,status:'connected',current:'synthetic',connections:new Map([['synthetic',{accounts:[address],chainId:id,connector:{getProvider:async()=>provider}}]])});select(b);

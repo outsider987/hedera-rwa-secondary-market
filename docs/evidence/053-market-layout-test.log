@@ -1,0 +1,203 @@
+
+> holdbook@0.0.0 test
+> node --experimental-test-module-mocks --test tests/*.test.mjs && npm run test:proto
+
+(node:2899007) ExperimentalWarning: Module mocking is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ browser adapters never inspect or emit SDK payloads or run formatters (20.267489ms)
+✔ public SDK types accept a genuine network request with a caller-owned read provider (1659.95549ms)
+✔ SDK patch rejects version/content drift before writing and survives reapplication (117.990172ms)
+▶ the loader caches one safe result and never calls the configuration API
+  ✔ api-present (1657.074221ms)
+  ✔ api-missing (69.044028ms)
+  ✔ probe-error (40.939019ms)
+✔ the loader caches one safe result and never calls the configuration API (1769.634547ms)
+✔ SDK config requires manual preparation, verified preflight and an owned restricted provider (1262.255762ms)
+✔ managed wallet patch is pinned, all-or-nothing, idempotent and does not overlap the read-only patch (92.68414ms)
+✔ genuine Terminal3 payload, UTF-8 digest signing, rejection and invalid credentials (4670.819968ms)
+✔ six scoped repair edges are pinned, including absent optional packages (70.597074ms)
+✔ contract records must match the fixed ID and contain a live, nonzero EVM address (8.508688ms)
+✔ real viem performs only the fixed chain, Mirror and bytecode reads; results are whitelisted (214.402301ms)
+▶ wrong or malformed chain and RPC errors stop before contract queries without leaking error objects
+  ✔ {"chain":"0x1"} (17.912664ms)
+  ✔ {"chain":"garbage"} (6.207889ms)
+  ✔ {"rpcError":true} (12.464287ms)
+✔ wrong or malformed chain and RPC errors stop before contract queries without leaking error objects (41.688244ms)
+✔ duplicate deployment addresses prevent both bytecode reads (7.664362ms)
+▶ invalid Mirror, HTTP failures, empty and malformed code cannot pass; independent successes survive
+  ✔ {"records":[{"contract_id":"0.0.9213391","evm_address":"0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","deleted":false},{"contract_id":"0.0.9213391","evm_address":"0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","deleted":false}]} (10.813249ms)
+  ✔ {"http":404} (16.774805ms)
+  ✔ {"http":429} (7.573277ms)
+  ✔ {"codeRpcError":true} (11.381622ms)
+  ✔ {"code":"0x"} (20.228403ms)
+  ✔ {"code":"0x0"} (5.865717ms)
+  ✔ {"code":"0xzz"} (15.793126ms)
+  ✔ {"code":"6000"} (7.865121ms)
+  ✔ {"code":42} (11.298323ms)
+  ✔ {"code":"0x6000\r\n"} (8.870342ms)
+✔ invalid Mirror, HTTP failures, empty and malformed code cannot pass; independent successes survive (129.051367ms)
+✔ one 10-second deadline aborts requests, never retries and produces safe timeout status (83.800655ms)
+▶ cancellation rejects, including a transport response arriving after cancellation
+  ✔ false (13.493509ms)
+  ✔ true (5.10212ms)
+✔ cancellation rejects, including a transport response arriving after cancellation (29.879785ms)
+▶ config accepts safe positive versions and rejects zero, unsafe values, bad ABI and reverts
+  ✔ 1 (5.774275ms)
+  ✔ 9007199254740991 (12.221652ms)
+  ✔ 0 (6.177549ms)
+  ✔ 9007199254740992 (18.023092ms)
+  ✔ 0x (15.590159ms)
+  ✔ 0x01 (15.580783ms)
+  ✔ revert (19.839349ms)
+✔ config accepts safe positive versions and rejects zero, unsafe values, bad ABI and reverts (96.205539ms)
+▶ config requires verified Resolver; Factory failure does not suppress an independent config result
+  ✔ chain (7.387128ms)
+  ✔ resolver (3.154899ms)
+  ✔ code (15.071703ms)
+  ✔ duplicate (3.369601ms)
+  ✔ factory (34.247725ms)
+✔ config requires verified Resolver; Factory failure does not suppress an independent config result (70.455928ms)
+▶ config shares the original deadline and cannot publish after cancellation, even with a late reply
+  ✔ timeout (64.322333ms)
+  ✔ cancel (77.749513ms)
+  ✔ late (56.082952ms)
+✔ config shares the original deadline and cannot publish after cancellation, even with a late reply (200.491899ms)
+✔ config never follows an OffchainLookup response to an external gateway (20.771528ms)
+✔ VC public evidence excludes all credential, proof, signature and arbitrary error data (793.906806ms)
+✔ one shared operation lease excludes siblings and stale release cannot unlock another (580.259222ms)
+✔ header portraits follow recognized connected roles and preserve native wallet controls (2362.446235ms)
+✔ Market pixel totals retain BigInt precision across all accounts and prices, with honest initial offline copy (8269.993912ms)
+✔ Hold IDs and expiry preserve canonical safe SDK seconds (9964.639163ms)
+✔ SDK KYC and chain revert classifications cannot pass transport or generic errors (1043.80221ms)
+✔ T03 transaction entry is closed before any network or wallet operation (2.291749ms)
+✔ T04 entry is read-only before wallet or network access (2.176419ms)
+✔ four exact receipt/events and historical transitions reject changed inputs and complete release without a deleted getter (4169.106369ms)
+✔ only the fixed six-stage lifecycle progresses; unknown work, skipped simulations and expired KYC/Hold stop (379.341725ms)
+✔ public T04 transaction/simulation evidence excludes credentials, proofs, wallet/error objects and simulation tx IDs (423.559095ms)
+✔ eth_call uses exact from/calldata/zero value at the recorded block; transport and wrong reverts never pass (1245.507261ms)
+✔ four T04 recoveries verify full historical state and Mirror identity; delay/unknown/reload never authorizes replay (15212.669789ms)
+✔ invalid T04 journal cannot leak the operation lease; imported public intent remains pending until recovery (357.727547ms)
+✔ Buyer preparation binds exact public KYC seconds/digest and genuine verifier rejects unsigned, expired, tampered and wrong-subject inputs (1041.077248ms)
+✔ T03 orders missing roles and issuer; never reissues changed supply or balances (5648.01972ms)
+✔ exact fixed calldata, zero value, fixed accounts and asset; no alternative actions (5142.49204ms)
+✔ public T03 evidence drops arbitrary objects, signatures and credentials (15.528067ms)
+✔ all six receipt actions require exact event, calldata, block and sender (5869.345164ms)
+✔ T03 provider rejects alternate methods and duplicates, and retains late hashes after cancellation (320.729376ms)
+✔ T03 provider rejection, stale preflight and bounded lookup keep retry decisions explicit (520.57443ms)
+✔ original account mapping is mandatory; UTF-8 KYC calldata preserves ID and Unix seconds (407.577374ms)
+✔ role IDs match the pinned SDK, not hashes inferred from enum labels (4.842114ms)
+✔ recovery verifies historical transition and Mirror mapping; delay, reload, failed receipt and missing history stay safe (8150.547936ms)
+✔ KYC transition compares values independent of JSON field order; final 100 can never issue again (216.417912ms)
+✔ exact HBAR parsing rejects exponent, excess precision, invalid quantity and int64 overflow (5.629286ms)
+✔ independent viem and Go EIP-712 project digests agree (81.186244ms)
+✔ public intent storage retains pending requests and strips signatures and wallet objects (8.399706ms)
+✔ partial cancellation remains explicit and public exports whitelist every level (7.27213ms)
+✔ reload and unavailable recovery query the original ID without resubmission (134.887723ms)
+WebSocket server error: Port 24678 is already in use
+11:42:39 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+11:42:41 PM [vite] (client) [optimizer] scanning dependencies...
+11:42:43 PM [vite] (client) [optimizer] bundling dependencies...
+✔ populated Market renders partial cancellation and reverse matches honestly (13261.97413ms)
+✔ NOVA balance uses one public block, includes held units, and rejects wrong chain or incomplete reads (5096.749248ms)
+✔ navigation preserves activity legacy links and skip links do not change page (8.894312ms)
+✔ NOVA request and calldata are fixed; every mutation field and unexpected method is guarded (8717.622921ms)
+✔ durable intent and immediate hash persist; reload and unknown never enable duplicate creation (5.708933ms)
+✔ same-origin lock is mandatory and never waits to submit a duplicate (3.108284ms)
+✔ receipt validation requires successful exact Factory event and canonical transaction/block binding (1347.064878ms)
+✔ managed provider serializes concurrent requests; late hash is retained and unsafe methods never reach wallet (430.084665ms)
+✔ recovery uses real ABI decoding and explicit RPC/Mirror fixtures; delay, mismatch and reload do not create (6893.560932ms)
+✔ rejection, stale review, post-send timeout and late responses retain safe public state (358.334133ms)
+✔ demo cues, replay, timed pause/resume and manual interruption preserve exact position (8.88464ms)
+✔ URL mode preserves path, query and hash; keyboard excludes interactive/repeated/modified events (1.284597ms)
+✔ depth aggregates exact integers, sorts price priority, limits five levels and never mutates orders (7.32373ms)
+✔ server match snapshots suppress initial, duplicate, reconnect and hidden replays; batch new IDs (2.623185ms)
+✔ presentation snapshot matches T02/T03/T07/T05 original public evidence, without T08 balances (27.338686ms)
+✔ trading requires a production build at the exact configured HTTPS origin (2.911911ms)
+✔ API URLs retain the local proxy or use an explicit HTTPS origin (4.730834ms)
+✔ public settlement vector binds parties, amounts, both orders, Hold, expiry and deployment (21.050697ms)
+✔ expiry never asserts funds returned and account identity is separate from trading role (0.989793ms)
+✔ public operation and evidence storage strip arbitrary fields and preserve unknowns beyond expiry (12.403023ms)
+✔ T08 wallet transaction rejects extra fields and wrong RPC units before a prompt (3.364377ms)
+✔ SDK lock may omit zero value and chain only after the separate wallet review guard (1.082616ms)
+WebSocket server error: Port 24678 is already in use
+✔ the shell renders planned data without claiming a wallet or chain result (11423.633855ms)
+11:42:48 PM [vite] (client) [optimizer] scanning dependencies...
+11:42:50 PM [vite] (client) [optimizer] bundling dependencies...
+✔ completed T05 exposes historical reads and no mutation reviews for either trading account (7060.381017ms)
+11:42:55 PM [vite] (client) [optimizer] scanning dependencies...
+✔ Header distinguishes roles and clears role color when disconnected (1578.748106ms)
+✔ showcase retains exact observed T05 evidence and binds all four verified T08 timelines to recorded proofs (70.216643ms)
+(node:2899107) ExperimentalWarning: Module mocking is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2899107) DeprecationWarning: mock.module(): options.namedExports is deprecated. Use options.exports instead.
+✔ T05 fixed constructor, SDK Hold calldata, bytecode and integer HBAR units (307.256306ms)
+✔ all five exact receipts, full events and historical transitions bind the same hash and Hold (2081.271535ms)
+✔ stage guards stop unknown work, altered state, insufficient KYC, missing evidence and expired purchases (90.341922ms)
+✔ public journal strips non-whitelisted objects, detects storage failure and restores as unknown (27.526696ms)
+✔ HBAR principal is exact and separate from safe integer fee fields (1.579874ms)
+✔ history covers all blocks in relay-sized pages and detects an unrecorded operation (121.588318ms)
+✔ simulations use recorded block, exact wei units and explicit from; transport errors cannot pass (163.810729ms)
+✔ original-hash recovery retains pending and Mirror delay, verifies runtime, same receipt and payment (361.864768ms)
+✔ T04 shared transport preserves late hash, excludes duplicates, blocks all simulation mutations and delegates one recovery (11327.199053ms)
+✔ T05 payable transport preserves late hashes, distinguishes rejection from unknown, serializes tabs and keeps ATS zero-value guards (382.689597ms)
+✔ T08 transport requires exact guard, preserves an invalidated late hash and distinguishes rejection (177.021573ms)
+✔ Mirror accepts only a matching EVM address, canonical Hedera ID and explicitly live account (5.671216ms)
+✔ role binding rejects replacement, duplicate address/ID and unverified saved accounts (13.999945ms)
+✔ storage failures stay in memory; persisted payload contains only role addresses (2.435415ms)
+✔ wallet review binds explicit Seller or Admin signer in both wagmi and provider (5678.99074ms)
+ℹ tests 123
+ℹ suites 0
+ℹ pass 123
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 34775.871737
+
+> holdbook@0.0.0 test:proto
+> node docs/evidence/014-t01a-decoder-rebuild.test.mjs --candidate --compare docs/evidence/007-t01a-protobuf-rebuild-restored-tests.json
+
+✔ only approved runtime versions are installed (19.217287ms)
+✔ @hashgraph/proto: compatibility (259.962688ms)
+✔ @hashgraph/proto: public-api (248.012807ms)
+✔ @hashgraph/proto: truncated-varint (211.266227ms)
+✔ @hashgraph/proto: truncated-bytes (201.048441ms)
+✔ @hashgraph/proto: truncated-message (197.342159ms)
+✔ @hashgraph/proto: groups-4 (197.805194ms)
+✔ @hashgraph/proto: groups-128 (201.268526ms)
+✔ @hashgraph/proto: groups-8192 (201.357182ms)
+✔ @hashgraph/proto: keys-4 (206.986418ms)
+✔ @hashgraph/proto: keys-128 (210.807009ms)
+✔ @hashgraph/proto: keys-8192 (588.581ms)
+✔ @hashgraph/proto: thresholds-4 (218.538707ms)
+✔ @hashgraph/proto: thresholds-128 (217.44973ms)
+✔ @hashgraph/proto: thresholds-8192 (861.931267ms)
+✔ @hashgraph/proto: nested-length-overrun (244.936658ms)
+✔ @hashgraph/proto: top-length-overrun (231.680342ms)
+✔ @hashgraph/proto: option-eof (261.14706ms)
+✔ @hiero-ledger/proto: compatibility (289.725476ms)
+✔ @hiero-ledger/proto: public-api (365.485264ms)
+✔ @hiero-ledger/proto: truncated-varint (260.575753ms)
+✔ @hiero-ledger/proto: truncated-bytes (297.516076ms)
+✔ @hiero-ledger/proto: truncated-message (322.434711ms)
+✔ @hiero-ledger/proto: groups-4 (291.833574ms)
+✔ @hiero-ledger/proto: groups-128 (262.363028ms)
+✔ @hiero-ledger/proto: groups-8192 (288.65955ms)
+✔ @hiero-ledger/proto: keys-4 (294.961766ms)
+✔ @hiero-ledger/proto: keys-128 (304.853898ms)
+✔ @hiero-ledger/proto: keys-8192 (898.960029ms)
+✔ @hiero-ledger/proto: thresholds-4 (308.632019ms)
+✔ @hiero-ledger/proto: thresholds-128 (332.206512ms)
+✔ @hiero-ledger/proto: thresholds-8192 (995.123619ms)
+✔ @hiero-ledger/proto: nested-length-overrun (301.109895ms)
+✔ @hiero-ledger/proto: top-length-overrun (271.450028ms)
+✔ @hiero-ledger/proto: option-eof (382.255ms)
+✔ both public proto entries retain their own decoded classes in either load order (641.789435ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11928.953702

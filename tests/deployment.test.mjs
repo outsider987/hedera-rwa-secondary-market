@@ -6,7 +6,7 @@ const artifact = JSON.parse(readFileSync(new URL('../node_modules/@hashgraph/ass
 const configId = `0x${'0'.repeat(63)}1`;
 const calldata = encodeFunctionData({ abi: artifact.abi, functionName: 'getLatestVersionByConfiguration', args: [configId] });
 const encodedVersion = value => encodeAbiParameters([{ type: 'uint256' }], [value]);
-import { checkDeployment, validateContract } from '../src/deployment.ts';
+import { checkDeployment, validateContract } from '../src/lib/deployment.ts';
 
 const ids = ['0.0.9212226', '0.0.9213391'];
 const addresses = [`0x${'a'.repeat(40)}`, `0x${'b'.repeat(40)}`];

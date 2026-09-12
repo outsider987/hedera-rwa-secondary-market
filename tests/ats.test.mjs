@@ -9,7 +9,7 @@ import { registerHooks } from 'node:module';
 
 // Resolve this browser-style relative import for Node's native TypeScript loader.
 registerHooks({ resolve(specifier, context, next) {
-  return next(['./deployment', './guards'].includes(specifier) && context.parentURL?.includes('/src/ats.ts')
+  return next(['./deployment', './guards'].includes(specifier) && context.parentURL?.includes('/src/lib/ats.ts')
     ? new URL(specifier + '.ts', context.parentURL).href : specifier, context);
 } });
 import { patchAtsReadonly, patches } from '../scripts/patch-ats-readonly.mjs';
@@ -106,7 +106,7 @@ test('the loader caches one safe result and never calls the configuration API', 
         exports: { Management: management },
       });
       try {
-        const { loadAts } = await import(`../src/ats.ts?${name}`);
+        const { loadAts } = await import(`../src/lib/ats.ts?${name}`);
         const first = loadAts();
         assert.equal(loadAts(), first, 'pending calls share the same attempt');
         assert.equal(await first, expected);
@@ -123,7 +123,7 @@ test('the loader caches one safe result and never calls the configuration API', 
 // SDK doubles test orchestration; the browser harness runs the actual public SDK.
 test('SDK config requires manual preparation, verified preflight and an owned restricted provider', async t => {
   const { JsonRpcProvider } = await import('ethers');
-  const { equityConfigCalldata } = await import('../src/deployment.ts');
+  const { equityConfigCalldata } = await import('../src/lib/deployment.ts');
   const addresses = ['0x' + 'a'.repeat(40), '0x' + 'b'.repeat(40)];
   const ids = ['0.0.9212226', '0.0.9213391'];
   const calls = [], requests = [];
@@ -164,7 +164,7 @@ test('SDK config requires manual preparation, verified preflight and an owned re
     return Response.json(json);
   });
   try {
-    const ats = await import('../src/ats.ts?config-orchestration');
+    const ats = await import('../src/lib/ats.ts?config-orchestration');
     assert.equal(typeof ats.prepareAts, 'function');
     assert.equal(typeof ats.checkSdkConfig, 'function');
     await assert.rejects(ats.checkSdkConfig(new AbortController().signal), /Prepare ATS SDK/);

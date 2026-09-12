@@ -1,5 +1,18 @@
 # Third-party sources / attribution
 
+September 12 submission update: [work item073](ai-usage/073-submission-readiness.md)
+records corrected judge documentation and source-verification tooling. It uses
+the existing ethers dependency for source Keccak hashes and the official
+[Sourcify API](https://docs.sourcify.dev/docs/api/), its official
+[similarity verification](https://docs.sourcify.dev/docs/similarity-verification/), and
+[Hedera verification documentation](https://docs.hedera.com/api-reference/verify-contracts/verify-contract-using-solidity-metadatajson).
+Only declared existing Solidity sources and compiler metadata are submitted;
+original project/ATS/OpenZeppelin notices are preserved, with no new dependency
+or license choice. [VIDEO](VIDEO.md) discloses local Whisper-assisted transcription
+and FFmpeg editing of Victor's footage, with original human speech and no AI voice.
+Victor's dated clarification about the earlier GPT discussion/draft wording is
+in [evidence057](evidence/057-submission-readiness.md); older entries remain history.
+
 Current uses include wagmi wallet state, viem/SDK deployment and config reads,
 manual Terminal3 Seller VC verification, and guarded NOVA creation/readback.
 The earlier stopped trial is historical; the bounded original-schema repair is
@@ -37,6 +50,7 @@ license or event eligibility is asserted by public GitHub availability.
 | Playwright 1.63.0 | External diagnostic tool, not a project dependency | Apache-2.0; [Playwright](https://github.com/microsoft/playwright) |
 | Terminal3 verify_vc 0.0.20 / vc_core 0.0.19 | Exact direct dependencies for genuine payload preparation and manual ECDSA verification; human positive acceptance Pending | MIT in published manifests; [verify_vc](https://www.npmjs.com/package/@terminal3/verify_vc/v/0.0.20), [vc_core](https://www.npmjs.com/package/@terminal3/vc_core/v/0.0.19) |
 | Ponytail / Impeccable skills | AI workflow guidance; not bundled application code/assets | [Dated usage records](../AI_USAGE.md) |
+| Appllama usage 1.1.0 / app design skill 1.3.0 | Installed user-wide; consistent labels/state-cycle guidance only. No MCP library assets or native code copied | MIT; [source at dd5caaec](https://github.com/Appllama/appllama-skills/tree/dd5caaec3d5d50ad7fc0324da238119c6b7c3707), [license](https://github.com/Appllama/appllama-skills/blob/dd5caaec3d5d50ad7fc0324da238119c6b7c3707/LICENSE); [usage066](ai-usage/066-market-clarity.md) |
 
 Browser configuration and adapter conventions reference the
 [pinned ATS v8 configuration](https://github.com/hashgraph/asset-tokenization-studio/blob/be4f860e408ec5b1a24d12feb6f872aabff69319/apps/ats/web/vite.config.ts)
@@ -348,3 +362,138 @@ x/sync v0.19.0, x/text v0.34.0 (BSD-3-Clause). Go module graph membership beyond
 that closure does not imply runtime use; go.mod/go.sum retain exact resolution.
 The existing npm audit, peer, native-BBS, dfns-license and event-eligibility
 limitations remain unchanged. This ticket does not reclassify historical findings.
+
+
+## T08 additions — September 8, 2026
+
+- Tailwind CSS and @tailwindcss/vite **4.3.3**, MIT: [source and releases](https://github.com/tailwindlabs/tailwindcss), [Preflight documentation](https://tailwindcss.com/docs/preflight). The hb prefix and explicit theme/utilities imports omit Preflight.
+- Motion **13.2.0**, MIT: [source](https://github.com/motiondivision/motion), [reduced-motion documentation](https://motion.dev/docs/react-use-reduced-motion). Only settlement review/progress/result opacity transitions use it; reduced motion disables them.
+- OpenZeppelin Contracts **5.6.1**, MIT: [source](https://github.com/OpenZeppelin/openzeppelin-contracts), [ReentrancyGuard documentation](https://docs.openzeppelin.com/contracts/5.x/api/utils#ReentrancyGuard). Imported unchanged from the pinned package; no transient guard or upgrade mechanism.
+- ATS Contracts **8.0.0** interfaces/ABI remain Apache-2.0 upstream. The new artifact builds from the published Hold ABI and selected published IAsset getters. No SDK patch or asset parameter changed.
+- Go API HTTPS uses the build image's CA certificate bundle. Its upstream ca-certificates copyright notice is copied into `/licenses/ca-certificates-copyright` alongside existing Go-module notices.
+
+The SDK browser harness adapts this repository's T05 harness (031); original
+source/evidence remain unchanged. New tests clearly distinguish SDK public-HTTP
+and wallet doubles from actual chain evidence. No test instantiates a private
+signer. Existing package audit remains **62** findings (21 low, 25 moderate,
+16 high, no critical); native BBS, peer, missing dfns license metadata and project
+license/event eligibility limits remain unresolved. No public deployment occurred.
+
+## NOVA overview illustration — September 8, 2026
+
+`public/assets/nova-demo-equity.png` is a 1536×1024 PNG created with the built-in
+OpenAI image generation tool for this task. It uses no supplied reference image,
+stock asset or copied company logo. The certificate is explicitly fictional demo
+equity on Hedera Testnet, not ownership evidence or verified backing. No separate
+third-party asset license is asserted for this generated output; this entry does
+not change the repository's project-license or event-eligibility status.
+The exact generation prompt and user approval are preserved in
+[planning record032](prompts/032-nova-overview.md); prompt metadata is embedded
+in the project PNG. Pixel content is unchanged from the generated original.
+New presentation components reuse existing React19.2.8/Tailwind4.3.3 sources
+and licenses documented above. No shadcn/ui code or new package was introduced.
+
+## GitHub Pages / Cloud Run deployment configuration — September 9, 2026
+
+The Pages workflow adapts the official [Vite Pages guide](https://vite.dev/guide/static-deploy.html#github-pages)
+and [GitHub custom-workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+It reuses the project's pinned checkout/setup-node actions and adds
+[upload-pages-artifact](https://github.com/actions/upload-pages-artifact) at
+fc324d3547104276b827a68afc52ff2a11cc49c9 and
+[deploy-pages](https://github.com/actions/deploy-pages) at
+cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 (both MIT).
+Cloud Run configuration follows the official [container contract](https://cloud.google.com/run/docs/container-contract)
+and [Secret Manager integration](https://cloud.google.com/run/docs/configuring/services/secrets).
+Connection guidance uses [Neon documentation](https://neon.com/docs/connect/connection-pooling).
+No new runtime library, image or copied third-party implementation was added.
+
+## Deployment CLI tooling — September 9, 2026
+
+Ephemeral neonctl4.14.5 is used outside the application dependency graph for
+browser authentication and project/database management. Official source:
+https://github.com/neondatabase/neonctl (Apache-2.0). gcloud, gh, PostgreSQL
+pg_dump/psql and Docker are operator tools; no CLI code is copied into the app.
+
+## NOVA recorded story — September 10, 2026
+
+Reuses the unchanged generated NOVA certificate (provenance above), React19.2.8
+and browser CSS/SVG. No new package, external artwork or copied sample code.
+Official [Motion layout documentation](https://motion.dev/docs/react-layout-animations),
+[shared-layout example](https://examples.motion.dev/react/shared-layout-animation)
+and [SVG documentation](https://motion.dev/docs/react-svg-animation) informed
+feasibility research. The implementation uses native CSS transitions instead.
+[Prompt033](prompts/033-nova-story.md) preserves user decisions and AI design input.
+
+## Complete 3D presentation — September 10, 2026
+
+User-authorized exact additions: [Three.js0.185.0](https://github.com/mrdoob/three.js/tree/r185),
+[React Three Fiber9.7.0](https://github.com/pmndrs/react-three-fiber), and
+[@types/three0.185.4](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/three),
+all MIT. Installed R3F peer metadata accepts React>=19<19.3; existing React19.2.8
+is retained. [Official introduction](https://r3f.docs.pmnd.rs/getting-started/introduction)
+and [demand-rendering guidance](https://r3f.docs.pmnd.rs/advanced/scaling-performance)
+were consulted as references; the browsing tool could not fetch their oversized
+responses, so implementation was checked against installed package types/source.
+No documentation example or third-party scene/model was copied. The existing
+NOVA certificate and its earlier generation provenance are reused unchanged.
+
+New locked closure (all existing resolved versions remain unchanged):
+
+| Package | Version | License / upstream |
+| --- | --- | --- |
+| its-fine | 2.0.0 | MIT · [pmndrs](https://github.com/pmndrs/its-fine) |
+| react-use-measure | 2.1.7 | MIT · [pmndrs](https://github.com/pmndrs/react-use-measure) |
+| suspend-react | 0.1.3 | MIT · [pmndrs](https://github.com/pmndrs/suspend-react) |
+| @types/webxr | 0.5.24 | MIT · [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webxr) |
+| @types/react-reconciler | 0.28.9 | MIT · [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-reconciler) |
+| @types/stats.js | 0.17.4 | MIT · [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/stats.js) |
+| @dimforge/rapier3d-compat | 0.12.0 | Apache-2.0 · [Rapier](https://github.com/dimforge/rapier.js) |
+| @tweenjs/tween.js | 23.1.3 | MIT · [Tween.js](https://github.com/tweenjs/tween.js) |
+| fflate | 0.8.3 | MIT · [fflate](https://github.com/101arrowz/fflate) |
+| meshoptimizer | 1.1.1 | MIT · [meshoptimizer](https://github.com/zeux/meshoptimizer) |
+
+The @types/stats.js, Rapier, Tween.js, fflate and meshoptimizer rows, plus
+@types/three, enter through the development type closure;
+no physics, tween, compression or mesh-optimization runtime is imported by the
+presentation. Upstream package/license notices remain in their installed packages;
+The presentation also emits an original-license text asset linked from the app
+footer, because the minified chunks do not preserve those comments.
+[Retained runtime notices](../src/presentation/THIRD_PARTY_NOTICES.txt) include
+Three, R3F and its new/reused React support libraries. R3F omits a license file
+from its npm artifact; its text is retained from the official
+[v9.7.0 tag](https://github.com/pmndrs/react-three-fiber/blob/v9.7.0/LICENSE). Rendering uses original
+primitive scene code, finite transitions and instancing, with no new fonts/assets.
+A package-lock comparison found13 added locations and zero changed existing
+versions. Installation reported the existing62 audit findings (21low/25moderate/
+16high); no audit repair, native-script approval or support waiver was performed.
+Browser tests use a fresh unsigned wallet double and public historical fixtures;
+no wallet profile, private key or full VC signature is read. See evidence050.
+
+
+## Pixel motion infographic — September 10, 2026 · current local source
+
+The pixel revision removes Three0.185.0, R3F9.7.0 and @types/three0.185.4 from
+package/lock and removes their renderer. The 3D dependency/distribution notes
+above describe the prior local revision; its retained notice source remains
+historical, and the current app no longer emits that runtime-notice link.
+No existing resolved package version changed. No new dependency was added.
+
+Two original raster assets were generated with the built-in image_gen tool in
+this session, at Victor's explicit request. No game artwork, characters or fonts
+were copied. No model identity or exclusive ownership/license is inferred.
+[Hall](../public/assets/holdbook-pixel-hall.png) and
+[sprite atlas](../public/assets/holdbook-pixel-sprites.png) are decorative fictional
+art, not proof of ownership or a chain result. Exact prompts and production
+corrections accompany [hall](../public/assets/holdbook-pixel-hall.prompt.json) and
+[sprites](../public/assets/holdbook-pixel-sprites.prompt.json). The transparency
+attempt returned an opaque checkerboard and was rejected; the selected atlas
+has a navy background. SVG viewports clip sprite regions at display time;
+the generated PNG pixels are unchanged. No external font/image service is used.
+
+## Market/Header reuse — September 10, 2026
+
+The Market trading floor and Header role portraits reuse the original generated
+hall and atlas documented in usage061, with unchanged PNGs and prompt sidecars.
+PixelSprite shares the existing SVG viewport crop renderer; no new art, game
+assets, font, dependency or license claim was introduced. See
+[usage062](ai-usage/062-market-characters.md) for AI implementation provenance.

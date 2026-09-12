@@ -1,5 +1,8 @@
 # T06–T07 approved unfunded market
 
+2026-09-08: The user activated T08 through [spec 004](004-matched-settlement.md). Earlier deferred T08 statements below are historical. Implementation is delivered; manual acceptance remains pending.
+
+
 Final acceptance: T07 passed with documented recovery on September 8, 2026; see [035](../evidence/035-t07-manual.md). The original six-command scenario required additional commands; actual history is retained. No T08 implementation activated.
 
 September 8, 2026. Implementation authorized by the user-supplied T06–T07 plan,
