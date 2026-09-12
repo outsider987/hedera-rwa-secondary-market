@@ -2,7 +2,7 @@ import {isTradingOrigin,apiURL} from './runtime';
 import {hashTypedData, recoverTypedDataAddress, type Hex} from 'viem';
 import {acquireOperation,releaseOperation,withTransactionLock,type Roles} from './guards';
 import {reviewWallet,checkWalletReview,type WalletReview} from './wallet';
-import {accounts,assertFixedAccounts,fallbackBalances,securityAddress} from './lifecycle';
+import {accounts,assertFixedAccounts,securityAddress} from './lifecycle';
 import {interfaces,rpc} from './nova';
 
 export const marketName='NOVA/HBAR';
@@ -64,15 +64,6 @@ export async function readMarketBalance(owner:string,signal:AbortSignal){
   if(typeof value!=='bigint'||value<0n||value>maxInt)throw new Error('Invalid NOVA balance.');return value;
  }));
  signal.throwIfAborted();return {owner,available:available.toString(),held:held.toString(),total:(available+held).toString(),block:BigInt(block).toString(),timestamp:BigInt(header.timestamp!).toString()};
-}
-export type AccountBalances = { Admin: string; Seller: string; Buyer: string };
-export async function readAllAccountBalances(signal:AbortSignal):Promise<AccountBalances>{
- const [admin,seller,buyer]=await Promise.all([
-  readMarketBalance(accounts.Admin.address,signal).then(b=>b.total).catch(()=>fallbackBalances.Admin),
-  readMarketBalance(accounts.Seller.address,signal).then(b=>b.total).catch(()=>fallbackBalances.Seller),
-  readMarketBalance(accounts.Buyer.address,signal).then(b=>b.total).catch(()=>fallbackBalances.Buyer),
- ]);
- return {Admin:admin,Seller:seller,Buyer:buyer};
 }
 export async function readMarket(signal:AbortSignal):Promise<Market>{const m=await api<Market>('market',signal);domainCheck(m.domain);if(m.market!==marketName||m.notice!=='Funds are not reserved')throw new Error('Unexpected market.');integer(m.serverTime);integer(m.version);return {...m,orders:m.orders.map(publicOrder),matches:m.matches.map(publicMatch)};}
 export function loadIntent(storage:Pick<Storage,'getItem'>=window.localStorage):Intent|undefined{const raw=storage.getItem(marketStorageKey);if(!raw)return;const v=JSON.parse(raw) as Intent;domainCheck(v.domain);return {domain:publicDomain(v.domain),record:publicRecord(v.record)};}

@@ -19,28 +19,6 @@ test('header portraits follow recognized connected roles and preserve native wal
  }finally{await server.close();}
 });
 
-test('header renders the 3 participant accounts with NOVA balances and highlights the connected role',async()=>{
- const server=await createServer({server:{middlewareMode:true,hmr:false},appType:'custom'});
- try{
-  const {default:Header}=await server.ssrLoadModule('/src/components/Header.tsx');
-  const htmlDefault=renderToStaticMarkup(createElement(Header,{activeRole:'Seller',connected:true,disabled:false,onWallet(){}}));
-  assert.ok(htmlDefault.includes('Admin'));
-  assert.ok(htmlDefault.includes('0 NOVA'));
-  assert.ok(htmlDefault.includes('Seller'));
-  assert.ok(htmlDefault.includes('79 NOVA'));
-  assert.ok(htmlDefault.includes('Buyer'));
-  assert.ok(htmlDefault.includes('21 NOVA'));
-  assert.match(htmlDefault,/aria-current="true"[^>]*>[\s\S]*?Seller[\s\S]*?79 NOVA/);
-
-  const customBalances={Admin:'10',Seller:'50',Buyer:'40'};
-  const htmlCustom=renderToStaticMarkup(createElement(Header,{activeRole:'Buyer',connected:true,disabled:false,onWallet(){},balances:customBalances}));
-  assert.ok(htmlCustom.includes('10 NOVA'));
-  assert.ok(htmlCustom.includes('50 NOVA'));
-  assert.ok(htmlCustom.includes('40 NOVA'));
-  assert.match(htmlCustom,/aria-current="true"[^>]*>[\s\S]*?Buyer[\s\S]*?40 NOVA/);
- }finally{await server.close();}
-});
-
 test('Market pixel totals retain BigInt precision across all accounts and prices, with honest initial offline copy',async()=>{
  const server=await createServer({server:{middlewareMode:true,hmr:false},appType:'custom'});
  try{

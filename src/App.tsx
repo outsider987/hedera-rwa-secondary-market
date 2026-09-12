@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { useConnect, useConnection, useDisconnect } from 'wagmi';
-import { useQuery } from '@tanstack/react-query';
 import { acquireOperation, getOperationBusy, releaseOperation, subscribeOperation, loadRoles, rolesStorageKey, saveRoles, storageWarning, type Roles } from './lib/guards';
-import { invalidateWalletSession, getWalletSession, subscribeWalletSession, testnetChainId, walletConfig, queryClient } from './lib/wallet';
+import { invalidateWalletSession, getWalletSession, subscribeWalletSession, testnetChainId, walletConfig } from './lib/wallet';
 import type { TradeRecord } from './lib/evidence';
 import MarketPanel from './components/MarketPanel';
 import Header from './components/Header';
@@ -13,8 +12,7 @@ import {demoMode,demoURL} from './presentation/demoState';
 import { resolvePage, type Page } from './lib/navigation';
 import { loadTradeRecords } from './lib/trade';
 import {loadSettlement} from './lib/settlement';
-import { accounts, fallbackBalances } from './lib/lifecycle';
-import { readAllAccountBalances } from './lib/market';
+import { accounts } from './lib/lifecycle';
 
 export default function App() {
   const connection = useConnection();
@@ -85,17 +83,10 @@ export default function App() {
   }
 
   const activeRole=Object.entries(accounts).find(([,a])=>a.address === connection.address?.toLowerCase())?.[0];
-  const balancesQuery = useQuery({
-    queryKey: ['header-balances', session],
-    queryFn: ({ signal }) => readAllAccountBalances(signal),
-    initialData: fallbackBalances,
-    refetchInterval: 15000,
-    refetchIntervalInBackground: false,
-  }, queryClient);
   const deployment=tradeRecords.find(r=>r.action === 'deploy' && r.status === 'complete');
   return <>
     <a className="skip-link hb:z-20" href="#main">Skip to content</a>
-    <Header activeRole={activeRole} connected={connection.isConnected} disabled={busy || locked} onWallet={handleWallet} isDemo={demo || page === 'overview'} balances={balancesQuery.data}/>
+    <Header activeRole={activeRole} connected={connection.isConnected} disabled={busy || locked} onWallet={handleWallet} isDemo={demo || page === 'overview'}/>
     <main id="main" className={demo&&page==='overview'?'presentation-main':undefined}>
       <nav className="page-nav hb:flex-wrap hb:gap-2! hb:sm:gap-8!" aria-label="Main navigation">{['overview','market','activity','settings'].map(item=><a key={item} href={'#'+item} onClick={e=>{if(page===item){e.preventDefault();window.scrollTo(0,0);}}} aria-current={page === item ? 'page' : undefined}>{item[0].toUpperCase()+item.slice(1)}</a>)}</nav>
       <p id="wallet-status" role="status" aria-live="polite" className="wallet-status">{busy ? 'Wallet request pending. Complete or reject it in MetaMask.' : connection.isConnected ? ready ? 'Connected to Hedera Testnet.' : 'Wrong network. Switch to Hedera Testnet (296 / 0x128) in MetaMask.' : demo&&page==='overview'?'':'Wallet not connected. Connect when ready.'}</p>
