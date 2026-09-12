@@ -17,6 +17,11 @@ export const accounts = {
   Seller: { address: '0x740e4ef58151a169621622577a5b6d6ff5010836', accountId: '0.0.10389111' },
   Buyer: { address: '0xa1f2872ee7a9f74523ae0887a9dc428ff1340706', accountId: '0.0.10389098' },
 };
+export const fallbackBalances: Record<'Admin' | 'Seller' | 'Buyer', string> = {
+  Admin: '0',
+  Seller: '79',
+  Buyer: '21',
+};
 export const requiredRoles = ['_ISSUER_ROLE', '_SSI_MANAGER_ROLE', '_KYC_ROLE'];
 // Exact ATS 8.0.0 SecurityRole values; enum labels are not hash preimages.
 export const roleIds = ['0x5eeaf5602c75bf26e73b5206d0bd6ee82f621166255e5fd73cc06bc7bd84a95f',
