@@ -35,6 +35,14 @@ Public source verification completed for all three existing targets: both
 custom contracts returned creation/runtime match, and the ATS NOVA ResolverProxy
 returned exact_match using Sourcify's official similarity verification. No
 missing ATS metadata was invented. See [source evidence](../evidence/057-contract-verification.json).
-The current commit prepares authorized CI-gated PR integration; its actual
-publication outcome will be recorded separately after GitHub returns it.
+PR9 merged head `c75a0c1` after CI run34680553321 passed web and Go/PostgreSQL,
+race, vet and matching fuzz checks. Main merge `f411075` passed CI run34680704675
+and Pages run34680704752. Three read-only public browser cases then passed,
+including images and the restored showcase. Public HashScan pages display
+VERIFIED for all three contracts, with actual Partial/Full Match status and
+deep-link-shell HTTP behavior retained in evidence. No re-verification button,
+wallet connection or chain action was used.
+
+This final closeout, based on `f411075`, updates only docs/evidence with those
+actual outcomes; it does not change tested code, workflow, assets or dependencies.
 Original dated evidence is unchanged. Next implementation ticket: none.

@@ -26,9 +26,12 @@ security audit of the entire ATS system.
 HashScan links: [T08](https://hashscan.io/testnet/contract/0.0.10419889),
 [NOVA](https://hashscan.io/testnet/contract/0.0.10402368),
 [T05](https://hashscan.io/testnet/contract/0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158).
-Hedera documents HashScan's use of Sourcify results. The fresh service lookups
-above are the observed verification evidence; no authenticated browser badge
-inspection is claimed.
+Fresh isolated public HashScan pages were also inspected: all three display
+`VERIFIED`; the custom contracts display `Partial Match`, and NOVA's ResolverProxy
+displays `Full Match`. The deep-link HTTP shells returned 404 before the client
+routes rendered the correct contract identities and verification states; the
+actual status and rendered observations are preserved in the evidence. No
+wallet connection or re-verification button was used.
 
 `scripts/verify-public-contracts.mjs` accepts only the two fixed custom targets,
 declared Solidity source paths and their exact metadata hashes. It confirms

@@ -1,6 +1,6 @@
 # HoldBook handoff
 
-## Submission readiness prepared — September 12, 2026
+## Submission readiness completed — September 12, 2026
 
 `based_on_commit: 7f5eb8ecd97aebd8a5a90edd27c7d660cd38b82f` is verified.
 Victor requested resolving the submission-audit gaps and explicitly approved
@@ -12,8 +12,14 @@ are complete: 132 application + 36 protobuf + 31 contract tests, both builds,
 typecheck, artifact checks, and five read-only browser cases passed. Three
 existing contracts now have successful public Sourcify verification; see
 [source verification](SOURCE_VERIFICATION.md) and [usage073](ai-usage/073-submission-readiness.md).
-Authorized PR integration and published-page checks are the remaining operations
-of this ticket, not new implementation scope. Next implementation ticket: none.
+PR9 merged the reviewed `c75a0c1` head after web/Go/PostgreSQL CI success, preserving
+history. Main merge `f411075` also passed CI and Pages run `34680704752`.
+Three fresh public-browser cases passed on the main deployment, including the
+formerly missing `/showcase/`. All three HashScan pages display VERIFIED with
+the actual partial/full statuses documented. The documentation-only closeout is
+based on `f411075`; tested application and workflow are unchanged. See
+[evidence057](evidence/057-submission-readiness.md) for exact run IDs and limits.
+Next implementation ticket and allowed files: none until separately requested.
 
 Victor also clarified that no pre-event draft existed: there was GPT topic
 discussion and a draft generated later. The dated correction is preserved in

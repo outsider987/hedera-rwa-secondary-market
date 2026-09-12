@@ -4,21 +4,79 @@
   "scope": "Submission documentation, existing-source verification, existing showcase publication, authorized CI-gated integration",
   "localChecks": {
     "npmCi": "passed with existing warnings",
-    "applicationTests": {"passed": 132, "failed": 0},
-    "protobufTests": {"passed": 36, "failed": 0},
+    "applicationTests": {
+      "passed": 132,
+      "failed": 0
+    },
+    "protobufTests": {
+      "passed": 36,
+      "failed": 0
+    },
     "typecheck": "passed",
     "build": "passed",
     "buildShowcase": "passed",
     "originalSwapArtifact": "passed",
     "originalSettlementArtifact": "passed",
-    "foundryTests": {"passed": 31, "failed": 0, "skipped": 0},
-    "browserCases": {"passed": 5, "failed": 0, "record": "057-submission-browser.json"},
-    "localDocumentLinks": {"checked": 81, "missing": 0},
+    "foundryTests": {
+      "passed": 31,
+      "failed": 0,
+      "skipped": 0
+    },
+    "browserCases": {
+      "passed": 5,
+      "failed": 0,
+      "record": "057-submission-browser.json"
+    },
+    "localDocumentLinks": {
+      "checked": 81,
+      "missing": 0
+    },
     "gitDiffCheck": "passed",
-    "npmAudit": {"total": 62, "low": 21, "moderate": 25, "high": 16, "newDependencyOrFix": false}
+    "npmAudit": {
+      "total": 62,
+      "low": 21,
+      "moderate": 25,
+      "high": 16,
+      "newDependencyOrFix": false
+    }
   },
   "contractVerification": "057-contract-verification.json",
-  "publication": {"status": "pending CI-gated PR integration", "pullRequest": null, "mainRevision": null, "pagesRun": null, "liveBrowser": null},
+  "publication": {
+    "status": "Merged and verified on GitHub Pages; documentation-only closeout follows this observation",
+    "pullRequest": "https://github.com/outsider987/hedera-rwa-secondary-market/pull/9",
+    "reviewedHead": "c75a0c1c15f651def7c104295f8bb495db312d61",
+    "pullRequestCi": {
+      "run": 34680553321,
+      "conclusion": "success",
+      "web": "success",
+      "engine": "success",
+      "engineChecks": [
+        "Go/PostgreSQL tests",
+        "race",
+        "vet",
+        "matching fuzz"
+      ]
+    },
+    "mergedAt": "2026-09-12T07:25:38Z",
+    "mainRevision": "f411075e2ec0b02effdf2fb530ee8707efb6c735",
+    "mainCi": {
+      "run": 34680704675,
+      "conclusion": "success"
+    },
+    "pagesRun": {
+      "run": 34680704752,
+      "conclusion": "success",
+      "deploymentId": 6407217105,
+      "revision": "f411075e2ec0b02effdf2fb530ee8707efb6c735"
+    },
+    "liveBrowser": {
+      "observedAt": "2026-09-12T07:29:35.014Z",
+      "passed": 3,
+      "failed": 0,
+      "record": "057-submission-browser.json"
+    },
+    "closeoutScope": "Evidence and handoff only; no application, workflow, contract, dependency or asset changes"
+  },
   "humanClarification": {
     "date": "2026-09-12",
     "verbatim": "賽前沒有草稿的,我只是跟GPT 討論聊天主題這樣,後來才把草稿生出來",

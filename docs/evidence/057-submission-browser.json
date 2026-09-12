@@ -47,5 +47,37 @@
       }
     ]
   },
-  "live": null
+  "live": {
+    "recordedAt": "2026-09-12T07:29:35.014Z",
+    "kind": "Fresh isolated public browser, read-only",
+    "results": [
+      {
+        "base": "https://outsider987.github.io/hedera-rwa-secondary-market/",
+        "width": 1440,
+        "tabs": true,
+        "noOverflow": true,
+        "imagesDecoded": true,
+        "pageErrors": [],
+        "prohibitedWrites": [],
+        "walletConnected": false
+      },
+      {
+        "base": "https://outsider987.github.io/hedera-rwa-secondary-market/",
+        "width": 390,
+        "tabs": true,
+        "noOverflow": true,
+        "imagesDecoded": true,
+        "pageErrors": [],
+        "prohibitedWrites": [],
+        "walletConnected": false
+      },
+      {
+        "base": "https://outsider987.github.io/hedera-rwa-secondary-market/showcase/",
+        "status": 200,
+        "fourCases": true,
+        "noWallet": true
+      }
+    ],
+    "deployedRevision": "f411075e2ec0b02effdf2fb530ee8707efb6c735"
+  }
 }

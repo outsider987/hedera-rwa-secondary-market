@@ -172,5 +172,35 @@
         "fullyQualifiedName": "contracts/infrastructure/proxy/ResolverProxy.sol:ResolverProxy"
       }
     }
-  ]
+  ],
+  "hashscanBrowser": {
+    "observedAt": "2026-09-12T07:27:22.971Z",
+    "method": "Fresh isolated public HashScan browser, no wallet connection or re-verification action",
+    "results": [
+      {
+        "name": "NovaSettlement",
+        "url": "https://hashscan.io/testnet/contract/0.0.10419889",
+        "address": "0xa90da61f67c37473f38000e70623a77ad277304c",
+        "status": 404,
+        "verifiedLabel": true,
+        "verificationStatus": "Partial Match"
+      },
+      {
+        "name": "NovaHbarSwap",
+        "url": "https://hashscan.io/testnet/contract/0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158",
+        "address": "0xf6fc50413cd10d0e82a2f3c30b5bf6878a45f158",
+        "status": 404,
+        "verifiedLabel": true,
+        "verificationStatus": "Partial Match"
+      },
+      {
+        "name": "ResolverProxy",
+        "url": "https://hashscan.io/testnet/contract/0.0.10402368",
+        "address": "0x261ce349df182988fa25d00868cf6cf434220c24",
+        "status": 404,
+        "verifiedLabel": true,
+        "verificationStatus": "Full Match"
+      }
+    ]
+  }
 }
